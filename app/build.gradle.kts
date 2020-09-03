@@ -3,10 +3,6 @@ plugins {
     id("com.github.johnrengelman.shadow") version "6.0.0"
 }
 
-//sourceSets {
-//    getByName("main").java.srcDirs("src/main/kotlin")
-//    getByName("test").java.srcDirs("src/test/kotlin")
-//}
 
 tasks.getByName<Jar>("jar") {
     manifest {
@@ -15,15 +11,30 @@ tasks.getByName<Jar>("jar") {
 }
 
 tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
-    archiveBaseName.set("app-full")
+//    archiveBaseName.set("app-full")
+    archiveClassifier.set("")
+//    archiveVersion.set("1.0")
 }
 
 tasks {
     build {
-        dependsOn(shadowJar)
+//        dependsOn(shadowJar)
+    }
+}
+
+tasks.register("deploy") {
+    group = "Tsobu tasks"
+    description = "Produces a fat jar to run from terminal"
+
+    dependsOn("clean")
+    dependsOn("shadowJar")
+    doLast {
+        println("Deployment completed")
     }
 }
 dependencies {
+    implementation(project(":core"))
+
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))

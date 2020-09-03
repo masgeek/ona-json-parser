@@ -8,6 +8,7 @@ tasks.getByName<Jar>("jar") {
 }
 
 dependencies {
+
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))
