@@ -10,29 +10,36 @@ plugins {
     val kotlinVersion = "1.4.0"
     kotlin("jvm") version kotlinVersion apply false
 
-    // Apply the application plugin to add support for building a CLI application.
-    application
+    id("name.remal.check-updates") version "1.0.211" apply false
 }
 
-allprojects{
+allprojects {
     group = "com.tsobu"
-    version = "4.0.0"
+    version = "1.0.0"
+
+    tasks.withType<JavaCompile> {
+        sourceCompatibility = "11"
+        targetCompatibility = "11"
+    }
+
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions {
+            freeCompilerArgs = listOf("-Xjsr305=strict")
+            jvmTarget = "11"
+        }
+    }
+
+    tasks.withType<Test> {
+        useJUnitPlatform()
+    }
 }
-dependencies {
-    // Align versions of all Kotlin components
-    implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
 
-    // Use the Kotlin JDK 8 standard library.
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-
-    // Use the Kotlin test library.
-    testImplementation("org.jetbrains.kotlin:kotlin-test")
-
-    // Use the Kotlin JUnit integration.
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
-}
-
-application {
-    // Define the main class for the application.
-    mainClassName = "ona.json.parser.AppKt"
+subprojects {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+    apply {
+        plugin("name.remal.check-updates")
+    }
 }

@@ -8,3 +8,5 @@
  */
 
 rootProject.name = "ona-json-parser"
+
+include("core", "app")
