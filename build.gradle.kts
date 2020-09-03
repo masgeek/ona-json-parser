@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 buildscript {
     repositories {
         mavenCentral()
@@ -9,9 +11,9 @@ buildscript {
 plugins {
     val kotlinVersion = "1.4.0"
     kotlin("jvm") version kotlinVersion apply false
-
     id("name.remal.check-updates") version "1.0.211" apply false
 }
+
 
 allprojects {
     group = "com.tsobu"
@@ -22,7 +24,7 @@ allprojects {
         targetCompatibility = "11"
     }
 
-    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    tasks.withType<KotlinCompile> {
         kotlinOptions {
             freeCompilerArgs = listOf("-Xjsr305=strict")
             jvmTarget = "11"
@@ -36,8 +38,9 @@ allprojects {
 
 subprojects {
     repositories {
-        mavenCentral()
         mavenLocal()
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") } // This allows us to use jitpack projects
     }
     apply {
         plugin("name.remal.check-updates")

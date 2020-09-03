@@ -1,17 +1,26 @@
 plugins {
     kotlin("jvm")
+    id("com.github.johnrengelman.shadow") version "6.0.0"
 }
+
+//sourceSets {
+//    getByName("main").java.srcDirs("src/main/kotlin")
+//    getByName("test").java.srcDirs("src/test/kotlin")
+//}
 
 tasks.getByName<Jar>("jar") {
     manifest {
         attributes["Main-Class"] = "com.tsobu.parser.app.AppKt"
+    }
+}
 
-        // To add all of the dependencies
-//        from(sourceSets.main.get().output)
-//        dependsOn(configurations.runtimeClasspath)
-//        from({
-//            configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
-//        })
+tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
+    archiveBaseName.set("app-full")
+}
+
+tasks {
+    build {
+        dependsOn(shadowJar)
     }
 }
 dependencies {
