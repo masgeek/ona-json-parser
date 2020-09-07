@@ -12,7 +12,7 @@ liquibase {
         this.arguments = mapOf(
                 "logLevel" to "info",
                 "changeLogFile" to "src/main/resources/db.changelog.xml",
-                "url" to "jdbc:mysql://127.0.0.1:3306/fuelrod;SPRING_DATASOURCE_USERNAME=root",
+                "url" to "jdbc:mysql://127.0.0.1:3306/fuelrod",
                 "username" to "userName",
                 "password" to "secret")
     }
@@ -33,9 +33,9 @@ dependencies {
     implementation("org.liquibase:liquibase-gradle-plugin:2.0.4")
     implementation("mysql:mysql-connector-java:8.0.21")
 
-    add("liquibaseRuntime", "org.liquibase:liquibase-core:3.4.1")
-    add("liquibaseRuntime", "org.liquibase:liquibase-gradle-plugin:2.0.1")
-    add("liquibaseRuntime", "org.postgresql:postgresql:42.2.5")
+    add("liquibaseRuntime", "org.liquibase:liquibase-core:4.0.0")
+    add("liquibaseRuntime", "org.liquibase:liquibase-gradle-plugin:2.0.4")
+    add("liquibaseRuntime", "mysql:mysql-connector-java:8.0.21")
 
     implementation("org.hibernate:hibernate-core:5.4.21.Final")
 
