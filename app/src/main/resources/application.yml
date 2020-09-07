@@ -1,0 +1,3 @@
+ona:
+  api: ${ME:-api.tsobu.co.ke} # Define ENV variable with default fallback
+  json-folder: "D:\\dev\\python\\ona-download\\downloads\\json"
