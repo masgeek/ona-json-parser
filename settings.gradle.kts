@@ -9,4 +9,4 @@
 
 rootProject.name = "ona-json-parser"
 
-include("config","core", "app")
+include("config","database","core", "app")

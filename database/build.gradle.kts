@@ -2,6 +2,19 @@ plugins {
     kotlin("jvm")
 }
 
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.liquibase:liquibase-core:4.0.0")
+        classpath("org.liquibase:liquibase-gradle-plugin:2.0.4")
+        classpath("mysql:mysql-connector-java:8.0.21")
+    }
+}
+
+
 tasks.getByName<Jar>("jar") {
     enabled = true
 }
@@ -9,18 +22,10 @@ tasks.getByName<Jar>("jar") {
 dependencies {
     val jacksonVersion = "2.11.2"
 
-    implementation(project(":database"))
-
-
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))
     implementation(kotlin("stdlib-jdk8"))
-
-    implementation("com.fasterxml.jackson.core:jackson-core:${jacksonVersion}")
-    implementation("com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}")
-    implementation("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")
-    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-csv:${jacksonVersion}")
 
     implementation("org.hibernate:hibernate-core:5.4.21.Final")
 

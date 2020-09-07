@@ -36,8 +36,6 @@ dependencies {
     implementation(project(":config"))
     implementation(project(":core"))
 
-    implementation(project(":core"))
-
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))
