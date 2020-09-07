@@ -1,31 +1,41 @@
 plugins {
     kotlin("jvm")
+    id("org.liquibase.gradle") version "2.0.4"
 }
-
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.liquibase:liquibase-core:4.0.0")
-        classpath("org.liquibase:liquibase-gradle-plugin:2.0.4")
-        classpath("mysql:mysql-connector-java:8.0.21")
-    }
-}
-
 
 tasks.getByName<Jar>("jar") {
     enabled = true
 }
 
-dependencies {
-    val jacksonVersion = "2.11.2"
+liquibase {
+    activities.register("main") {
+        this.arguments = mapOf(
+                "logLevel" to "info",
+                "changeLogFile" to "src/main/resources/db.changelog.xml",
+                "url" to "jdbc:mysql://127.0.0.1:3306/fuelrod;SPRING_DATASOURCE_USERNAME=root",
+                "username" to "userName",
+                "password" to "secret")
+    }
+}
 
+tasks.register("dev") {
+    // depend on the liquibase status task
+    dependsOn("update")
+}
+
+dependencies {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))
     implementation(kotlin("stdlib-jdk8"))
+
+    implementation("org.liquibase:liquibase-core:4.0.0")
+    implementation("org.liquibase:liquibase-gradle-plugin:2.0.4")
+    implementation("mysql:mysql-connector-java:8.0.21")
+
+    add("liquibaseRuntime", "org.liquibase:liquibase-core:3.4.1")
+    add("liquibaseRuntime", "org.liquibase:liquibase-gradle-plugin:2.0.1")
+    add("liquibaseRuntime", "org.postgresql:postgresql:42.2.5")
 
     implementation("org.hibernate:hibernate-core:5.4.21.Final")
 
