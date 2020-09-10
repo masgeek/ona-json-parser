@@ -19,26 +19,21 @@ liquibase {
         this.arguments = mapOf(
                 "logLevel" to "info",
                 "changeLogFile" to dbChangeLog,
+                "outputFile" to "../logs/rollback.sql",
                 "url" to "jdbc:mysql://127.0.0.1:3306/ona",
                 "username" to "root",
                 "password" to "")
     }
 }
 
-tasks.register("dev") {
+tasks.register("migrate") {
     group = "Tsobu tasks"
     description = "Runs liquidbase migrations"
 
     // depend on the liquibase status task
+    dependsOn("futureRollbackSQL")
     dependsOn("update")
 }
-
-val changeName: String? by project
-tasks.register("migrate") {
-    group = "Tsobu tasks"
-    description = "Produces a migration file using date as the name"
-}
-
 
 val generateLiquibaseChangelog by tasks.registering {
     val changeName: String? by project
