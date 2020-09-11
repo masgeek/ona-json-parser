@@ -4,8 +4,8 @@ import org.hibernate.annotations.GenericGenerator
 import javax.persistence.*
 
 @Entity
-@Table(name = "data_val_pp")
-class DataValPP {
+@Table(name = "data_val_pp_tz")
+class PlantingPracticeTz {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "native")

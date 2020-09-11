@@ -5,6 +5,7 @@ import com.sksamuel.hoplite.EnvironmentVariablesPropertySource
 import com.sksamuel.hoplite.PropertySource
 import com.tsobu.parser.config.AppConfig
 import com.tsobu.parser.config.Ona
+import com.tsobu.parser.core.utils.DatabaseReader
 import com.tsobu.parser.core.utils.MyFileReader
 
 
@@ -26,7 +27,10 @@ fun main(args: Array<String>) {
     println("Started application.....")
 
     val myFileReader = MyFileReader()
+    val databaseReader = DatabaseReader()
 //    myFileReader.returnFileInDirectory(folderPath)
 
-    myFileReader.readJsonAsset("D:\\dev\\python\\ona-download\\downloads\\json\\dataVAL_PP_TZ.json", false)
+    //myFileReader.readJsonAsset("D:\\dev\\python\\ona-download\\downloads\\json\\dataVAL_PP_TZ.json", false)
+
+    databaseReader.readTable()
 }

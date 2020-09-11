@@ -72,6 +72,9 @@ dependencies {
     add("liquibaseRuntime", "mysql:mysql-connector-java:8.0.21")
 
     implementation("org.hibernate:hibernate-core:5.4.21.Final")
+    implementation("org.hibernate:hibernate-c3p0:5.2.18.Final")
+
+    api("org.slf4j:slf4j-simple:1.7.30")
 
     testImplementation("org.jetbrains.kotlin:kotlin-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
