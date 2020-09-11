@@ -2,9 +2,11 @@ debug: false
 trace: false
 
 spring:
+  main:
+    web-application-type: NONE
   profiles:
     active: dev
   liquibase:
-    enabled: true
+    enabled: false
     change-log: "classpath:db/changelog.xml"
     rollback-file: "I://development//rollback.sql"
