@@ -19,9 +19,9 @@
 
 
         <property name="show_sql">true</property>
-        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+<!--        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>-->
 <!--        <property name="hibernate.dialect.storage_engine">org.hibernate.dialect.InnoDBStorageEngine</property>-->
-<!--        <property name="hibernate.dialect.storage_engine">innodb</property>-->
+        <property name="hibernate.dialect.storage_engine">innodb</property>
 
         <property name="hibernate.hbm2ddl.auto">update</property>
         <mapping class="com.tsobu.parser.database.entities.PlantingPracticeTz"/>

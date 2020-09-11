@@ -9,14 +9,26 @@ import javax.persistence.criteria.Root
 
 class DatabaseReader {
 
+    fun readScoreWeedTable() {
+        val session: Session = HibernateUtil.sessionFactory.openSession()
+        session.beginTransaction()
+
+        val data = session.createQuery(
+                "SELECT a FROM PlantingPracticeTz a",
+                PlantingPracticeTz::class.java)
+                .resultList
+
+        val list = data
+    }
+
     fun readTable() {
         val session: Session = HibernateUtil.sessionFactory.openSession()
         session.beginTransaction()
 
-       val data  =  session.createQuery(
-               "SELECT a FROM PlantingPracticeTz a",
-               PlantingPracticeTz::class.java)
-               .resultList
+        val data = session.createQuery(
+                "SELECT a FROM PlantingPracticeTz a",
+                PlantingPracticeTz::class.java)
+                .resultList
 
         val list = data
     }

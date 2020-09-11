@@ -27,10 +27,11 @@ fun main(args: Array<String>) {
     println("Started application.....")
 
     val myFileReader = MyFileReader()
-    val databaseReader = DatabaseReader()
+
 //    myFileReader.returnFileInDirectory(folderPath)
 
-    //myFileReader.readJsonAsset("D:\\dev\\python\\ona-download\\downloads\\json\\dataVAL_PP_TZ.json", false)
+    myFileReader.readJsonAsset("I:\\development\\python\\ona-download\\downloads\\json\\Score_Weed_Control_AC.json")
 
-    databaseReader.readTable()
+    //    val databaseReader = DatabaseReader()
+//    databaseReader.readTable()
 }
