@@ -1,3 +1,10 @@
-ona:
-  api: ${ME:-api.tsobu.co.ke} # Define ENV variable with default fallback
-  json-folder: "D:\\dev\\python\\ona-download\\downloads\\json"
+debug: false
+trace: false
+
+spring:
+  profiles:
+    active: dev
+  liquibase:
+    enabled: true
+    change-log: "classpath:db/changelog.xml"
+    rollback-file: "I://development//rollback.sql"
