@@ -19,13 +19,13 @@ tasks.getByName<Jar>("jar") {
 }
 
 dependencies {
-//    implementation(project(":enums"))
+    implementation(project(":enums"))
 
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib-jdk8"))
 
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    api("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("com.h2database:h2")
-    implementation("org.liquibase:liquibase-core")
-    implementation("mysql:mysql-connector-java:8.0.20")
+    implementation("org.liquibase:liquibase-core:4.0.0")
+    implementation("mysql:mysql-connector-java:8.0.21")
 }

@@ -9,7 +9,7 @@ buildscript {
 }
 
 plugins {
-    val kotlinVersion = "1.4.0"
+    val kotlinVersion = "1.4.10"
     val springVersion = "2.3.3.RELEASE"
 
     id("org.springframework.boot") version springVersion apply false
@@ -49,9 +49,6 @@ subprojects {
         mavenLocal()
         maven {
             url = uri("https://jitpack.io")
-        }
-        maven {
-            url = uri("http://dl.bintray.com/africastalking/java")
         }
     }
     apply {

@@ -1,9 +1,9 @@
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
-//    id("org.springframework.boot")
+    id("org.springframework.boot")
     kotlin("jvm")
-//    kotlin("plugin.spring")
+    kotlin("plugin.spring")
 }
 
 tasks.getByName<BootJar>("bootJar") {

@@ -5,7 +5,7 @@ spring:
   main:
     web-application-type: NONE
   profiles:
-    active: dev
+    active: prod
   liquibase:
     enabled: false
     change-log: "classpath:db/changelog.xml"

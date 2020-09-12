@@ -31,9 +31,9 @@ dependencies {
 
     api("com.fasterxml.jackson.module:jackson-module-kotlin")
 
-    implementation("com.googlecode.libphonenumber:libphonenumber:8.12.8")
+    implementation("com.googlecode.libphonenumber:libphonenumber:8.12.9")
 
-    api("commons-codec:commons-codec:1.14")
+    api("commons-codec:commons-codec:1.15")
     api("com.github.rozidan:modelmapper-spring-boot-starter:2.3.1")
 
     implementation("org.apache.commons:commons-collections4:4.4")
