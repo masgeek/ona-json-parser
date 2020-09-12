@@ -28,7 +28,7 @@ class OnaApplication(
         log.info("Running Spring Boot Application press CTR-C to kill the application");
 
 //        weedControlService.readJsonAsset(fileName = "Score_Weed_Control_AC.json")
-        yieldCassavaService.readJsonAsset(fileName = "Assess_Root_Yield_Cassava_AC.json")
+//        yieldCassavaService.readJsonAsset(fileName = "Assess_Root_Yield_Cassava_AC.json")
     }
 
 }
