@@ -3,8 +3,12 @@ package com.tsobu.ona.database.entities
 import java.time.LocalDate
 import java.time.LocalDateTime
 import javax.persistence.Column
+import javax.persistence.Entity
+import javax.persistence.Table
 
-class AssessRootYieldCassavaAc : BaseEntity() {
+@Entity
+@Table(name = "assess_root_yield_cassava_ac")
+class RootYieldCassavaAc : BaseEntity() {
 
     var submissionDate: LocalDateTime? = null
     var uuid: String? = null
@@ -37,7 +41,11 @@ class AssessRootYieldCassavaAc : BaseEntity() {
     var geoPointAccuracy: Double? = null
 
     var rootEntity: String? = null
+
+    @Column(name = "generated_table_list_label_23")
     var generatedTableListLabel23: String? = null
+
+    @Column(name = "reserved_name_for_field_list_labels_24")
     var reservedNameForFieldListLabels24: String? = null
     var diseaseScoring: String? = null
     var rootQuality: String? = null
@@ -45,12 +53,20 @@ class AssessRootYieldCassavaAc : BaseEntity() {
     var fixedSize: String? = null
     var rootMethod: String? = null
     var densityFixed: String? = null
-    var nrRowsFixed: String? = null
-    var nrPlantsRowFixed: String? = null
+    var nrRowsFixed: Int? = null
+    var nrPlantsRowFixed: Int? = null
     var plotDimNote: String? = null
+
+    @Column(name = "l1_fixed")
     var l1Fixed: String? = null
+
+    @Column(name = "w1_fixed")
     var w1Fixed: String? = null
+
+    @Column(name = "ls_fixed")
     var lsFixed: String? = null
+
+    @Column(name = "w2_fixed")
     var w2Fixed: String? = null
     var betweenRowFixed: String? = null
     var withinRowFixed: String? = null

@@ -7,24 +7,47 @@ import com.fasterxml.jackson.annotation.JsonProperty
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class YieldAssessment {
+
+    @JsonProperty("yieldAssessment/plotID")
+    var yieldAssessmentPlotId: String? = null
+
+    @JsonProperty("yieldAssessment/nrPlantsNP")
+    var yieldAssessmentNrPlantsNp: String? = null
+
+    @JsonProperty("yieldAssessment/tuberizedRootsFWss")
+    var tuberizedRootsFwSs: String? = null
+
+    @JsonProperty("yieldAssessment/rootFW/tuberizedRootsFW")
+    var tuberizedRootsFw: String? = null
+
+    @JsonProperty("yieldAssessment/rootNr/tuberizedRootsNr")
+    var tuberizedRootsNr: String? = null
+
+    @JsonProperty("yieldAssessment/plantSampleID_tuberizedRoots")
+    var plantSampleIDTuberizedRoots: String? = null
+
     @JsonProperty("yieldAssessment/plantID")
-    var yieldAssessmentPlantID: String? = null
+    var plantID: String? = null
 
     @JsonProperty("yieldAssessment/PD/disease")
-    var yieldAssessmentPDDisease: String? = null
+    var disease: String? = null
 
     @JsonProperty("yieldAssessment/rootFW/tuberizedSmallRootsFW")
-    var yieldAssessmentRootFWTuberizedSmallRootsFW: String? = null
+    var tuberizedSmallRootsFw: String? = null
+
+    @JsonProperty("yieldAssessment/tuberizedSmallRootsFWss")
+    var tuberizedSmallRootsFwSs: String? = null
 
     @JsonProperty("yieldAssessment/PD/diseaseScoreRoots_severity")
-    var yieldAssessmentPDDiseaseScoreRootsSeverity: String? = null
+    var diseaseScoreRootsSeverity: String? = null
 
     @JsonProperty("yieldAssessment/rootFW/tuberizedDiseasedRootsFW")
-    var yieldAssessmentRootFWTuberizedDiseasedRootsFW: Double? = null
+    var tuberizedDiseasedRootsFw: String? = null
 
     @JsonProperty("yieldAssessment/rootFW/tuberizedMarketableRootsFW")
-    var yieldAssessmentRootFWTuberizedMarketableRootsFW: Double? = null
+    var tuberizedMarketableRootsFw: String? = null
 
     @JsonProperty("yieldAssessment/rootNr/tuberizedMarketableRootsNr")
-    var yieldAssessmentRootNrTuberizedMarketableRootsNr: Int? = null
+    var tuberizedMarketableRootsNr: String? = null
+
 }

@@ -4,14 +4,18 @@ package com.tsobu.ona.core.service
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.forms.scoreweed.ScoreWeedControl
-import com.tsobu.ona.database.entities.ScoreWeedControlAc
+import com.tsobu.ona.core.dto.forms.rootyieldcassava.AssesRootYieldCassava
+import com.tsobu.ona.database.entities.RootYieldCassavaAc
+import com.tsobu.ona.database.entities.RootYieldCassavaAcYieldAssessment
 import com.tsobu.ona.database.entities.ScoreWeedControlAcId
 import com.tsobu.ona.database.entities.ScoreWeedControlAcWd
-import com.tsobu.ona.database.repositories.ScoreWeedControlAcIdRepo
-import com.tsobu.ona.database.repositories.ScoreWeedControlAcRepo
-import com.tsobu.ona.database.repositories.ScoreWeedControlAcWdRepo
+import com.tsobu.ona.database.repositories.RootYieldCassavaAcRepo
+import com.tsobu.ona.database.repositories.RootYieldCassavaAcYieldAssessmentRepo
+import org.modelmapper.AbstractCondition
+import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
+import org.modelmapper.convention.MatchingStrategies
+import org.modelmapper.spi.MappingContext
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import org.springframework.transaction.PlatformTransactionManager
@@ -30,9 +34,8 @@ import kotlin.collections.ArrayList
 class AssessRootYieldCassavaService
 constructor(
         transactionManager: PlatformTransactionManager,
-        val scoreWeedControlAcRepo: ScoreWeedControlAcRepo,
-        val scoreWeedControlAcIdRepo: ScoreWeedControlAcIdRepo,
-        val scoreWeedControlAcWdRepo: ScoreWeedControlAcWdRepo,
+        val yieldCassavaRepo: RootYieldCassavaAcRepo,
+        val yieldAssessmentRepo: RootYieldCassavaAcYieldAssessmentRepo,
         val appConfig: AppConfig) {
 
     private val log = LoggerFactory.getLogger(AssessRootYieldCassavaService::class.java)
@@ -47,99 +50,113 @@ constructor(
         val filePath = "${appConfig.globalProperties().folderPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
-        val list = objectMapper.readValue(file, object : TypeReference<List<ScoreWeedControl>>() {})
+        val list = objectMapper.readValue(file, object : TypeReference<List<AssesRootYieldCassava>>() {})
 
-        val data = ArrayList<ScoreWeedControlAc>()
-        val weedIdData = ArrayList<ScoreWeedControlAcId>()
+        val data = ArrayList<RootYieldCassavaAc>()
+        val yieldAssesmentData = ArrayList<RootYieldCassavaAcYieldAssessment>()
         val weedWdData = ArrayList<ScoreWeedControlAcWd>()
+
+        val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
+            override fun applies(context: MappingContext<Any?, Any?>): Boolean {
+                return if (context.source is String) {
+                    null != context.source && "" != context.source
+                } else {
+                    context.source != null
+                }
+            }
+        }
+
+        modelMapper.configuration.propertyCondition = isStringBlank
+        modelMapper.configuration.isSkipNullEnabled = true
+        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
         val result = transactionTemplate.execute { status: TransactionStatus? ->
 
             list.forEach { myVal ->
                 //map and save to database
                 val geoPoint = splitGeoPoint(myVal.geopoint)
-                val weedEntity = ScoreWeedControlAc()
+                val yieldCassavaEntity = RootYieldCassavaAc()
                 if (geoPoint.isNotEmpty()) {
-                    weedEntity.geoPointLatitude = geoPoint[0].toDouble()
+                    yieldCassavaEntity.geoPointLatitude = geoPoint[0].toDouble()
 
                     if (indexExists(geoPoint, 1)) {
-                        weedEntity.geoPointLongitude = geoPoint[1].toDouble()
+                        yieldCassavaEntity.geoPointLongitude = geoPoint[1].toDouble()
                     }
                     if (indexExists(geoPoint, 2)) {
-                        weedEntity.geoPointAltitude = geoPoint[2].toDouble()
+                        yieldCassavaEntity.geoPointAltitude = geoPoint[2].toDouble()
                     }
                     if (indexExists(geoPoint, 3)) {
-                        weedEntity.geoPointAccuracy = geoPoint[3].toDouble()
+                        yieldCassavaEntity.geoPointAccuracy = geoPoint[3].toDouble()
                     }
                 }
-                weedEntity.uuid = myVal.formHubUuid
-                weedEntity.submissionDate = convertToDateTime(myVal.submissionTime)
-                weedEntity.todayDate = convertToDate(myVal.today)
-                weedEntity.startDate = convertToDateTime(myVal.start)
-                weedEntity.endDate = convertToDateTime(myVal.end)
-                weedEntity.setOfId = "${myVal.metaInstanceID}/ID"
-                weedEntity.instanceId = myVal.metaInstanceID
-                weedEntity.weedKey = myVal.metaInstanceID
+                yieldCassavaEntity.uuid = myVal.formhubUuid
+                yieldCassavaEntity.submissionDate = convertToDateTime(myVal.submissionTime)
+                yieldCassavaEntity.todayDate = convertToDate(myVal.today)
+                yieldCassavaEntity.startDate = convertToDateTime(myVal.start)
+                yieldCassavaEntity.endDate = convertToDateTime(myVal.end)
+                yieldCassavaEntity.setOfYieldAssessment = "${myVal.metaInstanceID}/yieldAssessment"
+                yieldCassavaEntity.instanceId = myVal.metaInstanceID
+                yieldCassavaEntity.controlKey = myVal.metaInstanceID
 
-                weedEntity.deviceId = myVal.deviceid
-                weedEntity.subscriberId = myVal.subscriberId
-                weedEntity.email = myVal.email
-                weedEntity.username = myVal.username
-                weedEntity.simSerial = myVal.simserial
-                weedEntity.phoneNumber = myVal.phoneNumber
-                weedEntity.project = myVal.project
-                weedEntity.country = myVal.country
-                weedEntity.login = myVal.login
-                weedEntity.weedEntity = myVal.weedEntity
-                weedEntity.weedDetail = myVal.weedDetail
-                weedEntity.nrQuadrants = myVal.nrQuadrants
+                yieldCassavaEntity.rootEntity = myVal.entity
+                yieldCassavaEntity.diseaseScoring = myVal.detailDiseaseScoring
+                yieldCassavaEntity.rootQuality = myVal.detailRootQuality
+                yieldCassavaEntity.sampling = myVal.detailSampling
+                yieldCassavaEntity.fixedSize = myVal.plotSizeFixed
+                yieldCassavaEntity.densityFixed = myVal.fixedDensityFixed
+                yieldCassavaEntity.rootMethod = myVal.method
+                yieldCassavaEntity.nrRowsFixed = myVal.fixedNrRowsFixed
+                yieldCassavaEntity.nrPlantsRowFixed = myVal.fixedNrPlantsRowFixed
+                yieldCassavaEntity.densityFixedCalc = myVal.densityFixedCalc
+                yieldCassavaEntity.maxStandFixed = myVal.maxStandFixed
+                yieldCassavaEntity.plotSizeFixed = myVal.plotSizeFixed
 
-                data.add(weedEntity)
 
-                //now we evaluate the weed id list
-                val weedIdList = myVal.weedIdList
-                var weedListIdCount = 1
-                weedIdList?.forEach { weedList ->
-                    val weedIdEntity = ScoreWeedControlAcId()
-                    weedIdEntity.sectionId = weedList.sectionId
-                    weedIdEntity.plotId = weedList.plotId
-                    weedIdEntity.daysLastWeeded = weedList.daysLastWeeded
-                    weedIdEntity.scoreWeedingEff = weedList.scoreWeedingEff
-                    weedIdEntity.scoreCropInjury = weedList.scoreCropInjury
-                    weedIdEntity.weedcount = weedList.weedCount
-                    weedIdEntity.parentKey = weedEntity.instanceId
-                    weedIdEntity.setOfId = weedEntity.setOfId
-                    weedIdEntity.setOfWd = "${weedEntity.setOfId}[$weedListIdCount]/WD"
-                    weedIdEntity.controlKey = "${weedEntity.setOfId}[$weedListIdCount]"
 
-                    weedIdData.add(weedIdEntity)
-                    log.info("Added plot id is  ---->>> ${weedIdEntity.plotId} with for weed being $weedListIdCount")
-                    weedListIdCount = weedListIdCount.plus(1)
+                yieldCassavaEntity.deviceId = myVal.deviceid
+                yieldCassavaEntity.subscriberId = myVal.subscriberid
+                yieldCassavaEntity.email = myVal.email
+                yieldCassavaEntity.username = myVal.username
+                yieldCassavaEntity.simSerial = myVal.simserial
+                yieldCassavaEntity.phoneNumber = myVal.phonenumber
+                yieldCassavaEntity.project = myVal.purposeProject
+                yieldCassavaEntity.country = myVal.purposeCountry
+                yieldCassavaEntity.login = myVal.login
+                data.add(yieldCassavaEntity)
 
-                    //now we evaluate the weed ac list
-                    log.info("Evaluating the weed ac now")
-                    val weedAcList = weedList.weedIdentifierList
-                    var weedListAcCount = 1
-                    weedAcList?.forEach { weedIdentifier ->
-                        val weedAcEntity = ScoreWeedControlAcWd()
-                        weedAcEntity.parentKey = weedIdEntity.controlKey
-                        weedAcEntity.imageLeafArea = weedIdentifier.imageLeafArea
-                        weedAcEntity.controlKey = "${weedIdEntity.setOfWd}[$weedListIdCount]"
-                        weedAcEntity.setOfWd = "${weedIdEntity.setOfWd}"
-                        weedWdData.add(weedAcEntity)
+                log.info("Added data to list ${yieldCassavaEntity.controlKey}")
 
-                        log.info("Added plot id is  ---->>> ${weedAcEntity.imageLeafArea} with for weed being $weedListAcCount")
-                        weedListAcCount = weedListAcCount.plus(1)
-                    }
+                //evaluate the yield assesment
+                val yieldAssessmentList = myVal.yieldAssessment
+                var assesmentCount = 1
+                yieldAssessmentList?.forEach { ya ->
+//                    val yieldAssessment = RootYieldCassavaAcYieldAssessment()
+                    val yieldAssessment = modelMapper.map(ya, RootYieldCassavaAcYieldAssessment::class.java)
+
+                    yieldAssessment.plotId = ya.yieldAssessmentPlotId
+//                    yieldAssessment.plantId = ya.plantID
+//                    yieldAssessment.tuberizedRootsNr = ya.tuberizedRootsNr
+//                    yieldAssessment.tuberizedRootsFw = ya.tuberizedRootsFw
+//                    yieldAssessment.tuberizedDiseasedRootsFw = ya.tuberizedDiseasedRootsFw
+//                    yieldAssessment.tuberizedSmallRootsFw = ya.tuberizedSmallRootsFw
+//                    yieldAssessment.tuberizedMarketableRootsFw = ya.tuberizedMarketableRootsFw
+//                    yieldAssessment.tuberizedRootsFwSs = ya.tuberizedRootsFwSs
+//                    yieldAssessment.plantSampleIdTuberizedRoots = ya.plantSampleIDTuberizedRoots
+//                    yieldAssessment.tuberizedSmallRootsFwSs = ya.tuberizedSmallRootsFwSs
+                    yieldAssessment.parentKey = yieldCassavaEntity.controlKey
+                    yieldAssessment.controlKey = "${yieldCassavaEntity.setOfYieldAssessment}[$assesmentCount]"
+                    yieldAssessment.setOfYieldAssessment = yieldCassavaEntity.setOfYieldAssessment
+
+                    log.info("Added >>> ${yieldAssessment.plotId}: ${yieldAssessment.plantId} with for assessment being $assesmentCount")
+                    assesmentCount = assesmentCount.plus(1)
+                    yieldAssesmentData.add(yieldAssessment)
                 }
-
-
             }
 
             log.info("Saving all the data to the database now")
-            scoreWeedControlAcRepo.saveAll(data)
-            scoreWeedControlAcIdRepo.saveAll(weedIdData)
-            scoreWeedControlAcWdRepo.saveAll(weedWdData)
+            yieldCassavaRepo.saveAll(data)
+            yieldAssessmentRepo.saveAll(yieldAssesmentData)
             log.info("Finished saving the data for $fileName------->")
         }
     }

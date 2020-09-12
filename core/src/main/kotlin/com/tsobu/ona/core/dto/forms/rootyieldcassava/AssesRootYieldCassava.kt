@@ -7,6 +7,8 @@ import com.fasterxml.jackson.annotation.JsonProperty
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class AssesRootYieldCassava {
+
+
     @JsonProperty("_id")
     var id: Int? = null
 
@@ -34,6 +36,9 @@ class AssesRootYieldCassava {
     @JsonProperty("entity")
     var entity: String? = null
 
+    @JsonProperty("method")
+    var method: String? = null
+
     @JsonProperty("_edited")
     var edited: Boolean? = null
 
@@ -52,11 +57,24 @@ class AssesRootYieldCassava {
     @JsonProperty("username")
     var username: String? = null
 
+    @JsonProperty("email")
+    var email: String? = null
+
+    @JsonProperty("phonenumber")
+    var phonenumber: String? = null
+
+
     @JsonProperty("_duration")
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xFormId: Int? = null
+    var xformId: Int? = null
+
+    @JsonProperty("fixedSize")
+    var fixedSize: String? = null
+
+    @JsonProperty("simserial")
+    var simserial: String? = null
 
     @JsonProperty("_attachments")
     var attachments: List<Any>? = null
@@ -71,10 +89,19 @@ class AssesRootYieldCassava {
     var totalMedia: Int? = null
 
     @JsonProperty("formhub/uuid")
-    var formHubUuid: String? = null
+    var formhubUuid: String? = null
+
+    @JsonProperty("subscriberid")
+    var subscriberid: String? = null
 
     @JsonProperty("_submitted_by")
     var submittedBy: String? = null
+
+    @JsonProperty("maxStandFixed")
+    var maxStandFixed: String? = null
+
+    @JsonProperty("plotSizeFixed")
+    var plotSizeFixed: String? = null
 
     @JsonProperty("detail/sampling")
     var detailSampling: String? = null
@@ -97,6 +124,15 @@ class AssesRootYieldCassava {
     @JsonProperty("_xform_id_string")
     var xformIdString: String? = null
 
+    @JsonProperty("densityFixedCalc")
+    var densityFixedCalc: String? = null
+
+    @JsonProperty("Fixed/nrRowsFixed")
+    var fixedNrRowsFixed: Int? = null
+
+    @JsonProperty("Fixed/densityFixed")
+    var fixedDensityFixed: String? = null
+
     @JsonProperty("_bamboo_dataset_id")
     var bambooDatasetId: String? = null
 
@@ -108,4 +144,7 @@ class AssesRootYieldCassava {
 
     @JsonProperty("detail/diseaseScoring")
     var detailDiseaseScoring: String? = null
+
+    @JsonProperty("Fixed/nrPlantsRowFixed")
+    var fixedNrPlantsRowFixed: Int? = null
 }
