@@ -9,8 +9,10 @@ import com.tsobu.ona.core.dto.forms.scoreweed.WeedId
 import com.tsobu.ona.core.dto.forms.scoreweed.WeedIdentifier
 import com.tsobu.ona.database.entities.ScoreWeedControlAc
 import com.tsobu.ona.database.entities.ScoreWeedControlAcId
+import com.tsobu.ona.database.entities.ScoreWeedControlAcWd
 import com.tsobu.ona.database.repositories.ScoreWeedControlAcIdRepository
 import com.tsobu.ona.database.repositories.ScoreWeedControlAcRepository
+import com.tsobu.ona.database.repositories.ScoreWeedControlAcWdRepository
 import org.modelmapper.ModelMapper
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
@@ -31,6 +33,7 @@ constructor(
         transactionManager: PlatformTransactionManager,
         val scoreWeedControlAcRepository: ScoreWeedControlAcRepository,
         val scoreWeedControlAcIdRepository: ScoreWeedControlAcIdRepository,
+        val scoreWeedControlAcWdRepository: ScoreWeedControlAcWdRepository,
         val appConfig: AppConfig) {
 
     private val log = LoggerFactory.getLogger(ScoreWeedControlService::class.java)
@@ -61,7 +64,7 @@ constructor(
         val list = objectMapper.readValue(file, object : TypeReference<List<ScoreWeedControl>>() {})
 
         val data = ArrayList<ScoreWeedControlAc>()
-        val weedIdData = ArrayList<WeedId>()
+        val weedIdData = ArrayList<ScoreWeedControlAcId>()
         val weedIdentifier = ArrayList<WeedIdentifier>()
 
         val result = transactionTemplate.execute { status: TransactionStatus? ->
@@ -109,28 +112,43 @@ constructor(
 
                 //now we evaluate the weed id list
                 val weedIdList = myVal.weedIdList
-
-                var indexCount = 1
+                var weedListIdCount = 1
                 weedIdList?.forEach { weedList ->
-                    val entity = ScoreWeedControlAcId()
-                    entity.sectionId = weedList.sectionId
-                    entity.plotId = weedList.plotId
-                    entity.daysLastWeeded = weedList.daysLastWeeded
-                    entity.scoreWeedingEff = weedList.scoreWeedingEff
-                    entity.scoreCropInjury = weedList.scoreCropInjury
-                    entity.weedcount = weedList.weedCount
-                    entity.parentKey = weedEntity.instanceId
-                    entity.setOfId = weedEntity.setOfId
-                    entity.setOfWd = "${weedEntity.setOfId}[$indexCount]/WD"
-                    entity.controlKey = "${weedEntity.setOfId}[$indexCount]"
+                    val weedIdEntity = ScoreWeedControlAcId()
+                    weedIdEntity.sectionId = weedList.sectionId
+                    weedIdEntity.plotId = weedList.plotId
+                    weedIdEntity.daysLastWeeded = weedList.daysLastWeeded
+                    weedIdEntity.scoreWeedingEff = weedList.scoreWeedingEff
+                    weedIdEntity.scoreCropInjury = weedList.scoreCropInjury
+                    weedIdEntity.weedcount = weedList.weedCount
+                    weedIdEntity.parentKey = weedEntity.instanceId
+                    weedIdEntity.setOfId = weedEntity.setOfId
+                    weedIdEntity.setOfWd = "${weedEntity.setOfId}[$weedListIdCount]/WD"
+                    weedIdEntity.controlKey = "${weedEntity.setOfId}[$weedListIdCount]"
 
-                    val saved = scoreWeedControlAcIdRepository.save(entity)
+                    weedIdData.add(weedIdEntity)
+                    log.info("Added plot id is  ---->>> ${weedIdEntity.plotId} with for weed being $weedListIdCount")
+                    weedListIdCount = weedListIdCount.plus(1)
 
-                    if (entity.parentKey.equals("uuid:949c4eb4-456c-4641-b767-68116d5dfcde")) {
-                        log.info("Saved id is  ---->>> ${saved.plotId} with index count $indexCount")
-                        indexCount = indexCount.plus(1)
+                    //now we evaluate the weed ac list
+                    log.info("Evaluating the weed ac now")
+                    val weedAcList = weedList.weedIdentifierList
+                    var weedListAcCount = 1
+                    weedAcList?.forEach { weedIdentifier ->
+                        val weedAcEntity = ScoreWeedControlAcWd()
+                        weedAcEntity.parentKey = weedIdEntity.controlKey
+                        weedAcEntity.imageLeafArea = weedIdentifier.imageLeafArea
+                        weedAcEntity.controlKey = "${weedIdEntity.setOfWd}[$weedListIdCount]"
+                        weedAcEntity.setOfWd = "${weedIdEntity.setOfWd}"
+
+                        scoreWeedControlAcWdRepository.save(weedAcEntity)
+
+                        log.info("Added plot id is  ---->>> ${weedAcEntity.imageLeafArea} with for weed being $weedListAcCount")
+                        weedListAcCount = weedListAcCount.plus(1)
                     }
                 }
+
+
             }
         }
     }
