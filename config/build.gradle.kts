@@ -18,8 +18,5 @@ dependencies {
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib-jdk8"))
 
-    implementation("org.springframework.boot:spring-boot-starter")
     implementation("javax.validation:validation-api:2.0.0.Final")
-
-    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 }

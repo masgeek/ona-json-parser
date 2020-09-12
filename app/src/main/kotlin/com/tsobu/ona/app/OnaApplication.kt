@@ -25,7 +25,7 @@ class OnaApplication(
     override fun run(vararg args: String?) {
         log.info("Running Spring Boot Application press CTR-C to kill the application");
 
-        myService.readScores()
+        myService.readJsonAsset(fileName = "Score_Weed_Control_AC.json")
     }
 }
 

@@ -3,7 +3,6 @@ package com.tsobu.ona.core.dto.forms.scoreweed
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.tsobu.ona.core.dto.forms.scoreweed.ID
 import com.tsobu.ona.core.dto.forms.Attachment
 
 @Suppress("unused")
@@ -11,7 +10,7 @@ import com.tsobu.ona.core.dto.forms.Attachment
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class ScoreWeedControl {
     @JsonProperty("ID")
-    var idList: List<ID>? = null
+    var weedIdList: List<WeedId>? = null
 
     @JsonProperty("_id")
     var id: Int? = null
@@ -38,10 +37,10 @@ class ScoreWeedControl {
     var notes: List<Any>? = null
 
     @JsonProperty("detail")
-    var detail: String? = null
+    var weedDetail: String? = null
 
     @JsonProperty("entity")
-    var entity: String? = null
+    var weedEntity: String? = null
 
     @JsonProperty("_edited")
     var edited: Boolean? = null
@@ -60,6 +59,8 @@ class ScoreWeedControl {
 
     @JsonProperty("username")
     var username: String? = null
+    @JsonProperty("email")
+    var email: String? = null
 
     @JsonProperty("_duration")
     var duration: Int? = null
@@ -69,6 +70,9 @@ class ScoreWeedControl {
 
     @JsonProperty("simserial")
     var simserial: String? = null
+
+    @JsonProperty("phonenumber")
+    var phoneNumber: String? = null
 
     @JsonProperty("nrQuadrants")
     var nrQuadrants: Int? = null
@@ -86,10 +90,10 @@ class ScoreWeedControl {
     var totalMedia: Int? = null
 
     @JsonProperty("formhub/uuid")
-    var formhubUuid: String? = null
+    var formHubUuid: String? = null
 
     @JsonProperty("subscriberid")
-    var subscriberid: String? = null
+    var subscriberId: String? = null
 
     @JsonProperty("_submitted_by")
     var submittedBy: String? = null
@@ -98,10 +102,10 @@ class ScoreWeedControl {
     var metaInstanceID: String? = null
 
     @JsonProperty("purpose/country")
-    var purposeCountry: String? = null
+    var country: String? = null
 
     @JsonProperty("purpose/project")
-    var purposeProject: String? = null
+    var project: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null
@@ -111,6 +115,7 @@ class ScoreWeedControl {
 
     @JsonProperty("_bamboo_dataset_id")
     var bambooDatasetId: String? = null
+
 
     @JsonProperty("_media_all_received")
     var mediaAllReceived: Boolean? = null

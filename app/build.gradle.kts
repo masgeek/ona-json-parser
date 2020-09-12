@@ -6,6 +6,7 @@ plugins {
 
 
 dependencies {
+    implementation(project(":config"))
     implementation(project(":core"))
     implementation(project(":enums"))
     implementation(project(":database"))

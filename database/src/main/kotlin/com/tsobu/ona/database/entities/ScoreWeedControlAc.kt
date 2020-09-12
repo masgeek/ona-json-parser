@@ -3,6 +3,8 @@ package com.tsobu.ona.database.entities
 import com.tsobu.ona.database.entities.BaseEntity
 import java.sql.Date
 import java.sql.Timestamp
+import java.time.LocalDate
+import java.time.LocalDateTime
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Table
@@ -11,10 +13,11 @@ import javax.persistence.Table
 @Table(name = "score_weed_control_ac")
 class ScoreWeedControlAc : BaseEntity() {
     var uuid: String? = null
-    var submissionDate: Timestamp? = null
-    var todayDate: Date? = null
-    var startDate: Timestamp? = null
-    var endDate: Timestamp? = null
+
+    var submissionDate: LocalDateTime? = null
+    var todayDate: LocalDate? = null
+    var startDate: LocalDateTime? = null
+    var endDate: LocalDateTime? = null
     var deviceId: String? = null
     var subscriberId: String? = null
     var email: String? = null
@@ -27,24 +30,30 @@ class ScoreWeedControlAc : BaseEntity() {
     var country: String? = null
     var login: String? = null
     var firstName: String? = null
+
+    @Column(name = "surname")
     var surname: String? = null
 
     @Column(name = "geo_point_latitude", columnDefinition = "decimal", precision = 10, scale = 6)
-    var geoPointLatitude: Double = 0.0
+    var geoPointLatitude: Double? = null
 
     @Column(name = "geo_point_longitude", columnDefinition = "decimal", precision = 10, scale = 6)
-    var geoPointLongitude: Double = 0.0
+    var geoPointLongitude: Double? = null
 
     @Column(name = "geo_point_altitude", columnDefinition = "decimal", precision = 10, scale = 6)
-    var geoPointAltitude: Double = 0.0
+    var geoPointAltitude: Double? = null
 
     @Column(name = "geo_point_accuracy", columnDefinition = "decimal", precision = 10, scale = 6)
-    var geoPointAccuracy: Double = 0.0
+    var geoPointAccuracy: Double? = null
 
-    var entity: String? = null
-    var detail: String? = null
+
+    @Column(name = "weed_entity")
+    var weedEntity: String? = null
+    var weedDetail: String? = null
     var nrQuadrants: Int? = null
-    var repeat: String? = null
+
+    @Column(name = "weed_repeat")
+    var weedRepeat: String? = null
     var setOfId: String? = null
     var instanceId: String? = null
     var weedKey: String? = null

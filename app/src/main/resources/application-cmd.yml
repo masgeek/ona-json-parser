@@ -14,7 +14,7 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.MySQL5Dialect
     open-in-view: false
-    show-sql: true
+    show-sql: false
     properties:
       dialect: org.hibernate.dialect.MySQL5Dialect
     hibernate:
@@ -23,5 +23,7 @@ spring:
       naming:
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyHbmImpl
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+  liquibase:
+    change-log: "classpath:db/db-changelog.xml"
   http:
     log-request-details: true

@@ -16,7 +16,7 @@ tasks.getByName<Jar>("jar") {
 
 dependencies {
 
-//    implementation(project(":config"))
+    implementation(project(":config"))
     implementation(project(":database"))
 
     implementation(kotlin("reflect"))

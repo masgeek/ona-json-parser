@@ -2,12 +2,8 @@ package com.tsobu.fuelrod.config.properties
 
 import javax.validation.constraints.NotBlank
 
-class MySecurityProperties {
 
+class OnaProperties {
     @NotBlank
-    var key: String = ""
-
-    @NotBlank
-    var salt: String = ""
-
+    var folderPath: String? = null
 }
