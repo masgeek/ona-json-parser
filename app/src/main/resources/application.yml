@@ -10,3 +10,6 @@ spring:
     enabled: false
     change-log: "classpath:db/changelog.xml"
     rollback-file: "I://development//rollback.sql"
+
+ona:
+  folder-path: "I://development//python//ona-download//downloads//json//"
