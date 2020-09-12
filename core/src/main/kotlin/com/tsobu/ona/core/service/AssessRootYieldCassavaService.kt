@@ -27,7 +27,7 @@ import kotlin.collections.ArrayList
 
 
 @Service
-class ScoreWeedControlService
+class AssessRootYieldCassavaService
 constructor(
         transactionManager: PlatformTransactionManager,
         val scoreWeedControlAcRepo: ScoreWeedControlAcRepo,
@@ -35,24 +35,11 @@ constructor(
         val scoreWeedControlAcWdRepo: ScoreWeedControlAcWdRepo,
         val appConfig: AppConfig) {
 
-    private val log = LoggerFactory.getLogger(ScoreWeedControlService::class.java)
+    private val log = LoggerFactory.getLogger(AssessRootYieldCassavaService::class.java)
     private val modelMapper = ModelMapper()
     private val objectMapper = ObjectMapper()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
 
-    fun readScores() {
-        log.info("Reading weed table here")
-        val scores = scoreWeedControlAcRepo.findAll()
-
-        scores.forEach { scoreWeedControlAc ->
-//            log.info(scoreWeedControlAc.setOfId)
-            log.info(appConfig.globalProperties().folderPath)
-        }
-    }
-
-    fun mapJsonFile() {
-
-    }
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)

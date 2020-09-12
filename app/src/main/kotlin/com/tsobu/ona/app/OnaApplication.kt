@@ -1,5 +1,6 @@
 package com.tsobu.ona.app
 
+import com.tsobu.ona.core.service.AssessRootYieldCassavaService
 import com.tsobu.ona.core.service.ScoreWeedControlService
 import org.slf4j.LoggerFactory
 import org.springframework.boot.Banner
@@ -17,7 +18,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 @EntityScan("com.tsobu.ona.database.entities")
 @EnableJpaRepositories("com.tsobu.ona.database.repositories")
 class OnaApplication(
-        private val myService: ScoreWeedControlService
+        private val weedControlService: ScoreWeedControlService,
+        private val yieldCassavaService: AssessRootYieldCassavaService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -25,8 +27,10 @@ class OnaApplication(
     override fun run(vararg args: String?) {
         log.info("Running Spring Boot Application press CTR-C to kill the application");
 
-        myService.readJsonAsset(fileName = "Score_Weed_Control_AC.json")
+//        weedControlService.readJsonAsset(fileName = "Score_Weed_Control_AC.json")
+        yieldCassavaService.readJsonAsset(fileName = "Assess_Root_Yield_Cassava_AC.json")
     }
+
 }
 
 fun main(args: Array<String>) {
