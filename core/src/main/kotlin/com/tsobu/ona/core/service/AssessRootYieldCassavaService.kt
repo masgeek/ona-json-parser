@@ -62,8 +62,8 @@ constructor(
         }
 
         val writeCsvFile = WriteCsvFile()
-//        writeCsvFile.writeYieldCassavaCsv(list = yieldCassavaData, fileName = "Assess_Root_Yield_Cassava_AC-tmp.csv")
-        writeCsvFile.writeYieldAssessCsv(list = yieldAssesData, fileName = "Assess_Root_Yield_Cassava_AC-yieldAssessment.csv-tmp.csv")
+        writeCsvFile.writeYieldCassavaCsv(list = yieldCassavaData, fileName = "Assess_Root_Yield_Cassava_AC.csv")
+        writeCsvFile.writeYieldAssessCsv(list = yieldAssesData, fileName = "Assess_Root_Yield_Cassava_AC-yieldAssessment.csv")
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -143,7 +143,7 @@ constructor(
             }
 
             log.info("Saving all the data to the database now")
-//            yieldCassavaRepo.saveAll(data)
+            yieldCassavaRepo.saveAll(data)
             yieldAssessmentRepo.saveAll(yieldAssessmentData)
             log.info("Finished saving the data for $fileName------->")
         }
