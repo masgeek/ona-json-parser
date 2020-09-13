@@ -5,6 +5,8 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.forms.scoreweed.ScoreWeedControl
+import com.tsobu.ona.core.dto.json.ScoreWeedControlAcDto
+import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.ScoreWeedControlAc
 import com.tsobu.ona.database.entities.ScoreWeedControlAcId
 import com.tsobu.ona.database.entities.ScoreWeedControlAcWd
@@ -40,18 +42,21 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
 
-    fun readScores() {
+    fun mapJsonFile() {
         log.info("Reading weed table here")
         val scores = scoreWeedControlAcRepo.findAll()
 
-        scores.forEach { scoreWeedControlAc ->
-//            log.info(scoreWeedControlAc.setOfId)
-            log.info(appConfig.globalProperties().folderPath)
+        val data = scores.map { scoreWeedControlAc ->
+            val outboxDto = modelMapper.map(scoreWeedControlAc, ScoreWeedControlAcDto::class.java)
+            outboxDto
         }
-    }
 
-    fun mapJsonFile() {
 
+        val writeCsvFile = WriteCsvFile()
+        writeCsvFile.writeToCsv(data)
+        val droidRequestString = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(data)
+
+//        log.info(droidRequestString)
     }
 
     @Suppress("UNCHECKED_CAST")

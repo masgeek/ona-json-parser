@@ -28,8 +28,9 @@ dependencies {
 //    api("org.springframework.boot:spring-boot-starter-data-jpa")
 //    api("org.springframework.security:spring-security-crypto")
 //    api("org.springframework.boot:spring-boot-starter-validation")
+    api("org.springframework.boot:spring-boot-starter-validation")
 
-    api("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("com.opencsv:opencsv:5.2")
 
     implementation("com.googlecode.libphonenumber:libphonenumber:8.12.9")
 
