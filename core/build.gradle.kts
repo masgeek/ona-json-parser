@@ -30,7 +30,11 @@ dependencies {
 //    api("org.springframework.boot:spring-boot-starter-validation")
     api("org.springframework.boot:spring-boot-starter-validation")
 
-    implementation("org.simpleflatmapper:sfm-csv:8.2.3")
+//    implementation("org.simpleflatmapper:sfm-csv:8.2.3")
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-csv
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.11.2")
+
 
     implementation("com.googlecode.libphonenumber:libphonenumber:8.12.9")
 

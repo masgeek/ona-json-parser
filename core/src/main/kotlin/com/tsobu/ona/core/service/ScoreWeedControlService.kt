@@ -21,11 +21,12 @@ import org.springframework.transaction.TransactionStatus
 import org.springframework.transaction.support.TransactionTemplate
 import java.io.IOException
 import java.nio.file.Paths
+import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
-import kotlin.collections.ArrayList
+import java.time.format.DateTimeFormatter
 
 
 @Service
@@ -48,15 +49,15 @@ constructor(
 
         val data = scores.map { scoreWeedControlAc ->
             val outboxDto = modelMapper.map(scoreWeedControlAc, ScoreWeedControlAcDto::class.java)
+            outboxDto.submissionDate = convertTimeToString(scoreWeedControlAc.submissionDate)
+            outboxDto.startDate = convertTimeToString(scoreWeedControlAc.startDate)
+            outboxDto.endDate = convertTimeToString(scoreWeedControlAc.endDate)
             outboxDto
         }
 
 
         val writeCsvFile = WriteCsvFile()
         writeCsvFile.writeToCsv(data)
-        val droidRequestString = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(data)
-
-//        log.info(droidRequestString)
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -191,5 +192,27 @@ constructor(
     private fun convertToDate(dateString: String?): LocalDate? {
         val instant = Instant.parse("${dateString}T00:00:00.00Z")
         return instant.atZone(ZoneId.of("UTC")).toLocalDate()
+    }
+
+    private fun convertTimeToString(localDateTime: LocalDateTime?): String? {
+        if (localDateTime == null) {
+            return null
+        }
+
+        val date = localDateTime.toLocalDate()
+        val time = localDateTime.toLocalTime().format(DateTimeFormatter.ISO_LOCAL_TIME)
+
+        var dayMonth = date.dayOfMonth.toString()
+        var yearMonth = date.monthValue.toString()
+        if (date.dayOfMonth < 10) {
+            dayMonth = "0${date.dayOfMonth}"
+        }
+        if (date.monthValue < 10) {
+            yearMonth = "0${date.monthValue}"
+        }
+        val dateTimeString = "${dayMonth}-${yearMonth}-${date.year} $time"
+        log.info(dateTimeString)
+
+        return dateTimeString
     }
 }
