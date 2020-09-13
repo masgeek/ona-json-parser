@@ -24,6 +24,12 @@ class AssesRootYieldCassava {
     @JsonProperty("login")
     var login: String? = null
 
+    @JsonProperty("enumerator/firstName")
+    var firstName: String? = null
+
+    @JsonProperty("enumerator/surName")
+    var surname: String? = null
+
     @JsonProperty("start")
     var start: String? = null
 
@@ -34,10 +40,10 @@ class AssesRootYieldCassava {
     var notes: List<Any>? = null
 
     @JsonProperty("entity")
-    var entity: String? = null
+    var rootEntity: String? = null
 
     @JsonProperty("method")
-    var method: String? = null
+    var rootMethod: String? = null
 
     @JsonProperty("_edited")
     var edited: Boolean? = null
@@ -49,7 +55,7 @@ class AssesRootYieldCassava {
     var version: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: String? = null
+    var deviceId: String? = null
 
     @JsonProperty("geopoint")
     var geopoint: String? = null
@@ -61,7 +67,7 @@ class AssesRootYieldCassava {
     var email: String? = null
 
     @JsonProperty("phonenumber")
-    var phonenumber: String? = null
+    var phoneNumber: String? = null
 
 
     @JsonProperty("_duration")
@@ -74,7 +80,7 @@ class AssesRootYieldCassava {
     var fixedSize: String? = null
 
     @JsonProperty("simserial")
-    var simserial: String? = null
+    var simSerial: String? = null
 
     @JsonProperty("_attachments")
     var attachments: List<Any>? = null
@@ -92,7 +98,7 @@ class AssesRootYieldCassava {
     var formhubUuid: String? = null
 
     @JsonProperty("subscriberid")
-    var subscriberid: String? = null
+    var subscriberId: String? = null
 
     @JsonProperty("_submitted_by")
     var submittedBy: String? = null
@@ -110,10 +116,10 @@ class AssesRootYieldCassava {
     var metaInstanceID: String? = null
 
     @JsonProperty("purpose/country")
-    var purposeCountry: String? = null
+    var country: String? = null
 
     @JsonProperty("purpose/project")
-    var purposeProject: String? = null
+    var purpprojectseProject: String? = null
 
     @JsonProperty("yieldAssessment")
     var yieldAssessment: List<YieldAssessment>? = null
@@ -128,23 +134,23 @@ class AssesRootYieldCassava {
     var densityFixedCalc: String? = null
 
     @JsonProperty("Fixed/nrRowsFixed")
-    var fixedNrRowsFixed: Int? = null
+    var nrRowsFixed: Int? = null
 
     @JsonProperty("Fixed/densityFixed")
-    var fixedDensityFixed: String? = null
+    var densityFixed: String? = null
 
     @JsonProperty("_bamboo_dataset_id")
     var bambooDatasetId: String? = null
 
     @JsonProperty("detail/rootQuality")
-    var detailRootQuality: String? = null
+    var rootQuality: String? = null
 
     @JsonProperty("_media_all_received")
     var mediaAllReceived: Boolean? = null
 
     @JsonProperty("detail/diseaseScoring")
-    var detailDiseaseScoring: String? = null
+    var diseaseScoring: String? = null
 
     @JsonProperty("Fixed/nrPlantsRowFixed")
-    var fixedNrPlantsRowFixed: Int? = null
+    var nrPlantsRowFixed: Int? = null
 }

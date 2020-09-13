@@ -49,7 +49,7 @@ class RootYieldCassavaAc : BaseEntity() {
     var reservedNameForFieldListLabels24: String? = null
     var diseaseScoring: String? = null
     var rootQuality: String? = null
-    var sampling: String? = null
+    var detailSampling: String? = null
     var fixedSize: String? = null
     var rootMethod: String? = null
     var densityFixed: String? = null

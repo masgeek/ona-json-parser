@@ -5,7 +5,10 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.forms.rootyieldcassava.AssesRootYieldCassava
+import com.tsobu.ona.core.dto.json.RootYieldCassavaAcDto
+import com.tsobu.ona.core.dto.json.RootYieldCassavaAcYieldAssessmentDto
 import com.tsobu.ona.core.utils.MyUtils
+import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.RootYieldCassavaAc
 import com.tsobu.ona.database.entities.RootYieldCassavaAcYieldAssessment
 import com.tsobu.ona.database.entities.ScoreWeedControlAcWd
@@ -40,6 +43,28 @@ constructor(
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
 
+    fun mapJsonFile() {
+        log.info("Reading weed table here")
+        val scores = yieldCassavaRepo.findAll()
+        val scoresId = yieldAssessmentRepo.findAll()
+
+        val yieldCassavaData = scores.map { scoreWeedControlAc ->
+            val outboxDto = modelMapper.map(scoreWeedControlAc, RootYieldCassavaAcDto::class.java)
+            outboxDto.submissionDate = myDateUtil.convertTimeToString(scoreWeedControlAc.submissionDate)
+            outboxDto.startDate = myDateUtil.convertTimeToString(scoreWeedControlAc.startDate)
+            outboxDto.endDate = myDateUtil.convertTimeToString(scoreWeedControlAc.endDate)
+            outboxDto
+        }
+
+        val yieldAssesData = scoresId.map { scoreWeedControlAcId ->
+            val outboxDto = modelMapper.map(scoreWeedControlAcId, RootYieldCassavaAcYieldAssessmentDto::class.java)
+            outboxDto
+        }
+
+        val writeCsvFile = WriteCsvFile()
+        writeCsvFile.writeYieldCassavaCsv(list = yieldCassavaData, fileName = "Assess_Root_Yield_Cassava_AC-tmp.csv")
+//        writeCsvFile.writeYieldAssessCsv(list = yieldAssesData, fileName = "Assess_Root_Yield_Cassava_AC-yieldAssessment.csv")
+    }
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
@@ -73,7 +98,7 @@ constructor(
             list.forEach { myVal ->
                 //map and save to database
                 val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
-                val yieldCassavaEntity = RootYieldCassavaAc()
+                val yieldCassavaEntity = modelMapper.map(myVal, RootYieldCassavaAc::class.java)
                 if (geoPoint.isNotEmpty()) {
                     yieldCassavaEntity.geoPointLatitude = geoPoint[0].toDouble()
 
@@ -96,57 +121,22 @@ constructor(
                 yieldCassavaEntity.instanceId = myVal.metaInstanceID
                 yieldCassavaEntity.controlKey = myVal.metaInstanceID
 
-                yieldCassavaEntity.rootEntity = myVal.entity
-                yieldCassavaEntity.diseaseScoring = myVal.detailDiseaseScoring
-                yieldCassavaEntity.rootQuality = myVal.detailRootQuality
-                yieldCassavaEntity.sampling = myVal.detailSampling
-                yieldCassavaEntity.fixedSize = myVal.plotSizeFixed
-                yieldCassavaEntity.densityFixed = myVal.fixedDensityFixed
-                yieldCassavaEntity.rootMethod = myVal.method
-                yieldCassavaEntity.nrRowsFixed = myVal.fixedNrRowsFixed
-                yieldCassavaEntity.nrPlantsRowFixed = myVal.fixedNrPlantsRowFixed
-                yieldCassavaEntity.densityFixedCalc = myVal.densityFixedCalc
-                yieldCassavaEntity.maxStandFixed = myVal.maxStandFixed
-                yieldCassavaEntity.plotSizeFixed = myVal.plotSizeFixed
-
-
-
-                yieldCassavaEntity.deviceId = myVal.deviceid
-                yieldCassavaEntity.subscriberId = myVal.subscriberid
-                yieldCassavaEntity.email = myVal.email
-                yieldCassavaEntity.username = myVal.username
-                yieldCassavaEntity.simSerial = myVal.simserial
-                yieldCassavaEntity.phoneNumber = myVal.phonenumber
-                yieldCassavaEntity.project = myVal.purposeProject
-                yieldCassavaEntity.country = myVal.purposeCountry
-                yieldCassavaEntity.login = myVal.login
                 data.add(yieldCassavaEntity)
 
-                log.info("Added data to list ${yieldCassavaEntity.controlKey}")
+                log.info("Added data to list ${yieldCassavaEntity.controlKey} with surname as ${yieldCassavaEntity.surname}")
 
-                //evaluate the yield assesment
+                //evaluate the yield assessment
                 val yieldAssessmentList = myVal.yieldAssessment
-                var assesmentCount = 1
+                var assessmentCount = 1
                 yieldAssessmentList?.forEach { ya ->
-//                    val yieldAssessment = RootYieldCassavaAcYieldAssessment()
                     val yieldAssessment = modelMapper.map(ya, RootYieldCassavaAcYieldAssessment::class.java)
 
-                    yieldAssessment.plotId = ya.yieldAssessmentPlotId
-//                    yieldAssessment.plantId = ya.plantID
-//                    yieldAssessment.tuberizedRootsNr = ya.tuberizedRootsNr
-//                    yieldAssessment.tuberizedRootsFw = ya.tuberizedRootsFw
-//                    yieldAssessment.tuberizedDiseasedRootsFw = ya.tuberizedDiseasedRootsFw
-//                    yieldAssessment.tuberizedSmallRootsFw = ya.tuberizedSmallRootsFw
-//                    yieldAssessment.tuberizedMarketableRootsFw = ya.tuberizedMarketableRootsFw
-//                    yieldAssessment.tuberizedRootsFwSs = ya.tuberizedRootsFwSs
-//                    yieldAssessment.plantSampleIdTuberizedRoots = ya.plantSampleIDTuberizedRoots
-//                    yieldAssessment.tuberizedSmallRootsFwSs = ya.tuberizedSmallRootsFwSs
                     yieldAssessment.parentKey = yieldCassavaEntity.controlKey
-                    yieldAssessment.controlKey = "${yieldCassavaEntity.setOfYieldAssessment}[$assesmentCount]"
+                    yieldAssessment.controlKey = "${yieldCassavaEntity.setOfYieldAssessment}[$assessmentCount]"
                     yieldAssessment.setOfYieldAssessment = yieldCassavaEntity.setOfYieldAssessment
 
-                    log.info("Added >>> ${yieldAssessment.plotId}: ${yieldAssessment.plantId} with for assessment being $assesmentCount")
-                    assesmentCount = assesmentCount.plus(1)
+                    log.info("Added >>> ${yieldAssessment.plotId}: ${yieldAssessment.plantId} with for assessment being $assessmentCount")
+                    assessmentCount = assessmentCount.plus(1)
                     yieldAssesmentData.add(yieldAssessment)
                 }
             }

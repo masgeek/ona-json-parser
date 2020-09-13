@@ -21,16 +21,17 @@ class OnaApplication(
         private val weedControlService: ScoreWeedControlService,
         private val yieldCassavaService: AssessRootYieldCassavaService
 ) : CommandLineRunner {
-    private val log = LoggerFactory.getLogger(OnaApplication::class.java)
-
-
     override fun run(vararg args: String?) {
         log.info("Running Spring Boot Application press CTR-C to kill the application");
 
-        weedControlService.mapJsonFile()
+//        weedControlService.mapJsonFile()
 //        weedControlService.readJsonAsset(fileName = "Score_Weed_Control_AC.json")
-//        yieldCassavaService.readJsonAsset(fileName = "Assess_Root_Yield_Cassava_AC.json")
+        yieldCassavaService.readJsonAsset(fileName = "Assess_Root_Yield_Cassava_AC.json")
+        yieldCassavaService.mapJsonFile()
     }
+
+
+    private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
 }
 

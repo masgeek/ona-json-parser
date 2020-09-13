@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 class YieldAssessment {
 
     @JsonProperty("yieldAssessment/plotID")
-    var yieldAssessmentPlotId: String? = null
+    var plotId: String? = null
 
     @JsonProperty("yieldAssessment/nrPlantsNP")
     var yieldAssessmentNrPlantsNp: String? = null
