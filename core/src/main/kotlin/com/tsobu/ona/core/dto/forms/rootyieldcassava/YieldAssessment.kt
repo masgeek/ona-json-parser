@@ -12,7 +12,7 @@ class YieldAssessment {
     var plotId: String? = null
 
     @JsonProperty("yieldAssessment/nrPlantsNP")
-    var yieldAssessmentNrPlantsNp: String? = null
+    var nrPlantsNp: String? = null
 
     @JsonProperty("yieldAssessment/tuberizedRootsFWss")
     var tuberizedRootsFwSs: String? = null
@@ -40,6 +40,9 @@ class YieldAssessment {
 
     @JsonProperty("yieldAssessment/PD/diseaseScoreRoots_severity")
     var diseaseScoreRootsSeverity: String? = null
+
+    @JsonProperty("yieldAssessment/PD/diseaseScoreRoots_incidence")
+    var diseaseScoreRootsIncidence: String? = null
 
     @JsonProperty("yieldAssessment/rootFW/tuberizedDiseasedRootsFW")
     var tuberizedDiseasedRootsFw: String? = null
