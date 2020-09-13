@@ -2,7 +2,6 @@ package com.tsobu.ona.core.dto.json
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.opencsv.bean.CsvBindByName
 import com.tsobu.ona.database.entities.BaseEntity
 import java.sql.Date
 import java.sql.Timestamp
@@ -17,7 +16,6 @@ class ScoreWeedControlAcDto {
     var uuid: String? = null
 
     @JsonProperty("SubmissionDate")
-//    @CsvBindByName(column = "SubmissionDate")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     var submissionDate: LocalDateTime? = null
 

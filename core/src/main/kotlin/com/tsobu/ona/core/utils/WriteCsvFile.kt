@@ -1,16 +1,12 @@
 package com.tsobu.ona.core.utils
 
-import com.opencsv.CSVWriter
+
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcDto
-import com.tsobu.ona.core.utils.WriteCsvFile
-import com.opencsv.bean.StatefulBeanToCsv
-import com.opencsv.bean.StatefulBeanToCsvBuilder
-import com.tsobu.ona.core.service.ScoreWeedControlService
+import org.simpleflatmapper.csv.CsvWriter
+import org.simpleflatmapper.util.CheckedConsumer
 import org.slf4j.LoggerFactory
-import java.io.Writer
-import java.lang.Exception
-import java.nio.file.Files
-import java.nio.file.Paths
+import java.io.FileWriter
+
 
 class WriteCsvFile {
     companion object {
@@ -20,13 +16,13 @@ class WriteCsvFile {
     private val log = LoggerFactory.getLogger(WriteCsvFile::class.java)
     fun writeToCsv(myUsers: List<ScoreWeedControlAcDto?>?) {
         try {
-            val writer: Writer = Files.newBufferedWriter(Paths.get(STRING_ARRAY_SAMPLE))
+            val fileWriter = FileWriter(STRING_ARRAY_SAMPLE)
 
-            val beanToCsv: StatefulBeanToCsv<ScoreWeedControlAcDto?> = StatefulBeanToCsvBuilder<ScoreWeedControlAcDto?>(writer)
-                    .withQuotechar(CSVWriter.NO_QUOTE_CHARACTER)
-                    .build()
-            beanToCsv.write(myUsers)
+            val writerDsl: CsvWriter.CsvWriterDSL<ScoreWeedControlAcDto> = CsvWriter
+                    .from(ScoreWeedControlAcDto::class.java)
 
+            val writer: CsvWriter<ScoreWeedControlAcDto> = writerDsl.to(fileWriter)
+            myUsers?.forEach(CheckedConsumer.toConsumer(writer::append))
             log.info("CSV written out")
         } catch (ex: Exception) {
             log.error(ex.message, ex)

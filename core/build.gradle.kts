@@ -30,7 +30,7 @@ dependencies {
 //    api("org.springframework.boot:spring-boot-starter-validation")
     api("org.springframework.boot:spring-boot-starter-validation")
 
-    implementation("com.opencsv:opencsv:5.2")
+    implementation("org.simpleflatmapper:sfm-csv:8.2.3")
 
     implementation("com.googlecode.libphonenumber:libphonenumber:8.12.9")
 
