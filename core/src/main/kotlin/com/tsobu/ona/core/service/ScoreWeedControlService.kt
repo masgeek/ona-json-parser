@@ -57,7 +57,7 @@ constructor(
 
 
         val writeCsvFile = WriteCsvFile()
-        writeCsvFile.writeToCsv(data)
+        writeCsvFile.writeToCsv(data, "Score_Weed_Control_AC.csv")
     }
 
     @Suppress("UNCHECKED_CAST")
