@@ -8,6 +8,7 @@ import com.tsobu.ona.core.dto.forms.scoreweed.ScoreWeedControl
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcDto
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcIdDto
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcWdDto
+import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.ScoreWeedControlAc
 import com.tsobu.ona.database.entities.ScoreWeedControlAcId
@@ -23,11 +24,6 @@ import org.springframework.transaction.TransactionStatus
 import org.springframework.transaction.support.TransactionTemplate
 import java.io.IOException
 import java.nio.file.Paths
-import java.time.Instant
-import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.ZoneId
-import java.time.format.DateTimeFormatter
 
 
 @Service
@@ -42,6 +38,7 @@ constructor(
     private val log = LoggerFactory.getLogger(ScoreWeedControlService::class.java)
     private val modelMapper = ModelMapper()
     private val objectMapper = ObjectMapper()
+    private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
 
     fun mapJsonFile() {
@@ -52,9 +49,9 @@ constructor(
 
         val scoreWeedData = scores.map { scoreWeedControlAc ->
             val outboxDto = modelMapper.map(scoreWeedControlAc, ScoreWeedControlAcDto::class.java)
-            outboxDto.submissionDate = convertTimeToString(scoreWeedControlAc.submissionDate)
-            outboxDto.startDate = convertTimeToString(scoreWeedControlAc.startDate)
-            outboxDto.endDate = convertTimeToString(scoreWeedControlAc.endDate)
+            outboxDto.submissionDate = myDateUtil.convertTimeToString(scoreWeedControlAc.submissionDate)
+            outboxDto.startDate = myDateUtil.convertTimeToString(scoreWeedControlAc.startDate)
+            outboxDto.endDate = myDateUtil.convertTimeToString(scoreWeedControlAc.endDate)
             outboxDto
         }
 
@@ -91,26 +88,26 @@ constructor(
 
             list.forEach { myVal ->
                 //map and save to database
-                val geoPoint = splitGeoPoint(myVal.geopoint)
+                val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
                 val weedEntity = ScoreWeedControlAc()
                 if (geoPoint.isNotEmpty()) {
                     weedEntity.geoPointLatitude = geoPoint[0].toDouble()
 
-                    if (indexExists(geoPoint, 1)) {
+                    if (myDateUtil.indexExists(geoPoint, 1)) {
                         weedEntity.geoPointLongitude = geoPoint[1].toDouble()
                     }
-                    if (indexExists(geoPoint, 2)) {
+                    if (myDateUtil.indexExists(geoPoint, 2)) {
                         weedEntity.geoPointAltitude = geoPoint[2].toDouble()
                     }
-                    if (indexExists(geoPoint, 3)) {
+                    if (myDateUtil.indexExists(geoPoint, 3)) {
                         weedEntity.geoPointAccuracy = geoPoint[3].toDouble()
                     }
                 }
                 weedEntity.uuid = myVal.formHubUuid
-                weedEntity.submissionDate = convertToDateTime(myVal.submissionTime)
-                weedEntity.todayDate = convertToDate(myVal.today)
-                weedEntity.startDate = convertToDateTime(myVal.start)
-                weedEntity.endDate = convertToDateTime(myVal.end)
+                weedEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
+                weedEntity.todayDate = myDateUtil.convertToDate(myVal.today)
+                weedEntity.startDate = myDateUtil.convertToDateTime(myVal.start)
+                weedEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
                 weedEntity.setOfId = "${myVal.metaInstanceID}/ID"
                 weedEntity.instanceId = myVal.metaInstanceID
                 weedEntity.weedKey = myVal.metaInstanceID
@@ -176,58 +173,5 @@ constructor(
             scoreWeedControlAcWdRepo.saveAll(weedWdData)
             log.info("Finished saving the data for $fileName------->")
         }
-    }
-
-
-    private fun splitGeoPoint(geoPoint: String?): List<String> {
-        if (geoPoint != null) {
-            return geoPoint.split(" ")
-        }
-        return emptyList<String>()
-    }
-
-    fun indexExists(list: List<*>, index: Int): Boolean {
-        return index >= 0 && index < list.size
-    }
-
-    fun convertToDateTime(dateTimeString: String?): LocalDateTime? {
-
-        if (dateTimeString == null) {
-            return LocalDateTime.now()
-        }
-
-        val timeString = dateTimeString.split(".")
-        val validDateString = timeString.first()
-        val instant = Instant.parse("$validDateString.00Z")
-
-
-        return LocalDateTime.ofInstant(instant, ZoneId.of("UTC"))
-    }
-
-    private fun convertToDate(dateString: String?): LocalDate? {
-        val instant = Instant.parse("${dateString}T00:00:00.00Z")
-        return instant.atZone(ZoneId.of("UTC")).toLocalDate()
-    }
-
-    private fun convertTimeToString(localDateTime: LocalDateTime?): String? {
-        if (localDateTime == null) {
-            return null
-        }
-
-        val date = localDateTime.toLocalDate()
-        val time = localDateTime.toLocalTime().format(DateTimeFormatter.ISO_LOCAL_TIME)
-
-        var dayMonth = date.dayOfMonth.toString()
-        var yearMonth = date.monthValue.toString()
-        if (date.dayOfMonth < 10) {
-            dayMonth = "0${date.dayOfMonth}"
-        }
-        if (date.monthValue < 10) {
-            yearMonth = "0${date.monthValue}"
-        }
-        val dateTimeString = "${dayMonth}-${yearMonth}-${date.year} $time"
-        log.info(dateTimeString)
-
-        return dateTimeString
     }
 }

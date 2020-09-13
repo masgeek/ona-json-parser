@@ -5,9 +5,9 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.forms.rootyieldcassava.AssesRootYieldCassava
+import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.database.entities.RootYieldCassavaAc
 import com.tsobu.ona.database.entities.RootYieldCassavaAcYieldAssessment
-import com.tsobu.ona.database.entities.ScoreWeedControlAcId
 import com.tsobu.ona.database.entities.ScoreWeedControlAcWd
 import com.tsobu.ona.database.repositories.RootYieldCassavaAcRepo
 import com.tsobu.ona.database.repositories.RootYieldCassavaAcYieldAssessmentRepo
@@ -23,10 +23,6 @@ import org.springframework.transaction.TransactionStatus
 import org.springframework.transaction.support.TransactionTemplate
 import java.io.IOException
 import java.nio.file.Paths
-import java.time.Instant
-import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.ZoneId
 import kotlin.collections.ArrayList
 
 
@@ -41,6 +37,7 @@ constructor(
     private val log = LoggerFactory.getLogger(AssessRootYieldCassavaService::class.java)
     private val modelMapper = ModelMapper()
     private val objectMapper = ObjectMapper()
+    private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
 
 
@@ -75,26 +72,26 @@ constructor(
 
             list.forEach { myVal ->
                 //map and save to database
-                val geoPoint = splitGeoPoint(myVal.geopoint)
+                val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
                 val yieldCassavaEntity = RootYieldCassavaAc()
                 if (geoPoint.isNotEmpty()) {
                     yieldCassavaEntity.geoPointLatitude = geoPoint[0].toDouble()
 
-                    if (indexExists(geoPoint, 1)) {
+                    if (myDateUtil.indexExists(geoPoint, 1)) {
                         yieldCassavaEntity.geoPointLongitude = geoPoint[1].toDouble()
                     }
-                    if (indexExists(geoPoint, 2)) {
+                    if (myDateUtil.indexExists(geoPoint, 2)) {
                         yieldCassavaEntity.geoPointAltitude = geoPoint[2].toDouble()
                     }
-                    if (indexExists(geoPoint, 3)) {
+                    if (myDateUtil.indexExists(geoPoint, 3)) {
                         yieldCassavaEntity.geoPointAccuracy = geoPoint[3].toDouble()
                     }
                 }
                 yieldCassavaEntity.uuid = myVal.formhubUuid
-                yieldCassavaEntity.submissionDate = convertToDateTime(myVal.submissionTime)
-                yieldCassavaEntity.todayDate = convertToDate(myVal.today)
-                yieldCassavaEntity.startDate = convertToDateTime(myVal.start)
-                yieldCassavaEntity.endDate = convertToDateTime(myVal.end)
+                yieldCassavaEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
+                yieldCassavaEntity.todayDate = myDateUtil.convertToDate(myVal.today)
+                yieldCassavaEntity.startDate = myDateUtil.convertToDateTime(myVal.start)
+                yieldCassavaEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
                 yieldCassavaEntity.setOfYieldAssessment = "${myVal.metaInstanceID}/yieldAssessment"
                 yieldCassavaEntity.instanceId = myVal.metaInstanceID
                 yieldCassavaEntity.controlKey = myVal.metaInstanceID
@@ -159,36 +156,5 @@ constructor(
             yieldAssessmentRepo.saveAll(yieldAssesmentData)
             log.info("Finished saving the data for $fileName------->")
         }
-    }
-
-
-    private fun splitGeoPoint(geoPoint: String?): List<String> {
-        if (geoPoint != null) {
-            return geoPoint.split(" ")
-        }
-        return emptyList<String>()
-    }
-
-    fun indexExists(list: List<*>, index: Int): Boolean {
-        return index >= 0 && index < list.size
-    }
-
-    fun convertToDateTime(dateTimeString: String?): LocalDateTime? {
-
-        if (dateTimeString == null) {
-            return LocalDateTime.now()
-        }
-
-        val timeString = dateTimeString.split(".")
-        val validDateString = timeString.first()
-        val instant = Instant.parse("$validDateString.00Z")
-
-
-        return LocalDateTime.ofInstant(instant, ZoneId.of("UTC"))
-    }
-
-    private fun convertToDate(dateString: String?): LocalDate? {
-        val instant = Instant.parse("${dateString}T00:00:00.00Z")
-        return instant.atZone(ZoneId.of("UTC")).toLocalDate()
     }
 }
