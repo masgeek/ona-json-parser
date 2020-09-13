@@ -70,9 +70,9 @@ constructor(
 
 
         val writeCsvFile = WriteCsvFile()
-//        writeCsvFile.writeScoreWeedCsv(list = scoreWeedData, fileName = "Score_Weed_Control_AC.csv")
+        writeCsvFile.writeScoreWeedCsv(list = scoreWeedData, fileName = "Score_Weed_Control_AC.csv")
         writeCsvFile.writeScoreWeedIdCsv(list = scoreWeedIdData, fileName = "Score_Weed_Control_AC-ID.csv")
-//        writeCsvFile.writeScoreWeedAcCsv(list = scoreWeedAcData, fileName = "Score_Weed_Control_AC-WD.csv")
+        writeCsvFile.writeScoreWeedAcCsv(list = scoreWeedAcData, fileName = "Score_Weed_Control_AC-WD.csv")
     }
 
     @Suppress("UNCHECKED_CAST")
