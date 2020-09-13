@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.forms.scoreweed.ScoreWeedControl
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcDto
+import com.tsobu.ona.core.dto.json.ScoreWeedControlAcIdDto
+import com.tsobu.ona.core.dto.json.ScoreWeedControlAcWdDto
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.ScoreWeedControlAc
 import com.tsobu.ona.database.entities.ScoreWeedControlAcId
@@ -21,7 +23,6 @@ import org.springframework.transaction.TransactionStatus
 import org.springframework.transaction.support.TransactionTemplate
 import java.io.IOException
 import java.nio.file.Paths
-import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -46,8 +47,10 @@ constructor(
     fun mapJsonFile() {
         log.info("Reading weed table here")
         val scores = scoreWeedControlAcRepo.findAll()
+        val scoresId = scoreWeedControlAcIdRepo.findAll()
+        val scoresAc = scoreWeedControlAcWdRepo.findAll()
 
-        val data = scores.map { scoreWeedControlAc ->
+        val scoreWeedData = scores.map { scoreWeedControlAc ->
             val outboxDto = modelMapper.map(scoreWeedControlAc, ScoreWeedControlAcDto::class.java)
             outboxDto.submissionDate = convertTimeToString(scoreWeedControlAc.submissionDate)
             outboxDto.startDate = convertTimeToString(scoreWeedControlAc.startDate)
@@ -55,9 +58,21 @@ constructor(
             outboxDto
         }
 
+        val scoreWeedIdData = scoresId.map { scoreWeedControlAcId ->
+            val outboxDto = modelMapper.map(scoreWeedControlAcId, ScoreWeedControlAcIdDto::class.java)
+            outboxDto
+        }
+
+        val scoreWeedAcData = scoresAc.map { scoreWeedControlAcWd ->
+            val outboxDto = modelMapper.map(scoreWeedControlAcWd, ScoreWeedControlAcWdDto::class.java)
+            outboxDto
+        }
+
 
         val writeCsvFile = WriteCsvFile()
-        writeCsvFile.writeToCsv(data, "Score_Weed_Control_AC.csv")
+//        writeCsvFile.writeScoreWeedCsv(list = scoreWeedData, fileName = "Score_Weed_Control_AC.csv")
+        writeCsvFile.writeScoreWeedIdCsv(list = scoreWeedIdData, fileName = "Score_Weed_Control_AC-ID.csv")
+//        writeCsvFile.writeScoreWeedAcCsv(list = scoreWeedAcData, fileName = "Score_Weed_Control_AC-WD.csv")
     }
 
     @Suppress("UNCHECKED_CAST")

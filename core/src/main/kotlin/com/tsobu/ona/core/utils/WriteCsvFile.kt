@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.dataformat.csv.CsvMapper
 import com.fasterxml.jackson.dataformat.csv.CsvSchema
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcDto
+import com.tsobu.ona.core.dto.json.ScoreWeedControlAcIdDto
+import com.tsobu.ona.core.dto.json.ScoreWeedControlAcWdDto
 import org.slf4j.LoggerFactory
 import java.io.File
 
@@ -16,7 +18,7 @@ class WriteCsvFile {
     }
 
     private val log = LoggerFactory.getLogger(WriteCsvFile::class.java)
-    fun writeToCsv(list: List<ScoreWeedControlAcDto?>?, fileName: String) {
+    fun writeScoreWeedCsv(list: List<ScoreWeedControlAcDto?>?, fileName: String) {
         try {
             val mapper = CsvMapper()
             mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true);
@@ -32,4 +34,37 @@ class WriteCsvFile {
         }
 
     }
+
+    fun writeScoreWeedIdCsv(list: List<ScoreWeedControlAcIdDto>, fileName: String) {
+        try {
+            val mapper = CsvMapper()
+            mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true);
+            val schema: CsvSchema = mapper.schemaFor(ScoreWeedControlAcIdDto::class.java)
+                    .withUseHeader(true)
+
+            val tempFile = File("$filePath$fileName")
+
+            mapper.writer(schema).writeValue(tempFile, list)
+            log.info("$fileName written out to $filePath")
+        } catch (ex: Exception) {
+            log.error(ex.message, ex)
+        }
+    }
+
+    fun writeScoreWeedAcCsv(list: List<ScoreWeedControlAcWdDto>, fileName: String) {
+        try {
+            val mapper = CsvMapper()
+            mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true);
+            val schema: CsvSchema = mapper.schemaFor(ScoreWeedControlAcWdDto::class.java)
+                    .withUseHeader(true)
+
+            val tempFile = File("$filePath$fileName")
+
+            mapper.writer(schema).writeValue(tempFile, list)
+            log.info("$fileName written out to $filePath")
+        } catch (ex: Exception) {
+            log.error(ex.message, ex)
+        }
+    }
+
 }
