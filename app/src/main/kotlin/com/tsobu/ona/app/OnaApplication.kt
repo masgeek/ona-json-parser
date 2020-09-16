@@ -1,6 +1,7 @@
 package com.tsobu.ona.app
 
 import com.tsobu.ona.core.service.AssessRootYieldCassavaService
+import com.tsobu.ona.core.service.DataValSphsService
 import com.tsobu.ona.core.service.ScoreWeedControlService
 import com.tsobu.ona.core.service.ValSphsTzSzService
 import org.slf4j.LoggerFactory
@@ -21,19 +22,21 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 class OnaApplication(
         private val weedControlService: ScoreWeedControlService,
         private val yieldCassavaService: AssessRootYieldCassavaService,
-        private val valSphsTzSzService: ValSphsTzSzService
+        private val valSphsTzSzService: ValSphsTzSzService,
+        private val dataValSphsService: DataValSphsService
 ) : CommandLineRunner {
     override fun run(vararg args: String?) {
         log.info("Running Spring Boot Application press CTR-C to kill the application");
 
 //        weedControlService.readJsonAsset(fileName = "Score_Weed_Control_AC.json")
 //        yieldCassavaService.readJsonAsset(fileName = "Assess_Root_Yield_Cassava_AC.json")
-        valSphsTzSzService.readJsonAsset(fileName = "VAL_SPHS_TZSZ.json")
+//        valSphsTzSzService.readJsonAsset(fileName = "VAL_SPHS_TZSZ.json")
+        dataValSphsService.readJsonAsset(fileName = "dataVAL_SPHS.json")
 
 
 //        weedControlService.mapJsonFile()
 //        yieldCassavaService.mapJsonFile()
-        valSphsTzSzService.mapJsonFile()
+//        valSphsTzSzService.mapJsonFile()
     }
 
 

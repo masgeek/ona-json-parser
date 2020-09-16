@@ -37,6 +37,9 @@ class MyUtils {
     }
 
     fun convertToDate(dateString: String?): LocalDate? {
+        if (dateString == null) {
+            return null
+        }
         val instant = Instant.parse("${dateString}T00:00:00.00Z")
         return instant.atZone(ZoneId.of("UTC")).toLocalDate()
     }
