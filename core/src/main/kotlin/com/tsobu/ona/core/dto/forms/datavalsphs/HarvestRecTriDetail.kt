@@ -12,23 +12,23 @@ class HarvestRecTriDetail {
     var harvestRecTriDetailRemainPlantRec: List<HarvestRecTriDetailRemainPlantRec>? = null
 
     @JsonProperty("harvest_REC_Tri_detail/cornerPlant_REC_count")
-    var harvestRECTriDetailCornerPlantRECCount: String? = null
+    var cornerPlantRecCount: String? = null
 
     @JsonProperty("harvest_REC_Tri_detail/remainPlant_REC_count")
-    var harvestRECTriDetailRemainPlantRECCount: String? = null
+    var remainPlantRecCount: String? = null
 
     @JsonProperty("harvest_REC_Tri_detail/triangleNr_REC_detail")
-    var harvestRECTriDetailTriangleNrRECDetail: String? = null
+    var triangleNr: String? = null
 
     @JsonProperty("harvest_REC_Tri_detail/remainPlantTotalNr_REC")
-    var harvestRECTriDetailRemainPlantTotalNrREC: String? = null
+    var remainPlantTotalNr: String? = null
 
     @JsonProperty("harvest_REC_Tri_detail/nrPlants_REC_Tri_detail")
-    var harvestRECTriDetailNrPlantsRECTriDetail = 0
+    var nrPlants = 0
 
     @JsonProperty("harvest_REC_Tri_detail/remainPlant_tuberizedMarketableRootsFW_REC_Tri_detail")
-    var harvestRECTriDetailRemainPlantTuberizedMarketableRootsFWRECTriDetail = 0.0
+    var remainPlantTuberizedMarketableRootsFw = 0.0
 
     @JsonProperty("harvest_REC_Tri_detail/remainPlants_tuberizedMarketableRootsNr_REC_Tri_detail")
-    var harvestRECTriDetailRemainPlantsTuberizedMarketableRootsNrRECTriDetail = 0
+    var remainPlantsTuberizedMarketableRootsNr = 0
 }

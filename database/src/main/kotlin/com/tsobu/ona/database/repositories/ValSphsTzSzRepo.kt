@@ -1,10 +1,12 @@
 package com.tsobu.ona.database.repositories
 
 
-import com.tsobu.ona.database.entities.ValSphsTzSz
+import com.tsobu.ona.database.entities.ValSphsTzSzEntity
 import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.stereotype.Repository
 
-interface ValSphsTzSzRepo : JpaRepository<ValSphsTzSz, Long> {
+@Repository
+interface ValSphsTzSzRepo : JpaRepository<ValSphsTzSzEntity, Long> {
 
-    override fun findAll(): List<ValSphsTzSz>
+    override fun findAll(): List<ValSphsTzSzEntity>
 }

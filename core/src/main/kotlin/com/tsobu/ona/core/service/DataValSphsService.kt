@@ -8,7 +8,9 @@ import com.tsobu.ona.core.dto.forms.datavalsphs.DataValSphs
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.*
+import com.tsobu.ona.database.entities.DataValSphsEntity
+import com.tsobu.ona.database.entities.DataValSphsHarvestRecTriDetailEntity
+import com.tsobu.ona.database.repositories.DataValSphsHarvestRecTriDetailRepo
 import com.tsobu.ona.database.repositories.DataValSphsRepo
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
@@ -29,6 +31,7 @@ class DataValSphsService
 constructor(
         transactionManager: PlatformTransactionManager,
         val dataValSphsRepo: DataValSphsRepo,
+        val harvestRecTriDetailRepo: DataValSphsHarvestRecTriDetailRepo,
         val appConfig: AppConfig) {
 
     private val log = LoggerFactory.getLogger(DataValSphsService::class.java)
@@ -40,6 +43,7 @@ constructor(
     fun mapJsonFile() {
         log.info("Reading weed table here")
         val scores = dataValSphsRepo.findAll()
+        val triDetailList = harvestRecTriDetailRepo.findAll()
 
         val scoreWeedData = scores.map { scoreWeedControlAc ->
             val outboxDto = modelMapper.map(scoreWeedControlAc, ScoreWeedControlAcDto::class.java)
@@ -63,6 +67,9 @@ constructor(
         val list = objectMapper.readValue(file, object : TypeReference<List<DataValSphs>>() {})
 
         val data = ArrayList<DataValSphsEntity>()
+        val recTriDetailEntityData = ArrayList<DataValSphsHarvestRecTriDetailEntity>()
+
+
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
                 return if (context.source is String) {
@@ -107,13 +114,26 @@ constructor(
                 weedEntity.instanceid = myVal.metaInstanceID
                 weedEntity.controlKey = myVal.metaInstanceID
 
-
                 data.add(weedEntity)
+
+                //process first nested value
+                val harvestRedDetailList = myVal.harvestRecTriDetail
+                var harvestRedDetailCount = 1
+                harvestRedDetailList?.forEach { myVal ->
+                    val triDetailEntity = modelMapper.map(myVal, DataValSphsHarvestRecTriDetailEntity::class.java)
+
+                    triDetailEntity.controlKey = weedEntity.controlKey
+                    triDetailEntity.setOfHarvest = weedEntity.controlKey
+                    triDetailEntity.parentKey = weedEntity.controlKey
+
+                    recTriDetailEntityData.add(triDetailEntity)
+                }
 
             }
 
             log.info("Saving all the data to the database now")
-            dataValSphsRepo.saveAll(data)
+//            dataValSphsRepo.saveAll(data)
+            harvestRecTriDetailRepo.saveAll(recTriDetailEntityData)
             log.info("Finished saving the data for $fileName------->")
         }
     }
