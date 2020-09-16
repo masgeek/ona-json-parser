@@ -125,6 +125,7 @@ class ValSphsTzSz : BaseEntity() {
     var priceNote: String? = null
     var priceRm4: String? = null
     var priceRm2: String? = null
+
     @Column(name = "price_r0")
     var priceR0: String? = null
     var priceRp2: String? = null
@@ -157,139 +158,147 @@ class ValSphsTzSz : BaseEntity() {
     @Column(name = "price_p4")
     var priceP4: String? = null
     var noRecommendationNote: String? = null
-//
-//    @Column(name = "lookupp0h0_id")
-//    var lookupp0h0Id: String? = null
-//
-//    @Column(name = "lookupp0hm1_id")
-//    var lookupp0hm1Id: String? = null
-//
-//    @Column(name = "lookupp0hm2_id")
-//    var lookupp0hm2Id: String? = null
-//
-//    @Column(name = "lookupp0hm3_id")
-//    var lookupp0hm3Id: String? = null
-//
-//    @Column(name = "lookupp0hm4_id")
-//    var lookupp0hm4Id: String? = null
-//
-//    @Column(name = "lookupp0hp1_id")
-//    var lookupp0hp1Id: String? = null
-//
-//    @Column(name = "lookupp0hp2_id")
-//    var lookupp0hp2Id: String? = null
-//
-//    @Column(name = "lookupp0hp3_id")
-//    var lookupp0hp3Id: String? = null
-//
-//    @Column(name = "lookupp0hp4_id")
-//    var lookupp0hp4Id: String? = null
-//
-//    var wyp0h0: String? = null
-//    var wyp0hm1: String? = null
-//    var wyp0hm2: String? = null
-//    var wyp0hm3: String? = null
-//    var wyp0hm4: String? = null
-//    var wyp0hp1: String? = null
-//    var wyp0hp2: String? = null
-//    var wyp0hp3: String? = null
-//    var wyp0hp4: String? = null
-//    var cyp0h0: String? = null
-//    var cyp0hm1: String? = null
-//    var cyp0hm2: String? = null
-//    var cyp0hm3: String? = null
-//    var cyp0hm4: String? = null
-//    var cyp0hp1: String? = null
-//    var cyp0hp2: String? = null
-//    var cyp0hp3: String? = null
-//    var cyp0hp4: String? = null
-//
-//    var sc0: String? = null
-//    var scm1: String? = null
-//    var scm2: String? = null
-//    var scm3: String? = null
-//    var scm4: String? = null
-//    var scp1: String? = null
-//    var scp2: String? = null
-//    var scp3: String? = null
-//    var scp4: String? = null
-//
-//    var pricesc0: String? = null
-//    var pricescm1: String? = null
-//    var pricescm2: String? = null
-//    var pricescm3: String? = null
-//    var pricescm4: String? = null
-//    var pricescp1: String? = null
-//    var pricescp2: String? = null
-//    var pricescp3: String? = null
-//    var pricescp4: String? = null
-//
-//    var yp0h0: String? = null
-//
-//    @Column(name = "yp0h0_ab")
-//    var yp0h0Ab: String? = null
-//    var yp0hm1: String? = null
-//    var yp0hm2: String? = null
-//    var yp0hm3: String? = null
-//    var yp0hm4: String? = null
-//    var yp0hp1: String? = null
-//    var yp0hp2: String? = null
-//    var yp0hp3: String? = null
-//    var yp0hp4: String? = null
-//    var grp0h0: String? = null
-//
-//    @Column(name = "grp0h0_ab")
-//    var grp0h0Ab: String? = null
-//
-//    @Column(name = "grp0h0_abcurr")
-//    var grp0h0Abcurr: String? = null
-//    var grp0hm1: String? = null
-//    var grp0hm2: String? = null
-//    var grp0hm3: String? = null
-//    var grp0hm4: String? = null
-//    var grp0hp1: String? = null
-//    var grp0hp2: String? = null
-//    var grp0hp3: String? = null
-//    var grp0hp4: String? = null
-//    var pp0h0: String? = null
-//    var pp0hm1: String? = null
-//    var pp0hm2: String? = null
-//    var pp0hm3: String? = null
-//    var pp0hm4: String? = null
-//    var pp0hp1: String? = null
-//    var pp0hp2: String? = null
-//    var pp0hp3: String? = null
-//    var pp0hp4: String? = null
-//    var gpp0h0: String? = null
-//    var gpp0h0Curr: String? = null
-//    var gpp0hm1: String? = null
-//    var gpp0hm2: String? = null
-//    var gpp0hm3: String? = null
-//    var gpp0hm4: String? = null
-//    var gpp0hp1: String? = null
-//    var gpp0hp2: String? = null
-//    var gpp0hp3: String? = null
-//    var gpp0hp4: String? = null
-//    var grmax: String? = null
-//    var grmaxAb: String? = null
-//    var grdif: String? = null
-//    var grdifAb: String? = null
-//    var grdifAbcurr: String? = null
-//    var gpmax: String? = null
-//    var gpdif: String? = null
-//    var gpdifcurr: String? = null
-//    var optharvest: String? = null
-//    var optharvesttext: String? = null
-//    var yh0P0Note: String? = null
-//    var optharvestnote: String? = null
-//    var difharvestnote: String? = null
-//    var grdifnote: String? = null
-//    var grmaxnote: String? = null
-//    var sensible: String? = null
-//    var validationnote: String? = null
-//    var validationnote2: String? = null
-//    var validationnote3: String? = null
-//    var call: String? = null
-//    var confirmval: String? = null
+
+    @Column(name = "lookupp0h0_id")
+    var lookupp0h0Id: String? = null
+
+    @Column(name = "lookupp0hm1_id")
+    var lookupp0hm1Id: String? = null
+
+    @Column(name = "lookupp0hm2_id")
+    var lookupp0hm2Id: String? = null
+
+    @Column(name = "lookupp0hm3_id")
+    var lookupp0hm3Id: String? = null
+
+    @Column(name = "lookupp0hm4_id")
+    var lookupp0hm4Id: String? = null
+
+    @Column(name = "lookupp0hp1_id")
+    var lookupp0hp1Id: String? = null
+
+    @Column(name = "lookupp0hp2_id")
+    var lookupp0hp2Id: String? = null
+
+    @Column(name = "lookupp0hp3_id")
+    var lookupp0hp3Id: String? = null
+
+    @Column(name = "lookupp0hp4_id")
+    var lookupp0hp4Id: String? = null
+
+    var wyp0h0: String? = null
+    var wyp0hm1: String? = null
+    var wyp0hm2: String? = null
+    var wyp0hm3: String? = null
+    var wyp0hm4: String? = null
+    var wyp0hp1: String? = null
+    var wyp0hp2: String? = null
+    var wyp0hp3: String? = null
+    var wyp0hp4: String? = null
+
+
+    var cyp0h0: String? = null
+    var cyp0hm1: String? = null
+    var cyp0hm2: String? = null
+    var cyp0hm3: String? = null
+    var cyp0hm4: String? = null
+    var cyp0hp1: String? = null
+    var cyp0hp2: String? = null
+    var cyp0hp3: String? = null
+    var cyp0hp4: String? = null
+
+    var sc0: String? = null
+    var scm1: String? = null
+    var scm2: String? = null
+    var scm3: String? = null
+    var scm4: String? = null
+    var scp1: String? = null
+    var scp2: String? = null
+    var scp3: String? = null
+    var scp4: String? = null
+
+    var pricesc0: String? = null
+    var pricescm1: String? = null
+    var pricescm2: String? = null
+    var pricescm3: String? = null
+    var pricescm4: String? = null
+    var pricescp1: String? = null
+    var pricescp2: String? = null
+    var pricescp3: String? = null
+    var pricescp4: String? = null
+
+    var yp0h0: String? = null
+    var yp0h0ab: String? = null
+    var yp0hm1: String? = null
+    var yp0hm2: String? = null
+    var yp0hm3: String? = null
+    var yp0hm4: String? = null
+    var yp0hp1: String? = null
+    var yp0hp2: String? = null
+    var yp0hp3: String? = null
+    var yp0hp4: String? = null
+
+    var grp0h0: String? = null
+
+    @Column(name = "grp0h0_ab")
+    var grp0h0Ab: String? = null
+
+    @Column(name = "grp0h0_abcurr")
+    var grp0h0Abcurr: String? = null
+    var grp0hm1: String? = null
+    var grp0hm2: String? = null
+    var grp0hm3: String? = null
+    var grp0hm4: String? = null
+    var grp0hp1: String? = null
+    var grp0hp2: String? = null
+    var grp0hp3: String? = null
+    var grp0hp4: String? = null
+
+
+    var pp0h0: String? = null
+    var pp0hm1: String? = null
+    var pp0hm2: String? = null
+    var pp0hm3: String? = null
+    var pp0hm4: String? = null
+    var pp0hp1: String? = null
+    var pp0hp2: String? = null
+    var pp0hp3: String? = null
+    var pp0hp4: String? = null
+
+
+    var gpp0h0: String? = null
+    var gpp0h0Curr: String? = null
+    var gpp0hm1: String? = null
+    var gpp0hm2: String? = null
+    var gpp0hm3: String? = null
+    var gpp0hm4: String? = null
+    var gpp0hp1: String? = null
+    var gpp0hp2: String? = null
+    var gpp0hp3: String? = null
+    var gpp0hp4: String? = null
+
+    var grmax: String? = null
+    var grmaxAb: String? = null
+    var grdif: String? = null
+    var grdifAb: String? = null
+    var grdifAbcurr: String? = null
+    var gpmax: String? = null
+    var gpdif: String? = null
+    var gpdifcurr: String? = null
+    var optHarvest: String? = null
+    var optHarvestText: String? = null
+
+    @Column(name = "yh0p0_note")
+    var yh0P0Note: String? = null
+    var optHarvestNote: String? = null
+    var difHarvestNote: String? = null
+    var grdifNote: String? = null
+    var grmaxNote: String? = null
+    var sensible: String? = null
+    var validationNote: String? = null
+    var validationNote2: String? = null
+    var validationNote3: String? = null
+    var callValue: String? = null
+    var confirmVal: String? = null
 
 }

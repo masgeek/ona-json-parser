@@ -1,229 +1,887 @@
 package com.tsobu.ona.core.dto.json
 
-import com.tsobu.ona.database.entities.BaseEntity
-import java.util.*
-import javax.persistence.Entity
-import javax.persistence.Table
+import com.fasterxml.jackson.annotation.JsonInclude
+import com.fasterxml.jackson.annotation.JsonProperty
+import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
-
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder(
+        "SubmissionDate",
+        "uuid",
+        "start",
+        "end",
+        "today",
+        "deviceid",
+        "subscriberid",
+        "email",
+        "username",
+        "simserial",
+        "phonenumber",
+        "banner",
+        "intro",
+        "intro2",
+        "VAL",
+        "EAID",
+        "HHID",
+        "countrySelect",
+        "country",
+        "currency",
+        "conversion",
+        "geopoint-Latitude",
+        "geopoint-Longitude",
+        "geopoint-Altitude",
+        "geopoint-Accuracy",
+        "lat",
+        "lon",
+        "plantingDate",
+        "season",
+        "plantingWeek0",
+        "harvestDate",
+        "harvestWeek0",
+        "harvestWeekm1",
+        "harvestWeekm2",
+        "harvestWeekm3",
+        "harvestWeekm4",
+        "harvestWeekp1",
+        "harvestWeekp2",
+        "harvestWeekp3",
+        "harvestWeekp4",
+        "harvestAge0",
+        "harvestAgem1",
+        "harvestAgem2",
+        "harvestAgem3",
+        "harvestAgem4",
+        "harvestAgep1",
+        "harvestAgep2",
+        "harvestAgep3",
+        "harvestAgep4",
+        "check_id",
+        "check",
+        "variety",
+        "plantingDensity",
+        "betweenRow",
+        "withinRow",
+        "areaBasis",
+        "plotL",
+        "plotW",
+        "plotSize",
+        "yieldLevel",
+        "priceStarch",
+        "starchFactory",
+        "SC1",
+        "SC2",
+        "SC3",
+        "SC4",
+        "SC5",
+        "SC6",
+        "SC7",
+        "SC8",
+        "SC9",
+        "SC10",
+        "SC11",
+        "SC12",
+        "priceSC1",
+        "priceSC2",
+        "priceSC3",
+        "priceSC4",
+        "priceSC5",
+        "priceSC6",
+        "priceSC7",
+        "priceSC8",
+        "priceSC9",
+        "priceSC10",
+        "priceSC11",
+        "priceSC12",
+        "product",
+        "transformRatio",
+        "unit",
+        "unitNameSelect",
+        "unitNameOther",
+        "unitWeightOther",
+        "unitName",
+        "unitLocalWeight",
+        "unitWeight",
+        "priceNote",
+        "priceRm4",
+        "priceRm2",
+        "priceR0",
+        "priceRp2",
+        "priceRp4",
+        "price0",
+        "pricem1",
+        "pricem2",
+        "pricem3",
+        "pricem4",
+        "pricep1",
+        "pricep2",
+        "pricep3",
+        "pricep4",
+        "noRecommendationNote",
+        "lookupp0h0_id",
+        "lookupp0hm1_id",
+        "lookupp0hm2_id",
+        "lookupp0hm3_id",
+        "lookupp0hm4_id",
+        "lookupp0hp1_id",
+        "lookupp0hp2_id",
+        "lookupp0hp3_id",
+        "lookupp0hp4_id",
+        "WYp0h0",
+        "WYp0hm1",
+        "WYp0hm2",
+        "WYp0hm3",
+        "WYp0hm4",
+        "WYp0hp1",
+        "WYp0hp2",
+        "WYp0hp3",
+        "WYp0hp4",
+        "CYp0h0",
+        "CYp0hm1",
+        "CYp0hm2",
+        "CYp0hm3",
+        "CYp0hm4",
+        "CYp0hp1",
+        "CYp0hp2",
+        "CYp0hp3",
+        "CYp0hp4",
+        "SC0",
+        "SCm1",
+        "SCm2",
+        "SCm3",
+        "SCm4",
+        "SCp1",
+        "SCp2",
+        "SCp3",
+        "SCp4",
+        "priceSC0",
+        "priceSCm1",
+        "priceSCm2",
+        "priceSCm3",
+        "priceSCm4",
+        "priceSCp1",
+        "priceSCp2",
+        "priceSCp3",
+        "priceSCp4",
+        "Yp0h0",
+        "Yp0h0_AB",
+        "Yp0hm1",
+        "Yp0hm2",
+        "Yp0hm3",
+        "Yp0hm4",
+        "Yp0hp1",
+        "Yp0hp2",
+        "Yp0hp3",
+        "Yp0hp4",
+        "GRp0h0",
+        "GRp0h0_AB",
+        "GRp0h0_ABcurr",
+        "GRp0hm1",
+        "GRp0hm2",
+        "GRp0hm3",
+        "GRp0hm4",
+        "GRp0hp1",
+        "GRp0hp2",
+        "GRp0hp3",
+        "GRp0hp4",
+        "Pp0h0",
+        "Pp0hm1",
+        "Pp0hm2",
+        "Pp0hm3",
+        "Pp0hm4",
+        "Pp0hp1",
+        "Pp0hp2",
+        "Pp0hp3",
+        "Pp0hp4",
+        "GPp0h0",
+        "GPp0h0curr",
+        "GPp0hm1",
+        "GPp0hm2",
+        "GPp0hm3",
+        "GPp0hm4",
+        "GPp0hp1",
+        "GPp0hp2",
+        "GPp0hp3",
+        "GPp0hp4",
+        "GRmax",
+        "GRmax_AB",
+        "GRdif",
+        "GRdif_AB",
+        "GRdif_ABcurr",
+        "GPmax",
+        "GPdif",
+        "GPdifcurr",
+        "optHarvest",
+        "optHarvestText",
+        "Yh0p0Note",
+        "optHarvestNote",
+        "difHarvestNote",
+        "GRdifNote",
+        "GRmaxNote",
+        "sensible",
+        "validationNote",
+        "validationNote2",
+        "validationNote3",
+        "call",
+        "confirmVAL",
+        "instanceID",
+        "KEY"
+)
 class ValSphsTzSzDto {
+    @JsonProperty("SubmissionDate")
     var submissionDate: String? = null
-    var uuid: String? = null
-    var startDate: String? = null
-    var todayDate: String? = null
-    var deviceid: String? = null
-    var subscriberid: String? = null
-    var email: String? = null
-    var username: String? = null
-    var simserial: String? = null
-    var phonenumber: String? = null
-    var banner: String? = null
-    var intro: String? = null
-    var intro2: String? = null
-    var valSphs: String? = null
-    var eaid: String? = null
-    var hhid: String? = null
-    var countrySelect: String? = null
-    var country: String? = null
-    var currency: String? = null
-    var conversion: String? = null
-    var geoPointLatitude: String? = null
-    var geoPointLongitude: String? = null
-    var geoPointAltitude: String? = null
-    var geoPointAccuracy: String? = null
-    var lat: String? = null
-    var lon: String? = null
-    var plantingDate: String? = null
-    var season: String? = null
-    var plantingWeek0: String? = null
-    var harvestDate: String? = null
-    var harvestWeek0: String? = null
-    var harvestWeekm1: String? = null
-    var harvestWeekm2: String? = null
-    var harvestWeekm3: String? = null
-    var harvestWeekm4: String? = null
-    var harvestWeekp1: String? = null
-    var harvestWeekp2: String? = null
-    var harvestWeekp3: String? = null
-    var harvestWeekp4: String? = null
-    var harvestAge0: String? = null
-    var harvestAgem1: String? = null
-    var harvestAgem2: String? = null
-    var harvestAgem3: String? = null
-    var harvestAgem4: String? = null
-    var harvestAgep1: String? = null
-    var harvestAgep2: String? = null
-    var harvestAgep3: String? = null
-    var harvestAgep4: String? = null
-    var checkId: String? = null
-    var check: String? = null
-    var variety: String? = null
-    var plantingDensity: String? = null
-    var betweenRow: String? = null
-    var withinRow: String? = null
-    var areaBasis: String? = null
-    var plotL: String? = null
-    var plotW: String? = null
-    var plotSize: String? = null
-    var yieldLevel: String? = null
-    var priceStarch: String? = null
-    var starchFactory: String? = null
-    var sc1: String? = null
-    var sc2: String? = null
-    var sc3: String? = null
-    var sc4: String? = null
-    var sc5: String? = null
-    var sc6: String? = null
-    var sc7: String? = null
-    var sc8: String? = null
-    var sc9: String? = null
-    var sc10: String? = null
-    var sc11: String? = null
-    var sc12: String? = null
-    var priceSc1: String? = null
-    var priceSc2: String? = null
-    var priceSc3: String? = null
-    var priceSc4: String? = null
-    var priceSc5: String? = null
-    var priceSc6: String? = null
-    var priceSc7: String? = null
-    var priceSc8: String? = null
-    var priceSc9: String? = null
-    var priceSc10: String? = null
-    var priceSc11: String? = null
-    var priceSc12: String? = null
-    var product: String? = null
-    var transformRatio: String? = null
-    var unit: String? = null
-    var unitNameSelect: String? = null
-    var unitNameOther: String? = null
-    var unitWeightOther: String? = null
-    var unitName: String? = null
-    var unitLocalWeight: String? = null
-    var unitWeight: String? = null
-    var priceNote: String? = null
-    var priceRm4: String? = null
-    var priceRm2: String? = null
-    var priceR0: String? = null
-    var priceRp2: String? = null
-    var priceRp4: String? = null
-    var price0: String? = null
-    var pricem1: String? = null
-    var pricem2: String? = null
-    var pricem3: String? = null
-    var pricem4: String? = null
-    var pricep1: String? = null
-    var pricep2: String? = null
-    var pricep3: String? = null
-    var pricep4: String? = null
-    var noRecommendationNote: String? = null
-    var lookupp0H0Id: String? = null
-    var lookupp0Hm1Id: String? = null
-    var lookupp0Hm2Id: String? = null
-    var lookupp0Hm3Id: String? = null
-    var lookupp0Hm4Id: String? = null
-    var lookupp0Hp1Id: String? = null
-    var lookupp0Hp2Id: String? = null
-    var lookupp0Hp3Id: String? = null
-    var lookupp0Hp4Id: String? = null
-    var wYp0H0: String? = null
-    var wYp0Hm1: String? = null
-    var wYp0Hm2: String? = null
-    var wYp0Hm3: String? = null
-    var wYp0Hm4: String? = null
-    var wYp0Hp1: String? = null
-    var wYp0Hp2: String? = null
-    var wYp0Hp3: String? = null
-    var wYp0Hp4: String? = null
-    var cYp0H0: String? = null
-    var cYp0Hm1: String? = null
-    var cYp0Hm2: String? = null
-    var cYp0Hm3: String? = null
-    var cYp0Hm4: String? = null
-    var cYp0Hp1: String? = null
-    var cYp0Hp2: String? = null
-    var cYp0Hp3: String? = null
-    var cYp0Hp4: String? = null
-    var sc0: String? = null
-    var sCm1: String? = null
-    var sCm2: String? = null
-    var sCm3: String? = null
-    var sCm4: String? = null
-    var sCp1: String? = null
-    var sCp2: String? = null
-    var sCp3: String? = null
-    var sCp4: String? = null
-    var priceSc0: String? = null
-    var priceSCm1: String? = null
-    var priceSCm2: String? = null
-    var priceSCm3: String? = null
-    var priceSCm4: String? = null
-    var priceSCp1: String? = null
-    var priceSCp2: String? = null
-    var priceSCp3: String? = null
-    var priceSCp4: String? = null
-    var yp0H0: String? = null
-    var yp0H0Ab: String? = null
-    var yp0Hm1: String? = null
-    var yp0Hm2: String? = null
-    var yp0Hm3: String? = null
-    var yp0Hm4: String? = null
-    var yp0Hp1: String? = null
-    var yp0Hp2: String? = null
-    var yp0Hp3: String? = null
-    var yp0Hp4: String? = null
-    var gRp0H0: String? = null
-    var gRp0H0Ab: String? = null
-    var gRp0H0ABcurr: String? = null
-    var gRp0Hm1: String? = null
-    var gRp0Hm2: String? = null
-    var gRp0Hm3: String? = null
-    var gRp0Hm4: String? = null
-    var gRp0Hp1: String? = null
-    var gRp0Hp2: String? = null
-    var gRp0Hp3: String? = null
-    var gRp0Hp4: String? = null
-    var pp0H0: String? = null
-    var pp0Hm1: String? = null
-    var pp0Hm2: String? = null
-    var pp0Hm3: String? = null
-    var pp0Hm4: String? = null
-    var pp0Hp1: String? = null
-    var pp0Hp2: String? = null
-    var pp0Hp3: String? = null
-    var pp0Hp4: String? = null
-    var gPp0H0: String? = null
-    var gPp0H0Curr: String? = null
-    var gPp0Hm1: String? = null
-    var gPp0Hm2: String? = null
-    var gPp0Hm3: String? = null
-    var gPp0Hm4: String? = null
-    var gPp0Hp1: String? = null
-    var gPp0Hp2: String? = null
-    var gPp0Hp3: String? = null
-    var gPp0Hp4: String? = null
-    var gRmax: String? = null
-    var gRmaxAb: String? = null
-    var gRdif: String? = null
-    var gRdifAb: String? = null
-    var gRdifABcurr: String? = null
-    var gPmax: String? = null
-    var gPdif: String? = null
-    var gPdifcurr: String? = null
-    var optHarvest: String? = null
-    var optHarvestText: String? = null
-    var yh0P0Note: String? = null
-    var optHarvestNote: String? = null
-    var difHarvestNote: String? = null
-    var gRdifNote: String? = null
-    var gRmaxNote: String? = null
-    var sensible: String? = null
-    var validationNote: String? = null
-    var validationNote2: String? = null
-    var validationNote3: String? = null
-    var call: String? = null
-    var confirmVal: String? = null
-    var endDate: String? = null
-    var instanceId: String? = null
+
+    @JsonProperty("KEY")
     var controlKey: String? = null
+
+    @JsonProperty("uuid")
+    var uuid: String? = null
+
+    @JsonProperty("start")
+    var startDate: String? = null
+
+    @JsonProperty("today")
+    var todayDate: String? = null
+
+    @JsonProperty("end")
+    var endDate: String? = null
+
+    @JsonProperty("instanceID")
+    var instanceID: String? = null
+
+    @JsonProperty("deviceid")
+    var deviceid: String? = null
+
+    @JsonProperty("subscriberid")
+    var subscriberId: String? = null
+
+    @JsonProperty("email")
+    var email: String? = null
+
+    @JsonProperty("username")
+    var username: String? = null
+
+    @JsonProperty("simserial")
+    var simserial: String? = null
+
+    @JsonProperty("phonenumber")
+    var phonenumber: String? = null
+
+    @JsonProperty("banner")
+    var banner: String? = null
+
+    @JsonProperty("intro")
+    var intro: String? = null
+
+    @JsonProperty("intro2")
+    var intro2: String? = null
+
+    @JsonProperty("VAL")
+    var valSphs: String? = null
+
+    @JsonProperty("EAID")
+    var eaid: String? = null
+
+    @JsonProperty("HHID")
+    var hhid: String? = null
+
+    @JsonProperty("countrySelect")
+    var countryselect: String? = null
+
+    @JsonProperty("country")
+    var country: String? = null
+
+    @JsonProperty("currency")
+    var currency: String? = null
+
+    @JsonProperty("conversion")
+    var conversion: String? = null
+
+    @JsonProperty("geopoint-Latitude")
+    var geoPointLatitude: Double? = null
+
+    @JsonProperty("geopoint-Longitude")
+    var geoPointLongitude: Double? = null
+
+    @JsonProperty("geopoint-Altitude")
+    var geoPointAltitude: Double? = null
+
+    @JsonProperty("geopoint-Accuracy")
+    var geoPointAccuracy: String? = null
+
+    @JsonProperty("lat")
+    var lat: Double? = null
+
+    @JsonProperty("lon")
+    var lon: Double? = null
+
+    @JsonProperty("plantingDate")
+    var plantingDate: String? = null
+
+    @JsonProperty("season")
+    var season: String? = null
+
+    @JsonProperty("plantingWeek0")
+    var plantingWeek0: String? = null
+
+    @JsonProperty("harvestDate")
+    var harvestDate: String? = null
+
+    @JsonProperty("harvestWeek0")
+    var harvestWeek0: String? = null
+
+    @JsonProperty("harvestWeekm1")
+    var harvestWeekm1: String? = null
+
+    @JsonProperty("harvestWeekm2")
+    var harvestWeekm2: String? = null
+
+    @JsonProperty("harvestWeekm3")
+    var harvestWeekm3: String? = null
+
+    @JsonProperty("harvestWeekm4")
+    var harvestWeekm4: String? = null
+
+    @JsonProperty("harvestWeekp1")
+    var harvestWeekp1: String? = null
+
+    @JsonProperty("harvestWeekp2")
+    var harvestWeekp2: String? = null
+
+    @JsonProperty("harvestWeekp3")
+    var harvestWeekp3: String? = null
+
+    @JsonProperty("harvestWeekp4")
+    var harvestWeekp4: String? = null
+
+    @JsonProperty("harvestAge0")
+    var harvestAge0: String? = null
+
+    @JsonProperty("harvestAgem1")
+    var harvestAgem1: String? = null
+
+    @JsonProperty("harvestAgem2")
+    var harvestAgem2: String? = null
+
+    @JsonProperty("harvestAgem3")
+    var harvestAgem3: String? = null
+
+    @JsonProperty("harvestAgem4")
+    var harvestAgem4: String? = null
+
+    @JsonProperty("harvestAgep1")
+    var harvestAgep1: String? = null
+
+    @JsonProperty("harvestAgep2")
+    var harvestAgep2: String? = null
+
+    @JsonProperty("harvestAgep3")
+    var harvestAgep3: String? = null
+
+    @JsonProperty("harvestAgep4")
+    var harvestAgep4: String? = null
+
+    @JsonProperty("check_id")
+    var checkId: String? = null
+
+    @JsonProperty("check")
+    var checkValue: String? = null
+
+    @JsonProperty("variety")
+    var variety: String? = null
+
+    @JsonProperty("plantingDensity")
+    var plantingDensity: String? = null
+
+    @JsonProperty("betweenRow")
+    var betweenRow: String? = null
+
+    @JsonProperty("withinRow")
+    var withinRow: String? = null
+
+    @JsonProperty("areaBasis")
+    var areaBasis: String? = null
+
+    @JsonProperty("plotL")
+    var plotLength: String? = null
+
+    @JsonProperty("plotW")
+    var plotWidth: String? = null
+
+    @JsonProperty("plotSize")
+    var plotSize: String? = null
+
+    @JsonProperty("yieldLevel")
+    var yieldLevel: String? = null
+
+    @JsonProperty("priceStarch")
+    var priceStarch: String? = null
+
+    @JsonProperty("starchFactory")
+    var starchFactory: String? = null
+
+    @JsonProperty("SC1")
+    var sc1: String? = null
+
+    @JsonProperty("SC2")
+    var sc2: String? = null
+
+    @JsonProperty("SC3")
+    var sc3: String? = null
+
+    @JsonProperty("SC4")
+    var sc4: String? = null
+
+    @JsonProperty("SC5")
+    var sc5: String? = null
+
+    @JsonProperty("SC6")
+    var sc6: String? = null
+
+    @JsonProperty("SC7")
+    var sc7: String? = null
+
+    @JsonProperty("SC8")
+    var sc8: String? = null
+
+    @JsonProperty("SC9")
+    var sc9: String? = null
+
+    @JsonProperty("SC10")
+    var sc10: String? = null
+
+    @JsonProperty("SC11")
+    var sc11: String? = null
+
+    @JsonProperty("SC12")
+    var sc12: String? = null
+
+    @JsonProperty("priceSC1")
+    var pricesc1: String? = null
+
+    @JsonProperty("priceSC2")
+    var pricesc2: String? = null
+
+    @JsonProperty("priceSC3")
+    var pricesc3: String? = null
+
+    @JsonProperty("priceSC4")
+    var pricesc4: String? = null
+
+    @JsonProperty("priceSC5")
+    var pricesc5: String? = null
+
+    @JsonProperty("priceSC6")
+    var pricesc6: String? = null
+
+    @JsonProperty("priceSC7")
+    var pricesc7: String? = null
+
+    @JsonProperty("priceSC8")
+    var pricesc8: String? = null
+
+    @JsonProperty("priceSC9")
+    var pricesc9: String? = null
+
+    @JsonProperty("priceSC10")
+    var pricesc10: String? = null
+
+    @JsonProperty("priceSC11")
+    var pricesc11: String? = null
+
+    @JsonProperty("priceSC12")
+    var pricesc12: String? = null
+
+    @JsonProperty("product")
+    var product: String? = null
+
+    @JsonProperty("transformRatio")
+    var transformRatio: String? = null
+
+    @JsonProperty("unit")
+    var unit: String? = null
+
+    @JsonProperty("unitNameSelect")
+    var unitNameSelect: String? = null
+
+    @JsonProperty("unitNameOther")
+    var unitNameOther: String? = null
+
+    @JsonProperty("unitWeightOther")
+    var unitWeightOther: String? = null
+
+    @JsonProperty("unitName")
+    var unitName: String? = null
+
+    @JsonProperty("unitLocalWeight")
+    var unitLocalWeight: String? = null
+
+    @JsonProperty("unitWeight")
+    var unitWeight: String? = null
+
+    @JsonProperty("priceNote")
+    var priceNote: String? = null
+
+    @JsonProperty("priceRm4")
+    var priceRm4: String? = null
+
+    @JsonProperty("priceRm2")
+    var priceRm2: String? = null
+
+    @JsonProperty("priceR0")
+    var priceR0: String? = null
+
+    @JsonProperty("priceRp2")
+    var priceRp2: String? = null
+
+    @JsonProperty("priceRp4")
+    var priceRp4: String? = null
+
+    @JsonProperty("price0")
+    var price0: String? = null
+
+    @JsonProperty("pricem1")
+    var priceM1: String? = null
+
+    @JsonProperty("pricem2")
+    var priceM2: String? = null
+
+    @JsonProperty("pricem3")
+    var priceM3: String? = null
+
+    @JsonProperty("pricem4")
+    var priceM4: String? = null
+
+    @JsonProperty("pricep1")
+    var priceP1: String? = null
+
+    @JsonProperty("pricep2")
+    var priceP2: String? = null
+
+    @JsonProperty("pricep3")
+    var priceP3: String? = null
+
+    @JsonProperty("pricep4")
+    var priceP4: String? = null
+
+    @JsonProperty("noRecommendationNote")
+    var noRecommendationNote: String? = null
+
+    @JsonProperty("lookupp0h0_id")
+    var lookupp0h0Id: String? = null
+
+    @JsonProperty("lookupp0hm1_id")
+    var lookupp0hm1Id: String? = null
+
+    @JsonProperty("lookupp0hm2_id")
+    var lookupp0hm2Id: String? = null
+
+    @JsonProperty("lookupp0hm3_id")
+    var lookupp0hm3Id: String? = null
+
+    @JsonProperty("lookupp0hm4_id")
+    var lookupp0hm4Id: String? = null
+
+    @JsonProperty("lookupp0hp1_id")
+    var lookupp0hp1Id: String? = null
+
+    @JsonProperty("lookupp0hp2_id")
+    var lookupp0hp2Id: String? = null
+
+    @JsonProperty("lookupp0hp3_id")
+    var lookupp0hp3Id: String? = null
+
+    @JsonProperty("lookupp0hp4_id")
+    var lookupp0hp4Id: String? = null
+
+    @JsonProperty("WYp0h0")
+    var wyp0h0: String? = null
+
+    @JsonProperty("WYp0hm1")
+    var wyp0hm1: String? = null
+
+    @JsonProperty("WYp0hm2")
+    var wyp0hm2: String? = null
+
+    @JsonProperty("WYp0hm3")
+    var wyp0hm3: String? = null
+
+    @JsonProperty("WYp0hm4")
+    var wyp0hm4: String? = null
+
+    @JsonProperty("WYp0hp1")
+    var wyp0hp1: String? = null
+
+    @JsonProperty("WYp0hp2")
+    var wyp0hp2: String? = null
+
+    @JsonProperty("WYp0hp3")
+    var wyp0hp3: String? = null
+
+    @JsonProperty("WYp0hp4")
+    var wyp0hp4: String? = null
+
+    @JsonProperty("CYp0h0")
+    var cyp0h0: String? = null
+
+    @JsonProperty("CYp0hm1")
+    var cyp0hm1: String? = null
+
+    @JsonProperty("CYp0hm2")
+    var cyp0hm2: String? = null
+
+    @JsonProperty("CYp0hm3")
+    var cyp0hm3: String? = null
+
+    @JsonProperty("CYp0hm4")
+    var cyp0hm4: String? = null
+
+    @JsonProperty("CYp0hp1")
+    var cyp0hp1: String? = null
+
+    @JsonProperty("CYp0hp2")
+    var cyp0hp2: String? = null
+
+    @JsonProperty("CYp0hp3")
+    var cyp0hp3: String? = null
+
+    @JsonProperty("CYp0hp4")
+    var cyp0hp4: String? = null
+
+    @JsonProperty("SC0")
+    var sc0: String? = null
+
+    @JsonProperty("SCm1")
+    var scm1: String? = null
+
+    @JsonProperty("SCm2")
+    var scm2: String? = null
+
+    @JsonProperty("SCm3")
+    var scm3: String? = null
+
+    @JsonProperty("SCm4")
+    var scm4: String? = null
+
+    @JsonProperty("SCp1")
+    var scp1: String? = null
+
+    @JsonProperty("SCp2")
+    var scp2: String? = null
+
+    @JsonProperty("SCp3")
+    var scp3: String? = null
+
+    @JsonProperty("SCp4")
+    var scp4: String? = null
+
+
+    @JsonProperty("priceSC0")
+    var pricesc0: String? = null
+
+    @JsonProperty("priceSCm1")
+    var pricescm1: String? = null
+
+    @JsonProperty("priceSCm2")
+    var priceSCm2: String? = null
+
+    @JsonProperty("priceSCm3")
+    var priceSCm3: String? = null
+
+    @JsonProperty("priceSCm4")
+    var pricescm4: String? = null
+
+    @JsonProperty("priceSCp1")
+    var pricescp1: String? = null
+
+    @JsonProperty("priceSCp2")
+    var pricescp2: String? = null
+
+    @JsonProperty("priceSCp3")
+    var pricescp3: String? = null
+
+    @JsonProperty("priceSCp4")
+    var pricescp4: String? = null
+
+    @JsonProperty("Yp0h0")
+    var yp0h0: String? = null
+
+    @JsonProperty("Yp0h0_AB")
+    var yp0h0ab: String? = null
+
+    @JsonProperty("Yp0hm1")
+    var yp0hm1: String? = null
+
+    @JsonProperty("Yp0hm2")
+    var yp0hm2: String? = null
+
+    @JsonProperty("Yp0hm3")
+    var yp0hm3: String? = null
+
+    @JsonProperty("Yp0hm4")
+    var yp0hm4: String? = null
+
+    @JsonProperty("Yp0hp1")
+    var yp0hp1: String? = null
+
+    @JsonProperty("Yp0hp2")
+    var yp0hp2: String? = null
+
+    @JsonProperty("Yp0hp3")
+    var yp0hp3: String? = null
+
+    @JsonProperty("Yp0hp4")
+    var yp0hp4: String? = null
+
+    @JsonProperty("GRp0h0")
+    var grp0h0: String? = null
+
+    @JsonProperty("GRp0h0_AB")
+    var grp0h0Ab: String? = null
+
+    @JsonProperty("GRp0h0_ABcurr")
+    var grp0h0Abcurr: String? = null
+
+    @JsonProperty("GRp0hm1")
+    var grp0hm1: String? = null
+
+    @JsonProperty("GRp0hm2")
+    var grp0hm2: String? = null
+
+    @JsonProperty("GRp0hm3")
+    var grp0hm3: String? = null
+
+    @JsonProperty("GRp0hm4")
+    var grp0hm4: String? = null
+
+    @JsonProperty("GRp0hp1")
+    var grp0hp1: String? = null
+
+    @JsonProperty("GRp0hp2")
+    var grp0hp2: String? = null
+
+    @JsonProperty("GRp0hp3")
+    var grp0hp3: String? = null
+
+    @JsonProperty("GRp0hp4")
+    var grp0hp4: String? = null
+
+    @JsonProperty("Pp0h0")
+    var pp0h0: String? = null
+
+    @JsonProperty("Pp0hm1")
+    var pp0hm1: String? = null
+
+    @JsonProperty("Pp0hm2")
+    var pp0hm2: String? = null
+
+    @JsonProperty("Pp0hm3")
+    var pp0hm3: String? = null
+
+    @JsonProperty("Pp0hm4")
+    var pp0hm4: String? = null
+
+    @JsonProperty("Pp0hp1")
+    var pp0hp1: String? = null
+
+    @JsonProperty("Pp0hp2")
+    var pp0hp2: String? = null
+
+    @JsonProperty("Pp0hp3")
+    var pp0hp3: String? = null
+
+    @JsonProperty("Pp0hp4")
+    var pp0hp4: String? = null
+
+    @JsonProperty("GPp0h0")
+    var gpp0h0: String? = null
+
+    @JsonProperty("GPp0h0curr")
+    var gpp0h0Curr: String? = null
+
+    @JsonProperty("GPp0hm1")
+    var gpp0hm1: String? = null
+
+    @JsonProperty("GPp0hm2")
+    var gpp0hm2: String? = null
+
+    @JsonProperty("GPp0hm3")
+    var gpp0hm3: String? = null
+
+    @JsonProperty("GPp0hm4")
+    var gpp0hm4: String? = null
+
+    @JsonProperty("GPp0hp1")
+    var gpp0hp1: String? = null
+
+    @JsonProperty("GPp0hp2")
+    var gpp0hp2: String? = null
+
+    @JsonProperty("GPp0hp3")
+    var gpp0hp3: String? = null
+
+    @JsonProperty("GPp0hp4")
+    var gpp0hp4: String? = null
+
+    @JsonProperty("GRmax")
+    var grmax: String? = null
+
+    @JsonProperty("GRmax_AB")
+    var grmaxAb: String? = null
+
+    @JsonProperty("GRdif")
+    var grdif: String? = null
+
+    @JsonProperty("GRdif_AB")
+    var grdifAb: String? = null
+
+    @JsonProperty("GRdif_ABcurr")
+    var grdifAbcurr: String? = null
+
+    @JsonProperty("GPmax")
+    var gpmax: String? = null
+
+    @JsonProperty("GPdif")
+    var gpdif: String? = null
+
+    @JsonProperty("GPdifcurr")
+    var gpdifcurr: String? = null
+
+    @JsonProperty("optHarvest")
+    var optHarvest: String? = null
+
+    @JsonProperty("optHarvestText")
+    var optHarvestText: String? = null
+
+    @JsonProperty("Yh0p0Note")
+    var yh0p0Note: String? = null
+
+    @JsonProperty("optHarvestNote")
+    var optHarvestNote: String? = null
+
+    @JsonProperty("difHarvestNote")
+    var difHarvestNote: String? = null
+
+    @JsonProperty("GRdifNote")
+    var grdifNote: String? = null
+
+    @JsonProperty("GRmaxNote")
+    var grmaxNote: String? = null
+
+    @JsonProperty("sensible")
+    var sensible: String? = null
+
+    @JsonProperty("validationNote")
+    var validationNote: String? = null
+
+    @JsonProperty("validationNote2")
+    var validationNote2: String? = null
+
+    @JsonProperty("validationNote3")
+    var validationNote3: String? = null
+
+    @JsonProperty("call")
+    var callValue: String? = null
+
+    @JsonProperty("confirmVAL")
+    var confirmVAL: String? = null
 }

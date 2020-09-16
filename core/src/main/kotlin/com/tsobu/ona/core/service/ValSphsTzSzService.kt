@@ -41,15 +41,30 @@ constructor(
         log.info("Reading ValSphsTzSzDto table here")
         val scores = sphsTzSzRepo.findAll()
 
-        val yieldCassavaData = scores.map { scoreWeedControlAc ->
+        val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
+            override fun applies(context: MappingContext<Any?, Any?>): Boolean {
+                return if (context.source is String) {
+                    null != context.source && "" != context.source
+                } else {
+                    context.source != null
+                }
+            }
+        }
+
+        modelMapper.configuration.propertyCondition = isStringBlank
+        modelMapper.configuration.isSkipNullEnabled = true
+        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
+
+        val valSphssTzData = scores.map { scoreWeedControlAc ->
             val outboxDto = modelMapper.map(scoreWeedControlAc, ValSphsTzSzDto::class.java)
-//            outboxDto.submissionDate = myDateUtil.convertTimeToString(scoreWeedControlAc.submissionDate)
-//            outboxDto.startDate = myDateUtil.convertTimeToString(scoreWeedControlAc.startDate)
-//            outboxDto.endDate = myDateUtil.convertTimeToString(scoreWeedControlAc.endDate)
+            outboxDto.submissionDate = myDateUtil.convertTimeToString(scoreWeedControlAc.submissionDate)
+            outboxDto.startDate = myDateUtil.convertTimeToString(scoreWeedControlAc.startDate)
+            outboxDto.endDate = myDateUtil.convertTimeToString(scoreWeedControlAc.endDate)
             outboxDto
         }
         val writeCsvFile = WriteCsvFile()
-        writeCsvFile.writeValSphsTzSzCsv(list = yieldCassavaData, fileName = "VAL_SPHS_TZSZ.csv")
+        writeCsvFile.writeValSphsTzSzCsv(list = valSphssTzData, fileName = "VAL_SPHS_TZSZ.csv")
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -103,15 +118,15 @@ constructor(
             valSphsTzSzEntity.instanceid = myVal.metaInstanceID
             valSphsTzSzEntity.controlKey = myVal.metaInstanceID
 
-
-
-            log.info("Added data to list ${valSphsTzSzEntity.controlKey} with surname as ${valSphsTzSzEntity.username}")
-
-
-            data.add(valSphsTzSzEntity)
+            try {
+                val saved = sphsTzSzRepo.save(valSphsTzSzEntity)
+                log.info("Added data to table ${saved.controlKey} with surname as ${saved.username}")
+            } catch (ex: Exception) {
+                log.error(ex.message, ex.stackTrace)
+            }
         }
-        log.info("Saving all the data to the database now")
-        sphsTzSzRepo.saveAll(data)
+
+
         log.info("Finished saving the data for $fileName------->")
     }
 }
