@@ -1,4 +1,4 @@
-package com.tsobu.parser.core.dto.forms
+package com.tsobu.ona.core.dto.forms
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties

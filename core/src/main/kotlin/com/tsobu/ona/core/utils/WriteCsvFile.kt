@@ -97,4 +97,20 @@ class WriteCsvFile {
         }
     }
 
+    fun writeValSphsTzSzCsv(list: List<ValSphsTzSzDto>, fileName: String) {
+        try {
+            val mapper = CsvMapper()
+            mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true);
+            val schema: CsvSchema = mapper.schemaFor(ValSphsTzSzDto::class.java)
+                    .withUseHeader(true)
+
+            val tempFile = File("$filePath$fileName")
+
+            mapper.writer(schema).writeValue(tempFile, list)
+            log.info("$fileName written out to $filePath")
+        } catch (ex: Exception) {
+            log.error(ex.message, ex)
+        }
+    }
+
 }
