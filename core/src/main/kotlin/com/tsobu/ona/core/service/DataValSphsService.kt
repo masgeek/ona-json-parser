@@ -8,10 +8,14 @@ import com.tsobu.ona.core.dto.forms.datavalsphs.DataValSphs
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.DataValSphsEntity
-import com.tsobu.ona.database.entities.DataValSphsHarvestRecTriDetailEntity
-import com.tsobu.ona.database.repositories.DataValSphsHarvestRecTriDetailRepo
-import com.tsobu.ona.database.repositories.DataValSphsRepo
+import com.tsobu.ona.database.entities.datavalsphs.HarvestRecTriDetailEntity
+import com.tsobu.ona.database.entities.datavalsphs.RemainPlantRecEntity
+import com.tsobu.ona.database.entities.datavalsphs.SphsEntity
+import com.tsobu.ona.database.entities.datavalsphs.SphsHarvestRecTriEntity
+import com.tsobu.ona.database.repositories.datavalsphs.HarvestRecTriDetailRepo
+import com.tsobu.ona.database.repositories.datavalsphs.HarvestRecTriRepo
+import com.tsobu.ona.database.repositories.datavalsphs.RemainPlantRecRepo
+import com.tsobu.ona.database.repositories.datavalsphs.SphsRepo
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
@@ -30,8 +34,10 @@ import java.nio.file.Paths
 class DataValSphsService
 constructor(
         transactionManager: PlatformTransactionManager,
-        val dataValSphsRepo: DataValSphsRepo,
-        val harvestRecTriDetailRepo: DataValSphsHarvestRecTriDetailRepo,
+        val sphsRepo: SphsRepo,
+        val harvestRecTriDetailRepo: HarvestRecTriDetailRepo,
+        val recTriRepo: HarvestRecTriRepo,
+        val remainPlantRecRepo: RemainPlantRecRepo,
         val appConfig: AppConfig) {
 
     private val log = LoggerFactory.getLogger(DataValSphsService::class.java)
@@ -42,7 +48,7 @@ constructor(
 
     fun mapJsonFile() {
         log.info("Reading weed table here")
-        val scores = dataValSphsRepo.findAll()
+        val scores = sphsRepo.findAll()
         val triDetailList = harvestRecTriDetailRepo.findAll()
 
         val scoreWeedData = scores.map { scoreWeedControlAc ->
@@ -66,8 +72,10 @@ constructor(
 
         val list = objectMapper.readValue(file, object : TypeReference<List<DataValSphs>>() {})
 
-        val data = ArrayList<DataValSphsEntity>()
-        val recTriDetailEntityData = ArrayList<DataValSphsHarvestRecTriDetailEntity>()
+        val data = ArrayList<SphsEntity>()
+        val recTriDetailEntityData = ArrayList<HarvestRecTriDetailEntity>()
+        val recTriEntityData = ArrayList<SphsHarvestRecTriEntity>()
+        val remainPlantEntityData = ArrayList<RemainPlantRecEntity>()
 
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
@@ -79,7 +87,6 @@ constructor(
                 }
             }
         }
-
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
         modelMapper.configuration.isAmbiguityIgnored = true
@@ -91,7 +98,7 @@ constructor(
             list.forEach { myVal ->
                 //map and save to database
                 val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
-                val weedEntity = modelMapper.map(myVal, DataValSphsEntity::class.java)
+                val weedEntity = modelMapper.map(myVal, SphsEntity::class.java)
                 if (geoPoint.isNotEmpty()) {
                     weedEntity.geoPointLatitude = geoPoint[0].toDouble()
 
@@ -116,24 +123,55 @@ constructor(
 
                 data.add(weedEntity)
 
-                //process first nested value
-                val harvestRedDetailList = myVal.harvestRecTriDetail
-                var harvestRedDetailCount = 1
-                harvestRedDetailList?.forEach { myVal ->
-                    val triDetailEntity = modelMapper.map(myVal, DataValSphsHarvestRecTriDetailEntity::class.java)
+                val recTriList = myVal.harvestRecTri
+                var recTriCount = 1
+                recTriList?.forEach { recTri ->
+                    val recTriEntity = modelMapper.map(recTri, SphsHarvestRecTriEntity::class.java)
+                    recTriEntity.parentKey = weedEntity.controlKey
+                    recTriEntity.setOfHarvestRecTri = "${recTriEntity.parentKey}/harvest_REC_Tri"
+                    recTriEntity.controlKey = "${recTriEntity.parentKey}/harvest_REC_Tri[$recTriCount]"
 
-                    triDetailEntity.controlKey = weedEntity.controlKey
-                    triDetailEntity.setOfHarvest = weedEntity.controlKey
+                    recTriEntityData.add(recTriEntity)
+                    recTriCount = recTriCount.plus(1)
+                }
+                val recTriDetailList = myVal.harvestRecTriDetail
+                var recTriDetailCount = 1
+                recTriDetailList?.forEach { recTriDetail ->
+                    val triDetailEntity = modelMapper.map(recTriDetail, HarvestRecTriDetailEntity::class.java)
+
                     triDetailEntity.parentKey = weedEntity.controlKey
+                    triDetailEntity.setOfHarvest = "${triDetailEntity.parentKey}/harvest_REC_Tri_detail"
+                    triDetailEntity.controlKey = "${triDetailEntity.parentKey}/harvest_REC_Tri_detail[$recTriDetailCount]"
+                    triDetailEntity.setOfCornerPlant = "${triDetailEntity.setOfHarvest}/cornerPlant_REC"
+                    triDetailEntity.setOfRemainPlant = "${weedEntity.controlKey}/harvest_REC_Tri_detail[$recTriDetailCount]/remainPlant_REC"
+
 
                     recTriDetailEntityData.add(triDetailEntity)
+
+                    var remainPlantCounter = 1
+                    val remainPlantList = recTriDetail.remainPlantRec
+                    remainPlantList?.forEach { remainPlant ->
+                        val remainPlantEntity = modelMapper.map(remainPlant, RemainPlantRecEntity::class.java)
+
+                        remainPlantEntity.parentKey = "${triDetailEntity.setOfHarvest}[$remainPlantCounter]"
+                        remainPlantEntity.setOfRemainPlantRec = "${remainPlantEntity.parentKey}/remainPlant_REC"
+                        remainPlantEntity.controlKey = "${remainPlantEntity.setOfRemainPlantRec}[$remainPlantCounter]"
+
+                        remainPlantEntityData.add(remainPlantEntity)
+                        remainPlantCounter = remainPlantCounter.plus(1)
+                    }
+
+                    recTriDetailCount = recTriDetailCount.plus(1)
                 }
+
 
             }
 
             log.info("Saving all the data to the database now")
 //            dataValSphsRepo.saveAll(data)
-            harvestRecTriDetailRepo.saveAll(recTriDetailEntityData)
+//            harvestRecTriDetailRepo.saveAll(recTriDetailEntityData)
+//            recTriRepo.saveAll(recTriEntityData)
+            remainPlantRecRepo.saveAll(remainPlantEntityData)
             log.info("Finished saving the data for $fileName------->")
         }
     }

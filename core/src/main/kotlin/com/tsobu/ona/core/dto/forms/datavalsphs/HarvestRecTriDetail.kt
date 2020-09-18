@@ -1,15 +1,17 @@
 package com.tsobu.ona.core.dto.forms.datavalsphs
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class HarvestRecTriDetail {
     @JsonProperty("harvest_REC_Tri_detail/cornerPlant_REC")
     var harvestRecTriDetailCornerPlantRec: List<HarvestRecTriDetailCornerPlantRec>? = null
 
     @JsonProperty("harvest_REC_Tri_detail/remainPlant_REC")
-    var harvestRecTriDetailRemainPlantRec: List<HarvestRecTriDetailRemainPlantRec>? = null
+    var remainPlantRec: List<HarvestRecTriDetailRemainPlantRec>? = null
 
     @JsonProperty("harvest_REC_Tri_detail/cornerPlant_REC_count")
     var cornerPlantRecCount: String? = null

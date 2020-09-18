@@ -1,4 +1,4 @@
-package com.tsobu.ona.database.entities
+package com.tsobu.ona.database.entities.datavalsphs
 
 import com.tsobu.ona.database.entities.BaseEntity
 import javax.persistence.Entity
@@ -6,7 +6,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "dataval_sphs_harvest_rec_tri_detail")
-class DataValSphsHarvestRecTriDetailEntity : BaseEntity() {
+class HarvestRecTriDetailEntity : BaseEntity() {
     var triangleNr: String? = null
     var nrPlants: String? = null
     var cornerPlantRecCount: String? = null

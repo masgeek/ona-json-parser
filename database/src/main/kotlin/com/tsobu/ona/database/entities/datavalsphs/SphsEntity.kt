@@ -1,6 +1,6 @@
-package com.tsobu.ona.database.entities
+package com.tsobu.ona.database.entities.datavalsphs
 
-import java.sql.Date
+import com.tsobu.ona.database.entities.BaseEntity
 import java.time.LocalDate
 import java.time.LocalDateTime
 import javax.persistence.Column
@@ -10,7 +10,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "dataval_sphs")
-class DataValSphsEntity : BaseEntity() {
+class SphsEntity : BaseEntity() {
     var submissionDate: LocalDateTime? = null
     var uuid: String? = null
     var startDate: LocalDateTime? = null

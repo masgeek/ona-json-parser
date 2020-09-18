@@ -20,9 +20,6 @@ class DataValSphs {
     @JsonProperty("name")
     var nameValue: String? = null
 
-    @JsonProperty("_tags")
-    var tags: List<Any>? = null
-
     @JsonProperty("_uuid")
     var uuid: String? = null
 
@@ -31,10 +28,6 @@ class DataValSphs {
 
     @JsonProperty("today")
     var today: String? = null
-
-    @JsonProperty("_notes")
-    var notes: List<Any>? = null
-
     @JsonProperty("_edited")
     var edited = false
 
@@ -161,6 +154,9 @@ class DataValSphs {
 
     @JsonProperty("harvest_REC_Tri_detail")
     var harvestRecTriDetail: List<HarvestRecTriDetail>? = null
+
+    @JsonProperty("harvest_REC_Tri")
+    var harvestRecTri: List<HarvestRecTri>? = null
 
     @JsonProperty("plantingDetails/variety")
     var variety: String? = null
