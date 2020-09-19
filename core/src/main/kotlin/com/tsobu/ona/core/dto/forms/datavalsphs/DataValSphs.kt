@@ -394,5 +394,5 @@ class DataValSphs {
     var harvestRecTri: List<HarvestRecTri>? = null
 
     @JsonProperty("harvest_CON_Tri_detail")
-    var harvestConTriDetail: List<HarvestConTriDetail>? = null
+    var harvestConTriDetailList: List<HarvestConTriDetail>? = null
 }

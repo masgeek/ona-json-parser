@@ -1,8 +1,5 @@
 package com.tsobu.ona.database.entities
 
-import com.tsobu.ona.database.entities.BaseEntity
-import java.sql.Date
-import java.sql.Timestamp
 import java.time.LocalDate
 import java.time.LocalDateTime
 import javax.persistence.Column

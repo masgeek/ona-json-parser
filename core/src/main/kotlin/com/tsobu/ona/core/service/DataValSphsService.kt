@@ -33,6 +33,8 @@ constructor(
         val remainPlantRecRepo: RemainPlantRecRepo,
         val cornerPlantRecRepo: CornerPlantRecRepo,
         val harvestConTriDetailRepo: HarvestConTriDetailRepo,
+        val remainPlantConRepo: RemainPlantConRepo,
+        val cornerPlantConRepo: CornerPlantConRepo,
         val appConfig: AppConfig) {
 
     private val log = LoggerFactory.getLogger(DataValSphsService::class.java)
@@ -73,6 +75,8 @@ constructor(
         val remainPlantEntityData = ArrayList<RemainPlantRecEntity>()
         val cornerPlantEntityData = ArrayList<CornerPlantRecEntity>()
         val harvestConTriDetailEntityData = ArrayList<HarvestConTriDetailEntity>()
+        val remainPlantConEntityData = ArrayList<RemainPlantConEntity>()
+        val cornerPlantConEntityData = ArrayList<CornerPlantConEntity>()
 
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
@@ -175,7 +179,7 @@ constructor(
                     recTriDetailCount = recTriDetailCount.plus(1)
                 }
 
-                val harvestConTriDetailList = myVal.harvestConTriDetail
+                val harvestConTriDetailList = myVal.harvestConTriDetailList
                 var conTriDetailCounter = 1
                 harvestConTriDetailList?.forEach { conTriDetail ->
                     val conTriDetailEntity = modelMapper.map(conTriDetail, HarvestConTriDetailEntity::class.java)
@@ -188,7 +192,32 @@ constructor(
 
                     harvestConTriDetailEntityData.add(conTriDetailEntity)
                     conTriDetailCounter = conTriDetailCounter.plus(1)
+
+                    var remainPlantConCounter = 1
+                    val remainPlantConList = conTriDetail.remainPlantConList
+                    remainPlantConList?.forEach { remainPlantCon ->
+                        val remainPlantConEntity = modelMapper.map(remainPlantCon, RemainPlantConEntity::class.java)
+                        remainPlantConEntity.parentKey = conTriDetailEntity.controlKey
+                        remainPlantConEntity.setOfRemainPlantCon = "${conTriDetailEntity.controlKey}/remainPlant_CON"
+                        remainPlantConEntity.controlKey = "${conTriDetailEntity.controlKey}/remainPlant_CON[${remainPlantConCounter}]"
+
+                        remainPlantConEntityData.add(remainPlantConEntity)
+                        remainPlantConCounter = remainPlantConCounter.plus(1)
+                    }
+
+                    var cornerPlantConCounter = 1
+                    val cornerPlantConList = conTriDetail.cornerPlantConList
+                    cornerPlantConList?.forEach { cornerPlantCon ->
+                        val cornerPlantConEntity = modelMapper.map(cornerPlantCon, CornerPlantConEntity::class.java)
+                        cornerPlantConEntity.parentKey = conTriDetailEntity.controlKey
+                        cornerPlantConEntity.setOfCornerPlantCon = "${conTriDetailEntity.controlKey}/cornerPlant_CON"
+                        cornerPlantConEntity.controlKey = "${conTriDetailEntity.controlKey}/cornerPlant_CON[${cornerPlantConCounter}]"
+
+                        cornerPlantConEntityData.add(cornerPlantConEntity)
+                        cornerPlantConCounter = cornerPlantConCounter.plus(1)
+                    }
                 }
+
 
             }
 
@@ -198,7 +227,9 @@ constructor(
 //            recTriRepo.saveAll(recTriEntityData)
 //            remainPlantRecRepo.saveAll(remainPlantEntityData)
 //            cornerPlantRecRepo.saveAll(cornerPlantEntityData)
-            harvestConTriDetailRepo.saveAll(harvestConTriDetailEntityData)
+//            harvestConTriDetailRepo.saveAll(harvestConTriDetailEntityData)
+//            remainPlantConRepo.saveAll(remainPlantConEntityData)
+            cornerPlantConRepo.saveAll(cornerPlantConEntityData)
             log.info("Finished saving the data for $fileName------->")
         }
     }
