@@ -5,7 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.forms.datavalsphs.DataValSphs
-import com.tsobu.ona.core.dto.json.ScoreWeedControlAcDto
+import com.tsobu.ona.core.dto.json.datavalsphs.SphsDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.datavalsphs.*
@@ -45,20 +45,20 @@ constructor(
 
     fun mapJsonFile() {
         log.info("Reading weed table here")
-        val scores = sphsRepo.findAll()
+        val sphsList = sphsRepo.findAllByOrderBySubmissionDateAsc()
         val triDetailList = harvestRecTriDetailRepo.findAll()
 
-        val scoreWeedData = scores.map { scoreWeedControlAc ->
-            val outboxDto = modelMapper.map(scoreWeedControlAc, ScoreWeedControlAcDto::class.java)
-            outboxDto.submissionDate = myDateUtil.convertTimeToString(scoreWeedControlAc.submissionDate)
-            outboxDto.startDate = myDateUtil.convertTimeToString(scoreWeedControlAc.startDate)
-            outboxDto.endDate = myDateUtil.convertTimeToString(scoreWeedControlAc.endDate)
+        val sphsData = sphsList.map { sphsEntity ->
+            val outboxDto = modelMapper.map(sphsEntity, SphsDto::class.java)
+            outboxDto.submissionDate = myDateUtil.convertTimeToString(sphsEntity.submissionDate)
+            outboxDto.startDate = myDateUtil.convertTimeToString(sphsEntity.startDate)
+            outboxDto.endDate = myDateUtil.convertTimeToString(sphsEntity.endDate)
             outboxDto
         }
 
 
         val writeCsvFile = WriteCsvFile()
-//        writeCsvFile.writeScoreWeedCsv(list = scoreWeedData, fileName = "Score_Weed_Control_AC.csv")
+        writeCsvFile.writeSphsCsv(list = sphsData, fileName = "dataVAL_SPHS-T.csv")
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -69,7 +69,7 @@ constructor(
 
         val list = objectMapper.readValue(file, object : TypeReference<List<DataValSphs>>() {})
 
-        val data = ArrayList<SphsEntity>()
+        val sphsEntityData = ArrayList<SphsEntity>()
         val recTriDetailEntityData = ArrayList<HarvestRecTriDetailEntity>()
         val recTriEntityData = ArrayList<SphsHarvestRecTriEntity>()
         val remainPlantEntityData = ArrayList<RemainPlantRecEntity>()
@@ -121,7 +121,7 @@ constructor(
                 weedEntity.instanceid = myVal.metaInstanceID
                 weedEntity.controlKey = myVal.metaInstanceID
 
-                data.add(weedEntity)
+                sphsEntityData.add(weedEntity)
 
                 val harvestRecTriList = myVal.harvestRecTri
                 var recTriCount = 1
@@ -218,17 +218,16 @@ constructor(
                     }
                 }
 
-
             }
 
             log.info("Saving all the data to the database now")
-//            dataValSphsRepo.saveAll(data)
-//            harvestRecTriDetailRepo.saveAll(recTriDetailEntityData)
-//            recTriRepo.saveAll(recTriEntityData)
-//            remainPlantRecRepo.saveAll(remainPlantEntityData)
-//            cornerPlantRecRepo.saveAll(cornerPlantEntityData)
-//            harvestConTriDetailRepo.saveAll(harvestConTriDetailEntityData)
-//            remainPlantConRepo.saveAll(remainPlantConEntityData)
+            sphsRepo.saveAll(sphsEntityData)
+            harvestRecTriDetailRepo.saveAll(recTriDetailEntityData)
+            recTriRepo.saveAll(recTriEntityData)
+            remainPlantRecRepo.saveAll(remainPlantEntityData)
+            cornerPlantRecRepo.saveAll(cornerPlantEntityData)
+            harvestConTriDetailRepo.saveAll(harvestConTriDetailEntityData)
+            remainPlantConRepo.saveAll(remainPlantConEntityData)
             cornerPlantConRepo.saveAll(cornerPlantConEntityData)
             log.info("Finished saving the data for $fileName------->")
         }

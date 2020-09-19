@@ -21,6 +21,9 @@ class DataValSphs {
     @JsonProperty("name")
     var nameValue: String? = null
 
+    @JsonProperty("email")
+    var email: String? = null
+
     @JsonProperty("_uuid")
     var uuid: String? = null
 

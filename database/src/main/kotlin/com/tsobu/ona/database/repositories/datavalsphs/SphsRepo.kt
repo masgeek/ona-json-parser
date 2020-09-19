@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository
 interface SphsRepo : JpaRepository<SphsEntity, Long> {
 
     override fun findAll(): List<SphsEntity>
+    fun findAllByOrderBySubmissionDateAsc(): List<SphsEntity>
 }
