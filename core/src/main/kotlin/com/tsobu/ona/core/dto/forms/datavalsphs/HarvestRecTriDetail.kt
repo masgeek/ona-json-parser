@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class HarvestRecTriDetail {
     @JsonProperty("harvest_REC_Tri_detail/cornerPlant_REC")
-    var harvestRecTriDetailCornerPlantRec: List<HarvestRecTriDetailCornerPlantRec>? = null
+    var cornerPlantRec: List<HarvestRecTriDetailCornerPlantRec>? = null
 
     @JsonProperty("harvest_REC_Tri_detail/remainPlant_REC")
     var remainPlantRec: List<HarvestRecTriDetailRemainPlantRec>? = null
@@ -26,11 +26,11 @@ class HarvestRecTriDetail {
     var remainPlantTotalNr: String? = null
 
     @JsonProperty("harvest_REC_Tri_detail/nrPlants_REC_Tri_detail")
-    var nrPlants = 0
+    var nrPlants: String? = null
 
     @JsonProperty("harvest_REC_Tri_detail/remainPlant_tuberizedMarketableRootsFW_REC_Tri_detail")
-    var remainPlantTuberizedMarketableRootsFw = 0.0
+    var remainPlantTuberizedMarketableRootsFw: String? = null
 
     @JsonProperty("harvest_REC_Tri_detail/remainPlants_tuberizedMarketableRootsNr_REC_Tri_detail")
-    var remainPlantsTuberizedMarketableRootsNr = 0
+    var remainPlantsTuberizedMarketableRootsNr: String? = null
 }

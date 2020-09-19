@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class DataValSphs {
 
+
     @JsonProperty("end")
     var end: String? = null
 
@@ -28,6 +29,7 @@ class DataValSphs {
 
     @JsonProperty("today")
     var today: String? = null
+
     @JsonProperty("_edited")
     var edited = false
 
@@ -151,12 +153,6 @@ class DataValSphs {
 
     @JsonProperty("harvest_REC/effHarvestDate_REC")
     var effharvestdateRec: String? = null
-
-    @JsonProperty("harvest_REC_Tri_detail")
-    var harvestRecTriDetail: List<HarvestRecTriDetail>? = null
-
-    @JsonProperty("harvest_REC_Tri")
-    var harvestRecTri: List<HarvestRecTri>? = null
 
     @JsonProperty("plantingDetails/variety")
     var variety: String? = null
@@ -386,6 +382,17 @@ class DataValSphs {
 
     @JsonProperty("harvest_REC/tuberizedMarketableRootsNr_REC")
     var tuberizedmarketablerootsnrRec: Double? = null
+
     @JsonProperty("harvest_REC/tuberizedMarketableRootsFW_REC")
     var tuberizedmarketablerootsfwRec: Double? = null
+
+
+    @JsonProperty("harvest_REC_Tri_detail")
+    var harvestRecTriDetail: List<HarvestRecTriDetail>? = null
+
+    @JsonProperty("harvest_REC_Tri")
+    var harvestRecTri: List<HarvestRecTri>? = null
+
+    @JsonProperty("harvest_CON_Tri_detail")
+    var harvestConTriDetail: List<HarvestConTriDetail>? = null
 }
