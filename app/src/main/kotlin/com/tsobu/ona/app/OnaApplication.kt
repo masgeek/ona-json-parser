@@ -39,7 +39,7 @@ class OnaApplication(
 //        weedControlService.mapJsonFile()
 //        yieldCassavaService.mapJsonFile()
 //        valSphsTzSzService.mapJsonFile()
-        dataValSphsService.mapJsonFile()
+//        dataValSphsService.mapJsonFile()
     }
 
 

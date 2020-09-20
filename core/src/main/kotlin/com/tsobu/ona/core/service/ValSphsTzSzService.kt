@@ -21,7 +21,6 @@ import org.springframework.transaction.PlatformTransactionManager
 import org.springframework.transaction.support.TransactionTemplate
 import java.io.IOException
 import java.nio.file.Paths
-import kotlin.collections.ArrayList
 
 
 @Service
@@ -36,7 +35,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-
+    private val writeCsvFile = WriteCsvFile()
     fun mapJsonFile() {
         log.info("Reading ValSphsTzSzDto table here")
         val scores = sphsTzSzRepo.findAll()
@@ -56,15 +55,14 @@ constructor(
         modelMapper.configuration.isAmbiguityIgnored = true
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
-        val valSphssTzData = scores.map { scoreWeedControlAc ->
-            val outboxDto = modelMapper.map(scoreWeedControlAc, ValSphsTzSzDto::class.java)
-            outboxDto.submissionDate = myDateUtil.convertTimeToString(scoreWeedControlAc.submissionDate)
-            outboxDto.startDate = myDateUtil.convertTimeToString(scoreWeedControlAc.startDate)
-            outboxDto.endDate = myDateUtil.convertTimeToString(scoreWeedControlAc.endDate)
-            outboxDto
+        val valSphssTzData = scores.map { sphsTzSzEntity ->
+            val sphsTzSzDto = modelMapper.map(sphsTzSzEntity, ValSphsTzSzDto::class.java)
+            sphsTzSzDto.submissionDate = myDateUtil.convertTimeToString(sphsTzSzEntity.submissionDate)
+            sphsTzSzDto.startDate = myDateUtil.convertTimeToString(sphsTzSzEntity.startDate)
+            sphsTzSzDto.endDate = myDateUtil.convertTimeToString(sphsTzSzEntity.endDate)
+            sphsTzSzDto
         }
-        val writeCsvFile = WriteCsvFile()
-        writeCsvFile.writeValSphsTzSzCsv(list = valSphssTzData, fileName = "VAL_SPHS_TZSZ.csv")
+        writeCsvFile.writeCsv(pojoType = ValSphsTzSzDto::class.java, data = valSphssTzData, fileName = "VAL_SPHS_TZSZ")
     }
 
     @Suppress("UNCHECKED_CAST")
