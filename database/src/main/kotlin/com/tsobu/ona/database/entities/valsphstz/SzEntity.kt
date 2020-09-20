@@ -1,5 +1,6 @@
-package com.tsobu.ona.database.entities
+package com.tsobu.ona.database.entities.valsphstz
 
+import com.tsobu.ona.database.entities.BaseEntity
 import java.time.LocalDate
 import java.time.LocalDateTime
 import javax.persistence.Column
@@ -8,7 +9,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "val_sphs_tz_sz")
-class ValSphsTzSzEntity : BaseEntity() {
+class SzEntity : BaseEntity() {
     var submissionDate: LocalDateTime? = null
     var uuid: String? = null
     var startDate: LocalDateTime? = null

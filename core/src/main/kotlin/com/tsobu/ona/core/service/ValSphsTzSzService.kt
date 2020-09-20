@@ -8,8 +8,8 @@ import com.tsobu.ona.core.dto.forms.valsphstz.Sz
 import com.tsobu.ona.core.dto.json.ValSphsTzSzDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.ValSphsTzSzEntity
-import com.tsobu.ona.database.repositories.ValSphsTzSzRepo
+import com.tsobu.ona.database.entities.valsphstz.SzEntity
+import com.tsobu.ona.database.repositories.valsphstz.SzRepo
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
@@ -27,7 +27,7 @@ import java.nio.file.Paths
 class ValSphsTzSzService
 constructor(
         transactionManager: PlatformTransactionManager,
-        val sphsTzSzRepo: ValSphsTzSzRepo,
+        val sphsTzSzRepo: SzRepo,
         val appConfig: AppConfig) {
 
     private val log = LoggerFactory.getLogger(ValSphsTzSzService::class.java)
@@ -73,7 +73,7 @@ constructor(
 
         val list = objectMapper.readValue(file, object : TypeReference<List<Sz>>() {})
 
-        val data = ArrayList<ValSphsTzSzEntity>()
+        val data = ArrayList<SzEntity>()
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
                 return if (context.source is String) {
@@ -92,7 +92,7 @@ constructor(
         list.forEach { myVal ->
             //map and save to database
             val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
-            val valSphsTzSzEntity = modelMapper.map(myVal, ValSphsTzSzEntity::class.java)
+            val valSphsTzSzEntity = modelMapper.map(myVal, SzEntity::class.java)
             if (geoPoint.isNotEmpty()) {
                 valSphsTzSzEntity.geoPointLatitude = geoPoint[0].toDouble()
 
