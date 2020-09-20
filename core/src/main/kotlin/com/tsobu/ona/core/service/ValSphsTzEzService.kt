@@ -4,12 +4,13 @@ package com.tsobu.ona.core.service
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.forms.valsphstz.Sz
+import com.tsobu.ona.core.dto.forms.valsphstz.Ez
 import com.tsobu.ona.core.dto.json.ValSphsTzSzDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.database.entities.valsphstz.EzEntity
 import com.tsobu.ona.database.entities.valsphstz.SzEntity
-import com.tsobu.ona.database.repositories.valsphstz.SzRepo
+import com.tsobu.ona.database.repositories.valsphstz.EzRepo
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
@@ -24,21 +25,21 @@ import java.nio.file.Paths
 
 
 @Service
-class ValSphsTzSzService
+class ValSphsTzEzService
 constructor(
         transactionManager: PlatformTransactionManager,
-        val szRepo: SzRepo,
+        val ezRepo: EzRepo,
         val appConfig: AppConfig) {
 
-    private val log = LoggerFactory.getLogger(ValSphsTzSzService::class.java)
+    private val log = LoggerFactory.getLogger(ValSphsTzEzService::class.java)
     private val modelMapper = ModelMapper()
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
     private val writeCsvFile = WriteCsvFile()
     fun mapJsonFile() {
-        log.info("Reading ValSphsTzSzDto table here")
-        val scores = szRepo.findAll()
+        log.info("Reading table data....")
+        val scores = ezRepo.findAllByOrderBySubmissionDateAsc()
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
@@ -55,14 +56,14 @@ constructor(
         modelMapper.configuration.isAmbiguityIgnored = true
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
-        val valSphssTzData = scores.map { szEntity ->
-            val szDto = modelMapper.map(szEntity, ValSphsTzSzDto::class.java)
-            szDto.submissionDate = myDateUtil.convertTimeToString(szEntity.submissionDate)
-            szDto.startDate = myDateUtil.convertTimeToString(szEntity.startDate)
-            szDto.endDate = myDateUtil.convertTimeToString(szEntity.endDate)
-            szDto
+        val valSphssTzData = scores.map { sphsTzSzEntity ->
+            val sphsTzSzDto = modelMapper.map(sphsTzSzEntity, ValSphsTzSzDto::class.java)
+            sphsTzSzDto.submissionDate = myDateUtil.convertTimeToString(sphsTzSzEntity.submissionDate)
+            sphsTzSzDto.startDate = myDateUtil.convertTimeToString(sphsTzSzEntity.startDate)
+            sphsTzSzDto.endDate = myDateUtil.convertTimeToString(sphsTzSzEntity.endDate)
+            sphsTzSzDto
         }
-        writeCsvFile.writeCsv(pojoType = ValSphsTzSzDto::class.java, data = valSphssTzData, fileName = "VAL_SPHS_TZSZ")
+        writeCsvFile.writeCsv(pojoType = ValSphsTzSzDto::class.java, data = valSphssTzData, fileName = "VAL_SPHS_TZEZ")
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -71,7 +72,7 @@ constructor(
         val filePath = "${appConfig.globalProperties().folderPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
-        val list = objectMapper.readValue(file, object : TypeReference<List<Sz>>() {})
+        val list = objectMapper.readValue(file, object : TypeReference<List<Ez>>() {})
 
         val data = ArrayList<SzEntity>()
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
@@ -92,33 +93,33 @@ constructor(
         list.forEach { myVal ->
             //map and save to database
             val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
-            val szEntity = modelMapper.map(myVal, SzEntity::class.java)
+            val ezEntity = modelMapper.map(myVal, EzEntity::class.java)
             if (geoPoint.isNotEmpty()) {
-                szEntity.geoPointLatitude = geoPoint[0].toDouble()
+                ezEntity.geoPointLatitude = geoPoint[0]
 
                 if (myDateUtil.indexExists(geoPoint, 1)) {
-                    szEntity.geoPointLongitude = geoPoint[1].toDouble()
+                    ezEntity.geoPointLongitude = geoPoint[1]
                 }
                 if (myDateUtil.indexExists(geoPoint, 2)) {
-                    szEntity.geoPointAltitude = geoPoint[2].toDouble()
+                    ezEntity.geoPointAltitude = geoPoint[2]
                 }
                 if (myDateUtil.indexExists(geoPoint, 3)) {
-                    szEntity.geoPointAccuracy = geoPoint[3].toDouble()
+                    ezEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            szEntity.uuid = myVal.formhubUuid
-            szEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
-            szEntity.todayDate = myDateUtil.convertToDate(myVal.today)
-            szEntity.startDate = myDateUtil.convertToDateTime(myVal.start)
-            szEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
-            szEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
-            szEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
-            szEntity.instanceid = myVal.metaInstanceID
-            szEntity.controlKey = myVal.metaInstanceID
+            ezEntity.uuid = myVal.formhubUuid
+            ezEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
+            ezEntity.todayDate = myDateUtil.convertToDate(myVal.today)
+            ezEntity.startDate = myDateUtil.convertToDateTime(myVal.start)
+            ezEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
+            ezEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
+            ezEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
+            ezEntity.instanceId = myVal.metaInstanceID
+            ezEntity.controlKey = myVal.metaInstanceID
 
             try {
-                val saved = szRepo.save(szEntity)
-                log.info("Added data to table ${saved.controlKey} with surname as ${saved.username}")
+                val saved = ezRepo.save(ezEntity)
+                log.info("Added data to table ${saved.controlKey} with surname as ${myVal.xformIdString}")
             } catch (ex: Exception) {
                 log.error(ex.message, ex.stackTrace)
             }
