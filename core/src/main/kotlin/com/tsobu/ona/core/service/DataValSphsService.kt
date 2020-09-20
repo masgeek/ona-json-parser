@@ -5,9 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.forms.datavalsphs.DataValSphs
-import com.tsobu.ona.core.dto.json.datavalsphs.ConTriDetailDto
-import com.tsobu.ona.core.dto.json.datavalsphs.CornerPlantConDto
-import com.tsobu.ona.core.dto.json.datavalsphs.SphsDto
+import com.tsobu.ona.core.dto.json.datavalsphs.*
 import com.tsobu.ona.core.dto.json.datavarsphs.CornerPlantRecDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
@@ -32,7 +30,7 @@ constructor(
         transactionManager: PlatformTransactionManager,
         val sphsRepo: SphsRepo,
         val harvestRecTriDetailRepo: HarvestRecTriDetailRepo,
-        val recTriRepo: HarvestRecTriRepo,
+        val harvestRecTriRepo: HarvestRecTriRepo,
         val remainPlantRecRepo: RemainPlantRecRepo,
         val cornerPlantRecRepo: CornerPlantRecRepo,
         val harvestConTriDetailRepo: HarvestConTriDetailRepo,
@@ -45,14 +43,17 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-
+    private val writeCsvFile = WriteCsvFile()
     fun mapJsonFile() {
         log.info("Reading tables here")
         val sphsList = sphsRepo.findAllByOrderBySubmissionDateAsc()
+        val harvestRecTriList = harvestRecTriRepo.findAll()
         val conTriDetailList = harvestConTriDetailRepo.findAll()
         val recTriDetailList = harvestRecTriDetailRepo.findAll()
         val cornerPlantConList = cornerPlantConRepo.findAll()
         val cornerPlantRecList = cornerPlantRecRepo.findAll()
+        val remainPlantRecList = remainPlantRecRepo.findAll()
+        val remainPlantConList = remainPlantConRepo.findAll()
 
         val sphsData = sphsList.map { sphsEntity ->
             val sphsDto = modelMapper.map(sphsEntity, SphsDto::class.java)
@@ -66,6 +67,14 @@ constructor(
             val cornerPlantConDto = modelMapper.map(triDetailEntity, ConTriDetailDto::class.java)
             cornerPlantConDto
         }
+        val harvestRecTriData = harvestRecTriList.map { harvestRecTriEntity ->
+            val harvestRecTriDto = modelMapper.map(harvestRecTriEntity, HarvestRecTriDto::class.java)
+            harvestRecTriDto
+        }
+        val recTriDetailData = recTriDetailList.map { recTriDetailEntity ->
+            val recTriDetailDto = modelMapper.map(recTriDetailEntity, RecTriDetailDto::class.java)
+            recTriDetailDto
+        }
         val cornerPlantConData = cornerPlantConList.map { plantConEntity ->
             val cornerPlantConDto = modelMapper.map(plantConEntity, CornerPlantConDto::class.java)
             cornerPlantConDto
@@ -75,12 +84,19 @@ constructor(
             cornerPlantRecDto
         }
 
+        val remainPlantRecData = remainPlantRecList.map { plantRecEntity ->
+            val cornerPlantRecDto = modelMapper.map(plantRecEntity, CornerPlantRecDto::class.java)
+            cornerPlantRecDto
+        }
 
-        val writeCsvFile = WriteCsvFile()
-//        writeCsvFile.writeSphsCsv(list = sphsData, fileName = "dataVAL_SPHS.csv")
-//        writeCsvFile.writeCornerPlantRecCsv(list = cornerPlantRecData, fileName = "dataVAL_SPHS-cornerPlant_REC.csv")
+
+//        writeCsvFile.writeCsv(pojoType = SphsDto::class.java,list = sphsData, fileName = "dataVAL_SPHS")
+//        writeCsvFile.writeCsv(pojoType = CornerPlantRecDto::class.java,list = cornerPlantRecData, fileName = "dataVAL_SPHS-cornerPlant_REC")
 //        writeCsvFile.writeCsv(pojoType = CornerPlantConDto::class.java, list = cornerPlantConData, fileName = "dataVAL_SPHS-cornerPlant_CON")
-        writeCsvFile.writeCsv(pojoType = ConTriDetailDto::class.java, list = conTriDetailData, fileName = "dataVAL_SPHS-harvest_CON_Tri_detail-")
+//        writeCsvFile.writeCsv(pojoType = ConTriDetailDto::class.java, list = conTriDetailData, fileName = "dataVAL_SPHS-harvest_CON_Tri_detail")
+//        writeCsvFile.writeCsv(pojoType = RecTriDetailDto::class.java, list = recTriDetailData, fileName = "dataVAL_SPHS-harvest_REC_Tri_detail")
+//        writeCsvFile.writeCsv(pojoType = HarvestRecTriDto::class.java, list = harvestRecTriData, fileName = "dataVAL_SPHS-harvest_REC_Tri")
+        writeCsvFile.writeCsv(pojoType = HarvestRecTriDto::class.java, list = remainPlantRecList, fileName = "dataVAL_SPHS-remainPlant_REC-")
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -166,7 +182,7 @@ constructor(
                     triDetailEntity.parentKey = sphsEntity.controlKey
                     triDetailEntity.setOfHarvest = "${triDetailEntity.parentKey}/harvest_REC_Tri_detail"
                     triDetailEntity.controlKey = "${triDetailEntity.parentKey}/harvest_REC_Tri_detail[$recTriDetailCount]"
-                    triDetailEntity.setOfCornerPlant = "${triDetailEntity.setOfHarvest}/cornerPlant_REC"
+                    triDetailEntity.setOfCornerPlant = "${sphsEntity.controlKey}/harvest_REC_Tri_detail[$recTriDetailCount]/cornerPlant_REC"
                     triDetailEntity.setOfRemainPlant = "${sphsEntity.controlKey}/harvest_REC_Tri_detail[$recTriDetailCount]/remainPlant_REC"
 
 
@@ -246,7 +262,7 @@ constructor(
             log.info("Saving all the data to the database now")
             sphsRepo.saveAll(sphsEntityData)
             harvestRecTriDetailRepo.saveAll(recTriDetailEntityData)
-            recTriRepo.saveAll(recTriEntityData)
+            harvestRecTriRepo.saveAll(recTriEntityData)
             remainPlantRecRepo.saveAll(remainPlantEntityData)
             cornerPlantRecRepo.saveAll(cornerPlantEntityData)
             harvestConTriDetailRepo.saveAll(harvestConTriDetailEntityData)
