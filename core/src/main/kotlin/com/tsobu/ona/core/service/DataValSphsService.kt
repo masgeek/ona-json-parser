@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.forms.datavalsphs.DataValSphs
+import com.tsobu.ona.core.dto.json.datavalsphs.ConTriDetailDto
 import com.tsobu.ona.core.dto.json.datavalsphs.CornerPlantConDto
 import com.tsobu.ona.core.dto.json.datavalsphs.SphsDto
 import com.tsobu.ona.core.dto.json.datavarsphs.CornerPlantRecDto
@@ -46,8 +47,9 @@ constructor(
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
 
     fun mapJsonFile() {
-        log.info("Reading weed table here")
+        log.info("Reading tables here")
         val sphsList = sphsRepo.findAllByOrderBySubmissionDateAsc()
+        val conTriDetailList = harvestConTriDetailRepo.findAll()
         val recTriDetailList = harvestRecTriDetailRepo.findAll()
         val cornerPlantConList = cornerPlantConRepo.findAll()
         val cornerPlantRecList = cornerPlantRecRepo.findAll()
@@ -60,11 +62,14 @@ constructor(
             sphsDto
         }
 
+        val conTriDetailData = conTriDetailList.map { triDetailEntity ->
+            val cornerPlantConDto = modelMapper.map(triDetailEntity, ConTriDetailDto::class.java)
+            cornerPlantConDto
+        }
         val cornerPlantConData = cornerPlantConList.map { plantConEntity ->
             val cornerPlantConDto = modelMapper.map(plantConEntity, CornerPlantConDto::class.java)
             cornerPlantConDto
         }
-
         val cornerPlantRecData = cornerPlantRecList.map { plantRecEntity ->
             val cornerPlantRecDto = modelMapper.map(plantRecEntity, CornerPlantRecDto::class.java)
             cornerPlantRecDto
@@ -74,9 +79,8 @@ constructor(
         val writeCsvFile = WriteCsvFile()
 //        writeCsvFile.writeSphsCsv(list = sphsData, fileName = "dataVAL_SPHS.csv")
 //        writeCsvFile.writeCornerPlantRecCsv(list = cornerPlantRecData, fileName = "dataVAL_SPHS-cornerPlant_REC.csv")
-        writeCsvFile.writeCsv(pojoType = CornerPlantConDto::class.java,
-                list = cornerPlantConData,
-                fileName = "dataVAL_SPHS-cornerPlant_CON-T.csv")
+//        writeCsvFile.writeCsv(pojoType = CornerPlantConDto::class.java, list = cornerPlantConData, fileName = "dataVAL_SPHS-cornerPlant_CON")
+        writeCsvFile.writeCsv(pojoType = ConTriDetailDto::class.java, list = conTriDetailData, fileName = "dataVAL_SPHS-harvest_CON_Tri_detail-")
     }
 
     @Suppress("UNCHECKED_CAST")

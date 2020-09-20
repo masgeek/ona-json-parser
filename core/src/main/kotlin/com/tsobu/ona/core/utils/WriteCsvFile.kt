@@ -153,7 +153,8 @@ class WriteCsvFile {
             val schema: CsvSchema = mapper.schemaFor(pojoType)
                     .withUseHeader(true)
 
-            val tempFile = File("$filePath$fileName")
+            val fullFilePath = "$filePath$fileName.csv"
+            val tempFile = File(fullFilePath)
 
             mapper.writer(schema).writeValue(tempFile, list)
             log.info("$fileName written out to $filePath")
