@@ -7,7 +7,7 @@ import javax.persistence.Entity
 import javax.persistence.Table
 
 @Entity
-@Table(name = "val_sphs_tzsz")
+@Table(name = "val_sphs_tz_sz")
 class ValSphsTzSzEntity : BaseEntity() {
     var submissionDate: LocalDateTime? = null
     var uuid: String? = null

@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-class ValSphsTzSzForm {
+class Sz {
     @JsonProperty("_id")
     var submissionId: Int? = null
 
