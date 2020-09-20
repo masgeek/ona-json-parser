@@ -5,7 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.forms.valsphstz.Sz
-import com.tsobu.ona.core.dto.json.ValSphsTzSzDto
+import com.tsobu.ona.core.dto.json.valsphstz.SzDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.valsphstz.SzEntity
@@ -56,13 +56,13 @@ constructor(
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
         val valSphssTzData = scores.map { szEntity ->
-            val szDto = modelMapper.map(szEntity, ValSphsTzSzDto::class.java)
+            val szDto = modelMapper.map(szEntity, SzDto::class.java)
             szDto.submissionDate = myDateUtil.convertTimeToString(szEntity.submissionDate)
             szDto.startDate = myDateUtil.convertTimeToString(szEntity.startDate)
             szDto.endDate = myDateUtil.convertTimeToString(szEntity.endDate)
             szDto
         }
-        writeCsvFile.writeCsv(pojoType = ValSphsTzSzDto::class.java, data = valSphssTzData, fileName = "VAL_SPHS_TZSZ")
+        writeCsvFile.writeCsv(pojoType = SzDto::class.java, data = valSphssTzData, fileName = "VAL_SPHS_TZSZ")
     }
 
     @Suppress("UNCHECKED_CAST")

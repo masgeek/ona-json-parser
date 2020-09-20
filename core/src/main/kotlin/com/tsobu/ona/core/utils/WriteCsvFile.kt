@@ -7,6 +7,7 @@ import com.fasterxml.jackson.dataformat.csv.CsvSchema
 import com.tsobu.ona.core.dto.json.*
 import com.tsobu.ona.core.dto.json.datavalsphs.SphsDto
 import com.tsobu.ona.core.dto.json.datavarsphs.CornerPlantRecDto
+import com.tsobu.ona.core.dto.json.valsphstz.SzDto
 import org.slf4j.LoggerFactory
 import java.io.File
 
@@ -98,11 +99,11 @@ class WriteCsvFile {
         }
     }
 
-    fun writeValSphsTzSzCsv(list: List<ValSphsTzSzDto>, fileName: String) {
+    fun writeValSphsTzSzCsv(list: List<SzDto>, fileName: String) {
         try {
             val mapper = CsvMapper()
             mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true);
-            val schema: CsvSchema = mapper.schemaFor(ValSphsTzSzDto::class.java)
+            val schema: CsvSchema = mapper.schemaFor(SzDto::class.java)
                     .withUseHeader(true)
 
             val tempFile = File("$filePath$fileName")

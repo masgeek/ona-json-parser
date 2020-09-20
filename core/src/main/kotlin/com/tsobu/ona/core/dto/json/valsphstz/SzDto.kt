@@ -1,4 +1,4 @@
-package com.tsobu.ona.core.dto.json
+package com.tsobu.ona.core.dto.json.valsphstz
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
@@ -226,7 +226,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
         "instanceID",
         "KEY"
 )
-class ValSphsTzSzDto {
+class SzDto {
     @JsonProperty("SubmissionDate")
     var submissionDate: String? = null
 

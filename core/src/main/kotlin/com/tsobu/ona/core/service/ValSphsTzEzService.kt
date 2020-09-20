@@ -5,7 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.forms.valsphstz.Ez
-import com.tsobu.ona.core.dto.json.ValSphsTzSzDto
+import com.tsobu.ona.core.dto.json.valsphstz.EzDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.valsphstz.EzEntity
@@ -39,7 +39,7 @@ constructor(
     private val writeCsvFile = WriteCsvFile()
     fun mapJsonFile() {
         log.info("Reading table data....")
-        val scores = ezRepo.findAllByOrderBySubmissionDateAsc()
+        val ezList = ezRepo.findAllByOrderBySubmissionDateAsc()
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
@@ -56,14 +56,14 @@ constructor(
         modelMapper.configuration.isAmbiguityIgnored = true
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
-        val valSphssTzData = scores.map { sphsTzSzEntity ->
-            val sphsTzSzDto = modelMapper.map(sphsTzSzEntity, ValSphsTzSzDto::class.java)
-            sphsTzSzDto.submissionDate = myDateUtil.convertTimeToString(sphsTzSzEntity.submissionDate)
-            sphsTzSzDto.startDate = myDateUtil.convertTimeToString(sphsTzSzEntity.startDate)
-            sphsTzSzDto.endDate = myDateUtil.convertTimeToString(sphsTzSzEntity.endDate)
+        val ezData = ezList.map { ezEntity ->
+            val sphsTzSzDto = modelMapper.map(ezEntity, EzDto::class.java)
+            sphsTzSzDto.submissionDate = myDateUtil.convertTimeToString(ezEntity.submissionDate)
+            sphsTzSzDto.startDate = myDateUtil.convertTimeToString(ezEntity.startDate)
+            sphsTzSzDto.endDate = myDateUtil.convertTimeToString(ezEntity.endDate)
             sphsTzSzDto
         }
-        writeCsvFile.writeCsv(pojoType = ValSphsTzSzDto::class.java, data = valSphssTzData, fileName = "VAL_SPHS_TZEZ")
+        writeCsvFile.writeCsv(pojoType = EzDto::class.java, data = ezData, fileName = "VAL_SPHS_TZEZ")
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -116,6 +116,7 @@ constructor(
             ezEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
             ezEntity.instanceId = myVal.metaInstanceID
             ezEntity.controlKey = myVal.metaInstanceID
+
 
             try {
                 val saved = ezRepo.save(ezEntity)
