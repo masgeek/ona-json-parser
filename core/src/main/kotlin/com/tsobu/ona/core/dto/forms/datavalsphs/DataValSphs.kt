@@ -13,10 +13,10 @@ class DataValSphs {
     var end: String? = null
 
     @JsonProperty("EAID")
-    var eAID: String? = null
+    var eaid: String? = null
 
     @JsonProperty("HHID")
-    var hHID: String? = null
+    var hhid: String? = null
 
     @JsonProperty("name")
     var nameValue: String? = null
@@ -36,6 +36,10 @@ class DataValSphs {
     @JsonProperty("_edited")
     var edited = false
 
+
+    @JsonProperty("comment")
+    val comment: String? = null
+
     @JsonProperty("_status")
     var status: String? = null
 
@@ -52,7 +56,10 @@ class DataValSphs {
     var currency: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: String? = null
+    var deviceId: String? = null
+
+    @JsonProperty("subscriberid")
+    var subscriberId: String? = null
 
     @JsonProperty("geopoint")
     var geopoint: String? = null
@@ -61,7 +68,7 @@ class DataValSphs {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String? = null
 
     @JsonProperty("_xform_id")
     var xformId = 0
@@ -73,7 +80,7 @@ class DataValSphs {
     var nrWeeding = 0
 
     @JsonProperty("simserial")
-    var simserial: String? = null
+    var simSerial: String? = null
 
     @JsonProperty("conversion")
     var conversion: String? = null
@@ -91,13 +98,10 @@ class DataValSphs {
     var totalMedia = 0
 
     @JsonProperty("formhub/uuid")
-    var formhubUuid: String? = null
+    var formHubUuid: String? = null
 
     @JsonProperty("seasonSelect")
     var seasonSelect: String? = null
-
-    @JsonProperty("subscriberid")
-    var subscriberid: String? = null
 
     @JsonProperty("gapping")
     var gapping: String? = null
@@ -133,10 +137,10 @@ class DataValSphs {
     var mediaAllReceived = false
 
     @JsonProperty("trialRating/rateCMD")
-    var ratecmd: String? = null
+    var rateCmd: String? = null
 
     @JsonProperty("trialRating/rateFire")
-    var ratefire: String? = null
+    var rateFire: String? = null
 
     @JsonProperty("harvest_CON_Tri_count")
     var harvestConTriCount: String? = null
@@ -145,26 +149,26 @@ class DataValSphs {
     var harvestRecTriCount: String? = null
 
     @JsonProperty("trialRating/ratePests")
-    var ratepests: String? = null
+    var ratePests: String? = null
 
     @JsonProperty("trialRating/rateWeeds")
-    var rateweeds: String? = null
+    var rateEeeds: String? = null
 
     @JsonProperty("effHarvestDate_REC_Tri")
-    var effharvestdateConTri: String? = null
+    var effHarvestDateConTri: String? = null
 
 
     @JsonProperty("harvest_REC/effHarvestDate_REC")
-    var effharvestdateRec: String? = null
+    var effHarvestDateRec: String? = null
 
     @JsonProperty("plantingDetails/variety")
     var variety: String? = null
 
     @JsonProperty("trialRating/rateDrought")
-    var ratedrought: String? = null
+    var rateDrought: String? = null
 
     @JsonProperty("trialRating/rateGrazing")
-    var rategrazing: String? = null
+    var rateGrazing: String? = null
 
     @JsonProperty("trialRating/rateLodging")
     var rateLodging: String? = null
@@ -202,31 +206,31 @@ class DataValSphs {
     var dateWeeding10: String? = null
 
     @JsonProperty("harvest_CON/effHarvestDate_CON")
-    var effharvestdateCon: String? = null
+    var effHarvestDateCon: String? = null
 
     @JsonProperty("harvest_CON/tuberizedMarketableRootsFW_CON")
-    var tuberizedmarketablerootsfwCon = 0.0
+    var tuberizedMarketableRootsfwCon: String? = null
 
     @JsonProperty("harvest_CON/tuberizedMarketableRootsNr_CON")
-    var tuberizedmarketablerootsnrCon = 0
+    var tuberizedMarketableRootsnrCon: String? = null
 
     @JsonProperty("harvest_CON_Tri_detail_count")
-    var harvestCONTriDetailCount: String? = null
+    var harvestConTriDetailCount: String? = null
 
     @JsonProperty("harvest_REC_Tri_detail_count")
-    var harvestRECTriDetailCount: String? = null
+    var harvestRecTriDetailCount: String? = null
 
     @JsonProperty("plantingDetails/plantingDate")
     var plantingDate: String? = null
 
     @JsonProperty("trialRating/rateOtherDisease")
-    var rateotherdisease: String? = null
+    var rateOtherDisease: String? = null
 
     @JsonProperty("trialRating/rateTheftMissing")
-    var ratetheftmissing: String? = null
+    var rateTheftMissing: String? = null
 
     @JsonProperty("trialRating/rateWaterLogging")
-    var ratewaterlogging: String? = null
+    var rateWaterLogging: String? = null
 
     @JsonProperty("weedingDetails/weedingMethod1")
     var weedingMethod1: String? = null
@@ -337,37 +341,37 @@ class DataValSphs {
     var harvestDateQuestionRec: String? = null
 
     @JsonProperty("plotLayout_CON/plotL1_CON")
-    var plotl1Con: Double? = null
+    var plotL1Con: String? = null
 
     @JsonProperty("plotLayout_CON/plotL2_CON")
-    var plotl2con: Double? = null
+    var plotL2con: String? = null
 
     @JsonProperty("plotLayout_CON/plotW1_CON")
-    var plotw1Con: Double? = null
+    var plotW1Con: String? = null
 
     @JsonProperty("plotLayout_CON/plotW2_CON")
-    var plotw2Con: Double? = null
+    var plotW2Con: String? = null
 
     @JsonProperty("plotLayout_REC/plotL1_REC")
-    var plotl1Rec: Double? = null
+    var plotL1Rec: String? = null
 
     @JsonProperty("plotLayout_REC/plotL2_REC")
-    var plotl2Rec: Double? = null
+    var plotL2Rec: String? = null
 
     @JsonProperty("plotLayout_REC/plotW1_REC")
-    var plotw1Rec: Double? = null
+    var plotW1Rec: String? = null
 
     @JsonProperty("plotLayout_REC/plotW2_REC")
-    var plotw2Rec: Double? = null
+    var plotW2Rec: String? = null
 
     @JsonProperty("trialRating/rateCBSD")
-    var ratecbsd: String? = null
+    var rateCbsd: String? = null
 
     @JsonProperty("plantStand/nrPlants_CON")
-    var nrPlantsCon: Int? = null
+    var nrPlantsCon: String? = null
 
     @JsonProperty("plantStand/nrPlants_REC")
-    var nrPlantsRec: Int? = null
+    var nrPlantsRec: String? = null
 
 
     @JsonProperty("gappingDetails/gappingDate")
@@ -377,17 +381,17 @@ class DataValSphs {
     var gappingType: String? = null
 
     @JsonProperty("harvest_REC/priceRoots_REC")
-    var pricerootsRec: Double? = null
+    var priceRootsRec: String? = null
 
 
     @JsonProperty("harvest_CON/priceRoots_CON")
-    var pricerootsCon: Double? = null
+    var priceRootsCon: String? = null
 
     @JsonProperty("harvest_REC/tuberizedMarketableRootsNr_REC")
-    var tuberizedmarketablerootsnrRec: Double? = null
+    var tuberizedMarketableRootsNrRec: String? = null
 
     @JsonProperty("harvest_REC/tuberizedMarketableRootsFW_REC")
-    var tuberizedmarketablerootsfwRec: Double? = null
+    var tuberizedMarketableRootsFwRec: String? = null
 
 
     @JsonProperty("harvest_REC_Tri_detail")

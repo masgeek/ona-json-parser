@@ -61,7 +61,7 @@ class MyUtils {
             yearMonth = "0${date.monthValue}"
         }
         val dateTimeString = "${dayMonth}-${yearMonth}-${date.year} $time"
-        log.info(dateTimeString)
+//        log.info(dateTimeString)
 
         return dateTimeString
     }

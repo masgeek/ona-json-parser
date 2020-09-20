@@ -31,7 +31,7 @@ class OnaApplication(
 //        weedControlService.readJsonAsset(fileName = "Score_Weed_Control_AC.json")
 //        yieldCassavaService.readJsonAsset(fileName = "Assess_Root_Yield_Cassava_AC.json")
 //        valSphsTzSzService.readJsonAsset(fileName = "VAL_SPHS_TZSZ.json")
-        dataValSphsService.readJsonAsset(fileName = "dataVAL_SPHS.json")
+//        dataValSphsService.readJsonAsset(fileName = "dataVAL_SPHS.json")
 
 
 //        weedControlService.mapJsonFile()

@@ -195,10 +195,10 @@ class SphsDto {
     var rapidYield: String? = null
 
     @JsonProperty("event")
-    var event: String? = null
+    var eventValue: String? = null
 
     @JsonProperty("name")
-    var name: String? = null
+    var nameValue: String? = null
 
     @JsonProperty("EAID")
     var eAID: String? = null
@@ -222,16 +222,16 @@ class SphsDto {
     var locField: String? = null
 
     @JsonProperty("geopoint-Latitude")
-    var geopointLatitude: String? = null
+    var geoPointLatitude: String? = null
 
     @JsonProperty("geopoint-Longitude")
-    var geopointLongitude: String? = null
+    var geoPointLongitude: String? = null
 
     @JsonProperty("geopoint-Altitude")
-    var geopointAltitude: String? = null
+    var geoPointAltitude: String? = null
 
     @JsonProperty("geopoint-Accuracy")
-    var geopointAccuracy: String? = null
+    var geoPointAccuracy: String? = null
 
     @JsonProperty("plotDim_CON")
     var plotDimCon: String? = null

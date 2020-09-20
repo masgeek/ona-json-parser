@@ -2,11 +2,11 @@ package com.tsobu.ona.core.utils
 
 
 import com.fasterxml.jackson.core.JsonGenerator
-import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.dataformat.csv.CsvMapper
 import com.fasterxml.jackson.dataformat.csv.CsvSchema
 import com.tsobu.ona.core.dto.json.*
 import com.tsobu.ona.core.dto.json.datavalsphs.SphsDto
+import com.tsobu.ona.core.dto.json.datavarsphs.CornerPlantRecDto
 import org.slf4j.LoggerFactory
 import java.io.File
 
@@ -119,6 +119,38 @@ class WriteCsvFile {
             val mapper = CsvMapper()
             mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true);
             val schema: CsvSchema = mapper.schemaFor(SphsDto::class.java)
+                    .withUseHeader(true)
+
+            val tempFile = File("$filePath$fileName")
+
+            mapper.writer(schema).writeValue(tempFile, list)
+            log.info("$fileName written out to $filePath")
+        } catch (ex: Exception) {
+            log.error(ex.message, ex)
+        }
+    }
+
+    fun writeCornerPlantRecCsv(list: List<CornerPlantRecDto>, fileName: String) {
+        try {
+            val mapper = CsvMapper()
+            mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true);
+            val schema: CsvSchema = mapper.schemaFor(CornerPlantRecDto::class.java)
+                    .withUseHeader(true)
+
+            val tempFile = File("$filePath$fileName")
+
+            mapper.writer(schema).writeValue(tempFile, list)
+            log.info("$fileName written out to $filePath")
+        } catch (ex: Exception) {
+            log.error(ex.message, ex)
+        }
+    }
+
+    fun writeCsv(pojoType: Class<*>?, list: List<*>, fileName: String) {
+        try {
+            val mapper = CsvMapper()
+            mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true);
+            val schema: CsvSchema = mapper.schemaFor(pojoType)
                     .withUseHeader(true)
 
             val tempFile = File("$filePath$fileName")

@@ -5,7 +5,9 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.forms.datavalsphs.DataValSphs
+import com.tsobu.ona.core.dto.json.datavalsphs.CornerPlantConDto
 import com.tsobu.ona.core.dto.json.datavalsphs.SphsDto
+import com.tsobu.ona.core.dto.json.datavarsphs.CornerPlantRecDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.datavalsphs.*
@@ -46,19 +48,35 @@ constructor(
     fun mapJsonFile() {
         log.info("Reading weed table here")
         val sphsList = sphsRepo.findAllByOrderBySubmissionDateAsc()
-        val triDetailList = harvestRecTriDetailRepo.findAll()
+        val recTriDetailList = harvestRecTriDetailRepo.findAll()
+        val cornerPlantConList = cornerPlantConRepo.findAll()
+        val cornerPlantRecList = cornerPlantRecRepo.findAll()
 
         val sphsData = sphsList.map { sphsEntity ->
-            val outboxDto = modelMapper.map(sphsEntity, SphsDto::class.java)
-            outboxDto.submissionDate = myDateUtil.convertTimeToString(sphsEntity.submissionDate)
-            outboxDto.startDate = myDateUtil.convertTimeToString(sphsEntity.startDate)
-            outboxDto.endDate = myDateUtil.convertTimeToString(sphsEntity.endDate)
-            outboxDto
+            val sphsDto = modelMapper.map(sphsEntity, SphsDto::class.java)
+            sphsDto.submissionDate = myDateUtil.convertTimeToString(sphsEntity.submissionDate)
+            sphsDto.startDate = myDateUtil.convertTimeToString(sphsEntity.startDate)
+            sphsDto.endDate = myDateUtil.convertTimeToString(sphsEntity.endDate)
+            sphsDto
+        }
+
+        val cornerPlantConData = cornerPlantConList.map { plantConEntity ->
+            val cornerPlantConDto = modelMapper.map(plantConEntity, CornerPlantConDto::class.java)
+            cornerPlantConDto
+        }
+
+        val cornerPlantRecData = cornerPlantRecList.map { plantRecEntity ->
+            val cornerPlantRecDto = modelMapper.map(plantRecEntity, CornerPlantRecDto::class.java)
+            cornerPlantRecDto
         }
 
 
         val writeCsvFile = WriteCsvFile()
-        writeCsvFile.writeSphsCsv(list = sphsData, fileName = "dataVAL_SPHS-T.csv")
+//        writeCsvFile.writeSphsCsv(list = sphsData, fileName = "dataVAL_SPHS.csv")
+//        writeCsvFile.writeCornerPlantRecCsv(list = cornerPlantRecData, fileName = "dataVAL_SPHS-cornerPlant_REC.csv")
+        writeCsvFile.writeCsv(pojoType = CornerPlantConDto::class.java,
+                list = cornerPlantConData,
+                fileName = "dataVAL_SPHS-cornerPlant_CON-T.csv")
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -95,39 +113,40 @@ constructor(
 
 
         transactionTemplate.execute {
-            list.forEach { myVal ->
+            list.forEach { sphs ->
                 //map and save to database
-                val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
-                val weedEntity = modelMapper.map(myVal, SphsEntity::class.java)
+                val geoPoint = myDateUtil.splitGeoPoint(sphs.geopoint)
+                val sphsEntity = modelMapper.map(sphs, SphsEntity::class.java)
                 if (geoPoint.isNotEmpty()) {
-                    weedEntity.geoPointLatitude = geoPoint[0].toDouble()
+                    sphsEntity.geoPointLatitude = geoPoint[0].toDouble()
 
                     if (myDateUtil.indexExists(geoPoint, 1)) {
-                        weedEntity.geoPointLongitude = geoPoint[1].toDouble()
+                        sphsEntity.geoPointLongitude = geoPoint[1].toDouble()
                     }
                     if (myDateUtil.indexExists(geoPoint, 2)) {
-                        weedEntity.geoPointAltitude = geoPoint[2].toDouble()
+                        sphsEntity.geoPointAltitude = geoPoint[2].toDouble()
                     }
                     if (myDateUtil.indexExists(geoPoint, 3)) {
-                        weedEntity.geoPointAccuracy = geoPoint[3].toDouble()
+                        sphsEntity.geoPointAccuracy = geoPoint[3].toDouble()
                     }
                 }
-                weedEntity.uuid = myVal.formhubUuid
-                weedEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
-                weedEntity.todayDate = myDateUtil.convertToDate(myVal.today)
-                weedEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
-                weedEntity.startDate = myDateUtil.convertToDateTime(myVal.start)
-                weedEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
-                weedEntity.instanceid = myVal.metaInstanceID
-                weedEntity.controlKey = myVal.metaInstanceID
+                sphsEntity.uuid = sphs.formHubUuid
+                sphsEntity.submissionDate = myDateUtil.convertToDateTime(sphs.submissionTime)
+                sphsEntity.todayDate = myDateUtil.convertToDate(sphs.today)
+                sphsEntity.plantingDate = myDateUtil.convertToDate(sphs.plantingDate)
+                sphsEntity.startDate = myDateUtil.convertToDateTime(sphs.start)
+                sphsEntity.endDate = myDateUtil.convertToDateTime(sphs.end)
+                sphsEntity.instanceId = sphs.metaInstanceID
+                sphsEntity.controlKey = sphs.metaInstanceID
+                sphsEntity.plotL2Con = sphs.plotL2con
 
-                sphsEntityData.add(weedEntity)
+                sphsEntityData.add(sphsEntity)
 
-                val harvestRecTriList = myVal.harvestRecTri
+                val harvestRecTriList = sphs.harvestRecTri
                 var recTriCount = 1
                 harvestRecTriList?.forEach { harvestRecTri ->
                     val recTriEntity = modelMapper.map(harvestRecTri, SphsHarvestRecTriEntity::class.java)
-                    recTriEntity.parentKey = weedEntity.controlKey
+                    recTriEntity.parentKey = sphsEntity.controlKey
                     recTriEntity.setOfHarvestRecTri = "${recTriEntity.parentKey}/harvest_REC_Tri"
                     recTriEntity.controlKey = "${recTriEntity.parentKey}/harvest_REC_Tri[$recTriCount]"
 
@@ -135,16 +154,16 @@ constructor(
                     recTriCount = recTriCount.plus(1)
                 }
 
-                val recTriDetailList = myVal.harvestRecTriDetail
+                val recTriDetailList = sphs.harvestRecTriDetail
                 var recTriDetailCount = 1
                 recTriDetailList?.forEach { harvestRecTriDetail ->
                     val triDetailEntity = modelMapper.map(harvestRecTriDetail, HarvestRecTriDetailEntity::class.java)
 
-                    triDetailEntity.parentKey = weedEntity.controlKey
+                    triDetailEntity.parentKey = sphsEntity.controlKey
                     triDetailEntity.setOfHarvest = "${triDetailEntity.parentKey}/harvest_REC_Tri_detail"
                     triDetailEntity.controlKey = "${triDetailEntity.parentKey}/harvest_REC_Tri_detail[$recTriDetailCount]"
                     triDetailEntity.setOfCornerPlant = "${triDetailEntity.setOfHarvest}/cornerPlant_REC"
-                    triDetailEntity.setOfRemainPlant = "${weedEntity.controlKey}/harvest_REC_Tri_detail[$recTriDetailCount]/remainPlant_REC"
+                    triDetailEntity.setOfRemainPlant = "${sphsEntity.controlKey}/harvest_REC_Tri_detail[$recTriDetailCount]/remainPlant_REC"
 
 
                     recTriDetailEntityData.add(triDetailEntity)
@@ -179,12 +198,12 @@ constructor(
                     recTriDetailCount = recTriDetailCount.plus(1)
                 }
 
-                val harvestConTriDetailList = myVal.harvestConTriDetailList
+                val harvestConTriDetailList = sphs.harvestConTriDetailList
                 var conTriDetailCounter = 1
                 harvestConTriDetailList?.forEach { conTriDetail ->
                     val conTriDetailEntity = modelMapper.map(conTriDetail, HarvestConTriDetailEntity::class.java)
 
-                    conTriDetailEntity.parentKey = weedEntity.controlKey
+                    conTriDetailEntity.parentKey = sphsEntity.controlKey
                     conTriDetailEntity.setOfHarvestConTriDetail = "${conTriDetailEntity.parentKey}/harvest_CON_Tri_detail"
                     conTriDetailEntity.controlKey = "${conTriDetailEntity.parentKey}/harvest_CON_Tri_detail[$conTriDetailCounter]"
                     conTriDetailEntity.setOfRemainPlantCon = "${conTriDetailEntity.controlKey}/remainPlant_CON"
