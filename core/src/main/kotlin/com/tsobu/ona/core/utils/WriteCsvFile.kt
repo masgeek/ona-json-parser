@@ -146,7 +146,7 @@ class WriteCsvFile {
         }
     }
 
-    fun writeCsv(pojoType: Class<*>?, list: List<*>, fileName: String) {
+    fun writeCsv(pojoType: Class<*>?, data: List<*>, fileName: String) {
         try {
             val mapper = CsvMapper()
             mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true);
@@ -156,7 +156,7 @@ class WriteCsvFile {
             val fullFilePath = "$filePath$fileName.csv"
             val tempFile = File(fullFilePath)
 
-            mapper.writer(schema).writeValue(tempFile, list)
+            mapper.writer(schema).writeValue(tempFile, data)
             log.info("$fileName written out to $filePath")
         } catch (ex: Exception) {
             log.error(ex.message, ex)

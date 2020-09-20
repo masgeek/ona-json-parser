@@ -7,6 +7,8 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.forms.datavalsphs.DataValSphs
 import com.tsobu.ona.core.dto.json.datavalsphs.*
 import com.tsobu.ona.core.dto.json.datavarsphs.CornerPlantRecDto
+import com.tsobu.ona.core.dto.json.datavarsphs.RemainPlantConDto
+import com.tsobu.ona.core.dto.json.datavarsphs.RemainPlantRecDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.datavalsphs.*
@@ -84,9 +86,13 @@ constructor(
             cornerPlantRecDto
         }
 
-        val remainPlantRecData = remainPlantRecList.map { plantRecEntity ->
-            val cornerPlantRecDto = modelMapper.map(plantRecEntity, CornerPlantRecDto::class.java)
-            cornerPlantRecDto
+        val remainPlantRecData = remainPlantRecList.map { remainPlantRecEntity ->
+            val remainPlantRecDto = modelMapper.map(remainPlantRecEntity, RemainPlantRecDto::class.java)
+            remainPlantRecDto
+        }
+        val remainPlantConData = remainPlantConList.map { remainPlantConEntity ->
+            val remainPlantConDto = modelMapper.map(remainPlantConEntity, RemainPlantConDto::class.java)
+            remainPlantConDto
         }
 
 
@@ -96,7 +102,8 @@ constructor(
 //        writeCsvFile.writeCsv(pojoType = ConTriDetailDto::class.java, list = conTriDetailData, fileName = "dataVAL_SPHS-harvest_CON_Tri_detail")
 //        writeCsvFile.writeCsv(pojoType = RecTriDetailDto::class.java, list = recTriDetailData, fileName = "dataVAL_SPHS-harvest_REC_Tri_detail")
 //        writeCsvFile.writeCsv(pojoType = HarvestRecTriDto::class.java, list = harvestRecTriData, fileName = "dataVAL_SPHS-harvest_REC_Tri")
-        writeCsvFile.writeCsv(pojoType = HarvestRecTriDto::class.java, list = remainPlantRecList, fileName = "dataVAL_SPHS-remainPlant_REC-")
+//        writeCsvFile.writeCsv(pojoType = RemainPlantRecDto::class.java, data = remainPlantRecData, fileName = "dataVAL_SPHS-remainPlant_REC")
+        writeCsvFile.writeCsv(pojoType = RemainPlantConDto::class.java, data = remainPlantConData, fileName = "dataVAL_SPHS-remainPlant_CON-")
     }
 
     @Suppress("UNCHECKED_CAST")
