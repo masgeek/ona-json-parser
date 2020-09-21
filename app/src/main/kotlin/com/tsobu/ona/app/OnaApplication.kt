@@ -42,7 +42,7 @@ class OnaApplication(
 //        dataValSphsService.readJsonAsset(fileName = "dataVAL_SPHS.json")
 //        ezService.readJsonAsset(fileName = "VAL_SPHS_TZEZ.json")
 //        lzwService.readJsonAsset(fileName = "VAL_SPHS_TZLZW.json")
-        lzeService.readJsonAsset(fileName = "VAL_SPHS_TZLZE.json")
+//        lzeService.readJsonAsset(fileName = "VAL_SPHS_TZLZE.json")
 
 
 //        weedControlService.mapJsonFile()
