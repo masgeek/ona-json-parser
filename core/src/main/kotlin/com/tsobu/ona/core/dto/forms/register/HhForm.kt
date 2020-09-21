@@ -76,7 +76,7 @@ class HhForm {
     var xformId: Int? = null
 
     @JsonProperty("simserial")
-    var simserial: String? = null
+    var simSerial: String? = null
 
     @JsonProperty("_attachments")
     var attachments: List<Attachment>? = null

@@ -5,11 +5,10 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.forms.register.HhForm
-import com.tsobu.ona.core.dto.json.dataval.FrDto
+import com.tsobu.ona.core.dto.json.register.HhDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.register.HhEntity
-import com.tsobu.ona.database.entities.valsphstz.SzEntity
 import com.tsobu.ona.database.repositories.register.HhRepo
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
@@ -57,13 +56,13 @@ constructor(
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
         val hhData = frList.map { hhEntity ->
-            val frDto = modelMapper.map(hhEntity, FrDto::class.java)
-            frDto.submissionDate = myDateUtil.convertTimeToString(hhEntity.submissionDate)
-            frDto.startDate = myDateUtil.convertTimeToString(hhEntity.startDate)
-            frDto.endDate = myDateUtil.convertTimeToString(hhEntity.endDate)
-            frDto
+            val hhDto = modelMapper.map(hhEntity, HhDto::class.java)
+            hhDto.submissionDate = myDateUtil.convertTimeToString(hhEntity.submissionDate)
+            hhDto.startDate = myDateUtil.convertTimeToString(hhEntity.startDate)
+            hhDto.endDate = myDateUtil.convertTimeToString(hhEntity.endDate)
+            hhDto
         }
-        writeCsvFile.writeCsv(pojoType = FrDto::class.java, data = hhData, fileName = "Register_HH-")
+        writeCsvFile.writeCsv(pojoType = HhDto::class.java, data = hhData, fileName = "Register_HH-")
     }
 
     @Suppress("UNCHECKED_CAST")
