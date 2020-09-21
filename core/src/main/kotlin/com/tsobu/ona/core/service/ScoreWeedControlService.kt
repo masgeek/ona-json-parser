@@ -10,7 +10,7 @@ import com.tsobu.ona.core.dto.json.ScoreWeedControlAcIdDto
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcWdDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.scoreweedcontrol.AcEntity
+import com.tsobu.ona.database.entities.scoreweedcontrol.WeedAcEntity
 import com.tsobu.ona.database.entities.scoreweedcontrol.AcIdEntity
 import com.tsobu.ona.database.entities.scoreweedcontrol.WdEntity
 import com.tsobu.ona.database.repositories.ScoreWeedControlAcIdRepo
@@ -80,7 +80,7 @@ constructor(
 
         val list = objectMapper.readValue(file, object : TypeReference<List<ScoreWeedControl>>() {})
 
-        val data = ArrayList<AcEntity>()
+        val data = ArrayList<WeedAcEntity>()
         val weedIdData = ArrayList<AcIdEntity>()
         val weedWdData = ArrayList<WdEntity>()
 
@@ -89,7 +89,7 @@ constructor(
             list.forEach { myVal ->
                 //map and save to database
                 val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
-                val weedEntity = AcEntity()
+                val weedEntity = WeedAcEntity()
                 if (geoPoint.isNotEmpty()) {
                     weedEntity.geoPointLatitude = geoPoint[0].toDouble()
 

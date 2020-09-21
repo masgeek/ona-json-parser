@@ -1,5 +1,6 @@
-package com.tsobu.ona.database.entities
+package com.tsobu.ona.database.entities.rootyieldcassava
 
+import com.tsobu.ona.database.entities.BaseEntity
 import java.time.LocalDate
 import java.time.LocalDateTime
 import javax.persistence.Column
@@ -8,7 +9,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "assess_root_yield_cassava_ac")
-class RootYieldCassavaAc : BaseEntity() {
+class CassavaAcEntity : BaseEntity() {
 
     var submissionDate: LocalDateTime? = null
     var uuid: String? = null

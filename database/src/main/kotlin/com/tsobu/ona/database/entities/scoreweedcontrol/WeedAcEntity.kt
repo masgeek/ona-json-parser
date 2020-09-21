@@ -9,7 +9,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "score_weed_control_ac")
-class AcEntity : BaseEntity() {
+class WeedAcEntity : BaseEntity() {
     var uuid: String? = null
 
     var submissionDate: LocalDateTime? = null

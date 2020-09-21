@@ -1,12 +1,13 @@
-package com.tsobu.ona.database.entities
+package com.tsobu.ona.database.entities.rootyieldcassava
 
+import com.tsobu.ona.database.entities.BaseEntity
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Table
 
 @Entity
 @Table(name = "assess_root_yield_cassava_ac_yield_assessment")
-class RootYieldCassavaAcYieldAssessment : BaseEntity() {
+class AcYieldAssessmentEntity : BaseEntity() {
 
     var plotId: String? = null
     var sectionId: String? = null
