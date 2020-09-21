@@ -4,13 +4,14 @@ package com.tsobu.ona.core.service.valsphstz
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.forms.valsphstz.Lzw
-import com.tsobu.ona.core.dto.json.valsphstz.LzwDto
+import com.tsobu.ona.core.dto.forms.valsphstz.Lze
+import com.tsobu.ona.core.dto.json.valsphstz.LzeDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.database.entities.valsphstz.LzeEntity
 import com.tsobu.ona.database.entities.valsphstz.LzwEntity
 import com.tsobu.ona.database.entities.valsphstz.SzEntity
-import com.tsobu.ona.database.repositories.valsphstz.LzwRepo
+import com.tsobu.ona.database.repositories.valsphstz.LzeRepo
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
@@ -25,13 +26,13 @@ import java.nio.file.Paths
 
 
 @Service
-class LzwService
+class LzeService
 constructor(
         transactionManager: PlatformTransactionManager,
-        val lzwRepo: LzwRepo,
+        val lzeRepo: LzeRepo,
         val appConfig: AppConfig) {
 
-    private val log = LoggerFactory.getLogger(LzwService::class.java)
+    private val log = LoggerFactory.getLogger(LzeService::class.java)
     private val modelMapper = ModelMapper()
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
@@ -39,7 +40,7 @@ constructor(
     private val writeCsvFile = WriteCsvFile()
     fun mapJsonFile() {
         log.info("Reading table data....")
-        val lzwList = lzwRepo.findAllByOrderBySubmissionDateAsc()
+        val lzeList = lzeRepo.findAllByOrderBySubmissionDateAsc()
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
@@ -56,14 +57,14 @@ constructor(
         modelMapper.configuration.isAmbiguityIgnored = true
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
-        val lzwData = lzwList.map { lzwEntity ->
-            val lzWDto = modelMapper.map(lzwEntity, LzwDto::class.java)
-            lzWDto.submissionDate = myDateUtil.convertTimeToString(lzwEntity.submissionDate)
-            lzWDto.startDate = myDateUtil.convertTimeToString(lzwEntity.startDate)
-            lzWDto.endDate = myDateUtil.convertTimeToString(lzwEntity.endDate)
-            lzWDto
+        val lzeData = lzeList.map { lzeEntity ->
+            val lzeDto = modelMapper.map(lzeEntity, LzeDto::class.java)
+            lzeDto.submissionDate = myDateUtil.convertTimeToString(lzeEntity.submissionDate)
+            lzeDto.startDate = myDateUtil.convertTimeToString(lzeEntity.startDate)
+            lzeDto.endDate = myDateUtil.convertTimeToString(lzeEntity.endDate)
+            lzeDto
         }
-        writeCsvFile.writeCsv(pojoType = LzwDto::class.java, data = lzwData, fileName = "VAL_SPHS_TZLZW-")
+        writeCsvFile.writeCsv(pojoType = LzeDto::class.java, data = lzeData, fileName = "VAL_SPHS_TZLZE")
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -72,7 +73,7 @@ constructor(
         val filePath = "${appConfig.globalProperties().folderPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
-        val list = objectMapper.readValue(file, object : TypeReference<List<Lzw>>() {})
+        val list = objectMapper.readValue(file, object : TypeReference<List<Lze>>() {})
 
         val data = ArrayList<SzEntity>()
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
@@ -93,7 +94,7 @@ constructor(
         list.forEach { myVal ->
             //map and save to database
             val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
-            val ezEntity = modelMapper.map(myVal, LzwEntity::class.java)
+            val ezEntity = modelMapper.map(myVal, LzeEntity::class.java)
             if (geoPoint.isNotEmpty()) {
                 ezEntity.geoPointLatitude = geoPoint[0]
 
@@ -119,7 +120,7 @@ constructor(
 
 
             try {
-                val saved = lzwRepo.save(ezEntity)
+                val saved = lzeRepo.save(ezEntity)
                 log.info("Added data to table ${saved.controlKey} with surname as ${myVal.xformIdString}")
             } catch (ex: Exception) {
                 log.error(ex.message, ex.stackTrace)
