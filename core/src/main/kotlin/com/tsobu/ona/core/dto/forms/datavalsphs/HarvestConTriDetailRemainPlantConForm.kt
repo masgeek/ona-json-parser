@@ -3,7 +3,7 @@ package com.tsobu.ona.core.dto.forms.datavalsphs
 import com.fasterxml.jackson.annotation.JsonProperty
 
 
-class HarvestConTriDetailRemainPlantCon {
+class HarvestConTriDetailRemainPlantConForm {
     @JsonProperty("harvest_CON_Tri_detail/remainPlant_CON/remainPlantNr_CON")
     var remainPlantNrCon: String? = null
 

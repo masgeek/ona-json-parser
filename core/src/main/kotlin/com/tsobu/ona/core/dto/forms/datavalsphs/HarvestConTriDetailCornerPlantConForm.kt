@@ -3,7 +3,7 @@ package com.tsobu.ona.core.dto.forms.datavalsphs
 import com.fasterxml.jackson.annotation.JsonProperty
 
 
-class HarvestConTriDetailCornerPlantCon {
+class HarvestConTriDetailCornerPlantConForm {
     @JsonProperty("harvest_CON_Tri_detail/cornerPlant_CON/cornerPlantNr_CON")
     var cornerPlantNrCon: String? = null
 

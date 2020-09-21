@@ -7,9 +7,9 @@ import com.fasterxml.jackson.annotation.JsonProperty
 @Suppress("unused")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-class WeedId {
+class WeedIdForm {
     @JsonProperty("ID/WD")
-    var weedIdentifierList: List<WeedIdentifier>? = null
+    var weedIdentifierFormList: List<WeedIdentifierForm>? = null
 
     @JsonProperty("ID/sectionID")
     var sectionId: String? = null

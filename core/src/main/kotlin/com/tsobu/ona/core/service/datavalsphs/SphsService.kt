@@ -4,7 +4,7 @@ package com.tsobu.ona.core.service.datavalsphs
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.forms.datavalsphs.DataValSphs
+import com.tsobu.ona.core.dto.forms.datavalsphs.SphsForm
 import com.tsobu.ona.core.dto.json.datavalsphs.*
 import com.tsobu.ona.core.dto.json.datavarsphs.CornerPlantRecDto
 import com.tsobu.ona.core.dto.json.datavarsphs.RemainPlantConDto
@@ -112,7 +112,7 @@ constructor(
         val filePath = "${appConfig.globalProperties().folderPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
-        val list = objectMapper.readValue(file, object : TypeReference<List<DataValSphs>>() {})
+        val list = objectMapper.readValue(file, object : TypeReference<List<SphsForm>>() {})
 
         val sphsEntityData = ArrayList<SphsEntity>()
         val recTriDetailEntityData = ArrayList<HarvestRecTriDetailEntity>()
@@ -169,7 +169,7 @@ constructor(
 
                 sphsEntityData.add(sphsEntity)
 
-                val harvestRecTriList = sphs.harvestRecTri
+                val harvestRecTriList = sphs.harvestRecTriForm
                 var recTriCount = 1
                 harvestRecTriList?.forEach { harvestRecTri ->
                     val recTriEntity = modelMapper.map(harvestRecTri, HarvestRecTriEntity::class.java)
@@ -181,7 +181,7 @@ constructor(
                     recTriCount = recTriCount.plus(1)
                 }
 
-                val recTriDetailList = sphs.harvestRecTriDetail
+                val recTriDetailList = sphs.harvestRecTriDetailForm
                 var recTriDetailCount = 1
                 recTriDetailList?.forEach { harvestRecTriDetail ->
                     val triDetailEntity = modelMapper.map(harvestRecTriDetail, HarvestRecTriDetailEntity::class.java)
@@ -196,7 +196,7 @@ constructor(
                     recTriDetailEntityData.add(triDetailEntity)
 
                     var remainPlantCounter = 1
-                    val remainPlantList = harvestRecTriDetail.remainPlantRec
+                    val remainPlantList = harvestRecTriDetail.remainPlantRecForm
                     remainPlantList?.forEach { remainPlantRec ->
                         val remainPlantEntity = modelMapper.map(remainPlantRec, RemainPlantRecEntity::class.java)
 
@@ -209,7 +209,7 @@ constructor(
                     }
 
                     var cornerPlantCounter = 1
-                    val cornerPlantList = harvestRecTriDetail.cornerPlantRec
+                    val cornerPlantList = harvestRecTriDetail.cornerPlantRecForm
                     cornerPlantList?.forEach { cornerPlantRec ->
                         val cornerPlantEntity = modelMapper.map(cornerPlantRec, CornerPlantRecEntity::class.java)
 
@@ -225,7 +225,7 @@ constructor(
                     recTriDetailCount = recTriDetailCount.plus(1)
                 }
 
-                val harvestConTriDetailList = sphs.harvestConTriDetailList
+                val harvestConTriDetailList = sphs.harvestConTriDetailFormList
                 var conTriDetailCounter = 1
                 harvestConTriDetailList?.forEach { conTriDetail ->
                     val conTriDetailEntity = modelMapper.map(conTriDetail, HarvestConTriDetailEntity::class.java)
@@ -240,7 +240,7 @@ constructor(
                     conTriDetailCounter = conTriDetailCounter.plus(1)
 
                     var remainPlantConCounter = 1
-                    val remainPlantConList = conTriDetail.remainPlantConList
+                    val remainPlantConList = conTriDetail.remainPlantConFormList
                     remainPlantConList?.forEach { remainPlantCon ->
                         val remainPlantConEntity = modelMapper.map(remainPlantCon, RemainPlantConEntity::class.java)
                         remainPlantConEntity.parentKey = conTriDetailEntity.controlKey
@@ -252,7 +252,7 @@ constructor(
                     }
 
                     var cornerPlantConCounter = 1
-                    val cornerPlantConList = conTriDetail.cornerPlantConList
+                    val cornerPlantConList = conTriDetail.cornerPlantConFormList
                     cornerPlantConList?.forEach { cornerPlantCon ->
                         val cornerPlantConEntity = modelMapper.map(cornerPlantCon, CornerPlantConEntity::class.java)
                         cornerPlantConEntity.parentKey = conTriDetailEntity.controlKey

@@ -1,13 +1,16 @@
-package com.tsobu.ona.core.dto.forms.rootyieldcassava
+package com.tsobu.ona.core.dto.forms.scoreweed
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
+import com.tsobu.ona.core.dto.forms.Attachment
 
+@Suppress("unused")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-class AssesRootYieldCassava {
-
+class ScoreWeedControlForm {
+    @JsonProperty("ID")
+    var weedIdFormList: List<WeedIdForm>? = null
 
     @JsonProperty("_id")
     var id: Int? = null
@@ -24,12 +27,6 @@ class AssesRootYieldCassava {
     @JsonProperty("login")
     var login: String? = null
 
-    @JsonProperty("enumerator/firstName")
-    var firstName: String? = null
-
-    @JsonProperty("enumerator/surName")
-    var surname: String? = null
-
     @JsonProperty("start")
     var start: String? = null
 
@@ -39,11 +36,11 @@ class AssesRootYieldCassava {
     @JsonProperty("_notes")
     var notes: List<Any>? = null
 
-    @JsonProperty("entity")
-    var rootEntity: String? = null
+    @JsonProperty("detail")
+    var weedDetail: String? = null
 
-    @JsonProperty("method")
-    var rootMethod: String? = null
+    @JsonProperty("entity")
+    var weedEntity: String? = null
 
     @JsonProperty("_edited")
     var edited: Boolean? = null
@@ -55,35 +52,33 @@ class AssesRootYieldCassava {
     var version: String? = null
 
     @JsonProperty("deviceid")
-    var deviceId: String? = null
+    var deviceid: String? = null
 
     @JsonProperty("geopoint")
     var geopoint: String? = null
 
     @JsonProperty("username")
     var username: String? = null
-
     @JsonProperty("email")
     var email: String? = null
 
-    @JsonProperty("phonenumber")
-    var phoneNumber: String? = null
-
-
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: Int? = null
 
     @JsonProperty("_xform_id")
     var xformId: Int? = null
 
-    @JsonProperty("fixedSize")
-    var fixedSize: String? = null
-
     @JsonProperty("simserial")
-    var simSerial: String? = null
+    var simserial: String? = null
+
+    @JsonProperty("phonenumber")
+    var phoneNumber: String? = null
+
+    @JsonProperty("nrQuadrants")
+    var nrQuadrants: Int? = null
 
     @JsonProperty("_attachments")
-    var attachments: List<Any>? = null
+    var attachments: List<Attachment>? = null
 
     @JsonProperty("_geolocation")
     var geolocation: List<Double>? = null
@@ -95,22 +90,13 @@ class AssesRootYieldCassava {
     var totalMedia: Int? = null
 
     @JsonProperty("formhub/uuid")
-    var formhubUuid: String? = null
+    var formHubUuid: String? = null
 
     @JsonProperty("subscriberid")
     var subscriberId: String? = null
 
     @JsonProperty("_submitted_by")
     var submittedBy: String? = null
-
-    @JsonProperty("maxStandFixed")
-    var maxStandFixed: String? = null
-
-    @JsonProperty("plotSizeFixed")
-    var plotSizeFixed: String? = null
-
-    @JsonProperty("detail/sampling")
-    var detailSampling: String? = null
 
     @JsonProperty("meta/instanceID")
     var metaInstanceID: String? = null
@@ -119,10 +105,7 @@ class AssesRootYieldCassava {
     var country: String? = null
 
     @JsonProperty("purpose/project")
-    var purpprojectseProject: String? = null
-
-    @JsonProperty("yieldAssessment")
-    var yieldAssessment: List<YieldAssessment>? = null
+    var project: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null
@@ -130,27 +113,10 @@ class AssesRootYieldCassava {
     @JsonProperty("_xform_id_string")
     var xformIdString: String? = null
 
-    @JsonProperty("densityFixedCalc")
-    var densityFixedCalc: String? = null
-
-    @JsonProperty("Fixed/nrRowsFixed")
-    var nrRowsFixed: Int? = null
-
-    @JsonProperty("Fixed/densityFixed")
-    var densityFixed: String? = null
-
     @JsonProperty("_bamboo_dataset_id")
     var bambooDatasetId: String? = null
 
-    @JsonProperty("detail/rootQuality")
-    var rootQuality: String? = null
 
     @JsonProperty("_media_all_received")
     var mediaAllReceived: Boolean? = null
-
-    @JsonProperty("detail/diseaseScoring")
-    var diseaseScoring: String? = null
-
-    @JsonProperty("Fixed/nrPlantsRowFixed")
-    var nrPlantsRowFixed: Int? = null
 }

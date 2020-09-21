@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-class Ez {
+class LzeForm {
     @JsonProperty("results/Pp0hm3")
     var pp0hm3: String? = null
 

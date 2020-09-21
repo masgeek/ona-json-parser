@@ -4,9 +4,8 @@ package com.tsobu.ona.core.service.dataval
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.forms.dataval.Fr
+import com.tsobu.ona.core.dto.forms.dataval.FrForm
 import com.tsobu.ona.core.dto.json.dataval.FrDto
-import com.tsobu.ona.core.dto.json.valsphstz.EzDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.dataval.FrEntity
@@ -73,7 +72,7 @@ constructor(
         val filePath = "${appConfig.globalProperties().folderPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
-        val list = objectMapper.readValue(file, object : TypeReference<List<Fr>>() {})
+        val list = objectMapper.readValue(file, object : TypeReference<List<FrForm>>() {})
 
         val data = ArrayList<SzEntity>()
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {

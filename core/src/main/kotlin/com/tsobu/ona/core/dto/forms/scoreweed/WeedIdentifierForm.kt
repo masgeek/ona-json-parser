@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 @Suppress("unused")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-class WeedIdentifier {
+class WeedIdentifierForm {
     @JsonProperty("ID/WD/imageLeafArea")
     var imageLeafArea: String? = null
 }

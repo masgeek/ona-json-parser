@@ -4,7 +4,7 @@ package com.tsobu.ona.core.service
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.forms.scoreweed.ScoreWeedControl
+import com.tsobu.ona.core.dto.forms.scoreweed.ScoreWeedControlForm
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcDto
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcIdDto
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcWdDto
@@ -78,7 +78,7 @@ constructor(
         val filePath = "${appConfig.globalProperties().folderPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
-        val list = objectMapper.readValue(file, object : TypeReference<List<ScoreWeedControl>>() {})
+        val list = objectMapper.readValue(file, object : TypeReference<List<ScoreWeedControlForm>>() {})
 
         val data = ArrayList<WeedAcEntity>()
         val weedIdData = ArrayList<AcIdEntity>()
@@ -128,7 +128,7 @@ constructor(
                 data.add(weedEntity)
 
                 //now we evaluate the weed id list
-                val weedIdList = myVal.weedIdList
+                val weedIdList = myVal.weedIdFormList
                 var weedListIdCount = 1
                 weedIdList?.forEach { weedList ->
                     val weedIdEntity = AcIdEntity()
@@ -149,7 +149,7 @@ constructor(
 
                     //now we evaluate the weed ac list
                     log.info("Evaluating the weed ac now")
-                    val weedAcList = weedList.weedIdentifierList
+                    val weedAcList = weedList.weedIdentifierFormList
                     var weedListAcCount = 1
                     weedAcList?.forEach { weedIdentifier ->
                         val weedAcEntity = WdEntity()

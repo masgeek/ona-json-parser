@@ -4,7 +4,7 @@ package com.tsobu.ona.core.service
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.forms.rootyieldcassava.AssesRootYieldCassava
+import com.tsobu.ona.core.dto.forms.rootyieldcassava.AssesRootYieldCassavaForm
 import com.tsobu.ona.core.dto.json.RootYieldCassavaAcDto
 import com.tsobu.ona.core.dto.json.RootYieldCassavaAcYieldAssessmentDto
 import com.tsobu.ona.core.utils.MyUtils
@@ -72,7 +72,7 @@ constructor(
         val filePath = "${appConfig.globalProperties().folderPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
-        val list = objectMapper.readValue(file, object : TypeReference<List<AssesRootYieldCassava>>() {})
+        val list = objectMapper.readValue(file, object : TypeReference<List<AssesRootYieldCassavaForm>>() {})
 
         val data = ArrayList<CassavaAcEntity>()
         val yieldAssessmentData = ArrayList<AcYieldAssessmentEntity>()
@@ -126,7 +126,7 @@ constructor(
                 log.info("Added data to list ${yieldCassavaEntity.controlKey} with surname as ${yieldCassavaEntity.surname}")
 
                 //evaluate the yield assessment
-                val yieldAssessmentList = myVal.yieldAssessment
+                val yieldAssessmentList = myVal.yieldAssessmentForm
                 var assessmentCount = 1
                 yieldAssessmentList?.forEach { ya ->
                     val yieldAssessment = modelMapper.map(ya, AcYieldAssessmentEntity::class.java)

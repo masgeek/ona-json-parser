@@ -5,26 +5,25 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.tsobu.ona.core.dto.BaseFormData
-import com.tsobu.ona.core.dto.forms.scoreweed.ProblemWeed
+import com.tsobu.ona.core.dto.forms.scoreweed.ProblemWeedForm
 
 
 @Suppress("unused")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-class DataValPPTz : BaseFormData() {
+class ValPPTzForm : BaseFormData() {
     @JsonProperty("CP")
     var cP: String? = null
 
     @JsonProperty("PW")
-    var problemWeed: List<ProblemWeed>? = null
+    var problemWeedForm: List<ProblemWeedForm>? = null
 
     @JsonProperty("lat")
     var lat: String? = null
 
     @JsonProperty("lon")
     var lon: String? = null
-
 
     @JsonProperty("plotL")
     var plotL: String? = null
@@ -80,6 +79,7 @@ class DataValPPTz : BaseFormData() {
     @JsonProperty("costT2RG")
     var costT2RG: String? = null
 
+
     @JsonProperty("currentY")
     var currentY: String? = null
 
@@ -90,6 +90,7 @@ class DataValPPTz : BaseFormData() {
 
     @JsonProperty("implement")
     var implement: String? = null
+
 
     @JsonProperty("costCPcurr")
     var costCPcurr: String? = null
@@ -133,9 +134,9 @@ class DataValPPTz : BaseFormData() {
     @JsonProperty("weedingCost")
     var weedingCost: String? = null
 
+
     @JsonProperty("basicTillRec")
     var basicTillRec: String? = null
-
 
     @JsonProperty("grossValueCP")
     var grossValueCP: String? = null
@@ -230,7 +231,6 @@ class DataValPPTz : BaseFormData() {
 
     @JsonProperty("currentYieldLevel")
     var currentYieldLevel: String? = null
-
 
     @JsonProperty("netValueDifMaxRound")
     var netValueDifMaxRound: String? = null

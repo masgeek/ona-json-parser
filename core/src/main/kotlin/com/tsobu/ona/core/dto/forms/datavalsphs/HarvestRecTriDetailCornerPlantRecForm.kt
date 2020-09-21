@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-class HarvestRecTriDetailCornerPlantRec {
+class HarvestRecTriDetailCornerPlantRecForm {
     @JsonProperty("harvest_REC_Tri_detail/cornerPlant_REC/cornerPlantNr_REC")
     var nrRec: String? = null
 

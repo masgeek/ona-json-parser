@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-class DataValSphs {
+class SphsForm {
 
 
     @JsonProperty("end")
@@ -395,11 +395,11 @@ class DataValSphs {
 
 
     @JsonProperty("harvest_REC_Tri_detail")
-    var harvestRecTriDetail: List<HarvestRecTriDetail>? = null
+    var harvestRecTriDetailForm: List<HarvestRecTriDetailForm>? = null
 
     @JsonProperty("harvest_REC_Tri")
-    var harvestRecTri: List<HarvestRecTri>? = null
+    var harvestRecTriForm: List<HarvestRecTriForm>? = null
 
     @JsonProperty("harvest_CON_Tri_detail")
-    var harvestConTriDetailList: List<HarvestConTriDetail>? = null
+    var harvestConTriDetailFormList: List<HarvestConTriDetailForm>? = null
 }

@@ -4,12 +4,11 @@ package com.tsobu.ona.core.service.valsphstz
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.forms.valsphstz.Lze
+import com.tsobu.ona.core.dto.forms.valsphstz.LzeForm
 import com.tsobu.ona.core.dto.json.valsphstz.LzeDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.valsphstz.LzeEntity
-import com.tsobu.ona.database.entities.valsphstz.LzwEntity
 import com.tsobu.ona.database.entities.valsphstz.SzEntity
 import com.tsobu.ona.database.repositories.valsphstz.LzeRepo
 import org.modelmapper.AbstractCondition
@@ -73,7 +72,7 @@ constructor(
         val filePath = "${appConfig.globalProperties().folderPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
-        val list = objectMapper.readValue(file, object : TypeReference<List<Lze>>() {})
+        val list = objectMapper.readValue(file, object : TypeReference<List<LzeForm>>() {})
 
         val data = ArrayList<SzEntity>()
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {

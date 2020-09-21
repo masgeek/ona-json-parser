@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-class HarvestRecTri {
+class HarvestRecTriForm {
     @JsonProperty("harvest_REC_Tri/triangleNr_REC")
     var triangleNrRec: String? = null
 

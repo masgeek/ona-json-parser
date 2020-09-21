@@ -4,7 +4,7 @@ package com.tsobu.ona.core.service.valsphstz
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.forms.valsphstz.Lzw
+import com.tsobu.ona.core.dto.forms.valsphstz.LzwForm
 import com.tsobu.ona.core.dto.json.valsphstz.LzwDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
@@ -72,7 +72,7 @@ constructor(
         val filePath = "${appConfig.globalProperties().folderPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
-        val list = objectMapper.readValue(file, object : TypeReference<List<Lzw>>() {})
+        val list = objectMapper.readValue(file, object : TypeReference<List<LzwForm>>() {})
 
         val data = ArrayList<SzEntity>()
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
