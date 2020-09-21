@@ -10,9 +10,9 @@ import com.tsobu.ona.core.dto.json.ScoreWeedControlAcIdDto
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcWdDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.ScoreWeedControlAc
-import com.tsobu.ona.database.entities.ScoreWeedControlAcId
-import com.tsobu.ona.database.entities.ScoreWeedControlAcWd
+import com.tsobu.ona.database.entities.scoreweedcontrol.AcEntity
+import com.tsobu.ona.database.entities.scoreweedcontrol.AcIdEntity
+import com.tsobu.ona.database.entities.scoreweedcontrol.WdEntity
 import com.tsobu.ona.database.repositories.ScoreWeedControlAcIdRepo
 import com.tsobu.ona.database.repositories.ScoreWeedControlAcRepo
 import com.tsobu.ona.database.repositories.ScoreWeedControlAcWdRepo
@@ -80,16 +80,16 @@ constructor(
 
         val list = objectMapper.readValue(file, object : TypeReference<List<ScoreWeedControl>>() {})
 
-        val data = ArrayList<ScoreWeedControlAc>()
-        val weedIdData = ArrayList<ScoreWeedControlAcId>()
-        val weedWdData = ArrayList<ScoreWeedControlAcWd>()
+        val data = ArrayList<AcEntity>()
+        val weedIdData = ArrayList<AcIdEntity>()
+        val weedWdData = ArrayList<WdEntity>()
 
         val result = transactionTemplate.execute { status: TransactionStatus? ->
 
             list.forEach { myVal ->
                 //map and save to database
                 val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
-                val weedEntity = ScoreWeedControlAc()
+                val weedEntity = AcEntity()
                 if (geoPoint.isNotEmpty()) {
                     weedEntity.geoPointLatitude = geoPoint[0].toDouble()
 
@@ -131,7 +131,7 @@ constructor(
                 val weedIdList = myVal.weedIdList
                 var weedListIdCount = 1
                 weedIdList?.forEach { weedList ->
-                    val weedIdEntity = ScoreWeedControlAcId()
+                    val weedIdEntity = AcIdEntity()
                     weedIdEntity.sectionId = weedList.sectionId
                     weedIdEntity.plotId = weedList.plotId
                     weedIdEntity.daysLastWeeded = weedList.daysLastWeeded
@@ -152,7 +152,7 @@ constructor(
                     val weedAcList = weedList.weedIdentifierList
                     var weedListAcCount = 1
                     weedAcList?.forEach { weedIdentifier ->
-                        val weedAcEntity = ScoreWeedControlAcWd()
+                        val weedAcEntity = WdEntity()
                         weedAcEntity.parentKey = weedIdEntity.controlKey
                         weedAcEntity.imageLeafArea = weedIdentifier.imageLeafArea
                         weedAcEntity.controlKey = "${weedIdEntity.setOfWd}[$weedListIdCount]"

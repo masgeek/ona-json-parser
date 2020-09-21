@@ -11,7 +11,7 @@ import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.RootYieldCassavaAc
 import com.tsobu.ona.database.entities.RootYieldCassavaAcYieldAssessment
-import com.tsobu.ona.database.entities.ScoreWeedControlAcWd
+import com.tsobu.ona.database.entities.scoreweedcontrol.WdEntity
 import com.tsobu.ona.database.repositories.RootYieldCassavaAcRepo
 import com.tsobu.ona.database.repositories.RootYieldCassavaAcYieldAssessmentRepo
 import org.modelmapper.AbstractCondition
@@ -76,7 +76,7 @@ constructor(
 
         val data = ArrayList<RootYieldCassavaAc>()
         val yieldAssessmentData = ArrayList<RootYieldCassavaAcYieldAssessment>()
-        val weedWdData = ArrayList<ScoreWeedControlAcWd>()
+        val weedWdData = ArrayList<WdEntity>()
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {

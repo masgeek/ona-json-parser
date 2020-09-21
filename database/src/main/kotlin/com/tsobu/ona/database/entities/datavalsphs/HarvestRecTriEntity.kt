@@ -6,7 +6,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "dataval_sphs_harvest_rec_tri")
-class SphsHarvestRecTriEntity : BaseEntity() {
+class HarvestRecTriEntity : BaseEntity() {
     var triangleNrRec: String? = null
     var nrPlantsRecTri: String? = null
     var tuberizedMarketableRootsNrRecTri: String? = null

@@ -1,12 +1,13 @@
-package com.tsobu.ona.database.entities
+package com.tsobu.ona.database.entities.scoreweedcontrol
 
+import com.tsobu.ona.database.entities.BaseEntity
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Table
 
 @Entity
 @Table(name = "score_weed_control_ac_id")
-class ScoreWeedControlAcId : BaseEntity() {
+class AcIdEntity : BaseEntity() {
 
     var sectionId: String? = null
     var plotId: String? = null

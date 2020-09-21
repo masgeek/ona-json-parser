@@ -116,7 +116,7 @@ constructor(
 
         val sphsEntityData = ArrayList<SphsEntity>()
         val recTriDetailEntityData = ArrayList<HarvestRecTriDetailEntity>()
-        val recTriEntityData = ArrayList<SphsHarvestRecTriEntity>()
+        val recTriEntityData = ArrayList<HarvestRecTriEntity>()
         val remainPlantEntityData = ArrayList<RemainPlantRecEntity>()
         val cornerPlantEntityData = ArrayList<CornerPlantRecEntity>()
         val harvestConTriDetailEntityData = ArrayList<HarvestConTriDetailEntity>()
@@ -172,7 +172,7 @@ constructor(
                 val harvestRecTriList = sphs.harvestRecTri
                 var recTriCount = 1
                 harvestRecTriList?.forEach { harvestRecTri ->
-                    val recTriEntity = modelMapper.map(harvestRecTri, SphsHarvestRecTriEntity::class.java)
+                    val recTriEntity = modelMapper.map(harvestRecTri, HarvestRecTriEntity::class.java)
                     recTriEntity.parentKey = sphsEntity.controlKey
                     recTriEntity.setOfHarvestRecTri = "${recTriEntity.parentKey}/harvest_REC_Tri"
                     recTriEntity.controlKey = "${recTriEntity.parentKey}/harvest_REC_Tri[$recTriCount]"

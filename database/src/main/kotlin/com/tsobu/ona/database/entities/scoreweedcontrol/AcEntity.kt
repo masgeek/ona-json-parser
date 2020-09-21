@@ -1,5 +1,6 @@
-package com.tsobu.ona.database.entities
+package com.tsobu.ona.database.entities.scoreweedcontrol
 
+import com.tsobu.ona.database.entities.BaseEntity
 import java.time.LocalDate
 import java.time.LocalDateTime
 import javax.persistence.Column
@@ -8,7 +9,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "score_weed_control_ac")
-class ScoreWeedControlAc : BaseEntity() {
+class AcEntity : BaseEntity() {
     var uuid: String? = null
 
     var submissionDate: LocalDateTime? = null
