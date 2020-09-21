@@ -1,6 +1,11 @@
 package com.tsobu.ona.app
 
-import com.tsobu.ona.core.service.*
+import com.tsobu.ona.core.service.AssessRootYieldCassavaService
+import com.tsobu.ona.core.service.DataValSphsService
+import com.tsobu.ona.core.service.ScoreWeedControlService
+import com.tsobu.ona.core.service.valsphstz.EzService
+import com.tsobu.ona.core.service.valsphstz.LzwService
+import com.tsobu.ona.core.service.valsphstz.SzService
 import org.slf4j.LoggerFactory
 import org.springframework.boot.Banner
 import org.springframework.boot.CommandLineRunner
@@ -19,8 +24,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 class OnaApplication(
         private val weedControlService: ScoreWeedControlService,
         private val yieldCassavaService: AssessRootYieldCassavaService,
-        private val valSphsTzSzService: ValSphsTzSzService,
-        private val valSphsTzEzService: ValSphsTzEzService,
+        private val szService: SzService,
+        private val ezService: EzService,
+        private val lzwService: LzwService,
         private val dataValSphsService: DataValSphsService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
@@ -32,14 +38,16 @@ class OnaApplication(
 //        yieldCassavaService.readJsonAsset(fileName = "Assess_Root_Yield_Cassava_AC.json")
 //        valSphsTzSzService.readJsonAsset(fileName = "VAL_SPHS_TZSZ.json")
 //        dataValSphsService.readJsonAsset(fileName = "dataVAL_SPHS.json")
-        valSphsTzEzService.readJsonAsset(fileName = "VAL_SPHS_TZEZ.json")
+//        ezService.readJsonAsset(fileName = "VAL_SPHS_TZEZ.json")
+        lzwService.readJsonAsset(fileName = "VAL_SPHS_TZLZW.json")
 
 
 //        weedControlService.mapJsonFile()
 //        yieldCassavaService.mapJsonFile()
 //        valSphsTzSzService.mapJsonFile()
 //        dataValSphsService.mapJsonFile()
-        valSphsTzEzService.mapJsonFile()
+//        ezService.mapJsonFile()
+        lzwService.mapJsonFile()
     }
 
 

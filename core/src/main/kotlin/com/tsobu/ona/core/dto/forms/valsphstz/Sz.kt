@@ -22,10 +22,10 @@ class Sz {
     var lon: String? = null
 
     @JsonProperty("EAID")
-    var eAID: String? = null
+    var eaid: String? = null
 
     @JsonProperty("HHID")
-    var hHID: String? = null
+    var hhid: String? = null
 
     @JsonProperty("unit")
     var unit: String? = null
