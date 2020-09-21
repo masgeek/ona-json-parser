@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.tsobu.ona.core.dto.BaseFormData
-import com.tsobu.ona.core.dto.ProblemWeed
+import com.tsobu.ona.core.dto.forms.scoreweed.ProblemWeed
 
 
 @Suppress("unused")

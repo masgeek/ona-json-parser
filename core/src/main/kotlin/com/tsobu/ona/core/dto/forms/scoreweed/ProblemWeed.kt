@@ -1,4 +1,4 @@
-package com.tsobu.ona.core.dto
+package com.tsobu.ona.core.dto.forms.scoreweed
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty

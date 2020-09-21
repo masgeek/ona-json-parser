@@ -1,8 +1,9 @@
 package com.tsobu.ona.app
 
 import com.tsobu.ona.core.service.AssessRootYieldCassavaService
-import com.tsobu.ona.core.service.DataValSphsService
 import com.tsobu.ona.core.service.ScoreWeedControlService
+import com.tsobu.ona.core.service.dataval.FrService
+import com.tsobu.ona.core.service.datavalsphs.SphsService
 import com.tsobu.ona.core.service.valsphstz.EzService
 import com.tsobu.ona.core.service.valsphstz.LzeService
 import com.tsobu.ona.core.service.valsphstz.LzwService
@@ -29,7 +30,8 @@ class OnaApplication(
         private val ezService: EzService,
         private val lzwService: LzwService,
         private val lzeService: LzeService,
-        private val dataValSphsService: DataValSphsService
+        private val sphsService: SphsService,
+        private val frService: FrService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -43,6 +45,7 @@ class OnaApplication(
 //        ezService.readJsonAsset(fileName = "VAL_SPHS_TZEZ.json")
 //        lzwService.readJsonAsset(fileName = "VAL_SPHS_TZLZW.json")
 //        lzeService.readJsonAsset(fileName = "VAL_SPHS_TZLZE.json")
+        frService.readJsonAsset(fileName = "dataVAL_FR.json")
 
 
 //        weedControlService.mapJsonFile()
@@ -51,7 +54,8 @@ class OnaApplication(
 //        dataValSphsService.mapJsonFile()
 //        ezService.mapJsonFile()
 //        lzwService.mapJsonFile()
-        lzeService.mapJsonFile()
+//        lzeService.mapJsonFile()
+        frService.mapJsonFile()
     }
 
 

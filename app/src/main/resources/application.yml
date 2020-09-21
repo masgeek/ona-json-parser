@@ -11,5 +11,14 @@ spring:
     change-log: "classpath:db/changelog.xml"
     rollback-file: "I://development//rollback.sql"
 
+
+  jpa:
+    properties:
+      hibernate:
+        generate_statistics: true
+        jdbc:
+          batch_size: 5
+        order_inserts: true
+
 ona:
   folder-path: "I://development//python//ona-download//downloads//json//"

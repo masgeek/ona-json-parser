@@ -1,4 +1,4 @@
-package com.tsobu.ona.core.service
+package com.tsobu.ona.core.service.datavalsphs
 
 
 import com.fasterxml.jackson.core.type.TypeReference
@@ -27,7 +27,7 @@ import java.nio.file.Paths
 
 
 @Service
-class DataValSphsService
+class SphsService
 constructor(
         transactionManager: PlatformTransactionManager,
         val sphsRepo: SphsRepo,
@@ -40,7 +40,7 @@ constructor(
         val cornerPlantConRepo: CornerPlantConRepo,
         val appConfig: AppConfig) {
 
-    private val log = LoggerFactory.getLogger(DataValSphsService::class.java)
+    private val log = LoggerFactory.getLogger(SphsService::class.java)
     private val modelMapper = ModelMapper()
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
