@@ -9,11 +9,8 @@ import com.tsobu.ona.core.dto.json.dataval.FrDto
 import com.tsobu.ona.core.dto.json.dataval.PpTzDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.dataval.PpEntity
-import com.tsobu.ona.database.entities.dataval.PpWaAltEntity
-import com.tsobu.ona.database.repositories.dataval.PpRepo
-import com.tsobu.ona.database.repositories.dataval.PpWaAltBpp3Repo
-import com.tsobu.ona.database.repositories.dataval.PpWaAltRepo
+import com.tsobu.ona.database.entities.dataval.*
+import com.tsobu.ona.database.repositories.dataval.*
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
@@ -34,6 +31,10 @@ constructor(
         val ppRepo: PpRepo,
         val ppWaAltRepo: PpWaAltRepo,
         val ppWaAltBpp3Repo: PpWaAltBpp3Repo,
+        val ppWaConRepo: PpWaConRepo,
+        val ppWaConBpp3Repo: PpWaConBpp3Repo,
+        val ppWaRecRepo: PpWaRecRepo,
+        val ppWaRecBpp3Repo: PpWaRecBpp3Repo,
         val appConfig: AppConfig) {
 
     private val log = LoggerFactory.getLogger(PpService::class.java)
@@ -102,11 +103,11 @@ constructor(
 
         val ppEntityData = ArrayList<PpEntity>()
         val weedAssessmentAltData = ArrayList<PpWaAltEntity>()
-        val weedAssessmentConData = ArrayList<WeedAssessmentCon>()
-        val weedAssessmentRecData = ArrayList<WeedAssessmentRec>()
-        val weedAssessmentAltBpp3Data = ArrayList<WeedAssessmentAltBpp3>()
-        val weedAssessmentConBpp3Data = ArrayList<WeedAssessmentConBpp3>()
-        val weedAssessmentRecBpp3Data = ArrayList<WeedAssessmentRecBpp3>()
+        val weedAssessmentConData = ArrayList<PpWaConEntity>()
+        val weedAssessmentRecData = ArrayList<PpWaRecEntity>()
+        val weedAssessmentAltBpp3Data = ArrayList<PpWaAltBpp3Entity>()
+        val weedAssessmentConBpp3Data = ArrayList<PpWaConBpp3Entity>()
+        val weedAssessmentRecBpp3Data = ArrayList<PpWaRecBpp3Entity>()
         list.forEach { myVal ->
             //map and save to database
             val geoPoint = myUtils.splitGeoPoint(myVal.geopoint)
@@ -148,10 +149,75 @@ constructor(
                 weedAssessmentAltData.add(waAltEntity)
             }
 
+            val weedAssessmentAltBpp3List = myVal.weedAssessmentAltBpp3
+            var weedAssesAltBppCount = 1
+            weedAssessmentAltBpp3List?.forEach { assessmentAltBpp3 ->
+                val waAltBpp3Entity = modelMapper.map(assessmentAltBpp3, PpWaAltBpp3Entity::class.java)
+                waAltBpp3Entity.parentKey = ppEntity.controlKey
+                waAltBpp3Entity.setOfWeedAssessmentAltBpp3 = "${waAltBpp3Entity.parentKey}/weedAssessment_ALT_BPP3"
+                waAltBpp3Entity.controlKey = "${waAltBpp3Entity.parentKey}/weedAssessment_ALT_BPP3[$weedAssesAltCount]"
+                weedAssesAltBppCount = weedAssesAltBppCount.plus(1)
+
+                weedAssessmentAltBpp3Data.add(waAltBpp3Entity)
+            }
+
+            val weedAssessmentConList = myVal.weedAssessmentCon
+            var weedAssesConCount = 1
+            weedAssessmentConList?.forEach { assessmentCon ->
+                val waConEntity = modelMapper.map(assessmentCon, PpWaConEntity::class.java)
+                waConEntity.parentKey = ppEntity.controlKey
+                waConEntity.setOfWeedAssessmentCon = "${waConEntity.parentKey}/weedAssessment_CON"
+                waConEntity.controlKey = "${waConEntity.parentKey}/weedAssessment_CON[$weedAssesAltCount]"
+                weedAssesConCount = weedAssesConCount.plus(1)
+
+                weedAssessmentConData.add(waConEntity)
+            }
+
+            val weedAssessmentConBpp3List = myVal.weedAssessmentConBpp3
+            var weedAssesConBpp3Count = 1
+            weedAssessmentConBpp3List?.forEach { assessmentConBpp3 ->
+                val bpp3Entity = modelMapper.map(assessmentConBpp3, PpWaConBpp3Entity::class.java)
+                bpp3Entity.parentKey = ppEntity.controlKey
+                bpp3Entity.setOfWeedAssessmentConBpp3 = "${bpp3Entity.parentKey}/weedAssessment_CON_BPP3"
+                bpp3Entity.controlKey = "${bpp3Entity.parentKey}/weedAssessment_CON_BPP3[$weedAssesAltCount]"
+                weedAssesConBpp3Count = weedAssesConBpp3Count.plus(1)
+
+                weedAssessmentConBpp3Data.add(bpp3Entity)
+            }
+
+            val weedAssessmentRecList = myVal.weedAssessmentRec
+            var weedAssesRecCount = 1
+            weedAssessmentRecList?.forEach { assessmentRec ->
+                val waRecEntity = modelMapper.map(assessmentRec, PpWaRecEntity::class.java)
+                waRecEntity.parentKey = ppEntity.controlKey
+                waRecEntity.setOfWeedAssessmentRec = "${waRecEntity.parentKey}/weedAssessment_REC"
+                waRecEntity.controlKey = "${waRecEntity.parentKey}/weedAssessment_REC[$weedAssesAltCount]"
+                weedAssesRecCount = weedAssesRecCount.plus(1)
+
+                weedAssessmentRecData.add(waRecEntity)
+            }
+
+            val weedAssessmentRecBpp3List = myVal.weedAssessmentRecBpp3
+            var weedAssesRecBpp3Count = 1
+            weedAssessmentRecBpp3List?.forEach { assessmentRecBpp3 ->
+                val recBpp3Entity = modelMapper.map(assessmentRecBpp3, PpWaRecBpp3Entity::class.java)
+                recBpp3Entity.parentKey = ppEntity.controlKey
+                recBpp3Entity.setOfWeedAssessmentRecBpp3 = "${recBpp3Entity.parentKey}/weedAssessment_REC_BPP3"
+                recBpp3Entity.controlKey = "${recBpp3Entity.parentKey}/weedAssessment_REC_BPP3[$weedAssesAltCount]"
+                weedAssesRecBpp3Count = weedAssesRecBpp3Count.plus(1)
+
+                weedAssessmentRecBpp3Data.add(recBpp3Entity)
+            }
+
         }
 
-//        ppRepo.saveAll(ppEntityData)
+        ppRepo.saveAll(ppEntityData)
         ppWaAltRepo.saveAll(weedAssessmentAltData)
+        ppWaAltBpp3Repo.saveAll(weedAssessmentAltBpp3Data)
+        ppWaConRepo.saveAll(weedAssessmentConData)
+        ppWaConBpp3Repo.saveAll(weedAssessmentConBpp3Data)
+        ppWaRecRepo.saveAll(weedAssessmentRecData)
+        ppWaRecBpp3Repo.saveAll(weedAssessmentRecBpp3Data)
 
         log.info("Finished saving the data for $fileName------->")
     }
