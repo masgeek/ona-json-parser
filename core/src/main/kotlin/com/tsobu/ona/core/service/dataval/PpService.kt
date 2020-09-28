@@ -5,12 +5,14 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.forms.dataval.PpTzForm
+import com.tsobu.ona.core.dto.forms.dataval.*
 import com.tsobu.ona.core.dto.json.dataval.FrDto
 import com.tsobu.ona.core.dto.json.dataval.PpTzDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.dataval.PpEntity
 import com.tsobu.ona.database.repositories.dataval.PpRepo
+import com.tsobu.ona.database.repositories.dataval.PpWaAltRepo
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
@@ -29,6 +31,7 @@ class PpService
 constructor(
         transactionManager: PlatformTransactionManager,
         val ppRepo: PpRepo,
+        val ppWaAltRepo: PpWaAltRepo,
         val appConfig: AppConfig) {
 
     private val log = LoggerFactory.getLogger(PpService::class.java)
@@ -77,7 +80,7 @@ constructor(
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
-        val list = objectMapper.readValue(file, object : TypeReference<List<PpTzForm>>() {})
+        val list = objectMapper.readValue(file, object : TypeReference<List<PpForm>>() {})
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
@@ -96,6 +99,12 @@ constructor(
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val ppEntityData = ArrayList<PpEntity>()
+        val weedAssessmentAltData = ArrayList<WeedAssessmentAlt>()
+        val weedAssessmentConData = ArrayList<WeedAssessmentCon>()
+        val weedAssessmentRecData = ArrayList<WeedAssessmentRec>()
+        val weedAssessmentAltBpp3Data = ArrayList<WeedAssessmentAltBpp3>()
+        val weedAssessmentConBpp3Data = ArrayList<WeedAssessmentConBpp3>()
+        val weedAssessmentRecBpp3Data = ArrayList<WeedAssessmentRecBpp3>()
         list.forEach { myVal ->
             //map and save to database
             val geoPoint = myUtils.splitGeoPoint(myVal.geopoint)
@@ -123,10 +132,9 @@ constructor(
             ppEntity.instanceId = myVal.metaInstanceID
             ppEntity.controlKey = myVal.metaInstanceID
 
-
-//            ppEntity.tuberizedMarketableRootsNrRecBpp3 = myVal.tuberizedMarketableRootsFwRecBpp3
-
             ppEntityData.add(ppEntity)
+
+//            val weedAssessmentAltList = myVal.weedAssessmentAltCount
 
         }
 

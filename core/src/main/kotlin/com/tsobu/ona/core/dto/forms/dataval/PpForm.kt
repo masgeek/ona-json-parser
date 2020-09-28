@@ -15,10 +15,10 @@ class PpForm {
     var end: String? = null
 
     @JsonProperty("EAID")
-    var eAID: String? = null
+    var eaid: String? = null
 
     @JsonProperty("HHID")
-    var hHID: String? = null
+    var hhid: String? = null
 
     @JsonProperty("_tags")
     var tags: List<Any>? = null
@@ -40,6 +40,9 @@ class PpForm {
 
     @JsonProperty("_status")
     var status: String? = null
+
+    @JsonProperty("comment")
+    var comment: String? = null
 
     @JsonProperty("country")
     var country: String? = null
@@ -72,7 +75,7 @@ class PpForm {
     var nrWeeding: Int? = null
 
     @JsonProperty("simserial")
-    var simserial: String? = null
+    var simSerial: String? = null
 
     @JsonProperty("conversion")
     var conversion: String? = null
@@ -99,7 +102,7 @@ class PpForm {
     var overallScore: String? = null
 
     @JsonProperty("purpose/BPP3")
-    var purposeBPP3: String? = null
+    var purposeBpp3: String? = null
 
     @JsonProperty("subscriberid")
     var subscriberid: String? = null
@@ -108,13 +111,13 @@ class PpForm {
     var submittedBy: String? = null
 
     @JsonProperty("purpose/event")
-    var purposeEvent: String? = null
+    var eventValue: String? = null
 
     @JsonProperty("meta/instanceID")
     var metaInstanceID: String? = null
 
     @JsonProperty("purpose/redPlot")
-    var purposeRedPlot: String? = null
+    var redPlot: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null
@@ -129,19 +132,19 @@ class PpForm {
     var mediaAllReceived: Boolean? = null
 
     @JsonProperty("harvest/harvestDate")
-    var harvestHarvestDate: String? = null
+    var harvestDate: String? = null
 
     @JsonProperty("trialRating/rateCMD")
-    var trialRatingRateCMD: String? = null
+    var rateCMD: String? = null
 
     @JsonProperty("trialRating/rateFire")
-    var trialRatingRateFire: String? = null
+    var rateFire: String? = null
 
     @JsonProperty("trialRating/ratePests")
-    var trialRatingRatePests: String? = null
+    var ratePests: String? = null
 
     @JsonProperty("trialRating/rateWeeds")
-    var trialRatingRateWeeds: String? = null
+    var rateWeeds: String? = null
 
     @JsonProperty("plantStand/nrPlants_ALT")
     var plantStandNrPlantsALT: Int? = null
@@ -153,13 +156,13 @@ class PpForm {
     var plantStandNrPlantsREC: Int? = null
 
     @JsonProperty("trialRating/rateDrought")
-    var trialRatingRateDrought: String? = null
+    var rateDrought: String? = null
 
     @JsonProperty("trialRating/rateGrazing")
-    var trialRatingRateGrazing: String? = null
+    var rateGrazing: String? = null
 
     @JsonProperty("trialRating/rateLodging")
-    var trialRatingRateLodging: String? = null
+    var rateLodging: String? = null
 
     @JsonProperty("weedAssessment_ALT_count")
     var weedAssessmentALTCount: String? = null
@@ -170,95 +173,61 @@ class PpForm {
     @JsonProperty("weedAssessment_REC_count")
     var weedAssessmentRECCount: String? = null
 
-    @JsonProperty("plotLayout_ALT/plotL1_ALT")
-    var plotLayoutALTPlotL1ALT: Float? = null
-
-    @JsonProperty("plotLayout_ALT/plotL2_ALT")
-    var plotLayoutALTPlotL2ALT: Float? = null
-
-    @JsonProperty("plotLayout_ALT/plotW1_ALT")
-    var plotLayoutALTPlotW1ALT: Float? = null
-
-    @JsonProperty("plotLayout_ALT/plotW2_ALT")
-    var plotLayoutALTPlotW2ALT: Float? = null
-
-    @JsonProperty("plotLayout_CON/plotL1_CON")
-    var plotLayoutCONPlotL1CON: Float? = null
-
-    @JsonProperty("plotLayout_CON/plotL2_CON")
-    var plotLayoutCONPlotL2CON: Float? = null
-
-    @JsonProperty("plotLayout_CON/plotW1_CON")
-    var plotLayoutCONPlotW1CON: Float? = null
-
-    @JsonProperty("plotLayout_CON/plotW2_CON")
-    var plotLayoutCONPlotW2CON: Float? = null
-
-    @JsonProperty("plotLayout_REC/plotL1_REC")
-    var plotLayoutRECPlotL1REC: Float? = null
-
-    @JsonProperty("plotLayout_REC/plotL2_REC")
-    var plotLayoutRECPlotL2REC: Float? = null
-
-    @JsonProperty("plotLayout_REC/plotW1_REC")
-    var plotLayoutRECPlotW1REC: Float? = null
-
-    @JsonProperty("plotLayout_REC/plotW2_REC")
-    var plotLayoutRECPlotW2REC: Float? = null
+   
 
     @JsonProperty("farmerEvaluation/costScore")
-    var farmerEvaluationCostScore: String? = null
+    var costScore: String? = null
 
     @JsonProperty("farmerEvaluation/yieldScore")
-    var farmerEvaluationYieldScore: String? = null
+    var yieldScore: String? = null
 
     @JsonProperty("herbicideDetails/herbicides")
-    var herbicideDetailsHerbicides: String? = null
+    var herbicides: String? = null
 
     @JsonProperty("weedingDetails/dateWeeding1")
-    var weedingDetailsDateWeeding1: String? = null
+    var dateWeeding1: String? = null
 
     @JsonProperty("weedingDetails/dateWeeding2")
-    var weedingDetailsDateWeeding2: String? = null
+    var dateWeeding2: String? = null
 
     @JsonProperty("weedingDetails/dateWeeding3")
-    var weedingDetailsDateWeeding3: String? = null
+    var dateWeeding3: String? = null
 
     @JsonProperty("farmerEvaluation/labourScore")
     var farmerEvaluationLabourScore: String? = null
 
     @JsonProperty("plantStand/nrPlants_ALT_BPP3")
-    var plantStandNrPlantsALTBPP3: Int? = null
+    var nrPlantsAltBpp3: Int? = null
 
     @JsonProperty("plantStand/nrPlants_CON_BPP3")
-    var plantStandNrPlantsCONBPP3: Int? = null
+    var nrPlantsConBpp3: Int? = null
 
     @JsonProperty("plantStand/nrPlants_REC_BPP3")
-    var plantStandNrPlantsRECBPP3: Int? = null
+    var nrPlantsRecBpp3: Int? = null
 
     @JsonProperty("trialRating/rateOtherDisease")
-    var trialRatingRateOtherDisease: String? = null
+    var rateOtherDisease: String? = null
 
     @JsonProperty("trialRating/rateTheftMissing")
-    var trialRatingRateTheftMissing: String? = null
+    var rateTheftMissing: String? = null
 
     @JsonProperty("trialRating/rateWaterLogging")
-    var trialRatingRateWaterLogging: String? = null
+    var rateWaterLogging: String? = null
 
     @JsonProperty("farmerEvaluation/qualityScore")
-    var farmerEvaluationQualityScore: String? = null
+    var qualityScore: String? = null
 
     @JsonProperty("farmerEvaluation/revenueScore")
-    var farmerEvaluationRevenueScore: String? = null
+    var revenueScore: String? = null
 
     @JsonProperty("weedAssessment_ALT_BPP3_count")
-    var weedAssessmentALTBPP3Count: String? = null
+    var weedAssessmentAltBpp3Count: String? = null
 
     @JsonProperty("weedAssessment_CON_BPP3_count")
-    var weedAssessmentCONBPP3Count: String? = null
+    var weedAssessmentConBpp3Count: String? = null
 
     @JsonProperty("weedAssessment_REC_BPP3_count")
-    var weedAssessmentRECBPP3Count: String? = null
+    var weedAssessmentRecBpp3Count: String? = null
 
     @JsonProperty("weedingDetails/weedingMethod1")
     var weedingDetailsWeedingMethod1: String? = null
@@ -270,82 +239,220 @@ class PpForm {
     var weedingDetailsWeedingMethod3: String? = null
 
     @JsonProperty("herbicideDetails/herbicideActor")
-    var herbicideDetailsHerbicideActor: String? = null
+    var herbicideActor: String? = null
+
 
     @JsonProperty("plotLayout_ALT_BPP3/plotL1_ALT_BPP3")
-    var plotLayoutALTBPP3PlotL1ALTBPP3: Float? = null
+    var plotL1AltBpp3: Float? = null
 
     @JsonProperty("plotLayout_ALT_BPP3/plotL2_ALT_BPP3")
-    var plotLayoutALTBPP3PlotL2ALTBPP3: Float? = null
+    var plotL2AltBpp3: Float? = null
 
     @JsonProperty("plotLayout_ALT_BPP3/plotW1_ALT_BPP3")
-    var plotLayoutALTBPP3PlotW1ALTBPP3: Float? = null
+    var plotW1AltBpp3: Float? = null
 
     @JsonProperty("plotLayout_ALT_BPP3/plotW2_ALT_BPP3")
-    var plotLayoutALTBPP3PlotW2ALTBPP3: Float? = null
+    var plotW2AltBpp3: Float? = null
 
     @JsonProperty("plotLayout_CON_BPP3/plotL1_CON_BPP3")
-    var plotLayoutCONBPP3PlotL1CONBPP3: Float? = null
+    var plotL1ConBpp3: Float? = null
 
     @JsonProperty("plotLayout_CON_BPP3/plotL2_CON_BPP3")
-    var plotLayoutCONBPP3PlotL2CONBPP3: Float? = null
+    var plotL2ConBpp3: Float? = null
 
     @JsonProperty("plotLayout_CON_BPP3/plotW1_CON_BPP3")
-    var plotLayoutCONBPP3PlotW1CONBPP3: Float? = null
+    var plotW1ConBpp3: Float? = null
 
     @JsonProperty("plotLayout_CON_BPP3/plotW2_CON_BPP3")
-    var plotLayoutCONBPP3PlotW2CONBPP3: Float? = null
+    var plotW2ConBpp3: Float? = null
 
     @JsonProperty("plotLayout_REC_BPP3/plotL1_REC_BPP3")
-    var plotLayoutRECBPP3PlotL1RECBPP3: Float? = null
+    var plotL1RecBpp3: Float? = null
 
     @JsonProperty("plotLayout_REC_BPP3/plotL2_REC_BPP3")
-    var plotLayoutRECBPP3PlotL2RECBPP3: Float? = null
+    var plotL2RecBpp3: Float? = null
 
     @JsonProperty("plotLayout_REC_BPP3/plotW1_REC_BPP3")
-    var plotLayoutRECBPP3PlotW1RECBPP3: Float? = null
+    var plotW1RecBpp3: Float? = null
 
     @JsonProperty("plotLayout_REC_BPP3/plotW2_REC_BPP3")
-    var plotLayoutRECBPP3PlotW2RECBPP3: Float? = null
+    var plotW2RecBpp3: Float? = null
+
+    @JsonProperty("plotLayout_ALT/plotL1_ALT")
+    var plotL1Alt: Float? = null
+
+    @JsonProperty("plotLayout_ALT/plotL2_ALT")
+    var plotL2Alt: Float? = null
+
+    @JsonProperty("plotLayout_ALT/plotW1_ALT")
+    var plotW1Alt: Float? = null
+
+    @JsonProperty("plotLayout_ALT/plotW2_ALT")
+    var plotW2Alt: Float? = null
+
+    @JsonProperty("plotLayout_CON/plotL1_CON")
+    var plotL1Con: Float? = null
+
+    @JsonProperty("plotLayout_CON/plotL2_CON")
+    var plotL2Con: Float? = null
+
+    @JsonProperty("plotLayout_CON/plotW1_CON")
+    var plotW1Con: Float? = null
+
+    @JsonProperty("plotLayout_CON/plotW2_CON")
+    var plotW2Con: Float? = null
+
+    @JsonProperty("plotLayout_REC/plotL1_REC")
+    var plotL1Rec: Float? = null
+
+    @JsonProperty("plotLayout_REC/plotL2_REC")
+    var plotL2Rec: Float? = null
+
+    @JsonProperty("plotLayout_REC/plotW1_REC")
+    var plotW1Rec: Float? = null
+
+    @JsonProperty("plotLayout_REC/plotW2_REC")
+    var plotW2Rec: Float? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsFW_ALT")
-    var harvestTuberizedMarketableRootsFWALT: Float? = null
+    var tuberizedMarketableRootsFwAlt: Float? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsFW_CON")
-    var harvestTuberizedMarketableRootsFWCON: Float? = null
+    var tuberizedMarketableRootsFwCon: Float? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsFW_REC")
-    var harvestTuberizedMarketableRootsFWREC: Float? = null
+    var tuberizedMarketableRootsFwRec: Float? = null
 
-    @JsonProperty("harvest/tuberizedMarketableRootsNr_ALT")
-    var harvestTuberizedMarketableRootsNrALT: Int? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_CON")
-    var harvestTuberizedMarketableRootsNrCON: Int? = null
+    var tuberizedMarketableRootsNrCon: Int? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_REC")
-    var harvestTuberizedMarketableRootsNrREC: Int? = null
+    var tuberizedMarketableRootsNrRec: Int? = null
 
     @JsonProperty("herbicideDetails/herbicideActorTrained")
-    var herbicideDetailsHerbicideActorTrained: String? = null
-
-    @JsonProperty("harvest/tuberizedMarketableRootsFW_ALT_BPP3")
-    var harvestTuberizedMarketableRootsFWALTBPP3: Float? = null
+    var herbicideActorTrained: String? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsFW_CON_BPP3")
-    var harvestTuberizedMarketableRootsFWCONBPP3: Float? = null
+    var tuberizedMarketableRootsFwConBpp3: Float? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsFW_REC_BPP3")
-    var harvestTuberizedMarketableRootsFWRECBPP3: Float? = null
+    var tuberizedMarketableRootsFwRecBpp3: Float? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_ALT_BPP3")
-    var harvestTuberizedMarketableRootsNrALTBPP3: Int? = null
+    var tuberizedMarketableRootsNrAltBpp3: Int? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_CON_BPP3")
-    var harvestTuberizedMarketableRootsNrCONBPP3: Int? = null
+    var tuberizedMarketableRootsNrConBpp3: Int? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_REC_BPP3")
-    var harvestTuberizedMarketableRootsNrRECBPP3: Int? = null
+    var tuberizedMarketableRootsNrRecBpp3: Int? = null
+
+    /*---- missing fields --**/
+    @JsonProperty("inputs1/orgInputs1")
+    var orgInputs1: String? = null
+
+    @JsonProperty("inputs2/orgInputs2")
+    var orgInputs2: String? = null
+
+    @JsonProperty("inputs3/orgInputs3")
+    var orgInputs3: String? = null
+
+    @JsonProperty("inputs4/orgInputs4")
+    var orgInputs4: String? = null
+
+    @JsonProperty("inputs5/orgInputs5")
+    var orgInputs5: String? = null
+
+    @JsonProperty("inputs6/orgInputs6")
+    var orgInputs6: String? = null
+
+    @JsonProperty("inputs1/fertilizer1")
+    var fertilizer1: String? = null
+
+    @JsonProperty("inputs2/fertilizer2")
+    var fertilizer2: String? = null
+
+    @JsonProperty("inputs3/fertilizer3")
+    var fertilizer3: String? = null
+
+    @JsonProperty("inputs4/fertilizer4")
+    var fertilizer4: String? = null
+
+    @JsonProperty("inputs5/fertilizer5")
+    var fertilizer5: String? = null
+
+    @JsonProperty("inputs6/fertilizer6")
+    var fertilizer6: String? = null
+
+    @JsonProperty("plantingDetails/variety")
+    var variety: String? = null
+
+    @JsonProperty("landPreparation/clearing")
+    var clearing: String? = null
+
+    @JsonProperty("landPreparation/vegetation")
+    var vegetation: String? = null
+
+    @JsonProperty("plantingDetails/plantingDate")
+    var plantingDate: String? = null
+
+    @JsonProperty("landPreparation_CON/ridging_CON")
+    var ridgingCon: String? = null
+
+    @JsonProperty("landPreparation_REC/ridging_REC")
+    var ridgingRec: String? = null
+
+    @JsonProperty("landPreparation_CON/nrHarrow_CON")
+    var nrHarrowCon: String? = null
+
+    @JsonProperty("landPreparation_REC/nrHarrow_REC")
+    var nrHarrowRec: String? = null
+
+    @JsonProperty("landPreparation_CON/nrTillage_CON")
+    var nrTillageCon: String? = null
+
+    @JsonProperty("landPreparation_REC/nrTillage_REC")
+    var nrTillageRec: String? = null
+
+    @JsonProperty("landPrepationDetails_CON/tillageMethod1_CON")
+    var tillageMethod1Con: String? = null
+
+    @JsonProperty("landPrepationDetails_REC/tillageMethod1_REC")
+    var tillageMethod1Rec: String? = null
+
+
+    @JsonProperty("landPreparation_ALT/ridging_ALT")
+    var ridgingAlt: String? = null
+
+
+    @JsonProperty("landPreparation_ALT/nrHarrow_ALT")
+    var nrHarrowAlt: String? = null
+
+    @JsonProperty("landPreparation_ALT/nrTillage_ALT")
+    var nrTillageAlt: String? = null
+
+
+    @JsonProperty("landPrepationDetails_ALT/ridgingMethod_ALT")
+    var ridgingMethodAlt: String? = null
+
+    @JsonProperty("landPrepationDetails_ALT/tillageMethod1_ALT")
+    var tillageMethod1Alt: String? = null
+
+    @JsonProperty("landPrepationDetails_REC/tillageMethod2_REC")
+    var tillageMethod2Rec: String? = null
+
+
+
+    @JsonProperty("weedingDetails/weedingMethod4")
+    var weedingDetailsWeedingMethod4: String? = null
+
+
+    @JsonProperty("harvest/tuberizedMarketableRootsNr_ALT")
+    var tuberizedMarketableRootsNrAlt: Int? = null
+
+    @JsonProperty("harvest/tuberizedMarketableRootsFW_ALT_BPP3")
+    var tuberizedMarketableRootsFwAltBpp3: Float? = null
 
 
     @JsonProperty("weedAssessment_ALT")
@@ -358,11 +465,12 @@ class PpForm {
     var weedAssessmentRec: List<WeedAssessmentRec>? = null
 
     @JsonProperty("weedAssessment_ALT_BPP3")
-    var weedAssessmentALTBPP3: List<WeedAssessmentAltBpp3>? = null
+    var weedAssessmentAltBpp3: List<WeedAssessmentAltBpp3>? = null
 
     @JsonProperty("weedAssessment_CON_BPP3")
-    var weedAssessmentCONBPP3: List<WeedAssessmentConBpp3>? = null
+    var weedAssessmentConBpp3: List<WeedAssessmentConBpp3>? = null
 
     @JsonProperty("weedAssessment_REC_BPP3")
-    var weedAssessmentRECBPP3: List<WeedAssessmentRecBpp3>? = null
+    var weedAssessmentRecBpp3: List<WeedAssessmentRecBpp3>? = null
+
 }

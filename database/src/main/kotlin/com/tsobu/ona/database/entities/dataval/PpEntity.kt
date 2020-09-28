@@ -481,7 +481,7 @@ class PpEntity : BaseEntity() {
     @Column(name = "weeding_method10")
     var weedingMethod10: String? = null
 
-    @Column(name = "herbicides")
+    @Column(name = "herbicides", columnDefinition = "TEXT")
     var herbicides: String? = null
 
     @Column(name = "herbicide_actor")
