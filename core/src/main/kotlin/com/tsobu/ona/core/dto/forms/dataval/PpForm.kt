@@ -1,15 +1,13 @@
-package com.tsobu.ona.core.dto.forms.datvalpp
+package com.tsobu.ona.core.dto.forms.dataval
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 
 
-
-
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-class ValPpForm {
+class PpForm {
     @JsonProperty("_id")
     var id: Int? = null
 
@@ -349,4 +347,22 @@ class ValPpForm {
     @JsonProperty("harvest/tuberizedMarketableRootsNr_REC_BPP3")
     var harvestTuberizedMarketableRootsNrRECBPP3: Int? = null
 
+
+    @JsonProperty("weedAssessment_ALT")
+    var weedAssessmentAlt: List<WeedAssessmentAlt>? = null
+
+    @JsonProperty("weedAssessment_CON")
+    var weedAssessmentCon: List<WeedAssessmentCon>? = null
+
+    @JsonProperty("weedAssessment_REC")
+    var weedAssessmentRec: List<WeedAssessmentRec>? = null
+
+    @JsonProperty("weedAssessment_ALT_BPP3")
+    var weedAssessmentALTBPP3: List<WeedAssessmentAltBpp3>? = null
+
+    @JsonProperty("weedAssessment_CON_BPP3")
+    var weedAssessmentCONBPP3: List<WeedAssessmentConBpp3>? = null
+
+    @JsonProperty("weedAssessment_REC_BPP3")
+    var weedAssessmentRECBPP3: List<WeedAssessmentRecBpp3>? = null
 }

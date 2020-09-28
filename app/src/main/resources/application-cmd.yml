@@ -14,7 +14,7 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.MySQL5Dialect
     open-in-view: false
-    show-sql: false
+    show-sql: true
     properties:
       dialect: org.hibernate.dialect.MySQL5Dialect
     hibernate:
