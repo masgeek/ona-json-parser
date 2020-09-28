@@ -50,6 +50,9 @@ class PpTzForm {
     @JsonProperty("country")
     var country: String? = null
 
+    @JsonProperty("email")
+    var email: String? = null
+
     @JsonProperty("gapping")
     var gapping: String? = null
 
@@ -60,7 +63,7 @@ class PpTzForm {
     var currency: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: String? = null
+    var deviceId: String? = null
 
     @JsonProperty("geopoint")
     var geopoint: String? = null
@@ -102,13 +105,13 @@ class PpTzForm {
     var formhubUuid: String? = null
 
     @JsonProperty("subscriberid")
-    var subscriberid: String? = null
+    var subscriberId: String? = null
 
     @JsonProperty("_submitted_by")
     var submittedBy: String? = null
 
     @JsonProperty("purpose/event")
-    var purposeEvent: String? = null
+    var eventValue: String? = null
 
     @JsonProperty("meta/instanceID")
     var metaInstanceID: String? = null

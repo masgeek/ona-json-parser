@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.forms.dataval.PpTzForm
 import com.tsobu.ona.core.dto.json.dataval.FrDto
+import com.tsobu.ona.core.dto.json.dataval.PpTzDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.dataval.*
@@ -62,16 +63,17 @@ constructor(
         modelMapper.configuration.isAmbiguityIgnored = true
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
-        val frData = frList.map { frEntity ->
-            val sphsTzSzDto = modelMapper.map(frEntity, FrDto::class.java)
-            sphsTzSzDto.submissionDate = myDateUtil.convertTimeToString(frEntity.submissionDate)
-            sphsTzSzDto.startDate = myDateUtil.convertTimeToString(frEntity.startDate)
-            sphsTzSzDto.endDate = myDateUtil.convertTimeToString(frEntity.endDate)
-            sphsTzSzDto
+        val ppTzData = frList.map { ppTzEntity ->
+            val ppTzDto = modelMapper.map(ppTzEntity, PpTzDto::class.java)
+            ppTzDto.submissionDate = myDateUtil.convertTimeToString(ppTzEntity.submissionDate)
+            ppTzDto.startDate = myDateUtil.convertTimeToString(ppTzEntity.startDate)
+            ppTzDto.endDate = myDateUtil.convertTimeToString(ppTzEntity.endDate)
+
+            ppTzDto
         }
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        writeCsvFile.writeCsv(pojoType = FrDto::class.java, data = frData, fileName = "dataVAL_FR", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = FrDto::class.java, data = ppTzData, fileName = "dataVAL_PP_TZ-", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")

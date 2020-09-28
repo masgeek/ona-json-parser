@@ -47,7 +47,7 @@ class PpTzEntity : BaseEntity() {
     var intro: String? = null
 
     @Column(name = "event")
-    var event: String? = null
+    var eventValue: String? = null
 
     @Column(name = "eaid")
     var eaid: String? = null
