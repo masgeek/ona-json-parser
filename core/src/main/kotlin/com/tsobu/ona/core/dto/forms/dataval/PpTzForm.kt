@@ -214,4 +214,7 @@ class PpTzForm {
 
     @JsonProperty("trialRating/rateWaterLogging")
     var trialRatingRateWaterLogging: String? = null
+
+    @JsonProperty("harvest/harvestDate")
+    var harvestDate: String? = null
 }
