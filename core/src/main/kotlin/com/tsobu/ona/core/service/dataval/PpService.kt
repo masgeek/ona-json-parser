@@ -4,14 +4,15 @@ package com.tsobu.ona.core.service.dataval
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.forms.dataval.PpTzForm
 import com.tsobu.ona.core.dto.forms.dataval.*
 import com.tsobu.ona.core.dto.json.dataval.FrDto
 import com.tsobu.ona.core.dto.json.dataval.PpTzDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.dataval.PpEntity
+import com.tsobu.ona.database.entities.dataval.PpWaAltEntity
 import com.tsobu.ona.database.repositories.dataval.PpRepo
+import com.tsobu.ona.database.repositories.dataval.PpWaAltBpp3Repo
 import com.tsobu.ona.database.repositories.dataval.PpWaAltRepo
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
@@ -32,6 +33,7 @@ constructor(
         transactionManager: PlatformTransactionManager,
         val ppRepo: PpRepo,
         val ppWaAltRepo: PpWaAltRepo,
+        val ppWaAltBpp3Repo: PpWaAltBpp3Repo,
         val appConfig: AppConfig) {
 
     private val log = LoggerFactory.getLogger(PpService::class.java)
@@ -99,7 +101,7 @@ constructor(
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val ppEntityData = ArrayList<PpEntity>()
-        val weedAssessmentAltData = ArrayList<WeedAssessmentAlt>()
+        val weedAssessmentAltData = ArrayList<PpWaAltEntity>()
         val weedAssessmentConData = ArrayList<WeedAssessmentCon>()
         val weedAssessmentRecData = ArrayList<WeedAssessmentRec>()
         val weedAssessmentAltBpp3Data = ArrayList<WeedAssessmentAltBpp3>()
@@ -134,11 +136,22 @@ constructor(
 
             ppEntityData.add(ppEntity)
 
-//            val weedAssessmentAltList = myVal.weedAssessmentAltCount
+            val weedAssessmentAltList = myVal.weedAssessmentAlt
+            var weedAssesAltCount = 1
+            weedAssessmentAltList?.forEach { assessmentAlt ->
+                val waAltEntity = modelMapper.map(assessmentAlt, PpWaAltEntity::class.java)
+                waAltEntity.parentKey = ppEntity.controlKey
+                waAltEntity.setOfWeedAssessmentAlt = "${waAltEntity.parentKey}/weedAssessment_ALT"
+                waAltEntity.controlKey = "${waAltEntity.parentKey}/weedAssessment_ALT[$weedAssesAltCount]"
+                weedAssesAltCount = weedAssesAltCount.plus(1)
+
+                weedAssessmentAltData.add(waAltEntity)
+            }
 
         }
 
-        ppRepo.saveAll(ppEntityData)
+//        ppRepo.saveAll(ppEntityData)
+        ppWaAltRepo.saveAll(weedAssessmentAltData)
 
         log.info("Finished saving the data for $fileName------->")
     }
