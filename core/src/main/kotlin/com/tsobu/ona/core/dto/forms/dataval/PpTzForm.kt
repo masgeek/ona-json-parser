@@ -134,6 +134,13 @@ class PpTzForm {
     @JsonProperty("weedAssessment_P4")
     var weedAssessmentP4: List<WeedAssessmentP4>? = null
 
+    @JsonProperty("weedAssessment_P5")
+    var weedAssessmentP5: List<WeedAssessmentP5>? = null
+
+    @JsonProperty("weedAssessment_P6")
+    var weedAssessmentP6: List<WeedAssessmentP6>? = null
+
+
     @JsonProperty("_bamboo_dataset_id")
     var bambooDatasetId: String? = null
 

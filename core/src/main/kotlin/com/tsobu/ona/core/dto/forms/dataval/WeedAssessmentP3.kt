@@ -6,17 +6,17 @@ import com.fasterxml.jackson.annotation.JsonProperty
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class WeedAssessmentP3 {
     @JsonProperty("weedAssessment_P3/index_P3")
-    var weedAssessmentP3IndexP3: String? = null
+    var indexP3: String? = null
 
     @JsonProperty("weedAssessment_P3/weedpic_P3")
-    var weedAssessmentP3WeedpicP3: String? = null
+    var weedPicP3: String? = null
 
     @JsonProperty("weedAssessment_P3/weedCover_P3")
-    var weedAssessmentP3WeedCoverP3 = 0
+    var weedCoverP3 = 0
 
     @JsonProperty("weedAssessment_P3/weedsHeight_P3")
-    var weedAssessmentP3WeedsHeightP3 = 0
+    var weedsHeightP3 = 0
 
     @JsonProperty("weedAssessment_P3/cassavaHeight_P3")
-    var weedAssessmentP3CassavaHeightP3 = 0
+    var cassavaHeightP3 = 0
 }
