@@ -5,8 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.forms.dataval.PpTzForm
-import com.tsobu.ona.core.dto.json.dataval.FrDto
-import com.tsobu.ona.core.dto.json.dataval.PpTzDto
+import com.tsobu.ona.core.dto.json.dataval.*
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.dataval.*
@@ -47,6 +46,12 @@ constructor(
     fun mapJsonFile() {
         log.info("Reading table data....")
         val frList = ppTzRepo.findAllByOrderBySubmissionDateAsc()
+        val as1 = assessmentP1Repo.findAll()
+        val as2 = assessmentP2Repo.findAll()
+        val as3 = assessmentP3Repo.findAll()
+        val as4 = assessmentP4Repo.findAll()
+        val as5 = assessmentP5Repo.findAll()
+        val as6 = assessmentP6Repo.findAll()
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
@@ -72,8 +77,42 @@ constructor(
             ppTzDto
         }
 
+        val as1Data = as1.map { ppTzEntity ->
+            val waP1Dto = modelMapper.map(ppTzEntity, PpTzWaP1Dto::class.java)
+            waP1Dto
+        }
+        val as2Data = as2.map { ppTzEntity ->
+            val waP2Dto = modelMapper.map(ppTzEntity, PpTzWaP2Dto::class.java)
+            waP2Dto
+        }
+        val as3Data = as3.map { ppTzEntity ->
+            val waP3Dto = modelMapper.map(ppTzEntity, PpTzWaP3Dto::class.java)
+            waP3Dto
+        }
+
+        val as4Data = as4.map { ppTzEntity ->
+            val waP4Dto = modelMapper.map(ppTzEntity, PpTzWaP4Dto::class.java)
+            waP4Dto
+        }
+
+        val as5Data = as5.map { ppTzEntity ->
+            val waP5Dto = modelMapper.map(ppTzEntity, PpTzWaP5Dto::class.java)
+            waP5Dto
+        }
+
+        val as6Data = as6.map { ppTzEntity ->
+            val waP6Dto = modelMapper.map(ppTzEntity, PpTzWaP6Dto::class.java)
+            waP6Dto
+        }
+
         val filePath = "${appConfig.globalProperties().outputPath}"
         writeCsvFile.writeCsv(pojoType = FrDto::class.java, data = ppTzData, fileName = "dataVAL_PP_TZ-", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = PpTzWaP1Dto::class.java, data = as1Data, fileName = "dataVAL_PP_TZ-weedAssessment_P1", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = PpTzWaP2Dto::class.java, data = as2Data, fileName = "dataVAL_PP_TZ-weedAssessment_P2", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = PpTzWaP3Dto::class.java, data = as3Data, fileName = "dataVAL_PP_TZ-weedAssessment_P3", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = PpTzWaP4Dto::class.java, data = as4Data, fileName = "dataVAL_PP_TZ-weedAssessment_P4", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = PpTzWaP5Dto::class.java, data = as5Data, fileName = "dataVAL_PP_TZ-weedAssessment_P5", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = PpTzWaP6Dto::class.java, data = as6Data, fileName = "dataVAL_PP_TZ-weedAssessment_P6", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
