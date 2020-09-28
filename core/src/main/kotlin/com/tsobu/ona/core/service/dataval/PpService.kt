@@ -5,8 +5,8 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.forms.dataval.*
-import com.tsobu.ona.core.dto.json.dataval.FrDto
-import com.tsobu.ona.core.dto.json.dataval.PpTzDto
+import com.tsobu.ona.core.dto.json.dataval.PpDto
+import com.tsobu.ona.core.dto.json.dataval.*
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.dataval.*
@@ -46,7 +46,13 @@ constructor(
 
     fun mapJsonFile() {
         log.info("Reading table data....")
-        val frList = ppRepo.findAllByOrderBySubmissionDateAsc()
+        val ppList = ppRepo.findAllByOrderBySubmissionDateAsc()
+        val ppWaAltList = ppWaAltRepo.findAll()
+        val ppWaAltBpp3List = ppWaAltBpp3Repo.findAll()
+        val ppWaConList = ppWaConRepo.findAll()
+        val ppWaConBpp3List = ppWaConBpp3Repo.findAll()
+        val ppWaRecList = ppWaRecRepo.findAll()
+        val ppWaRecBpp3List = ppWaRecBpp3Repo.findAll()
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
@@ -61,20 +67,55 @@ constructor(
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
         modelMapper.configuration.isAmbiguityIgnored = true
-        modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
+        modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
+        val filePath = "${appConfig.globalProperties().outputPath}"
 
-        val ppData = frList.map { ppEntity ->
-            val ppTzDto = modelMapper.map(ppEntity, PpTzDto::class.java)
-            ppTzDto.submissionDate = myUtils.convertTimeToString(ppEntity.submissionDate)
-            ppTzDto.startDate = myUtils.convertTimeToString(ppEntity.startDate)
-            ppTzDto.endDate = myUtils.convertTimeToString(ppEntity.endDate)
+        val ppData = ppList.map { ppEntity ->
+            val ppDto = modelMapper.map(ppEntity, PpDto::class.java)
+            ppDto.submissionDate = myUtils.convertTimeToString(ppEntity.submissionDate)
+            ppDto.startDate = myUtils.convertTimeToString(ppEntity.startDate)
+            ppDto.endDate = myUtils.convertTimeToString(ppEntity.endDate)
+            ppDto
+        }
 
-            ppTzDto
+        val ppWaAltData = ppWaAltList.map { waAltEntity ->
+            val waAltDto = modelMapper.map(waAltEntity, PpWaAltDto::class.java)
+            waAltDto
+        }
+        val ppWaAltBpp3Data = ppWaAltBpp3List.map { waAltEntity ->
+            val waAltBpp3Dto = modelMapper.map(waAltEntity, PpWaAltBpp3Dto::class.java)
+            waAltBpp3Dto
+        }
+
+        val ppWaConData = ppWaConList.map { waConEntity ->
+            val waConDto = modelMapper.map(waConEntity, PpWaConDto::class.java)
+            waConDto
+        }
+        val ppWaConBpp3Data = ppWaConBpp3List.map { waConBpp3Entity ->
+            val waConBpp3Dto = modelMapper.map(waConBpp3Entity, PpWaConBpp3Dto::class.java)
+            waConBpp3Dto
+        }
+
+        val ppWaRedData = ppWaRecList.map { ppWaRecEntity ->
+            val ppDto = modelMapper.map(ppWaRecEntity, PpWaRecDto::class.java)
+            ppDto
+        }
+        val ppWaRecBpp3Data = ppWaRecBpp3List.map { ppWaRecBpp3Entity ->
+            val ppDto = modelMapper.map(ppWaRecBpp3Entity, PpWaRecBpp3Dto::class.java)
+            ppDto
         }
 
 
-        val filePath = "${appConfig.globalProperties().outputPath}"
-        writeCsvFile.writeCsv(pojoType = FrDto::class.java, data = ppData, fileName = "dataVAL_PP-", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = PpDto::class.java, data = ppData, fileName = "dataVAL_PP", outPutPath = filePath)
+
+        writeCsvFile.writeCsv(pojoType = PpWaAltDto::class.java, data = ppWaAltData, fileName = "dataVAL_PP-weedAssessment_ALT", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = PpWaAltBpp3Dto::class.java, data = ppWaAltBpp3Data, fileName = "dataVAL_PP-weedAssessment_ALT_BPP3", outPutPath = filePath)
+
+        writeCsvFile.writeCsv(pojoType = PpWaConDto::class.java, data = ppWaConData, fileName = "dataVAL_PP-weedAssessment_CON", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = PpWaConBpp3Dto::class.java, data = ppWaConBpp3Data, fileName = "dataVAL_PP-weedAssessment_CON_BPP3", outPutPath = filePath)
+
+        writeCsvFile.writeCsv(pojoType = PpWaRecDto::class.java, data = ppWaRedData, fileName = "dataVAL_PP-weedAssessment_REC", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = PpWaRecBpp3Dto::class.java, data = ppWaRecBpp3Data, fileName = "dataVAL_PP-weedAssessment_REC_BPP3", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")

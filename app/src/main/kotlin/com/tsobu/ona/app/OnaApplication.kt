@@ -54,7 +54,7 @@ class OnaApplication(
 //        frService.readJsonAsset(fileName = "dataVAL_FR.json")
 //        hhService.readJsonAsset(fileName = "Register_HH.json")
 //        ppTzService.readJsonAsset(fileName = "dataVAL_PP_TZ.json")
-        ppService.readJsonAsset(fileName = "dataVAL_PP.json")
+//        ppService.readJsonAsset(fileName = "dataVAL_PP.json")
 
 //        weedControlService.mapJsonFile()
 //        yieldCassavaService.mapJsonFile()
@@ -65,6 +65,7 @@ class OnaApplication(
 //        lzeService.mapJsonFile()
 //        frService.mapJsonFile()
 //        ppTzService.mapJsonFile()
+        ppService.mapJsonFile()
     }
 
 
