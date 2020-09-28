@@ -9,6 +9,7 @@ import com.tsobu.ona.core.dto.json.datavalsphs.*
 import com.tsobu.ona.core.dto.json.datavarsphs.CornerPlantRecDto
 import com.tsobu.ona.core.dto.json.datavarsphs.RemainPlantConDto
 import com.tsobu.ona.core.dto.json.datavarsphs.RemainPlantRecDto
+import com.tsobu.ona.core.dto.json.valsphstz.SzDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.datavalsphs.*
@@ -95,21 +96,21 @@ constructor(
             remainPlantConDto
         }
 
-
-        writeCsvFile.writeCsv(pojoType = SphsDto::class.java,data = sphsData, fileName = "dataVAL_SPHS")
-        writeCsvFile.writeCsv(pojoType = CornerPlantRecDto::class.java,data = cornerPlantRecData, fileName = "dataVAL_SPHS-cornerPlant_REC")
-        writeCsvFile.writeCsv(pojoType = CornerPlantConDto::class.java, data = cornerPlantConData, fileName = "dataVAL_SPHS-cornerPlant_CON")
-        writeCsvFile.writeCsv(pojoType = ConTriDetailDto::class.java, data = conTriDetailData, fileName = "dataVAL_SPHS-harvest_CON_Tri_detail")
-        writeCsvFile.writeCsv(pojoType = RecTriDetailDto::class.java, data = recTriDetailData, fileName = "dataVAL_SPHS-harvest_REC_Tri_detail")
-        writeCsvFile.writeCsv(pojoType = HarvestRecTriDto::class.java, data = harvestRecTriData, fileName = "dataVAL_SPHS-harvest_REC_Tri")
-        writeCsvFile.writeCsv(pojoType = RemainPlantRecDto::class.java, data = remainPlantRecData, fileName = "dataVAL_SPHS-remainPlant_REC")
-        writeCsvFile.writeCsv(pojoType = RemainPlantConDto::class.java, data = remainPlantConData, fileName = "dataVAL_SPHS-remainPlant_CON")
+        val filePath = "${appConfig.globalProperties().outputPath}"
+        writeCsvFile.writeCsv(pojoType = SphsDto::class.java,data = sphsData, fileName = "dataVAL_SPHS",outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = CornerPlantRecDto::class.java,data = cornerPlantRecData, fileName = "dataVAL_SPHS-cornerPlant_REC",outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = CornerPlantConDto::class.java, data = cornerPlantConData, fileName = "dataVAL_SPHS-cornerPlant_CON",outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = ConTriDetailDto::class.java, data = conTriDetailData, fileName = "dataVAL_SPHS-harvest_CON_Tri_detail",outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = RecTriDetailDto::class.java, data = recTriDetailData, fileName = "dataVAL_SPHS-harvest_REC_Tri_detail",outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = HarvestRecTriDto::class.java, data = harvestRecTriData, fileName = "dataVAL_SPHS-harvest_REC_Tri",outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = RemainPlantRecDto::class.java, data = remainPlantRecData, fileName = "dataVAL_SPHS-remainPlant_REC",outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = RemainPlantConDto::class.java, data = remainPlantConData, fileName = "dataVAL_SPHS-remainPlant_CON",outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
     fun readJsonAsset(fileName: String) {
-        val filePath = "${appConfig.globalProperties().folderPath}${fileName}"
+        val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
         val list = objectMapper.readValue(file, object : TypeReference<List<SphsForm>>() {})

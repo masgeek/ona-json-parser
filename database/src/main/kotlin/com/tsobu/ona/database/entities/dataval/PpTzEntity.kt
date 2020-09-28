@@ -191,7 +191,7 @@ class PpTzEntity : BaseEntity() {
     var fertilizer1: String? = null
 
     @Column(name = "planting_date")
-    var plantingDate: String? = null
+    var plantingDate: LocalDate? = null
 
     @Column(name = "variety")
     var variety: String? = null

@@ -3,6 +3,7 @@ package com.tsobu.ona.app
 import com.tsobu.ona.core.service.AssessRootYieldCassavaService
 import com.tsobu.ona.core.service.ScoreWeedControlService
 import com.tsobu.ona.core.service.dataval.FrService
+import com.tsobu.ona.core.service.dataval.PpTzService
 import com.tsobu.ona.core.service.datavalsphs.SphsService
 import com.tsobu.ona.core.service.register.HhService
 import com.tsobu.ona.core.service.valsphstz.EzService
@@ -33,7 +34,8 @@ class OnaApplication(
         private val lzeService: LzeService,
         private val sphsService: SphsService,
         private val frService: FrService,
-        private val hhService: HhService
+        private val hhService: HhService,
+        private val ppTzService: PpTzService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -42,24 +44,24 @@ class OnaApplication(
 
 //        weedControlService.readJsonAsset(fileName = "Score_Weed_Control_AC.json")
 //        yieldCassavaService.readJsonAsset(fileName = "Assess_Root_Yield_Cassava_AC.json")
-//        valSphsTzSzService.readJsonAsset(fileName = "VAL_SPHS_TZSZ.json")
-//        dataValSphsService.readJsonAsset(fileName = "dataVAL_SPHS.json")
+//        szService.readJsonAsset(fileName = "VAL_SPHS_TZSZ.json")
+//        sphsService.readJsonAsset(fileName = "dataVAL_SPHS.json")
 //        ezService.readJsonAsset(fileName = "VAL_SPHS_TZEZ.json")
 //        lzwService.readJsonAsset(fileName = "VAL_SPHS_TZLZW.json")
 //        lzeService.readJsonAsset(fileName = "VAL_SPHS_TZLZE.json")
 //        frService.readJsonAsset(fileName = "dataVAL_FR.json")
 //        hhService.readJsonAsset(fileName = "Register_HH.json")
-
+        ppTzService.readJsonAsset(fileName = "dataVAL_PP_TZ.json")
 
 //        weedControlService.mapJsonFile()
 //        yieldCassavaService.mapJsonFile()
-//        valSphsTzSzService.mapJsonFile()
-//        dataValSphsService.mapJsonFile()
+//        szService.mapJsonFile()
+//        sphsService.mapJsonFile()
 //        ezService.mapJsonFile()
 //        lzwService.mapJsonFile()
 //        lzeService.mapJsonFile()
 //        frService.mapJsonFile()
-        hhService.mapJsonFile()
+//        hhService.mapJsonFile()
     }
 
 

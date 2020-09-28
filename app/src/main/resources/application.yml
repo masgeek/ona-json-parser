@@ -21,4 +21,5 @@ spring:
         order_inserts: true
 
 ona:
-  folder-path: "I://development//python//ona-download//downloads//json//"
+  json-path: "I://development//python//ona-download//downloads//json//"
+  output-path: "I://development//python//ona-download//downloads//converted//"

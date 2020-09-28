@@ -63,13 +63,15 @@ constructor(
             sphsTzSzDto.endDate = myDateUtil.convertTimeToString(frEntity.endDate)
             sphsTzSzDto
         }
-        writeCsvFile.writeCsv(pojoType = FrDto::class.java, data = frData, fileName = "dataVAL_FR-")
+
+        val filePath = "${appConfig.globalProperties().outputPath}"
+        writeCsvFile.writeCsv(pojoType = FrDto::class.java, data = frData, fileName = "dataVAL_FR",outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
     fun readJsonAsset(fileName: String) {
-        val filePath = "${appConfig.globalProperties().folderPath}${fileName}"
+        val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
         val list = objectMapper.readValue(file, object : TypeReference<List<FrForm>>() {})

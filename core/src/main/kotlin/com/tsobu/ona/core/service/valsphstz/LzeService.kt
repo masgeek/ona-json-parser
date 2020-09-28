@@ -63,13 +63,15 @@ constructor(
             lzeDto.endDate = myDateUtil.convertTimeToString(lzeEntity.endDate)
             lzeDto
         }
-        writeCsvFile.writeCsv(pojoType = LzeDto::class.java, data = lzeData, fileName = "VAL_SPHS_TZLZE")
+
+        val filePath = "${appConfig.globalProperties().outputPath}"
+        writeCsvFile.writeCsv(pojoType = LzeDto::class.java, data = lzeData, fileName = "VAL_SPHS_TZLZE",outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
     fun readJsonAsset(fileName: String) {
-        val filePath = "${appConfig.globalProperties().folderPath}${fileName}"
+        val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
         val list = objectMapper.readValue(file, object : TypeReference<List<LzeForm>>() {})

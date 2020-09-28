@@ -8,6 +8,7 @@ import com.tsobu.ona.core.dto.forms.scoreweed.ScoreWeedControlForm
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcDto
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcIdDto
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcWdDto
+import com.tsobu.ona.core.dto.json.register.HhDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.scoreweedcontrol.WeedAcEntity
@@ -61,21 +62,23 @@ constructor(
         }
 
         val scoreWeedAcData = scoresAc.map { scoreWeedControlAcWd ->
-            val outboxDto = modelMapper.map(scoreWeedControlAcWd, ScoreWeedControlAcWdDto::class.java)
-            outboxDto
+            val scoreWeedControlAcWdDto = modelMapper.map(scoreWeedControlAcWd, ScoreWeedControlAcWdDto::class.java)
+            scoreWeedControlAcWdDto
         }
 
 
         val writeCsvFile = WriteCsvFile()
-        writeCsvFile.writeScoreWeedCsv(list = scoreWeedData, fileName = "Score_Weed_Control_AC.csv")
-        writeCsvFile.writeScoreWeedIdCsv(list = scoreWeedIdData, fileName = "Score_Weed_Control_AC-ID.csv")
-        writeCsvFile.writeScoreWeedAcCsv(list = scoreWeedAcData, fileName = "Score_Weed_Control_AC-WD.csv")
+        val filePath = "${appConfig.globalProperties().outputPath}"
+
+        writeCsvFile.writeCsv(pojoType = ScoreWeedControlAcDto::class.java, data = scoreWeedData, fileName = "Score_Weed_Control_AC", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = ScoreWeedControlAcIdDto::class.java, data = scoreWeedIdData, fileName = "Score_Weed_Control_AC-ID", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = ScoreWeedControlAcWdDto::class.java, data = scoreWeedAcData, fileName = "Score_Weed_Control_AC-WD", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
     fun readJsonAsset(fileName: String) {
-        val filePath = "${appConfig.globalProperties().folderPath}${fileName}"
+        val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
         val list = objectMapper.readValue(file, object : TypeReference<List<ScoreWeedControlForm>>() {})

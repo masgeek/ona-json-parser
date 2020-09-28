@@ -1,9 +1,11 @@
 package com.tsobu.ona.core.dto.forms.dataval
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.tsobu.ona.core.dto.forms.Attachment
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class PpTzForm {
     @JsonProperty("_id")
@@ -19,7 +21,7 @@ class PpTzForm {
     var hhid: String? = null
 
     @JsonProperty("zone")
-    var zone: String? = null
+    var zoneValue: String? = null
 
     @JsonProperty("_tags")
     var tags: List<Any>? = null

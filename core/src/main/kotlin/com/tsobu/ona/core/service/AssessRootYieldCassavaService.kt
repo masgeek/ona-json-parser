@@ -7,6 +7,7 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.forms.rootyieldcassava.AssesRootYieldCassavaForm
 import com.tsobu.ona.core.dto.json.RootYieldCassavaAcDto
 import com.tsobu.ona.core.dto.json.RootYieldCassavaAcYieldAssessmentDto
+import com.tsobu.ona.core.dto.json.ScoreWeedControlAcDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.rootyieldcassava.CassavaAcEntity
@@ -62,14 +63,16 @@ constructor(
         }
 
         val writeCsvFile = WriteCsvFile()
-        writeCsvFile.writeYieldCassavaCsv(list = yieldCassavaData, fileName = "Assess_Root_Yield_Cassava_AC.csv")
-        writeCsvFile.writeYieldAssessCsv(list = yieldAssesData, fileName = "Assess_Root_Yield_Cassava_AC-yieldAssessment.csv")
+        val filePath = "${appConfig.globalProperties().outputPath}"
+        writeCsvFile.writeCsv(pojoType = RootYieldCassavaAcDto::class.java, data = yieldCassavaData, fileName = "Assess_Root_Yield_Cassava_AC", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = RootYieldCassavaAcYieldAssessmentDto::class.java, data = yieldAssesData, fileName = "Assess_Root_Yield_Cassava_AC-yieldAssessment", outPutPath = filePath)
+
     }
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
     fun readJsonAsset(fileName: String) {
-        val filePath = "${appConfig.globalProperties().folderPath}${fileName}"
+        val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
         val list = objectMapper.readValue(file, object : TypeReference<List<AssesRootYieldCassavaForm>>() {})

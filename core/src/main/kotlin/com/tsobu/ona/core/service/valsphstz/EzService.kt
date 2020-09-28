@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.forms.valsphstz.EzForm
+import com.tsobu.ona.core.dto.json.datavalsphs.SphsDto
 import com.tsobu.ona.core.dto.json.valsphstz.EzDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
@@ -63,13 +64,15 @@ constructor(
             sphsTzSzDto.endDate = myDateUtil.convertTimeToString(ezEntity.endDate)
             sphsTzSzDto
         }
-        writeCsvFile.writeCsv(pojoType = EzDto::class.java, data = ezData, fileName = "VAL_SPHS_TZEZ")
+
+        val filePath = "${appConfig.globalProperties().outputPath}"
+        writeCsvFile.writeCsv(pojoType = EzDto::class.java, data = ezData, fileName = "VAL_SPHS_TZEZ",outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
     fun readJsonAsset(fileName: String) {
-        val filePath = "${appConfig.globalProperties().folderPath}${fileName}"
+        val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
         val list = objectMapper.readValue(file, object : TypeReference<List<EzForm>>() {})

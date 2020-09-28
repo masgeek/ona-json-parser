@@ -4,161 +4,26 @@ package com.tsobu.ona.core.utils
 import com.fasterxml.jackson.core.JsonGenerator
 import com.fasterxml.jackson.dataformat.csv.CsvMapper
 import com.fasterxml.jackson.dataformat.csv.CsvSchema
-import com.tsobu.ona.core.dto.json.*
-import com.tsobu.ona.core.dto.json.datavalsphs.SphsDto
-import com.tsobu.ona.core.dto.json.datavarsphs.CornerPlantRecDto
-import com.tsobu.ona.core.dto.json.valsphstz.SzDto
 import org.slf4j.LoggerFactory
 import java.io.File
 
 
 class WriteCsvFile {
-    companion object {
-        private const val filePath = "I:\\development\\python\\ona-download\\downloads\\converted\\"
-    }
 
     private val log = LoggerFactory.getLogger(WriteCsvFile::class.java)
-    fun writeScoreWeedCsv(list: List<ScoreWeedControlAcDto?>?, fileName: String) {
-        try {
-            val mapper = CsvMapper()
-            mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true);
-            val schema: CsvSchema = mapper.schemaFor(ScoreWeedControlAcDto::class.java)
-                    .withUseHeader(true)
 
-            val tempFile = File("$filePath$fileName")
-
-            mapper.writer(schema).writeValue(tempFile, list)
-            log.info("$fileName written out to $filePath")
-        } catch (ex: Exception) {
-            log.error(ex.message, ex)
-        }
-
-    }
-
-    fun writeScoreWeedIdCsv(list: List<ScoreWeedControlAcIdDto>, fileName: String) {
-        try {
-            val mapper = CsvMapper()
-            mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true);
-            val schema: CsvSchema = mapper.schemaFor(ScoreWeedControlAcIdDto::class.java)
-                    .withUseHeader(true)
-
-            val tempFile = File("$filePath$fileName")
-
-            mapper.writer(schema).writeValue(tempFile, list)
-            log.info("$fileName written out to $filePath")
-        } catch (ex: Exception) {
-            log.error(ex.message, ex)
-        }
-    }
-
-    fun writeScoreWeedAcCsv(list: List<ScoreWeedControlAcWdDto>, fileName: String) {
-        try {
-            val mapper = CsvMapper()
-            mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true);
-            val schema: CsvSchema = mapper.schemaFor(ScoreWeedControlAcWdDto::class.java)
-                    .withUseHeader(true)
-
-            val tempFile = File("$filePath$fileName")
-
-            mapper.writer(schema).writeValue(tempFile, list)
-            log.info("$fileName written out to $filePath")
-        } catch (ex: Exception) {
-            log.error(ex.message, ex)
-        }
-    }
-
-    fun writeYieldCassavaCsv(list: List<RootYieldCassavaAcDto>, fileName: String) {
-        try {
-            val mapper = CsvMapper()
-            mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true);
-            val schema: CsvSchema = mapper.schemaFor(RootYieldCassavaAcDto::class.java)
-                    .withUseHeader(true)
-
-            val tempFile = File("$filePath$fileName")
-
-            mapper.writer(schema).writeValue(tempFile, list)
-            log.info("$fileName written out to $filePath")
-        } catch (ex: Exception) {
-            log.error(ex.message, ex)
-        }
-    }
-
-    fun writeYieldAssessCsv(list: List<RootYieldCassavaAcYieldAssessmentDto>, fileName: String) {
-        try {
-            val mapper = CsvMapper()
-            mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true);
-            val schema: CsvSchema = mapper.schemaFor(RootYieldCassavaAcYieldAssessmentDto::class.java)
-                    .withUseHeader(true)
-
-            val tempFile = File("$filePath$fileName")
-
-            mapper.writer(schema).writeValue(tempFile, list)
-            log.info("$fileName written out to $filePath")
-        } catch (ex: Exception) {
-            log.error(ex.message, ex)
-        }
-    }
-
-    fun writeValSphsTzSzCsv(list: List<SzDto>, fileName: String) {
-        try {
-            val mapper = CsvMapper()
-            mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true);
-            val schema: CsvSchema = mapper.schemaFor(SzDto::class.java)
-                    .withUseHeader(true)
-
-            val tempFile = File("$filePath$fileName")
-
-            mapper.writer(schema).writeValue(tempFile, list)
-            log.info("$fileName written out to $filePath")
-        } catch (ex: Exception) {
-            log.error(ex.message, ex)
-        }
-    }
-
-    fun writeSphsCsv(list: List<SphsDto>, fileName: String) {
-        try {
-            val mapper = CsvMapper()
-            mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true);
-            val schema: CsvSchema = mapper.schemaFor(SphsDto::class.java)
-                    .withUseHeader(true)
-
-            val tempFile = File("$filePath$fileName")
-
-            mapper.writer(schema).writeValue(tempFile, list)
-            log.info("$fileName written out to $filePath")
-        } catch (ex: Exception) {
-            log.error(ex.message, ex)
-        }
-    }
-
-    fun writeCornerPlantRecCsv(list: List<CornerPlantRecDto>, fileName: String) {
-        try {
-            val mapper = CsvMapper()
-            mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true);
-            val schema: CsvSchema = mapper.schemaFor(CornerPlantRecDto::class.java)
-                    .withUseHeader(true)
-
-            val tempFile = File("$filePath$fileName")
-
-            mapper.writer(schema).writeValue(tempFile, list)
-            log.info("$fileName written out to $filePath")
-        } catch (ex: Exception) {
-            log.error(ex.message, ex)
-        }
-    }
-
-    fun writeCsv(pojoType: Class<*>?, data: List<*>, fileName: String) {
+    fun writeCsv(pojoType: Class<*>?, data: List<*>, fileName: String, outPutPath: String) {
         try {
             val mapper = CsvMapper()
             mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true);
             val schema: CsvSchema = mapper.schemaFor(pojoType)
                     .withUseHeader(true)
 
-            val fullFilePath = "$filePath$fileName.csv"
+            val fullFilePath = "$outPutPath$fileName.csv"
             val tempFile = File(fullFilePath)
 
             mapper.writer(schema).writeValue(tempFile, data)
-            log.info("$fileName written out to $filePath")
+            log.info("$fileName written out to $outPutPath")
         } catch (ex: Exception) {
             log.error(ex.message, ex)
         }

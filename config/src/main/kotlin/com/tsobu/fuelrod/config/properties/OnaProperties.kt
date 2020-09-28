@@ -5,5 +5,8 @@ import javax.validation.constraints.NotBlank
 
 class OnaProperties {
     @NotBlank
-    var folderPath: String? = null
+    var jsonPath: String? = null
+
+    @NotBlank
+    var outputPath: String? = null
 }
