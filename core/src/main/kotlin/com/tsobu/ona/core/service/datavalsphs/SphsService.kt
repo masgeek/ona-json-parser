@@ -4,16 +4,15 @@ package com.tsobu.ona.core.service.datavalsphs
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.forms.datavalsphs.SphsForm
 import com.tsobu.ona.core.dto.json.datavalsphs.*
 import com.tsobu.ona.core.dto.json.datavarsphs.CornerPlantRecDto
 import com.tsobu.ona.core.dto.json.datavarsphs.RemainPlantConDto
 import com.tsobu.ona.core.dto.json.datavarsphs.RemainPlantRecDto
-import com.tsobu.ona.core.dto.json.valsphstz.SzDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.datavalsphs.*
 import com.tsobu.ona.database.repositories.datavalsphs.*
+import com.tsobu.ona.forms.datavalsphs.*
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper

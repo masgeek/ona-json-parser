@@ -1,3 +1,3 @@
 rootProject.name = "ona"
 
-include("config", "core", "database", "enums", "app")
+include("config", "core", "forms", "database", "enums", "app")

@@ -4,12 +4,12 @@ package com.tsobu.ona.core.service.register
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.forms.register.HhForm
 import com.tsobu.ona.core.dto.json.register.HhDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.register.HhEntity
 import com.tsobu.ona.database.repositories.register.HhRepo
+import com.tsobu.ona.forms.register.HhForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper

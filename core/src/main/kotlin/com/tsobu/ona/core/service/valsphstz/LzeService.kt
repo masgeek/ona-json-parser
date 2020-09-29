@@ -4,13 +4,13 @@ package com.tsobu.ona.core.service.valsphstz
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.forms.valsphstz.LzeForm
 import com.tsobu.ona.core.dto.json.valsphstz.LzeDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.valsphstz.LzeEntity
 import com.tsobu.ona.database.entities.valsphstz.SzEntity
 import com.tsobu.ona.database.repositories.valsphstz.LzeRepo
+import com.tsobu.ona.forms.valsphstz.LzeForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper

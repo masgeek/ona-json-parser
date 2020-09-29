@@ -18,6 +18,7 @@ dependencies {
 
     implementation(project(":config"))
     implementation(project(":database"))
+    implementation(project(":forms"))
 
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))

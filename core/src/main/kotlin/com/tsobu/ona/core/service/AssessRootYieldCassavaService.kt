@@ -4,17 +4,16 @@ package com.tsobu.ona.core.service
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.forms.rootyieldcassava.AssesRootYieldCassavaForm
 import com.tsobu.ona.core.dto.json.RootYieldCassavaAcDto
 import com.tsobu.ona.core.dto.json.RootYieldCassavaAcYieldAssessmentDto
-import com.tsobu.ona.core.dto.json.ScoreWeedControlAcDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.rootyieldcassava.CassavaAcEntity
 import com.tsobu.ona.database.entities.rootyieldcassava.AcYieldAssessmentEntity
+import com.tsobu.ona.database.entities.rootyieldcassava.CassavaAcEntity
 import com.tsobu.ona.database.entities.scoreweedcontrol.WdEntity
 import com.tsobu.ona.database.repositories.RootYieldCassavaAcRepo
 import com.tsobu.ona.database.repositories.RootYieldCassavaAcYieldAssessmentRepo
+import com.tsobu.ona.forms.rootyieldcassava.AssesRootYieldCassavaForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
@@ -27,7 +26,6 @@ import org.springframework.transaction.TransactionStatus
 import org.springframework.transaction.support.TransactionTemplate
 import java.io.IOException
 import java.nio.file.Paths
-import kotlin.collections.ArrayList
 
 
 @Service

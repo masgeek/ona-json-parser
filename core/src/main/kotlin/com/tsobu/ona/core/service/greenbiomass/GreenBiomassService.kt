@@ -4,7 +4,6 @@ package com.tsobu.ona.core.service.greenbiomass
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.forms.greenbiomass.YieldCassavaAcForm
 import com.tsobu.ona.core.dto.json.greenbiomass.YieldAssessmentFormDto
 import com.tsobu.ona.core.dto.json.greenbiomass.YieldCassavaAcFormDto
 import com.tsobu.ona.core.utils.MyUtils
@@ -13,6 +12,7 @@ import com.tsobu.ona.database.entities.greenbiomass.YieldCassEntity
 import com.tsobu.ona.database.entities.greenbiomass.YieldCassYaEntity
 import com.tsobu.ona.database.repositories.greenbiomass.YieldCassRepo
 import com.tsobu.ona.database.repositories.greenbiomass.YieldCassYaRepo
+import com.tsobu.ona.forms.greenbiomass.YieldCassavaAcForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
