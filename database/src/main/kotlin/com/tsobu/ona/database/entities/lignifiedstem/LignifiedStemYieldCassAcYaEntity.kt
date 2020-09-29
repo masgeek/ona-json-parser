@@ -9,56 +9,56 @@ import javax.persistence.Table
 @Table(name = "assess_lignified_stem_yield_cass_ac_ya")
 class LignifiedStemYieldCassAcYaEntity : BaseEntity() {
     @Column(name = "plot_id")
-    private val plotId: String? = null
+    var plotId: String? = null
 
     @Column(name = "section_id")
-    private val sectionId: String? = null
+    var sectionId: String? = null
 
     @Column(name = "plant_id")
-    private val plantId: String? = null
+    var plantId: String? = null
 
     @Column(name = "nr_plants_np")
-    private val nrPlantsNp: String? = null
+    var nrPlantsNp: String? = null
 
     @Column(name = "nr_plants_se")
-    private val nrPlantsSe: String? = null
+    var nrPlantsSe: String? = null
 
     @Column(name = "generated_table_list_label_32")
-    private val generatedTableListLabel32: String? = null
+    var generatedTableListLabel32: String? = null
 
     @Column(name = "nr_main_stems")
-    private val nrMainStems: String? = null
+    var nrMainStems: String? = null
 
     @Column(name = "nr_primary_branches")
-    private val nrPrimaryBranches: String? = null
+    var nrPrimaryBranches: String? = null
 
     @Column(name = "generated_table_list_label_36")
-    private val generatedTableListLabel36: String? = null
+    var generatedTableListLabel36: String? = null
 
     @Column(name = "lignified_stems_fw")
-    private val lignifiedStemsFw: String? = null
+    var lignifiedStemsFw: String? = null
 
     @Column(name = "old_planting_stick_fw")
-    private val oldPlantingStickFw: String? = null
+    var oldPlantingStickFw: String? = null
 
     @Column(name = "lignified_stems_fw_ss")
-    private val lignifiedStemsFwSs: String? = null
+    var lignifiedStemsFwSs: String? = null
 
     @Column(name = "plant_sample_id_lignified_stems")
-    private val plantSampleIdLignifiedStems: String? = null
+    var plantSampleIdLignifiedStems: String? = null
 
     @Column(name = "old_planting_stick_fw_ss")
-    private val oldPlantingStickFwSs: String? = null
+    var oldPlantingStickFwSs: String? = null
 
     @Column(name = "plant_sample_id_old_planting_stick")
-    private val plantSampleIdOldPlantingStick: String? = null
+    var plantSampleIdOldPlantingStick: String? = null
 
     @Column(name = "parent_key")
-    private val parentKey: String? = null
+    var parentKey: String? = null
 
     @Column(name = "control_key")
-    private val controlKey: String? = null
+    var controlKey: String? = null
 
     @Column(name = "set_of_yield_assessment")
-    private val setOfYieldAssessment: String? = null
+    var setOfYieldAssessment: String? = null
 }
