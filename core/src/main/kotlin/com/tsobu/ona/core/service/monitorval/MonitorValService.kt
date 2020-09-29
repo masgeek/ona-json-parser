@@ -5,7 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.forms.monitorval.MonitorValForm
-import com.tsobu.ona.core.dto.json.dataval.FrDto
+import com.tsobu.ona.core.dto.json.monitorval.*
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.monitorval.*
@@ -49,9 +49,6 @@ constructor(
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
     private val writeCsvFile = WriteCsvFile()
     fun mapJsonFile() {
-        log.info("Reading table data....")
-        val frList = monitorValRepo.findAllByOrderBySubmissionDateAsc()
-
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
                 return if (context.source is String) {
@@ -65,18 +62,89 @@ constructor(
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
         modelMapper.configuration.isAmbiguityIgnored = true
-        modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
+        modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
-        val monitorValData = frList.map { monitorValEntity ->
-            val sphsTzSzDto = modelMapper.map(monitorValEntity, FrDto::class.java)
-            sphsTzSzDto.submissionDate = myDateUtil.convertTimeToString(monitorValEntity.submissionDate)
-            sphsTzSzDto.startDate = myDateUtil.convertTimeToString(monitorValEntity.startDate)
-            sphsTzSzDto.endDate = myDateUtil.convertTimeToString(monitorValEntity.endDate)
-            sphsTzSzDto
+        log.info("Reading table data....")
+        val monitorValList = monitorValRepo.findAllByOrderBySubmissionDateAsc()
+        val installCorrectDetailsList = installCorrectDetailsRepo.findAll()
+        val leafSampleList = leafSampleRepo.findAll()
+        val maizePlantHeightList = maizePlantHeightRepo.findAll()
+        val phList = phRepo.findAll()
+        val plotLayoutList = plotLayoutRepo.findAll()
+        val problemPlotSomeList = problemPlotSomeRepo.findAll()
+        val soilSampleList = soilSampleRepo.findAll()
+        val trialQualitySomeList = trialQualitySomeRepo.findAll()
+        val trialRatingAllList = trialRatingAllRepo.findAll()
+        val trialRatingSomeList = trialRatingSomeRepo.findAll()
+
+
+        val monitorValData = monitorValList.map { monitorValEntity ->
+            val monitorValDto = modelMapper.map(monitorValEntity, MonitorValDto::class.java)
+            monitorValDto.submissionDate = myDateUtil.convertTimeToString(monitorValEntity.submissionDate)
+            monitorValDto
+        }
+        val installCorrectDetailsData = installCorrectDetailsList.map { correctDetailsEntity ->
+            val correctDetailsDto = modelMapper.map(correctDetailsEntity, InstallCorrectDetailsDto::class.java)
+            correctDetailsDto
+        }
+
+        val leafSampleListData = leafSampleList.map { leafSampleEntity ->
+            val leafSampleDto = modelMapper.map(leafSampleEntity, LeafSampleDto::class.java)
+            leafSampleDto
+        }
+
+        val maizePlantHeightListData = maizePlantHeightList.map { maizePlantHeightEntity ->
+            val maizePlantHeightDto = modelMapper.map(maizePlantHeightEntity, MaizePlantHeightDto::class.java)
+            maizePlantHeightDto
+        }
+
+        val phListData = phList.map { phEntity ->
+            val phDto = modelMapper.map(phEntity, PhDto::class.java)
+            phDto
+        }
+
+        val plotLayoutListData = plotLayoutList.map { plotLayoutEntity ->
+            val plotLayoutDto = modelMapper.map(plotLayoutEntity, PlotLayoutDto::class.java)
+            plotLayoutDto
+        }
+
+        val problemPlotSomeListData = problemPlotSomeList.map { problemPlotSomeEntity ->
+            val problemPlotSomeDto = modelMapper.map(problemPlotSomeEntity, ProblemPlotSomeDto::class.java)
+            problemPlotSomeDto
+        }
+
+        val soilSampleListData = soilSampleList.map { soilSampleEntity ->
+            val soilSampleDto = modelMapper.map(soilSampleEntity, SoilSampleDto::class.java)
+            soilSampleDto
+        }
+
+        val trialQualitySomeListData = trialQualitySomeList.map { trialQualitySomeEntity ->
+            val trialQualitySomeDto = modelMapper.map(trialQualitySomeEntity, TrialQualitySomeDto::class.java)
+            trialQualitySomeDto
+        }
+        val trialRatingAllListData = trialRatingAllList.map { trialRatingAllEntity ->
+            val trialRatingAllDto = modelMapper.map(trialRatingAllEntity, TrialRatingAllDto::class.java)
+            trialRatingAllDto
+        }
+
+        val trialRatingSomeListData = trialRatingSomeList.map { trialRatingSomeEntity ->
+            val trialRatingSomeDto = modelMapper.map(trialRatingSomeEntity, TrialRatingSomeDto::class.java)
+            trialRatingSomeDto
         }
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        writeCsvFile.writeCsv(pojoType = FrDto::class.java, data = monitorValData, fileName = "dataVAL_FR", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = MonitorValDto::class.java, data = monitorValData, fileName = "monitorVAL", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = InstallCorrectDetailsDto::class.java, data = installCorrectDetailsData, fileName = "monitorVAL-installCorrectDetails", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = LeafSampleDto::class.java, data = leafSampleListData, fileName = "monitorVAL-leafSample", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = MaizePlantHeightDto::class.java, data = maizePlantHeightListData, fileName = "monitorVAL-maizePlantHeight", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = PhDto::class.java, data = phListData, fileName = "monitorVAL-PH", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = PlotLayoutDto::class.java, data = plotLayoutListData, fileName = "monitorVAL-plotLayout", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = ProblemPlotSomeDto::class.java, data = problemPlotSomeListData, fileName = "monitorVAL-problemPlot_Some", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = SoilSampleDto::class.java, data = soilSampleListData, fileName = "monitorVAL-soilSample", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = TrialQualitySomeDto::class.java, data = trialQualitySomeListData, fileName = "monitorVAL-trialQuality_Some", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = TrialRatingAllDto::class.java, data = trialRatingAllListData, fileName = "monitorVAL-trialRating_All", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = TrialRatingSomeDto::class.java, data = trialRatingSomeListData, fileName = "monitorVAL-trialRating_Some", outPutPath = filePath)
+
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -144,6 +212,7 @@ constructor(
             monitorValEntity.setOfSoilsample = "${monitorValEntity.controlKey}/soilSample"
             monitorValEntity.setOfLeafsample = "${monitorValEntity.controlKey}/leafSample"
 
+            log.info("WE have added surname ${monitorValEntity.surName} from ${monitorValForm.surName}")
             monitorValEntityData.add(monitorValEntity)
 
             val correctDetailsList = monitorValForm.installCorrectDetails

@@ -50,10 +50,10 @@ class MonitorValEntity : BaseEntity() {
     var login: String? = null
 
     @Column(name = "firstname")
-    var firstname: String? = null
+    var firstName: String? = null
 
     @Column(name = "surname")
-    var surname: String? = null
+    var surName: String? = null
 
     @Column(name = "eaid")
     var eaid: String? = null

@@ -57,7 +57,7 @@ class OnaApplication(
 //        hhService.readJsonAsset(fileName = "Register_HH.json")
 //        ppTzService.readJsonAsset(fileName = "dataVAL_PP_TZ.json")
 //        ppService.readJsonAsset(fileName = "dataVAL_PP.json")
-        monitorValService.readJsonAsset(fileName = "monitorVAL.json")
+//        monitorValService.readJsonAsset(fileName = "monitorVAL.json")
 
 //        weedControlService.mapJsonFile()
 //        yieldCassavaService.mapJsonFile()
@@ -71,6 +71,7 @@ class OnaApplication(
 //        hhService.mapJsonFile()
 //        ppService.mapJsonFile()
 //        monitorValService.mapJsonFile()
+        monitorValService.mapJsonFile()
     }
 
 
