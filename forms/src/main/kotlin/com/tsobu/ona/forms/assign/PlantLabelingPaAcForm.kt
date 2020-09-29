@@ -8,5 +8,5 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 @JsonPropertyOrder("plantLabeling/plantID")
 class PlantLabelingPaAcForm {
     @JsonProperty("plantLabeling/plantID")
-    var plantLabelingPlantId: String? = null
+    var plantId: String? = null
 }

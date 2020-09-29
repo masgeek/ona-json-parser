@@ -72,7 +72,7 @@ class AssignFdAcForm {
     var totalMedia: Int? = null
 
     @JsonProperty("formhub/uuid")
-    var formhubUuId: String? = null
+    var formhubUuid: String? = null
 
     @JsonProperty("subscriberid")
     var subscriberId: String? = null
@@ -81,7 +81,7 @@ class AssignFdAcForm {
     var submittedBy: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceId: String? = null
+    var metaInstanceID: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null

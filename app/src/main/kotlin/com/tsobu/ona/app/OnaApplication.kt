@@ -4,6 +4,7 @@ import com.tsobu.ona.core.service.AssessRootYieldCassavaService
 import com.tsobu.ona.core.service.ScoreWeedControlService
 import com.tsobu.ona.core.service.addsample.AddSampleService
 import com.tsobu.ona.core.service.assign.FdAcAssignService
+import com.tsobu.ona.core.service.assign.PaAcAssignService
 import com.tsobu.ona.core.service.greenbiomass.GreenBiomassService
 import com.tsobu.ona.core.service.dataval.FrService
 import com.tsobu.ona.core.service.dataval.PpService
@@ -49,7 +50,8 @@ class OnaApplication(
         private val greenBiomassService: GreenBiomassService,
         private val lignifiedStemService: LignifiedStemService,
         private val starchContentService: StarchContentService,
-        private val fdAcAssignService: FdAcAssignService
+        private val fdAcAssignService: FdAcAssignService,
+        private val paAcAssignService: PaAcAssignService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -72,25 +74,10 @@ class OnaApplication(
 //        greenBiomassService.readJsonAsset(fileName = "Assess_GreenBiomass_Yield_Cassava_AC.json")
 //        lignifiedStemService.readJsonAsset(fileName = "Assess_LignifiedStem_Yield_Cassava_AC.json")
 //        starchContentService.readJsonAsset(fileName = "Assess_Starch_Content_AC.json")
-        fdAcAssignService.readJsonAsset(fileName = "Assign_FD_AC.json")
+//        fdAcAssignService.readJsonAsset(fileName = "Assign_FD_AC.json")
 
-//        weedControlService.mapJsonFile()
-//        yieldCassavaService.mapJsonFile()
-//        szService.mapJsonFile()
-//        sphsService.mapJsonFile()
-//        ezService.mapJsonFile()
-//        lzwService.mapJsonFile()
-//        lzeService.mapJsonFile()
-//        frService.mapJsonFile()
-//        ppTzService.mapJsonFile()
-//        hhService.mapJsonFile()
-//        ppService.mapJsonFile()
-//        monitorValService.mapJsonFile()
-//        monitorValService.mapJsonFile()
-//        addSampleService.mapJsonFile()
-//        greenBiomassService.mapJsonFile()
-//        lignifiedStemService.mapJsonFile()
-//        starchContentService.mapJsonFile()
+
+        paAcAssignService.readJsonAsset()
     }
 
 

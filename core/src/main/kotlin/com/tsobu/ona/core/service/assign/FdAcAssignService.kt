@@ -4,15 +4,13 @@ package com.tsobu.ona.core.service.assign
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.starchcontent.AssessStarchDto
+import com.tsobu.ona.core.dto.json.assign.AssignFdAcDto
 import com.tsobu.ona.core.dto.json.starchcontent.StarchContentAcDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.starchcontent.AssessStarchContentAcEntity
-import com.tsobu.ona.database.entities.starchcontent.AssessStarchEntity
-import com.tsobu.ona.database.repositories.starchcontent.AssessStarchContentAcRepo
-import com.tsobu.ona.database.repositories.starchcontent.AssessStarchRepo
-import com.tsobu.ona.forms.starchcontent.AssessStarchContentAcForm
+import com.tsobu.ona.database.entities.assign.AssignFdAcEntity
+import com.tsobu.ona.database.repositories.assign.AssignFdAcRepo
+import com.tsobu.ona.forms.assign.AssignFdAcForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
@@ -30,8 +28,7 @@ import java.nio.file.Paths
 class FdAcAssignService
 constructor(
         transactionManager: PlatformTransactionManager,
-        val starchContentAcRepo: AssessStarchContentAcRepo,
-        val assessStarchRepo: AssessStarchRepo,
+        val fdAcRepo: AssignFdAcRepo,
         val appConfig: AppConfig) {
 
     private val log = LoggerFactory.getLogger(FdAcAssignService::class.java)
@@ -58,29 +55,20 @@ constructor(
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        val acEntityList = starchContentAcRepo.findAllByOrderBySubmissionDateAsc()
-        val acSampleList = assessStarchRepo.findAll()
+        val fdAcEntityList = fdAcRepo.findAllByOrderBySubmissionDateAsc()
 
 
-        val yieldCassAcData = acEntityList.map { starchContentAcEntity ->
-            val starchContentAcDto = modelMapper.map(starchContentAcEntity, StarchContentAcDto::class.java)
-            starchContentAcDto.submissionDate = myDateUtil.convertTimeToString(starchContentAcEntity.submissionDate)
-            starchContentAcDto.start = myDateUtil.convertTimeToString(starchContentAcEntity.startDate)
-            starchContentAcDto.end = myDateUtil.convertTimeToString(starchContentAcEntity.endDate)
+        val fdAcData = fdAcEntityList.map { fdAcEntity ->
+            val starchContentAcDto = modelMapper.map(fdAcEntity, AssignFdAcDto::class.java)
+            starchContentAcDto.submissionDate = myDateUtil.convertTimeToString(fdAcEntity.submissionDate)
+            starchContentAcDto.start = myDateUtil.convertTimeToString(fdAcEntity.startDate)
+            starchContentAcDto.end = myDateUtil.convertTimeToString(fdAcEntity.endDate)
             starchContentAcDto
         }
 
-        val assessStarchData = acSampleList.map { assessStarchEntity ->
-            val assessStarchDto = modelMapper.map(assessStarchEntity, AssessStarchDto::class.java)
-            assessStarchDto
-        }
 
-
-        writeCsvFile.writeCsv(pojoType = StarchContentAcDto::class.java, data = yieldCassAcData,
-                fileName = "Assess_Starch_Content_AC", outPutPath = filePath)
-
-        writeCsvFile.writeCsv(pojoType = AssessStarchDto::class.java, data = assessStarchData,
-                fileName = "Assess_Starch_Content_AC-assessStarch", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = AssignFdAcDto::class.java, data = fdAcData,
+                fileName = "Assign_FD_AC", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -89,7 +77,7 @@ constructor(
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
-        val list = objectMapper.readValue(file, object : TypeReference<List<AssessStarchContentAcForm>>() {})
+        val list = objectMapper.readValue(file, object : TypeReference<List<AssignFdAcForm>>() {})
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
@@ -106,55 +94,42 @@ constructor(
         modelMapper.configuration.isAmbiguityIgnored = true
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
-        val starchContentAcData = ArrayList<AssessStarchContentAcEntity>()
-        val assessStarchData = ArrayList<AssessStarchEntity>()
-        list.forEach { starchContentAcForm ->
+        val fdAcData = ArrayList<AssignFdAcEntity>()
+        list.forEach { assignFdAcForm ->
             //map and save to database
-            val starchContentAcEntity = modelMapper.map(starchContentAcForm, AssessStarchContentAcEntity::class.java)
+            val assignFdAcEntity = modelMapper.map(assignFdAcForm, AssignFdAcEntity::class.java)
 
-            val geoPoint = myDateUtil.splitGeoPoint(starchContentAcForm.geopoint)
+            val geoPoint = myDateUtil.splitGeoPoint(assignFdAcForm.geopoint)
             if (geoPoint.isNotEmpty()) {
-                starchContentAcEntity.geoPointLatitude = geoPoint[0]
+                assignFdAcEntity.geoPointLatitude = geoPoint[0]
 
                 if (myDateUtil.indexExists(geoPoint, 1)) {
-                    starchContentAcEntity.geoPointLongitude = geoPoint[1]
+                    assignFdAcEntity.geoPointLongitude = geoPoint[1]
                 }
                 if (myDateUtil.indexExists(geoPoint, 2)) {
-                    starchContentAcEntity.geoPointAltitude = geoPoint[2]
+                    assignFdAcEntity.geoPointAltitude = geoPoint[2]
                 }
                 if (myDateUtil.indexExists(geoPoint, 3)) {
-                    starchContentAcEntity.geoPointAccuracy = geoPoint[3]
+                    assignFdAcEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            starchContentAcEntity.uuid = starchContentAcForm.formhubUuid
-            starchContentAcEntity.submissionDate = myDateUtil.convertToDateTime(starchContentAcForm.submissionTime)
-            starchContentAcEntity.todayDate = myDateUtil.convertToDate(starchContentAcForm.today)
-            starchContentAcEntity.startDate = myDateUtil.convertToDateTime(starchContentAcForm.start)
-            starchContentAcEntity.endDate = myDateUtil.convertToDateTime(starchContentAcForm.end)
-            starchContentAcEntity.instanceId = starchContentAcForm.metaInstanceID
-            starchContentAcEntity.controlKey = starchContentAcForm.metaInstanceID
-            starchContentAcEntity.setOfAssessStarch = "${starchContentAcEntity.controlKey}/assessStarch"
+            assignFdAcEntity.uuid = assignFdAcForm.formhubUuid
+            assignFdAcEntity.submissionDate = myDateUtil.convertToDateTime(assignFdAcForm.submissionTime)
+            assignFdAcEntity.todayDate = myDateUtil.convertToDate(assignFdAcForm.today)
+            assignFdAcEntity.startDate = myDateUtil.convertToDateTime(assignFdAcForm.start)
+            assignFdAcEntity.endDate = myDateUtil.convertToDateTime(assignFdAcForm.end)
+            assignFdAcEntity.instanceId = assignFdAcForm.metaInstanceID
+            assignFdAcEntity.controlKey = assignFdAcForm.metaInstanceID
 
-            starchContentAcData.add(starchContentAcEntity)
-            log.info("Added data to table ${starchContentAcEntity.controlKey} with surname as ${starchContentAcForm.xformIdString}")
-
-            val assessStarchList = starchContentAcForm.assessStarchList
-            var assessStarchCounter = 1
-            modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
-            assessStarchList?.forEach { acSample ->
-                val yieldCassAcYaEntity = modelMapper.map(acSample, AssessStarchEntity::class.java)
-                yieldCassAcYaEntity.parentKey = starchContentAcEntity.controlKey
-                yieldCassAcYaEntity.controlKey = "${starchContentAcEntity.controlKey}/assessStarch[$assessStarchCounter]"
-                yieldCassAcYaEntity.setOfAssessStarch = "${starchContentAcEntity.controlKey}/assessStarch"
-
-                assessStarchCounter = assessStarchCounter.plus(1)
-                assessStarchData.add(yieldCassAcYaEntity)
-            }
+            fdAcData.add(assignFdAcEntity)
+            log.info("Added data to table ${assignFdAcEntity.controlKey} with surname as ${assignFdAcForm.xformIdString}")
         }
 
-        starchContentAcRepo.saveAll(starchContentAcData)
-        assessStarchRepo.saveAll(assessStarchData)
+        fdAcRepo.saveAll(fdAcData)
 
         log.info("Finished saving the data for $fileName------->")
+
+        log.info("Exporting to CSV $fileName------->")
+        mapJsonFile()
     }
 }

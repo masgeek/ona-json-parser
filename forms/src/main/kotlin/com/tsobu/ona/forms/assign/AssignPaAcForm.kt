@@ -33,7 +33,7 @@ class AssignPaAcForm {
     var notes: List<Any> = ArrayList()
 
     @JsonProperty("entity")
-    var entity: String? = null
+    var entityValue: String? = null
 
     @JsonProperty("plotID")
     var plotId: String? = null
@@ -87,7 +87,7 @@ class AssignPaAcForm {
     var submittedBy: String? = null
 
     @JsonProperty("plantLabeling")
-    var plantLabelingList: List<PlantLabelingPaAcForm> = ArrayList()
+    var plantLabelingList: List<PlantLabelingPaAcForm> ?=null
 
     @JsonProperty("meta/instanceID")
     var metaInstanceId: String? = null
