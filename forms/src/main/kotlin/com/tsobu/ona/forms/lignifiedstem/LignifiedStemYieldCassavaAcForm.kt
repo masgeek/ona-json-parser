@@ -33,7 +33,7 @@ class LignifiedStemYieldCassavaAcForm {
     var notes: List<Any> = ArrayList()
 
     @JsonProperty("entity")
-    var entity: String? = null
+    var entityValue: String? = null
 
     @JsonProperty("_edited")
     var edited: Boolean? = null
@@ -90,7 +90,7 @@ class LignifiedStemYieldCassavaAcForm {
     var metaInstanceID: String? = null
 
     @JsonProperty("yieldAssessment")
-    var yieldAssessment: List<YieldAssessment> = ArrayList()
+    var yieldAssessmentList: List<LignfiedYieldAssessment>? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null

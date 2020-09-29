@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder("yieldAssessment/plantID", "yieldAssessment/lignifiedStemsFWss", "yieldAssessment/oldPlantingStickFWss", "yieldAssessment/plantSampleID_lignifiedStems", "yieldAssessment/plantSampleID_oldPlantingStick", "yieldAssessment/abovegroundBiomassFW/lignifiedStemsFW", "yieldAssessment/abovegroundBiomassFW/oldPlantingStickFW", "yieldAssessment/plotID", "yieldAssessment/nrPlantsNP", "yieldAssessment/stemNr/nrMainStems", "yieldAssessment/stemNr/nrPrimaryBranches")
-class YieldAssessment {
+class LignfiedYieldAssessment {
     @JsonProperty("yieldAssessment/plantID")
     var plantId: String? = null
 

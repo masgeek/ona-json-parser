@@ -82,8 +82,8 @@ class LignifiedStemYieldCassAcEntity : BaseEntity() {
     @Column(name = "sampling")
     var sampling: String? = null
 
-    @Column(name = "repeat")
-    var repeat: String? = null
+    @Column(name = "repeat_value")
+    var repeatValue: String? = null
 
     @Column(name = "set_of_yield_assessment")
     var setOfYieldAssessment: String? = null
