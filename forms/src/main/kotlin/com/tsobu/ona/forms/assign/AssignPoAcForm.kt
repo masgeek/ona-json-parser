@@ -84,7 +84,7 @@ class AssignPoAcForm {
     var nrTreatments: String? = null
 
     @JsonProperty("plotLabeling")
-    var plotLabelingList: List<PlotLabelingPaAcForm> = ArrayList()
+    var plotLabelingList: List<PlotLabelingPoAcForm>? = null
 
     @JsonProperty("subscriberid")
     var subscriberId: String? = null

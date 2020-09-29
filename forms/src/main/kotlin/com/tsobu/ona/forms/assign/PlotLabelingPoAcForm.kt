@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder("plotLabeling/plotID", "plotLabeling/treatNr", "plotLabeling/treatCode", "plotLabeling/treatCode_label")
-class PlotLabelingPaAcForm {
+class PlotLabelingPoAcForm {
     @JsonProperty("plotLabeling/plotID")
     var plotId: String? = null
 

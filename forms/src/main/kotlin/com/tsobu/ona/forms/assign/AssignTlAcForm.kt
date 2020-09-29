@@ -39,7 +39,7 @@ class AssignTlAcForm {
     var status: String? = null
 
     @JsonProperty("country")
-    var country: String? = null
+    var countryOld: String? = null
 
     @JsonProperty("fieldID")
     var fieldId: String? = null
@@ -114,7 +114,7 @@ class AssignTlAcForm {
     var mediaAllReceived: Boolean? = null
 
     @JsonProperty("purpose/country")
-    var purposeCountry: String? = null
+    var country: String? = null
 
     @JsonProperty("purpose/project")
     var purposeProject: String? = null

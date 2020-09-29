@@ -5,6 +5,8 @@ import com.tsobu.ona.core.service.ScoreWeedControlService
 import com.tsobu.ona.core.service.addsample.AddSampleService
 import com.tsobu.ona.core.service.assign.FdAcAssignService
 import com.tsobu.ona.core.service.assign.PaAcAssignService
+import com.tsobu.ona.core.service.assign.PoAcAssignService
+import com.tsobu.ona.core.service.assign.TlAcAssignService
 import com.tsobu.ona.core.service.greenbiomass.GreenBiomassService
 import com.tsobu.ona.core.service.dataval.FrService
 import com.tsobu.ona.core.service.dataval.PpService
@@ -51,7 +53,9 @@ class OnaApplication(
         private val lignifiedStemService: LignifiedStemService,
         private val starchContentService: StarchContentService,
         private val fdAcAssignService: FdAcAssignService,
-        private val paAcAssignService: PaAcAssignService
+        private val paAcAssignService: PaAcAssignService,
+        private val poAcAssignService: PoAcAssignService,
+        private val tlAcAssignService: TlAcAssignService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -77,7 +81,9 @@ class OnaApplication(
 //        fdAcAssignService.readJsonAsset(fileName = "Assign_FD_AC.json")
 
 
-        paAcAssignService.readJsonAsset()
+//        paAcAssignService.readJsonAsset()
+//        poAcAssignService.readJsonAsset()
+        tlAcAssignService.readJsonAsset()
     }
 
 
