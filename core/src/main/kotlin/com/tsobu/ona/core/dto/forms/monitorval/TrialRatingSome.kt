@@ -11,7 +11,7 @@ class TrialRatingSome {
     var trialRatingSomeProblemSome: String? = null
 
     @JsonProperty("trialRating_Some/problemPlot_Some")
-    var trialRatingSomeProblemPlotSome: List<TrialRatingSomeProblemPlotSome>? = null
+    var problemPlotSome: List<TrialRatingSomeProblemPlotSome>? = null
 
     @JsonProperty("trialRating_Some/problemLabel_Some")
     var trialRatingSomeProblemLabelSome: String? = null

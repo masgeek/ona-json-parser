@@ -185,10 +185,10 @@ class MonitorValForm {
     var mediaAllReceived: Boolean? = null
 
     @JsonProperty("knowledge/knowledgeEA")
-    var knowledgeKnowledgeEa: String? = null
+    var knowledgeEa: String? = null
 
     @JsonProperty("knowledge/knowledgeHH")
-    var knowledgeKnowledgeHh: String? = null
+    var knowledgeHh: String? = null
 
     @JsonProperty("trialRating_All_count")
     var trialRatingAllCount: String? = null
@@ -200,31 +200,31 @@ class MonitorValForm {
     var trialRatingSomeCount: String? = null
 
     @JsonProperty("cropManagement/embedded")
-    var cropManagementEmbedded: String? = null
+    var embedded: String? = null
 
     @JsonProperty("trialQuality/intercrops")
-    var trialQualityIntercrops: String? = null
+    var intercrops: String? = null
 
     @JsonProperty("trialQuality_Some_count")
-    var trialQualitySomeCount: String? = null
+    var someCount: String? = null
 
     @JsonProperty("trialValidity/trialValid")
-    var trialValidityTrialValid: String? = null
+    var trialValid: String? = null
 
     @JsonProperty("cropManagement/bufferRows")
-    var cropManagementBufferRows: String? = null
+    var bufferRows: String? = null
 
     @JsonProperty("cropManagement/management")
     var management: String? = null
 
     @JsonProperty("trialQuality/borderEffects")
-    var trialQualityBorderEffects: String? = null
+    var borderEffects: String? = null
 
     @JsonProperty("installCorrectDetails_count")
-    var installCorrectDetailsCount: String? = null
+    var detailsCount: String? = null
 
     @JsonProperty("trialQuality/heterogeneities")
-    var trialQualityHeterogeneities: String? = null
+    var heterogeneities: String? = null
 
     @JsonProperty("problems_Some")
     var problemsSome: String? = null
@@ -245,106 +245,106 @@ class MonitorValForm {
     var trialRatingAll: List<TrialRatingAll>? = null
 
     @JsonProperty("enumerator/surName")
-    var enumeratorSurName: String? = null
+    var surName: String? = null
 
     @JsonProperty("enumerator/firstName")
-    var enumeratorFirstName: String? = null
+    var firstName: String? = null
 
     @JsonProperty("trialQuality_All/trialQualityScore_All")
-    var trialQualityAllTrialQualityScoreAll: String? = null
+    var trialQualityScoreAll: String? = null
 
     @JsonProperty("trialQuality_All/trialQualitySeverity_All")
-    var trialQualityAllTrialQualitySeverityAll: String? = null
+    var trialQualitySeverityAll: String? = null
 
     @JsonProperty("trialQuality_All/trialQualityIncidence_All")
-    var trialQualityAllTrialQualityIncidenceAll: String? = null
+    var trialQualityIncidenceAll: String? = null
 
     @JsonProperty("siteDetails2/fallow")
-    var siteDetails2Fallow: String? = null
+    var fallow: String? = null
 
     @JsonProperty("siteDetails2/ridges")
-    var siteDetails2Ridges: String? = null
+    var ridges: String? = null
 
     @JsonProperty("siteDetails4/distance")
-    var siteDetails4Distance: String? = null
+    var distance: String? = null
 
     @JsonProperty("siteDetails4/drainage")
-    var siteDetails4Drainage: String? = null
+    var drainage: String? = null
 
     @JsonProperty("siteDetails2/irrigated")
-    var siteDetails2Irrigated: String? = null
+    var irrigated: String? = null
 
     @JsonProperty("siteDetails4/soilDepth")
-    var siteDetails4SoilDepth: String? = null
+    var soilDepth: String? = null
 
     @JsonProperty("siteDetails2/fertilizer")
-    var siteDetails2Fertilizer: String? = null
+    var fertilizer: String? = null
 
     @JsonProperty("siteDetails3/yearsFallow")
-    var siteDetails3YearsFallow: Int? = null
+    var yearsFallow: Int? = null
 
     @JsonProperty("siteDetails2/conservation")
-    var siteDetails2Conservation: String? = null
+    var conservation: String? = null
 
     @JsonProperty("siteDetails2/organicInput")
-    var siteDetails2OrganicInput: String? = null
+    var organicInput: String? = null
 
     @JsonProperty("siteDetails4/localSoilName")
-    var siteDetails4LocalSoilName: String? = null
+    var localSoilName: String? = null
 
     @JsonProperty("siteDetails4/fertilityFarmer")
-    var siteDetails4FertilityFarmer: String? = null
+    var fertilityFarmer: String? = null
 
     @JsonProperty("siteDetails1/positionLandscape")
-    var siteDetails1PositionLandscape: String? = null
+    var positionLandscape: String? = null
 
     @JsonProperty("siteDetails4/fertilityResearcher")
-    var siteDetails4FertilityResearcher: String? = null
+    var fertilityResearcher: String? = null
 
     @JsonProperty("siteDetails2/cassavaGrownMonocrop")
-    var siteDetails2CassavaGrownMonocrop: String? = null
+    var cassavaGrownMonoCrop: String? = null
 
     @JsonProperty("siteDetails2/cassavaGrownIntercrop")
     var siteDetails2CassavaGrownIntercrop: String? = null
 
     @JsonProperty("siteDetails4/localSoilNameTranslated")
-    var siteDetails4LocalSoilNameTranslated: String? = null
+    var localSoilNameTranslated: String? = null
 
     @JsonProperty("siteDetails3/siteDetails3a/widthRidges")
-    var siteDetails3SiteDetails3aWidthRidges: Int? = null
+    var widthRidges: Int? = null
 
     @JsonProperty("siteDetails3/siteDetails3a/heightRidges")
-    var siteDetails3SiteDetails3aHeightRidges: Int? = null
+    var heightRidges: Int? = null
 
     @JsonProperty("siteDetails3/siteDetails3a/distanceBetweenRidges")
-    var siteDetails3SiteDetails3aDistanceBetweenRidges: Int? = null
+    var distanceBetweenRidges: Int? = null
 
     @JsonProperty("siteDetails3/siteDetails3b/predominantIntercrops")
-    var siteDetails3SiteDetails3bPredominantIntercrops: String? = null
+    var predominantInterCrops: String? = null
 
     @JsonProperty("siteDetails3/siteDetails3b/yearsSinceCassavaMonocrop")
-    var siteDetails3SiteDetails3bYearsSinceCassavaMonocrop: Int? = null
+    var yearsSinceCassavaMonoCrop: Int? = null
 
     @JsonProperty("siteDetails3/siteDetails3b/yearsSinceCassavaIntercrop")
-    var siteDetails3SiteDetails3bYearsSinceCassavaIntercrop: Int? = null
+    var yearsSinceCassavaInterCrop: Int? = null
 
     @JsonProperty("siteDetails3/siteDetails3c/previousCrop")
-    var siteDetails3SiteDetails3cPreviousCrop: String? = null
+    var previousCrop: String? = null
 
     @JsonProperty("siteDetails3/siteDetails3c/previousOtherCrops")
-    var siteDetails3SiteDetails3cPreviousOtherCrops: String? = null
+    var previousOtherCrops: String? = null
 
     @JsonProperty("installCorrectDetails")
     var installCorrectDetails: List<InstallCorrectDetail>? = null
 
     @JsonProperty("siteDetails3/siteDetails3c/fertilizerApplied")
-    var siteDetails3SiteDetails3cFertilizerApplied: String? = null
+    var fertilizerApplied: String? = null
 
     @JsonProperty("leafSample")
     var leafSample: List<LeafSample>? = null
 
     @JsonProperty("siteDetails1/slope")
-    var siteDetails1Slope: Double? = null
+    var slope: Double? = null
 
     @JsonProperty("managementDetails")
     var managementDetails: String? = null
@@ -353,16 +353,16 @@ class MonitorValForm {
     var email: String? = null
 
     @JsonProperty("siteDetails3/conservationMeasures")
-    var siteDetails3ConservationMeasures: String? = null
+    var conservationMeasures: String? = null
 
     @JsonProperty("siteDetails3/siteDetails3b/predominantIntercrops_other")
-    var siteDetails3SiteDetails3bPredominantIntercropsOther: String? = null
+    var predominantIntercropsOther: String? = null
 
     @JsonProperty("siteDetails3/siteDetails3c/previousOtherCrops_other")
-    var siteDetails3SiteDetails3cPreviousOtherCropsOther: String? = null
+    var previousOtherCropsOther: String? = null
 
     @JsonProperty("siteDetails3/siteDetails3c/previousCrop_other")
-    var siteDetails3SiteDetails3cPreviousCropOther: String? = null
+    var previousCropOther: String? = null
 
     @JsonProperty("_last_edited")
     var lastEdited: String? = null
@@ -371,10 +371,10 @@ class MonitorValForm {
     var soilSampleTool: String? = null
 
     @JsonProperty("meta/deprecatedID")
-    var metaDeprecatedID: String? = null
+    var metaDeprecatedId: String? = null
 
     @JsonProperty("siteDetails3/siteDetails3c/fertilizerApplied_other")
-    var siteDetails3SiteDetails3cFertilizerAppliedOther: String? = null
+    var fertilizerAppliedOther: String? = null
 
     @JsonProperty("maizeVariety")
     var maizeVariety: String? = null

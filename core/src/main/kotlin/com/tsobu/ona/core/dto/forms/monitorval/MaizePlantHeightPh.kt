@@ -8,8 +8,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 @JsonPropertyOrder("maizePlantHeight/PH/height", "maizePlantHeight/PH/plantNr")
 class MaizePlantHeightPh {
     @JsonProperty("maizePlantHeight/PH/height")
-    var maizePlantHeightPHHeight: Int? = null
+    var height: Int? = null
 
     @JsonProperty("maizePlantHeight/PH/plantNr")
-    var maizePlantHeightPHPlantNr: String? = null
+    var plantNr: String? = null
 }

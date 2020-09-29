@@ -8,13 +8,9 @@ import com.tsobu.ona.core.dto.forms.monitorval.MonitorValForm
 import com.tsobu.ona.core.dto.json.dataval.FrDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.monitorval.InstallCorrectDetailsEntity
-import com.tsobu.ona.database.entities.monitorval.LeafSampleEntity
-import com.tsobu.ona.database.entities.monitorval.MonitorValEntity
+import com.tsobu.ona.database.entities.monitorval.*
 import com.tsobu.ona.database.entities.valsphstz.SzEntity
-import com.tsobu.ona.database.repositories.monitorval.InstallCorrectDetailsRepo
-import com.tsobu.ona.database.repositories.monitorval.LeafSampleRepo
-import com.tsobu.ona.database.repositories.monitorval.MonitorValRepo
+import com.tsobu.ona.database.repositories.monitorval.*
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
@@ -35,6 +31,11 @@ constructor(
         val monitorValRepo: MonitorValRepo,
         val installCorrectDetailsRepo: InstallCorrectDetailsRepo,
         val leafSampleRepo: LeafSampleRepo,
+        val maizePlantHeightRepo: MaizePlantHeightRepo,
+        val phRepo: PhRepo,
+        val plotLayoutRepo: PlotLayoutRepo,
+        val trialRatingSomeRepo: TrialRatingSomeRepo,
+        val problemPlotSomeRepo: ProblemPlotSomeRepo,
         val appConfig: AppConfig) {
 
     private val log = LoggerFactory.getLogger(MonitorValService::class.java)
@@ -101,6 +102,11 @@ constructor(
         val monitorValEntityData = ArrayList<MonitorValEntity>()
         val correctDetailEntityData = ArrayList<InstallCorrectDetailsEntity>()
         val leafSampleEntityData = ArrayList<LeafSampleEntity>()
+        val maizePlantHeightEntityData = ArrayList<MaizePlantHeightEntity>()
+        val phEntityData = ArrayList<PhEntity>()
+        val plotLayoutData = ArrayList<PlotLayoutEntity>()
+        val trialRatingSomeData = ArrayList<TrialRatingSomeEntity>()
+        val plotSomeEntityData = ArrayList<ProblemPlotSomeEntity>()
         list.forEach { myVal ->
             //map and save to database
             val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
@@ -159,11 +165,81 @@ constructor(
                 leafSampleEntityData.add(leafSampleEntity)
             }
 
+            val maizePlantHeightList = myVal.maizePlantHeight
+            var maizePlantHeightCounter = 1
+            modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
+            maizePlantHeightList?.forEach { maizePlantHeight ->
+                val plantHeightEntity = modelMapper.map(maizePlantHeight, MaizePlantHeightEntity::class.java)
+                plantHeightEntity.parentKey = monitorValEntity.controlKey
+                plantHeightEntity.controlKey = "${plantHeightEntity.parentKey}/maizePlantHeight[$maizePlantHeightCounter]"
+                plantHeightEntity.setOfPh = "${plantHeightEntity.parentKey}/maizePlantHeight[$maizePlantHeightCounter]/PH"
+                plantHeightEntity.setOfMaizePlantHeight = "${plantHeightEntity.parentKey}/maizePlantHeight"
+
+                maizePlantHeightCounter = maizePlantHeightCounter.plus(1)
+                maizePlantHeightEntityData.add(plantHeightEntity)
+
+                //insert the ph stuff
+                var phCounter = 1
+                val maizePlantPhList = maizePlantHeight.maizePlantHeightPh
+                maizePlantPhList?.forEach { maizePlantHeightPh ->
+                    val phEntity = modelMapper.map(maizePlantHeightPh, PhEntity::class.java)
+                    phEntity.parentKey = plantHeightEntity.controlKey
+                    phEntity.controlKey = "${plantHeightEntity.controlKey}/PH[$phCounter]"
+                    phEntity.setOfPh = "${plantHeightEntity.controlKey}/PH"
+
+                    phCounter = phCounter.plus(1)
+                    phEntityData.add(phEntity)
+                }
+            }
+
+            val plotLayoutList = myVal.plotLayout
+            var plotLayoutCounter = 1
+            modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
+            plotLayoutList?.forEach { plotLayout ->
+                val plotLayoutEntity = modelMapper.map(plotLayout, PlotLayoutEntity::class.java)
+                plotLayoutEntity.parentKey = monitorValEntity.controlKey
+                plotLayoutEntity.controlKey = "${plotLayoutEntity.parentKey}/plotLayout[$plotLayoutCounter]"
+                plotLayoutEntity.setOfPlotLayout = "${plotLayoutEntity.parentKey}/plotLayout"
+
+                plotLayoutCounter = plotLayoutCounter.plus(1)
+                plotLayoutData.add(plotLayoutEntity)
+            }
+
+            val trialRatingSomeList = myVal.trialRatingSome
+            var trialRatingSomeCounter = 1
+            modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
+            trialRatingSomeList?.forEach { trialRatingSome ->
+                val trialRatingSomeEntity = modelMapper.map(trialRatingSome, TrialRatingSomeEntity::class.java)
+                trialRatingSomeEntity.parentKey = monitorValEntity.controlKey
+                trialRatingSomeEntity.controlKey = "${trialRatingSomeEntity.parentKey}/trialRating_Some[$trialRatingSomeCounter]"
+                trialRatingSomeEntity.setOfProblemPlotSome = "${trialRatingSomeEntity.parentKey}/trialRating_Some[$trialRatingSomeCounter]/problemPlot_Some"
+                trialRatingSomeEntity.setOfTrialRatingSome = "${trialRatingSomeEntity.parentKey}/trialRating_Some"
+
+                trialRatingSomeCounter = trialRatingSomeCounter.plus(1)
+                trialRatingSomeData.add(trialRatingSomeEntity)
+                val problemPlotSomeList = trialRatingSome.problemPlotSome
+                var plotSomeCounter = 1
+                problemPlotSomeList?.forEach { problemPlotSome ->
+                    val problemPlotSomeEntity = modelMapper.map(problemPlotSome, ProblemPlotSomeEntity::class.java)
+                    problemPlotSomeEntity.parentKey = trialRatingSomeEntity.controlKey
+                    problemPlotSomeEntity.setOfProblemPlotSome = "${problemPlotSomeEntity.parentKey}/problemPlot_Some"
+                    problemPlotSomeEntity.controlKey = "${problemPlotSomeEntity.parentKey}/problemPlot_Some[$plotSomeCounter]"
+                    
+                    plotSomeCounter = plotSomeCounter.plus(1)
+                    plotSomeEntityData.add(problemPlotSomeEntity)
+                }
+            }
+
         }
 
 //        monitorValRepo.saveAll(monitorValEntityData)
 //        installCorrectDetailsRepo.saveAll(correctDetailEntityData)
-        leafSampleRepo.saveAll(leafSampleEntityData)
+//        leafSampleRepo.saveAll(leafSampleEntityData)
+//        maizePlantHeightRepo.saveAll(maizePlantHeightEntityData)
+//        phRepo.saveAll(phEntityData)
+//        plotLayoutRepo.saveAll(plotLayoutData)
+//        trialRatingSomeRepo.saveAll(trialRatingSomeData)
+        problemPlotSomeRepo.saveAll(plotSomeEntityData)
 
         log.info("Finished saving the data for $fileName------->")
     }
