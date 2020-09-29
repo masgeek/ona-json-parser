@@ -4,15 +4,15 @@ package com.tsobu.ona.core.service.starchcontent
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.lignifiedstem.LignifiedStemYieldCassAcDto
-import com.tsobu.ona.core.dto.json.lignifiedstem.LignifiedStemYieldCassAcYaDto
+import com.tsobu.ona.core.dto.json.starchcontent.AssessStarchDto
+import com.tsobu.ona.core.dto.json.starchcontent.StarchContentAcDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.lignifiedstem.LignifiedStemYieldCassAcEntity
-import com.tsobu.ona.database.entities.lignifiedstem.LignifiedStemYieldCassAcYaEntity
-import com.tsobu.ona.database.repositories.lignifiedstem.LignifiedStemYieldCassAcRepo
-import com.tsobu.ona.database.repositories.lignifiedstem.LignifiedStemYieldCassAcYaRepo
-import com.tsobu.ona.forms.lignifiedstem.LignifiedStemYieldCassavaAcForm
+import com.tsobu.ona.database.entities.starchcontent.AssessStarchContentAcEntity
+import com.tsobu.ona.database.entities.starchcontent.AssessStarchEntity
+import com.tsobu.ona.database.repositories.starchcontent.AssessStarchContentAcRepo
+import com.tsobu.ona.database.repositories.starchcontent.AssessStarchRepo
+import com.tsobu.ona.forms.starchcontent.AssessStarchContentAcForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
@@ -30,8 +30,8 @@ import java.nio.file.Paths
 class StarchContentService
 constructor(
         transactionManager: PlatformTransactionManager,
-        val yieldCassAcRepo: LignifiedStemYieldCassAcRepo,
-        val yieldCassAcYaRepo: LignifiedStemYieldCassAcYaRepo,
+        val starchContentAcRepo: AssessStarchContentAcRepo,
+        val assessStarchRepo: AssessStarchRepo,
         val appConfig: AppConfig) {
 
     private val log = LoggerFactory.getLogger(StarchContentService::class.java)
@@ -58,29 +58,29 @@ constructor(
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        val acEntityList = yieldCassAcRepo.findAllByOrderBySubmissionDateAsc()
-        val acSampleList = yieldCassAcYaRepo.findAll()
+        val acEntityList = starchContentAcRepo.findAllByOrderBySubmissionDateAsc()
+        val acSampleList = assessStarchRepo.findAll()
 
 
-        val yieldCassAcData = acEntityList.map { acEntity ->
-            val yieldCassAcDto = modelMapper.map(acEntity, LignifiedStemYieldCassAcDto::class.java)
-            yieldCassAcDto.submissionDate = myDateUtil.convertTimeToString(acEntity.submissionDate)
-            yieldCassAcDto.start = myDateUtil.convertTimeToString(acEntity.startDate)
-            yieldCassAcDto.end = myDateUtil.convertTimeToString(acEntity.endDate)
-            yieldCassAcDto
+        val yieldCassAcData = acEntityList.map { starchContentAcEntity ->
+            val starchContentAcDto = modelMapper.map(starchContentAcEntity, StarchContentAcDto::class.java)
+            starchContentAcDto.submissionDate = myDateUtil.convertTimeToString(starchContentAcEntity.submissionDate)
+            starchContentAcDto.start = myDateUtil.convertTimeToString(starchContentAcEntity.startDate)
+            starchContentAcDto.end = myDateUtil.convertTimeToString(starchContentAcEntity.endDate)
+            starchContentAcDto
         }
 
-        val yieldCasAcYaData = acSampleList.map { acSampleEntity ->
-            val yieldCassAcYaDto = modelMapper.map(acSampleEntity, LignifiedStemYieldCassAcYaDto::class.java)
-            yieldCassAcYaDto
+        val assessStarchData = acSampleList.map { assessStarchEntity ->
+            val assessStarchDto = modelMapper.map(assessStarchEntity, AssessStarchDto::class.java)
+            assessStarchDto
         }
 
 
-        writeCsvFile.writeCsv(pojoType = LignifiedStemYieldCassAcDto::class.java, data = yieldCassAcData,
-                fileName = "Assess_LignifiedStem_Yield_Cassava_AC", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = StarchContentAcDto::class.java, data = yieldCassAcData,
+                fileName = "Assess_Starch_Content_AC", outPutPath = filePath)
 
-        writeCsvFile.writeCsv(pojoType = LignifiedStemYieldCassAcYaDto::class.java, data = yieldCasAcYaData,
-                fileName = "Assess_LignifiedStem_Yield_Cassava_AC-yieldAssessment", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = AssessStarchDto::class.java, data = assessStarchData,
+                fileName = "Assess_Starch_Content_AC-assessStarch", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -89,7 +89,7 @@ constructor(
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
-        val list = objectMapper.readValue(file, object : TypeReference<List<LignifiedStemYieldCassavaAcForm>>() {})
+        val list = objectMapper.readValue(file, object : TypeReference<List<AssessStarchContentAcForm>>() {})
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
@@ -106,53 +106,54 @@ constructor(
         modelMapper.configuration.isAmbiguityIgnored = true
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
-        val lignifiedAcData = ArrayList<LignifiedStemYieldCassAcEntity>()
-        val lignifiedAcYaData = ArrayList<LignifiedStemYieldCassAcYaEntity>()
-        list.forEach { yieldCassavaAcForm ->
+        val starchContentAcData = ArrayList<AssessStarchContentAcEntity>()
+        val assessStarchData = ArrayList<AssessStarchEntity>()
+        list.forEach { starchContentAcForm ->
             //map and save to database
-            val yieldCassAcEntity = modelMapper.map(yieldCassavaAcForm, LignifiedStemYieldCassAcEntity::class.java)
+            val starchContentAcEntity = modelMapper.map(starchContentAcForm, AssessStarchContentAcEntity::class.java)
 
-            val geoPoint = myDateUtil.splitGeoPoint(yieldCassavaAcForm.geopoint)
+            val geoPoint = myDateUtil.splitGeoPoint(starchContentAcForm.geopoint)
             if (geoPoint.isNotEmpty()) {
-                yieldCassAcEntity.geoPointLatitude = geoPoint[0]
+                starchContentAcEntity.geoPointLatitude = geoPoint[0]
 
                 if (myDateUtil.indexExists(geoPoint, 1)) {
-                    yieldCassAcEntity.geoPointLongitude = geoPoint[1]
+                    starchContentAcEntity.geoPointLongitude = geoPoint[1]
                 }
                 if (myDateUtil.indexExists(geoPoint, 2)) {
-                    yieldCassAcEntity.geoPointAltitude = geoPoint[2]
+                    starchContentAcEntity.geoPointAltitude = geoPoint[2]
                 }
                 if (myDateUtil.indexExists(geoPoint, 3)) {
-                    yieldCassAcEntity.geoPointAccuracy = geoPoint[3]
+                    starchContentAcEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            yieldCassAcEntity.uuid = yieldCassavaAcForm.formhubUuid
-            yieldCassAcEntity.submissionDate = myDateUtil.convertToDateTime(yieldCassavaAcForm.submissionTime)
-            yieldCassAcEntity.todayDate = myDateUtil.convertToDate(yieldCassavaAcForm.today)
-            yieldCassAcEntity.startDate = myDateUtil.convertToDateTime(yieldCassavaAcForm.start)
-            yieldCassAcEntity.endDate = myDateUtil.convertToDateTime(yieldCassavaAcForm.end)
-            yieldCassAcEntity.instanceId = yieldCassavaAcForm.metaInstanceID
-            yieldCassAcEntity.controlKey = yieldCassavaAcForm.metaInstanceID
-            yieldCassAcEntity.setOfYieldAssessment = "${yieldCassAcEntity.controlKey}/yieldAssessment"
+            starchContentAcEntity.uuid = starchContentAcForm.formhubUuid
+            starchContentAcEntity.submissionDate = myDateUtil.convertToDateTime(starchContentAcForm.submissionTime)
+            starchContentAcEntity.todayDate = myDateUtil.convertToDate(starchContentAcForm.today)
+            starchContentAcEntity.startDate = myDateUtil.convertToDateTime(starchContentAcForm.start)
+            starchContentAcEntity.endDate = myDateUtil.convertToDateTime(starchContentAcForm.end)
+            starchContentAcEntity.instanceId = starchContentAcForm.metaInstanceID
+            starchContentAcEntity.controlKey = starchContentAcForm.metaInstanceID
+            starchContentAcEntity.setOfAssessStarch = "${starchContentAcEntity.controlKey}/assessStarch"
 
-            lignifiedAcData.add(yieldCassAcEntity)
-            log.info("Added data to table ${yieldCassAcEntity.controlKey} with surname as ${yieldCassavaAcForm.xformIdString}")
+            starchContentAcData.add(starchContentAcEntity)
+            log.info("Added data to table ${starchContentAcEntity.controlKey} with surname as ${starchContentAcForm.xformIdString}")
 
-            val yieldAssessmentList = yieldCassavaAcForm.yieldAssessmentList
-            var yieldAssessmentCounter = 1
-            yieldAssessmentList?.forEach { acSample ->
-                val yieldCassAcYaEntity = modelMapper.map(acSample, LignifiedStemYieldCassAcYaEntity::class.java)
-                yieldCassAcYaEntity.parentKey = yieldCassAcEntity.controlKey
-                yieldCassAcYaEntity.controlKey = "${yieldCassAcEntity.controlKey}/yieldAssessment[$yieldAssessmentCounter]"
-                yieldCassAcYaEntity.setOfYieldAssessment = "${yieldCassAcEntity.controlKey}/yieldAssessment"
+            val assessStarchList = starchContentAcForm.assessStarchList
+            var assessStarchCounter = 1
+            modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
+            assessStarchList?.forEach { acSample ->
+                val yieldCassAcYaEntity = modelMapper.map(acSample, AssessStarchEntity::class.java)
+                yieldCassAcYaEntity.parentKey = starchContentAcEntity.controlKey
+                yieldCassAcYaEntity.controlKey = "${starchContentAcEntity.controlKey}/assessStarch[$assessStarchCounter]"
+                yieldCassAcYaEntity.setOfAssessStarch = "${starchContentAcEntity.controlKey}/assessStarch"
 
-                yieldAssessmentCounter = yieldAssessmentCounter.plus(1)
-                lignifiedAcYaData.add(yieldCassAcYaEntity)
+                assessStarchCounter = assessStarchCounter.plus(1)
+                assessStarchData.add(yieldCassAcYaEntity)
             }
         }
 
-        yieldCassAcRepo.saveAll(lignifiedAcData)
-        yieldCassAcYaRepo.saveAll(lignifiedAcYaData)
+        starchContentAcRepo.saveAll(starchContentAcData)
+        assessStarchRepo.saveAll(assessStarchData)
 
         log.info("Finished saving the data for $fileName------->")
     }

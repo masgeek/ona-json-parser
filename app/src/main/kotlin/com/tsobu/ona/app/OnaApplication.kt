@@ -69,7 +69,7 @@ class OnaApplication(
 //        addSampleService.readJsonAsset(fileName = "Add_Sample_Label_AC.json")
 //        greenBiomassService.readJsonAsset(fileName = "Assess_GreenBiomass_Yield_Cassava_AC.json")
 //        lignifiedStemService.readJsonAsset(fileName = "Assess_LignifiedStem_Yield_Cassava_AC.json")
-        starchContentService.readJsonAsset(fileName = "Assess_Starch_Content_AC.json")
+//        starchContentService.readJsonAsset(fileName = "Assess_Starch_Content_AC.json")
 
 //        weedControlService.mapJsonFile()
 //        yieldCassavaService.mapJsonFile()
@@ -87,6 +87,7 @@ class OnaApplication(
 //        addSampleService.mapJsonFile()
 //        greenBiomassService.mapJsonFile()
 //        lignifiedStemService.mapJsonFile()
+        starchContentService.mapJsonFile()
     }
 
 

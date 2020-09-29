@@ -33,7 +33,7 @@ class AssessStarchContentAcForm {
     var notes: List<Any> = ArrayList()
 
     @JsonProperty("entity")
-    var entity: String? = null
+    var entityValue: String? = null
 
     @JsonProperty("_edited")
     var edited: Boolean? = null
@@ -78,7 +78,7 @@ class AssessStarchContentAcForm {
     var totalMedia: Int? = null
 
     @JsonProperty("assessStarch")
-    var assessStarchList: List<AssessStarchForm> = ArrayList()
+    var assessStarchList: List<AssessStarchForm>?=null
 
     @JsonProperty("formhub/uuid")
     var formhubUuid: String? = null
@@ -105,26 +105,26 @@ class AssessStarchContentAcForm {
     var mediaAllReceived: Boolean? = null
 
     @JsonProperty("correction/correctionBasket")
-    var correctionCorrectionBasket: String? = null
+    var correctionBasket: String? = null
 
     @JsonProperty("purpose/country")
-    var purposeCountry: String? = null
+    var country: String? = null
 
     @JsonProperty("purpose/project")
-    var purposeProject: String? = null
+    var project: String? = null
 
     @JsonProperty("correction/basketAir")
-    var correctionBasketAir: Int? = null
+    var basketAir: Int? = null
 
     @JsonProperty("correction/basketWater")
-    var correctionBasketWater: Int? = null
+    var basketWater: Int? = null
 
     @JsonProperty("basketFloat")
     var basketFloat: String? = null
 
     @JsonProperty("enumerator/surName")
-    var enumeratorSurName: String? = null
+    var surName: String? = null
 
     @JsonProperty("enumerator/firstName")
-    var enumeratorFirstName: String? = null
+    var firstName: String? = null
 }
