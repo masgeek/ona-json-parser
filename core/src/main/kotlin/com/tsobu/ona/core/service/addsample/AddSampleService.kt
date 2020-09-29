@@ -5,7 +5,9 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.forms.addsample.AcForm
-import com.tsobu.ona.core.dto.json.register.HhDto
+import com.tsobu.ona.core.dto.json.addsample.AcDto
+import com.tsobu.ona.core.dto.json.addsample.AcNewLabelDto
+import com.tsobu.ona.core.dto.json.addsample.AcSampleDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.addsample.AcSampleEntity
@@ -44,8 +46,6 @@ constructor(
     private val writeCsvFile = WriteCsvFile()
     fun mapJsonFile() {
         log.info("Reading table data....")
-        val frList = acRepo.findAllByOrderBySubmissionDateAsc()
-
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
                 return if (context.source is String) {
@@ -59,18 +59,34 @@ constructor(
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
         modelMapper.configuration.isAmbiguityIgnored = true
-        modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
-
-        val hhData = frList.map { hhEntity ->
-            val hhDto = modelMapper.map(hhEntity, HhDto::class.java)
-            hhDto.submissionDate = myDateUtil.convertTimeToString(hhEntity.submissionDate)
-            hhDto.startDate = myDateUtil.convertTimeToString(hhEntity.startDate)
-            hhDto.endDate = myDateUtil.convertTimeToString(hhEntity.endDate)
-            hhDto
-        }
+        modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        writeCsvFile.writeCsv(pojoType = HhDto::class.java, data = hhData, fileName = "Register_HH", outPutPath = filePath)
+        val acEntityList = acRepo.findAllByOrderBySubmissionDateAsc()
+        val acSampleList = acSampleRepo.findAll()
+        val acNewLabelList = acNewLabelRepo.findAll()
+
+
+        val acData = acEntityList.map { acEntity ->
+            val acDto = modelMapper.map(acEntity, AcDto::class.java)
+            acDto.submissionDate = myDateUtil.convertTimeToString(acEntity.submissionDate)
+            acDto.start = myDateUtil.convertTimeToString(acEntity.startDate)
+            acDto.end = myDateUtil.convertTimeToString(acEntity.endDate)
+            acDto
+        }
+
+        val acSampleData = acSampleList.map { acSampleEntity ->
+            val acDto = modelMapper.map(acSampleEntity, AcSampleDto::class.java)
+            acDto
+        }
+        val acNewLabelData = acNewLabelList.map { acSampleEntity ->
+            val acDto = modelMapper.map(acSampleEntity, AcNewLabelDto::class.java)
+            acDto
+        }
+
+        writeCsvFile.writeCsv(pojoType = AcDto::class.java, data = acData, fileName = "Add_Sample_Label_AC", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = AcSampleDto::class.java, data = acSampleData, fileName = "Add_Sample_Label_AC-sample", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = AcNewLabelDto::class.java, data = acNewLabelData, fileName = "Add_Sample_Label_AC-newLabel", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -140,8 +156,8 @@ constructor(
             }
         }
 
-//        acRepo.saveAll(acEntityData)
-//        acSampleRepo.saveAll(acSampleData)
+        acRepo.saveAll(acEntityData)
+        acSampleRepo.saveAll(acSampleData)
         acNewLabelRepo.saveAll(acNewLabelData)
 
         log.info("Finished saving the data for $fileName------->")
