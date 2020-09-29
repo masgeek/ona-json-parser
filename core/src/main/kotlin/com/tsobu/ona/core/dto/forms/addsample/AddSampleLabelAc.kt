@@ -7,7 +7,7 @@ import java.util.*
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder("_id", "end", "_tags", "_uuid", "login", "start", "today", "_notes", "entity", "sample", "_edited", "_status", "_version", "deviceid", "username", "_duration", "_xform_id", "simserial", "_attachments", "_geolocation", "_media_count", "_total_media", "formhub/uuid", "subscriberid", "_submitted_by", "meta/instanceID", "_submission_time", "_xform_id_string", "_bamboo_dataset_id", "_media_all_received", "purpose/country", "purpose/project", "enumerator/surName", "enumerator/firstName")
-class AddSampleLabelAC {
+class AddSampleLabelAc {
     @JsonProperty("_id")
     var id: Int? = null
 

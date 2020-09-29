@@ -9,17 +9,17 @@ import java.util.*
 @JsonPropertyOrder("sample/newLabel", "sample/nrLabels", "sample/plantSampleID", "sample/newLabel_count", "sample/soilSampleID")
 class Sample {
     @JsonProperty("sample/newLabel")
-    var sampleNewLabel: List<SampleNewLabel> = ArrayList()
+    var newLabel: List<SampleNewLabel> = ArrayList()
 
     @JsonProperty("sample/nrLabels")
-    var sampleNrLabels: Int? = null
+    var nrLabels: Int? = null
 
     @JsonProperty("sample/plantSampleID")
-    var samplePlantSampleID: String? = null
+    var plantSampleID: String? = null
 
     @JsonProperty("sample/newLabel_count")
-    var sampleNewLabelCount: String? = null
+    var newLabelCount: String? = null
 
     @JsonProperty("sample/soilSampleID")
-    var sampleSoilSampleID: String? = null
+    var soilSampleID: String? = null
 }
