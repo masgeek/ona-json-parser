@@ -37,6 +37,7 @@ constructor(
         val trialRatingSomeRepo: TrialRatingSomeRepo,
         val problemPlotSomeRepo: ProblemPlotSomeRepo,
         val soilSampleRepo: SoilSampleRepo,
+        val trialQualitySomeRepo: TrialQualitySomeRepo,
         val appConfig: AppConfig) {
 
     private val log = LoggerFactory.getLogger(MonitorValService::class.java)
@@ -109,6 +110,7 @@ constructor(
         val trialRatingSomeData = ArrayList<TrialRatingSomeEntity>()
         val plotSomeEntityData = ArrayList<ProblemPlotSomeEntity>()
         val soilSampleEntityData = ArrayList<SoilSampleEntity>()
+        val trialQualitySomeData = ArrayList<TrialQualitySomeEntity>()
         list.forEach { myVal ->
             //map and save to database
             val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
@@ -245,6 +247,19 @@ constructor(
                 soilSampleEntityData.add(soilSampleEntity)
             }
 
+            val trialQualitySomeList = myVal.trialQualitySome
+            var trialQualitySomeCounter = 1
+            modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
+            trialQualitySomeList?.forEach { trialQualitySome ->
+                val trialQualitySomeEntity = modelMapper.map(trialQualitySome, TrialQualitySomeEntity::class.java)
+                trialQualitySomeEntity.parentKey = monitorValEntity.controlKey
+                trialQualitySomeEntity.controlKey = "${trialQualitySomeEntity.parentKey}/trialQuality_Some[$trialQualitySomeCounter]"
+                trialQualitySomeEntity.setOfTrialQualitySome = "${trialQualitySomeEntity.parentKey}/trialQuality_Some"
+
+                trialQualitySomeCounter = trialQualitySomeCounter.plus(1)
+                trialQualitySomeData.add(trialQualitySomeEntity)
+            }
+
         }
 
 //        monitorValRepo.saveAll(monitorValEntityData)
@@ -255,7 +270,8 @@ constructor(
 //        plotLayoutRepo.saveAll(plotLayoutData)
 //        trialRatingSomeRepo.saveAll(trialRatingSomeData)
 //        problemPlotSomeRepo.saveAll(plotSomeEntityData)
-        soilSampleRepo.saveAll(soilSampleEntityData)
+//        soilSampleRepo.saveAll(soilSampleEntityData)
+        trialQualitySomeRepo.saveAll(trialQualitySomeData)
 
         log.info("Finished saving the data for $fileName------->")
     }
