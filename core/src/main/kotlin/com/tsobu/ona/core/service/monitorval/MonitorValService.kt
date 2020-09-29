@@ -8,8 +8,12 @@ import com.tsobu.ona.core.dto.forms.monitorval.MonitorValForm
 import com.tsobu.ona.core.dto.json.dataval.FrDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.database.entities.monitorval.InstallCorrectDetailsEntity
+import com.tsobu.ona.database.entities.monitorval.LeafSampleEntity
 import com.tsobu.ona.database.entities.monitorval.MonitorValEntity
 import com.tsobu.ona.database.entities.valsphstz.SzEntity
+import com.tsobu.ona.database.repositories.monitorval.InstallCorrectDetailsRepo
+import com.tsobu.ona.database.repositories.monitorval.LeafSampleRepo
 import com.tsobu.ona.database.repositories.monitorval.MonitorValRepo
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
@@ -29,6 +33,8 @@ class MonitorValService
 constructor(
         transactionManager: PlatformTransactionManager,
         val monitorValRepo: MonitorValRepo,
+        val installCorrectDetailsRepo: InstallCorrectDetailsRepo,
+        val leafSampleRepo: LeafSampleRepo,
         val appConfig: AppConfig) {
 
     private val log = LoggerFactory.getLogger(MonitorValService::class.java)
@@ -92,7 +98,9 @@ constructor(
         modelMapper.configuration.isAmbiguityIgnored = true
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
-        val monitorValEntityDate = ArrayList<MonitorValEntity>()
+        val monitorValEntityData = ArrayList<MonitorValEntity>()
+        val correctDetailEntityData = ArrayList<InstallCorrectDetailsEntity>()
+        val leafSampleEntityData = ArrayList<LeafSampleEntity>()
         list.forEach { myVal ->
             //map and save to database
             val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
@@ -123,15 +131,39 @@ constructor(
             monitorValEntity.setOfSoilsample = "${monitorValEntity.controlKey}/soilSample"
             monitorValEntity.setOfLeafsample = "${monitorValEntity.controlKey}/leafSample"
 
-            try {
-                monitorValEntityDate.add(monitorValEntity)
-                log.info("Added data to table ${monitorValEntity.controlKey} with surname as ${myVal.xformIdString}")
-            } catch (ex: Exception) {
-                log.error(ex.message, ex.stackTrace)
+            monitorValEntityData.add(monitorValEntity)
+
+            val correctDetailsList = myVal.installCorrectDetails
+            var correctDetailsCounter = 1
+            correctDetailsList?.forEach { correctDetail ->
+                val correctDetailEntity = modelMapper.map(correctDetail, InstallCorrectDetailsEntity::class.java)
+                correctDetailEntity.parentKey = monitorValEntity.controlKey
+                correctDetailEntity.controlKey = "${correctDetailEntity.parentKey}/installCorrectDetails[$correctDetailsCounter]"
+                correctDetailEntity.setOfInstallCorrectDetails = "${correctDetailEntity.parentKey}/installCorrectDetails"
+
+                correctDetailsCounter = correctDetailsCounter.plus(1)
+                correctDetailEntityData.add(correctDetailEntity)
             }
+
+            val leafSampleList = myVal.leafSample
+            var leafSampleCounter = 1
+            modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
+            leafSampleList?.forEach { leafSample ->
+                val leafSampleEntity = modelMapper.map(leafSample, LeafSampleEntity::class.java)
+                leafSampleEntity.parentKey = monitorValEntity.controlKey
+                leafSampleEntity.plantSampleId = leafSample.plantSampleId
+                leafSampleEntity.controlKey = "${leafSampleEntity.parentKey}/leafSample[$leafSampleCounter]"
+                leafSampleEntity.setOfLeafSample = "${leafSampleEntity.parentKey}/leafSample"
+
+                leafSampleCounter = leafSampleCounter.plus(1)
+                leafSampleEntityData.add(leafSampleEntity)
+            }
+
         }
 
-        monitorValRepo.saveAll(monitorValEntityDate)
+//        monitorValRepo.saveAll(monitorValEntityData)
+//        installCorrectDetailsRepo.saveAll(correctDetailEntityData)
+        leafSampleRepo.saveAll(leafSampleEntityData)
 
         log.info("Finished saving the data for $fileName------->")
     }

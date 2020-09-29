@@ -8,11 +8,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 @JsonPropertyOrder("leafSample/plantSampleID", "leafSample/leafSamplePlot", "leafSample/leafSamplePlotLabel")
 class LeafSample {
     @JsonProperty("leafSample/plantSampleID")
-    var leafSamplePlantSampleID: String? = null
+    var plantSampleId: String? = null
 
     @JsonProperty("leafSample/leafSamplePlot")
-    var leafSampleLeafSamplePlot: String? = null
+    var leafSamplePlot: String? = null
 
     @JsonProperty("leafSample/leafSamplePlotLabel")
-    var leafSampleLeafSamplePlotLabel: String? = null
+    var leafSamplePlotLabel: String? = null
 }

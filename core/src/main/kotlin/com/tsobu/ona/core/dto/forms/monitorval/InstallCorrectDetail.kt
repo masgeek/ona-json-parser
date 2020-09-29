@@ -8,14 +8,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 @JsonPropertyOrder("installCorrectDetails/plot", "installCorrectDetails/correct", "installCorrectDetails/plotLabel", "installCorrectDetails/correctText")
 class InstallCorrectDetail {
     @JsonProperty("installCorrectDetails/plot")
-    var installCorrectDetailsPlot: String? = null
+    var plot: String? = null
 
     @JsonProperty("installCorrectDetails/correct")
-    var installCorrectDetailsCorrect: String? = null
+    var correct: String? = null
 
     @JsonProperty("installCorrectDetails/plotLabel")
-    var installCorrectDetailsPlotLabel: String? = null
+    var plotLabel: String? = null
 
     @JsonProperty("installCorrectDetails/correctText")
-    var installCorrectDetailsCorrectText: String? = null
+    var correctText: String? = null
 }
