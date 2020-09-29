@@ -3,6 +3,7 @@ package com.tsobu.ona.app
 import com.tsobu.ona.core.service.AssessRootYieldCassavaService
 import com.tsobu.ona.core.service.ScoreWeedControlService
 import com.tsobu.ona.core.service.addsample.AddSampleService
+import com.tsobu.ona.core.service.assign.FdAcAssignService
 import com.tsobu.ona.core.service.greenbiomass.GreenBiomassService
 import com.tsobu.ona.core.service.dataval.FrService
 import com.tsobu.ona.core.service.dataval.PpService
@@ -47,7 +48,8 @@ class OnaApplication(
         private val addSampleService: AddSampleService,
         private val greenBiomassService: GreenBiomassService,
         private val lignifiedStemService: LignifiedStemService,
-        private val starchContentService: StarchContentService
+        private val starchContentService: StarchContentService,
+        private val fdAcAssignService: FdAcAssignService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -70,6 +72,7 @@ class OnaApplication(
 //        greenBiomassService.readJsonAsset(fileName = "Assess_GreenBiomass_Yield_Cassava_AC.json")
 //        lignifiedStemService.readJsonAsset(fileName = "Assess_LignifiedStem_Yield_Cassava_AC.json")
 //        starchContentService.readJsonAsset(fileName = "Assess_Starch_Content_AC.json")
+        fdAcAssignService.readJsonAsset(fileName = "Assign_FD_AC.json")
 
 //        weedControlService.mapJsonFile()
 //        yieldCassavaService.mapJsonFile()
@@ -87,7 +90,7 @@ class OnaApplication(
 //        addSampleService.mapJsonFile()
 //        greenBiomassService.mapJsonFile()
 //        lignifiedStemService.mapJsonFile()
-        starchContentService.mapJsonFile()
+//        starchContentService.mapJsonFile()
     }
 
 
