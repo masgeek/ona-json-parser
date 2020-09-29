@@ -5,13 +5,12 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.forms.greenbiomass.YieldCassavaAcForm
-import com.tsobu.ona.core.dto.json.addsample.AcDto
-import com.tsobu.ona.core.dto.json.addsample.AcSampleDto
+import com.tsobu.ona.core.dto.json.greenbiomass.YieldAssessmentFormDto
+import com.tsobu.ona.core.dto.json.greenbiomass.YieldCassavaAcFormDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.greenbiomass.YieldCassEntity
 import com.tsobu.ona.database.entities.greenbiomass.YieldCassYaEntity
-import com.tsobu.ona.database.entities.monitorval.MonitorValEntity
 import com.tsobu.ona.database.repositories.greenbiomass.YieldCassRepo
 import com.tsobu.ona.database.repositories.greenbiomass.YieldCassYaRepo
 import org.modelmapper.AbstractCondition
@@ -59,25 +58,25 @@ constructor(
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        val acEntityList = yieldCassRepo.findAllByOrderBySubmissionDateAsc()
-        val acSampleList = yieldCassYaRepo.findAll()
+        val yieldCassList = yieldCassRepo.findAllByOrderBySubmissionDateAsc()
+        val yieldCassYaList = yieldCassYaRepo.findAll()
 
 
-        val acData = acEntityList.map { acEntity ->
-            val acDto = modelMapper.map(acEntity, AcDto::class.java)
-            acDto.submissionDate = myDateUtil.convertTimeToString(acEntity.submissionDate)
-            acDto.start = myDateUtil.convertTimeToString(acEntity.startDate)
-            acDto.end = myDateUtil.convertTimeToString(acEntity.endDate)
-            acDto
+        val yieldCassData = yieldCassList.map { yieldCassEntity ->
+            val cassavaAcFormDto = modelMapper.map(yieldCassEntity, YieldCassavaAcFormDto::class.java)
+            cassavaAcFormDto.submissionDate = myDateUtil.convertTimeToString(yieldCassEntity.submissionDate)
+            cassavaAcFormDto.start = myDateUtil.convertTimeToString(yieldCassEntity.startDate)
+            cassavaAcFormDto.end = myDateUtil.convertTimeToString(yieldCassEntity.endDate)
+            cassavaAcFormDto
         }
 
-        val acSampleData = acSampleList.map { acSampleEntity ->
-            val acDto = modelMapper.map(acSampleEntity, AcSampleDto::class.java)
-            acDto
+        val cassYaData = yieldCassYaList.map { cassYaEntity ->
+            val assessmentFormDto = modelMapper.map(cassYaEntity, YieldAssessmentFormDto::class.java)
+            assessmentFormDto
         }
 
-        writeCsvFile.writeCsv(pojoType = AcDto::class.java, data = acData, fileName = "Add_Sample_Label_AC", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = AcSampleDto::class.java, data = acSampleData, fileName = "Add_Sample_Label_AC-sample", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = YieldCassavaAcFormDto::class.java, data = yieldCassData, fileName = "Assess_GreenBiomass_Yield_Cassava_AC", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = YieldAssessmentFormDto::class.java, data = cassYaData, fileName = "Assess_GreenBiomass_Yield_Cassava_AC-yieldAssessment", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -149,7 +148,7 @@ constructor(
         }
 
 
-//        yieldCassRepo.saveAll(yieldCassData)
+        yieldCassRepo.saveAll(yieldCassData)
         yieldCassYaRepo.saveAll(yieldCassYaData)
 
         log.info("Finished saving the data for $fileName------->")

@@ -63,7 +63,7 @@ class OnaApplication(
 //        ppService.readJsonAsset(fileName = "dataVAL_PP.json")
 //        monitorValService.readJsonAsset(fileName = "monitorVAL.json")
 //        addSampleService.readJsonAsset(fileName = "Add_Sample_Label_AC.json")
-        greenBiomassService.readJsonAsset(fileName = "Assess_GreenBiomass_Yield_Cassava_AC.json")
+//        greenBiomassService.readJsonAsset(fileName = "Assess_GreenBiomass_Yield_Cassava_AC.json")
 
 //        weedControlService.mapJsonFile()
 //        yieldCassavaService.mapJsonFile()
@@ -79,7 +79,7 @@ class OnaApplication(
 //        monitorValService.mapJsonFile()
 //        monitorValService.mapJsonFile()
 //        addSampleService.mapJsonFile()
-//        greenBiomassService.mapJsonFile()
+        greenBiomassService.mapJsonFile()
     }
 
 
