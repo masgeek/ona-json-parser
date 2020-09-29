@@ -65,7 +65,7 @@ constructor(
         val writeCsvFile = WriteCsvFile()
         val filePath = "${appConfig.globalProperties().outputPath}"
         writeCsvFile.writeCsv(pojoType = RootYieldCassavaAcDto::class.java, data = yieldCassavaData, fileName = "Assess_Root_Yield_Cassava_AC", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = RootYieldCassavaAcYieldAssessmentDto::class.java, data = yieldAssesData, fileName = "Assess_Root_Yield_Cassava_AC-yieldAssessment", outPutPath = filePath)
+        writeCsvFile.writeCsv(pojoType = RootYieldCassavaAcYieldAssessmentDto::class.java, data = yieldAssesData, fileName = "Assess_Root_Yield_Cassava_AC-yieldAssessmentForm", outPutPath = filePath)
 
     }
 
@@ -120,7 +120,7 @@ constructor(
                 yieldCassavaEntity.todayDate = myDateUtil.convertToDate(myVal.today)
                 yieldCassavaEntity.startDate = myDateUtil.convertToDateTime(myVal.start)
                 yieldCassavaEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
-                yieldCassavaEntity.setOfYieldAssessment = "${myVal.metaInstanceID}/yieldAssessment"
+                yieldCassavaEntity.setOfYieldAssessment = "${myVal.metaInstanceID}/yieldAssessmentForm"
                 yieldCassavaEntity.instanceId = myVal.metaInstanceID
                 yieldCassavaEntity.controlKey = myVal.metaInstanceID
 

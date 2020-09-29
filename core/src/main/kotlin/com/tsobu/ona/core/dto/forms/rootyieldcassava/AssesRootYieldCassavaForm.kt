@@ -121,7 +121,7 @@ class AssesRootYieldCassavaForm {
     @JsonProperty("purpose/project")
     var purpprojectseProject: String? = null
 
-    @JsonProperty("yieldAssessment")
+    @JsonProperty("yieldAssessmentForm")
     var yieldAssessmentForm: List<YieldAssessmentForm>? = null
 
     @JsonProperty("_submission_time")

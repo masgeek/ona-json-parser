@@ -50,7 +50,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
         "plotSizeFixed",
         "noteFixed",
         "repeat",
-        "SET-OF-yieldAssessment",
+        "SET-OF-yieldAssessmentForm",
         "end",
         "instanceID",
         "KEY"
@@ -192,7 +192,7 @@ class RootYieldCassavaAcDto {
     @JsonProperty("repeat")
     var repeat: String? = null
 
-    @JsonProperty("SET-OF-yieldAssessment")
+    @JsonProperty("SET-OF-yieldAssessmentForm")
     var setOfYieldAssessment: String? = null
 
 

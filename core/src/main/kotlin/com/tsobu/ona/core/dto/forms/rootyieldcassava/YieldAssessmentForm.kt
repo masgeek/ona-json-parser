@@ -8,49 +8,49 @@ import com.fasterxml.jackson.annotation.JsonProperty
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class YieldAssessmentForm {
 
-    @JsonProperty("yieldAssessment/plotID")
+    @JsonProperty("yieldAssessmentForm/plotID")
     var plotId: String? = null
 
-    @JsonProperty("yieldAssessment/nrPlantsNP")
+    @JsonProperty("yieldAssessmentForm/nrPlantsNP")
     var nrPlantsNp: String? = null
 
-    @JsonProperty("yieldAssessment/tuberizedRootsFWss")
+    @JsonProperty("yieldAssessmentForm/tuberizedRootsFWss")
     var tuberizedRootsFwSs: String? = null
 
-    @JsonProperty("yieldAssessment/rootFW/tuberizedRootsFW")
+    @JsonProperty("yieldAssessmentForm/rootFW/tuberizedRootsFW")
     var tuberizedRootsFw: String? = null
 
-    @JsonProperty("yieldAssessment/rootNr/tuberizedRootsNr")
+    @JsonProperty("yieldAssessmentForm/rootNr/tuberizedRootsNr")
     var tuberizedRootsNr: String? = null
 
-    @JsonProperty("yieldAssessment/plantSampleID_tuberizedRoots")
+    @JsonProperty("yieldAssessmentForm/plantSampleID_tuberizedRoots")
     var plantSampleIDTuberizedRoots: String? = null
 
-    @JsonProperty("yieldAssessment/plantID")
+    @JsonProperty("yieldAssessmentForm/plantID")
     var plantID: String? = null
 
-    @JsonProperty("yieldAssessment/PD/disease")
+    @JsonProperty("yieldAssessmentForm/PD/disease")
     var disease: String? = null
 
-    @JsonProperty("yieldAssessment/rootFW/tuberizedSmallRootsFW")
+    @JsonProperty("yieldAssessmentForm/rootFW/tuberizedSmallRootsFW")
     var tuberizedSmallRootsFw: String? = null
 
-    @JsonProperty("yieldAssessment/tuberizedSmallRootsFWss")
+    @JsonProperty("yieldAssessmentForm/tuberizedSmallRootsFWss")
     var tuberizedSmallRootsFwSs: String? = null
 
-    @JsonProperty("yieldAssessment/PD/diseaseScoreRoots_severity")
+    @JsonProperty("yieldAssessmentForm/PD/diseaseScoreRoots_severity")
     var diseaseScoreRootsSeverity: String? = null
 
-    @JsonProperty("yieldAssessment/PD/diseaseScoreRoots_incidence")
+    @JsonProperty("yieldAssessmentForm/PD/diseaseScoreRoots_incidence")
     var diseaseScoreRootsIncidence: String? = null
 
-    @JsonProperty("yieldAssessment/rootFW/tuberizedDiseasedRootsFW")
+    @JsonProperty("yieldAssessmentForm/rootFW/tuberizedDiseasedRootsFW")
     var tuberizedDiseasedRootsFw: String? = null
 
-    @JsonProperty("yieldAssessment/rootFW/tuberizedMarketableRootsFW")
+    @JsonProperty("yieldAssessmentForm/rootFW/tuberizedMarketableRootsFW")
     var tuberizedMarketableRootsFw: String? = null
 
-    @JsonProperty("yieldAssessment/rootNr/tuberizedMarketableRootsNr")
+    @JsonProperty("yieldAssessmentForm/rootNr/tuberizedMarketableRootsNr")
     var tuberizedMarketableRootsNr: String? = null
 
 }
