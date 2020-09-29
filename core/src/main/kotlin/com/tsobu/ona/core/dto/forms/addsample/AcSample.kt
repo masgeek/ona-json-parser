@@ -7,9 +7,9 @@ import java.util.*
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder("sample/newLabel", "sample/nrLabels", "sample/plantSampleID", "sample/newLabel_count", "sample/soilSampleID")
-class Sample {
+class AcSample {
     @JsonProperty("sample/newLabel")
-    var newLabel: List<SampleNewLabel> = ArrayList()
+    var acNewLabel: List<AcNewLabel>? = null
 
     @JsonProperty("sample/nrLabels")
     var nrLabels: Int? = null
@@ -21,5 +21,5 @@ class Sample {
     var newLabelCount: String? = null
 
     @JsonProperty("sample/soilSampleID")
-    var soilSampleID: String? = null
+    var soilSampleId: String? = null
 }

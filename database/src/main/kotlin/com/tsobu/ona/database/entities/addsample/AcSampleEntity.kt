@@ -26,8 +26,8 @@ class AcSampleEntity : BaseEntity() {
     @Column(name = "parent_key")
     var parentKey: String? = null
 
-    @Column(name = "conreol_key")
-    var conreolKey: String? = null
+    @Column(name = "control_key")
+    var controlKey: String? = null
 
     @Column(name = "set_of_sample")
     var setOfSample: String? = null

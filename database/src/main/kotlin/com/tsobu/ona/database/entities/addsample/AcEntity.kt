@@ -58,14 +58,14 @@ class AcEntity : BaseEntity() {
     @Column(name = "first_name")
     var firstName: String? = null
 
-    @Column(name = "sur_name")
-    var surName: String? = null
+    @Column(name = "surname")
+    var surname: String? = null
 
     @Column(name = "entity")
     var entity: String? = null
 
-    @Column(name = "repeat")
-    var repeat: String? = null
+    @Column(name = "repeat_value")
+    var repeatValue: String? = null
 
     @Column(name = "set_of_sample")
     var setOfSample: String? = null

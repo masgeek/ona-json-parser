@@ -2,6 +2,7 @@ package com.tsobu.ona.app
 
 import com.tsobu.ona.core.service.AssessRootYieldCassavaService
 import com.tsobu.ona.core.service.ScoreWeedControlService
+import com.tsobu.ona.core.service.addsample.AddSampleService
 import com.tsobu.ona.core.service.dataval.FrService
 import com.tsobu.ona.core.service.dataval.PpService
 import com.tsobu.ona.core.service.dataval.PpTzService
@@ -39,7 +40,8 @@ class OnaApplication(
         private val hhService: HhService,
         private val ppTzService: PpTzService,
         private val ppService: PpService,
-        private val monitorValService: MonitorValService
+        private val monitorValService: MonitorValService,
+        private val addSampleService: AddSampleService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -58,6 +60,7 @@ class OnaApplication(
 //        ppTzService.readJsonAsset(fileName = "dataVAL_PP_TZ.json")
 //        ppService.readJsonAsset(fileName = "dataVAL_PP.json")
 //        monitorValService.readJsonAsset(fileName = "monitorVAL.json")
+        addSampleService.readJsonAsset(fileName = "Add_Sample_Label_AC.json")
 
 //        weedControlService.mapJsonFile()
 //        yieldCassavaService.mapJsonFile()
@@ -71,7 +74,7 @@ class OnaApplication(
 //        hhService.mapJsonFile()
 //        ppService.mapJsonFile()
 //        monitorValService.mapJsonFile()
-        monitorValService.mapJsonFile()
+//        monitorValService.mapJsonFile()
     }
 
 
