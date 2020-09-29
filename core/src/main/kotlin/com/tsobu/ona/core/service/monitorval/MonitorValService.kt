@@ -27,6 +27,8 @@ import java.nio.file.Paths
 @Service
 class MonitorValService
 constructor(
+
+        val appConfig: AppConfig,
         transactionManager: PlatformTransactionManager,
         val monitorValRepo: MonitorValRepo,
         val installCorrectDetailsRepo: InstallCorrectDetailsRepo,
@@ -38,7 +40,7 @@ constructor(
         val problemPlotSomeRepo: ProblemPlotSomeRepo,
         val soilSampleRepo: SoilSampleRepo,
         val trialQualitySomeRepo: TrialQualitySomeRepo,
-        val appConfig: AppConfig) {
+        val trialRatingAllRepo: TrialRatingAllRepo) {
 
     private val log = LoggerFactory.getLogger(MonitorValService::class.java)
     private val modelMapper = ModelMapper()
@@ -111,10 +113,11 @@ constructor(
         val plotSomeEntityData = ArrayList<ProblemPlotSomeEntity>()
         val soilSampleEntityData = ArrayList<SoilSampleEntity>()
         val trialQualitySomeData = ArrayList<TrialQualitySomeEntity>()
-        list.forEach { myVal ->
+        val trialRatingAllData = ArrayList<TrialRatingAllEntity>()
+        list.forEach { monitorValForm ->
             //map and save to database
-            val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
-            val monitorValEntity = modelMapper.map(myVal, MonitorValEntity::class.java)
+            val geoPoint = myDateUtil.splitGeoPoint(monitorValForm.geopoint)
+            val monitorValEntity = modelMapper.map(monitorValForm, MonitorValEntity::class.java)
             if (geoPoint.isNotEmpty()) {
                 monitorValEntity.geoPointLatitude = geoPoint[0]
 
@@ -128,13 +131,13 @@ constructor(
                     monitorValEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            monitorValEntity.uuid = myVal.formhubUuid
-            monitorValEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
-            monitorValEntity.todayDate = myDateUtil.convertToDate(myVal.today)
-            monitorValEntity.startDate = myDateUtil.convertToDateTime(myVal.start)
-            monitorValEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
-            monitorValEntity.instanceId = myVal.metaInstanceID
-            monitorValEntity.controlKey = myVal.metaInstanceID
+            monitorValEntity.uuid = monitorValForm.formhubUuid
+            monitorValEntity.submissionDate = myDateUtil.convertToDateTime(monitorValForm.submissionTime)
+            monitorValEntity.todayDate = myDateUtil.convertToDate(monitorValForm.today)
+            monitorValEntity.startDate = myDateUtil.convertToDateTime(monitorValForm.start)
+            monitorValEntity.endDate = myDateUtil.convertToDateTime(monitorValForm.end)
+            monitorValEntity.instanceId = monitorValForm.metaInstanceID
+            monitorValEntity.controlKey = monitorValForm.metaInstanceID
 
             monitorValEntity.setOfPlotLayout = "${monitorValEntity.controlKey}/plotLayout"
             monitorValEntity.setOfMaizePlantHeight = "${monitorValEntity.controlKey}/maizePlantHeight"
@@ -143,7 +146,7 @@ constructor(
 
             monitorValEntityData.add(monitorValEntity)
 
-            val correctDetailsList = myVal.installCorrectDetails
+            val correctDetailsList = monitorValForm.installCorrectDetails
             var correctDetailsCounter = 1
             correctDetailsList?.forEach { correctDetail ->
                 val correctDetailEntity = modelMapper.map(correctDetail, InstallCorrectDetailsEntity::class.java)
@@ -155,7 +158,7 @@ constructor(
                 correctDetailEntityData.add(correctDetailEntity)
             }
 
-            val leafSampleList = myVal.leafSample
+            val leafSampleList = monitorValForm.leafSample
             var leafSampleCounter = 1
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
             leafSampleList?.forEach { leafSample ->
@@ -169,7 +172,7 @@ constructor(
                 leafSampleEntityData.add(leafSampleEntity)
             }
 
-            val maizePlantHeightList = myVal.maizePlantHeight
+            val maizePlantHeightList = monitorValForm.maizePlantHeight
             var maizePlantHeightCounter = 1
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
             maizePlantHeightList?.forEach { maizePlantHeight ->
@@ -196,7 +199,7 @@ constructor(
                 }
             }
 
-            val plotLayoutList = myVal.plotLayout
+            val plotLayoutList = monitorValForm.plotLayout
             var plotLayoutCounter = 1
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
             plotLayoutList?.forEach { plotLayout ->
@@ -209,7 +212,7 @@ constructor(
                 plotLayoutData.add(plotLayoutEntity)
             }
 
-            val trialRatingSomeList = myVal.trialRatingSome
+            val trialRatingSomeList = monitorValForm.trialRatingSome
             var trialRatingSomeCounter = 1
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
             trialRatingSomeList?.forEach { trialRatingSome ->
@@ -234,7 +237,7 @@ constructor(
                 }
             }
 
-            val soilSampleList = myVal.soilSample
+            val soilSampleList = monitorValForm.soilSample
             var soilSampleCounter = 1
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
             soilSampleList?.forEach { soilSample ->
@@ -247,7 +250,7 @@ constructor(
                 soilSampleEntityData.add(soilSampleEntity)
             }
 
-            val trialQualitySomeList = myVal.trialQualitySome
+            val trialQualitySomeList = monitorValForm.trialQualitySome
             var trialQualitySomeCounter = 1
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
             trialQualitySomeList?.forEach { trialQualitySome ->
@@ -260,18 +263,32 @@ constructor(
                 trialQualitySomeData.add(trialQualitySomeEntity)
             }
 
+            val trialRatingAllList = monitorValForm.trialRatingAll
+            var trialRatingAllCounter = 1
+            modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
+            trialRatingAllList?.forEach { trialRatingAll ->
+                val trialRatingAllEntity = modelMapper.map(trialRatingAll, TrialRatingAllEntity::class.java)
+                trialRatingAllEntity.parentKey = monitorValEntity.controlKey
+                trialRatingAllEntity.controlKey = "${trialRatingAllEntity.parentKey}/trialRating_All[$trialRatingAllCounter]"
+                trialRatingAllEntity.setOfTrialRatingAll = "${trialRatingAllEntity.parentKey}/trialRating_All"
+
+                trialRatingAllCounter = trialRatingAllCounter.plus(1)
+                trialRatingAllData.add(trialRatingAllEntity)
+            }
+
         }
 
-//        monitorValRepo.saveAll(monitorValEntityData)
-//        installCorrectDetailsRepo.saveAll(correctDetailEntityData)
-//        leafSampleRepo.saveAll(leafSampleEntityData)
-//        maizePlantHeightRepo.saveAll(maizePlantHeightEntityData)
-//        phRepo.saveAll(phEntityData)
-//        plotLayoutRepo.saveAll(plotLayoutData)
-//        trialRatingSomeRepo.saveAll(trialRatingSomeData)
-//        problemPlotSomeRepo.saveAll(plotSomeEntityData)
-//        soilSampleRepo.saveAll(soilSampleEntityData)
+        monitorValRepo.saveAll(monitorValEntityData)
+        installCorrectDetailsRepo.saveAll(correctDetailEntityData)
+        leafSampleRepo.saveAll(leafSampleEntityData)
+        maizePlantHeightRepo.saveAll(maizePlantHeightEntityData)
+        phRepo.saveAll(phEntityData)
+        plotLayoutRepo.saveAll(plotLayoutData)
+        trialRatingSomeRepo.saveAll(trialRatingSomeData)
+        problemPlotSomeRepo.saveAll(plotSomeEntityData)
+        soilSampleRepo.saveAll(soilSampleEntityData)
         trialQualitySomeRepo.saveAll(trialQualitySomeData)
+        trialRatingAllRepo.saveAll(trialRatingAllData)
 
         log.info("Finished saving the data for $fileName------->")
     }
