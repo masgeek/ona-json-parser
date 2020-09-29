@@ -8,8 +8,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 @JsonPropertyOrder("soilSample/depth", "soilSample/soilSampleID")
 class SoilSample {
     @JsonProperty("soilSample/depth")
-    var soilSampleDepth: String? = null
+    var depth: String? = null
 
     @JsonProperty("soilSample/soilSampleID")
-    var soilSampleSoilSampleID: String? = null
+    var soilSampleId: String? = null
 }

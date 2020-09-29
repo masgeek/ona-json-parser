@@ -36,6 +36,7 @@ constructor(
         val plotLayoutRepo: PlotLayoutRepo,
         val trialRatingSomeRepo: TrialRatingSomeRepo,
         val problemPlotSomeRepo: ProblemPlotSomeRepo,
+        val soilSampleRepo: SoilSampleRepo,
         val appConfig: AppConfig) {
 
     private val log = LoggerFactory.getLogger(MonitorValService::class.java)
@@ -107,6 +108,7 @@ constructor(
         val plotLayoutData = ArrayList<PlotLayoutEntity>()
         val trialRatingSomeData = ArrayList<TrialRatingSomeEntity>()
         val plotSomeEntityData = ArrayList<ProblemPlotSomeEntity>()
+        val soilSampleEntityData = ArrayList<SoilSampleEntity>()
         list.forEach { myVal ->
             //map and save to database
             val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
@@ -224,10 +226,23 @@ constructor(
                     problemPlotSomeEntity.parentKey = trialRatingSomeEntity.controlKey
                     problemPlotSomeEntity.setOfProblemPlotSome = "${problemPlotSomeEntity.parentKey}/problemPlot_Some"
                     problemPlotSomeEntity.controlKey = "${problemPlotSomeEntity.parentKey}/problemPlot_Some[$plotSomeCounter]"
-                    
+
                     plotSomeCounter = plotSomeCounter.plus(1)
                     plotSomeEntityData.add(problemPlotSomeEntity)
                 }
+            }
+
+            val soilSampleList = myVal.soilSample
+            var soilSampleCounter = 1
+            modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
+            soilSampleList?.forEach { soilSample ->
+                val soilSampleEntity = modelMapper.map(soilSample, SoilSampleEntity::class.java)
+                soilSampleEntity.parentKey = monitorValEntity.controlKey
+                soilSampleEntity.controlKey = "${soilSampleEntity.parentKey}/soilSample[$soilSampleCounter]"
+                soilSampleEntity.setOfSoilSample = "${soilSampleEntity.parentKey}/soilSample"
+
+                soilSampleCounter = soilSampleCounter.plus(1)
+                soilSampleEntityData.add(soilSampleEntity)
             }
 
         }
@@ -239,7 +254,8 @@ constructor(
 //        phRepo.saveAll(phEntityData)
 //        plotLayoutRepo.saveAll(plotLayoutData)
 //        trialRatingSomeRepo.saveAll(trialRatingSomeData)
-        problemPlotSomeRepo.saveAll(plotSomeEntityData)
+//        problemPlotSomeRepo.saveAll(plotSomeEntityData)
+        soilSampleRepo.saveAll(soilSampleEntityData)
 
         log.info("Finished saving the data for $fileName------->")
     }
