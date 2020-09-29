@@ -11,6 +11,7 @@ import com.tsobu.ona.core.service.datavalsphs.SphsService
 import com.tsobu.ona.core.service.lignifiedstem.LignifiedStemService
 import com.tsobu.ona.core.service.monitorval.MonitorValService
 import com.tsobu.ona.core.service.register.HhService
+import com.tsobu.ona.core.service.starchcontent.StarchContentService
 import com.tsobu.ona.core.service.valsphstz.EzService
 import com.tsobu.ona.core.service.valsphstz.LzeService
 import com.tsobu.ona.core.service.valsphstz.LzwService
@@ -45,7 +46,8 @@ class OnaApplication(
         private val monitorValService: MonitorValService,
         private val addSampleService: AddSampleService,
         private val greenBiomassService: GreenBiomassService,
-        private val lignifiedStemService: LignifiedStemService
+        private val lignifiedStemService: LignifiedStemService,
+        private val starchContentService: StarchContentService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -67,6 +69,7 @@ class OnaApplication(
 //        addSampleService.readJsonAsset(fileName = "Add_Sample_Label_AC.json")
 //        greenBiomassService.readJsonAsset(fileName = "Assess_GreenBiomass_Yield_Cassava_AC.json")
 //        lignifiedStemService.readJsonAsset(fileName = "Assess_LignifiedStem_Yield_Cassava_AC.json")
+        starchContentService.readJsonAsset(fileName = "Assess_Starch_Content_AC.json")
 
 //        weedControlService.mapJsonFile()
 //        yieldCassavaService.mapJsonFile()
@@ -83,7 +86,7 @@ class OnaApplication(
 //        monitorValService.mapJsonFile()
 //        addSampleService.mapJsonFile()
 //        greenBiomassService.mapJsonFile()
-        lignifiedStemService.mapJsonFile()
+//        lignifiedStemService.mapJsonFile()
     }
 
 
