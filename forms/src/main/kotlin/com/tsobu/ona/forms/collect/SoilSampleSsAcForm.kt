@@ -20,10 +20,10 @@ class SoilSampleSsAcForm {
     var soilSampleId: String? = null
 
     @JsonProperty("soilSample/depthOther/lowerLimit")
-    var lowerLimit: Int? = null
+    var lowerLimit: String? = null
 
     @JsonProperty("soilSample/depthOther/upperLimit")
-    var upperLimit: Int? = null
+    var upperLimit: String? = null
 
     @JsonProperty("soilSample/trialID")
     var trialId: String? = null

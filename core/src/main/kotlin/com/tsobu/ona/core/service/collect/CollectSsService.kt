@@ -4,12 +4,15 @@ package com.tsobu.ona.core.service.collect
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.CheckIdRegDto
+import com.tsobu.ona.core.dto.json.collect.CollectSsAcDto
+import com.tsobu.ona.core.dto.json.collect.CollectSsAcSoilSampleDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.CheckIdRegEntity
-import com.tsobu.ona.database.repositories.CheckIdRegRepo
-import com.tsobu.ona.forms.CheckIdRegForm
+import com.tsobu.ona.database.entities.collect.CollectSsAcEntity
+import com.tsobu.ona.database.entities.collect.CollectSsAcSoilSampleEntity
+import com.tsobu.ona.database.repositories.collect.CollectSsAcRepo
+import com.tsobu.ona.database.repositories.collect.CollectSsAcSoilSampleRepo
+import com.tsobu.ona.forms.collect.CollectSsAcForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
@@ -26,7 +29,8 @@ import java.nio.file.Paths
 class CollectSsService
 constructor(
         transactionManager: PlatformTransactionManager,
-        val checkIdRegRepo: CheckIdRegRepo,
+        val ssAcRepo: CollectSsAcRepo,
+        val soilSampleRepo: CollectSsAcSoilSampleRepo,
         val appConfig: AppConfig) {
 
     private val log = LoggerFactory.getLogger(CollectSsService::class.java)
@@ -37,7 +41,7 @@ constructor(
 
     private val fileName = "Collect_SS_AC.json"
     fun mapJsonFile() {
-        log.info("Reading table data....")
+        log.info("Exporting to CSV $fileName------->")
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
                 return if (context.source is String) {
@@ -54,21 +58,32 @@ constructor(
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        val checkIdRegEntityList = checkIdRegRepo.findAllByOrderBySubmissionDateAsc()
+        val ssAcEntityList = ssAcRepo.findAllByOrderBySubmissionDateAsc()
+        val soilSampleEntityList = soilSampleRepo.findAll()
 
 
-        val tlAcData = checkIdRegEntityList.map { checkIdRegEntity ->
-            val checkIdRegDto = modelMapper.map(checkIdRegEntity, CheckIdRegDto::class.java)
-            checkIdRegDto.submissionDate = myDateUtil.convertTimeToString(checkIdRegEntity.submissionDate)
-            checkIdRegDto.start = myDateUtil.convertTimeToString(checkIdRegEntity.startDate)
-            checkIdRegDto.end = myDateUtil.convertTimeToString(checkIdRegEntity.endDate)
-            checkIdRegDto
+        val ssAcData = ssAcEntityList.map { ssAcEntity ->
+            val ssAcDto = modelMapper.map(ssAcEntity, CollectSsAcDto::class.java)
+            ssAcDto.submissionDate = myDateUtil.convertTimeToString(ssAcEntity.submissionDate)
+            ssAcDto.start = myDateUtil.convertTimeToString(ssAcEntity.startDate)
+            ssAcDto.end = myDateUtil.convertTimeToString(ssAcEntity.endDate)
+            ssAcDto
+        }
+
+        val soilSampleData = soilSampleEntityList.map { soilSampleEntity ->
+            val soilSampleDto = modelMapper.map(soilSampleEntity, CollectSsAcSoilSampleDto::class.java)
+            soilSampleDto
         }
 
 
-        writeCsvFile.writeCsv(classMap = CheckIdRegDto::class.java,
-                data = tlAcData,
-                fileName = "Check_ID_Registration",
+        writeCsvFile.writeCsv(classMap = CollectSsAcDto::class.java,
+                data = ssAcData,
+                fileName = "Collect_SS_AC",
+                outPutPath = filePath)
+
+        writeCsvFile.writeCsv(classMap = CollectSsAcSoilSampleDto::class.java,
+                data = soilSampleData,
+                fileName = "Collect_SS_AC-soilSample",
                 outPutPath = filePath)
     }
 
@@ -78,7 +93,7 @@ constructor(
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
-        val list = objectMapper.readValue(file, object : TypeReference<List<CheckIdRegForm>>() {})
+        val list = objectMapper.readValue(file, object : TypeReference<List<CollectSsAcForm>>() {})
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
@@ -95,41 +110,54 @@ constructor(
         modelMapper.configuration.isAmbiguityIgnored = true
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
-        val checkIdRegData = ArrayList<CheckIdRegEntity>()
-        list.forEach { checkIdRegForm ->
+        val ssAcData = ArrayList<CollectSsAcEntity>()
+        val soilSampleData = ArrayList<CollectSsAcSoilSampleEntity>()
+        list.forEach { ssAcForm ->
             //map and save to database
-            val checkIdRegEntity = modelMapper.map(checkIdRegForm, CheckIdRegEntity::class.java)
+            val ssAcEntity = modelMapper.map(ssAcForm, CollectSsAcEntity::class.java)
 
-            val geoPoint = myDateUtil.splitGeoPoint(checkIdRegForm.geopoint)
+            val geoPoint = myDateUtil.splitGeoPoint(ssAcForm.geopoint)
             if (geoPoint.isNotEmpty()) {
-                checkIdRegEntity.geoPointLatitude = geoPoint[0]
+                ssAcEntity.geoPointLatitude = geoPoint[0]
 
                 if (myDateUtil.indexExists(geoPoint, 1)) {
-                    checkIdRegEntity.geoPointLongitude = geoPoint[1]
+                    ssAcEntity.geoPointLongitude = geoPoint[1]
                 }
                 if (myDateUtil.indexExists(geoPoint, 2)) {
-                    checkIdRegEntity.geoPointAltitude = geoPoint[2]
+                    ssAcEntity.geoPointAltitude = geoPoint[2]
                 }
                 if (myDateUtil.indexExists(geoPoint, 3)) {
-                    checkIdRegEntity.geoPointAccuracy = geoPoint[3]
+                    ssAcEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            checkIdRegEntity.uuid = checkIdRegForm.formhubUuid
-            checkIdRegEntity.submissionDate = myDateUtil.convertToDateTime(checkIdRegForm.submissionTime)
-            checkIdRegEntity.todayDate = myDateUtil.convertToDate(checkIdRegForm.today)
-            checkIdRegEntity.startDate = myDateUtil.convertToDateTime(checkIdRegForm.start)
-            checkIdRegEntity.endDate = myDateUtil.convertToDateTime(checkIdRegForm.end)
-            checkIdRegEntity.instanceId = checkIdRegForm.metaInstanceID
-            checkIdRegEntity.controlKey = checkIdRegForm.metaInstanceID
+            ssAcEntity.uuid = ssAcForm.formhubUuid
+            ssAcEntity.submissionDate = myDateUtil.convertToDateTime(ssAcForm.submissionTime)
+            ssAcEntity.todayDate = myDateUtil.convertToDate(ssAcForm.today)
+            ssAcEntity.startDate = myDateUtil.convertToDateTime(ssAcForm.start)
+            ssAcEntity.endDate = myDateUtil.convertToDateTime(ssAcForm.end)
+            ssAcEntity.instanceId = ssAcForm.metaInstanceID
+            ssAcEntity.controlKey = ssAcForm.metaInstanceID
+            ssAcEntity.setOfSoilSample = "${ssAcEntity.controlKey}/soilSample"
 
-            checkIdRegData.add(checkIdRegEntity)
+            ssAcData.add(ssAcEntity)
+
+            val soilSampleList = ssAcForm.soilSampleList
+            var soilSampleCounter = 1
+            soilSampleList.forEach { soilSample ->
+                val soilSampleEntity = modelMapper.map(soilSample, CollectSsAcSoilSampleEntity::class.java)
+                soilSampleEntity.parentKey = ssAcEntity.controlKey
+                soilSampleEntity.controlKey = "${ssAcEntity.controlKey}/soilSample[$soilSampleCounter]"
+                soilSampleEntity.setOfSoilSample = ssAcEntity.setOfSoilSample
+
+                soilSampleCounter = soilSampleCounter.plus(1)
+                soilSampleData.add(soilSampleEntity)
+            }
         }
 
-        checkIdRegRepo.saveAll(checkIdRegData)
+        ssAcRepo.saveAll(ssAcData)
+        soilSampleRepo.saveAll(soilSampleData)
 
         log.info("Finished saving the data for $fileName------->")
-
-        log.info("Exporting to CSV $fileName------->")
         mapJsonFile()
     }
 }
