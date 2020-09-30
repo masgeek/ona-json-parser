@@ -1,6 +1,7 @@
 package com.tsobu.ona.app
 
 import com.tsobu.ona.core.service.AssessRootYieldCassavaService
+import com.tsobu.ona.core.service.CheckIdRegService
 import com.tsobu.ona.core.service.ScoreWeedControlService
 import com.tsobu.ona.core.service.addsample.AddSampleService
 import com.tsobu.ona.core.service.assign.FdAcAssignService
@@ -55,7 +56,8 @@ class OnaApplication(
         private val fdAcAssignService: FdAcAssignService,
         private val paAcAssignService: PaAcAssignService,
         private val poAcAssignService: PoAcAssignService,
-        private val tlAcAssignService: TlAcAssignService
+        private val tlAcAssignService: TlAcAssignService,
+        private val checkIdRegService: CheckIdRegService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -83,7 +85,8 @@ class OnaApplication(
 
 //        paAcAssignService.readJsonAsset()
 //        poAcAssignService.readJsonAsset()
-        tlAcAssignService.readJsonAsset()
+//        tlAcAssignService.readJsonAsset()
+        checkIdRegService.readJsonAsset()
     }
 
 
