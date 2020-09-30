@@ -20,10 +20,10 @@ class ValPpDto {
     var today: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: Int? = null
+    var deviceid: String? = null
 
     @JsonProperty("subscriberid")
-    var subscriberid: Int? = null
+    var subscriberid: String? = null
 
     @JsonProperty("email")
     var email: String? = null
@@ -65,7 +65,7 @@ class ValPpDto {
     var currency: String? = null
 
     @JsonProperty("conversion")
-    var conversion: Int? = null
+    var conversion: String? = null
 
     @JsonProperty("geopoint-Latitude")
     var geopointLatitude: Double? = null
@@ -74,10 +74,10 @@ class ValPpDto {
     var geopointLongitude: Double? = null
 
     @JsonProperty("geopoint-Altitude")
-    var geopointAltitude: Int? = null
+    var geopointAltitude: String? = null
 
     @JsonProperty("geopoint-Accuracy")
-    var geopointAccuracy: Int? = null
+    var geopointAccuracy: String? = null
 
     @JsonProperty("lat")
     var lat: Double? = null
@@ -197,25 +197,25 @@ class ValPpDto {
     var withinRow: Any? = null
 
     @JsonProperty("plotL")
-    var plotL: Int? = null
+    var plotL: String? = null
 
     @JsonProperty("plotW")
-    var plotW: Int? = null
+    var plotW: String? = null
 
     @JsonProperty("plotSize")
-    var plotSize: Int? = null
+    var plotSize: String? = null
 
     @JsonProperty("costNote")
     var costNote: String? = null
 
     @JsonProperty("basicTill1ManualCost")
-    var basicTill1ManualCost: Int? = null
+    var basicTill1ManualCost: String? = null
 
     @JsonProperty("basicTill1TractorCost")
     var basicTill1TractorCost: Any? = null
 
     @JsonProperty("basicTill2ManualCost")
-    var basicTill2ManualCost: Int? = null
+    var basicTill2ManualCost: String? = null
 
     @JsonProperty("basicTill2TractorCost")
     var basicTill2TractorCost: Any? = null
@@ -224,55 +224,55 @@ class ValPpDto {
     var harrowTractorCost: Any? = null
 
     @JsonProperty("ridgingManualCost")
-    var ridgingManualCost: Int? = null
+    var ridgingManualCost: String? = null
 
     @JsonProperty("ridgingTractorCost")
     var ridgingTractorCost: Any? = null
 
     @JsonProperty("weedingManualCost")
-    var weedingManualCost: Int? = null
+    var weedingManualCost: String? = null
 
     @JsonProperty("weedingHerbicideCost")
-    var weedingHerbicideCost: Int? = null
+    var weedingHerbicideCost: String? = null
 
     @JsonProperty("priceRoots")
-    var priceRoots: Int? = null
+    var priceRoots: String? = null
 
     @JsonProperty("basicTill1Cost")
-    var basicTill1Cost: Int? = null
+    var basicTill1Cost: String? = null
 
     @JsonProperty("basicTill2Cost")
-    var basicTill2Cost: Int? = null
+    var basicTill2Cost: String? = null
 
     @JsonProperty("harrowCost")
-    var harrowCost: Int? = null
+    var harrowCost: String? = null
 
     @JsonProperty("ridgingCost")
-    var ridgingCost: Int? = null
+    var ridgingCost: String? = null
 
     @JsonProperty("weedingCost")
-    var weedingCost: Int? = null
+    var weedingCost: String? = null
 
     @JsonProperty("costT0RG")
-    var costT0RG: Int? = null
+    var costT0RG: String? = null
 
     @JsonProperty("costT0FL")
-    var costT0FL: Int? = null
+    var costT0FL: String? = null
 
     @JsonProperty("costT1RG")
-    var costT1RG: Int? = null
+    var costT1RG: String? = null
 
     @JsonProperty("costT1FL")
-    var costT1FL: Int? = null
+    var costT1FL: String? = null
 
     @JsonProperty("costT2RG")
-    var costT2RG: Int? = null
+    var costT2RG: String? = null
 
     @JsonProperty("costT2FL")
-    var costT2FL: Int? = null
+    var costT2FL: String? = null
 
     @JsonProperty("costCP")
-    var costCP: Int? = null
+    var costCP: String? = null
 
     @JsonProperty("costCPcurr")
     var costCPcurr: String? = null
@@ -323,7 +323,7 @@ class ValPpDto {
     var netValueDifT0RG: Double? = null
 
     @JsonProperty("netValueDifT0FL")
-    var netValueDifT0FL: Int? = null
+    var netValueDifT0FL: String? = null
 
     @JsonProperty("netValueDifT1RG")
     var netValueDifT1RG: Double? = null
@@ -341,7 +341,7 @@ class ValPpDto {
     var netValueDifMax: Double? = null
 
     @JsonProperty("netValueDifMaxRound")
-    var netValueDifMaxRound: Int? = null
+    var netValueDifMaxRound: String? = null
 
     @JsonProperty("CPtext")
     var cPtext: String? = null
@@ -362,13 +362,13 @@ class ValPpDto {
     var harrowText2: String? = null
 
     @JsonProperty("costDif")
-    var costDif: Int? = null
+    var costDif: String? = null
 
     @JsonProperty("costDifChange")
     var costDifChange: String? = null
 
     @JsonProperty("costDifAbs")
-    var costDifAbs: Int? = null
+    var costDifAbs: String? = null
 
     @JsonProperty("netValueDifcurr")
     var netValueDifcurr: String? = null

@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder("SubmissionDate", "uuid", "start", "today", "deviceid", "subscriberid", "email", "username", "simserial", "phonenumber", "banner", "intro", "intro2", "VAL", "EAID", "HHID", "countrySelect", "country", "currency", "conversion", "geopoint-Latitude", "geopoint-Longitude", "geopoint-Altitude", "geopoint-Accuracy", "lat", "lon", "plantingDate", "yieldLevel", "sweetPotatoVarietySelect", "sweetPotatoVarietyOther", "cassavaVarietySelect", "cassavaVarietyOther", "cassavaVarietyType", "areaBasis", "bagSizeNPK", "costNPK", "rootsUnit", "rootsPriceSI", "rootsUnitName", "rootsUnitWeight", "rootsUnitPrice", "rootsPrice", "tuberUnit", "tuberPriceSI", "tuberUnitName", "tuberUnitWeight", "tuberUnitPrice", "tuberPrice", "rootYieldMC", "tuberYieldMC", "rootYieldRedIC", "tuberYieldRedIC", "extraRootYieldMCF", "extraTuberYieldMCF", "rootGRMC", "rootGRIC", "tuberGRIC", "totalGRIC", "extraGRIC", "importanceIC", "unitPriceNPK50kg", "costFertilizer", "rateFertilizerAB_Text", "costFertilizerAB", "costFertilizerAB_Text", "riskAttitude", "rootGRMCF", "rootGRICF", "tuberGRICF", "totalGRICF", "extraGRMCF", "extraGRICF", "rec", "extraProfit", "extraProfitPerc", "rec_MC", "rec_IC", "rec_ICF", "validationNote", "validationPlot1", "validationPlot2", "validationPlot3", "validationPlot4", "call", "confirmVAL", "end", "instanceID", "KEY")
-class ValCiDto {
+class ValCisDto {
     @JsonProperty("SubmissionDate")
     var submissionDate: String? = null
 
@@ -20,10 +20,10 @@ class ValCiDto {
     var today: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: Int? = null
+    var deviceid: String? = null
 
     @JsonProperty("subscriberid")
-    var subscriberid: Int? = null
+    var subscriberid: String? = null
 
     @JsonProperty("email")
     var email: String? = null
@@ -32,7 +32,7 @@ class ValCiDto {
     var username: String? = null
 
     @JsonProperty("simserial")
-    var simserial: Int? = null
+    var simserial: String? = null
 
     @JsonProperty("phonenumber")
     var phonenumber: String? = null
@@ -65,7 +65,7 @@ class ValCiDto {
     var currency: String? = null
 
     @JsonProperty("conversion")
-    var conversion: Int? = null
+    var conversion: String? = null
 
     @JsonProperty("geopoint-Latitude")
     var geopointLatitude: Double? = null
@@ -77,7 +77,7 @@ class ValCiDto {
     var geopointAltitude: Double? = null
 
     @JsonProperty("geopoint-Accuracy")
-    var geopointAccuracy: Int? = null
+    var geopointAccuracy: String? = null
 
     @JsonProperty("lat")
     var lat: Double? = null
@@ -110,10 +110,10 @@ class ValCiDto {
     var areaBasis: String? = null
 
     @JsonProperty("bagSizeNPK")
-    var bagSizeNPK: Int? = null
+    var bagSizeNPK: String? = null
 
     @JsonProperty("costNPK")
-    var costNPK: Int? = null
+    var costNPK: String? = null
 
     @JsonProperty("rootsUnit")
     var rootsUnit: String? = null
@@ -125,10 +125,10 @@ class ValCiDto {
     var rootsUnitName: String? = null
 
     @JsonProperty("rootsUnitWeight")
-    var rootsUnitWeight: Int? = null
+    var rootsUnitWeight: String? = null
 
     @JsonProperty("rootsUnitPrice")
-    var rootsUnitPrice: Int? = null
+    var rootsUnitPrice: String? = null
 
     @JsonProperty("rootsPrice")
     var rootsPrice: Double? = null
@@ -143,19 +143,19 @@ class ValCiDto {
     var tuberUnitName: String? = null
 
     @JsonProperty("tuberUnitWeight")
-    var tuberUnitWeight: Int? = null
+    var tuberUnitWeight: String? = null
 
     @JsonProperty("tuberUnitPrice")
-    var tuberUnitPrice: Int? = null
+    var tuberUnitPrice: String? = null
 
     @JsonProperty("tuberPrice")
     var tuberPrice: Double? = null
 
     @JsonProperty("rootYieldMC")
-    var rootYieldMC: Int? = null
+    var rootYieldMC: String? = null
 
     @JsonProperty("tuberYieldMC")
-    var tuberYieldMC: Int? = null
+    var tuberYieldMC: String? = null
 
     @JsonProperty("rootYieldRedIC")
     var rootYieldRedIC: Double? = null
@@ -164,10 +164,10 @@ class ValCiDto {
     var tuberYieldRedIC: Double? = null
 
     @JsonProperty("extraRootYieldMCF")
-    var extraRootYieldMCF: Int? = null
+    var extraRootYieldMCF: String? = null
 
     @JsonProperty("extraTuberYieldMCF")
-    var extraTuberYieldMCF: Int? = null
+    var extraTuberYieldMCF: String? = null
 
     @JsonProperty("rootGRMC")
     var rootGRMC: Double? = null
@@ -176,7 +176,7 @@ class ValCiDto {
     var rootGRIC: Double? = null
 
     @JsonProperty("tuberGRIC")
-    var tuberGRIC: Int? = null
+    var tuberGRIC: String? = null
 
     @JsonProperty("totalGRIC")
     var totalGRIC: Double? = null
@@ -185,25 +185,25 @@ class ValCiDto {
     var extraGRIC: Double? = null
 
     @JsonProperty("importanceIC")
-    var importanceIC: Int? = null
+    var importanceIC: String? = null
 
     @JsonProperty("unitPriceNPK50kg")
-    var unitPriceNPK50kg: Int? = null
+    var unitPriceNPK50kg: String? = null
 
     @JsonProperty("costFertilizer")
-    var costFertilizer: Int? = null
+    var costFertilizer: String? = null
 
     @JsonProperty("rateFertilizerAB_Text")
     var rateFertilizerABText: String? = null
 
     @JsonProperty("costFertilizerAB")
-    var costFertilizerAB: Int? = null
+    var costFertilizerAB: String? = null
 
     @JsonProperty("costFertilizerAB_Text")
     var costFertilizerABText: String? = null
 
     @JsonProperty("riskAttitude")
-    var riskAttitude: Int? = null
+    var riskAttitude: String? = null
 
     @JsonProperty("rootGRMCF")
     var rootGRMCF: Double? = null
@@ -212,7 +212,7 @@ class ValCiDto {
     var rootGRICF: Double? = null
 
     @JsonProperty("tuberGRICF")
-    var tuberGRICF: Int? = null
+    var tuberGRICF: String? = null
 
     @JsonProperty("totalGRICF")
     var totalGRICF: Double? = null
@@ -230,7 +230,7 @@ class ValCiDto {
     var extraProfit: Double? = null
 
     @JsonProperty("extraProfitPerc")
-    var extraProfitPerc: Int? = null
+    var extraProfitPerc: String? = null
 
     @JsonProperty("rec_MC")
     var recMC: String? = null

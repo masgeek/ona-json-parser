@@ -20,7 +20,7 @@ class VALPPTreatDto {
     var today: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: Int? = null
+    var deviceid: String? = null
 
     @JsonProperty("subscriberid")
     var subscriberid: String? = null
@@ -59,7 +59,7 @@ class VALPPTreatDto {
     var geopointLongitude: Double? = null
 
     @JsonProperty("geopoint-Altitude")
-    var geopointAltitude: Int? = null
+    var geopointAltitude: String? = null
 
     @JsonProperty("geopoint-Accuracy")
     var geopointAccuracy: Double? = null

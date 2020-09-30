@@ -20,10 +20,10 @@ class ValSphsOgDto {
     var today: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: Int? = null
+    var deviceid: String? = null
 
     @JsonProperty("subscriberid")
-    var subscriberid: Int? = null
+    var subscriberid: String? = null
 
     @JsonProperty("email")
     var email: String? = null
@@ -32,7 +32,7 @@ class ValSphsOgDto {
     var username: String? = null
 
     @JsonProperty("simserial")
-    var simserial: Int? = null
+    var simserial: String? = null
 
     @JsonProperty("phonenumber")
     var phonenumber: String? = null
@@ -65,7 +65,7 @@ class ValSphsOgDto {
     var currency: String? = null
 
     @JsonProperty("conversion")
-    var conversion: Int? = null
+    var conversion: String? = null
 
     @JsonProperty("geopoint-Latitude")
     var geopointLatitude: Double? = null
@@ -77,7 +77,7 @@ class ValSphsOgDto {
     var geopointAltitude: Double? = null
 
     @JsonProperty("geopoint-Accuracy")
-    var geopointAccuracy: Int? = null
+    var geopointAccuracy: String? = null
 
     @JsonProperty("lat")
     var lat: Double? = null
@@ -89,67 +89,67 @@ class ValSphsOgDto {
     var plantingDate: String? = null
 
     @JsonProperty("season")
-    var season: Int? = null
+    var season: String? = null
 
     @JsonProperty("plantingWeek0")
-    var plantingWeek0: Int? = null
+    var plantingWeek0: String? = null
 
     @JsonProperty("harvestDate")
     var harvestDate: String? = null
 
     @JsonProperty("harvestWeek0")
-    var harvestWeek0: Int? = null
+    var harvestWeek0: String? = null
 
     @JsonProperty("harvestWeekm1")
-    var harvestWeekm1: Int? = null
+    var harvestWeekm1: String? = null
 
     @JsonProperty("harvestWeekm2")
-    var harvestWeekm2: Int? = null
+    var harvestWeekm2: String? = null
 
     @JsonProperty("harvestWeekm3")
-    var harvestWeekm3: Int? = null
+    var harvestWeekm3: String? = null
 
     @JsonProperty("harvestWeekm4")
-    var harvestWeekm4: Int? = null
+    var harvestWeekm4: String? = null
 
     @JsonProperty("harvestWeekp1")
-    var harvestWeekp1: Int? = null
+    var harvestWeekp1: String? = null
 
     @JsonProperty("harvestWeekp2")
-    var harvestWeekp2: Int? = null
+    var harvestWeekp2: String? = null
 
     @JsonProperty("harvestWeekp3")
-    var harvestWeekp3: Int? = null
+    var harvestWeekp3: String? = null
 
     @JsonProperty("harvestWeekp4")
-    var harvestWeekp4: Int? = null
+    var harvestWeekp4: String? = null
 
     @JsonProperty("harvestAge0")
-    var harvestAge0: Int? = null
+    var harvestAge0: String? = null
 
     @JsonProperty("harvestAgem1")
-    var harvestAgem1: Int? = null
+    var harvestAgem1: String? = null
 
     @JsonProperty("harvestAgem2")
-    var harvestAgem2: Int? = null
+    var harvestAgem2: String? = null
 
     @JsonProperty("harvestAgem3")
-    var harvestAgem3: Int? = null
+    var harvestAgem3: String? = null
 
     @JsonProperty("harvestAgem4")
-    var harvestAgem4: Int? = null
+    var harvestAgem4: String? = null
 
     @JsonProperty("harvestAgep1")
-    var harvestAgep1: Int? = null
+    var harvestAgep1: String? = null
 
     @JsonProperty("harvestAgep2")
-    var harvestAgep2: Int? = null
+    var harvestAgep2: String? = null
 
     @JsonProperty("harvestAgep3")
-    var harvestAgep3: Int? = null
+    var harvestAgep3: String? = null
 
     @JsonProperty("harvestAgep4")
-    var harvestAgep4: Int? = null
+    var harvestAgep4: String? = null
 
     @JsonProperty("check_id")
     var checkId: String? = null
@@ -176,13 +176,13 @@ class ValSphsOgDto {
     var plotL: Double? = null
 
     @JsonProperty("plotW")
-    var plotW: Int? = null
+    var plotW: String? = null
 
     @JsonProperty("plotSize")
     var plotSize: Double? = null
 
     @JsonProperty("yieldLevel")
-    var yieldLevel: Int? = null
+    var yieldLevel: String? = null
 
     @JsonProperty("priceStarch")
     var priceStarch: String? = null
@@ -206,7 +206,7 @@ class ValSphsOgDto {
     var sc5: Double? = null
 
     @JsonProperty("SC6")
-    var sc6: Int? = null
+    var sc6: String? = null
 
     @JsonProperty("SC7")
     var sc7: Any? = null
@@ -227,22 +227,22 @@ class ValSphsOgDto {
     var sc12: String? = null
 
     @JsonProperty("priceSC1")
-    var priceSC1: Int? = null
+    var priceSC1: String? = null
 
     @JsonProperty("priceSC2")
-    var priceSC2: Int? = null
+    var priceSC2: String? = null
 
     @JsonProperty("priceSC3")
-    var priceSC3: Int? = null
+    var priceSC3: String? = null
 
     @JsonProperty("priceSC4")
-    var priceSC4: Int? = null
+    var priceSC4: String? = null
 
     @JsonProperty("priceSC5")
-    var priceSC5: Int? = null
+    var priceSC5: String? = null
 
     @JsonProperty("priceSC6")
-    var priceSC6: Int? = null
+    var priceSC6: String? = null
 
     @JsonProperty("priceSC7")
     var priceSC7: Any? = null
@@ -446,31 +446,31 @@ class ValSphsOgDto {
     var sCp4: Double? = null
 
     @JsonProperty("priceSC0")
-    var priceSC0: Int? = null
+    var priceSC0: String? = null
 
     @JsonProperty("priceSCm1")
-    var priceSCm1: Int? = null
+    var priceSCm1: String? = null
 
     @JsonProperty("priceSCm2")
-    var priceSCm2: Int? = null
+    var priceSCm2: String? = null
 
     @JsonProperty("priceSCm3")
-    var priceSCm3: Int? = null
+    var priceSCm3: String? = null
 
     @JsonProperty("priceSCm4")
-    var priceSCm4: Int? = null
+    var priceSCm4: String? = null
 
     @JsonProperty("priceSCp1")
-    var priceSCp1: Int? = null
+    var priceSCp1: String? = null
 
     @JsonProperty("priceSCp2")
-    var priceSCp2: Int? = null
+    var priceSCp2: String? = null
 
     @JsonProperty("priceSCp3")
-    var priceSCp3: Int? = null
+    var priceSCp3: String? = null
 
     @JsonProperty("priceSCp4")
-    var priceSCp4: Int? = null
+    var priceSCp4: String? = null
 
     @JsonProperty("Yp0h0")
     var yp0h0: Double? = null
@@ -503,28 +503,28 @@ class ValSphsOgDto {
     var yp0hp4: Any? = null
 
     @JsonProperty("GRp0h0")
-    var gRp0h0: Int? = null
+    var gRp0h0: String? = null
 
     @JsonProperty("GRp0h0_AB")
-    var gRp0h0AB: Int? = null
+    var gRp0h0AB: String? = null
 
     @JsonProperty("GRp0h0_ABcurr")
     var gRp0h0ABcurr: String? = null
 
     @JsonProperty("GRp0hm1")
-    var gRp0hm1: Int? = null
+    var gRp0hm1: String? = null
 
     @JsonProperty("GRp0hm2")
-    var gRp0hm2: Int? = null
+    var gRp0hm2: String? = null
 
     @JsonProperty("GRp0hm3")
-    var gRp0hm3: Int? = null
+    var gRp0hm3: String? = null
 
     @JsonProperty("GRp0hm4")
-    var gRp0hm4: Int? = null
+    var gRp0hm4: String? = null
 
     @JsonProperty("GRp0hp1")
-    var gRp0hp1: Int? = null
+    var gRp0hp1: String? = null
 
     @JsonProperty("GRp0hp2")
     var gRp0hp2: Any? = null
@@ -536,22 +536,22 @@ class ValSphsOgDto {
     var gRp0hp4: Any? = null
 
     @JsonProperty("Pp0h0")
-    var pp0h0: Int? = null
+    var pp0h0: String? = null
 
     @JsonProperty("Pp0hm1")
-    var pp0hm1: Int? = null
+    var pp0hm1: String? = null
 
     @JsonProperty("Pp0hm2")
-    var pp0hm2: Int? = null
+    var pp0hm2: String? = null
 
     @JsonProperty("Pp0hm3")
-    var pp0hm3: Int? = null
+    var pp0hm3: String? = null
 
     @JsonProperty("Pp0hm4")
-    var pp0hm4: Int? = null
+    var pp0hm4: String? = null
 
     @JsonProperty("Pp0hp1")
-    var pp0hp1: Int? = null
+    var pp0hp1: String? = null
 
     @JsonProperty("Pp0hp2")
     var pp0hp2: Any? = null
@@ -563,25 +563,25 @@ class ValSphsOgDto {
     var pp0hp4: Any? = null
 
     @JsonProperty("GPp0h0")
-    var gPp0h0: Int? = null
+    var gPp0h0: String? = null
 
     @JsonProperty("GPp0h0curr")
     var gPp0h0curr: String? = null
 
     @JsonProperty("GPp0hm1")
-    var gPp0hm1: Int? = null
+    var gPp0hm1: String? = null
 
     @JsonProperty("GPp0hm2")
-    var gPp0hm2: Int? = null
+    var gPp0hm2: String? = null
 
     @JsonProperty("GPp0hm3")
-    var gPp0hm3: Int? = null
+    var gPp0hm3: String? = null
 
     @JsonProperty("GPp0hm4")
-    var gPp0hm4: Int? = null
+    var gPp0hm4: String? = null
 
     @JsonProperty("GPp0hp1")
-    var gPp0hp1: Int? = null
+    var gPp0hp1: String? = null
 
     @JsonProperty("GPp0hp2")
     var gPp0hp2: Any? = null
@@ -593,31 +593,31 @@ class ValSphsOgDto {
     var gPp0hp4: Any? = null
 
     @JsonProperty("GRmax")
-    var gRmax: Int? = null
+    var gRmax: String? = null
 
     @JsonProperty("GRmax_AB")
-    var gRmaxAB: Int? = null
+    var gRmaxAB: String? = null
 
     @JsonProperty("GRdif")
-    var gRdif: Int? = null
+    var gRdif: String? = null
 
     @JsonProperty("GRdif_AB")
-    var gRdifAB: Int? = null
+    var gRdifAB: String? = null
 
     @JsonProperty("GRdif_ABcurr")
     var gRdifABcurr: String? = null
 
     @JsonProperty("GPmax")
-    var gPmax: Int? = null
+    var gPmax: String? = null
 
     @JsonProperty("GPdif")
-    var gPdif: Int? = null
+    var gPdif: String? = null
 
     @JsonProperty("GPdifcurr")
     var gPdifcurr: String? = null
 
     @JsonProperty("optHarvest")
-    var optHarvest: Int? = null
+    var optHarvest: String? = null
 
     @JsonProperty("optHarvestText")
     var optHarvestText: String? = null

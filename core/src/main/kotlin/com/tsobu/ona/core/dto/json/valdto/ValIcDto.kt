@@ -20,10 +20,10 @@ class ValIcDto {
     var today: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: Int? = null
+    var deviceid: String? = null
 
     @JsonProperty("subscriberid")
-    var subscriberid: Int? = null
+    var subscriberid: String? = null
 
     @JsonProperty("email")
     var email: String? = null
@@ -32,7 +32,7 @@ class ValIcDto {
     var username: String? = null
 
     @JsonProperty("simserial")
-    var simserial: Int? = null
+    var simserial: String? = null
 
     @JsonProperty("phonenumber")
     var phonenumber: String? = null
@@ -65,7 +65,7 @@ class ValIcDto {
     var currency: String? = null
 
     @JsonProperty("conversion")
-    var conversion: Int? = null
+    var conversion: String? = null
 
     @JsonProperty("geopoint-Latitude")
     var geopointLatitude: Double? = null
@@ -77,7 +77,7 @@ class ValIcDto {
     var geopointAltitude: Double? = null
 
     @JsonProperty("geopoint-Accuracy")
-    var geopointAccuracy: Int? = null
+    var geopointAccuracy: String? = null
 
     @JsonProperty("lat")
     var lat: Double? = null
@@ -89,7 +89,7 @@ class ValIcDto {
     var plantingDate: String? = null
 
     @JsonProperty("season")
-    var season: Int? = null
+    var season: String? = null
 
     @JsonProperty("heightMaize")
     var heightMaize: String? = null
@@ -128,22 +128,22 @@ class ValIcDto {
     var areaBasis: String? = null
 
     @JsonProperty("bagSizeNPK")
-    var bagSizeNPK: Int? = null
+    var bagSizeNPK: String? = null
 
     @JsonProperty("costNPK")
-    var costNPK: Int? = null
+    var costNPK: String? = null
 
     @JsonProperty("bagSizeUrea")
-    var bagSizeUrea: Int? = null
+    var bagSizeUrea: String? = null
 
     @JsonProperty("costUrea")
-    var costUrea: Int? = null
+    var costUrea: String? = null
 
     @JsonProperty("priceMaizeCobFreshLarge")
-    var priceMaizeCobFreshLarge: Int? = null
+    var priceMaizeCobFreshLarge: String? = null
 
     @JsonProperty("priceRoots")
-    var priceRoots: Int? = null
+    var priceRoots: String? = null
 
     @JsonProperty("maizeGrain")
     var maizeGrain: String? = null
@@ -167,10 +167,10 @@ class ValIcDto {
     var maizeGrainPrice: Any? = null
 
     @JsonProperty("numberExtraCobsLarge")
-    var numberExtraCobsLarge: Int? = null
+    var numberExtraCobsLarge: String? = null
 
     @JsonProperty("valueExtraCobsLarge")
-    var valueExtraCobsLarge: Int? = null
+    var valueExtraCobsLarge: String? = null
 
     @JsonProperty("quantityExtraGrain")
     var quantityExtraGrain: Any? = null
@@ -179,37 +179,37 @@ class ValIcDto {
     var valueExtraGrain: Any? = null
 
     @JsonProperty("grossExtraValue")
-    var grossExtraValue: Int? = null
+    var grossExtraValue: String? = null
 
     @JsonProperty("unitPriceNPK50kg")
-    var unitPriceNPK50kg: Int? = null
+    var unitPriceNPK50kg: String? = null
 
     @JsonProperty("unitPriceUrea50kg")
-    var unitPriceUrea50kg: Int? = null
+    var unitPriceUrea50kg: String? = null
 
     @JsonProperty("costFertilizer")
-    var costFertilizer: Int? = null
+    var costFertilizer: String? = null
 
     @JsonProperty("costFertilizerAreaBasis")
-    var costFertilizerAreaBasis: Int? = null
+    var costFertilizerAreaBasis: String? = null
 
     @JsonProperty("costFertilizerAreaBasis_Text")
     var costFertilizerAreaBasisText: String? = null
 
     @JsonProperty("riskAttitude")
-    var riskAttitude: Int? = null
+    var riskAttitude: String? = null
 
     @JsonProperty("profitExtra")
-    var profitExtra: Int? = null
+    var profitExtra: String? = null
 
     @JsonProperty("riskRatio2")
-    var riskRatio2: Int? = null
+    var riskRatio2: String? = null
 
     @JsonProperty("numberExtraCobsLarge_AB")
-    var numberExtraCobsLargeAB: Int? = null
+    var numberExtraCobsLargeAB: String? = null
 
     @JsonProperty("valueExtraCobsLarge_AB")
-    var valueExtraCobsLargeAB: Int? = null
+    var valueExtraCobsLargeAB: String? = null
 
     @JsonProperty("quantityExtraGrain_AB")
     var quantityExtraGrainAB: Any? = null
@@ -218,34 +218,34 @@ class ValIcDto {
     var valueExtraGrainAB: Any? = null
 
     @JsonProperty("unitPriceNPK50kg_AB")
-    var unitPriceNPK50kgAB: Int? = null
+    var unitPriceNPK50kgAB: String? = null
 
     @JsonProperty("unitPriceUrea50kg_AB")
-    var unitPriceUrea50kgAB: Int? = null
+    var unitPriceUrea50kgAB: String? = null
 
     @JsonProperty("costFertilizer_AB")
-    var costFertilizerAB: Int? = null
+    var costFertilizerAB: String? = null
 
     @JsonProperty("costFertilizer_ABText")
     var costFertilizerABText: String? = null
 
     @JsonProperty("profitExtra_AB")
-    var profitExtraAB: Int? = null
+    var profitExtraAB: String? = null
 
     @JsonProperty("profitExtra_ABText")
     var profitExtraABText: String? = null
 
     @JsonProperty("riskRatio2_AB")
-    var riskRatio2AB: Int? = null
+    var riskRatio2AB: String? = null
 
     @JsonProperty("NPK_AB")
-    var npkAb: Int? = null
+    var npkAb: String? = null
 
     @JsonProperty("urea1_AB")
-    var urea1AB: Int? = null
+    var urea1AB: String? = null
 
     @JsonProperty("urea2_AB")
-    var urea2AB: Int? = null
+    var urea2AB: String? = null
 
     @JsonProperty("yieldLoss_cassava_ABText")
     var yieldLossCassavaABText: String? = null
@@ -260,10 +260,10 @@ class ValIcDto {
     var plotSize: Double? = null
 
     @JsonProperty("numberExtraCobsLargePlot")
-    var numberExtraCobsLargePlot: Int? = null
+    var numberExtraCobsLargePlot: String? = null
 
     @JsonProperty("priceExtraCobsLargePlot")
-    var priceExtraCobsLargePlot: Int? = null
+    var priceExtraCobsLargePlot: String? = null
 
     @JsonProperty("quantityExtraGrainPlot")
     var quantityExtraGrainPlot: Any? = null
@@ -272,22 +272,22 @@ class ValIcDto {
     var valueExtraGrainPlot: Any? = null
 
     @JsonProperty("costFertilizerPlot")
-    var costFertilizerPlot: Int? = null
+    var costFertilizerPlot: String? = null
 
     @JsonProperty("profitExtraPlot")
-    var profitExtraPlot: Int? = null
+    var profitExtraPlot: String? = null
 
     @JsonProperty("profitExtraPlotText")
     var profitExtraPlotText: String? = null
 
     @JsonProperty("NPKPlot")
-    var nPKPlot: Int? = null
+    var nPKPlot: String? = null
 
     @JsonProperty("urea1Plot")
-    var urea1Plot: Int? = null
+    var urea1Plot: String? = null
 
     @JsonProperty("urea2Plot")
-    var urea2Plot: Int? = null
+    var urea2Plot: String? = null
 
     @JsonProperty("recCol")
     var recCol: String? = null

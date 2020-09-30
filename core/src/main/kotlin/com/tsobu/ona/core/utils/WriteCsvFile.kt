@@ -2,6 +2,7 @@ package com.tsobu.ona.core.utils
 
 
 import com.fasterxml.jackson.core.JsonGenerator
+import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.dataformat.csv.CsvMapper
 import com.fasterxml.jackson.dataformat.csv.CsvSchema
 import org.slf4j.LoggerFactory
@@ -15,6 +16,7 @@ class WriteCsvFile {
     fun writeCsv(classMap: Class<*>?, data: List<*>, fileName: String, outPutPath: String) {
         try {
             val mapper = CsvMapper()
+            mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true)
             mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true);
             val schema: CsvSchema = mapper.schemaFor(classMap)
                     .withUseHeader(true)

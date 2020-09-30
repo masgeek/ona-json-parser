@@ -11,410 +11,410 @@ import javax.persistence.Table
 @Table(name = "val_fr")
 class ValFrEntity : BaseEntity() {
     @Column(name = "submission_date")
-    private val submissionDate: LocalDateTime? = null
+    var submissionDate: LocalDateTime? = null
 
     @Column(name = "uuid")
-    private val uuid: String? = null
+    var uuid: String? = null
 
     @Column(name = "start_date")
-    private val startDate: LocalDateTime? = null
+    var startDate: LocalDateTime? = null
 
     @Column(name = "today_date")
-    private val todayDate: LocalDate? = null
+    var todayDate: LocalDate? = null
 
     @Column(name = "deviceid")
-    private val deviceid: String? = null
+    var deviceid: String? = null
 
     @Column(name = "subscriberid")
-    private val subscriberid: String? = null
+    var subscriberid: String? = null
 
     @Column(name = "email")
-    private val email: String? = null
+    var email: String? = null
 
     @Column(name = "username")
-    private val username: String? = null
+    var username: String? = null
 
     @Column(name = "simserial")
-    private val simserial: String? = null
+    var simserial: String? = null
 
     @Column(name = "phonenumber")
-    private val phonenumber: String? = null
+    var phonenumber: String? = null
 
     @Column(name = "banner")
-    private val banner: String? = null
+    var banner: String? = null
 
     @Column(name = "intro")
-    private val intro: String? = null
+    var intro: String? = null
 
     @Column(name = "intro2")
-    private val intro2: String? = null
+    var intro2: String? = null
 
     @Column(name = "purpose_val")
-    private val purposeVal: String? = null
+    var purposeVal: String? = null
 
     @Column(name = "eaid")
-    private val eaid: String? = null
+    var eaid: String? = null
 
     @Column(name = "hhid")
-    private val hhid: String? = null
+    var hhid: String? = null
 
-    @Column(name = "country_select")
-    private val countrySelect: String? = null
+    @Column(name = "countryselect")
+    var countryselect: String? = null
 
     @Column(name = "country")
-    private val country: String? = null
+    var country: String? = null
 
     @Column(name = "currency")
-    private val currency: String? = null
+    var currency: String? = null
 
     @Column(name = "conversion")
-    private val conversion: String? = null
+    var conversion: String? = null
 
     @Column(name = "geo_point_latitude")
-    private val geoPointLatitude: String? = null
+    var geoPointLatitude: String? = null
 
     @Column(name = "geo_point_longitude")
-    private val geoPointLongitude: String? = null
+    var geoPointLongitude: String? = null
 
     @Column(name = "geo_point_altitude")
-    private val geoPointAltitude: String? = null
+    var geoPointAltitude: String? = null
 
     @Column(name = "geo_point_accuracy")
-    private val geoPointAccuracy: String? = null
+    var geoPointAccuracy: String? = null
 
     @Column(name = "lat")
-    private val lat: String? = null
+    var lat: String? = null
 
     @Column(name = "lon")
-    private val lon: String? = null
+    var lon: String? = null
 
     @Column(name = "planting_date")
-    private val plantingDate: LocalDate? = null
+    var plantingDate: LocalDate? = null
 
     @Column(name = "season")
-    private val season: String? = null
+    var season: String? = null
 
-    @Column(name = "planting_week")
-    private val plantingWeek: String? = null
+    @Column(name = "plantingweek")
+    var plantingweek: String? = null
 
-    @Column(name = "area_basis")
-    private val areaBasis: String? = null
+    @Column(name = "areabasis")
+    var areabasis: String? = null
 
     @Column(name = "fcy")
-    private val fcy: String? = null
+    var fcy: String? = null
 
     @Column(name = "lookup_id")
-    private val lookupId: String? = null
+    var lookupId: String? = null
 
-    @Column(name = "rate_urea")
-    private val rateUrea: String? = null
+    @Column(name = "rateurea")
+    var rateurea: String? = null
 
-    @Column(name = "rate_tsp")
-    private val rateTsp: String? = null
+    @Column(name = "ratetsp")
+    var ratetsp: String? = null
 
-    @Column(name = "rate_nafaka")
-    private val rateNafaka: String? = null
+    @Column(name = "ratenafaka")
+    var ratenafaka: String? = null
 
-    @Column(name = "rate_dap")
-    private val rateDap: String? = null
+    @Column(name = "ratedap")
+    var ratedap: String? = null
 
-    @Column(name = "rate_mop")
-    private val rateMop: String? = null
+    @Column(name = "ratemop")
+    var ratemop: String? = null
 
-    @Column(name = "rate_npk")
-    private val rateNpk: String? = null
+    @Column(name = "ratenpk")
+    var ratenpk: String? = null
 
-    @Column(name = "current_yield")
-    private val currentYield: String? = null
+    @Column(name = "currenty")
+    var currenty: String? = null
 
-    @Column(name = "target_yield")
-    private val targetYield: String? = null
+    @Column(name = "targety")
+    var targety: String? = null
 
-    @Column(name = "increase_yield")
-    private val increaseYield: String? = null
+    @Column(name = "increasey")
+    var increasey: String? = null
 
-    @Column(name = "net_rev")
-    private val netRev: String? = null
+    @Column(name = "netrev")
+    var netrev: String? = null
 
-    @Column(name = "total_cost")
-    private val totalCost: String? = null
+    @Column(name = "totalcost")
+    var totalcost: String? = null
 
     @Column(name = "ridging")
-    private val ridging: String? = null
+    var ridging: String? = null
 
     @Column(name = "variety")
-    private val variety: String? = null
+    var variety: String? = null
 
-    @Column(name = "planting_density")
-    private val plantingDensity: String? = null
+    @Column(name = "plantingdensity")
+    var plantingdensity: String? = null
 
-    @Column(name = "between_row")
-    private val betweenRow: String? = null
+    @Column(name = "betweenrow")
+    var betweenrow: String? = null
 
-    @Column(name = "within_row")
-    private val withinRow: String? = null
+    @Column(name = "withinrow")
+    var withinrow: String? = null
 
-    @Column(name = "plot_length")
-    private val plotLength: String? = null
+    @Column(name = "plotl")
+    var plotl: String? = null
 
-    @Column(name = "plot_width")
-    private val plotWidth: String? = null
+    @Column(name = "plotw")
+    var plotw: String? = null
 
-    @Column(name = "plot_size")
-    private val plotSize: String? = null
+    @Column(name = "plotsize")
+    var plotsize: String? = null
 
-    @Column(name = "rate_urea_ab")
-    private val rateUreaAb: String? = null
+    @Column(name = "rateurea_ab")
+    var rateureaAb: String? = null
 
-    @Column(name = "rate_tsp_ab")
-    private val rateTspAb: String? = null
+    @Column(name = "ratetsp_ab")
+    var ratetspAb: String? = null
 
-    @Column(name = "rate_nafaka_ab")
-    private val rateNafakaAb: String? = null
+    @Column(name = "ratenafaka_ab")
+    var ratenafakaAb: String? = null
 
-    @Column(name = "rate_dap_ab")
-    private val rateDapAb: String? = null
+    @Column(name = "ratedap_ab")
+    var ratedapAb: String? = null
 
-    @Column(name = "rate_mop_ab")
-    private val rateMopAb: String? = null
+    @Column(name = "ratemop_ab")
+    var ratemopAb: String? = null
 
-    @Column(name = "rate_npk_ab")
-    private val rateNpkAb: String? = null
+    @Column(name = "ratenpk_ab")
+    var ratenpkAb: String? = null
 
-    @Column(name = "increase_yield_ab")
-    private val increaseYieldAb: String? = null
+    @Column(name = "increasey_ab")
+    var increaseyAb: String? = null
 
-    @Column(name = "rec_value")
-    private val recValue: String? = null
+    @Column(name = "rec")
+    var rec: String? = null
 
-    @Column(name = "quantity_urea")
-    private val quantityUrea: String? = null
+    @Column(name = "quantityurea")
+    var quantityurea: String? = null
 
-    @Column(name = "quantity_tsp")
-    private val quantityTsp: String? = null
+    @Column(name = "quantitytsp")
+    var quantitytsp: String? = null
 
-    @Column(name = "quantity_nafaka")
-    private val quantityNafaka: String? = null
+    @Column(name = "quantitynafaka")
+    var quantitynafaka: String? = null
 
-    @Column(name = "quantity_dap")
-    private val quantityDap: String? = null
+    @Column(name = "quantitydap")
+    var quantitydap: String? = null
 
-    @Column(name = "quantity_mop")
-    private val quantityMop: String? = null
+    @Column(name = "quantitymop")
+    var quantitymop: String? = null
 
-    @Column(name = "quantity_npk")
-    private val quantityNpk: String? = null
+    @Column(name = "quantitynpk")
+    var quantitynpk: String? = null
 
-    @Column(name = "rate_urea_min")
-    private val rateUreaMin: String? = null
+    @Column(name = "rateurea_min")
+    var rateureaMin: String? = null
 
-    @Column(name = "rate_tsp_min")
-    private val rateTspMin: String? = null
+    @Column(name = "ratetsp_min")
+    var ratetspMin: String? = null
 
-    @Column(name = "rate_nafaka_min")
-    private val rateNafakaMin: String? = null
+    @Column(name = "ratenafaka_min")
+    var ratenafakaMin: String? = null
 
-    @Column(name = "rate_dap_min")
-    private val rateDapMin: String? = null
+    @Column(name = "ratedap_min")
+    var ratedapMin: String? = null
 
-    @Column(name = "rate_mop_min")
-    private val rateMopMin: String? = null
+    @Column(name = "ratemop_min")
+    var ratemopMin: String? = null
 
-    @Column(name = "rate_npk_min")
-    private val rateNpkMin: String? = null
+    @Column(name = "ratenpk_min")
+    var ratenpkMin: String? = null
 
-    @Column(name = "quantity1_urea")
-    private val quantity1Urea: String? = null
+    @Column(name = "quantity1urea")
+    var quantity1urea: String? = null
 
-    @Column(name = "quantity2_urea")
-    private val quantity2Urea: String? = null
+    @Column(name = "quantity2urea")
+    var quantity2urea: String? = null
 
-    @Column(name = "quantity1_tsp")
-    private val quantity1Tsp: String? = null
+    @Column(name = "quantity1tsp")
+    var quantity1tsp: String? = null
 
-    @Column(name = "quantity2_tsp")
-    private val quantity2Tsp: String? = null
+    @Column(name = "quantity2tsp")
+    var quantity2tsp: String? = null
 
-    @Column(name = "quantity1_nafaka")
-    private val quantity1Nafaka: String? = null
+    @Column(name = "quantity1nafaka")
+    var quantity1nafaka: String? = null
 
-    @Column(name = "quantity2_nafaka")
-    private val quantity2Nafaka: String? = null
+    @Column(name = "quantity2nafaka")
+    var quantity2nafaka: String? = null
 
-    @Column(name = "quantity1_dap")
-    private val quantity1Dap: String? = null
+    @Column(name = "quantity1dap")
+    var quantity1dap: String? = null
 
-    @Column(name = "quantity2_dap")
-    private val quantity2Dap: String? = null
+    @Column(name = "quantity2dap")
+    var quantity2dap: String? = null
 
-    @Column(name = "quantity1_mop")
-    private val quantity1Mop: String? = null
+    @Column(name = "quantity1mop")
+    var quantity1mop: String? = null
 
-    @Column(name = "quantity2_mop")
-    private val quantity2Mop: String? = null
+    @Column(name = "quantity2mop")
+    var quantity2mop: String? = null
 
-    @Column(name = "quantity1_npk")
-    private val quantity1Npk: String? = null
+    @Column(name = "quantity1npk")
+    var quantity1npk: String? = null
 
-    @Column(name = "quantity2_npk")
-    private val quantity2Npk: String? = null
+    @Column(name = "quantity2npk")
+    var quantity2npk: String? = null
 
     @Column(name = "split1")
-    private val split1: String? = null
+    var split1: String? = null
 
     @Column(name = "split2")
-    private val split2: String? = null
+    var split2: String? = null
 
-    @Column(name = "increase_p")
-    private val increaseP: String? = null
+    @Column(name = "increasep")
+    var increasep: String? = null
 
-    @Column(name = "net_rev_loc_cur")
-    private val netRevLocCur: String? = null
+    @Column(name = "netrevloccur")
+    var netrevloccur: String? = null
 
-    @Column(name = "total_cost_loc_cur")
-    private val totalCostLocCur: String? = null
+    @Column(name = "totalcostloccur")
+    var totalcostloccur: String? = null
 
-    @Column(name = "net_rev_loc_cur_ab")
-    private val netRevLocCurAb: String? = null
+    @Column(name = "netrevloccur_ab")
+    var netrevloccurAb: String? = null
 
-    @Column(name = "net_rev_loc_cur_ab_curr")
-    private val netRevLocCurAbCurr: String? = null
+    @Column(name = "netrevloccur_abcurr")
+    var netrevloccurAbcurr: String? = null
 
-    @Column(name = "total_cost_loc_cur_ab")
-    private val totalCostLocCurAb: String? = null
+    @Column(name = "totalcostloccur_ab")
+    var totalcostloccurAb: String? = null
 
-    @Column(name = "total_cost_loc_cur_ab_curr")
-    private val totalCostLocCurAbCurr: String? = null
+    @Column(name = "totalcostloccur_abcurr")
+    var totalcostloccurAbcurr: String? = null
 
-    @Column(name = "net_rev_loc_cur_plot")
-    private val netRevLocCurPlot: String? = null
+    @Column(name = "netrevloccurplot")
+    var netrevloccurplot: String? = null
 
-    @Column(name = "net_rev_loc_cur_plot_curr")
-    private val netRevLocCurPlotCurr: String? = null
+    @Column(name = "netrevloccurplotcurr")
+    var netrevloccurplotcurr: String? = null
 
-    @Column(name = "total_cost_loc_cur_plot")
-    private val totalCostLocCurPlot: String? = null
+    @Column(name = "totalcostloccurplot")
+    var totalcostloccurplot: String? = null
 
-    @Column(name = "total_cost_loc_cur_plot_curr")
-    private val totalCostLocCurPlotCurr: String? = null
+    @Column(name = "totalcostloccurplotcurr")
+    var totalcostloccurplotcurr: String? = null
 
-    @Column(name = "no_recommendation_tz_note")
-    private val noRecommendationTzNote: String? = null
+    @Column(name = "norecommendationtznote")
+    var norecommendationtznote: String? = null
 
-    @Column(name = "no_recommendation_ng_note")
-    private val noRecommendationNgNote: String? = null
+    @Column(name = "norecommendationngnote")
+    var norecommendationngnote: String? = null
 
-    @Column(name = "no_fertilizer_note")
-    private val noFertilizerNote: String? = null
+    @Column(name = "nofertilizernote")
+    var nofertilizernote: String? = null
 
-    @Column(name = "rate_fertilizer_note")
-    private val rateFertilizerNote: String? = null
+    @Column(name = "ratefertilizernote")
+    var ratefertilizernote: String? = null
 
-    @Column(name = "rate_urea_note")
-    private val rateUreaNote: String? = null
+    @Column(name = "rateureanote")
+    var rateureanote: String? = null
 
-    @Column(name = "rate_tsp_note")
-    private val rateTspNote: String? = null
+    @Column(name = "ratetspnote")
+    var ratetspnote: String? = null
 
-    @Column(name = "rate_nafaka_note")
-    private val rateNafakaNote: String? = null
+    @Column(name = "ratenafakanote")
+    var ratenafakanote: String? = null
 
-    @Column(name = "rate_dap_note")
-    private val rateDapNote: String? = null
+    @Column(name = "ratedapnote")
+    var ratedapnote: String? = null
 
-    @Column(name = "rate_mop_note")
-    private val rateMopNote: String? = null
+    @Column(name = "ratemopnote")
+    var ratemopnote: String? = null
 
-    @Column(name = "rate_npk_note")
-    private val rateNpkNote: String? = null
+    @Column(name = "ratenpknote")
+    var ratenpknote: String? = null
 
-    @Column(name = "yield_note")
-    private val yieldNote: String? = null
+    @Column(name = "yieldnote")
+    var yieldnote: String? = null
 
-    @Column(name = "validation_note")
-    private val validationNote: String? = null
+    @Column(name = "validationnote")
+    var validationnote: String? = null
 
-    @Column(name = "not_note")
-    private val notNote: String? = null
+    @Column(name = "notnote")
+    var notnote: String? = null
 
-    @Column(name = "quantity_urea_note")
-    private val quantityUreaNote: String? = null
+    @Column(name = "quantityureanote")
+    var quantityureanote: String? = null
 
-    @Column(name = "quantity_tsp_note")
-    private val quantityTspNote: String? = null
+    @Column(name = "quantitytspnote")
+    var quantitytspnote: String? = null
 
-    @Column(name = "quantity_nafaka_note")
-    private val quantityNafakaNote: String? = null
+    @Column(name = "quantitynafakanote")
+    var quantitynafakanote: String? = null
 
-    @Column(name = "quantity_dap_note")
-    private val quantityDapNote: String? = null
+    @Column(name = "quantitydapnote")
+    var quantitydapnote: String? = null
 
-    @Column(name = "quantity_mop_note")
-    private val quantityMopNote: String? = null
+    @Column(name = "quantitymopnote")
+    var quantitymopnote: String? = null
 
-    @Column(name = "quantity_npk_note")
-    private val quantityNpkNote: String? = null
+    @Column(name = "quantitynpknote")
+    var quantitynpknote: String? = null
 
-    @Column(name = "production_note")
-    private val productionNote: String? = null
+    @Column(name = "productionnote")
+    var productionnote: String? = null
 
-    @Column(name = "production_hr_note")
-    private val productionHrNote: String? = null
+    @Column(name = "production_hrnote")
+    var productionHrnote: String? = null
 
-    @Column(name = "split1_note")
-    private val split1Note: String? = null
+    @Column(name = "split1note")
+    var split1note: String? = null
 
-    @Column(name = "quantity1_urea_note")
-    private val quantity1UreaNote: String? = null
+    @Column(name = "quantity1ureanote")
+    var quantity1ureanote: String? = null
 
-    @Column(name = "quantity1_tsp_note")
-    private val quantity1TspNote: String? = null
+    @Column(name = "quantity1tspnote")
+    var quantity1tspnote: String? = null
 
-    @Column(name = "quantity1_nafaka_note")
-    private val quantity1NafakaNote: String? = null
+    @Column(name = "quantity1nafakanote")
+    var quantity1nafakanote: String? = null
 
-    @Column(name = "quantity1_dap_note")
-    private val quantity1DapNote: String? = null
+    @Column(name = "quantity1dapnote")
+    var quantity1dapnote: String? = null
 
-    @Column(name = "quantity1_mop_note")
-    private val quantity1MopNote: String? = null
+    @Column(name = "quantity1mopnote")
+    var quantity1mopnote: String? = null
 
-    @Column(name = "quantity1_npk_note")
-    private val quantity1NpkNote: String? = null
+    @Column(name = "quantity1npknote")
+    var quantity1npknote: String? = null
 
-    @Column(name = "split2_note")
-    private val split2Note: String? = null
+    @Column(name = "split2note")
+    var split2note: String? = null
 
-    @Column(name = "quantity2_urea_note")
-    private val quantity2UreaNote: String? = null
+    @Column(name = "quantity2ureanote")
+    var quantity2ureanote: String? = null
 
-    @Column(name = "quantity2_tsp_note")
-    private val quantity2TspNote: String? = null
+    @Column(name = "quantity2tspnote")
+    var quantity2tspnote: String? = null
 
-    @Column(name = "quantity2_dap_note")
-    private val quantity2DapNote: String? = null
+    @Column(name = "quantity2dapnote")
+    var quantity2dapnote: String? = null
 
-    @Column(name = "quantity2_nafaka_note")
-    private val quantity2NafakaNote: String? = null
+    @Column(name = "quantity2nafakanote")
+    var quantity2nafakanote: String? = null
 
-    @Column(name = "quantity2_mop_note")
-    private val quantity2MopNote: String? = null
+    @Column(name = "quantity2mopnote")
+    var quantity2mopnote: String? = null
 
-    @Column(name = "quantity2_npk_note")
-    private val quantity2NpkNote: String? = null
+    @Column(name = "quantity2npknote")
+    var quantity2npknote: String? = null
 
     @Column(name = "call_value")
-    private val callValue: String? = null
+    var callValue: String? = null
 
-    @Column(name = "confirm_val")
-    private val confirmVal: String? = null
+    @Column(name = "confirmval")
+    var confirmval: String? = null
 
     @Column(name = "end_date")
-    private val endDate: LocalDateTime? = null
+    var endDate: LocalDateTime? = null
 
     @Column(name = "instance_id")
-    private val instanceId: String? = null
+    var instanceId: String? = null
 
     @Column(name = "control_key")
-    private val controlKey: String? = null
+    var controlKey: String? = null
 }

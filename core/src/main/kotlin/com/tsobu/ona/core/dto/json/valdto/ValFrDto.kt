@@ -20,10 +20,10 @@ class ValFrDto {
     var today: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: Int? = null
+    var deviceid: String? = null
 
     @JsonProperty("subscriberid")
-    var subscriberid: Int? = null
+    var subscriberid: String? = null
 
     @JsonProperty("email")
     var email: String? = null
@@ -32,7 +32,7 @@ class ValFrDto {
     var username: String? = null
 
     @JsonProperty("simserial")
-    var simserial: Int? = null
+    var simserial: String? = null
 
     @JsonProperty("phonenumber")
     var phonenumber: String? = null
@@ -65,7 +65,7 @@ class ValFrDto {
     var currency: String? = null
 
     @JsonProperty("conversion")
-    var conversion: Int? = null
+    var conversion: String? = null
 
     @JsonProperty("geopoint-Latitude")
     var geopointLatitude: Double? = null
@@ -77,7 +77,7 @@ class ValFrDto {
     var geopointAltitude: Double? = null
 
     @JsonProperty("geopoint-Accuracy")
-    var geopointAccuracy: Int? = null
+    var geopointAccuracy: String? = null
 
     @JsonProperty("lat")
     var lat: Double? = null
@@ -92,7 +92,7 @@ class ValFrDto {
     var season: String? = null
 
     @JsonProperty("plantingWeek")
-    var plantingWeek: Int? = null
+    var plantingWeek: String? = null
 
     @JsonProperty("areaBasis")
     var areaBasis: String? = null
@@ -104,10 +104,10 @@ class ValFrDto {
     var lookupId: String? = null
 
     @JsonProperty("rateUrea")
-    var rateUrea: Int? = null
+    var rateUrea: String? = null
 
     @JsonProperty("rateTSP")
-    var rateTSP: Int? = null
+    var rateTSP: String? = null
 
     @JsonProperty("rateNafaka")
     var rateNafaka: String? = null
@@ -116,7 +116,7 @@ class ValFrDto {
     var rateDAP: String? = null
 
     @JsonProperty("rateMOP")
-    var rateMOP: Int? = null
+    var rateMOP: String? = null
 
     @JsonProperty("rateNPK")
     var rateNPK: String? = null
@@ -128,13 +128,13 @@ class ValFrDto {
     var targetY: Double? = null
 
     @JsonProperty("increaseY")
-    var increaseY: Int? = null
+    var increaseY: String? = null
 
     @JsonProperty("netRev")
-    var netRev: Int? = null
+    var netRev: String? = null
 
     @JsonProperty("totalCost")
-    var totalCost: Int? = null
+    var totalCost: String? = null
 
     @JsonProperty("ridging")
     var ridging: String? = null
@@ -155,7 +155,7 @@ class ValFrDto {
     var plotL: Double? = null
 
     @JsonProperty("plotW")
-    var plotW: Int? = null
+    var plotW: String? = null
 
     @JsonProperty("plotSize")
     var plotSize: Double? = null
@@ -185,19 +185,19 @@ class ValFrDto {
     var rec: String? = null
 
     @JsonProperty("quantityUrea")
-    var quantityUrea: Int? = null
+    var quantityUrea: String? = null
 
     @JsonProperty("quantityTSP")
-    var quantityTSP: Int? = null
+    var quantityTSP: String? = null
 
     @JsonProperty("quantityNafaka")
-    var quantityNafaka: Int? = null
+    var quantityNafaka: String? = null
 
     @JsonProperty("quantityDAP")
     var quantityDAP: String? = null
 
     @JsonProperty("quantityMOP")
-    var quantityMOP: Int? = null
+    var quantityMOP: String? = null
 
     @JsonProperty("quantityNPK")
     var quantityNPK: String? = null
@@ -206,7 +206,7 @@ class ValFrDto {
     var rateUreaMin: Double? = null
 
     @JsonProperty("rateTSP_min")
-    var rateTSPMin: Int? = null
+    var rateTSPMin: String? = null
 
     @JsonProperty("rateNafaka_min")
     var rateNafakaMin: Double? = null
@@ -215,28 +215,28 @@ class ValFrDto {
     var rateDAPMin: String? = null
 
     @JsonProperty("rateMOP_min")
-    var rateMOPMin: Int? = null
+    var rateMOPMin: String? = null
 
     @JsonProperty("rateNPK_min")
     var rateNPKMin: String? = null
 
     @JsonProperty("quantity1Urea")
-    var quantity1Urea: Int? = null
+    var quantity1Urea: String? = null
 
     @JsonProperty("quantity2Urea")
-    var quantity2Urea: Int? = null
+    var quantity2Urea: String? = null
 
     @JsonProperty("quantity1TSP")
-    var quantity1TSP: Int? = null
+    var quantity1TSP: String? = null
 
     @JsonProperty("quantity2TSP")
-    var quantity2TSP: Int? = null
+    var quantity2TSP: String? = null
 
     @JsonProperty("quantity1Nafaka")
-    var quantity1Nafaka: Int? = null
+    var quantity1Nafaka: String? = null
 
     @JsonProperty("quantity2Nafaka")
-    var quantity2Nafaka: Int? = null
+    var quantity2Nafaka: String? = null
 
     @JsonProperty("quantity1DAP")
     var quantity1DAP: String? = null
@@ -245,10 +245,10 @@ class ValFrDto {
     var quantity2DAP: String? = null
 
     @JsonProperty("quantity1MOP")
-    var quantity1MOP: Int? = null
+    var quantity1MOP: String? = null
 
     @JsonProperty("quantity2MOP")
-    var quantity2MOP: Int? = null
+    var quantity2MOP: String? = null
 
     @JsonProperty("quantity1NPK")
     var quantity1NPK: String? = null
@@ -257,10 +257,10 @@ class ValFrDto {
     var quantity2NPK: String? = null
 
     @JsonProperty("split1")
-    var split1: Int? = null
+    var split1: String? = null
 
     @JsonProperty("split2")
-    var split2: Int? = null
+    var split2: String? = null
 
     @JsonProperty("increaseP")
     var increaseP: Any? = null

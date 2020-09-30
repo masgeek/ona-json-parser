@@ -8,9 +8,9 @@ import java.util.*
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder("_id", "end", "lat", "lon", "rec", "EAID", "HHID", "_tags", "_uuid", "start", "today", "_notes", "_edited", "_status", "country", "_version", "currency", "deviceid", "geopoint", "rootGRIC", "rootGRMC", "username", "_duration", "_xform_id", "areaBasis", "extraGRIC", "rootGRICF", "rootGRMCF", "rootsUnit", "simserial", "totalGRIC", "tuberGRIC", "tuberUnit", "conversion", "extraGRICF", "extraGRMCF", "rootsPrice", "totalGRICF", "tuberGRICF", "tuberPrice", "yieldLevel", "extraProfit", "purpose/VAL", "rootYieldMC", "_attachments", "_geolocation", "_media_count", "_total_media", "formhub/uuid", "importanceIC", "plantingDate", "riskAttitude", "subscriberid", "tuberYieldMC", "_submitted_by", "rootsUnitName", "thankyou/call", "tuberUnitName", "costFertilizer", "rootYieldRedIC", "extraProfitPerc", "meta/instanceID", "tuberYieldRedIC", "_submission_time", "_xform_id_string", "costFertilizerAB", "unitPriceNPK50kg", "extraRootYieldMCF", "_bamboo_dataset_id", "extraTuberYieldMCF", "_media_all_received", "thankyou/confirmVAL", "cassavaVarietySelect", "costFertilizerAB_Text", "rateFertilizerAB_Text", "costDetailsNPK/costNPK", "sweetPotatoVarietySelect", "costDetailsNPK/bagSizeNPK", "rootsUnitDetails/rootsUnitPrice", "tuberUnitDetails/tuberUnitPrice", "rootsUnitDetails/rootsUnitWeight", "tuberUnitDetails/tuberUnitWeight", "tuberPriceSI", "rootsPriceSI")
-class ValCiForm {
+class ValCisForm {
     @JsonProperty("_id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("end")
     var end: String? = null
@@ -79,7 +79,7 @@ class ValCiForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xformId: String? = null
 
     @JsonProperty("areaBasis")
     var areaBasis: String? = null
@@ -106,7 +106,7 @@ class ValCiForm {
     var tuberGRIC: String? = null
 
     @JsonProperty("tuberUnit")
-    var tuberUnit: String? = null
+    var tuberunit: String? = null
 
     @JsonProperty("conversion")
     var conversion: String? = null
@@ -148,10 +148,10 @@ class ValCiForm {
     var geolocation: List<Double> = ArrayList()
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
     var formhubUuid: String? = null
@@ -178,13 +178,13 @@ class ValCiForm {
     var rootsUnitName: String? = null
 
     @JsonProperty("thankyou/call")
-    var thankyouCall: String? = null
+    var callValue: String? = null
 
     @JsonProperty("tuberUnitName")
     var tuberUnitName: String? = null
 
     @JsonProperty("costFertilizer")
-    var costFertilizer: String? = null
+    var costfertilizer: String? = null
 
     @JsonProperty("rootYieldRedIC")
     var rootYieldRedIC: String? = null
@@ -205,7 +205,7 @@ class ValCiForm {
     var xformIdString: String? = null
 
     @JsonProperty("costFertilizerAB")
-    var costFertilizerAB: String? = null
+    var costfertilizerab: String? = null
 
     @JsonProperty("unitPriceNPK50kg")
     var unitPriceNPK50kg: String? = null
@@ -229,35 +229,35 @@ class ValCiForm {
     var cassavaVarietySelect: String? = null
 
     @JsonProperty("costFertilizerAB_Text")
-    var costFertilizerABText: String? = null
+    var costfertilizerabText: String? = null
 
     @JsonProperty("rateFertilizerAB_Text")
     var rateFertilizerABText: String? = null
 
     @JsonProperty("costDetailsNPK/costNPK")
-    var costDetailsNPKCostNPK: Int? = null
+    var costDetailsNPKCostNPK: String? = null
 
     @JsonProperty("sweetPotatoVarietySelect")
     var sweetPotatoVarietySelect: String? = null
 
     @JsonProperty("costDetailsNPK/bagSizeNPK")
-    var costDetailsNPKBagSizeNPK: Int? = null
+    var bagsizenpk: String? = null
 
     @JsonProperty("rootsUnitDetails/rootsUnitPrice")
-    var rootsUnitDetailsRootsUnitPrice: Int? = null
+    var rootsunitprice: String? = null
 
     @JsonProperty("tuberUnitDetails/tuberUnitPrice")
-    var tuberUnitDetailsTuberUnitPrice: Int? = null
+    var tuberunitprice: String? = null
 
     @JsonProperty("rootsUnitDetails/rootsUnitWeight")
-    var rootsUnitDetailsRootsUnitWeight: Double? = null
+    var rootsunitweight: Double? = null
 
     @JsonProperty("tuberUnitDetails/tuberUnitWeight")
-    var tuberUnitDetailsTuberUnitWeight: Double? = null
+    var tuberunitweight: Double? = null
 
     @JsonProperty("tuberPriceSI")
-    var tuberPriceSI: Int? = null
+    var tuberpricesi: String? = null
 
     @JsonProperty("rootsPriceSI")
-    var rootsPriceSI: Int? = null
+    var rootspricesi: String? = null
 }
