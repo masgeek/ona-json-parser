@@ -69,7 +69,7 @@ constructor(
         }
 
 
-        writeCsvFile.writeCsv(pojoType = AssignTlAcDto::class.java,
+        writeCsvFile.writeCsv(classMap = AssignTlAcDto::class.java,
                 data = tlAcData,
                 fileName = "Assign_TL_AC",
                 outPutPath = filePath)

@@ -106,13 +106,13 @@ constructor(
         }
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        writeCsvFile.writeCsv(pojoType = FrDto::class.java, data = ppTzData, fileName = "dataVAL_PP_TZ-", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = PpTzWaP1Dto::class.java, data = as1Data, fileName = "dataVAL_PP_TZ-weedAssessment_P1", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = PpTzWaP2Dto::class.java, data = as2Data, fileName = "dataVAL_PP_TZ-weedAssessment_P2", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = PpTzWaP3Dto::class.java, data = as3Data, fileName = "dataVAL_PP_TZ-weedAssessment_P3", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = PpTzWaP4Dto::class.java, data = as4Data, fileName = "dataVAL_PP_TZ-weedAssessment_P4", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = PpTzWaP5Dto::class.java, data = as5Data, fileName = "dataVAL_PP_TZ-weedAssessment_P5", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = PpTzWaP6Dto::class.java, data = as6Data, fileName = "dataVAL_PP_TZ-weedAssessment_P6", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = FrDto::class.java, data = ppTzData, fileName = "dataVAL_PP_TZ-", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = PpTzWaP1Dto::class.java, data = as1Data, fileName = "dataVAL_PP_TZ-weedAssessment_P1", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = PpTzWaP2Dto::class.java, data = as2Data, fileName = "dataVAL_PP_TZ-weedAssessment_P2", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = PpTzWaP3Dto::class.java, data = as3Data, fileName = "dataVAL_PP_TZ-weedAssessment_P3", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = PpTzWaP4Dto::class.java, data = as4Data, fileName = "dataVAL_PP_TZ-weedAssessment_P4", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = PpTzWaP5Dto::class.java, data = as5Data, fileName = "dataVAL_PP_TZ-weedAssessment_P5", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = PpTzWaP6Dto::class.java, data = as6Data, fileName = "dataVAL_PP_TZ-weedAssessment_P6", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")

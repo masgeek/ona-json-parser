@@ -62,8 +62,8 @@ constructor(
 
         val writeCsvFile = WriteCsvFile()
         val filePath = "${appConfig.globalProperties().outputPath}"
-        writeCsvFile.writeCsv(pojoType = RootYieldCassavaAcDto::class.java, data = yieldCassavaData, fileName = "Assess_Root_Yield_Cassava_AC", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = RootYieldCassavaAcYieldAssessmentDto::class.java, data = yieldAssesData, fileName = "Assess_Root_Yield_Cassava_AC-yieldAssessmentForm", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = RootYieldCassavaAcDto::class.java, data = yieldCassavaData, fileName = "Assess_Root_Yield_Cassava_AC", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = RootYieldCassavaAcYieldAssessmentDto::class.java, data = yieldAssesData, fileName = "Assess_Root_Yield_Cassava_AC-yieldAssessmentForm", outPutPath = filePath)
 
     }
 

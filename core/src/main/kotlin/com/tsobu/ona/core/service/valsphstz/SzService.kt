@@ -63,7 +63,7 @@ constructor(
             szDto
         }
         val filePath = "${appConfig.globalProperties().outputPath}"
-        writeCsvFile.writeCsv(pojoType = SzDto::class.java, data = valSphssTzData, fileName = "VAL_SPHS_TZSZ", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = SzDto::class.java, data = valSphssTzData, fileName = "VAL_SPHS_TZSZ", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")

@@ -133,17 +133,17 @@ constructor(
         }
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        writeCsvFile.writeCsv(pojoType = MonitorValDto::class.java, data = monitorValData, fileName = "monitorVAL", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = InstallCorrectDetailsDto::class.java, data = installCorrectDetailsData, fileName = "monitorVAL-installCorrectDetails", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = LeafSampleDto::class.java, data = leafSampleListData, fileName = "monitorVAL-leafSample", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = MaizePlantHeightDto::class.java, data = maizePlantHeightListData, fileName = "monitorVAL-maizePlantHeight", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = PhDto::class.java, data = phListData, fileName = "monitorVAL-PH", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = PlotLayoutDto::class.java, data = plotLayoutListData, fileName = "monitorVAL-plotLayout", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = ProblemPlotSomeDto::class.java, data = problemPlotSomeListData, fileName = "monitorVAL-problemPlot_Some", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = SoilSampleDto::class.java, data = soilSampleListData, fileName = "monitorVAL-soilSample", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = TrialQualitySomeDto::class.java, data = trialQualitySomeListData, fileName = "monitorVAL-trialQuality_Some", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = TrialRatingAllDto::class.java, data = trialRatingAllListData, fileName = "monitorVAL-trialRating_All", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = TrialRatingSomeDto::class.java, data = trialRatingSomeListData, fileName = "monitorVAL-trialRating_Some", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = MonitorValDto::class.java, data = monitorValData, fileName = "monitorVAL", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = InstallCorrectDetailsDto::class.java, data = installCorrectDetailsData, fileName = "monitorVAL-installCorrectDetails", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = LeafSampleDto::class.java, data = leafSampleListData, fileName = "monitorVAL-leafSample", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = MaizePlantHeightDto::class.java, data = maizePlantHeightListData, fileName = "monitorVAL-maizePlantHeight", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = PhDto::class.java, data = phListData, fileName = "monitorVAL-PH", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = PlotLayoutDto::class.java, data = plotLayoutListData, fileName = "monitorVAL-plotLayout", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = ProblemPlotSomeDto::class.java, data = problemPlotSomeListData, fileName = "monitorVAL-problemPlot_Some", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = SoilSampleDto::class.java, data = soilSampleListData, fileName = "monitorVAL-soilSample", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = TrialQualitySomeDto::class.java, data = trialQualitySomeListData, fileName = "monitorVAL-trialQuality_Some", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = TrialRatingAllDto::class.java, data = trialRatingAllListData, fileName = "monitorVAL-trialRating_All", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = TrialRatingSomeDto::class.java, data = trialRatingSomeListData, fileName = "monitorVAL-trialRating_Some", outPutPath = filePath)
 
     }
 

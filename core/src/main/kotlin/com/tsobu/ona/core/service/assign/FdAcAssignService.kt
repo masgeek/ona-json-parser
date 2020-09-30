@@ -5,7 +5,6 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.assign.AssignFdAcDto
-import com.tsobu.ona.core.dto.json.starchcontent.StarchContentAcDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.assign.AssignFdAcEntity
@@ -67,7 +66,7 @@ constructor(
         }
 
 
-        writeCsvFile.writeCsv(pojoType = AssignFdAcDto::class.java, data = fdAcData,
+        writeCsvFile.writeCsv(classMap = AssignFdAcDto::class.java, data = fdAcData,
                 fileName = "Assign_FD_AC", outPutPath = filePath)
     }
 

@@ -76,10 +76,10 @@ constructor(
         }
 
 
-        writeCsvFile.writeCsv(pojoType = StarchContentAcDto::class.java, data = yieldCassAcData,
+        writeCsvFile.writeCsv(classMap = StarchContentAcDto::class.java, data = yieldCassAcData,
                 fileName = "Assess_Starch_Content_AC", outPutPath = filePath)
 
-        writeCsvFile.writeCsv(pojoType = AssessStarchDto::class.java, data = assessStarchData,
+        writeCsvFile.writeCsv(classMap = AssessStarchDto::class.java, data = assessStarchData,
                 fileName = "Assess_Starch_Content_AC-assessStarch", outPutPath = filePath)
     }
 

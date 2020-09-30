@@ -65,7 +65,7 @@ constructor(
         }
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        writeCsvFile.writeCsv(pojoType = EzDto::class.java, data = ezData, fileName = "VAL_SPHS_TZEZ",outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = EzDto::class.java, data = ezData, fileName = "VAL_SPHS_TZEZ",outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")

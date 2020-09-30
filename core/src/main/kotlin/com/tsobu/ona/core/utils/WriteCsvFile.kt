@@ -12,11 +12,11 @@ class WriteCsvFile {
 
     private val log = LoggerFactory.getLogger(WriteCsvFile::class.java)
 
-    fun writeCsv(pojoType: Class<*>?, data: List<*>, fileName: String, outPutPath: String) {
+    fun writeCsv(classMap: Class<*>?, data: List<*>, fileName: String, outPutPath: String) {
         try {
             val mapper = CsvMapper()
             mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true);
-            val schema: CsvSchema = mapper.schemaFor(pojoType)
+            val schema: CsvSchema = mapper.schemaFor(classMap)
                     .withUseHeader(true)
 
             val fullFilePath = "$outPutPath$fileName.csv"

@@ -65,7 +65,7 @@ constructor(
         }
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        writeCsvFile.writeCsv(pojoType = LzwDto::class.java, data = lzwData, fileName = "VAL_SPHS_TZLZW",outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = LzwDto::class.java, data = lzwData, fileName = "VAL_SPHS_TZLZW",outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")

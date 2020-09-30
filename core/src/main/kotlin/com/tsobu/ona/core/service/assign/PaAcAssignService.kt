@@ -79,12 +79,12 @@ constructor(
         }
 
 
-        writeCsvFile.writeCsv(pojoType = AssignFdAcDto::class.java,
+        writeCsvFile.writeCsv(classMap = AssignFdAcDto::class.java,
                 data = fdAcData,
                 fileName = "Assign_PA_AC",
                 outPutPath = filePath)
 
-        writeCsvFile.writeCsv(pojoType = AssignPaAcPlantLabelingDto::class.java,
+        writeCsvFile.writeCsv(classMap = AssignPaAcPlantLabelingDto::class.java,
                 data = plantLabellingData,
                 fileName = "Assign_PA_AC-plantLabeling",
                 outPutPath = filePath)

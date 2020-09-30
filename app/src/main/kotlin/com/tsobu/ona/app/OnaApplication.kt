@@ -8,6 +8,8 @@ import com.tsobu.ona.core.service.assign.FdAcAssignService
 import com.tsobu.ona.core.service.assign.PaAcAssignService
 import com.tsobu.ona.core.service.assign.PoAcAssignService
 import com.tsobu.ona.core.service.assign.TlAcAssignService
+import com.tsobu.ona.core.service.collect.CollectPsService
+import com.tsobu.ona.core.service.collect.CollectSsService
 import com.tsobu.ona.core.service.greenbiomass.GreenBiomassService
 import com.tsobu.ona.core.service.dataval.FrService
 import com.tsobu.ona.core.service.dataval.PpService
@@ -57,7 +59,9 @@ class OnaApplication(
         private val paAcAssignService: PaAcAssignService,
         private val poAcAssignService: PoAcAssignService,
         private val tlAcAssignService: TlAcAssignService,
-        private val checkIdRegService: CheckIdRegService
+        private val checkIdRegService: CheckIdRegService,
+        private val collectPsService: CollectPsService,
+        private val collectSsService: CollectSsService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -86,7 +90,8 @@ class OnaApplication(
 //        paAcAssignService.readJsonAsset()
 //        poAcAssignService.readJsonAsset()
 //        tlAcAssignService.readJsonAsset()
-        checkIdRegService.readJsonAsset()
+//        checkIdRegService.readJsonAsset()
+        collectPsService.readJsonAsset()
     }
 
 

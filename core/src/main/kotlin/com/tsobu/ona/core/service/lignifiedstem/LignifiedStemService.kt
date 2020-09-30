@@ -76,10 +76,10 @@ constructor(
         }
 
 
-        writeCsvFile.writeCsv(pojoType = LignifiedStemYieldCassAcDto::class.java, data = yieldCassAcData,
+        writeCsvFile.writeCsv(classMap = LignifiedStemYieldCassAcDto::class.java, data = yieldCassAcData,
                 fileName = "Assess_LignifiedStem_Yield_Cassava_AC", outPutPath = filePath)
 
-        writeCsvFile.writeCsv(pojoType = LignifiedStemYieldCassAcYaDto::class.java, data = yieldCasAcYaData,
+        writeCsvFile.writeCsv(classMap = LignifiedStemYieldCassAcYaDto::class.java, data = yieldCasAcYaData,
                 fileName = "Assess_LignifiedStem_Yield_Cassava_AC-yieldAssessment", outPutPath = filePath)
     }
 

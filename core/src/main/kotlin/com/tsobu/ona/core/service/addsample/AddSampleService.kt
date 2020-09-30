@@ -84,9 +84,9 @@ constructor(
             acDto
         }
 
-        writeCsvFile.writeCsv(pojoType = AcDto::class.java, data = acData, fileName = "Add_Sample_Label_AC", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = AcSampleDto::class.java, data = acSampleData, fileName = "Add_Sample_Label_AC-sample", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = AcNewLabelDto::class.java, data = acNewLabelData, fileName = "Add_Sample_Label_AC-newLabel", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = AcDto::class.java, data = acData, fileName = "Add_Sample_Label_AC", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = AcSampleDto::class.java, data = acSampleData, fileName = "Add_Sample_Label_AC-sample", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = AcNewLabelDto::class.java, data = acNewLabelData, fileName = "Add_Sample_Label_AC-newLabel", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")

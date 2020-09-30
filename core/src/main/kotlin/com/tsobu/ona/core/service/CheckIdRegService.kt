@@ -67,7 +67,7 @@ constructor(
         }
 
 
-        writeCsvFile.writeCsv(pojoType = CheckIdRegDto::class.java,
+        writeCsvFile.writeCsv(classMap = CheckIdRegDto::class.java,
                 data = tlAcData,
                 fileName = "Check_ID_Registration",
                 outPutPath = filePath)

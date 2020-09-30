@@ -25,5 +25,3 @@ spring:
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
   liquibase:
     change-log: "classpath:db/db-changelog.xml"
-  http:
-    log-request-details: true

@@ -65,7 +65,7 @@ constructor(
         }
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        writeCsvFile.writeCsv(pojoType = FrDto::class.java, data = frData, fileName = "dataVAL_FR",outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = FrDto::class.java, data = frData, fileName = "dataVAL_FR",outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")

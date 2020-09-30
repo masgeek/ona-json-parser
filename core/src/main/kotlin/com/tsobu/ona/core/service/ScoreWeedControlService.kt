@@ -69,9 +69,9 @@ constructor(
         val writeCsvFile = WriteCsvFile()
         val filePath = "${appConfig.globalProperties().outputPath}"
 
-        writeCsvFile.writeCsv(pojoType = ScoreWeedControlAcDto::class.java, data = scoreWeedData, fileName = "Score_Weed_Control_AC", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = ScoreWeedControlAcIdDto::class.java, data = scoreWeedIdData, fileName = "Score_Weed_Control_AC-ID", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = ScoreWeedControlAcWdDto::class.java, data = scoreWeedAcData, fileName = "Score_Weed_Control_AC-WD", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = ScoreWeedControlAcDto::class.java, data = scoreWeedData, fileName = "Score_Weed_Control_AC", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = ScoreWeedControlAcIdDto::class.java, data = scoreWeedIdData, fileName = "Score_Weed_Control_AC-ID", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = ScoreWeedControlAcWdDto::class.java, data = scoreWeedAcData, fileName = "Score_Weed_Control_AC-WD", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")

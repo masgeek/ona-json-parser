@@ -105,16 +105,16 @@ constructor(
         }
 
 
-        writeCsvFile.writeCsv(pojoType = PpDto::class.java, data = ppData, fileName = "dataVAL_PP", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = PpDto::class.java, data = ppData, fileName = "dataVAL_PP", outPutPath = filePath)
 
-        writeCsvFile.writeCsv(pojoType = PpWaAltDto::class.java, data = ppWaAltData, fileName = "dataVAL_PP-weedAssessment_ALT", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = PpWaAltBpp3Dto::class.java, data = ppWaAltBpp3Data, fileName = "dataVAL_PP-weedAssessment_ALT_BPP3", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = PpWaAltDto::class.java, data = ppWaAltData, fileName = "dataVAL_PP-weedAssessment_ALT", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = PpWaAltBpp3Dto::class.java, data = ppWaAltBpp3Data, fileName = "dataVAL_PP-weedAssessment_ALT_BPP3", outPutPath = filePath)
 
-        writeCsvFile.writeCsv(pojoType = PpWaConDto::class.java, data = ppWaConData, fileName = "dataVAL_PP-weedAssessment_CON", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = PpWaConBpp3Dto::class.java, data = ppWaConBpp3Data, fileName = "dataVAL_PP-weedAssessment_CON_BPP3", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = PpWaConDto::class.java, data = ppWaConData, fileName = "dataVAL_PP-weedAssessment_CON", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = PpWaConBpp3Dto::class.java, data = ppWaConBpp3Data, fileName = "dataVAL_PP-weedAssessment_CON_BPP3", outPutPath = filePath)
 
-        writeCsvFile.writeCsv(pojoType = PpWaRecDto::class.java, data = ppWaRedData, fileName = "dataVAL_PP-weedAssessment_REC", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = PpWaRecBpp3Dto::class.java, data = ppWaRecBpp3Data, fileName = "dataVAL_PP-weedAssessment_REC_BPP3", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = PpWaRecDto::class.java, data = ppWaRedData, fileName = "dataVAL_PP-weedAssessment_REC", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = PpWaRecBpp3Dto::class.java, data = ppWaRecBpp3Data, fileName = "dataVAL_PP-weedAssessment_REC_BPP3", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")

@@ -75,8 +75,8 @@ constructor(
             assessmentFormDto
         }
 
-        writeCsvFile.writeCsv(pojoType = YieldCassavaAcFormDto::class.java, data = yieldCassData, fileName = "Assess_GreenBiomass_Yield_Cassava_AC", outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = YieldAssessmentFormDto::class.java, data = cassYaData, fileName = "Assess_GreenBiomass_Yield_Cassava_AC-yieldAssessment", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = YieldCassavaAcFormDto::class.java, data = yieldCassData, fileName = "Assess_GreenBiomass_Yield_Cassava_AC", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = YieldAssessmentFormDto::class.java, data = cassYaData, fileName = "Assess_GreenBiomass_Yield_Cassava_AC-yieldAssessment", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")

@@ -7,7 +7,6 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.assign.*
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.assign.AssignPaAcPlantLabelingEntity
 import com.tsobu.ona.database.entities.assign.AssignPoAcEntity
 import com.tsobu.ona.database.entities.assign.AssignPoAcPlotLabelingEntity
 import com.tsobu.ona.database.repositories.assign.AssignPoAcPlotLabelingRepo
@@ -78,12 +77,12 @@ constructor(
         }
 
 
-        writeCsvFile.writeCsv(pojoType = AssignPoAcDto::class.java,
+        writeCsvFile.writeCsv(classMap = AssignPoAcDto::class.java,
                 data = fdAcData,
                 fileName = "Assign_PO_AC",
                 outPutPath = filePath)
 
-        writeCsvFile.writeCsv(pojoType = AssignPoAcPlotLabelingDto::class.java,
+        writeCsvFile.writeCsv(classMap = AssignPoAcPlotLabelingDto::class.java,
                 data = plantLabellingData,
                 fileName = "Assign_PO_AC-plantLabeling",
                 outPutPath = filePath)

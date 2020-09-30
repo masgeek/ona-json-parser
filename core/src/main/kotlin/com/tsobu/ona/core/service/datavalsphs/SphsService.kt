@@ -96,14 +96,14 @@ constructor(
         }
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        writeCsvFile.writeCsv(pojoType = SphsDto::class.java,data = sphsData, fileName = "dataVAL_SPHS",outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = CornerPlantRecDto::class.java,data = cornerPlantRecData, fileName = "dataVAL_SPHS-cornerPlant_REC",outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = CornerPlantConDto::class.java, data = cornerPlantConData, fileName = "dataVAL_SPHS-cornerPlant_CON",outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = ConTriDetailDto::class.java, data = conTriDetailData, fileName = "dataVAL_SPHS-harvest_CON_Tri_detail",outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = RecTriDetailDto::class.java, data = recTriDetailData, fileName = "dataVAL_SPHS-harvest_REC_Tri_detail",outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = HarvestRecTriDto::class.java, data = harvestRecTriData, fileName = "dataVAL_SPHS-harvest_REC_Tri",outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = RemainPlantRecDto::class.java, data = remainPlantRecData, fileName = "dataVAL_SPHS-remainPlant_REC",outPutPath = filePath)
-        writeCsvFile.writeCsv(pojoType = RemainPlantConDto::class.java, data = remainPlantConData, fileName = "dataVAL_SPHS-remainPlant_CON",outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = SphsDto::class.java,data = sphsData, fileName = "dataVAL_SPHS",outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = CornerPlantRecDto::class.java,data = cornerPlantRecData, fileName = "dataVAL_SPHS-cornerPlant_REC",outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = CornerPlantConDto::class.java, data = cornerPlantConData, fileName = "dataVAL_SPHS-cornerPlant_CON",outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = ConTriDetailDto::class.java, data = conTriDetailData, fileName = "dataVAL_SPHS-harvest_CON_Tri_detail",outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = RecTriDetailDto::class.java, data = recTriDetailData, fileName = "dataVAL_SPHS-harvest_REC_Tri_detail",outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = HarvestRecTriDto::class.java, data = harvestRecTriData, fileName = "dataVAL_SPHS-harvest_REC_Tri",outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = RemainPlantRecDto::class.java, data = remainPlantRecData, fileName = "dataVAL_SPHS-remainPlant_REC",outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = RemainPlantConDto::class.java, data = remainPlantConData, fileName = "dataVAL_SPHS-remainPlant_CON",outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
