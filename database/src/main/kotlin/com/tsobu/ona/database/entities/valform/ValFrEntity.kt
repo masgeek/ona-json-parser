@@ -107,22 +107,22 @@ class ValFrEntity : BaseEntity() {
     var lookupId: String? = null
 
     @Column(name = "rateurea")
-    var rateurea: String? = null
+    var rateUrea: String? = null
 
     @Column(name = "ratetsp")
-    var ratetsp: String? = null
+    var rateTsp: String? = null
 
     @Column(name = "ratenafaka")
-    var ratenafaka: String? = null
+    var rateNafaka: String? = null
 
     @Column(name = "ratedap")
-    var ratedap: String? = null
+    var rateDap: String? = null
 
     @Column(name = "ratemop")
-    var ratemop: String? = null
+    var rateMop: String? = null
 
     @Column(name = "ratenpk")
-    var ratenpk: String? = null
+    var rateNpk: String? = null
 
     @Column(name = "currenty")
     var currenty: String? = null
@@ -134,10 +134,10 @@ class ValFrEntity : BaseEntity() {
     var increasey: String? = null
 
     @Column(name = "netrev")
-    var netrev: String? = null
+    var netRev: String? = null
 
     @Column(name = "totalcost")
-    var totalcost: String? = null
+    var totalCost: String? = null
 
     @Column(name = "ridging")
     var ridging: String? = null
@@ -164,22 +164,22 @@ class ValFrEntity : BaseEntity() {
     var plotsize: String? = null
 
     @Column(name = "rateurea_ab")
-    var rateureaAb: String? = null
+    var rateUreaAb: String? = null
 
     @Column(name = "ratetsp_ab")
-    var ratetspAb: String? = null
+    var rateTspAb: String? = null
 
     @Column(name = "ratenafaka_ab")
-    var ratenafakaAb: String? = null
+    var rateNafakaAb: String? = null
 
     @Column(name = "ratedap_ab")
-    var ratedapAb: String? = null
+    var rateDapAb: String? = null
 
     @Column(name = "ratemop_ab")
-    var ratemopAb: String? = null
+    var rateMopAb: String? = null
 
     @Column(name = "ratenpk_ab")
-    var ratenpkAb: String? = null
+    var rateNpkAb: String? = null
 
     @Column(name = "increasey_ab")
     var increaseyAb: String? = null
@@ -188,46 +188,46 @@ class ValFrEntity : BaseEntity() {
     var rec: String? = null
 
     @Column(name = "quantityurea")
-    var quantityurea: String? = null
+    var quantityUrea: String? = null
 
     @Column(name = "quantitytsp")
-    var quantitytsp: String? = null
+    var quantityTsp: String? = null
 
     @Column(name = "quantitynafaka")
-    var quantitynafaka: String? = null
+    var quantityNafaka: String? = null
 
     @Column(name = "quantitydap")
-    var quantitydap: String? = null
+    var quantityDap: String? = null
 
     @Column(name = "quantitymop")
-    var quantitymop: String? = null
+    var quantityMop: String? = null
 
     @Column(name = "quantitynpk")
-    var quantitynpk: String? = null
+    var quantityNpk: String? = null
 
     @Column(name = "rateurea_min")
-    var rateureaMin: String? = null
+    var rateUreaMin: String? = null
 
     @Column(name = "ratetsp_min")
-    var ratetspMin: String? = null
+    var rateTspMin: String? = null
 
     @Column(name = "ratenafaka_min")
-    var ratenafakaMin: String? = null
+    var rateNafakaMin: String? = null
 
     @Column(name = "ratedap_min")
-    var ratedapMin: String? = null
+    var rateDapMin: String? = null
 
     @Column(name = "ratemop_min")
-    var ratemopMin: String? = null
+    var rateMopMin: String? = null
 
     @Column(name = "ratenpk_min")
-    var ratenpkMin: String? = null
+    var rateNpkMin: String? = null
 
     @Column(name = "quantity1urea")
-    var quantity1urea: String? = null
+    var quantity1Urea: String? = null
 
     @Column(name = "quantity2urea")
-    var quantity2urea: String? = null
+    var quantity2Urea: String? = null
 
     @Column(name = "quantity1tsp")
     var quantity1tsp: String? = null
@@ -269,139 +269,139 @@ class ValFrEntity : BaseEntity() {
     var increasep: String? = null
 
     @Column(name = "netrevloccur")
-    var netrevloccur: String? = null
+    var netRevLocCur: String? = null
 
     @Column(name = "totalcostloccur")
-    var totalcostloccur: String? = null
+    var totalCostLocCur: String? = null
 
     @Column(name = "netrevloccur_ab")
-    var netrevloccurAb: String? = null
+    var netRevLocCurAb: String? = null
 
     @Column(name = "netrevloccur_abcurr")
-    var netrevloccurAbcurr: String? = null
+    var netRevLocCurAbCurr: String? = null
 
     @Column(name = "totalcostloccur_ab")
-    var totalcostloccurAb: String? = null
+    var totalCostLocCurAb: String? = null
 
     @Column(name = "totalcostloccur_abcurr")
-    var totalcostloccurAbcurr: String? = null
+    var totalCostLocCurAbCurr: String? = null
 
     @Column(name = "netrevloccurplot")
-    var netrevloccurplot: String? = null
+    var netrevloccurPlot: String? = null
 
     @Column(name = "netrevloccurplotcurr")
-    var netrevloccurplotcurr: String? = null
+    var netRevLocCurPlotCurr: String? = null
 
     @Column(name = "totalcostloccurplot")
-    var totalcostloccurplot: String? = null
+    var totalCostLocCurPlot: String? = null
 
     @Column(name = "totalcostloccurplotcurr")
-    var totalcostloccurplotcurr: String? = null
+    var totalCostLoccurPlotCurr: String? = null
 
     @Column(name = "norecommendationtznote")
-    var norecommendationtznote: String? = null
+    var noRecommendationTzNote: String? = null
 
     @Column(name = "norecommendationngnote")
-    var norecommendationngnote: String? = null
+    var noRecommendationNgNote: String? = null
 
     @Column(name = "nofertilizernote")
-    var nofertilizernote: String? = null
+    var noFertilizerNote: String? = null
 
     @Column(name = "ratefertilizernote")
-    var ratefertilizernote: String? = null
+    var rateFertilizerNote: String? = null
 
     @Column(name = "rateureanote")
-    var rateureanote: String? = null
+    var rateUreaNote: String? = null
 
     @Column(name = "ratetspnote")
-    var ratetspnote: String? = null
+    var rateTspNote: String? = null
 
     @Column(name = "ratenafakanote")
-    var ratenafakanote: String? = null
+    var rateNafakaNote: String? = null
 
     @Column(name = "ratedapnote")
-    var ratedapnote: String? = null
+    var rateDapNote: String? = null
 
     @Column(name = "ratemopnote")
-    var ratemopnote: String? = null
+    var rateMopNote: String? = null
 
     @Column(name = "ratenpknote")
-    var ratenpknote: String? = null
+    var rateNpkNote: String? = null
 
     @Column(name = "yieldnote")
-    var yieldnote: String? = null
+    var yieldNote: String? = null
 
     @Column(name = "validationnote")
-    var validationnote: String? = null
+    var validationNote: String? = null
 
     @Column(name = "notnote")
-    var notnote: String? = null
+    var notNote: String? = null
 
     @Column(name = "quantityureanote")
-    var quantityureanote: String? = null
+    var quantityUreaNote: String? = null
 
     @Column(name = "quantitytspnote")
-    var quantitytspnote: String? = null
+    var quantityTspNote: String? = null
 
     @Column(name = "quantitynafakanote")
-    var quantitynafakanote: String? = null
+    var quantityNafakaNote: String? = null
 
     @Column(name = "quantitydapnote")
-    var quantitydapnote: String? = null
+    var quantityNapNote: String? = null
 
     @Column(name = "quantitymopnote")
-    var quantitymopnote: String? = null
+    var quantityMopNote: String? = null
 
     @Column(name = "quantitynpknote")
-    var quantitynpknote: String? = null
+    var quantityNpkNote: String? = null
 
     @Column(name = "productionnote")
-    var productionnote: String? = null
+    var productionNote: String? = null
 
     @Column(name = "production_hrnote")
-    var productionHrnote: String? = null
+    var productionHrNote: String? = null
 
     @Column(name = "split1note")
-    var split1note: String? = null
+    var split1Note: String? = null
 
     @Column(name = "quantity1ureanote")
-    var quantity1ureanote: String? = null
+    var quantity1UreaNote: String? = null
 
     @Column(name = "quantity1tspnote")
-    var quantity1tspnote: String? = null
+    var quantity1TspNote: String? = null
 
     @Column(name = "quantity1nafakanote")
-    var quantity1nafakanote: String? = null
+    var quantity1NafakaNote: String? = null
 
     @Column(name = "quantity1dapnote")
-    var quantity1dapnote: String? = null
+    var quantity1dapNote: String? = null
 
     @Column(name = "quantity1mopnote")
-    var quantity1mopnote: String? = null
+    var quantity1mopNote: String? = null
 
     @Column(name = "quantity1npknote")
-    var quantity1npknote: String? = null
+    var quantity1npkNote: String? = null
 
     @Column(name = "split2note")
-    var split2note: String? = null
+    var split2Note: String? = null
 
     @Column(name = "quantity2ureanote")
-    var quantity2ureanote: String? = null
+    var quantity2ureaNote: String? = null
 
     @Column(name = "quantity2tspnote")
-    var quantity2tspnote: String? = null
+    var quantity2tspNote: String? = null
 
     @Column(name = "quantity2dapnote")
-    var quantity2dapnote: String? = null
+    var quantity2dapNote: String? = null
 
     @Column(name = "quantity2nafakanote")
-    var quantity2nafakanote: String? = null
+    var quantity2nafakaNote: String? = null
 
     @Column(name = "quantity2mopnote")
-    var quantity2mopnote: String? = null
+    var quantity2mopNote: String? = null
 
     @Column(name = "quantity2npknote")
-    var quantity2npknote: String? = null
+    var quantity2npkNote: String? = null
 
     @Column(name = "call_value")
     var callValue: String? = null

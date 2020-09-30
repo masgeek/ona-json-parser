@@ -21,6 +21,7 @@ import com.tsobu.ona.core.service.monitorval.MonitorValService
 import com.tsobu.ona.core.service.register.HhService
 import com.tsobu.ona.core.service.starchcontent.StarchContentService
 import com.tsobu.ona.core.service.valform.ValCisService
+import com.tsobu.ona.core.service.valform.ValFrService
 import com.tsobu.ona.core.service.valsphstz.EzService
 import com.tsobu.ona.core.service.valsphstz.LzeService
 import com.tsobu.ona.core.service.valsphstz.LzwService
@@ -65,7 +66,8 @@ class OnaApplication(
         private val collectPsService: CollectPsService,
         private val collectSsService: CollectSsService,
         private val collectLeafTagsService: CollectLeafTagsService,
-        private val valCisService: ValCisService
+        private val valCisService: ValCisService,
+        private val valFrService: ValFrService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -91,14 +93,7 @@ class OnaApplication(
 //        fdAcAssignService.readJsonAsset(fileName = "Assign_FD_AC.json")
 
 
-//        paAcAssignService.readJsonAsset()
-//        poAcAssignService.readJsonAsset()
-//        tlAcAssignService.readJsonAsset()
-//        checkIdRegService.readJsonAsset()
-//        collectPsService.readJsonAsset()
-//        collectSsService.readJsonAsset()
-//        collectLeafTagsService.readJsonAsset()
-        valCisService.readJsonAsset()
+        valFrService.readJsonAsset()
     }
 
 

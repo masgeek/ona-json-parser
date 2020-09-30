@@ -148,7 +148,7 @@ class ValFrForm {
     var quantityMOP: String? = null
 
     @JsonProperty("quantityTSP")
-    var quantityTSP: String? = null
+    var quantityTsp: String? = null
 
     @JsonProperty("rateMOP_min")
     var rateMOPMin: String? = null
@@ -220,7 +220,7 @@ class ValFrForm {
     var rateNafakaAB: String? = null
 
     @JsonProperty("thankyou/call")
-    var thankyouCall: String? = null
+    var callValue: String? = null
 
     @JsonProperty("quantityNafaka")
     var quantityNafaka: String? = null
@@ -280,7 +280,7 @@ class ValFrForm {
     var totalCostLocCurABcurr: String? = null
 
     @JsonProperty("totalCostLocCurPlotcurr")
-    var totalCostLocCurPlotcurr: String? = null
+    var totalCostLocCurPlotCurr: String? = null
 
     @JsonProperty("countrySelect")
     var countrySelect: String? = null
