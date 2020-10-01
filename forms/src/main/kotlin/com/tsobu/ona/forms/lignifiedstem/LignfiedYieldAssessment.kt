@@ -11,10 +11,10 @@ class LignfiedYieldAssessment {
     var plantId: String? = null
 
     @JsonProperty("yieldAssessment/lignifiedStemsFWss")
-    var lignifiedStemsFwSs: Int? = null
+    var lignifiedStemsFwSs: String? = null
 
     @JsonProperty("yieldAssessment/oldPlantingStickFWss")
-    var oldPlantingStickFwSs: Int? = null
+    var oldPlantingStickFwSs: String? = null
 
     @JsonProperty("yieldAssessment/plantSampleID_lignifiedStems")
     var plantSampleIdLignifiedStems: String? = null
@@ -32,11 +32,11 @@ class LignfiedYieldAssessment {
     var plotId: String? = null
 
     @JsonProperty("yieldAssessment/nrPlantsNP")
-    var nrPlantsNP: Int? = null
+    var nrPlantsNP: String? = null
 
     @JsonProperty("yieldAssessment/stemNr/nrMainStems")
-    var nrMainStems: Int? = null
+    var nrMainStems: String? = null
 
     @JsonProperty("yieldAssessment/stemNr/nrPrimaryBranches")
-    var nrPrimaryBranches: Int? = null
+    var nrPrimaryBranches: String? = null
 }

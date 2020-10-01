@@ -10,11 +10,11 @@ class WeedAssessmentCon {
     var indexCon: String? = null
 
     @JsonProperty("weedAssessment_CON/weedCover_CON")
-    var weedCoverCon: Int? = null
+    var weedCoverCon: String? = null
 
     @JsonProperty("weedAssessment_CON/weedsHeight_CON")
-    var weedsHeightCon: Int? = null
+    var weedsHeightCon: String? = null
 
     @JsonProperty("weedAssessment_CON/cassavaHeight_CON")
-    var cassavaHeightCon: Int? = null
+    var cassavaHeightCon: String? = null
 }

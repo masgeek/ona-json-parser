@@ -13,7 +13,7 @@ class ScoreWeedControlForm {
     var weedIdFormList: List<WeedIdForm>? = null
 
     @JsonProperty("_id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("end")
     var end: String? = null
@@ -63,10 +63,10 @@ class ScoreWeedControlForm {
     var email: String? = null
 
     @JsonProperty("_duration")
-    var duration: Int? = null
+    var duration: String? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xformId: String? = null
 
     @JsonProperty("simserial")
     var simserial: String? = null
@@ -75,7 +75,7 @@ class ScoreWeedControlForm {
     var phoneNumber: String? = null
 
     @JsonProperty("nrQuadrants")
-    var nrQuadrants: Int? = null
+    var nrQuadrants: String? = null
 
     @JsonProperty("_attachments")
     var attachments: List<Attachment>? = null
@@ -84,10 +84,10 @@ class ScoreWeedControlForm {
     var geolocation: List<Double>? = null
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
     var formHubUuid: String? = null

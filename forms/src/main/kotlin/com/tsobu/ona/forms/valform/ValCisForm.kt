@@ -223,7 +223,7 @@ class ValCisForm {
     var mediaAllReceived: Boolean? = null
 
     @JsonProperty("thankyou/confirmVAL")
-    var thankyouConfirmVAL: String? = null
+    var confirmVal: String? = null
 
     @JsonProperty("cassavaVarietySelect")
     var cassavaVarietySelect: String? = null

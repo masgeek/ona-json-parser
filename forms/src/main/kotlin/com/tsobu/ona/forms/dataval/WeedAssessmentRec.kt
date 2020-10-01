@@ -11,11 +11,11 @@ class WeedAssessmentRec {
     var indexRec: String? = null
 
     @JsonProperty("weedAssessment_REC/weedCover_REC")
-    var weedCoverRec: Int? = null
+    var weedCoverRec: String? = null
 
     @JsonProperty("weedAssessment_REC/weedsHeight_REC")
-    var weedsHeightRec: Int? = null
+    var weedsHeightRec: String? = null
 
     @JsonProperty("weedAssessment_REC/cassavaHeight_REC")
-    var cassavaHeightRec: Int? = null
+    var cassavaHeightRec: String? = null
 }

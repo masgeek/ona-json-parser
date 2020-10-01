@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 @JsonPropertyOrder("_id", "end", "EAID", "HHID", "_tags", "_uuid", "login", "plots", "start", "today", "_notes", "depths", "nameEA", "nameHH", "_edited", "_status", "country", "nrPlots", "useCase", "_version", "currency", "deviceid", "geopoint", "nrPlants", "username", "_duration", "_xform_id", "detailsEA", "detailsHH", "loc_field", "simserial", "surNameEA", "surNameHH", "conversion", "plotLayout", "soilSample", "firstNameEA", "firstNameHH", "phonenumber", "_attachments", "_geolocation", "_media_count", "_total_media", "correctScore", "formhub/uuid", "subscriberid", "_submitted_by", "installCorrect", "nrPlotsCorrect", "meta/instanceID", "_submission_time", "_xform_id_string", "leafSample_count", "maizePlantHeight", "plotLayout_count", "soilSample_count", "trialQualityScore", "_bamboo_dataset_id", "_media_all_received", "knowledge/knowledgeEA", "knowledge/knowledgeHH", "trialRating_All_count", "maizePlantHeight_count", "trialRating_Some_count", "cropManagement/embedded", "trialQuality/intercrops", "trialQuality_Some_count", "trialValidity/trialValid", "cropManagement/bufferRows", "cropManagement/management", "trialQuality/borderEffects", "installCorrectDetails_count", "trialQuality/heterogeneities", "problems_Some", "trialRating_Some", "trialQuality_Some", "comment", "problems_All", "trialRating_All", "enumerator/surName", "enumerator/firstName", "trialQuality_All/trialQualityScore_All", "trialQuality_All/trialQualitySeverity_All", "trialQuality_All/trialQualityIncidence_All", "siteDetails2/fallow", "siteDetails2/ridges", "siteDetails4/distance", "siteDetails4/drainage", "siteDetails2/irrigated", "siteDetails4/soilDepth", "siteDetails2/fertilizer", "siteDetails3/yearsFallow", "siteDetails2/conservation", "siteDetails2/organicInput", "siteDetails4/localSoilName", "siteDetails4/fertilityFarmer", "siteDetails1/positionLandscape", "siteDetails4/fertilityResearcher", "siteDetails2/cassavaGrownMonocrop", "siteDetails2/cassavaGrownIntercrop", "siteDetails4/localSoilNameTranslated", "siteDetails3/siteDetails3a/widthRidges", "siteDetails3/siteDetails3a/heightRidges", "siteDetails3/siteDetails3a/distanceBetweenRidges", "siteDetails3/siteDetails3b/predominantIntercrops", "siteDetails3/siteDetails3b/yearsSinceCassavaMonocrop", "siteDetails3/siteDetails3b/yearsSinceCassavaIntercrop", "siteDetails3/siteDetails3c/previousCrop", "siteDetails3/siteDetails3c/previousOtherCrops", "installCorrectDetails", "siteDetails3/siteDetails3c/fertilizerApplied", "leafSample", "siteDetails1/slope", "managementDetails", "email", "siteDetails3/conservationMeasures", "siteDetails3/siteDetails3b/predominantIntercrops_other", "siteDetails3/siteDetails3c/previousOtherCrops_other", "siteDetails3/siteDetails3c/previousCrop_other", "_last_edited", "soilSampleTool", "meta/deprecatedID", "siteDetails3/siteDetails3c/fertilizerApplied_other", "maizeVariety", "maizeVarietySelect", "zone", "zoneSelect")
 class MonitorValForm {
     @JsonProperty("_id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("end")
     var end: String? = null
@@ -77,7 +77,7 @@ class MonitorValForm {
     var geopoint: String? = null
 
     @JsonProperty("nrPlants")
-    var nrPlants: Int? = null
+    var nrPlants: String? = null
 
     @JsonProperty("username")
     var username: String? = null
@@ -86,7 +86,7 @@ class MonitorValForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xformId: String? = null
 
     @JsonProperty("detailsEA")
     var detailsEa: String? = null
@@ -131,10 +131,10 @@ class MonitorValForm {
     var geolocation: List<Double>? = null
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("correctScore")
     var correctScore: String? = null
@@ -281,7 +281,7 @@ class MonitorValForm {
     var fertilizer: String? = null
 
     @JsonProperty("siteDetails3/yearsFallow")
-    var yearsFallow: Int? = null
+    var yearsFallow: String? = null
 
     @JsonProperty("siteDetails2/conservation")
     var conservation: String? = null
@@ -311,22 +311,22 @@ class MonitorValForm {
     var localSoilNameTranslated: String? = null
 
     @JsonProperty("siteDetails3/siteDetails3a/widthRidges")
-    var widthRidges: Int? = null
+    var widthRidges: String? = null
 
     @JsonProperty("siteDetails3/siteDetails3a/heightRidges")
-    var heightRidges: Int? = null
+    var heightRidges: String? = null
 
     @JsonProperty("siteDetails3/siteDetails3a/distanceBetweenRidges")
-    var distanceBetweenRidges: Int? = null
+    var distanceBetweenRidges: String? = null
 
     @JsonProperty("siteDetails3/siteDetails3b/predominantIntercrops")
     var predominantInterCrops: String? = null
 
     @JsonProperty("siteDetails3/siteDetails3b/yearsSinceCassavaMonocrop")
-    var yearsSinceCassavaMonoCrop: Int? = null
+    var yearsSinceCassavaMonoCrop: String? = null
 
     @JsonProperty("siteDetails3/siteDetails3b/yearsSinceCassavaIntercrop")
-    var yearsSinceCassavaInterCrop: Int? = null
+    var yearsSinceCassavaInterCrop: String? = null
 
     @JsonProperty("siteDetails3/siteDetails3c/previousCrop")
     var previousCrop: String? = null

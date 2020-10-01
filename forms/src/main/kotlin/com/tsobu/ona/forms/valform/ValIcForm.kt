@@ -10,7 +10,7 @@ import java.util.*
 @JsonPropertyOrder("_id", "end", "lat", "lon", "EAID", "HHID", "_tags", "_uuid", "start", "today", "NPK_AB", "_notes", "NPKPlot", "_edited", "_status", "country", "_version", "currency", "deviceid", "geopoint", "plotSize", "urea1_AB", "urea2_AB", "username", "_duration", "_xform_id", "areaBasis", "simserial", "urea1Plot", "urea2Plot", "conversion", "riskRatio2", "profitExtra", "purpose/VAL", "_attachments", "_geolocation", "_media_count", "_total_media", "formhub/uuid", "plantingDate", "subscriberid", "_submitted_by", "riskRatio2_AB", "thankyou/call", "costFertilizer", "profitExtra_AB", "meta/instanceID", "profitExtraPlot", "_submission_time", "_xform_id_string", "unitPriceNPK50kg", "costFertilizer_AB", "unitPriceUrea50kg", "_bamboo_dataset_id", "costFertilizerPlot", "maizeVarietySelect", "profitExtra_ABText", "_media_all_received", "profitExtraPlotText", "thankyou/confirmVAL", "unitPriceNPK50kg_AB", "valueExtraCobsLarge", "cassavaVarietySelect", "numberExtraCobsLarge", "unitPriceUrea50kg_AB", "costFertilizer_ABText", "costDetailsNPK/costNPK", "valueExtraCobsLarge_AB", "numberExtraCobsLarge_AB", "priceDetails/priceRoots", "priceExtraCobsLargePlot", "costDetailsUrea/costUrea", "numberExtraCobsLargePlot", "costDetailsNPK/bagSizeNPK", "previousMaize/heightMaize", "costDetailsUrea/bagSizeUrea", "priceDetails/priceMaizeCobFreshLarge", "previousMaize/previousMaizeVarietySelect", "previousMaizeVarietyDetails/previousMaizeVarietyOther", "previousMaizeVarietyDetails/previousMaizeVarietyDuration", "recCol", "season", "reasonHD", "maizeGrain", "maizeVariety", "riskAttitude", "grossExtraValue", "costFertilizerAreaBasis", "valueLoss_cassava_ABText", "yieldLoss_cassava_ABText", "costFertilizerAreaBasis_Text", "maizeGrainUnit", "maizeGrainPrice", "valueExtraGrain", "maizeGrainPriceKg", "quantityExtraGrain", "valueExtraGrain_AB", "valueExtraGrainPlot", "quantityExtraGrain_AB", "quantityExtraGrainPlot", "maizeGrainUnitName", "maizeGrainUnitDetails/maizeGrainUnitPrice", "maizeGrainUnitDetails/maizeGrainUnitWeight")
 class ValIcForm {
     @JsonProperty("_id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("end")
     var end: String? = null
@@ -85,7 +85,7 @@ class ValIcForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xformId: String? = null
 
     @JsonProperty("areaBasis")
     var areaBasis: String? = null
@@ -118,10 +118,10 @@ class ValIcForm {
     var geolocation: List<Double> = ArrayList()
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
     var formhubUuid: String? = null
@@ -187,7 +187,7 @@ class ValIcForm {
     var profitExtraPlotText: String? = null
 
     @JsonProperty("thankyou/confirmVAL")
-    var thankyouConfirmVAL: String? = null
+    var confirmVal: String? = null
 
     @JsonProperty("unitPriceNPK50kg_AB")
     var unitPriceNPK50kgAB: String? = null
@@ -208,7 +208,7 @@ class ValIcForm {
     var costFertilizerABText: String? = null
 
     @JsonProperty("costDetailsNPK/costNPK")
-    var costDetailsNPKCostNPK: Int? = null
+    var costDetailsNPKCostNPK: String? = null
 
     @JsonProperty("valueExtraCobsLarge_AB")
     var valueExtraCobsLargeAB: String? = null
@@ -217,28 +217,28 @@ class ValIcForm {
     var numberExtraCobsLargeAB: String? = null
 
     @JsonProperty("priceDetails/priceRoots")
-    var priceDetailsPriceRoots: Int? = null
+    var priceDetailsPriceRoots: String? = null
 
     @JsonProperty("priceExtraCobsLargePlot")
     var priceExtraCobsLargePlot: String? = null
 
     @JsonProperty("costDetailsUrea/costUrea")
-    var costDetailsUreaCostUrea: Int? = null
+    var costDetailsUreaCostUrea: String? = null
 
     @JsonProperty("numberExtraCobsLargePlot")
     var numberExtraCobsLargePlot: String? = null
 
     @JsonProperty("costDetailsNPK/bagSizeNPK")
-    var costDetailsNPKBagSizeNPK: Int? = null
+    var costDetailsNPKBagSizeNPK: String? = null
 
     @JsonProperty("previousMaize/heightMaize")
     var previousMaizeHeightMaize: String? = null
 
     @JsonProperty("costDetailsUrea/bagSizeUrea")
-    var costDetailsUreaBagSizeUrea: Int? = null
+    var costDetailsUreaBagSizeUrea: String? = null
 
     @JsonProperty("priceDetails/priceMaizeCobFreshLarge")
-    var priceDetailsPriceMaizeCobFreshLarge: Int? = null
+    var priceDetailsPriceMaizeCobFreshLarge: String? = null
 
     @JsonProperty("previousMaize/previousMaizeVarietySelect")
     var previousMaizePreviousMaizeVarietySelect: String? = null
@@ -292,7 +292,7 @@ class ValIcForm {
     var valueExtraGrain: String? = null
 
     @JsonProperty("maizeGrainPriceKg")
-    var maizeGrainPriceKg: Int? = null
+    var maizeGrainPriceKg: String? = null
 
     @JsonProperty("quantityExtraGrain")
     var quantityExtraGrain: String? = null
@@ -313,7 +313,7 @@ class ValIcForm {
     var maizeGrainUnitName: String? = null
 
     @JsonProperty("maizeGrainUnitDetails/maizeGrainUnitPrice")
-    var maizeGrainUnitDetailsMaizeGrainUnitPrice: Int? = null
+    var maizeGrainUnitDetailsMaizeGrainUnitPrice: String? = null
 
     @JsonProperty("maizeGrainUnitDetails/maizeGrainUnitWeight")
     var maizeGrainUnitDetailsMaizeGrainUnitWeight: Double? = null

@@ -10,7 +10,7 @@ import java.util.*
 @JsonPropertyOrder("_id", "end", "lat", "lon", "EAID", "HHID", "unit", "_tags", "_uuid", "check", "plotL", "plotW", "start", "today", "_notes", "_edited", "_status", "country", "product", "variety", "_version", "check_id", "currency", "deviceid", "geopoint", "plotSize", "unitName", "username", "_duration", "_xform_id", "areaBasis", "simserial", "conversion", "unitWeight", "yieldLevel", "purpose/VAL", "results/SC0", "_attachments", "_geolocation", "_media_count", "_total_media", "formhub/uuid", "plantingDate", "results/SCm1", "results/SCm2", "results/SCm3", "results/SCm4", "results/SCp1", "results/SCp2", "results/SCp3", "results/SCp4", "subscriberid", "_submitted_by", "plantingWeek0", "results/GPdif", "results/GPmax", "results/GRdif", "results/GRmax", "results/Pp0h0", "results/Yp0h0", "thankyou/call", "results/CYp0h0", "results/GPp0h0", "results/GRp0h0", "results/Pp0hm1", "results/Pp0hm2", "results/Pp0hm3", "results/Pp0hm4", "results/Pp0hp1", "results/Pp0hp2", "results/Pp0hp3", "results/Pp0hp4", "results/WYp0h0", "results/Yp0hm1", "results/Yp0hm2", "results/Yp0hm3", "results/Yp0hm4", "results/Yp0hp1", "results/Yp0hp2", "results/Yp0hp3", "results/Yp0hp4", "transformRatio", "unitNameSelect", "meta/instanceID", "plantingDensity", "results/CYp0hm1", "results/CYp0hm2", "results/CYp0hm3", "results/CYp0hm4", "results/CYp0hp1", "results/CYp0hp2", "results/CYp0hp3", "results/CYp0hp4", "results/GPp0hm1", "results/GPp0hm2", "results/GPp0hm3", "results/GPp0hm4", "results/GPp0hp1", "results/GPp0hp2", "results/GPp0hp3", "results/GPp0hp4", "results/GRp0hm1", "results/GRp0hm2", "results/GRp0hm3", "results/GRp0hm4", "results/GRp0hp1", "results/GRp0hp2", "results/GRp0hp3", "results/GRp0hp4", "results/WYp0hm1", "results/WYp0hm2", "results/WYp0hm3", "results/WYp0hm4", "results/WYp0hp1", "results/WYp0hp2", "results/WYp0hp3", "results/WYp0hp4", "unitLocalWeight", "_submission_time", "_xform_id_string", "results/GRdif_AB", "results/GRmax_AB", "results/Yp0h0_AB", "results/sensible", "results/GPdifcurr", "results/GRp0h0_AB", "_bamboo_dataset_id", "results/GPp0h0curr", "results/optHarvest", "_media_all_received", "harvest/harvestAge0", "harvest/harvestDate", "priceDetails/price0", "thankyou/confirmVAL", "harvest/harvestAgem1", "harvest/harvestAgem2", "harvest/harvestAgem3", "harvest/harvestAgem4", "harvest/harvestAgep1", "harvest/harvestAgep2", "harvest/harvestAgep3", "harvest/harvestAgep4", "harvest/harvestWeek0", "priceDetails/priceR0", "priceDetails/pricem1", "priceDetails/pricem2", "priceDetails/pricem3", "priceDetails/pricem4", "priceDetails/pricep1", "priceDetails/pricep2", "priceDetails/pricep3", "priceDetails/pricep4", "results/GRdif_ABcurr", "harvest/harvestWeekm1", "harvest/harvestWeekm2", "harvest/harvestWeekm3", "harvest/harvestWeekm4", "harvest/harvestWeekp1", "harvest/harvestWeekp2", "harvest/harvestWeekp3", "harvest/harvestWeekp4", "priceDetails/priceRm2", "priceDetails/priceRm4", "priceDetails/priceRp2", "priceDetails/priceRp4", "results/GRp0h0_ABcurr", "results/lookupp0h0_id", "results/lookupp0hm1_id", "results/lookupp0hm2_id", "results/lookupp0hm3_id", "results/lookupp0hm4_id", "results/lookupp0hp1_id", "results/lookupp0hp2_id", "results/lookupp0hp3_id", "results/lookupp0hp4_id", "results/optHarvestText", "densityDetails/withinRow", "densityDetails/betweenRow", "season", "priceStarch")
 class ValSphsTzEzForm {
     @JsonProperty("_id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("end")
     var end: String? = null
@@ -97,7 +97,7 @@ class ValSphsTzEzForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xformId: String? = null
 
     @JsonProperty("areaBasis")
     var areaBasis: String? = null
@@ -127,10 +127,10 @@ class ValSphsTzEzForm {
     var geolocation: List<Double> = ArrayList()
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
     var formhubUuid: String? = null
@@ -190,7 +190,7 @@ class ValSphsTzEzForm {
     var resultsYp0h0: String? = null
 
     @JsonProperty("thankyou/call")
-    var thankyouCall: String? = null
+    var callValue: String? = null
 
     @JsonProperty("results/CYp0h0")
     var resultsCYp0h0: String? = null
@@ -409,7 +409,7 @@ class ValSphsTzEzForm {
     var priceDetailsPrice0: String? = null
 
     @JsonProperty("thankyou/confirmVAL")
-    var thankyouConfirmVAL: String? = null
+    var confirmVal: String? = null
 
     @JsonProperty("harvest/harvestAgem1")
     var harvestHarvestAgem1: String? = null
@@ -439,7 +439,7 @@ class ValSphsTzEzForm {
     var harvestHarvestWeek0: String? = null
 
     @JsonProperty("priceDetails/priceR0")
-    var priceDetailsPriceR0: Int? = null
+    var priceDetailsPriceR0: String? = null
 
     @JsonProperty("priceDetails/pricem1")
     var priceDetailsPricem1: String? = null
@@ -493,16 +493,16 @@ class ValSphsTzEzForm {
     var harvestHarvestWeekp4: String? = null
 
     @JsonProperty("priceDetails/priceRm2")
-    var priceDetailsPriceRm2: Int? = null
+    var priceDetailsPriceRm2: String? = null
 
     @JsonProperty("priceDetails/priceRm4")
-    var priceDetailsPriceRm4: Int? = null
+    var priceDetailsPriceRm4: String? = null
 
     @JsonProperty("priceDetails/priceRp2")
-    var priceDetailsPriceRp2: Int? = null
+    var priceDetailsPriceRp2: String? = null
 
     @JsonProperty("priceDetails/priceRp4")
-    var priceDetailsPriceRp4: Int? = null
+    var priceDetailsPriceRp4: String? = null
 
     @JsonProperty("results/GRp0h0_ABcurr")
     var resultsGRp0h0ABcurr: String? = null

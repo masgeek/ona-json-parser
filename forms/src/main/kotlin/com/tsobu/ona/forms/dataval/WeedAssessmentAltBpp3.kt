@@ -10,11 +10,11 @@ class WeedAssessmentAltBpp3 {
     var indexAltBpp3: String? = null
 
     @JsonProperty("weedAssessment_ALT_BPP3/weedCover_ALT_BPP3")
-    var weedCoverAltBpp3: Int? = null
+    var weedCoverAltBpp3: String? = null
 
     @JsonProperty("weedAssessment_ALT_BPP3/weedsHeight_ALT_BPP3")
-    var weedsHeightAltBpp33: Int? = null
+    var weedsHeightAltBpp33: String? = null
 
     @JsonProperty("weedAssessment_ALT_BPP3/cassavaHeight_ALT_BPP3")
-    var cassavaHeightAltBpp3: Int? = null
+    var cassavaHeightAltBpp3: String? = null
 }

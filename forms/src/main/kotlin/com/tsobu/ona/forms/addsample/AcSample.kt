@@ -11,7 +11,7 @@ class AcSample {
     var acNewLabel: List<AcNewLabel>? = null
 
     @JsonProperty("sample/nrLabels")
-    var nrLabels: Int? = null
+    var nrLabels: String? = null
 
     @JsonProperty("sample/plantSampleID")
     var plantSampleID: String? = null

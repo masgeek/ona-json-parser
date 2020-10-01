@@ -16,7 +16,7 @@ class ValPpTzForm {
     var pw: List<ValPpTzPwForm> = ArrayList()
 
     @JsonProperty("_id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("end")
     var end: String? = null
@@ -139,7 +139,7 @@ class ValPpTzForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xformId: String? = null
 
     @JsonProperty("implement")
     var implement: String? = null
@@ -169,7 +169,7 @@ class ValPpTzForm {
     var netValueCP: String? = null
 
     @JsonProperty("priceRoots")
-    var priceRoots: Int? = null
+    var priceRoots: String? = null
 
     @JsonProperty("ridgingRec")
     var ridgingRec: String? = null
@@ -199,10 +199,10 @@ class ValPpTzForm {
     var geolocation: List<Double> = ArrayList()
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("basicTillRec")
     var basicTillRec: String? = null
@@ -247,7 +247,7 @@ class ValPpTzForm {
     var costDifChange: String? = null
 
     @JsonProperty("thankyou/call")
-    var thankyouCall: String? = null
+    var callValue: String? = null
 
     @JsonProperty("tractorAccess")
     var tractorAccess: String? = null
@@ -328,19 +328,19 @@ class ValPpTzForm {
     var netValueDifMaxRound: String? = null
 
     @JsonProperty("thankyou/confirmVAL")
-    var thankyouConfirmVAL: String? = null
+    var confirmVal: String? = null
 
     @JsonProperty("cost/harrowTractorCost")
-    var costHarrowTractorCost: Int? = null
+    var costHarrowTractorCost: String? = null
 
     @JsonProperty("cost/ridgingManualCost")
-    var costRidgingManualCost: Int? = null
+    var costRidgingManualCost: String? = null
 
     @JsonProperty("cost/weedingManualCost")
-    var costWeedingManualCost: Int? = null
+    var costWeedingManualCost: String? = null
 
     @JsonProperty("cost/ridgingTractorCost")
-    var costRidgingTractorCost: Int? = null
+    var costRidgingTractorCost: String? = null
 
     @JsonProperty("currentPractice/ridging")
     var currentPracticeRidging: String? = null
@@ -349,25 +349,25 @@ class ValPpTzForm {
     var densityDetailsWithinRow: Double? = null
 
     @JsonProperty("cost/basicTill1ManualCost")
-    var costBasicTill1ManualCost: Int? = null
+    var costBasicTill1ManualCost: String? = null
 
     @JsonProperty("cost/basicTill2ManualCost")
-    var costBasicTill2ManualCost: Int? = null
+    var costBasicTill2ManualCost: String? = null
 
     @JsonProperty("cost/weedingHerbicideCost")
-    var costWeedingHerbicideCost: Int? = null
+    var costWeedingHerbicideCost: String? = null
 
     @JsonProperty("currentPractice/basicTill")
     var currentPracticeBasicTill: String? = null
 
     @JsonProperty("densityDetails/betweenRow")
-    var densityDetailsBetweenRow: Int? = null
+    var densityDetailsBetweenRow: String? = null
 
     @JsonProperty("cost/basicTill1TractorCost")
-    var costBasicTill1TractorCost: Int? = null
+    var costBasicTill1TractorCost: String? = null
 
     @JsonProperty("cost/basicTill2TractorCost")
-    var costBasicTill2TractorCost: Int? = null
+    var costBasicTill2TractorCost: String? = null
 
     @JsonProperty("currentPractice/harrowSelect")
     var currentPracticeHarrowSelect: String? = null

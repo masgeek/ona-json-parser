@@ -9,7 +9,7 @@ import java.util.*
 @JsonPropertyOrder("_id", "end", "_tags", "_uuid", "login", "start", "today", "_notes", "_edited", "_status", "country", "fieldID", "trialID", "_version", "deviceid", "geopoint", "username", "_duration", "_xform_id", "simserial", "trialCode", "fieldbookID", "_attachments", "_geolocation", "_media_count", "_total_media", "formhub/uuid", "plantingDate", "subscriberid", "_submitted_by", "meta/instanceID", "_submission_time", "_xform_id_string", "_bamboo_dataset_id", "_media_all_received", "purpose/country", "purpose/project", "enumerator/surName", "enumerator/firstName", "email", "phonenumber", "meta/deprecatedID")
 class AssignTlAcForm {
     @JsonProperty("_id")
-    var Id: Int? = null
+    var Id: String? = null
 
     @JsonProperty("end")
     var end: String? = null
@@ -63,7 +63,7 @@ class AssignTlAcForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xformId: String? = null
 
     @JsonProperty("simserial")
     var simserial: String? = null
@@ -81,10 +81,10 @@ class AssignTlAcForm {
     var geolocation: List<Double> = ArrayList()
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
     var formhubUuId: String? = null

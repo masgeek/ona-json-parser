@@ -48,7 +48,7 @@ class WeedAcEntity : BaseEntity() {
     @Column(name = "weed_entity")
     var weedEntity: String? = null
     var weedDetail: String? = null
-    var nrQuadrants: Int? = null
+    var nrQuadrants: String? = null
 
     @Column(name = "weed_repeat")
     var weedRepeat: String? = null

@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class PpForm {
     @JsonProperty("_id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("end")
     var end: String? = null
@@ -66,13 +66,13 @@ class PpForm {
     var duration: Float? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xformId: String? = null
 
     @JsonProperty("loc_field")
     var locField: String? = null
 
     @JsonProperty("nrWeeding")
-    var nrWeeding: Int? = null
+    var nrWeeding: String? = null
 
     @JsonProperty("simserial")
     var simSerial: String? = null
@@ -81,7 +81,7 @@ class PpForm {
     var conversion: String? = null
 
     @JsonProperty("priceRoots")
-    var priceRoots: Int? = null
+    var priceRoots: String? = null
 
     @JsonProperty("_attachments")
     var attachments: List<Any>? = null
@@ -90,10 +90,10 @@ class PpForm {
     var geolocation: List<Float>? = null
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
     var formhubUuid: String? = null
@@ -147,13 +147,13 @@ class PpForm {
     var rateWeeds: String? = null
 
     @JsonProperty("plantStand/nrPlants_ALT")
-    var plantStandNrPlantsALT: Int? = null
+    var plantStandNrPlantsALT: String? = null
 
     @JsonProperty("plantStand/nrPlants_CON")
-    var plantStandNrPlantsCON: Int? = null
+    var plantStandNrPlantsCON: String? = null
 
     @JsonProperty("plantStand/nrPlants_REC")
-    var plantStandNrPlantsREC: Int? = null
+    var plantStandNrPlantsREC: String? = null
 
     @JsonProperty("trialRating/rateDrought")
     var rateDrought: String? = null
@@ -197,13 +197,13 @@ class PpForm {
     var farmerEvaluationLabourScore: String? = null
 
     @JsonProperty("plantStand/nrPlants_ALT_BPP3")
-    var nrPlantsAltBpp3: Int? = null
+    var nrPlantsAltBpp3: String? = null
 
     @JsonProperty("plantStand/nrPlants_CON_BPP3")
-    var nrPlantsConBpp3: Int? = null
+    var nrPlantsConBpp3: String? = null
 
     @JsonProperty("plantStand/nrPlants_REC_BPP3")
-    var nrPlantsRecBpp3: Int? = null
+    var nrPlantsRecBpp3: String? = null
 
     @JsonProperty("trialRating/rateOtherDisease")
     var rateOtherDisease: String? = null
@@ -325,10 +325,10 @@ class PpForm {
 
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_CON")
-    var tuberizedMarketableRootsNrCon: Int? = null
+    var tuberizedMarketableRootsNrCon: String? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_REC")
-    var tuberizedMarketableRootsNrRec: Int? = null
+    var tuberizedMarketableRootsNrRec: String? = null
 
     @JsonProperty("herbicideDetails/herbicideActorTrained")
     var herbicideActorTrained: String? = null
@@ -340,13 +340,13 @@ class PpForm {
     var tuberizedMarketableRootsFwRecBpp3: Float? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_ALT_BPP3")
-    var tuberizedMarketableRootsNrAltBpp3: Int? = null
+    var tuberizedMarketableRootsNrAltBpp3: String? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_CON_BPP3")
-    var tuberizedMarketableRootsNrConBpp3: Int? = null
+    var tuberizedMarketableRootsNrConBpp3: String? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_REC_BPP3")
-    var tuberizedMarketableRootsNrRecBpp3: Int? = null
+    var tuberizedMarketableRootsNrRecBpp3: String? = null
 
     /*---- missing fields --**/
     @JsonProperty("inputs1/orgInputs1")
@@ -449,7 +449,7 @@ class PpForm {
 
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_ALT")
-    var tuberizedMarketableRootsNrAlt: Int? = null
+    var tuberizedMarketableRootsNrAlt: String? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsFW_ALT_BPP3")
     var tuberizedMarketableRootsFwAltBpp3: Float? = null

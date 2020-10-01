@@ -65,13 +65,13 @@ class FrForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xformId: String? = null
 
     @JsonProperty("loc_field")
     var locField: String? = null
 
     @JsonProperty("nrWeeding")
-    var nrWeeding: Int? = null
+    var nrWeeding: String? = null
 
     @JsonProperty("simserial")
     var simSerial: String? = null
@@ -80,7 +80,7 @@ class FrForm {
     var conversion: String? = null
 
     @JsonProperty("priceRoots")
-    var priceRoots: Int? = null
+    var priceRoots: String? = null
 
     @JsonProperty("_attachments")
     var attachments: List<Any>? = null
@@ -89,10 +89,10 @@ class FrForm {
     var geolocation: List<Double>? = null
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
     var formhubUuid: String? = null
@@ -143,10 +143,10 @@ class FrForm {
     var rateWeeds: String? = null
 
     @JsonProperty("plantStand/nrPlants_CON")
-    var nrPlantsCon: Int? = null
+    var nrPlantsCon: String? = null
 
     @JsonProperty("plantStand/nrPlants_SSR")
-    var nrPlantsSsr: Int? = null
+    var nrPlantsSsr: String? = null
 
     @JsonProperty("trialRating/rateDrought")
     var rateDrought: String? = null
@@ -242,16 +242,16 @@ class FrForm {
     var tuberizedMarketableRootsFwSsr: Double? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_CON")
-    var tuberizedMarketableRootsNrCon: Int? = null
+    var tuberizedMarketableRootsNrCon: String? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_SSR")
-    var tuberizedMarketableRootsNrSsr: Int? = null
+    var tuberizedMarketableRootsNrSsr: String? = null
 
     @JsonProperty("plotSizeDetails/plotL")
-    var plotLength: Int? = null
+    var plotLength: String? = null
 
     @JsonProperty("plotSizeDetails/plotW")
-    var plotWidth: Int? = null
+    var plotWidth: String? = null
 
     @JsonProperty("landPreparation/ridging")
     var ridging: String? = null

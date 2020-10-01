@@ -11,11 +11,11 @@ class WeedAssessmentAlt {
     var indexAlt: String? = null
 
     @JsonProperty("weedAssessment_ALT/weedCover_ALT")
-    var weedCoverAlt: Int? = null
+    var weedCoverAlt: String? = null
 
     @JsonProperty("weedAssessment_ALT/weedsHeight_ALT")
-    var weedsHeightAlt: Int? = null
+    var weedsHeightAlt: String? = null
 
     @JsonProperty("weedAssessment_ALT/cassavaHeight_ALT")
-    var cassavaHeightAlt: Int? = null
+    var cassavaHeightAlt: String? = null
 }

@@ -13,7 +13,7 @@ class ValPpForm {
     var cp: String? = null
 
     @JsonProperty("_id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("end")
     var end: String? = null
@@ -58,7 +58,7 @@ class ValPpForm {
     var notes: List<Any> = ArrayList()
 
     @JsonProperty("costCP")
-    var costCP: String? = null
+    var costCp: String? = null
 
     @JsonProperty("_edited")
     var edited: Boolean? = null
@@ -118,7 +118,7 @@ class ValPpForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xformId: String? = null
 
     @JsonProperty("implement")
     var implement: String? = null
@@ -130,7 +130,7 @@ class ValPpForm {
     var conversion: String? = null
 
     @JsonProperty("costCPcurr")
-    var costCPcurr: String? = null
+    var costCpCurr: String? = null
 
     @JsonProperty("costDifAbs")
     var costDifAbs: String? = null
@@ -139,16 +139,16 @@ class ValPpForm {
     var harrowCost: String? = null
 
     @JsonProperty("netValueCP")
-    var netValueCP: String? = null
+    var netValueCp: String? = null
 
     @JsonProperty("priceRoots")
-    var priceRoots: Int? = null
+    var priceRoots: String? = null
 
     @JsonProperty("ridgingRec")
     var ridgingRec: String? = null
 
     @JsonProperty("costDifcurr")
-    var costDifcurr: String? = null
+    var costDifCurr: String? = null
 
     @JsonProperty("purpose/VAL")
     var purposeVAL: String? = null
@@ -166,10 +166,10 @@ class ValPpForm {
     var geolocation: List<Double> = ArrayList()
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("basicTillRec")
     var basicTillRec: String? = null
@@ -178,7 +178,7 @@ class ValPpForm {
     var formhubUuid: String? = null
 
     @JsonProperty("grossValueCP")
-    var grossValueCP: String? = null
+    var grossValueCp: String? = null
 
     @JsonProperty("netValueT0FL")
     var netValueT0FL: String? = null
@@ -211,7 +211,7 @@ class ValPpForm {
     var costDifChange: String? = null
 
     @JsonProperty("thankyou/call")
-    var thankyouCall: String? = null
+    var callValue: String? = null
 
     @JsonProperty("tractorAccess")
     var tractorAccess: String? = null
@@ -268,7 +268,7 @@ class ValPpForm {
     var netValueDifT2RG: String? = null
 
     @JsonProperty("netValueDifcurr")
-    var netValueDifcurr: String? = null
+    var netValueDifCurr: String? = null
 
     @JsonProperty("plantingDensity")
     var plantingDensity: String? = null
@@ -289,115 +289,116 @@ class ValPpForm {
     var mediaAllReceived: Boolean? = null
 
     @JsonProperty("thankyou/confirmVAL")
-    var thankyouConfirmVAL: String? = null
+    var confirmVal: String? = null
 
     @JsonProperty("cost/ridgingManualCost")
-    var costRidgingManualCost: Int? = null
+    var ridgingManualCost: String? = null
 
     @JsonProperty("cost/weedingManualCost")
-    var costWeedingManualCost: Int? = null
+    var weedingManualCost: String? = null
 
     @JsonProperty("currentPractice/ridging")
-    var currentPracticeRidging: String? = null
+    var ridging: String? = null
 
     @JsonProperty("cost/basicTill1ManualCost")
-    var costBasicTill1ManualCost: Int? = null
+    var basicTill1ManualCost: String? = null
 
     @JsonProperty("cost/basicTill2ManualCost")
-    var costBasicTill2ManualCost: Int? = null
+    var basicTill2ManualCost: String? = null
 
     @JsonProperty("cost/weedingHerbicideCost")
-    var costWeedingHerbicideCost: Int? = null
+    var weedingHerbicideCost: String? = null
 
     @JsonProperty("currentPractice/basicTill")
-    var currentPracticeBasicTill: String? = null
+    var basicTill: String? = null
 
     @JsonProperty("cost/basicTill1TractorCost")
-    var costBasicTill1TractorCost: Int? = null
+    var basicTill1TractorCost: String? = null
 
     @JsonProperty("cost/basicTill2TractorCost")
-    var costBasicTill2TractorCost: Int? = null
+    var basicTill2TractorCost: String? = null
 
     @JsonProperty("plot3Details2/harrow_plot3")
-    var plot3Details2HarrowPlot3: String? = null
+    var harrowPlot31: String? = null
+
+    @JsonProperty("plot3Details1/harrow_plot3")
+    var harrowPlot3: String? = null
 
     @JsonProperty("plot3Details1/ridging_plot3")
-    var plot3Details1RidgingPlot3: String? = null
+    var ridgingPlot3: String? = null
 
     @JsonProperty("currentPracticeDetails/harrow")
-    var currentPracticeDetailsHarrow: String? = null
+    var harrow: String? = null
 
     @JsonProperty("plot3Details1/basicTill_plot3")
-    var plot3Details1BasicTillPlot3: String? = null
+    var basicTillPlot3: String? = null
 
     @JsonProperty("plot3Details2/ridgingMethod_plot3")
-    var plot3Details2RidgingMethodPlot3: String? = null
+    var ridgingMethodPlot3: String? = null
 
     @JsonProperty("currentPractice/weedingMethodSelect")
-    var currentPracticeWeedingMethodSelect: String? = null
+    var weedingMethodSelect: String? = null
 
     @JsonProperty("currentPracticeDetails/ridgingMethod")
-    var currentPracticeDetailsRidgingMethod: String? = null
+    var ridgingMethod: String? = null
 
     @JsonProperty("currentPracticeDetails/weedingMethod")
-    var currentPracticeDetailsWeedingMethod: String? = null
+    var weedingMethod: String? = null
 
     @JsonProperty("plot3Details2/basicTillMethod1_plot3")
-    var plot3Details2BasicTillMethod1Plot3: String? = null
+    var basicTillMethod1Plot3: String? = null
 
     @JsonProperty("currentPracticeDetails/basicTillMethod1")
-    var currentPracticeDetailsBasicTillMethod1: String? = null
+    var basicTillMethod1: String? = null
 
     @JsonProperty("currentPracticeDetails/basicTillMethod2")
-    var currentPracticeDetailsBasicTillMethod2: String? = null
+    var basicTillMethod2: String? = null
 
     @JsonProperty("plot3Details2/basicTillMethodSelect1_plot3")
-    var plot3Details2BasicTillMethodSelect1Plot3: String? = null
+    var basicTillMethodSelect1Plot3: String? = null
 
     @JsonProperty("currentPracticeDetails/basicTillMethodSelect1")
-    var currentPracticeDetailsBasicTillMethodSelect1: String? = null
+    var basicTillMethodSelect1: String? = null
 
     @JsonProperty("currentPracticeDetails/basicTillMethodSelect2")
-    var currentPracticeDetailsBasicTillMethodSelect2: String? = null
+    var basicTillMethodSelect2: String? = null
 
     @JsonProperty("thankyou/hostBPP3")
-    var thankyouHostBPP3: String? = null
+    var hostBpp3: String? = null
 
     @JsonProperty("netValueDifMaxRound")
     var netValueDifMaxRound: String? = null
 
     @JsonProperty("densityDetails/withinRow")
-    var densityDetailsWithinRow: Double? = null
+    var withinRow: Double? = null
 
     @JsonProperty("densityDetails/betweenRow")
-    var densityDetailsBetweenRow: Double? = null
+    var betweenRow: Double? = null
 
     @JsonProperty("plot3Details2/basicTillMethod2_plot3")
-    var plot3Details2BasicTillMethod2Plot3: String? = null
+    var basicTillMethod2Plot3: String? = null
 
     @JsonProperty("plot3Details2/basicTillMethodSelect2_plot3")
-    var plot3Details2BasicTillMethodSelect2Plot3: String? = null
+    var basicTillMethodSelect2Plot3: String? = null
 
     @JsonProperty("cost/harrowTractorCost")
-    var costHarrowTractorCost: Int? = null
+    var costHarrowTractorCost: String? = null
 
-    @JsonProperty("plot3Details1/harrow_plot3")
-    var plot3Details1HarrowPlot3: String? = null
 
     @JsonProperty("currentPractice/harrowSelect")
-    var currentPracticeHarrowSelect: String? = null
+    var harrowSelect: String? = null
 
     @JsonProperty("plot3Details2/harrowSelect_plot3")
-    var plot3Details2HarrowSelectPlot3: String? = null
+    var harrowSelectPlot3: String? = null
 
     @JsonProperty("email")
     var email: String? = null
 
     @JsonProperty("cost/ridgingTractorCost")
-    var costRidgingTractorCost: Int? = null
+    var costRidgingTractorCost: String? = null
 
     @JsonProperty("currentPracticeDetails/ridgingMethodSelect")
-    var currentPracticeDetailsRidgingMethodSelect: String? = null
+    var ridgingMethodSelect: String? = null
 
     @JsonProperty("harrowText")
     var harrowText: String? = null
@@ -406,13 +407,13 @@ class ValPpForm {
     var harrowText2: String? = null
 
     @JsonProperty("plot3Details2/ridgingMethodSelect_plot3")
-    var plot3Details2RidgingMethodSelectPlot3: String? = null
+    var ridgingMethodSelectPlot3: String? = null
 
     @JsonProperty("countrySelect")
     var countrySelect: String? = null
 
     @JsonProperty("PW")
-    var valPpPwFormList: List<ValPpPwForm> = ArrayList()
+    var valPpPwList: List<ValPpPwForm> = ArrayList()
 
     @JsonProperty("slash")
     var slash: String? = null
@@ -451,5 +452,5 @@ class ValPpForm {
     var fallowHeight: String? = null
 
     @JsonProperty("meta/deprecatedID")
-    var metaDeprecatedID: String? = null
+    var metaDeprecatedId: String? = null
 }

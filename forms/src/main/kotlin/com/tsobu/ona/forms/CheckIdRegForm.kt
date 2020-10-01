@@ -9,7 +9,7 @@ import java.util.ArrayList
 @JsonPropertyOrder("_id", "end", "gov", "EAID", "freq", "nrHH", "role", "_tags", "_uuid", "ageEA", "level", "locEA", "start", "title", "today", "_notes", "typeID", "_edited", "_status", "partner", "_version", "deviceid", "genderEA", "username", "_duration", "_xform_id", "levelName", "phoneNrEA", "simserial", "surNameEA", "educationEA", "firstNameEA", "phonenumber", "_attachments", "_geolocation", "_media_count", "_total_media", "formhub/uuid", "subscriberid", "_submitted_by", "meta/instanceID", "_submission_time", "_xform_id_string", "_bamboo_dataset_id", "_media_all_received", "detailsEA/correctEA", "phoneNr2EA", "HHID", "ageHH", "locHH", "genderHH", "geopoint", "phoneNrHH", "surNameHH", "phoneNr2HH", "relationHH", "educationHH", "firstNameHH", "occupationHH", "maritalStatusHH", "detailsHH/correctHH", "email", "startYearHH")
 class CheckIdRegForm {
     @JsonProperty("_id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("end")
     var end: String? = null
@@ -84,7 +84,7 @@ class CheckIdRegForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xformId: String? = null
 
     @JsonProperty("levelName")
     var levelName: String? = null
@@ -114,10 +114,10 @@ class CheckIdRegForm {
     var geolocation: List<Any> = ArrayList()
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
     var formhubUuid: String? = null

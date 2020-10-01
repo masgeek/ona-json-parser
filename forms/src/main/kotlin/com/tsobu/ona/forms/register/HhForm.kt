@@ -73,7 +73,7 @@ class HhForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xformId: String? = null
 
     @JsonProperty("simserial")
     var simSerial: String? = null

@@ -9,7 +9,7 @@ import java.util.*
 @JsonPropertyOrder("_id", "end", "_tags", "_uuid", "login", "start", "today", "_notes", "entity", "_edited", "_status", "_version", "deviceid", "geopoint", "username", "_duration", "_xform_id", "simserial", "basketType", "_attachments", "_geolocation", "_media_count", "_total_media", "assessStarch", "formhub/uuid", "subscriberid", "_submitted_by", "meta/instanceID", "_submission_time", "_xform_id_string", "_bamboo_dataset_id", "_media_all_received", "correction/correctionBasket", "purpose/country", "purpose/project", "correction/basketAir", "correction/basketWater", "basketFloat", "enumerator/surName", "enumerator/firstName")
 class AssessStarchContentAcForm {
     @JsonProperty("_id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("end")
     var end: String? = null
@@ -57,7 +57,7 @@ class AssessStarchContentAcForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xformId: String? = null
 
     @JsonProperty("simserial")
     var simserial: String? = null
@@ -72,10 +72,10 @@ class AssessStarchContentAcForm {
     var geolocation: List<Double> = ArrayList()
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("assessStarch")
     var assessStarchList: List<AssessStarchForm>?=null
@@ -114,10 +114,10 @@ class AssessStarchContentAcForm {
     var project: String? = null
 
     @JsonProperty("correction/basketAir")
-    var basketAir: Int? = null
+    var basketAir: String? = null
 
     @JsonProperty("correction/basketWater")
-    var basketWater: Int? = null
+    var basketWater: String? = null
 
     @JsonProperty("basketFloat")
     var basketFloat: String? = null

@@ -9,7 +9,7 @@ import java.util.*
 @JsonPropertyOrder("_id", "end", "_tags", "_uuid", "login", "start", "today", "_notes", "entity", "_edited", "_status", "_version", "deviceid", "geopoint", "username", "_duration", "_xform_id", "simserial", "_attachments", "_geolocation", "_media_count", "_total_media", "formhub/uuid", "subscriberid", "_submitted_by", "meta/instanceID", "yieldAssessment", "_submission_time", "_xform_id_string", "biomass/sampling", "_bamboo_dataset_id", "biomass/measureSec", "_media_all_received", "biomass/partitioning", "purpose/country", "purpose/project", "samplingSec", "enumerator/surName", "enumerator/firstName", "email", "phonenumber")
 class YieldCassavaAcForm {
     @JsonProperty("_id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("end")
     var end: String? = null
@@ -57,7 +57,7 @@ class YieldCassavaAcForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xformId: String? = null
 
     @JsonProperty("simserial")
     var simserial: String? = null
@@ -69,10 +69,10 @@ class YieldCassavaAcForm {
     var geolocation: List<Double> = ArrayList()
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
     var formhubUuid: String? = null

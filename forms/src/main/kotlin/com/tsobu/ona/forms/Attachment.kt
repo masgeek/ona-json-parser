@@ -9,19 +9,19 @@ import com.fasterxml.jackson.annotation.JsonProperty
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class Attachment {
     @JsonProperty("id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("name")
     var name: String? = null
 
     @JsonProperty("xform")
-    var xform: Int? = null
+    var xform: String? = null
 
     @JsonProperty("filename")
     var filename: String? = null
 
     @JsonProperty("instance")
-    var instance: Int? = null
+    var instance: String? = null
 
     @JsonProperty("mimetype")
     var mimetype: String? = null

@@ -10,7 +10,7 @@ import java.util.*
 @JsonPropertyOrder("_id", "end", "lat", "lon", "EAID", "HHID", "_tags", "_uuid", "start", "today", "_notes", "_edited", "_status", "_version", "deviceid", "geopoint", "username", "_duration", "_xform_id", "simserial", "_attachments", "_geolocation", "_media_count", "_total_media", "formhub/uuid", "subscriberid", "_submitted_by", "countrySelect", "meta/instanceID", "_submission_time", "_xform_id_string", "_bamboo_dataset_id", "_media_all_received", "currentPracticeTillage/ridgingCP", "currentPracticeTillage/basicTillCP", "alternativePractice/presenceRedPlot", "alternativePracticeMethod/harrowALT", "recommendedPracticeMethod/harrowREC", "alternativePracticeTillage/ridgingALT", "currentPracticeTillage/harrowSelectCP", "recommendedPracticeTillage/ridgingREC", "alternativePracticeTillage/basicTillALT", "recommendedPracticeTillage/basicTillREC", "alternativePracticeTillage/harrowSelectALT", "recommendedPracticeTillage/harrowSelectREC", "currentPracticeMethod/ridgingMethodSelectCP", "currentPracticeMethod/basicTillMethodSelect1CP", "currentPracticeMethod/basicTillMethodSelect2CP", "recommendedPracticeMethod/ridgingMethodSelectREC", "alternativePracticeMethod/basicTillMethodSelect1ALT", "recommendedPracticeMethod/basicTillMethodSelect1REC", "email", "recommendedPracticeMethod/basicTillMethodSelect2REC", "alternativePracticeMethod/ridgingMethodSelectALT", "alternativePracticeMethod/basicTillMethodSelect2ALT", "phonenumber", "_last_edited", "meta/deprecatedID", "currentPracticeMethod/harrowCP")
 class VALPPTreatForm {
     @JsonProperty("_id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("end")
     var end: String? = null
@@ -64,7 +64,7 @@ class VALPPTreatForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xformId: String? = null
 
     @JsonProperty("simserial")
     var simserial: String? = null
@@ -76,10 +76,10 @@ class VALPPTreatForm {
     var geolocation: List<Double> = ArrayList()
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
     var formhubUuid: String? = null

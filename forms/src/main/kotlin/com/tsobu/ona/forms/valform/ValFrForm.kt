@@ -10,7 +10,7 @@ import java.util.*
 @JsonPropertyOrder("_id", "end", "lat", "lon", "rec", "EAID", "HHID", "_tags", "_uuid", "plotL", "plotW", "start", "today", "_notes", "netRev", "split1", "split2", "_edited", "_status", "country", "rateMOP", "rateTSP", "ridging", "targetY", "variety", "_version", "currency", "currentY", "deviceid", "geopoint", "plotSize", "rateUrea", "username", "_duration", "_xform_id", "areaBasis", "increaseP", "increaseY", "lookup_id", "simserial", "totalCost", "conversion", "rateMOP_AB", "rateTSP_AB", "purpose/VAL", "quantityMOP", "quantityTSP", "rateMOP_min", "rateTSP_min", "rateUrea_AB", "_attachments", "_geolocation", "_media_count", "_total_media", "formhub/uuid", "increaseY_AB", "netRevLocCur", "plantingDate", "plantingWeek", "quantity1MOP", "quantity1TSP", "quantity2MOP", "quantity2TSP", "quantityUrea", "rateUrea_min", "subscriberid", "_submitted_by", "quantity1Urea", "quantity2Urea", "rateNafaka_AB", "thankyou/call", "quantityNafaka", "rateNafaka_min", "meta/instanceID", "netRevLocCur_AB", "plantingDensity", "quantity1Nafaka", "quantity2Nafaka", "totalCostLocCur", "_submission_time", "_xform_id_string", "netRevLocCurPlot", "_bamboo_dataset_id", "totalCostLocCur_AB", "_media_all_received", "netRevLocCur_ABcurr", "thankyou/confirmVAL", "totalCostLocCurPlot", "netRevLocCurPlotcurr", "totalCostLocCur_ABcurr", "totalCostLocCurPlotcurr", "countrySelect", "email", "rateNafaka", "phonenumber", "_last_edited", "meta/deprecatedID", "densityDetails/withinRow", "densityDetails/betweenRow", "FCY", "season", "rateDAP", "quantityDAP", "rateDAP_min", "quantity1DAP", "quantity2DAP", "rateDAP_AB", "rateNPK", "rateNPK_AB", "quantityNPK", "rateNPK_min", "quantity1NPK", "quantity2NPK")
 class ValFrForm {
     @JsonProperty("_id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("end")
     var end: String? = null
@@ -112,7 +112,7 @@ class ValFrForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xformId: String? = null
 
     @JsonProperty("areaBasis")
     var areaBasis: String? = null
@@ -166,10 +166,10 @@ class ValFrForm {
     var geolocation: List<Double> = ArrayList()
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
     var formhubUuid: String? = null
@@ -268,7 +268,7 @@ class ValFrForm {
     var netRevLocCurABcurr: String? = null
 
     @JsonProperty("thankyou/confirmVAL")
-    var thankyouConfirmVAL: String? = null
+    var confirmVal: String? = null
 
     @JsonProperty("totalCostLocCurPlot")
     var totalCostLocCurPlot: String? = null

@@ -11,10 +11,10 @@ class AssessStarchForm {
     var plotId: String? = null
 
     @JsonProperty("assessStarch/FW/airFW")
-    var airFw: Int? = null
+    var airFw: String? = null
 
     @JsonProperty("assessStarch/FW/waterFW")
-    var waterFw: Int? = null
+    var waterFw: String? = null
 
     @JsonProperty("assessStarch/SCNote/specGrav")
     var specGrav: String? = null

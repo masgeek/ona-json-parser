@@ -28,7 +28,7 @@ class ValSphsOyForm {
     var sc6: String? = null
 
     @JsonProperty("_id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("end")
     var end: String? = null
@@ -124,7 +124,7 @@ class ValSphsOyForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xformId: String? = null
 
     @JsonProperty("areaBasis")
     var areaBasis: String? = null
@@ -154,10 +154,10 @@ class ValSphsOyForm {
     var geolocation: List<Double> = ArrayList()
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
     var formhubUuid: String? = null
@@ -220,7 +220,7 @@ class ValSphsOyForm {
     var starchFactory: String? = null
 
     @JsonProperty("thankyou/call")
-    var thankyouCall: String? = null
+    var callValue: String? = null
 
     @JsonProperty("results/CYp0h0")
     var resultsCYp0h0: String? = null
@@ -454,7 +454,7 @@ class ValSphsOyForm {
     var harvestHarvestDate: String? = null
 
     @JsonProperty("thankyou/confirmVAL")
-    var thankyouConfirmVAL: String? = null
+    var confirmVal: String? = null
 
     @JsonProperty("harvest/harvestAgem1")
     var harvestHarvestAgem1: String? = null
@@ -568,7 +568,7 @@ class ValSphsOyForm {
     var priceDetailsPrice0: String? = null
 
     @JsonProperty("priceDetails/priceR0")
-    var priceDetailsPriceR0: Int? = null
+    var priceDetailsPriceR0: String? = null
 
     @JsonProperty("priceDetails/pricem1")
     var priceDetailsPricem1: String? = null
@@ -595,16 +595,16 @@ class ValSphsOyForm {
     var priceDetailsPricep4: String? = null
 
     @JsonProperty("priceDetails/priceRm2")
-    var priceDetailsPriceRm2: Int? = null
+    var priceDetailsPriceRm2: String? = null
 
     @JsonProperty("priceDetails/priceRm4")
-    var priceDetailsPriceRm4: Int? = null
+    var priceDetailsPriceRm4: String? = null
 
     @JsonProperty("priceDetails/priceRp2")
-    var priceDetailsPriceRp2: Int? = null
+    var priceDetailsPriceRp2: String? = null
 
     @JsonProperty("priceDetails/priceRp4")
-    var priceDetailsPriceRp4: Int? = null
+    var priceDetailsPriceRp4: String? = null
 
     @JsonProperty("densityDetails/withinRow")
     var densityDetailsWithinRow: Double? = null

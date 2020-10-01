@@ -122,16 +122,16 @@ class ValPpEntity : BaseEntity() {
     var spray: String? = null
 
     @Column(name = "slash1_spray1_note")
-    var slash1Spray1Note: String? = null
+    var slashOneSprayOneNote: String? = null
 
     @Column(name = "slash1_spray0_note")
-    var slash1Spray0Note: String? = null
+    var slashOneSprayZeroNote: String? = null
 
     @Column(name = "slash0_spray1_note")
-    var slash0Spray1Note: String? = null
+    var slashZeroSprayOneNote: String? = null
 
     @Column(name = "slash0_spray0_note")
-    var slash0Spray0Note: String? = null
+    var slashZeroSprayZeroNote: String? = null
 
     @Column(name = "tractor_access")
     var tractorAccess: String? = null
@@ -373,8 +373,8 @@ class ValPpEntity : BaseEntity() {
     @Column(name = "cost_dif_abs")
     var costDifAbs: String? = null
 
-    @Column(name = "net_value_diff_curr")
-    var netValueDiffCurr: String? = null
+    @Column(name = "net_value_dif_curr")
+    var netValueDifCurr: String? = null
 
     @Column(name = "cost_dif_curr")
     var costDifCurr: String? = null

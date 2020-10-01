@@ -342,10 +342,10 @@ class PpTzForm {
     var tillageMethod2Rec: String? = null
 
     @JsonProperty("plantStand/nrPlants_CON")
-    var plantStandNrPlantsCON: Int? = null
+    var plantStandNrPlantsCON: String? = null
 
     @JsonProperty("plantStand/nrPlants_REC")
-    var plantStandNrPlantsREC: Int? = null
+    var plantStandNrPlantsREC: String? = null
 
 
     @JsonProperty("farmerEvaluation/costScore")
@@ -379,10 +379,10 @@ class PpTzForm {
     var tuberizedMarketableRootsFwRec: Float? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_CON")
-    var tuberizedMarketableRootsNrCon: Int? = null
+    var tuberizedMarketableRootsNrCon: String? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_REC")
-    var tuberizedMarketableRootsNrRec: Int? = null
+    var tuberizedMarketableRootsNrRec: String? = null
 
     @JsonProperty("weedingDetails/weedingMethod1")
     var weedingDetailsWeedingMethod1: String? = null
@@ -403,7 +403,7 @@ class PpTzForm {
     var tuberizedMarketableRootsFwAlt: Float? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_ALT")
-    var tuberizedMarketableRootsNrAlt: Int? = null
+    var tuberizedMarketableRootsNrAlt: String? = null
 
     @JsonProperty("herbicideDetails/herbicideActorTrained")
     var herbicideActorTrained: String? = null
@@ -419,11 +419,11 @@ class PpTzForm {
     var tuberizedMarketableRootsFwRecBpp3: Float? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_ALT_BPP3")
-    var tuberizedMarketableRootsNrAltBpp3: Int? = null
+    var tuberizedMarketableRootsNrAltBpp3: String? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_CON_BPP3")
-    var tuberizedMarketableRootsNrConBPpp: Int? = null
+    var tuberizedMarketableRootsNrConBPpp: String? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_REC_BPP3")
-    var tuberizedMarketableRootsNrRecBpp3: Int? = null
+    var tuberizedMarketableRootsNrRecBpp3: String? = null
 }

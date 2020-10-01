@@ -11,13 +11,13 @@ class YieldAssessmentForm {
     var yieldAssessmentPlotID: String? = null
 
     @JsonProperty("yieldAssessment/leavesFWss")
-    var yieldAssessmentLeavesFWss: Int? = null
+    var yieldAssessmentLeavesFWss: String? = null
 
     @JsonProperty("yieldAssessment/nrPlantsNP")
-    var yieldAssessmentNrPlantsNP: Int? = null
+    var yieldAssessmentNrPlantsNP: String? = null
 
     @JsonProperty("yieldAssessment/greenStemsFWss")
-    var yieldAssessmentGreenStemsFWss: Int? = null
+    var yieldAssessmentGreenStemsFWss: String? = null
 
     @JsonProperty("yieldAssessment/plantSampleID_leaves")
     var yieldAssessmentPlantSampleIDLeaves: String? = null
@@ -32,7 +32,7 @@ class YieldAssessmentForm {
     var yieldAssessmentAbovegroundBiomassFWGreenStemsFW: Double? = null
 
     @JsonProperty("yieldAssessment/greenStemsLeavesFWss")
-    var yieldAssessmentGreenStemsLeavesFWss: Int? = null
+    var yieldAssessmentGreenStemsLeavesFWss: String? = null
 
     @JsonProperty("yieldAssessment/plantSampleID_greenStemsLeaves")
     var yieldAssessmentPlantSampleIDGreenStemsLeaves: String? = null
