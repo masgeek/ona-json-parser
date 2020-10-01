@@ -22,11 +22,11 @@ class ValCisEntity : BaseEntity() {
     @Column(name = "today_date")
     var todayDate: LocalDate? = null
 
-    @Column(name = "deviceid")
-    var deviceid: String? = null
+    @Column(name = "device_id")
+    var deviceId: String? = null
 
-    @Column(name = "subscriberid")
-    var subscriberid: String? = null
+    @Column(name = "subscriber_id")
+    var subscriberId: String? = null
 
     @Column(name = "email")
     var email: String? = null
@@ -37,8 +37,8 @@ class ValCisEntity : BaseEntity() {
     @Column(name = "simserial")
     var simserial: String? = null
 
-    @Column(name = "phonenumber")
-    var phonenumber: String? = null
+    @Column(name = "phone_number")
+    var phoneNumber: String? = null
 
     @Column(name = "banner")
     var banner: String? = null
@@ -58,8 +58,8 @@ class ValCisEntity : BaseEntity() {
     @Column(name = "hhid")
     var hhid: String? = null
 
-    @Column(name = "countryselect")
-    var countryselect: String? = null
+    @Column(name = "country_select")
+    var countrySelect: String? = null
 
     @Column(name = "country")
     var country: String? = null
@@ -91,148 +91,148 @@ class ValCisEntity : BaseEntity() {
     @Column(name = "planting_date")
     var plantingDate: LocalDate? = null
 
-    @Column(name = "yieldlevel")
-    var yieldlevel: String? = null
+    @Column(name = "yield_level")
+    var yieldLevel: String? = null
 
-    @Column(name = "sweetpotatovarietyselect")
-    var sweetpotatovarietyselect: String? = null
+    @Column(name = "sweetpotato_variety_select")
+    var sweetpotatoVarietySelect: String? = null
 
-    @Column(name = "sweetpotatovarietyother")
-    var sweetpotatovarietyother: String? = null
+    @Column(name = "sweetpotato_variety_other")
+    var sweetpotatoVarietyOther: String? = null
 
-    @Column(name = "cassavavariety_select")
-    var cassavavarietyselect: String? = null
+    @Column(name = "cassava_variety_select")
+    var cassavaVarietySelect: String? = null
 
-    @Column(name = "cassavavariety_other")
-    var cassavavarietyother: String? = null
+    @Column(name = "cassava_variety_other")
+    var cassavaVarietyOther: String? = null
 
-    @Column(name = "cassavavariety_type")
-    var cassavavarietytype: String? = null
+    @Column(name = "cassava_variety_type")
+    var cassavaVarietyType: String? = null
 
-    @Column(name = "areabasis")
-    var areabasis: String? = null
+    @Column(name = "area_basis")
+    var areaBasis: String? = null
 
-    @Column(name = "bagsize_npk")
-    var bagsizenpk: String? = null
+    @Column(name = "bag_size_npk")
+    var bagSizeNpk: String? = null
 
-    @Column(name = "costnpk")
-    var costnpk: String? = null
+    @Column(name = "cost_npk")
+    var costNpk: String? = null
 
-    @Column(name = "rootsunit")
+    @Column(name = "roots_unit")
     var rootsUnit: String? = null
 
-    @Column(name = "rootspricesi")
-    var rootspricesi: String? = null
+    @Column(name = "roots_price_si")
+    var rootsPriceSi: String? = null
 
-    @Column(name = "rootsunitname")
-    var rootsunitname: String? = null
+    @Column(name = "roots_unit_name")
+    var rootsUnitName: String? = null
 
-    @Column(name = "rootsunitweight")
-    var rootsunitweight: String? = null
+    @Column(name = "roots_unit_weight")
+    var rootsUnitWeight: String? = null
 
-    @Column(name = "rootsunitprice")
-    var rootsunitprice: String? = null
+    @Column(name = "roots_unit_price")
+    var rootsUnitPrice: String? = null
 
-    @Column(name = "rootsprice")
-    var rootsprice: String? = null
+    @Column(name = "roots_price")
+    var rootsPrice: String? = null
 
-    @Column(name = "tuberunit")
-    var tuberunit: String? = null
+    @Column(name = "tuber_unit")
+    var tuberUnit: String? = null
 
-    @Column(name = "tuberpricesi")
-    var tuberpricesi: String? = null
+    @Column(name = "tuber_price_si")
+    var tuberPriceSi: String? = null
 
-    @Column(name = "tuberunitname")
-    var tuberunitname: String? = null
+    @Column(name = "tuber_unit_name")
+    var tuberUnitName: String? = null
 
-    @Column(name = "tuberunitweight")
-    var tuberunitweight: String? = null
+    @Column(name = "tuber_unit_weight")
+    var tuberUnitWeight: String? = null
 
-    @Column(name = "tuberunitprice")
-    var tuberunitprice: String? = null
+    @Column(name = "tuber_unit_price")
+    var tuberUnitPrice: String? = null
 
-    @Column(name = "tuberprice")
-    var tuberprice: String? = null
+    @Column(name = "tuber_price")
+    var tuberPrice: String? = null
 
-    @Column(name = "rootyieldmc")
-    var rootyieldmc: String? = null
+    @Column(name = "root_yield_mc")
+    var rootYieldMc: String? = null
 
-    @Column(name = "tuberyieldmc")
-    var tuberyieldmc: String? = null
+    @Column(name = "tuber_yield_mc")
+    var tuberYieldMc: String? = null
 
-    @Column(name = "rootyieldredic")
-    var rootyieldredic: String? = null
+    @Column(name = "root_yield_red_ic")
+    var rootYieldRedIc: String? = null
 
-    @Column(name = "tuberyieldredic")
-    var tuberyieldredic: String? = null
+    @Column(name = "tuber_yield_red_ic")
+    var tuberYieldRedIc: String? = null
 
-    @Column(name = "extrarootyieldmcf")
-    var extrarootyieldmcf: String? = null
+    @Column(name = "extra_root_yield_mcf")
+    var extraRootYieldMcf: String? = null
 
-    @Column(name = "extratuberyieldmcf")
-    var extratuberyieldmcf: String? = null
+    @Column(name = "extra_tuber_yield_mcf")
+    var extraTuberYieldMcf: String? = null
 
-    @Column(name = "rootgrmc")
-    var rootgrmc: String? = null
+    @Column(name = "root_grmc")
+    var rootGrmc: String? = null
 
-    @Column(name = "rootgric")
-    var rootgric: String? = null
+    @Column(name = "root_gric")
+    var rootGric: String? = null
 
-    @Column(name = "tubergric")
-    var tubergric: String? = null
+    @Column(name = "tuber_gric")
+    var tuberGric: String? = null
 
-    @Column(name = "totalgric")
-    var totalgric: String? = null
+    @Column(name = "total_gric")
+    var totalGric: String? = null
 
-    @Column(name = "extragric")
-    var extragric: String? = null
+    @Column(name = "extra_gric")
+    var extraGric: String? = null
 
-    @Column(name = "importanceic")
-    var importanceic: String? = null
+    @Column(name = "importance_ic")
+    var importanceIc: String? = null
 
-    @Column(name = "unitpricenpk50kg")
-    var unitpricenpk50kg: String? = null
+    @Column(name = "unit_price_npk_50kg")
+    var unitPriceNpk50kg: String? = null
 
-    @Column(name = "costfertilizer")
-    var costfertilizer: String? = null
+    @Column(name = "cost_fertilizer")
+    var costFertilizer: String? = null
 
-    @Column(name = "ratefertilizerab_text")
-    var ratefertilizerabText: String? = null
+    @Column(name = "rate_fertilizer_ab_text")
+    var rateFertilizerAbText: String? = null
 
-    @Column(name = "costfertilizerab")
-    var costfertilizerab: String? = null
+    @Column(name = "cost_fertilizer_ab")
+    var costFertilizerAb: String? = null
 
-    @Column(name = "costfertilizerab_text")
-    var costfertilizerabText: String? = null
+    @Column(name = "cost_fertilizer_ab_text")
+    var costFertilizerAbText: String? = null
 
-    @Column(name = "riskattitude")
-    var riskattitude: String? = null
+    @Column(name = "risk_attitude")
+    var riskAttitude: String? = null
 
-    @Column(name = "rootgrmcf")
-    var rootgrmcf: String? = null
+    @Column(name = "root_grmcf")
+    var rootGrmcf: String? = null
 
-    @Column(name = "rootgricf")
-    var rootgricf: String? = null
+    @Column(name = "root_gricf")
+    var rootGricf: String? = null
 
-    @Column(name = "tubergricf")
-    var tubergricf: String? = null
+    @Column(name = "tuber_gricf")
+    var tuberGricf: String? = null
 
-    @Column(name = "totalgricf")
-    var totalgricf: String? = null
+    @Column(name = "total_gricf")
+    var totalGricf: String? = null
 
-    @Column(name = "extragrmcf")
-    var extragrmcf: String? = null
+    @Column(name = "extra_grmcf")
+    var extraGrmcf: String? = null
 
-    @Column(name = "extragricf")
-    var extragricf: String? = null
+    @Column(name = "extra_gricf")
+    var extraGricf: String? = null
 
     @Column(name = "rec")
     var rec: String? = null
 
-    @Column(name = "extraprofit")
+    @Column(name = "extra_profit")
     var extraProfit: String? = null
 
-    @Column(name = "extraprofitperc")
+    @Column(name = "extra_profit_perc")
     var extraProfitPerc: String? = null
 
     @Column(name = "rec_mc")
@@ -244,26 +244,26 @@ class ValCisEntity : BaseEntity() {
     @Column(name = "rec_icf")
     var recIcf: String? = null
 
-    @Column(name = "validationnote")
-    var validationnote: String? = null
+    @Column(name = "validation_note")
+    var validationNote: String? = null
 
-    @Column(name = "validationplot1")
-    var validationplot1: String? = null
+    @Column(name = "validation_plot1")
+    var validationPlot1: String? = null
 
-    @Column(name = "validationplot2")
-    var validationplot2: String? = null
+    @Column(name = "validation_plot2")
+    var validationPlot2: String? = null
 
-    @Column(name = "validationplot3")
-    var validationplot3: String? = null
+    @Column(name = "validation_plot3")
+    var validationPlot3: String? = null
 
-    @Column(name = "validationplot4")
-    var validationplot4: String? = null
+    @Column(name = "validation_plot4")
+    var validationPlot4: String? = null
 
     @Column(name = "call_value")
     var callValue: String? = null
 
-    @Column(name = "confirmval")
-    var confirmval: String? = null
+    @Column(name = "confirm_val")
+    var confirmVal: String? = null
 
     @Column(name = "end_date")
     var endDate: LocalDateTime? = null

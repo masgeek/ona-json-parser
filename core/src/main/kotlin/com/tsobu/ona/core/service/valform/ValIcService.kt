@@ -5,12 +5,12 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.valdto.ValFrDto
+import com.tsobu.ona.core.dto.json.valdto.ValIcDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.valform.ValFrEntity
-import com.tsobu.ona.database.repositories.valform.ValFrRepo
-import com.tsobu.ona.forms.valform.ValFrForm
+import com.tsobu.ona.database.entities.valform.ValIcEntity
+import com.tsobu.ona.database.repositories.valform.ValIcRepo
+import com.tsobu.ona.forms.valform.ValIcForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
@@ -25,20 +25,20 @@ import java.nio.file.Paths
 
 
 @Service
-class ValFrService
+class ValIcService
 constructor(
         transactionManager: PlatformTransactionManager,
-        val valFrRepo: ValFrRepo,
+        val valIcRepo: ValIcRepo,
         val appConfig: AppConfig) {
 
-    private val log = LoggerFactory.getLogger(ValFrService::class.java)
+    private val log = LoggerFactory.getLogger(ValIcService::class.java)
     private val modelMapper = ModelMapper()
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
     private val writeCsvFile = WriteCsvFile()
 
-    private val fileName = "VAL_FR.json"
+    private val fileName = "VAL_IC.json"
 
     fun mapJsonFile() {
         log.info("Reading table data....")
@@ -58,20 +58,21 @@ constructor(
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        val valFrEntityList = valFrRepo.findAllByOrderBySubmissionDateAsc()
+        val valIcEntityList = valIcRepo.findAllByOrderBySubmissionDateAsc()
 
 
-        val valFrData = valFrEntityList.map { valFrEntity ->
-            val starchContentAcDto = modelMapper.map(valFrEntity, ValFrDto::class.java)
-            starchContentAcDto.submissionDate = myDateUtil.convertTimeToString(valFrEntity.submissionDate)
-            starchContentAcDto.start = myDateUtil.convertTimeToString(valFrEntity.startDate)
-            starchContentAcDto.end = myDateUtil.convertTimeToString(valFrEntity.endDate)
-            starchContentAcDto
+        val valIcData = valIcEntityList.map { valIcEntity ->
+            val valIcDto = modelMapper.map(valIcEntity, ValIcDto::class.java)
+            valIcDto.submissionDate = myDateUtil.convertTimeToString(valIcEntity.submissionDate)
+            valIcDto.start = myDateUtil.convertTimeToString(valIcEntity.startDate)
+            valIcDto.end = myDateUtil.convertTimeToString(valIcEntity.endDate)
+//            valIcDto.purposeVal = valIcEntity.confirmVal
+            valIcDto
         }
 
 
-        writeCsvFile.writeCsv(classMap = ValFrDto::class.java, data = valFrData,
-                fileName = "VAL_FR", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = ValIcDto::class.java, data = valIcData,
+                fileName = "VAL_IC", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -81,7 +82,7 @@ constructor(
         val file = Paths.get(filePath).toFile()
 
         objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true)
-        val list = objectMapper.readValue(file, object : TypeReference<List<ValFrForm>>() {})
+        val list = objectMapper.readValue(file, object : TypeReference<List<ValIcForm>>() {})
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
@@ -100,12 +101,12 @@ constructor(
 //        modelMapper.configuration.destinationNamingConvention = NamingConventions.NONE
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
-        val valFrData = ArrayList<ValFrEntity>()
-        list.forEach { valFrForm ->
+        val valIcData = ArrayList<ValIcEntity>()
+        list.forEach { valIcForm ->
             //map and save to database
-            val valFrEntity = modelMapper.map(valFrForm, ValFrEntity::class.java)
+            val valFrEntity = modelMapper.map(valIcForm, ValIcEntity::class.java)
 
-            val geoPoint = myDateUtil.splitGeoPoint(valFrForm.geopoint)
+            val geoPoint = myDateUtil.splitGeoPoint(valIcForm.geopoint)
             if (geoPoint.isNotEmpty()) {
                 valFrEntity.geoPointLatitude = geoPoint[0]
 
@@ -119,20 +120,22 @@ constructor(
                     valFrEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            valFrEntity.uuid = valFrForm.formhubUuid
-            valFrEntity.submissionDate = myDateUtil.convertToDateTime(valFrForm.submissionTime)
-            valFrEntity.todayDate = myDateUtil.convertToDate(valFrForm.today)
-            valFrEntity.startDate = myDateUtil.convertToDateTime(valFrForm.start)
-            valFrEntity.endDate = myDateUtil.convertToDateTime(valFrForm.end)
-            valFrEntity.plantingDate = myDateUtil.convertToDate(valFrForm.plantingDate)
-            valFrEntity.instanceId = valFrForm.metaInstanceID
-            valFrEntity.controlKey = valFrForm.metaInstanceID
+            valFrEntity.uuid = valIcForm.formhubUuid
+            valFrEntity.submissionDate = myDateUtil.convertToDateTime(valIcForm.submissionTime)
+            valFrEntity.todayDate = myDateUtil.convertToDate(valIcForm.today)
+            valFrEntity.startDate = myDateUtil.convertToDateTime(valIcForm.start)
+            valFrEntity.endDate = myDateUtil.convertToDateTime(valIcForm.end)
+            valFrEntity.plantingDate = myDateUtil.convertToDate(valIcForm.plantingDate)
+            valFrEntity.instanceId = valIcForm.metaInstanceID
+            valFrEntity.controlKey = valIcForm.metaInstanceID
 
-            valFrData.add(valFrEntity)
-            log.info("Added data to table ${valFrEntity.controlKey} with surname as ${valFrForm.xformIdString}")
+//            valFrEntity.profitExtraPlot = valIcForm.callValue
+
+            valIcData.add(valFrEntity)
+            log.info("Added data to table ${valFrEntity.controlKey} with surname as ${valIcForm.xformIdString}")
         }
 
-//        valFrRepo.saveAll(valFrData)
+//        valIcRepo.saveAll(valIcData)
 
         log.info("Finished saving the data for $fileName------->")
 

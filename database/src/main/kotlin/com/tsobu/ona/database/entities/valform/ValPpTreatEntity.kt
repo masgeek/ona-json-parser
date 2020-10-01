@@ -22,11 +22,11 @@ class ValPpTreatEntity : BaseEntity() {
     @Column(name = "today_date")
     var todayDate: LocalDate? = null
 
-    @Column(name = "deviceid")
-    var deviceid: String? = null
+    @Column(name = "device_id")
+    var deviceId: String? = null
 
-    @Column(name = "subscriberid")
-    var subscriberid: String? = null
+    @Column(name = "subscriber_id")
+    var subscriberId: String? = null
 
     @Column(name = "email")
     var email: String? = null
@@ -37,8 +37,8 @@ class ValPpTreatEntity : BaseEntity() {
     @Column(name = "simserial")
     var simserial: String? = null
 
-    @Column(name = "phonenumber")
-    var phonenumber: String? = null
+    @Column(name = "phone_number")
+    var phoneNumber: String? = null
 
     @Column(name = "banner")
     var banner: String? = null
@@ -52,8 +52,8 @@ class ValPpTreatEntity : BaseEntity() {
     @Column(name = "hhid")
     var hhid: String? = null
 
-    @Column(name = "countryselect")
-    var countryselect: String? = null
+    @Column(name = "country_select")
+    var countrySelect: String? = null
 
     @Column(name = "geo_point_latitude")
     var geoPointLatitude: String? = null
@@ -73,71 +73,71 @@ class ValPpTreatEntity : BaseEntity() {
     @Column(name = "lon")
     var lon: String? = null
 
-    @Column(name = "basictillcp")
-    var basictillcp: String? = null
+    @Column(name = "basic_till_cp")
+    var basicTillCp: String? = null
 
-    @Column(name = "harrowselectcp")
-    var harrowselectcp: String? = null
+    @Column(name = "harrow_select_cp")
+    var harrowSelectCp: String? = null
 
-    @Column(name = "ridgingcp")
-    var ridgingcp: String? = null
+    @Column(name = "ridging_cp")
+    var ridgingCp: String? = null
 
-    @Column(name = "basictillmethodselect1cp")
-    var basictillmethodselect1cp: String? = null
+    @Column(name = "basic_till_method_select1_cp")
+    var basicTillMethodSelect1Cp: String? = null
 
-    @Column(name = "basictillmethodselect2cp")
-    var basictillmethodselect2cp: String? = null
+    @Column(name = "basic_till_method_select2_cp")
+    var basicTillMethodSelect2Cp: String? = null
 
-    @Column(name = "harrowcp")
-    var harrowcp: String? = null
+    @Column(name = "harrow_cp")
+    var harrowCp: String? = null
 
-    @Column(name = "ridgingmethodselectcp")
-    var ridgingmethodselectcp: String? = null
+    @Column(name = "ridging_method_select_cp")
+    var ridgingMethodSelectCp: String? = null
 
-    @Column(name = "basictillrec")
-    var basictillrec: String? = null
+    @Column(name = "basic_till_rec")
+    var basicTillRec: String? = null
 
-    @Column(name = "harrowselectrec")
-    var harrowselectrec: String? = null
+    @Column(name = "harrow_select_rec")
+    var harrowSelectRec: String? = null
 
-    @Column(name = "ridgingrec")
-    var ridgingrec: String? = null
+    @Column(name = "ridging_rec")
+    var ridgingRec: String? = null
 
-    @Column(name = "basictillmethodselect1rec")
-    var basictillmethodselect1rec: String? = null
+    @Column(name = "basic_till_method_select1_rec")
+    var basicTillMethodSelect1Rec: String? = null
 
-    @Column(name = "basictillmethodselect2rec")
-    var basictillmethodselect2rec: String? = null
+    @Column(name = "basic_till_method_select2_rec")
+    var basicTillMethodSelect2Rec: String? = null
 
-    @Column(name = "harrowrec")
-    var harrowrec: String? = null
+    @Column(name = "harrow_rec")
+    var harrowRec: String? = null
 
-    @Column(name = "ridgingmethodselectrec")
-    var ridgingmethodselectrec: String? = null
+    @Column(name = "ridging_method_select_rec")
+    var ridgingMethodSelectRec: String? = null
 
-    @Column(name = "presenceredplot")
-    var presenceredplot: String? = null
+    @Column(name = "presencered_plot")
+    var presenceredPlot: String? = null
 
-    @Column(name = "basictillalt")
-    var basictillalt: String? = null
+    @Column(name = "basic_till_alt")
+    var basicTillAlt: String? = null
 
-    @Column(name = "harrowselectalt")
-    var harrowselectalt: String? = null
+    @Column(name = "harrow_select_alt")
+    var harrowSelectAlt: String? = null
 
-    @Column(name = "ridgingalt")
-    var ridgingalt: String? = null
+    @Column(name = "ridging_alt")
+    var ridgingAlt: String? = null
 
-    @Column(name = "basictillmethodselect1alt")
-    var basictillmethodselect1alt: String? = null
+    @Column(name = "basic_till_method_select1_alt")
+    var basicTillMethodSelect1Alt: String? = null
 
-    @Column(name = "basictillmethodselect2alt")
-    var basictillmethodselect2alt: String? = null
+    @Column(name = "basic_till_method_select2_alt")
+    var basicTillMethodSelect2Alt: String? = null
 
-    @Column(name = "harrowalt")
-    var harrowalt: String? = null
+    @Column(name = "harrow_alt")
+    var harrowAlt: String? = null
 
-    @Column(name = "ridgingmethodselectalt")
-    var ridgingmethodselectalt: String? = null
+    @Column(name = "ridging_method_select_alt")
+    var ridgingMethodSelectAlt: String? = null
 
     @Column(name = "end_date")
     var endDate: LocalDateTime? = null

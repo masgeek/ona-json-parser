@@ -54,7 +54,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = true
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -128,11 +128,13 @@ constructor(
             valCisEntity.instanceId = valCisForm.metaInstanceID
             valCisEntity.controlKey = valCisForm.metaInstanceID
 
+//            valCisEntity.costFertilizerAbText = valCisForm.costFertilizerAbText
+
             valCisData.add(valCisEntity)
             log.info("Added data to table ${valCisEntity.controlKey} with surname as ${valCisForm.xformIdString}")
         }
 
-//        valCisRepo.saveAll(valCisData)
+        valCisRepo.saveAll(valCisData)
 
         log.info("Finished saving the data for $fileName------->")
 

@@ -4,4 +4,6 @@ import com.tsobu.ona.database.entities.valform.ValIcEntity
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor
 
-interface ValIcRepo : JpaRepository<ValIcEntity?, Long?>
+interface ValIcRepo : JpaRepository<ValIcEntity?, Long?> {
+    abstract fun findAllByOrderBySubmissionDateAsc(): List<ValIcEntity>
+}

@@ -185,7 +185,7 @@ class EzDto {
     var pricerp4: String? = null
 
     @JsonProperty("confirmVAL")
-    var confirmval: String? = null
+    var confirmVal: String? = null
 
     @JsonProperty("countrySelect")
     var countryselect: String? = null

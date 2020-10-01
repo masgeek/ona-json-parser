@@ -205,7 +205,7 @@ class ValCisForm {
     var xformIdString: String? = null
 
     @JsonProperty("costFertilizerAB")
-    var costfertilizerab: String? = null
+    var costFertilizerAb: String? = null
 
     @JsonProperty("unitPriceNPK50kg")
     var unitPriceNPK50kg: String? = null
@@ -232,7 +232,7 @@ class ValCisForm {
     var costfertilizerabText: String? = null
 
     @JsonProperty("rateFertilizerAB_Text")
-    var rateFertilizerABText: String? = null
+    var costFertilizerAbText: String? = null
 
     @JsonProperty("costDetailsNPK/costNPK")
     var costDetailsNPKCostNPK: String? = null

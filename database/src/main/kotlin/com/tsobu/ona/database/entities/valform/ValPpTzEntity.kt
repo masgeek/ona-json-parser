@@ -22,11 +22,11 @@ class ValPpTzEntity : BaseEntity() {
     @Column(name = "today_date")
     var todayDate: LocalDate? = null
 
-    @Column(name = "deviceid")
-    var deviceid: String? = null
+    @Column(name = "device_id")
+    var deviceId: String? = null
 
-    @Column(name = "subscriberid")
-    var subscriberid: String? = null
+    @Column(name = "subscriber_id")
+    var subscriberId: String? = null
 
     @Column(name = "email")
     var email: String? = null
@@ -37,8 +37,8 @@ class ValPpTzEntity : BaseEntity() {
     @Column(name = "simserial")
     var simserial: String? = null
 
-    @Column(name = "phonenumber")
-    var phonenumber: String? = null
+    @Column(name = "phone_number")
+    var phoneNumber: String? = null
 
     @Column(name = "banner")
     var banner: String? = null
@@ -58,8 +58,8 @@ class ValPpTzEntity : BaseEntity() {
     @Column(name = "hhid")
     var hhid: String? = null
 
-    @Column(name = "countryselect")
-    var countryselect: String? = null
+    @Column(name = "country_select")
+    var countrySelect: String? = null
 
     @Column(name = "country")
     var country: String? = null
@@ -97,20 +97,20 @@ class ValPpTzEntity : BaseEntity() {
     @Column(name = "season")
     var season: String? = null
 
-    @Column(name = "fallowtype")
-    var fallowtype: String? = null
+    @Column(name = "fallow_type")
+    var fallowType: String? = null
 
-    @Column(name = "fallowheight")
-    var fallowheight: String? = null
+    @Column(name = "fallow_height")
+    var fallowHeight: String? = null
 
-    @Column(name = "fallowage")
-    var fallowage: String? = null
+    @Column(name = "fallow_age")
+    var fallowAge: String? = null
 
-    @Column(name = "fallowgreen")
-    var fallowgreen: String? = null
+    @Column(name = "fallow_green")
+    var fallowGreen: String? = null
 
-    @Column(name = "problemweeds")
-    var problemweeds: String? = null
+    @Column(name = "problem_weeds")
+    var problemWeeds: String? = null
 
     @Column(name = "pw_count")
     var pwCount: String? = null
@@ -124,68 +124,68 @@ class ValPpTzEntity : BaseEntity() {
     @Column(name = "spray")
     var spray: String? = null
 
-    @Column(name = "slash1spray1note")
-    var slash1spray1note: String? = null
+    @Column(name = "slash1_spray1_note")
+    var slash1Spray1Note: String? = null
 
-    @Column(name = "slash1spray0note")
-    var slash1spray0note: String? = null
+    @Column(name = "slash1_spray0_note")
+    var slash1Spray0Note: String? = null
 
-    @Column(name = "slash0spray1note")
-    var slash0spray1note: String? = null
+    @Column(name = "slash0_spray1_note")
+    var slash0Spray1Note: String? = null
 
-    @Column(name = "slash0spray0note")
-    var slash0spray0note: String? = null
+    @Column(name = "slash0_spray0_note")
+    var slash0Spray0Note: String? = null
 
-    @Column(name = "tractoraccess")
-    var tractoraccess: String? = null
+    @Column(name = "tractor_access")
+    var tractorAccess: String? = null
 
     @Column(name = "implement")
     var implement: String? = null
 
-    @Column(name = "herbicideaccess")
-    var herbicideaccess: String? = null
+    @Column(name = "herbicide_access")
+    var herbicideAccess: String? = null
 
-    @Column(name = "basictill")
-    var basictill: String? = null
+    @Column(name = "basic_till")
+    var basicTill: String? = null
 
-    @Column(name = "harrowselect")
-    var harrowselect: String? = null
+    @Column(name = "harrow_select")
+    var harrowSelect: String? = null
 
     @Column(name = "ridging")
     var ridging: String? = null
 
-    @Column(name = "weedingmethodselect")
-    var weedingmethodselect: String? = null
+    @Column(name = "weeding_method_select")
+    var weedingMethodSelect: String? = null
 
-    @Column(name = "basictillmethodselect1")
-    var basictillmethodselect1: String? = null
+    @Column(name = "basic_till_method_select1")
+    var basicTillMethodSelect1: String? = null
 
-    @Column(name = "basictillmethod1")
-    var basictillmethod1: String? = null
+    @Column(name = "basic_till_method_1")
+    var basicTillMethod1: String? = null
 
-    @Column(name = "basictillmethodselect2")
-    var basictillmethodselect2: String? = null
+    @Column(name = "basic_till_method_select2")
+    var basicTillMethodSelect2: String? = null
 
-    @Column(name = "basictillmethod2")
-    var basictillmethod2: String? = null
+    @Column(name = "basic_till_method_2")
+    var basicTillMethod2: String? = null
 
     @Column(name = "harrow")
     var harrow: String? = null
 
-    @Column(name = "ridgingmethodselect")
-    var ridgingmethodselect: String? = null
+    @Column(name = "ridging_method_select")
+    var ridgingMethodSelect: String? = null
 
-    @Column(name = "ridgingmethod")
-    var ridgingmethod: String? = null
+    @Column(name = "ridging_method")
+    var ridgingMethod: String? = null
 
-    @Column(name = "weedingmethod")
-    var weedingmethod: String? = null
+    @Column(name = "weeding_method")
+    var weedingMethod: String? = null
 
-    @Column(name = "currenty")
-    var currenty: String? = null
+    @Column(name = "current_y")
+    var currentY: String? = null
 
-    @Column(name = "currentyieldlevel")
-    var currentyieldlevel: String? = null
+    @Column(name = "current_yield_level")
+    var currentYieldLevel: String? = null
 
     @Column(name = "cp")
     var cp: String? = null
@@ -193,14 +193,14 @@ class ValPpTzEntity : BaseEntity() {
     @Column(name = "variety")
     var variety: String? = null
 
-    @Column(name = "plantingdensity")
-    var plantingdensity: String? = null
+    @Column(name = "planting_density")
+    var plantingDensity: String? = null
 
-    @Column(name = "betweenrow")
-    var betweenrow: String? = null
+    @Column(name = "between_row")
+    var betweenRow: String? = null
 
-    @Column(name = "withinrow")
-    var withinrow: String? = null
+    @Column(name = "within_row")
+    var withinRow: String? = null
 
     @Column(name = "plotl")
     var plotl: String? = null
@@ -208,56 +208,56 @@ class ValPpTzEntity : BaseEntity() {
     @Column(name = "plotw")
     var plotw: String? = null
 
-    @Column(name = "plotsize")
-    var plotsize: String? = null
+    @Column(name = "plot_size")
+    var plotSize: String? = null
 
-    @Column(name = "costnote")
-    var costnote: String? = null
+    @Column(name = "cost_note")
+    var costNote: String? = null
 
-    @Column(name = "basictill1manualcost")
-    var basictill1manualcost: String? = null
+    @Column(name = "basic_till1_manual_cost")
+    var basicTill1ManualCost: String? = null
 
-    @Column(name = "basictill1tractorcost")
-    var basictill1tractorcost: String? = null
+    @Column(name = "basic_till1_tractor_cost")
+    var basicTill1TractorCost: String? = null
 
-    @Column(name = "basictill2manualcost")
-    var basictill2manualcost: String? = null
+    @Column(name = "basic_till2_manual_cost")
+    var basicTill2ManualCost: String? = null
 
-    @Column(name = "basictill2tractorcost")
-    var basictill2tractorcost: String? = null
+    @Column(name = "basic_till2_tractor_cost")
+    var basicTill2TractorCost: String? = null
 
-    @Column(name = "harrowtractorcost")
-    var harrowtractorcost: String? = null
+    @Column(name = "harrow_tractor_cost")
+    var harrowTractorCost: String? = null
 
-    @Column(name = "ridgingmanualcost")
-    var ridgingmanualcost: String? = null
+    @Column(name = "ridging_manual_cost")
+    var ridgingManualCost: String? = null
 
-    @Column(name = "ridgingtractorcost")
-    var ridgingtractorcost: String? = null
+    @Column(name = "ridging_tractor_cost")
+    var ridgingTractorCost: String? = null
 
-    @Column(name = "weedingmanualcost")
-    var weedingmanualcost: String? = null
+    @Column(name = "weeding_manual_cost")
+    var weedingManualCost: String? = null
 
-    @Column(name = "weedingherbicidecost")
-    var weedingherbicidecost: String? = null
+    @Column(name = "weeding_herbicide_cost")
+    var weedingHerbicideCost: String? = null
 
-    @Column(name = "priceroots")
-    var priceroots: String? = null
+    @Column(name = "price_roots")
+    var priceRoots: String? = null
 
-    @Column(name = "basictill1cost")
-    var basictill1cost: String? = null
+    @Column(name = "basic_till1_cost")
+    var basicTill1Cost: String? = null
 
-    @Column(name = "basictill2cost")
-    var basictill2cost: String? = null
+    @Column(name = "basic_till2_cost")
+    var basicTill2Cost: String? = null
 
-    @Column(name = "harrowcost")
-    var harrowcost: String? = null
+    @Column(name = "harrow_cost")
+    var harrowCost: String? = null
 
-    @Column(name = "ridgingcost")
-    var ridgingcost: String? = null
+    @Column(name = "ridging_cost")
+    var ridgingCost: String? = null
 
-    @Column(name = "weedingcost")
-    var weedingcost: String? = null
+    @Column(name = "weeding_cost")
+    var weedingCost: String? = null
 
     @Column(name = "costt0rg")
     var costt0rg: String? = null
@@ -277,149 +277,149 @@ class ValPpTzEntity : BaseEntity() {
     @Column(name = "costt2fl")
     var costt2fl: String? = null
 
-    @Column(name = "costcp")
-    var costcp: String? = null
+    @Column(name = "cost_cp")
+    var costCp: String? = null
 
     @Column(name = "costcpcurr")
     var costcpcurr: String? = null
 
-    @Column(name = "grossvaluet0rg")
-    var grossvaluet0rg: String? = null
+    @Column(name = "gross_value_t0rg")
+    var grossValueT0rg: String? = null
 
-    @Column(name = "grossvaluet0fl")
-    var grossvaluet0fl: String? = null
+    @Column(name = "gross_value_t0fl")
+    var grossValueT0fl: String? = null
 
-    @Column(name = "grossvaluet1rg")
-    var grossvaluet1rg: String? = null
+    @Column(name = "gross_value_t1rg")
+    var grossValueT1rg: String? = null
 
-    @Column(name = "grossvaluet1fl")
-    var grossvaluet1fl: String? = null
+    @Column(name = "gross_value_t1fl")
+    var grossValueT1fl: String? = null
 
-    @Column(name = "grossvaluet2rg")
-    var grossvaluet2rg: String? = null
+    @Column(name = "gross_value_t2rg")
+    var grossValueT2rg: String? = null
 
-    @Column(name = "grossvaluet2fl")
-    var grossvaluet2fl: String? = null
+    @Column(name = "gross_value_t2fl")
+    var grossValueT2fl: String? = null
 
-    @Column(name = "grossvaluecp")
-    var grossvaluecp: String? = null
+    @Column(name = "gross_value_cp")
+    var grossValueCp: String? = null
 
-    @Column(name = "netvaluet0rg")
-    var netvaluet0rg: String? = null
+    @Column(name = "net_value_t0rg")
+    var netValueT0rg: String? = null
 
-    @Column(name = "netvaluet0fl")
-    var netvaluet0fl: String? = null
+    @Column(name = "net_value_t0fl")
+    var netValueT0fl: String? = null
 
-    @Column(name = "netvaluet1rg")
-    var netvaluet1rg: String? = null
+    @Column(name = "net_value_t1rg")
+    var netValueT1rg: String? = null
 
-    @Column(name = "netvaluet1fl")
-    var netvaluet1fl: String? = null
+    @Column(name = "net_value_t1fl")
+    var netValueT1fl: String? = null
 
-    @Column(name = "netvaluet2rg")
-    var netvaluet2rg: String? = null
+    @Column(name = "net_value_t2rg")
+    var netValueT2rg: String? = null
 
-    @Column(name = "netvaluet2fl")
-    var netvaluet2fl: String? = null
+    @Column(name = "net_value_t2fl")
+    var netValueT2fl: String? = null
 
-    @Column(name = "netvaluecp")
-    var netvaluecp: String? = null
+    @Column(name = "net_value_cp")
+    var netValueCp: String? = null
 
-    @Column(name = "netvaluedift0rg")
-    var netvaluedift0rg: String? = null
+    @Column(name = "net_value_dift0rg")
+    var netValueDift0rg: String? = null
 
-    @Column(name = "netvaluedift0fl")
-    var netvaluedift0fl: String? = null
+    @Column(name = "net_value_dift0fl")
+    var netValueDift0fl: String? = null
 
-    @Column(name = "netvaluedift1rg")
-    var netvaluedift1rg: String? = null
+    @Column(name = "net_value_dift1rg")
+    var netValueDift1rg: String? = null
 
-    @Column(name = "netvaluedift1fl")
-    var netvaluedift1fl: String? = null
+    @Column(name = "net_value_dift1fl")
+    var netValueDift1fl: String? = null
 
-    @Column(name = "netvaluedift2rg")
-    var netvaluedift2rg: String? = null
+    @Column(name = "net_value_dift2rg")
+    var netValueDift2rg: String? = null
 
-    @Column(name = "netvaluedift2fl")
-    var netvaluedift2fl: String? = null
+    @Column(name = "net_value_dift2fl")
+    var netValueDift2fl: String? = null
 
-    @Column(name = "netvaluedifmax")
-    var netvaluedifmax: String? = null
+    @Column(name = "net_value_difmax")
+    var netValueDifmax: String? = null
 
-    @Column(name = "netvaluedifmaxround")
-    var netvaluedifmaxround: String? = null
+    @Column(name = "net_value_dif_max_round")
+    var netValueDifMaxRound: String? = null
 
-    @Column(name = "cptext")
-    var cptext: String? = null
+    @Column(name = "cp_text")
+    var cpText: String? = null
 
-    @Column(name = "basictillrec")
-    var basictillrec: String? = null
+    @Column(name = "basic_till_rec")
+    var basicTillRec: String? = null
 
-    @Column(name = "ridgingrec")
-    var ridgingrec: String? = null
+    @Column(name = "ridging_rec")
+    var ridgingRec: String? = null
 
-    @Column(name = "rectext")
-    var rectext: String? = null
+    @Column(name = "rec_text")
+    var recText: String? = null
 
-    @Column(name = "harrowtext")
-    var harrowtext: String? = null
+    @Column(name = "harrow_text")
+    var harrowText: String? = null
 
-    @Column(name = "harrowtext2")
-    var harrowtext2: String? = null
+    @Column(name = "harrow_text2")
+    var harrowText2: String? = null
 
-    @Column(name = "costdif")
-    var costdif: String? = null
+    @Column(name = "cost_dif")
+    var costDif: String? = null
 
-    @Column(name = "costdifchange")
-    var costdifchange: String? = null
+    @Column(name = "cost_dif_change")
+    var costDifChange: String? = null
 
-    @Column(name = "costdifabs")
-    var costdifabs: String? = null
+    @Column(name = "cost_dif_abs")
+    var costDifAbs: String? = null
 
-    @Column(name = "netvaluedifcurr")
-    var netvaluedifcurr: String? = null
+    @Column(name = "net_value_diff_curr")
+    var netValueDiffCurr: String? = null
 
-    @Column(name = "costdifcurr")
-    var costdifcurr: String? = null
+    @Column(name = "cost_dif_curr")
+    var costDifCurr: String? = null
 
-    @Column(name = "optppnote")
-    var optppnote: String? = null
+    @Column(name = "opt_pp_note")
+    var optPpNote: String? = null
 
-    @Column(name = "recnote")
-    var recnote: String? = null
+    @Column(name = "rec_note")
+    var recNote: String? = null
 
-    @Column(name = "netvaluenote")
-    var netvaluenote: String? = null
+    @Column(name = "net_value_note")
+    var netValueNote: String? = null
 
-    @Column(name = "costnote1")
-    var costnote1: String? = null
+    @Column(name = "cost_note1")
+    var costNote1: String? = null
 
-    @Column(name = "costnote2")
-    var costnote2: String? = null
+    @Column(name = "cost_note2")
+    var costNote2: String? = null
 
-    @Column(name = "ridgingnote")
-    var ridgingnote: String? = null
+    @Column(name = "ridging_note")
+    var ridgingNote: String? = null
 
-    @Column(name = "tractornote")
-    var tractornote: String? = null
+    @Column(name = "tractor_note")
+    var tractorNote: String? = null
 
-    @Column(name = "harrownote")
-    var harrownote: String? = null
+    @Column(name = "harrow_note")
+    var harrowNote: String? = null
 
-    @Column(name = "validationnote_ez")
-    var validationnoteEz: String? = null
+    @Column(name = "validation_note_ez")
+    var validationNoteEz: String? = null
 
-    @Column(name = "validationnote_lz")
-    var validationnoteLz: String? = null
+    @Column(name = "validation_note_lz")
+    var validationNoteLz: String? = null
 
-    @Column(name = "plantingnote")
-    var plantingnote: String? = null
+    @Column(name = "planting_note")
+    var plantingNote: String? = null
 
     @Column(name = "call_value")
     var callValue: String? = null
 
-    @Column(name = "confirmval")
-    var confirmval: String? = null
+    @Column(name = "confirm_val")
+    var confirmVal: String? = null
 
     @Column(name = "end_date")
     var endDate: LocalDateTime? = null

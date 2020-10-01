@@ -22,6 +22,7 @@ import com.tsobu.ona.core.service.register.HhService
 import com.tsobu.ona.core.service.starchcontent.StarchContentService
 import com.tsobu.ona.core.service.valform.ValCisService
 import com.tsobu.ona.core.service.valform.ValFrService
+import com.tsobu.ona.core.service.valform.ValIcService
 import com.tsobu.ona.core.service.valsphstz.EzService
 import com.tsobu.ona.core.service.valsphstz.LzeService
 import com.tsobu.ona.core.service.valsphstz.LzwService
@@ -67,12 +68,15 @@ class OnaApplication(
         private val collectSsService: CollectSsService,
         private val collectLeafTagsService: CollectLeafTagsService,
         private val valCisService: ValCisService,
-        private val valFrService: ValFrService
+        private val valFrService: ValFrService,
+        private val valIcService: ValIcService,
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
     override fun run(vararg args: String?) {
         log.info("Running Spring Boot Application press CTR-C to close the application");
+
+        valFrService.readJsonAsset()
 
 //        weedControlService.readJsonAsset(fileName = "Score_Weed_Control_AC.json")
 //        yieldCassavaService.readJsonAsset(fileName = "Assess_Root_Yield_Cassava_AC.json")
@@ -92,8 +96,6 @@ class OnaApplication(
 //        starchContentService.readJsonAsset(fileName = "Assess_Starch_Content_AC.json")
 //        fdAcAssignService.readJsonAsset(fileName = "Assign_FD_AC.json")
 
-
-        valFrService.readJsonAsset()
     }
 
 

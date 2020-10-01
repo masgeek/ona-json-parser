@@ -883,5 +883,5 @@ class SzDto {
     var callValue: String? = null
 
     @JsonProperty("confirmVAL")
-    var confirmVAL: String? = null
+    var confirmVal: String? = null
 }

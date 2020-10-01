@@ -22,11 +22,11 @@ class ValIcEntity : BaseEntity() {
     @Column(name = "today_date")
     var todayDate: LocalDate? = null
 
-    @Column(name = "deviceid")
-    var deviceid: String? = null
+    @Column(name = "device_id")
+    var deviceId: String? = null
 
-    @Column(name = "subscriberid")
-    var subscriberid: String? = null
+    @Column(name = "subscriber_id")
+    var subscriberId: String? = null
 
     @Column(name = "email")
     var email: String? = null
@@ -37,8 +37,8 @@ class ValIcEntity : BaseEntity() {
     @Column(name = "simserial")
     var simserial: String? = null
 
-    @Column(name = "phonenumber")
-    var phonenumber: String? = null
+    @Column(name = "phone_number")
+    var phoneNumber: String? = null
 
     @Column(name = "banner")
     var banner: String? = null
@@ -58,8 +58,8 @@ class ValIcEntity : BaseEntity() {
     @Column(name = "hhid")
     var hhid: String? = null
 
-    @Column(name = "countryselect")
-    var countryselect: String? = null
+    @Column(name = "country_select")
+    var countrySelect: String? = null
 
     @Column(name = "country")
     var country: String? = null
@@ -97,149 +97,149 @@ class ValIcEntity : BaseEntity() {
     @Column(name = "heightmaize")
     var heightmaize: String? = null
 
-    @Column(name = "previousmaizevarietyselect")
-    var previousmaizevarietyselect: String? = null
+    @Column(name = "previous_maize_variety_select")
+    var previousMaizeVarietySelect: String? = null
 
-    @Column(name = "previousmaizevarietyother")
-    var previousmaizevarietyother: String? = null
+    @Column(name = "previous_maize_variety_other")
+    var previousMaizeVarietyOther: String? = null
 
-    @Column(name = "previousmaizevarietyduration")
-    var previousmaizevarietyduration: String? = null
+    @Column(name = "previous_maize_variety_duration")
+    var previousMaizeVarietyDuration: String? = null
 
-    @Column(name = "maizevarietyselect")
-    var maizevarietyselect: String? = null
+    @Column(name = "maize_variety_select")
+    var maizeVarietySelect: String? = null
 
-    @Column(name = "maizevarietyother")
-    var maizevarietyother: String? = null
+    @Column(name = "maize_variety_other")
+    var maizeVarietyOther: String? = null
 
-    @Column(name = "maizevarietyduration")
-    var maizevarietyduration: String? = null
+    @Column(name = "maize_variety_duration")
+    var maizeVarietyDuration: String? = null
 
-    @Column(name = "maizevariety")
-    var maizevariety: String? = null
+    @Column(name = "maize_variety")
+    var maizeVariety: String? = null
 
-    @Column(name = "cassavavarietyselect")
-    var cassavavarietyselect: String? = null
+    @Column(name = "cassava_variety_select")
+    var cassavaVarietySelect: String? = null
 
-    @Column(name = "cassavavarietyother")
-    var cassavavarietyother: String? = null
+    @Column(name = "cassava_variety_other")
+    var cassavaVarietyOther: String? = null
 
-    @Column(name = "cassavavarietytype")
-    var cassavavarietytype: String? = null
+    @Column(name = "cassava_variety_type")
+    var cassavaVarietyType: String? = null
 
-    @Column(name = "areabasis")
-    var areabasis: String? = null
+    @Column(name = "area_basis")
+    var areaBasis: String? = null
 
-    @Column(name = "bagsizenpk")
-    var bagsizenpk: String? = null
+    @Column(name = "bag_size_npk")
+    var bagSizeNpk: String? = null
 
-    @Column(name = "costnpk")
-    var costnpk: String? = null
+    @Column(name = "cost_npk")
+    var costNpk: String? = null
 
-    @Column(name = "bagsizeurea")
-    var bagsizeurea: String? = null
+    @Column(name = "bag_size_urea")
+    var bagSizeUrea: String? = null
 
-    @Column(name = "costurea")
-    var costurea: String? = null
+    @Column(name = "cost_urea")
+    var costUrea: String? = null
 
-    @Column(name = "pricemaizecobfreshlarge")
-    var pricemaizecobfreshlarge: String? = null
+    @Column(name = "price_maize_cob_fresh_large")
+    var priceMaizeCobFreshLarge: String? = null
 
-    @Column(name = "priceroots")
-    var priceroots: String? = null
+    @Column(name = "price_roots")
+    var priceRoots: String? = null
 
-    @Column(name = "maizegrain")
-    var maizegrain: String? = null
+    @Column(name = "maize_grain")
+    var maizeGrain: String? = null
 
-    @Column(name = "maizegrainunit")
-    var maizegrainunit: String? = null
+    @Column(name = "maize_grain_unit")
+    var maizeGrainUnit: String? = null
 
-    @Column(name = "maizegrainpricekg")
-    var maizegrainpricekg: String? = null
+    @Column(name = "maize_grain_price_kg")
+    var maizeGrainPriceKg: String? = null
 
-    @Column(name = "maizegrainunitname")
-    var maizegrainunitname: String? = null
+    @Column(name = "maize_grain_unit_name")
+    var maizeGrainUnitName: String? = null
 
-    @Column(name = "maizegrainunitweight")
-    var maizegrainunitweight: String? = null
+    @Column(name = "maize_grain_unit_weight")
+    var maizeGrainUnitWeight: String? = null
 
-    @Column(name = "maizegrainunitprice")
-    var maizegrainunitprice: String? = null
+    @Column(name = "maize_grain_unit_price")
+    var maizeGrainUnitPrice: String? = null
 
-    @Column(name = "maizegrainprice")
-    var maizegrainprice: String? = null
+    @Column(name = "maize_grain_price")
+    var maizeGrainPrice: String? = null
 
-    @Column(name = "numberextracobslarge")
-    var numberextracobslarge: String? = null
+    @Column(name = "number_extra_cobs_large")
+    var numberExtraCobsLarge: String? = null
 
-    @Column(name = "valueextracobslarge")
-    var valueextracobslarge: String? = null
+    @Column(name = "value_extra_cobs_large")
+    var valueExtraCobsLarge: String? = null
 
-    @Column(name = "quantityextragrain")
-    var quantityextragrain: String? = null
+    @Column(name = "quantity_extra_grain")
+    var quantityExtraGrain: String? = null
 
-    @Column(name = "valueextragrain")
-    var valueextragrain: String? = null
+    @Column(name = "value_extra_grain")
+    var valueExtraGrain: String? = null
 
-    @Column(name = "grossextravalue")
-    var grossextravalue: String? = null
+    @Column(name = "grossextra_value")
+    var grossextraValue: String? = null
 
-    @Column(name = "unitpricenpk50kg")
-    var unitpricenpk50kg: String? = null
+    @Column(name = "unit_price_npk_50kg")
+    var unitPriceNpk50kg: String? = null
 
-    @Column(name = "unitpriceurea50kg")
-    var unitpriceurea50kg: String? = null
+    @Column(name = "unit_price_urea_50kg")
+    var unitPriceUrea50kg: String? = null
 
-    @Column(name = "costfertilizer")
-    var costfertilizer: String? = null
+    @Column(name = "cost_fertilizer")
+    var costFertilizer: String? = null
 
-    @Column(name = "costfertilizerareabasis")
-    var costfertilizerareabasis: String? = null
+    @Column(name = "cost_fertilizer_area_basis")
+    var costFertilizerAreaBasis: String? = null
 
-    @Column(name = "costfertilizerareabasis_text")
-    var costfertilizerareabasisText: String? = null
+    @Column(name = "cost_fertilizer_area_basis_text")
+    var costFertilizerAreaBasisText: String? = null
 
-    @Column(name = "riskattitude")
-    var riskattitude: String? = null
+    @Column(name = "risk_attitude")
+    var riskAttitude: String? = null
 
-    @Column(name = "profitextra")
-    var profitextra: String? = null
+    @Column(name = "profit_extra")
+    var profitExtra: String? = null
 
-    @Column(name = "riskratio2")
-    var riskratio2: String? = null
+    @Column(name = "risk_ratio2")
+    var riskRatio2: String? = null
 
-    @Column(name = "numberextracobslarge_ab")
-    var numberextracobslargeAb: String? = null
+    @Column(name = "number_extra_cobs_large_ab")
+    var numberExtraCobsLargeAb: String? = null
 
-    @Column(name = "valueextracobslarge_ab")
-    var valueextracobslargeAb: String? = null
+    @Column(name = "value_extra_cobs_large_ab")
+    var valueExtraCobsLargeAb: String? = null
 
-    @Column(name = "quantityextragrain_ab")
-    var quantityextragrainAb: String? = null
+    @Column(name = "quantity_extra_grain_ab")
+    var quantityExtraGrainAb: String? = null
 
-    @Column(name = "valueextragrain_ab")
-    var valueextragrainAb: String? = null
+    @Column(name = "value_extra_grain_ab")
+    var valueExtraGrainAb: String? = null
 
-    @Column(name = "unitpricenpk50kg_ab")
-    var unitpricenpk50kgAb: String? = null
+    @Column(name = "unit_price_npk_50kg_ab")
+    var unitPriceNpk50kgAb: String? = null
 
-    @Column(name = "unitpriceurea50kg_ab")
-    var unitpriceurea50kgAb: String? = null
+    @Column(name = "unit_price_urea_50kg_ab")
+    var unitPriceUrea50kgAb: String? = null
 
-    @Column(name = "costfertilizer_ab")
-    var costfertilizerAb: String? = null
+    @Column(name = "cost_fertilizer_ab")
+    var costFertilizerAb: String? = null
 
-    @Column(name = "costfertilizer_abtext")
-    var costfertilizerAbtext: String? = null
+    @Column(name = "cost_fertilizer_ab_text")
+    var costFertilizerAbText: String? = null
 
-    @Column(name = "profitextra_ab")
-    var profitextraAb: String? = null
+    @Column(name = "profit_extra_ab")
+    var profitExtraAb: String? = null
 
-    @Column(name = "profitextra_abtext")
-    var profitextraAbtext: String? = null
+    @Column(name = "profit_extra_ab_text")
+    var profitExtraAbText: String? = null
 
-    @Column(name = "riskratio2_ab")
-    var riskratio2Ab: String? = null
+    @Column(name = "risk_ratio2_ab")
+    var riskRatio2Ab: String? = null
 
     @Column(name = "npk_ab")
     var npkAb: String? = null
@@ -250,107 +250,107 @@ class ValIcEntity : BaseEntity() {
     @Column(name = "urea2_ab")
     var urea2Ab: String? = null
 
-    @Column(name = "yieldloss_cassava_abtext")
-    var yieldlossCassavaAbtext: String? = null
+    @Column(name = "yieldloss_cassava_ab_text")
+    var yieldlossCassavaAbText: String? = null
 
-    @Column(name = "valueloss_cassava_abtext")
-    var valuelossCassavaAbtext: String? = null
+    @Column(name = "valueloss_cassava_ab_text")
+    var valuelossCassavaAbText: String? = null
 
     @Column(name = "reasonhd")
     var reasonhd: String? = null
 
-    @Column(name = "plotsize")
-    var plotsize: String? = null
+    @Column(name = "plot_size")
+    var plotSize: String? = null
 
-    @Column(name = "numberextracobslargeplot")
-    var numberextracobslargeplot: String? = null
+    @Column(name = "number_extra_cobs_large_plot")
+    var numberExtraCobsLargePlot: String? = null
 
-    @Column(name = "priceextracobslargeplot")
-    var priceextracobslargeplot: String? = null
+    @Column(name = "price_extra_cobs_large_plot")
+    var priceExtraCobsLargePlot: String? = null
 
-    @Column(name = "quantityextragrainplot")
-    var quantityextragrainplot: String? = null
+    @Column(name = "quantity_extra_grain_plot")
+    var quantityExtraGrainPlot: String? = null
 
-    @Column(name = "valueextragrainplot")
-    var valueextragrainplot: String? = null
+    @Column(name = "value_extra_grain_plot")
+    var valueExtraGrainPlot: String? = null
 
-    @Column(name = "costfertilizerplot")
-    var costfertilizerplot: String? = null
+    @Column(name = "cost_fertilizer_plot")
+    var costFertilizerPlot: String? = null
 
-    @Column(name = "profitextraplot")
-    var profitextraplot: String? = null
+    @Column(name = "profit_extra_plot")
+    var profitExtraPlot: String? = null
 
-    @Column(name = "profitextraplottext")
-    var profitextraplottext: String? = null
+    @Column(name = "profit_extra_plot_text")
+    var profitExtraPlotText: String? = null
 
-    @Column(name = "npkplot")
-    var npkplot: String? = null
+    @Column(name = "npk_plot")
+    var npkPlot: String? = null
 
-    @Column(name = "urea1plot")
-    var urea1plot: String? = null
+    @Column(name = "urea1_plot")
+    var urea1Plot: String? = null
 
-    @Column(name = "urea2plot")
-    var urea2plot: String? = null
+    @Column(name = "urea2_plot")
+    var urea2Plot: String? = null
 
     @Column(name = "reccol")
     var reccol: String? = null
 
-    @Column(name = "lowdensity_recommendation")
-    var lowdensityRecommendation: String? = null
+    @Column(name = "low_density_recommendation")
+    var lowDensityRecommendation: String? = null
 
     @Column(name = "blanket_recommendation")
     var blanketRecommendation: String? = null
 
-    @Column(name = "risknote1")
-    var risknote1: String? = null
+    @Column(name = "risk_note1")
+    var riskNote1: String? = null
 
-    @Column(name = "risknote2")
-    var risknote2: String? = null
+    @Column(name = "risk_note2")
+    var riskNote2: String? = null
 
-    @Column(name = "risknote3")
-    var risknote3: String? = null
+    @Column(name = "risk_note3")
+    var riskNote3: String? = null
 
-    @Column(name = "profitnote1")
-    var profitnote1: String? = null
+    @Column(name = "profit_note1")
+    var profitNote1: String? = null
 
-    @Column(name = "profitnote2")
-    var profitnote2: String? = null
+    @Column(name = "profit_note2")
+    var profitNote2: String? = null
 
-    @Column(name = "profitnote3")
-    var profitnote3: String? = null
+    @Column(name = "profit_note3")
+    var profitNote3: String? = null
 
-    @Column(name = "profitnote3_maizegrain")
-    var profitnote3Maizegrain: String? = null
+    @Column(name = "profit_note3_maize_grain")
+    var profitNote3MaizeGrain: String? = null
 
-    @Column(name = "validationnote")
-    var validationnote: String? = null
+    @Column(name = "validation_note")
+    var validationNote: String? = null
 
-    @Column(name = "validationplot1")
-    var validationplot1: String? = null
+    @Column(name = "validation_plot1")
+    var validationPlot1: String? = null
 
-    @Column(name = "validationplot1note1")
-    var validationplot1note1: String? = null
+    @Column(name = "validation_plot1_note1")
+    var validationPlot1Note1: String? = null
 
-    @Column(name = "validationplot1note2")
-    var validationplot1note2: String? = null
+    @Column(name = "validation_plot1_note2")
+    var validationPlot1Note2: String? = null
 
-    @Column(name = "validationplot1note2_maizegrain")
-    var validationplot1note2Maizegrain: String? = null
+    @Column(name = "validation_plot1_note2_maize_grain")
+    var validationPlot1Note2MaizeGrain: String? = null
 
-    @Column(name = "validationplot2")
-    var validationplot2: String? = null
+    @Column(name = "validation_plot2")
+    var validationPlot2: String? = null
 
-    @Column(name = "validationplot3")
-    var validationplot3: String? = null
+    @Column(name = "validation_plot3")
+    var validationPlot3: String? = null
 
-    @Column(name = "recnote")
-    var recnote: String? = null
+    @Column(name = "rec_note")
+    var recNote: String? = null
 
     @Column(name = "call_value")
     var callValue: String? = null
 
-    @Column(name = "confirmval")
-    var confirmval: String? = null
+    @Column(name = "confirm_val")
+    var confirmVal: String? = null
 
     @Column(name = "end_date")
     var endDate: LocalDateTime? = null

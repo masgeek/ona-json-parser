@@ -22,11 +22,11 @@ class ValSphsOnEntity : BaseEntity() {
     @Column(name = "today_date")
     var todayDate: LocalDate? = null
 
-    @Column(name = "deviceid")
-    var deviceid: String? = null
+    @Column(name = "device_id")
+    var deviceId: String? = null
 
-    @Column(name = "subscriberid")
-    var subscriberid: String? = null
+    @Column(name = "subscriber_id")
+    var subscriberId: String? = null
 
     @Column(name = "email")
     var email: String? = null
@@ -37,8 +37,8 @@ class ValSphsOnEntity : BaseEntity() {
     @Column(name = "simserial")
     var simserial: String? = null
 
-    @Column(name = "phonenumber")
-    var phonenumber: String? = null
+    @Column(name = "phone_number")
+    var phoneNumber: String? = null
 
     @Column(name = "banner")
     var banner: String? = null
@@ -58,8 +58,8 @@ class ValSphsOnEntity : BaseEntity() {
     @Column(name = "hhid")
     var hhid: String? = null
 
-    @Column(name = "countryselect")
-    var countryselect: String? = null
+    @Column(name = "country_select")
+    var countrySelect: String? = null
 
     @Column(name = "country")
     var country: String? = null
@@ -100,80 +100,80 @@ class ValSphsOnEntity : BaseEntity() {
     @Column(name = "harvest_date")
     var harvestDate: LocalDate? = null
 
-    @Column(name = "harvestweek0")
-    var harvestweek0: String? = null
+    @Column(name = "harvest_week0")
+    var harvestWeek0: String? = null
 
-    @Column(name = "harvestweekm1")
-    var harvestweekm1: String? = null
+    @Column(name = "harvest_weekm1")
+    var harvestWeekm1: String? = null
 
-    @Column(name = "harvestweekm2")
-    var harvestweekm2: String? = null
+    @Column(name = "harvest_weekm2")
+    var harvestWeekm2: String? = null
 
-    @Column(name = "harvestweekm3")
-    var harvestweekm3: String? = null
+    @Column(name = "harvest_weekm3")
+    var harvestWeekm3: String? = null
 
-    @Column(name = "harvestweekm4")
-    var harvestweekm4: String? = null
+    @Column(name = "harvest_weekm4")
+    var harvestWeekm4: String? = null
 
-    @Column(name = "harvestweekp1")
-    var harvestweekp1: String? = null
+    @Column(name = "harvest_weekp1")
+    var harvestWeekp1: String? = null
 
-    @Column(name = "harvestweekp2")
-    var harvestweekp2: String? = null
+    @Column(name = "harvest_weekp2")
+    var harvestWeekp2: String? = null
 
-    @Column(name = "harvestweekp3")
-    var harvestweekp3: String? = null
+    @Column(name = "harvest_weekp3")
+    var harvestWeekp3: String? = null
 
-    @Column(name = "harvestweekp4")
-    var harvestweekp4: String? = null
+    @Column(name = "harvest_weekp4")
+    var harvestWeekp4: String? = null
 
-    @Column(name = "harvestage0")
-    var harvestage0: String? = null
+    @Column(name = "harvest_age0")
+    var harvestAge0: String? = null
 
-    @Column(name = "harvestagem1")
-    var harvestagem1: String? = null
+    @Column(name = "harvest_agem1")
+    var harvestAgem1: String? = null
 
-    @Column(name = "harvestagem2")
-    var harvestagem2: String? = null
+    @Column(name = "harvest_agem2")
+    var harvestAgem2: String? = null
 
-    @Column(name = "harvestagem3")
-    var harvestagem3: String? = null
+    @Column(name = "harvest_agem3")
+    var harvestAgem3: String? = null
 
-    @Column(name = "harvestagem4")
-    var harvestagem4: String? = null
+    @Column(name = "harvest_agem4")
+    var harvestAgem4: String? = null
 
-    @Column(name = "harvestagep1")
-    var harvestagep1: String? = null
+    @Column(name = "harvest_agep1")
+    var harvestAgep1: String? = null
 
-    @Column(name = "harvestagep2")
-    var harvestagep2: String? = null
+    @Column(name = "harvest_agep2")
+    var harvestAgep2: String? = null
 
-    @Column(name = "harvestagep3")
-    var harvestagep3: String? = null
+    @Column(name = "harvest_agep3")
+    var harvestAgep3: String? = null
 
-    @Column(name = "harvestagep4")
-    var harvestagep4: String? = null
+    @Column(name = "harvest_agep4")
+    var harvestAgep4: String? = null
 
     @Column(name = "check_id")
     var checkId: String? = null
 
-    @Column(name = "check_value")
-    var checkValue: String? = null
+    @Column(name = "check")
+    var check: String? = null
 
     @Column(name = "variety")
     var variety: String? = null
 
-    @Column(name = "plantingdensity")
-    var plantingdensity: String? = null
+    @Column(name = "planting_density")
+    var plantingDensity: String? = null
 
-    @Column(name = "betweenrow")
-    var betweenrow: String? = null
+    @Column(name = "between_row")
+    var betweenRow: String? = null
 
-    @Column(name = "withinrow")
-    var withinrow: String? = null
+    @Column(name = "within_row")
+    var withinRow: String? = null
 
-    @Column(name = "areabasis")
-    var areabasis: String? = null
+    @Column(name = "area_basis")
+    var areaBasis: String? = null
 
     @Column(name = "plotl")
     var plotl: String? = null
@@ -181,17 +181,17 @@ class ValSphsOnEntity : BaseEntity() {
     @Column(name = "plotw")
     var plotw: String? = null
 
-    @Column(name = "plotsize")
-    var plotsize: String? = null
+    @Column(name = "plot_size")
+    var plotSize: String? = null
 
-    @Column(name = "yieldlevel")
-    var yieldlevel: String? = null
+    @Column(name = "yield_level")
+    var yieldLevel: String? = null
 
-    @Column(name = "pricestarch")
-    var pricestarch: String? = null
+    @Column(name = "price_starch")
+    var priceStarch: String? = null
 
-    @Column(name = "starchfactory")
-    var starchfactory: String? = null
+    @Column(name = "starch_factory")
+    var starchFactory: String? = null
 
     @Column(name = "sc1")
     var sc1: String? = null
@@ -229,86 +229,86 @@ class ValSphsOnEntity : BaseEntity() {
     @Column(name = "sc12")
     var sc12: String? = null
 
-    @Column(name = "pricesc1")
-    var pricesc1: String? = null
+    @Column(name = "price_sc1")
+    var priceSc1: String? = null
 
-    @Column(name = "pricesc2")
-    var pricesc2: String? = null
+    @Column(name = "price_sc2")
+    var priceSc2: String? = null
 
-    @Column(name = "pricesc3")
-    var pricesc3: String? = null
+    @Column(name = "price_sc3")
+    var priceSc3: String? = null
 
-    @Column(name = "pricesc4")
-    var pricesc4: String? = null
+    @Column(name = "price_sc4")
+    var priceSc4: String? = null
 
-    @Column(name = "pricesc5")
-    var pricesc5: String? = null
+    @Column(name = "price_sc5")
+    var priceSc5: String? = null
 
-    @Column(name = "pricesc6")
-    var pricesc6: String? = null
+    @Column(name = "price_sc6")
+    var priceSc6: String? = null
 
-    @Column(name = "pricesc7")
-    var pricesc7: String? = null
+    @Column(name = "price_sc7")
+    var priceSc7: String? = null
 
-    @Column(name = "pricesc8")
-    var pricesc8: String? = null
+    @Column(name = "price_sc8")
+    var priceSc8: String? = null
 
-    @Column(name = "pricesc9")
-    var pricesc9: String? = null
+    @Column(name = "price_sc9")
+    var priceSc9: String? = null
 
-    @Column(name = "pricesc10")
-    var pricesc10: String? = null
+    @Column(name = "price_sc10")
+    var priceSc10: String? = null
 
-    @Column(name = "pricesc11")
-    var pricesc11: String? = null
+    @Column(name = "price_sc11")
+    var priceSc11: String? = null
 
-    @Column(name = "pricesc12")
-    var pricesc12: String? = null
+    @Column(name = "price_sc12")
+    var priceSc12: String? = null
 
     @Column(name = "product")
     var product: String? = null
 
-    @Column(name = "transformratio")
-    var transformratio: String? = null
+    @Column(name = "transform_ratio")
+    var transformRatio: String? = null
 
     @Column(name = "unit")
     var unit: String? = null
 
-    @Column(name = "unitnameselect")
-    var unitnameselect: String? = null
+    @Column(name = "unit_name_select")
+    var unitNameSelect: String? = null
 
-    @Column(name = "unitnameother")
-    var unitnameother: String? = null
+    @Column(name = "unit_name_other")
+    var unitNameOther: String? = null
 
-    @Column(name = "unitweightother")
-    var unitweightother: String? = null
+    @Column(name = "unit_weight_other")
+    var unitWeightOther: String? = null
 
-    @Column(name = "unitname")
-    var unitname: String? = null
+    @Column(name = "unit_name")
+    var unitName: String? = null
 
-    @Column(name = "unitlocalweight")
-    var unitlocalweight: String? = null
+    @Column(name = "unitlocal_weight")
+    var unitlocalWeight: String? = null
 
-    @Column(name = "unitweight")
-    var unitweight: String? = null
+    @Column(name = "unit_weight")
+    var unitWeight: String? = null
 
-    @Column(name = "pricenote")
-    var pricenote: String? = null
+    @Column(name = "price_note")
+    var priceNote: String? = null
 
-    @Column(name = "pricerm4")
-    var pricerm4: String? = null
+    @Column(name = "price_rm4")
+    var priceRm4: String? = null
 
-    @Column(name = "pricerm2")
-    var pricerm2: String? = null
+    @Column(name = "price_rm2")
+    var priceRm2: String? = null
 
-    @Column(name = "pricer0")
-    var pricer0: String? = null
+    @Column(name = "price_r0")
+    var priceR0: String? = null
 
-    @Column(name = "pricerp2")
-    var pricerp2: String? = null
+    @Column(name = "price_rp2")
+    var priceRp2: String? = null
 
-    @Column(name = "pricerp4")
-    var pricerp4: String? = null
+    @Column(name = "price_rp4")
+    var priceRp4: String? = null
 
     @Column(name = "price0")
     var price0: String? = null
@@ -337,8 +337,8 @@ class ValSphsOnEntity : BaseEntity() {
     @Column(name = "pricep4")
     var pricep4: String? = null
 
-    @Column(name = "norecommendationnote")
-    var norecommendationnote: String? = null
+    @Column(name = "no_recommendation_note")
+    var noRecommendationNote: String? = null
 
     @Column(name = "lookupp0h0_id")
     var lookupp0h0Id: String? = null
@@ -367,58 +367,58 @@ class ValSphsOnEntity : BaseEntity() {
     @Column(name = "lookupp0hp4_id")
     var lookupp0hp4Id: String? = null
 
-    @Column(name = "wyp0h0")
+    @Column(name = "wyp_0h0")
     var wyp0h0: String? = null
 
-    @Column(name = "wyp0hm1")
+    @Column(name = "wyp_0hm1")
     var wyp0hm1: String? = null
 
-    @Column(name = "wyp0hm2")
+    @Column(name = "wyp_0hm2")
     var wyp0hm2: String? = null
 
-    @Column(name = "wyp0hm3")
+    @Column(name = "wyp_0hm3")
     var wyp0hm3: String? = null
 
-    @Column(name = "wyp0hm4")
+    @Column(name = "wyp_0hm4")
     var wyp0hm4: String? = null
 
-    @Column(name = "wyp0hp1")
+    @Column(name = "wyp_0hp1")
     var wyp0hp1: String? = null
 
-    @Column(name = "wyp0hp2")
+    @Column(name = "wyp_0hp2")
     var wyp0hp2: String? = null
 
-    @Column(name = "wyp0hp3")
+    @Column(name = "wyp_0hp3")
     var wyp0hp3: String? = null
 
-    @Column(name = "wyp0hp4")
+    @Column(name = "wyp_0hp4")
     var wyp0hp4: String? = null
 
-    @Column(name = "cyp0h0")
+    @Column(name = "cyp_0h0")
     var cyp0h0: String? = null
 
-    @Column(name = "cyp0hm1")
+    @Column(name = "cyp_0hm1")
     var cyp0hm1: String? = null
 
-    @Column(name = "cyp0hm2")
+    @Column(name = "cyp_0hm2")
     var cyp0hm2: String? = null
 
-    @Column(name = "cyp0hm3")
+    @Column(name = "cyp_0hm3")
     var cyp0hm3: String? = null
 
-    @Column(name = "cyp0hm4")
+    @Column(name = "cyp_0hm4")
     var cyp0hm4: String? = null
 
-    @Column(name = "cyp0hp1")
+    @Column(name = "cyp_0hp1")
     var cyp0hp1: String? = null
 
-    @Column(name = "cyp0hp2")
+    @Column(name = "cyp_0hp2")
     var cyp0hp2: String? = null
 
-    @Column(name = "cyp0hp3")
+    @Column(name = "cyp_0hp3")
     var cyp0hp3: String? = null
 
-    @Column(name = "cyp0hp4")
+    @Column(name = "cyp_0hp4")
     var cyp0hp4: String? = null
 
     @Column(name = "sc0")
@@ -448,215 +448,215 @@ class ValSphsOnEntity : BaseEntity() {
     @Column(name = "scp4")
     var scp4: String? = null
 
-    @Column(name = "pricesc0")
-    var pricesc0: String? = null
+    @Column(name = "price_sc0")
+    var priceSc0: String? = null
 
-    @Column(name = "pricescm1")
-    var pricescm1: String? = null
+    @Column(name = "price_scm1")
+    var priceScm1: String? = null
 
-    @Column(name = "pricescm2")
-    var pricescm2: String? = null
+    @Column(name = "price_scm2")
+    var priceScm2: String? = null
 
-    @Column(name = "pricescm3")
-    var pricescm3: String? = null
+    @Column(name = "price_scm3")
+    var priceScm3: String? = null
 
-    @Column(name = "pricescm4")
-    var pricescm4: String? = null
+    @Column(name = "price_scm4")
+    var priceScm4: String? = null
 
-    @Column(name = "pricescp1")
-    var pricescp1: String? = null
+    @Column(name = "price_scp1")
+    var priceScp1: String? = null
 
-    @Column(name = "pricescp2")
-    var pricescp2: String? = null
+    @Column(name = "price_scp2")
+    var priceScp2: String? = null
 
-    @Column(name = "pricescp3")
-    var pricescp3: String? = null
+    @Column(name = "price_scp3")
+    var priceScp3: String? = null
 
-    @Column(name = "pricescp4")
-    var pricescp4: String? = null
+    @Column(name = "price_scp4")
+    var priceScp4: String? = null
 
-    @Column(name = "yp0h0")
+    @Column(name = "yp_0h0")
     var yp0h0: String? = null
 
-    @Column(name = "yp0h0_ab")
+    @Column(name = "yp_0h0_ab")
     var yp0h0Ab: String? = null
 
-    @Column(name = "yp0hm1")
+    @Column(name = "yp_0hm1")
     var yp0hm1: String? = null
 
-    @Column(name = "yp0hm2")
+    @Column(name = "yp_0hm2")
     var yp0hm2: String? = null
 
-    @Column(name = "yp0hm3")
+    @Column(name = "yp_0hm3")
     var yp0hm3: String? = null
 
-    @Column(name = "yp0hm4")
+    @Column(name = "yp_0hm4")
     var yp0hm4: String? = null
 
-    @Column(name = "yp0hp1")
+    @Column(name = "yp_0hp1")
     var yp0hp1: String? = null
 
-    @Column(name = "yp0hp2")
+    @Column(name = "yp_0hp2")
     var yp0hp2: String? = null
 
-    @Column(name = "yp0hp3")
+    @Column(name = "yp_0hp3")
     var yp0hp3: String? = null
 
-    @Column(name = "yp0hp4")
+    @Column(name = "yp_0hp4")
     var yp0hp4: String? = null
 
-    @Column(name = "grp0h0")
+    @Column(name = "grp_0h0")
     var grp0h0: String? = null
 
-    @Column(name = "grp0h0_ab")
+    @Column(name = "grp_0h0_ab")
     var grp0h0Ab: String? = null
 
-    @Column(name = "grp0h0_abcurr")
-    var grp0h0Abcurr: String? = null
+    @Column(name = "grp_0h0_ab_curr")
+    var grp0h0AbCurr: String? = null
 
-    @Column(name = "grp0hm1")
+    @Column(name = "grp_0hm1")
     var grp0hm1: String? = null
 
-    @Column(name = "grp0hm2")
+    @Column(name = "grp_0hm2")
     var grp0hm2: String? = null
 
-    @Column(name = "grp0hm3")
+    @Column(name = "grp_0hm3")
     var grp0hm3: String? = null
 
-    @Column(name = "grp0hm4")
+    @Column(name = "grp_0hm4")
     var grp0hm4: String? = null
 
-    @Column(name = "grp0hp1")
+    @Column(name = "grp_0hp1")
     var grp0hp1: String? = null
 
-    @Column(name = "grp0hp2")
+    @Column(name = "grp_0hp2")
     var grp0hp2: String? = null
 
-    @Column(name = "grp0hp3")
+    @Column(name = "grp_0hp3")
     var grp0hp3: String? = null
 
-    @Column(name = "grp0hp4")
+    @Column(name = "grp_0hp4")
     var grp0hp4: String? = null
 
-    @Column(name = "pp0h0")
+    @Column(name = "pp_0h0")
     var pp0h0: String? = null
 
-    @Column(name = "pp0hm1")
+    @Column(name = "pp_0hm1")
     var pp0hm1: String? = null
 
-    @Column(name = "pp0hm2")
+    @Column(name = "pp_0hm2")
     var pp0hm2: String? = null
 
-    @Column(name = "pp0hm3")
+    @Column(name = "pp_0hm3")
     var pp0hm3: String? = null
 
-    @Column(name = "pp0hm4")
+    @Column(name = "pp_0hm4")
     var pp0hm4: String? = null
 
-    @Column(name = "pp0hp1")
+    @Column(name = "pp_0hp1")
     var pp0hp1: String? = null
 
-    @Column(name = "pp0hp2")
+    @Column(name = "pp_0hp2")
     var pp0hp2: String? = null
 
-    @Column(name = "pp0hp3")
+    @Column(name = "pp_0hp3")
     var pp0hp3: String? = null
 
-    @Column(name = "pp0hp4")
+    @Column(name = "pp_0hp4")
     var pp0hp4: String? = null
 
-    @Column(name = "gpp0h0")
+    @Column(name = "gpp_0h0")
     var gpp0h0: String? = null
 
-    @Column(name = "gpp0h0curr")
+    @Column(name = "gpp_0h0curr")
     var gpp0h0curr: String? = null
 
-    @Column(name = "gpp0hm1")
+    @Column(name = "gpp_0hm1")
     var gpp0hm1: String? = null
 
-    @Column(name = "gpp0hm2")
+    @Column(name = "gpp_0hm2")
     var gpp0hm2: String? = null
 
-    @Column(name = "gpp0hm3")
+    @Column(name = "gpp_0hm3")
     var gpp0hm3: String? = null
 
-    @Column(name = "gpp0hm4")
+    @Column(name = "gpp_0hm4")
     var gpp0hm4: String? = null
 
-    @Column(name = "gpp0hp1")
+    @Column(name = "gpp_0hp1")
     var gpp0hp1: String? = null
 
-    @Column(name = "gpp0hp2")
+    @Column(name = "gpp_0hp2")
     var gpp0hp2: String? = null
 
-    @Column(name = "gpp0hp3")
+    @Column(name = "gpp_0hp3")
     var gpp0hp3: String? = null
 
-    @Column(name = "gpp0hp4")
+    @Column(name = "gpp_0hp4")
     var gpp0hp4: String? = null
 
-    @Column(name = "grmax")
-    var grmax: String? = null
+    @Column(name = "gr_max")
+    var grMax: String? = null
 
-    @Column(name = "grmax_ab")
-    var grmaxAb: String? = null
+    @Column(name = "gr_max_ab")
+    var grMaxAb: String? = null
 
-    @Column(name = "grdif")
-    var grdif: String? = null
+    @Column(name = "gr_dif")
+    var grDif: String? = null
 
-    @Column(name = "grdif_ab")
-    var grdifAb: String? = null
+    @Column(name = "gr_dif_ab")
+    var grDifAb: String? = null
 
-    @Column(name = "grdif_abcurr")
-    var grdifAbcurr: String? = null
+    @Column(name = "gr_dif_ab_curr")
+    var grDifAbCurr: String? = null
 
-    @Column(name = "gpmax")
-    var gpmax: String? = null
+    @Column(name = "gp_max")
+    var gpMax: String? = null
 
-    @Column(name = "gpdif")
-    var gpdif: String? = null
+    @Column(name = "gp_dif")
+    var gpDif: String? = null
 
-    @Column(name = "gpdifcurr")
-    var gpdifcurr: String? = null
+    @Column(name = "gp_diff_curr")
+    var gpDiffCurr: String? = null
 
-    @Column(name = "optharvest")
-    var optharvest: String? = null
+    @Column(name = "opt_harvest")
+    var optHarvest: String? = null
 
-    @Column(name = "optharvesttext")
-    var optharvesttext: String? = null
+    @Column(name = "opt_harvest_text")
+    var optHarvestText: String? = null
 
-    @Column(name = "yh0p0note")
-    var yh0p0note: String? = null
+    @Column(name = "yh0p0_note")
+    var yh0p0Note: String? = null
 
-    @Column(name = "optharvestnote")
-    var optharvestnote: String? = null
+    @Column(name = "opt_harvest_note")
+    var optHarvestNote: String? = null
 
-    @Column(name = "difharvestnote")
-    var difharvestnote: String? = null
+    @Column(name = "dif_harvest_note")
+    var difHarvestNote: String? = null
 
-    @Column(name = "grdifnote")
-    var grdifnote: String? = null
+    @Column(name = "gr_dif_note")
+    var grDifNote: String? = null
 
-    @Column(name = "grmaxnote")
-    var grmaxnote: String? = null
+    @Column(name = "gr_max_note")
+    var grMaxNote: String? = null
 
     @Column(name = "sensible")
     var sensible: String? = null
 
-    @Column(name = "validationnote")
-    var validationnote: String? = null
+    @Column(name = "validation_note")
+    var validationNote: String? = null
 
-    @Column(name = "validationnote2")
-    var validationnote2: String? = null
+    @Column(name = "validation_note2")
+    var validationNote2: String? = null
 
-    @Column(name = "validationnote3")
-    var validationnote3: String? = null
+    @Column(name = "validation_note3")
+    var validationNote3: String? = null
 
     @Column(name = "call_value")
     var callValue: String? = null
 
-    @Column(name = "confirmval")
-    var confirmval: String? = null
+    @Column(name = "confirm_val")
+    var confirmVal: String? = null
 
     @Column(name = "end_date")
     var endDate: LocalDateTime? = null

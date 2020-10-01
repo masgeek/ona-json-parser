@@ -47,7 +47,7 @@ class ValPpTzDto {
     var intro2: String? = null
 
     @JsonProperty("VAL")
-    var `val`: String? = null
+    var purposeVal: String? = null
 
     @JsonProperty("EAID")
     var eaid: String? = null
@@ -416,7 +416,7 @@ class ValPpTzDto {
     var call: String? = null
 
     @JsonProperty("confirmVAL")
-    var confirmVAL: String? = null
+    var confirmVal: String? = null
 
     @JsonProperty("end")
     var end: String? = null

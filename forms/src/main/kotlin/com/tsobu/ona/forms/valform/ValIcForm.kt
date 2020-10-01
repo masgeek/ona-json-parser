@@ -139,7 +139,7 @@ class ValIcForm {
     var riskRatio2AB: String? = null
 
     @JsonProperty("thankyou/call")
-    var thankyouCall: String? = null
+    var callValue: String? = null
 
     @JsonProperty("costFertilizer")
     var costFertilizer: String? = null
