@@ -121,6 +121,7 @@ class ValPpTzDto {
     @JsonProperty("spray")
     var spray: Boolean? = null
 
+
     @JsonProperty("slash1spray1Note")
     var slash1spray1Note: String? = null
 
@@ -425,5 +426,5 @@ class ValPpTzDto {
     var instanceID: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 }

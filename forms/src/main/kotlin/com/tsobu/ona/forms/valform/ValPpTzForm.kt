@@ -13,7 +13,7 @@ class ValPpTzForm {
     var cp: String? = null
 
     @JsonProperty("PW")
-    var pw: List<ValPpTzPwForm> = ArrayList()
+    var ppTzPwList: List<ValPpTzPwForm> = ArrayList()
 
     @JsonProperty("_id")
     var id: String? = null
@@ -64,13 +64,13 @@ class ValPpTzForm {
     var today: String? = null
 
     @JsonProperty("CPtext")
-    var cPtext: String? = null
+    var cpText: String? = null
 
     @JsonProperty("_notes")
     var notes: List<Any> = ArrayList()
 
     @JsonProperty("costCP")
-    var costCP: String? = null
+    var costCp: String? = null
 
     @JsonProperty("season")
     var season: String? = null
@@ -151,7 +151,7 @@ class ValPpTzForm {
     var conversion: String? = null
 
     @JsonProperty("costCPcurr")
-    var costCPcurr: String? = null
+    var costCpCurr: String? = null
 
     @JsonProperty("costDifAbs")
     var costDifAbs: String? = null
@@ -166,7 +166,7 @@ class ValPpTzForm {
     var harrowText: String? = null
 
     @JsonProperty("netValueCP")
-    var netValueCP: String? = null
+    var netValueCp: String? = null
 
     @JsonProperty("priceRoots")
     var priceRoots: String? = null
@@ -175,7 +175,7 @@ class ValPpTzForm {
     var ridgingRec: String? = null
 
     @JsonProperty("costDifcurr")
-    var costDifcurr: String? = null
+    var costDifCurr: String? = null
 
     @JsonProperty("harrowText2")
     var harrowText2: String? = null
@@ -184,7 +184,7 @@ class ValPpTzForm {
     var phonenumber: String? = null
 
     @JsonProperty("purpose/VAL")
-    var purposeVAL: String? = null
+    var purposeVal: String? = null
 
     @JsonProperty("ridgingCost")
     var ridgingCost: String? = null
@@ -211,7 +211,7 @@ class ValPpTzForm {
     var formhubUuid: String? = null
 
     @JsonProperty("grossValueCP")
-    var grossValueCP: String? = null
+    var grossValueCp: String? = null
 
     @JsonProperty("netValueT0FL")
     var netValueT0FL: String? = null
@@ -331,67 +331,67 @@ class ValPpTzForm {
     var confirmVal: String? = null
 
     @JsonProperty("cost/harrowTractorCost")
-    var costHarrowTractorCost: String? = null
+    var harrowTractorCost: String? = null
 
     @JsonProperty("cost/ridgingManualCost")
-    var costRidgingManualCost: String? = null
+    var ridgingManualCost: String? = null
 
     @JsonProperty("cost/weedingManualCost")
     var costWeedingManualCost: String? = null
 
     @JsonProperty("cost/ridgingTractorCost")
-    var costRidgingTractorCost: String? = null
+    var ridgingTractorCost: String? = null
 
     @JsonProperty("currentPractice/ridging")
-    var currentPracticeRidging: String? = null
+    var ridging: String? = null
 
     @JsonProperty("densityDetails/withinRow")
-    var densityDetailsWithinRow: Double? = null
+    var withinRow: Double? = null
 
     @JsonProperty("cost/basicTill1ManualCost")
-    var costBasicTill1ManualCost: String? = null
+    var basicTill1ManualCost: String? = null
 
     @JsonProperty("cost/basicTill2ManualCost")
-    var costBasicTill2ManualCost: String? = null
+    var basicTill2ManualCost: String? = null
 
     @JsonProperty("cost/weedingHerbicideCost")
-    var costWeedingHerbicideCost: String? = null
+    var weedingHerbicideCost: String? = null
 
     @JsonProperty("currentPractice/basicTill")
-    var currentPracticeBasicTill: String? = null
+    var basicTill: String? = null
 
     @JsonProperty("densityDetails/betweenRow")
-    var densityDetailsBetweenRow: String? = null
+    var betweenRow: String? = null
 
     @JsonProperty("cost/basicTill1TractorCost")
-    var costBasicTill1TractorCost: String? = null
+    var basicTill1TractorCost: String? = null
 
     @JsonProperty("cost/basicTill2TractorCost")
-    var costBasicTill2TractorCost: String? = null
+    var basicTill2TractorCost: String? = null
 
     @JsonProperty("currentPractice/harrowSelect")
-    var currentPracticeHarrowSelect: String? = null
+    var harrowSelect: String? = null
 
     @JsonProperty("currentPracticeDetails/harrow")
-    var currentPracticeDetailsHarrow: String? = null
+    var harrow: String? = null
 
     @JsonProperty("currentPractice/weedingMethodSelect")
-    var currentPracticeWeedingMethodSelect: String? = null
+    var weedingMethodSelect: String? = null
 
     @JsonProperty("currentPracticeDetails/ridgingMethod")
-    var currentPracticeDetailsRidgingMethod: String? = null
+    var ridgingMethod: String? = null
 
     @JsonProperty("currentPracticeDetails/weedingMethod")
-    var currentPracticeDetailsWeedingMethod: String? = null
+    var weedingMethod: String? = null
 
     @JsonProperty("currentPracticeDetails/basicTillMethod1")
-    var currentPracticeDetailsBasicTillMethod1: String? = null
+    var basicTillMethod1: String? = null
 
     @JsonProperty("currentPracticeDetails/ridgingMethodSelect")
-    var currentPracticeDetailsRidgingMethodSelect: String? = null
+    var ridgingMethodSelect: String? = null
 
     @JsonProperty("currentPracticeDetails/basicTillMethodSelect1")
-    var currentPracticeDetailsBasicTillMethodSelect1: String? = null
+    var basicTillMethodSelect1: String? = null
 
     @JsonProperty("meta/deprecatedID")
     var metaDeprecatedID: String? = null
@@ -406,8 +406,8 @@ class ValPpTzForm {
     var fallowHeight: String? = null
 
     @JsonProperty("currentPracticeDetails/basicTillMethod2")
-    var currentPracticeDetailsBasicTillMethod2: String? = null
+    var basicTillMethod2: String? = null
 
     @JsonProperty("currentPracticeDetails/basicTillMethodSelect2")
-    var currentPracticeDetailsBasicTillMethodSelect2: String? = null
+    var basicTillMethodSelect2: String? = null
 }

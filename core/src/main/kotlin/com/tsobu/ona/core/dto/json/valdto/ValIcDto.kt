@@ -356,5 +356,5 @@ class ValIcDto {
     var instanceID: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 }

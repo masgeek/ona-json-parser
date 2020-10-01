@@ -8,7 +8,7 @@ import java.util.*
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder("_id", "end", "lat", "lon", "EAID", "HHID", "_tags", "_uuid", "start", "today", "_notes", "_edited", "_status", "_version", "deviceid", "geopoint", "username", "_duration", "_xform_id", "simserial", "_attachments", "_geolocation", "_media_count", "_total_media", "formhub/uuid", "subscriberid", "_submitted_by", "countrySelect", "meta/instanceID", "_submission_time", "_xform_id_string", "_bamboo_dataset_id", "_media_all_received", "currentPracticeTillage/ridgingCP", "currentPracticeTillage/basicTillCP", "alternativePractice/presenceRedPlot", "alternativePracticeMethod/harrowALT", "recommendedPracticeMethod/harrowREC", "alternativePracticeTillage/ridgingALT", "currentPracticeTillage/harrowSelectCP", "recommendedPracticeTillage/ridgingREC", "alternativePracticeTillage/basicTillALT", "recommendedPracticeTillage/basicTillREC", "alternativePracticeTillage/harrowSelectALT", "recommendedPracticeTillage/harrowSelectREC", "currentPracticeMethod/ridgingMethodSelectCP", "currentPracticeMethod/basicTillMethodSelect1CP", "currentPracticeMethod/basicTillMethodSelect2CP", "recommendedPracticeMethod/ridgingMethodSelectREC", "alternativePracticeMethod/basicTillMethodSelect1ALT", "recommendedPracticeMethod/basicTillMethodSelect1REC", "email", "recommendedPracticeMethod/basicTillMethodSelect2REC", "alternativePracticeMethod/ridgingMethodSelectALT", "alternativePracticeMethod/basicTillMethodSelect2ALT", "phonenumber", "_last_edited", "meta/deprecatedID", "currentPracticeMethod/harrowCP")
-class VALPPTreatForm {
+class ValPpTreatForm {
     @JsonProperty("_id")
     var id: String? = null
 

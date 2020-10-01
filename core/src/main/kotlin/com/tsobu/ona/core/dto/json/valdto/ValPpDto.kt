@@ -119,16 +119,16 @@ class ValPpDto {
     var spray: String? = null
 
     @JsonProperty("slash1spray1Note")
-    var slashOneSprayOneNote: String? = null
+    var slash1spray1Note: String? = null
 
     @JsonProperty("slash1spray0Note")
-    var slashOneSprayZeroNote: String? = null
+    var slash1spray0Note: String? = null
 
     @JsonProperty("slash0spray1Note")
-    var slashZeroSprayOneNote: String? = null
+    var slash0spray1Note: String? = null
 
     @JsonProperty("slash0spray0Note")
-    var slashZeroSprayZeroNote: String? = null
+    var slash0spray0Note: String? = null
 
     @JsonProperty("tractorAccess")
     var tractorAccess: String? = null
@@ -476,5 +476,5 @@ class ValPpDto {
     var instanceID: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 }

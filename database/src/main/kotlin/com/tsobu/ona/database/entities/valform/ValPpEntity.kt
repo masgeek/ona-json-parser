@@ -121,18 +121,19 @@ class ValPpEntity : BaseEntity() {
     @Column(name = "spray")
     var spray: String? = null
 
+    /*
     @Column(name = "slash1_spray1_note")
-    var slashOneSprayOneNote: String? = null
+    var slash1Spray1Note: String? = null
 
     @Column(name = "slash1_spray0_note")
-    var slashOneSprayZeroNote: String? = null
+    var slash1Spray0Note: String? = null
 
     @Column(name = "slash0_spray1_note")
-    var slashZeroSprayOneNote: String? = null
+    var slash0Spray1Note: String? = null
 
     @Column(name = "slash0_spray0_note")
-    var slashZeroSprayZeroNote: String? = null
-
+    var slash0Spray0Note: String? = null
+*/
     @Column(name = "tractor_access")
     var tractorAccess: String? = null
 

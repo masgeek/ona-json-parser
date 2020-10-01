@@ -5,15 +5,13 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.valdto.ValPpDto
-import com.tsobu.ona.core.dto.json.valdto.ValPpPwDto
+import com.tsobu.ona.core.dto.json.valdto.VaLPpTreatDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.valform.ValPpEntity
 import com.tsobu.ona.database.entities.valform.ValPpPwEntity
-import com.tsobu.ona.database.repositories.valform.ValPpPwRepo
-import com.tsobu.ona.database.repositories.valform.ValPpRepo
-import com.tsobu.ona.forms.valform.ValPpForm
+import com.tsobu.ona.database.entities.valform.ValPpTreatEntity
+import com.tsobu.ona.database.repositories.valform.ValPpTreatRepo
+import com.tsobu.ona.forms.valform.ValPpTreatForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
@@ -28,21 +26,20 @@ import java.nio.file.Paths
 
 
 @Service
-class ValPpService
+class ValPpTreatService
 constructor(
         transactionManager: PlatformTransactionManager,
-        val ppRepo: ValPpRepo,
-        val pwRepo: ValPpPwRepo,
+        val treatRepo: ValPpTreatRepo,
         val appConfig: AppConfig) {
 
-    private val log = LoggerFactory.getLogger(ValPpService::class.java)
+    private val log = LoggerFactory.getLogger(ValPpTreatService::class.java)
     private val modelMapper = ModelMapper()
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
     private val writeCsvFile = WriteCsvFile()
 
-    private val fileName = "VAL_PP.json"
+    private val fileName = "VAL_PP_Treat.json"
 
     fun mapJsonFile() {
         log.info("Reading table data....")
@@ -62,30 +59,20 @@ constructor(
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        val ppList = ppRepo.findAllByOrderBySubmissionDateAsc()
-        val pwList = pwRepo.findAll()
+        val ppList = treatRepo.findAllByOrderBySubmissionDateAsc()
 
 
-        val valPpData = ppList.map { valPpEntity ->
-            val valIcDto = modelMapper.map(valPpEntity, ValPpDto::class.java)
-            valIcDto.submissionDate = myDateUtil.convertTimeToString(valPpEntity.submissionDate)
-            valIcDto.start = myDateUtil.convertTimeToString(valPpEntity.startDate)
-            valIcDto.end = myDateUtil.convertTimeToString(valPpEntity.endDate)
-            valIcDto
-        }
-
-        val valPpPwData = pwList.map { pwEntity ->
-            val pwDto = modelMapper.map(pwEntity, ValPpPwDto::class.java)
-//            pwDto.parentKey = pwEntity.controlKey
-            pwDto
+        val treatData = ppList.map { treatEntity ->
+            val treatDto = modelMapper.map(treatEntity, VaLPpTreatDto::class.java)
+            treatDto.submissionDate = myDateUtil.convertTimeToString(treatEntity.submissionDate)
+            treatDto.start = myDateUtil.convertTimeToString(treatEntity.startDate)
+            treatDto.end = myDateUtil.convertTimeToString(treatEntity.endDate)
+            treatDto
         }
 
 
-        writeCsvFile.writeCsv(classMap = ValPpDto::class.java, data = valPpData,
-                fileName = "VAL_PP", outPutPath = filePath)
-
-        writeCsvFile.writeCsv(classMap = ValPpPwDto::class.java, data = valPpPwData,
-                fileName = "VAL_PP-PW", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = VaLPpTreatDto::class.java, data = treatData,
+                fileName = "VAL_PP_Treat", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -95,7 +82,7 @@ constructor(
         val file = Paths.get(filePath).toFile()
 
         objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true)
-        val list = objectMapper.readValue(file, object : TypeReference<List<ValPpForm>>() {})
+        val list = objectMapper.readValue(file, object : TypeReference<List<ValPpTreatForm>>() {})
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
@@ -114,53 +101,38 @@ constructor(
 //        modelMapper.configuration.destinationNamingConvention = NamingConventions.NONE
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
-        val ppData = ArrayList<ValPpEntity>()
-        val pwData = ArrayList<ValPpPwEntity>()
-        list.forEach { ppForm ->
+        val treatData = ArrayList<ValPpTreatEntity>()
+        list.forEach { treatForm ->
             //map and save to database
-            val valPpEntity = modelMapper.map(ppForm, ValPpEntity::class.java)
+            val treatEntity = modelMapper.map(treatForm, ValPpTreatEntity::class.java)
 
-            val geoPoint = myDateUtil.splitGeoPoint(ppForm.geopoint)
+            val geoPoint = myDateUtil.splitGeoPoint(treatForm.geopoint)
             if (geoPoint.isNotEmpty()) {
-                valPpEntity.geoPointLatitude = geoPoint[0]
+                treatEntity.geoPointLatitude = geoPoint[0]
 
                 if (myDateUtil.indexExists(geoPoint, 1)) {
-                    valPpEntity.geoPointLongitude = geoPoint[1]
+                    treatEntity.geoPointLongitude = geoPoint[1]
                 }
                 if (myDateUtil.indexExists(geoPoint, 2)) {
-                    valPpEntity.geoPointAltitude = geoPoint[2]
+                    treatEntity.geoPointAltitude = geoPoint[2]
                 }
                 if (myDateUtil.indexExists(geoPoint, 3)) {
-                    valPpEntity.geoPointAccuracy = geoPoint[3]
+                    treatEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            valPpEntity.uuid = ppForm.formhubUuid
-            valPpEntity.submissionDate = myDateUtil.convertToDateTime(ppForm.submissionTime)
-            valPpEntity.todayDate = myDateUtil.convertToDate(ppForm.today)
-            valPpEntity.startDate = myDateUtil.convertToDateTime(ppForm.start)
-            valPpEntity.endDate = myDateUtil.convertToDateTime(ppForm.end)
-            valPpEntity.plantingDate = myDateUtil.convertToDate(ppForm.plantingDate)
-            valPpEntity.instanceId = ppForm.metaInstanceID
-            valPpEntity.controlKey = ppForm.metaInstanceID
+            treatEntity.uuid = treatForm.formhubUuid
+            treatEntity.submissionDate = myDateUtil.convertToDateTime(treatForm.submissionTime)
+            treatEntity.todayDate = myDateUtil.convertToDate(treatForm.today)
+            treatEntity.startDate = myDateUtil.convertToDateTime(treatForm.start)
+            treatEntity.endDate = myDateUtil.convertToDateTime(treatForm.end)
+            treatEntity.instanceId = treatForm.metaInstanceID
+            treatEntity.controlKey = treatForm.metaInstanceID
 
-            ppData.add(valPpEntity)
-
-            val pwList = ppForm.valPpPwList
-            var pwCounter = 1
-            pwList.forEach { pwForm ->
-                val pwEntity = modelMapper.map(pwForm, ValPpPwEntity::class.java)
-                pwEntity.parentKey = valPpEntity.controlKey
-                pwEntity.controlKey = "${pwEntity.parentKey}/PW[$pwCounter]"
-                pwEntity.setOfPw = "${pwEntity.parentKey}/PW"
-                pwCounter = pwCounter.plus(1)
-                pwData.add(pwEntity)
-            }
+            treatData.add(treatEntity)
 
         }
 
-        ppRepo.saveAll(ppData)
-        pwRepo.saveAll(pwData)
-
+        treatRepo.saveAll(treatData)
         log.info("Finished saving the data for $fileName------->")
 
         log.info("Exporting to CSV $fileName------->")

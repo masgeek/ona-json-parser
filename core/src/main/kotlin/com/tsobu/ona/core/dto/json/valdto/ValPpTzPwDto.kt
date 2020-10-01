@@ -26,7 +26,7 @@ class ValPpTzPwDto {
     var parentKey: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 
     @JsonProperty("SET-OF-PW")
     var setOfPw: String? = null

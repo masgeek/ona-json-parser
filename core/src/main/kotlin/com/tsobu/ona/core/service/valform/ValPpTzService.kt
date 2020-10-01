@@ -6,14 +6,15 @@ import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.valdto.ValPpDto
-import com.tsobu.ona.core.dto.json.valdto.ValPpPwDto
+import com.tsobu.ona.core.dto.json.valdto.ValPpTzDto
+import com.tsobu.ona.core.dto.json.valdto.ValPpTzPwDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.valform.ValPpEntity
-import com.tsobu.ona.database.entities.valform.ValPpPwEntity
-import com.tsobu.ona.database.repositories.valform.ValPpPwRepo
-import com.tsobu.ona.database.repositories.valform.ValPpRepo
-import com.tsobu.ona.forms.valform.ValPpForm
+import com.tsobu.ona.database.entities.valform.ValPpTzEntity
+import com.tsobu.ona.database.entities.valform.ValPpTzPwEntity
+import com.tsobu.ona.database.repositories.valform.ValPpTzPwRepo
+import com.tsobu.ona.database.repositories.valform.ValPpTzRepo
+import com.tsobu.ona.forms.valform.ValPpTzForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
@@ -28,21 +29,21 @@ import java.nio.file.Paths
 
 
 @Service
-class ValPpService
+class ValPpTzService
 constructor(
         transactionManager: PlatformTransactionManager,
-        val ppRepo: ValPpRepo,
-        val pwRepo: ValPpPwRepo,
+        val ppRepo: ValPpTzRepo,
+        val pwRepo: ValPpTzPwRepo,
         val appConfig: AppConfig) {
 
-    private val log = LoggerFactory.getLogger(ValPpService::class.java)
+    private val log = LoggerFactory.getLogger(ValPpTzService::class.java)
     private val modelMapper = ModelMapper()
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
     private val writeCsvFile = WriteCsvFile()
 
-    private val fileName = "VAL_PP.json"
+    private val fileName = "VAL_PP_TZ.json"
 
     fun mapJsonFile() {
         log.info("Reading table data....")
@@ -66,26 +67,26 @@ constructor(
         val pwList = pwRepo.findAll()
 
 
-        val valPpData = ppList.map { valPpEntity ->
-            val valIcDto = modelMapper.map(valPpEntity, ValPpDto::class.java)
-            valIcDto.submissionDate = myDateUtil.convertTimeToString(valPpEntity.submissionDate)
-            valIcDto.start = myDateUtil.convertTimeToString(valPpEntity.startDate)
-            valIcDto.end = myDateUtil.convertTimeToString(valPpEntity.endDate)
-            valIcDto
+        val ppTzData = ppList.map { ppTzEntity ->
+            val ppTzDto = modelMapper.map(ppTzEntity, ValPpTzDto::class.java)
+            ppTzDto.submissionDate = myDateUtil.convertTimeToString(ppTzEntity.submissionDate)
+            ppTzDto.start = myDateUtil.convertTimeToString(ppTzEntity.startDate)
+            ppTzDto.end = myDateUtil.convertTimeToString(ppTzEntity.endDate)
+            ppTzDto
         }
 
-        val valPpPwData = pwList.map { pwEntity ->
-            val pwDto = modelMapper.map(pwEntity, ValPpPwDto::class.java)
-//            pwDto.parentKey = pwEntity.controlKey
-            pwDto
+        val ppTzPwData = pwList.map { ppTzPwEntity ->
+            val ppTzPwDto = modelMapper.map(ppTzPwEntity, ValPpTzPwDto::class.java)
+//            pwDto.parentKey = ppTzPwEntity.controlKey
+            ppTzPwDto
         }
 
 
-        writeCsvFile.writeCsv(classMap = ValPpDto::class.java, data = valPpData,
-                fileName = "VAL_PP", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = ValPpDto::class.java, data = ppTzData,
+                fileName = "VAL_PP_TZ", outPutPath = filePath)
 
-        writeCsvFile.writeCsv(classMap = ValPpPwDto::class.java, data = valPpPwData,
-                fileName = "VAL_PP-PW", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = ValPpTzPwDto::class.java, data = ppTzPwData,
+                fileName = "VAL_PP_TZ-PW", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -95,7 +96,7 @@ constructor(
         val file = Paths.get(filePath).toFile()
 
         objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true)
-        val list = objectMapper.readValue(file, object : TypeReference<List<ValPpForm>>() {})
+        val list = objectMapper.readValue(file, object : TypeReference<List<ValPpTzForm>>() {})
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
@@ -114,42 +115,43 @@ constructor(
 //        modelMapper.configuration.destinationNamingConvention = NamingConventions.NONE
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
-        val ppData = ArrayList<ValPpEntity>()
-        val pwData = ArrayList<ValPpPwEntity>()
+        val ppData = ArrayList<ValPpTzEntity>()
+        val pwData = ArrayList<ValPpTzPwEntity>()
         list.forEach { ppForm ->
             //map and save to database
-            val valPpEntity = modelMapper.map(ppForm, ValPpEntity::class.java)
+            val ppTzEntity = modelMapper.map(ppForm, ValPpTzEntity::class.java)
 
             val geoPoint = myDateUtil.splitGeoPoint(ppForm.geopoint)
             if (geoPoint.isNotEmpty()) {
-                valPpEntity.geoPointLatitude = geoPoint[0]
+                ppTzEntity.geoPointLatitude = geoPoint[0]
 
                 if (myDateUtil.indexExists(geoPoint, 1)) {
-                    valPpEntity.geoPointLongitude = geoPoint[1]
+                    ppTzEntity.geoPointLongitude = geoPoint[1]
                 }
                 if (myDateUtil.indexExists(geoPoint, 2)) {
-                    valPpEntity.geoPointAltitude = geoPoint[2]
+                    ppTzEntity.geoPointAltitude = geoPoint[2]
                 }
                 if (myDateUtil.indexExists(geoPoint, 3)) {
-                    valPpEntity.geoPointAccuracy = geoPoint[3]
+                    ppTzEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            valPpEntity.uuid = ppForm.formhubUuid
-            valPpEntity.submissionDate = myDateUtil.convertToDateTime(ppForm.submissionTime)
-            valPpEntity.todayDate = myDateUtil.convertToDate(ppForm.today)
-            valPpEntity.startDate = myDateUtil.convertToDateTime(ppForm.start)
-            valPpEntity.endDate = myDateUtil.convertToDateTime(ppForm.end)
-            valPpEntity.plantingDate = myDateUtil.convertToDate(ppForm.plantingDate)
-            valPpEntity.instanceId = ppForm.metaInstanceID
-            valPpEntity.controlKey = ppForm.metaInstanceID
+            ppTzEntity.uuid = ppForm.formhubUuid
+            ppTzEntity.submissionDate = myDateUtil.convertToDateTime(ppForm.submissionTime)
+            ppTzEntity.todayDate = myDateUtil.convertToDate(ppForm.today)
+            ppTzEntity.startDate = myDateUtil.convertToDateTime(ppForm.start)
+            ppTzEntity.endDate = myDateUtil.convertToDateTime(ppForm.end)
+            ppTzEntity.plantingDate = myDateUtil.convertToDate(ppForm.plantingDate)
+            ppTzEntity.instanceId = ppForm.metaInstanceID
+            ppTzEntity.controlKey = ppForm.metaInstanceID
+            ppTzEntity.setOfPw = "${ppForm.metaInstanceID}/PW"
 
-            ppData.add(valPpEntity)
+            ppData.add(ppTzEntity)
 
-            val pwList = ppForm.valPpPwList
+            val pwList = ppForm.ppTzPwList
             var pwCounter = 1
             pwList.forEach { pwForm ->
-                val pwEntity = modelMapper.map(pwForm, ValPpPwEntity::class.java)
-                pwEntity.parentKey = valPpEntity.controlKey
+                val pwEntity = modelMapper.map(pwForm, ValPpTzPwEntity::class.java)
+                pwEntity.parentKey = ppTzEntity.controlKey
                 pwEntity.controlKey = "${pwEntity.parentKey}/PW[$pwCounter]"
                 pwEntity.setOfPw = "${pwEntity.parentKey}/PW"
                 pwCounter = pwCounter.plus(1)
@@ -158,8 +160,8 @@ constructor(
 
         }
 
-        ppRepo.saveAll(ppData)
-        pwRepo.saveAll(pwData)
+//        ppRepo.saveAll(ppData)
+//        pwRepo.saveAll(pwData)
 
         log.info("Finished saving the data for $fileName------->")
 

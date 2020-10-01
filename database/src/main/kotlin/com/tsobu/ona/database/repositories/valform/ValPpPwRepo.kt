@@ -4,4 +4,4 @@ import com.tsobu.ona.database.entities.valform.ValPpPwEntity
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor
 
-interface ValPpPwRepo : JpaRepository<ValPpPwEntity?, Long?>
+interface ValPpPwRepo : JpaRepository<ValPpPwEntity, Long>

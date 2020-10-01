@@ -4,4 +4,4 @@ import com.tsobu.ona.database.entities.valform.ValSphsOgEntity
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor
 
-interface ValSphsOgRepo : JpaRepository<ValSphsOgEntity?, Long?>
+interface ValSphsOgRepo : JpaRepository<ValSphsOgEntity, Long>

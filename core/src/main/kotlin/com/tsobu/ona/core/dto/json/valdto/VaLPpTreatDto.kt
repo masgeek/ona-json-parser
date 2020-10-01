@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder("SubmissionDate", "uuid", "start", "today", "deviceid", "subscriberid", "email", "username", "simserial", "phonenumber", "banner", "intro", "EAID", "HHID", "countrySelect", "geopoint-Latitude", "geopoint-Longitude", "geopoint-Altitude", "geopoint-Accuracy", "lat", "lon", "basicTillCP", "harrowSelectCP", "ridgingCP", "basicTillMethodSelect1CP", "basicTillMethodSelect2CP", "harrowCP", "ridgingMethodSelectCP", "basicTillREC", "harrowSelectREC", "ridgingREC", "basicTillMethodSelect1REC", "basicTillMethodSelect2REC", "harrowREC", "ridgingMethodSelectREC", "presenceRedPlot", "basicTillALT", "harrowSelectALT", "ridgingALT", "basicTillMethodSelect1ALT", "basicTillMethodSelect2ALT", "harrowALT", "ridgingMethodSelectALT", "end", "instanceID", "KEY")
-class VALPPTreatDto {
+class VaLPpTreatDto {
     @JsonProperty("SubmissionDate")
     var submissionDate: String? = null
 
@@ -143,5 +143,5 @@ class VALPPTreatDto {
     var instanceID: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 }
