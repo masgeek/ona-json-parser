@@ -83,8 +83,6 @@ constructor(
             val sampleDto = modelMapper.map(sampleEntity, SampleDto::class.java)
             sampleDto
         }
-
-//        modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
         val nextData = nextList.map { nextEntity ->
             val nextDto = modelMapper.map(nextEntity, NextDto::class.java)
             nextDto
