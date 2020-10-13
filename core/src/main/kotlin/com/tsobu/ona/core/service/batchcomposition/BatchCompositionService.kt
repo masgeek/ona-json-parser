@@ -6,7 +6,8 @@ import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.batchcomposition.CompositionDto
-import com.tsobu.ona.core.dto.json.valdto.ValCisDto
+import com.tsobu.ona.core.dto.json.batchcomposition.NextDto
+import com.tsobu.ona.core.dto.json.batchcomposition.SampleDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.batchcomposition.CompositionEntity
@@ -65,20 +66,39 @@ constructor(
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        val fdAcEntityList = compositionRepo.findAllByOrderBySubmissionDateAsc()
+        val compositionList = compositionRepo.findAllByOrderBySubmissionDateAsc()
+        val sampleList = sampleRepo.findAll()
+        val nextList = nextRepo.findAll()
 
 
-        val fdAcData = fdAcEntityList.map { valCisEntity ->
-            val starchContentAcDto = modelMapper.map(valCisEntity, ValCisDto::class.java)
-            starchContentAcDto.submissionDate = myDateUtil.convertTimeToString(valCisEntity.submissionDate)
-            starchContentAcDto.start = myDateUtil.convertTimeToString(valCisEntity.startDate)
-            starchContentAcDto.end = myDateUtil.convertTimeToString(valCisEntity.endDate)
-            starchContentAcDto
+        val compositionData = compositionList.map { compositionEntity ->
+            val compositionDto = modelMapper.map(compositionEntity, CompositionDto::class.java)
+            compositionDto.submissionDate = myDateUtil.convertTimeToString(compositionEntity.submissionDate)
+            compositionDto.start = myDateUtil.convertTimeToString(compositionEntity.startDate)
+            compositionDto.end = myDateUtil.convertTimeToString(compositionEntity.endDate)
+            compositionDto
+        }
+
+        val sampleData = sampleList.map { sampleEntity ->
+            val sampleDto = modelMapper.map(sampleEntity, SampleDto::class.java)
+            sampleDto
+        }
+
+//        modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
+        val nextData = nextList.map { nextEntity ->
+            val nextDto = modelMapper.map(nextEntity, NextDto::class.java)
+            nextDto
         }
 
 
-        writeCsvFile.writeCsv(classMap = CompositionDto::class.java, data = fdAcData,
+        writeCsvFile.writeCsv(classMap = CompositionDto::class.java, data = compositionData,
                 fileName = "sample_batch_composition", outPutPath = filePath)
+
+        writeCsvFile.writeCsv(classMap = SampleDto::class.java, data = sampleData,
+                fileName = "sample_batch_composition-sample", outPutPath = filePath)
+
+        writeCsvFile.writeCsv(classMap = NextDto::class.java, data = nextData,
+                fileName = "sample_batch_composition-next", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")

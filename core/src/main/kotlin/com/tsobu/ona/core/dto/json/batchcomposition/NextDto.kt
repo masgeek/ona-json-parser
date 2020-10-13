@@ -53,8 +53,8 @@ class NextDto {
     var parentKey: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 
     @JsonProperty("SET-OF-next")
-    var sETOFNext: String? = null
+    var setOfNext: String? = null
 }

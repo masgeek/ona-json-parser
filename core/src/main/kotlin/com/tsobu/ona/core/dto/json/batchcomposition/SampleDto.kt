@@ -62,8 +62,8 @@ class SampleDto {
     var parentKey: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 
     @JsonProperty("SET-OF-sample")
-    var sETOFSample: String? = null
+    var setOfSample: String? = null
 }
