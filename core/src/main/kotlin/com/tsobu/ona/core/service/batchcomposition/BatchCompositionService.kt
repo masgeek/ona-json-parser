@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
+import com.tsobu.ona.core.dto.json.batchcomposition.CompositionDto
 import com.tsobu.ona.core.dto.json.valdto.ValCisDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
@@ -76,8 +77,8 @@ constructor(
         }
 
 
-        writeCsvFile.writeCsv(classMap = ValCisDto::class.java, data = fdAcData,
-                fileName = "VAL_CIS", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = CompositionDto::class.java, data = fdAcData,
+                fileName = "sample_batch_composition", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -155,11 +156,11 @@ constructor(
 
 //        compositionRepo.saveAll(compositionList)
 //        nextRepo.saveAll(nextEntityList)
-        sampleRepo.saveAll(sampleEntityList)
+//        sampleRepo.saveAll(sampleEntityList)
 
         log.info("Finished saving the data for $fileName------->")
 
         log.info("Exporting to CSV $fileName------->")
-//        mapJsonFile()
+        mapJsonFile()
     }
 }
