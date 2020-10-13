@@ -10,11 +10,11 @@ tasks.getByName<Jar>("jar") {
     }
 }
 
-tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
-//    archiveBaseName.set("app-full")
-    archiveClassifier.set("")
-//    archiveVersion.set("1.0")
-}
+//tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
+////    archiveBaseName.set("app-full")
+//    archiveClassifier.set("")
+////    archiveVersion.set("1.0")
+//}
 
 tasks {
     build {

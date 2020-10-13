@@ -25,5 +25,6 @@
 
         <property name="hibernate.hbm2ddl.auto">update</property>
         <mapping class="com.tsobu.parser.database.entities.PlantingPracticeTz"/>
+        <mapping class="com.tsobu.parser.database.entities.ScoreWeedControlAc"/>
     </session-factory>
 </hibernate-configuration>

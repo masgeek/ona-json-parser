@@ -32,6 +32,6 @@ fun main(args: Array<String>) {
 
     myFileReader.readJsonAsset("I:\\development\\python\\ona-download\\downloads\\json\\Score_Weed_Control_AC.json")
 
-    //    val databaseReader = DatabaseReader()
-//    databaseReader.readTable()
+        val databaseReader = DatabaseReader()
+    databaseReader.readTable()
 }

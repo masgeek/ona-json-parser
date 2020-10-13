@@ -12,7 +12,6 @@ tasks.getByName<Jar>("jar") {
 }
 
 val dbChangeLog = "database/src/main/resources/db/changelog.xml"
-//val dbChangeLog = "classpath:db/changelog.xml"
 
 liquibase {
     activities.register("main") {
