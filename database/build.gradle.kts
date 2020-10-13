@@ -1,31 +1,80 @@
-import org.springframework.boot.gradle.tasks.bundling.BootJar
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+
 
 plugins {
-    id("org.springframework.boot")
-
     kotlin("jvm")
-    kotlin("plugin.spring")
-    kotlin("plugin.jpa")
-}
-
-val mysqlVersion: String by extra
-
-tasks.getByName<BootJar>("bootJar") {
-    enabled = false
+    id("org.liquibase.gradle") version "2.0.4"
 }
 
 tasks.getByName<Jar>("jar") {
     enabled = true
 }
 
-dependencies {
-    implementation(project(":enums"))
+val dbChangeLog = "database/src/main/resources/db/changelog.xml"
 
+liquibase {
+    activities.register("main") {
+        this.arguments = mapOf(
+                "logLevel" to "info",
+                "changeLogFile" to dbChangeLog,
+                "outputFile" to "../logs/rollback.sql",
+                "url" to "jdbc:mysql://127.0.0.1:3306/ona",
+                "username" to "root",
+                "password" to "")
+    }
+}
+
+tasks.register("migrate") {
+    group = "Tsobu tasks"
+    description = "Runs liquidbase migrations"
+
+    // depend on the liquibase status task
+    dependsOn("futureRollbackSQL")
+    dependsOn("update")
+}
+
+val generateLiquibaseChangelog by tasks.registering {
+    val changeName: String? by project
+    if (changeName.isNullOrEmpty()) {
+        return@registering
+    }
+    val date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"))
+    val changeSetName = changeName?.replace(" ", "_")?.toLowerCase()
+    val user = project.findProperty("author") ?: System.getProperty("user.name")
+    val file = File("$projectDir/src/main/resources/db/changelog/${date}_$changeSetName.xml")
+    val text = """<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    
+    <changeSet id="$date" author="$user">
+
+    </changeSet>
+</databaseChangeLog>
+"""
+    file.writeText(text)
+}
+dependencies {
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation(kotlin("reflect"))
+    implementation(kotlin("stdlib"))
     implementation(kotlin("stdlib-jdk8"))
 
-    api("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("com.h2database:h2")
     implementation("org.liquibase:liquibase-core:4.0.0")
+    implementation("org.liquibase:liquibase-gradle-plugin:2.0.4")
     implementation("mysql:mysql-connector-java:8.0.21")
+
+    add("liquibaseRuntime", "org.liquibase:liquibase-core:4.0.0")
+    add("liquibaseRuntime", "org.liquibase:liquibase-gradle-plugin:2.0.4")
+    add("liquibaseRuntime", "mysql:mysql-connector-java:8.0.21")
+
+    implementation("org.hibernate:hibernate-core:5.4.21.Final")
+    implementation("org.hibernate:hibernate-c3p0:5.2.18.Final")
+
+    api("org.slf4j:slf4j-simple:1.7.30")
+
+    testImplementation("org.jetbrains.kotlin:kotlin-test")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
 }
