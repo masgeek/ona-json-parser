@@ -8,14 +8,15 @@ import com.tsobu.ona.core.service.assign.FdAcAssignService
 import com.tsobu.ona.core.service.assign.PaAcAssignService
 import com.tsobu.ona.core.service.assign.PoAcAssignService
 import com.tsobu.ona.core.service.assign.TlAcAssignService
+import com.tsobu.ona.core.service.batchcomposition.BatchCompositionService
 import com.tsobu.ona.core.service.collect.CollectLeafTagsService
 import com.tsobu.ona.core.service.collect.CollectPsService
 import com.tsobu.ona.core.service.collect.CollectSsService
-import com.tsobu.ona.core.service.greenbiomass.GreenBiomassService
 import com.tsobu.ona.core.service.dataval.FrService
 import com.tsobu.ona.core.service.dataval.PpService
 import com.tsobu.ona.core.service.dataval.PpTzService
 import com.tsobu.ona.core.service.datavalsphs.SphsService
+import com.tsobu.ona.core.service.greenbiomass.GreenBiomassService
 import com.tsobu.ona.core.service.lignifiedstem.LignifiedStemService
 import com.tsobu.ona.core.service.monitorval.MonitorValService
 import com.tsobu.ona.core.service.register.HhService
@@ -71,14 +72,15 @@ class OnaApplication(
         private val valPpService: ValPpService,
         private val valPpTreatService: ValPpTreatService,
         private val valPpTzService: ValPpTzService,
-        private val valSphsKwService: ValSphsKwService
+        private val valSphsKwService: ValSphsKwService,
+        private val batchCompositionService: BatchCompositionService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
     override fun run(vararg args: String?) {
         log.info("Running Spring Boot Application press CTR-C to close the application");
 
-        valSphsKwService.readJsonAsset()
+        batchCompositionService.readJsonAsset()
 
 //        weedControlService.readJsonAsset(fileName = "Score_Weed_Control_AC.json")
 //        yieldCassavaService.readJsonAsset(fileName = "Assess_Root_Yield_Cassava_AC.json")

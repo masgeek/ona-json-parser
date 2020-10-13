@@ -54,7 +54,7 @@ class SampleBatchCompositionForm {
     var xformId: Int? = null
 
     @JsonProperty("intro/aim")
-    var introAim: String? = null
+    var aim: String? = null
 
     @JsonProperty("simserial")
     var simserial: String? = null
@@ -78,22 +78,22 @@ class SampleBatchCompositionForm {
     var formhubUuid: String? = null
 
     @JsonProperty("intro/entity")
-    var introEntity: String? = null
+    var entityValue: String? = null
 
     @JsonProperty("subscriberid")
     var subscriberid: String? = null
 
     @JsonProperty("_submitted_by")
-    var submittedBy: Any? = null
+    var submittedBy: String? = null
 
     @JsonProperty("intro/station")
-    var introStation: String? = null
+    var station: String? = null
 
     @JsonProperty("nextStep/next")
-    var stepNextList: List<NextStepNextForm> = ArrayList()
+    var nextList: List<NextStepNextForm>? = null
 
     @JsonProperty("intro/batchType")
-    var introBatchType: String? = null
+    var batchType: String? = null
 
     @JsonProperty("meta/instanceID")
     var metaInstanceID: String? = null
@@ -105,74 +105,74 @@ class SampleBatchCompositionForm {
     var xformIdString: String? = null
 
     @JsonProperty("sampleList/sample")
-    var listSampleList: List<SampleListSampleForm> = ArrayList()
+    var sampleList: List<SampleListSampleForm>? = null
 
     @JsonProperty("_bamboo_dataset_id")
     var bambooDatasetId: String? = null
 
     @JsonProperty("sampleList/countFW")
-    var sampleListCountFW: String? = null
+    var countFW: String? = null
 
     @JsonProperty("sampleList/countNA")
-    var sampleListCountNA: String? = null
+    var countNA: String? = null
 
     @JsonProperty("sampleList/countNF")
-    var sampleListCountNF: String? = null
+    var countNF: String? = null
 
     @JsonProperty("sampleList/countSB")
-    var sampleListCountSB: String? = null
+    var countSB: String? = null
 
     @JsonProperty("_media_all_received")
     var mediaAllReceived: Boolean? = null
 
     @JsonProperty("intro/batchTypeNote")
-    var introBatchTypeNote: String? = null
+    var batchTypeNote: String? = null
 
     @JsonProperty("nextStep/next_count")
-    var nextStepNextCount: String? = null
+    var nextCount: String? = null
 
     @JsonProperty("sampleList/confirmSB")
-    var sampleListConfirmSB: String? = null
+    var confirmSB: String? = null
 
     @JsonProperty("sampleList/confirmAll")
-    var sampleListConfirmAll: String? = null
+    var confirmAll: String? = null
 
     @JsonProperty("meta/deprecatedID")
-    var metaDeprecatedID: String? = null
+    var deprecatedID: String? = null
 
     @JsonProperty("sampleList/confirmNA")
-    var sampleListConfirmNA: String? = null
+    var confirmNA: String? = null
 
     @JsonProperty("batchDetails/batchName_pull")
-    var batchDetailsBatchNamePull: String? = null
+    var batchNamePull: String? = null
 
     @JsonProperty("batchDetails/receiveConfirm")
-    var batchDetailsReceiveConfirm: String? = null
+    var receiveConfirm: String? = null
 
     @JsonProperty("batchDetails/description_pull")
-    var batchDetailsDescriptionPull: String? = null
+    var descriptionPull: String? = null
 
     @JsonProperty("batchDetails/sampleBatchID_exist")
-    var batchDetailsSampleBatchIDExist: String? = null
+    var sampleBatchIDExist: String? = null
 
     @JsonProperty("intro/country")
-    var introCountry: String? = null
+    var country: String? = null
 
     @JsonProperty("intro/project")
-    var introProject: String? = null
+    var project: String? = null
 
     @JsonProperty("sampleList/countDC")
-    var sampleListCountDC: String? = null
+    var countDC: String? = null
 
     @JsonProperty("sampleList/countRS")
-    var sampleListCountRS: String? = null
+    var countRS: String? = null
 
     @JsonProperty("sampleList/confirmDC")
-    var sampleListConfirmDC: String? = null
+    var confirmDC: String? = null
 
     @JsonProperty("sampleList/confirmFW")
-    var sampleListConfirmFW: String? = null
+    var confirmFW: String? = null
 
     @JsonProperty("sampleList/confirmRS")
-    var sampleListConfirmRS: String? = null
+    var confirmRS: String? = null
 }

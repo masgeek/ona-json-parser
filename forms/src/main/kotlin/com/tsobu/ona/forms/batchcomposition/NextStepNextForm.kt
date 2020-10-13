@@ -8,53 +8,53 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 @JsonPropertyOrder("nextStep/next/lab", "nextStep/next/res", "nextStep/next/analysis", "nextStep/next/batchName", "nextStep/next/nextAction", "nextStep/next/confirmName", "nextStep/next/description", "nextStep/next/sampleBatchID", "nextStep/next/nextStation", "nextStep/next/noteDescription", "nextStep/next/batchStatus", "nextStep/next/batchQuality", "nextStep/next/descriptionSB", "nextStep/next/descriptionFW", "nextStep/next/descriptionDC", "nextStep/next/descriptionRS", "nextStep/next/confirmDC")
 class NextStepNextForm {
     @JsonProperty("nextStep/next/lab")
-    var nextStepNextLab: String? = null
+    var lab: String? = null
 
     @JsonProperty("nextStep/next/res")
-    var nextStepNextRes: String? = null
+    var res: String? = null
 
     @JsonProperty("nextStep/next/analysis")
-    var nextStepNextAnalysis: String? = null
+    var analysis: String? = null
 
     @JsonProperty("nextStep/next/batchName")
-    var nextStepNextBatchName: String? = null
+    var batchName: String? = null
 
     @JsonProperty("nextStep/next/nextAction")
-    var nextStepNextNextAction: String? = null
+    var nextAction: String? = null
 
     @JsonProperty("nextStep/next/confirmName")
-    var nextStepNextConfirmName: String? = null
+    var confirmName: String? = null
 
     @JsonProperty("nextStep/next/description")
-    var nextStepNextDescription: String? = null
+    var description: String? = null
 
     @JsonProperty("nextStep/next/sampleBatchID")
-    var nextStepNextSampleBatchID: String? = null
+    var sampleBatchId: String? = null
 
     @JsonProperty("nextStep/next/nextStation")
-    var nextStepNextNextStation: String? = null
+    var nextStation: String? = null
 
     @JsonProperty("nextStep/next/noteDescription")
-    var nextStepNextNoteDescription: String? = null
+    var noteDescription: String? = null
 
     @JsonProperty("nextStep/next/batchStatus")
-    var nextStepNextBatchStatus: String? = null
+    var batchStatus: String? = null
 
     @JsonProperty("nextStep/next/batchQuality")
-    var nextStepNextBatchQuality: String? = null
+    var batchQuality: String? = null
 
     @JsonProperty("nextStep/next/descriptionSB")
-    var nextStepNextDescriptionSB: String? = null
+    var descriptionSb: String? = null
 
     @JsonProperty("nextStep/next/descriptionFW")
-    var nextStepNextDescriptionFW: String? = null
+    var descriptionFw: String? = null
 
     @JsonProperty("nextStep/next/descriptionDC")
-    var nextStepNextDescriptionDC: String? = null
+    var descriptionDc: String? = null
 
     @JsonProperty("nextStep/next/descriptionRS")
-    var nextStepNextDescriptionRS: String? = null
+    var descriptionRS: String? = null
 
     @JsonProperty("nextStep/next/confirmDC")
-    var nextStepNextConfirmDC: String? = null
+    var confirmDc: String? = null
 }

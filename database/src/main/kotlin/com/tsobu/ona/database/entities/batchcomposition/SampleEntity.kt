@@ -11,10 +11,10 @@ class SampleEntity : BaseEntity() {
     @Column(name = "nr")
     var nr: String? = null
 
-    @Column(name = "plant_sample_id")
+    @Column(name = "plant_sample_id",columnDefinition = "TEXT")
     var plantSampleId: String? = null
 
-    @Column(name = "soil_sample_id")
+    @Column(name = "soil_sample_id", columnDefinition = "TEXT")
     var soilSampleId: String? = null
 
     @Column(name = "ps_key")
