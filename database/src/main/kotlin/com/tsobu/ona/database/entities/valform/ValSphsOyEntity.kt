@@ -157,8 +157,8 @@ class ValSphsOyEntity : BaseEntity() {
     @Column(name = "check_id")
     var checkId: String? = null
 
-    @Column(name = "check")
-    var check: String? = null
+    @Column(name = "check_value")
+    var checkValue: String? = null
 
     @Column(name = "variety")
     var variety: String? = null

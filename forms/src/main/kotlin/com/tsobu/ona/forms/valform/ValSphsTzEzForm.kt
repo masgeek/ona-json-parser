@@ -37,7 +37,7 @@ class ValSphsTzEzForm {
     var uuid: String? = null
 
     @JsonProperty("check")
-    var check: String? = null
+    var checkValue: String? = null
 
     @JsonProperty("plotL")
     var plotL: String? = null

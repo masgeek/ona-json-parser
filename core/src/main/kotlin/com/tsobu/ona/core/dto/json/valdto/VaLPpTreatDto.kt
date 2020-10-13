@@ -53,22 +53,22 @@ class VaLPpTreatDto {
     var countrySelect: String? = null
 
     @JsonProperty("geopoint-Latitude")
-    var geopointLatitude: Double? = null
+    var geopointLatitude: String? = null
 
     @JsonProperty("geopoint-Longitude")
-    var geopointLongitude: Double? = null
+    var geopointLongitude: String? = null
 
     @JsonProperty("geopoint-Altitude")
     var geopointAltitude: String? = null
 
     @JsonProperty("geopoint-Accuracy")
-    var geopointAccuracy: Double? = null
+    var geopointAccuracy: String? = null
 
     @JsonProperty("lat")
-    var lat: Double? = null
+    var lat: String? = null
 
     @JsonProperty("lon")
-    var lon: Double? = null
+    var lon: String? = null
 
     @JsonProperty("basicTillCP")
     var basicTillCP: String? = null

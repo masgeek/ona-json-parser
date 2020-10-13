@@ -37,7 +37,7 @@ class ValSphsOgForm {
     var uuid: String? = null
 
     @JsonProperty("check")
-    var check: String? = null
+    var checkValue: String? = null
 
     @JsonProperty("email")
     var email: String? = null

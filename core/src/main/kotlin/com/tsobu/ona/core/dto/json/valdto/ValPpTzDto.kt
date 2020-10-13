@@ -68,22 +68,22 @@ class ValPpTzDto {
     var conversion: String? = null
 
     @JsonProperty("geopoint-Latitude")
-    var geopointLatitude: Double? = null
+    var geopointLatitude: String? = null
 
     @JsonProperty("geopoint-Longitude")
-    var geopointLongitude: Double? = null
+    var geopointLongitude: String? = null
 
     @JsonProperty("geopoint-Altitude")
-    var geopointAltitude: Double? = null
+    var geopointAltitude: String? = null
 
     @JsonProperty("geopoint-Accuracy")
-    var geopointAccuracy: Double? = null
+    var geopointAccuracy: String? = null
 
     @JsonProperty("lat")
-    var lat: Double? = null
+    var lat: String? = null
 
     @JsonProperty("lon")
-    var lon: Double? = null
+    var lon: String? = null
 
     @JsonProperty("zone")
     var zone: String? = null
@@ -180,7 +180,7 @@ class ValPpTzDto {
     var weedingMethod: String? = null
 
     @JsonProperty("currentY")
-    var currentY: Double? = null
+    var currentY: String? = null
 
     @JsonProperty("currentYieldLevel")
     var currentYieldLevel: String? = null
@@ -282,64 +282,64 @@ class ValPpTzDto {
     var costCPcurr: String? = null
 
     @JsonProperty("grossValueT0RG")
-    var grossValueT0RG: Double? = null
+    var grossValueT0RG: String? = null
 
     @JsonProperty("grossValueT0FL")
-    var grossValueT0FL: Double? = null
+    var grossValueT0FL: String? = null
 
     @JsonProperty("grossValueT1RG")
-    var grossValueT1RG: Double? = null
+    var grossValueT1RG: String? = null
 
     @JsonProperty("grossValueT1FL")
-    var grossValueT1FL: Double? = null
+    var grossValueT1FL: String? = null
 
     @JsonProperty("grossValueT2RG")
-    var grossValueT2RG: Double? = null
+    var grossValueT2RG: String? = null
 
     @JsonProperty("grossValueT2FL")
-    var grossValueT2FL: Double? = null
+    var grossValueT2FL: String? = null
 
     @JsonProperty("grossValueCP")
-    var grossValueCP: Double? = null
+    var grossValueCP: String? = null
 
     @JsonProperty("netValueT0RG")
-    var netValueT0RG: Double? = null
+    var netValueT0RG: String? = null
 
     @JsonProperty("netValueT0FL")
-    var netValueT0FL: Double? = null
+    var netValueT0FL: String? = null
 
     @JsonProperty("netValueT1RG")
-    var netValueT1RG: Double? = null
+    var netValueT1RG: String? = null
 
     @JsonProperty("netValueT1FL")
-    var netValueT1FL: Double? = null
+    var netValueT1FL: String? = null
 
     @JsonProperty("netValueT2RG")
-    var netValueT2RG: Double? = null
+    var netValueT2RG: String? = null
 
     @JsonProperty("netValueT2FL")
-    var netValueT2FL: Double? = null
+    var netValueT2FL: String? = null
 
     @JsonProperty("netValueCP")
-    var netValueCP: Double? = null
+    var netValueCP: String? = null
 
     @JsonProperty("netValueDifT0RG")
-    var netValueDifT0RG: Double? = null
+    var netValueDifT0RG: String? = null
 
     @JsonProperty("netValueDifT0FL")
-    var netValueDifT0FL: Double? = null
+    var netValueDifT0FL: String? = null
 
     @JsonProperty("netValueDifT1RG")
     var netValueDifT1RG: String? = null
 
     @JsonProperty("netValueDifT1FL")
-    var netValueDifT1FL: Double? = null
+    var netValueDifT1FL: String? = null
 
     @JsonProperty("netValueDifT2RG")
     var netValueDifT2RG: String? = null
 
     @JsonProperty("netValueDifT2FL")
-    var netValueDifT2FL: Double? = null
+    var netValueDifT2FL: String? = null
 
     @JsonProperty("netValueDifMax")
     var netValueDifMax: String? = null
@@ -414,7 +414,7 @@ class ValPpTzDto {
     var plantingNote: String? = null
 
     @JsonProperty("call")
-    var call: String? = null
+    var callValue: String? = null
 
     @JsonProperty("confirmVAL")
     var confirmVal: String? = null

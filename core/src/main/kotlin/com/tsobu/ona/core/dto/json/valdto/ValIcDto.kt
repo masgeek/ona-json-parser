@@ -68,22 +68,22 @@ class ValIcDto {
     var conversion: String? = null
 
     @JsonProperty("geopoint-Latitude")
-    var geopointLatitude: Double? = null
+    var geopointLatitude: String? = null
 
     @JsonProperty("geopoint-Longitude")
-    var geopointLongitude: Double? = null
+    var geopointLongitude: String? = null
 
     @JsonProperty("geopoint-Altitude")
-    var geopointAltitude: Double? = null
+    var geopointAltitude: String? = null
 
     @JsonProperty("geopoint-Accuracy")
     var geopointAccuracy: String? = null
 
     @JsonProperty("lat")
-    var lat: Double? = null
+    var lat: String? = null
 
     @JsonProperty("lon")
-    var lon: Double? = null
+    var lon: String? = null
 
     @JsonProperty("plantingDate")
     var plantingDate: String? = null
@@ -257,7 +257,7 @@ class ValIcDto {
     var reasonHD: String? = null
 
     @JsonProperty("plotSize")
-    var plotSize: Double? = null
+    var plotSize: String? = null
 
     @JsonProperty("numberExtraCobsLargePlot")
     var numberExtraCobsLargePlot: String? = null
@@ -344,7 +344,7 @@ class ValIcDto {
     var recNote: String? = null
 
     @JsonProperty("call")
-    var call: String? = null
+    var callValue: String? = null
 
     @JsonProperty("confirmVAL")
     var confirmVal: String? = null

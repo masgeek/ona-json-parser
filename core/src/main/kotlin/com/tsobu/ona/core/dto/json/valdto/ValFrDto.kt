@@ -68,22 +68,22 @@ class ValFrDto {
     var conversion: String? = null
 
     @JsonProperty("geopoint-Latitude")
-    var geopointLatitude: Double? = null
+    var geopointLatitude: String? = null
 
     @JsonProperty("geopoint-Longitude")
-    var geopointLongitude: Double? = null
+    var geopointLongitude: String? = null
 
     @JsonProperty("geopoint-Altitude")
-    var geopointAltitude: Double? = null
+    var geopointAltitude: String? = null
 
     @JsonProperty("geopoint-Accuracy")
     var geopointAccuracy: String? = null
 
     @JsonProperty("lat")
-    var lat: Double? = null
+    var lat: String? = null
 
     @JsonProperty("lon")
-    var lon: Double? = null
+    var lon: String? = null
 
     @JsonProperty("plantingDate")
     var plantingDate: String? = null
@@ -122,10 +122,10 @@ class ValFrDto {
     var rateNPK: String? = null
 
     @JsonProperty("currentY")
-    var currentY: Double? = null
+    var currentY: String? = null
 
     @JsonProperty("targetY")
-    var targetY: Double? = null
+    var targetY: String? = null
 
     @JsonProperty("increaseY")
     var increaseY: String? = null
@@ -152,13 +152,13 @@ class ValFrDto {
     var withinRow: String? = null
 
     @JsonProperty("plotL")
-    var plotL: Double? = null
+    var plotL: String? = null
 
     @JsonProperty("plotW")
     var plotW: String? = null
 
     @JsonProperty("plotSize")
-    var plotSize: Double? = null
+    var plotSize: String? = null
 
     @JsonProperty("rateUrea_AB")
     var rateUreaAB: Any? = null
@@ -203,13 +203,13 @@ class ValFrDto {
     var quantityNPK: String? = null
 
     @JsonProperty("rateUrea_min")
-    var rateUreaMin: Double? = null
+    var rateUreaMin: String? = null
 
     @JsonProperty("rateTSP_min")
     var rateTSPMin: String? = null
 
     @JsonProperty("rateNafaka_min")
-    var rateNafakaMin: Double? = null
+    var rateNafakaMin: String? = null
 
     @JsonProperty("rateDAP_min")
     var rateDAPMin: String? = null
@@ -401,7 +401,7 @@ class ValFrDto {
     var quantity2NPKNote: String? = null
 
     @JsonProperty("call")
-    var call: String? = null
+    var callValue: String? = null
 
     @JsonProperty("confirmVAL")
     var confirmVal: String? = null

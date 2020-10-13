@@ -68,28 +68,28 @@ class ValCisDto {
     var conversion: String? = null
 
     @JsonProperty("geopoint-Latitude")
-    var geopointLatitude: Double? = null
+    var geopointLatitude: String? = null
 
     @JsonProperty("geopoint-Longitude")
-    var geopointLongitude: Double? = null
+    var geopointLongitude: String? = null
 
     @JsonProperty("geopoint-Altitude")
-    var geopointAltitude: Double? = null
+    var geopointAltitude: String? = null
 
     @JsonProperty("geopoint-Accuracy")
     var geopointAccuracy: String? = null
 
     @JsonProperty("lat")
-    var lat: Double? = null
+    var lat: String? = null
 
     @JsonProperty("lon")
-    var lon: Double? = null
+    var lon: String? = null
 
     @JsonProperty("plantingDate")
     var plantingDate: String? = null
 
     @JsonProperty("yieldLevel")
-    var yieldLevel: Double? = null
+    var yieldLevel: String? = null
 
     @JsonProperty("sweetPotatoVarietySelect")
     var sweetPotatoVarietySelect: String? = null
@@ -131,7 +131,7 @@ class ValCisDto {
     var rootsUnitPrice: String? = null
 
     @JsonProperty("rootsPrice")
-    var rootsPrice: Double? = null
+    var rootsPrice: String? = null
 
     @JsonProperty("tuberUnit")
     var tuberUnit: String? = null
@@ -149,7 +149,7 @@ class ValCisDto {
     var tuberUnitPrice: String? = null
 
     @JsonProperty("tuberPrice")
-    var tuberPrice: Double? = null
+    var tuberPrice: String? = null
 
     @JsonProperty("rootYieldMC")
     var rootYieldMC: String? = null
@@ -158,10 +158,10 @@ class ValCisDto {
     var tuberYieldMC: String? = null
 
     @JsonProperty("rootYieldRedIC")
-    var rootYieldRedIC: Double? = null
+    var rootYieldRedIC: String? = null
 
     @JsonProperty("tuberYieldRedIC")
-    var tuberYieldRedIC: Double? = null
+    var tuberYieldRedIC: String? = null
 
     @JsonProperty("extraRootYieldMCF")
     var extraRootYieldMCF: String? = null
@@ -170,19 +170,19 @@ class ValCisDto {
     var extraTuberYieldMCF: String? = null
 
     @JsonProperty("rootGRMC")
-    var rootGRMC: Double? = null
+    var rootGRMC: String? = null
 
     @JsonProperty("rootGRIC")
-    var rootGRIC: Double? = null
+    var rootGRIC: String? = null
 
     @JsonProperty("tuberGRIC")
     var tuberGRIC: String? = null
 
     @JsonProperty("totalGRIC")
-    var totalGRIC: Double? = null
+    var totalGRIC: String? = null
 
     @JsonProperty("extraGRIC")
-    var extraGRIC: Double? = null
+    var extraGRIC: String? = null
 
     @JsonProperty("importanceIC")
     var importanceIC: String? = null
@@ -206,28 +206,28 @@ class ValCisDto {
     var riskAttitude: String? = null
 
     @JsonProperty("rootGRMCF")
-    var rootGRMCF: Double? = null
+    var rootGRMCF: String? = null
 
     @JsonProperty("rootGRICF")
-    var rootGRICF: Double? = null
+    var rootGRICF: String? = null
 
     @JsonProperty("tuberGRICF")
     var tuberGRICF: String? = null
 
     @JsonProperty("totalGRICF")
-    var totalGRICF: Double? = null
+    var totalGRICF: String? = null
 
     @JsonProperty("extraGRMCF")
-    var extraGRMCF: Double? = null
+    var extraGRMCF: String? = null
 
     @JsonProperty("extraGRICF")
-    var extraGRICF: Double? = null
+    var extraGRICF: String? = null
 
     @JsonProperty("rec")
     var rec: String? = null
 
     @JsonProperty("extraProfit")
-    var extraProfit: Double? = null
+    var extraProfit: String? = null
 
     @JsonProperty("extraProfitPerc")
     var extraProfitPerc: String? = null
@@ -257,7 +257,7 @@ class ValCisDto {
     var validationPlot4: String? = null
 
     @JsonProperty("call")
-    var call: String? = null
+    var callValue: String? = null
 
     @JsonProperty("confirmVAL")
     var confirmVal: String? = null
