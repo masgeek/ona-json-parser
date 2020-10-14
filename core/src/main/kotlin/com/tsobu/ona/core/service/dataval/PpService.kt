@@ -43,6 +43,7 @@ constructor(
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
     private val writeCsvFile = WriteCsvFile()
 
+    private val fileName = "dataVAL_PP.json"
     fun mapJsonFile() {
         log.info("Reading table data....")
         val ppList = ppRepo.findAllByOrderBySubmissionDateAsc()
@@ -119,7 +120,7 @@ constructor(
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
-    fun readJsonAsset(fileName: String) {
+    fun readJsonAsset() {
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
@@ -260,5 +261,6 @@ constructor(
         ppWaRecBpp3Repo.saveAll(weedAssessmentRecBpp3Data)
 
         log.info("Finished saving the data for $fileName------->")
+        mapJsonFile()
     }
 }

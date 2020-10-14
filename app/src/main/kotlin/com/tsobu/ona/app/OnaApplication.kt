@@ -80,7 +80,7 @@ class OnaApplication(
     override fun run(vararg args: String?) {
         log.info("Running Spring Boot Application press CTR-C to close the application");
 
-        batchCompositionService.readJsonAsset()
+//        batchCompositionService.readJsonAsset()
 
 //        weedControlService.readJsonAsset(fileName = "Score_Weed_Control_AC.json")
 //        yieldCassavaService.readJsonAsset(fileName = "Assess_Root_Yield_Cassava_AC.json")
@@ -92,7 +92,7 @@ class OnaApplication(
 //        frService.readJsonAsset(fileName = "dataVAL_FR.json")
 //        hhService.readJsonAsset(fileName = "Register_HH.json")
 //        ppTzService.readJsonAsset(fileName = "dataVAL_PP_TZ.json")
-//        ppService.readJsonAsset(fileName = "dataVAL_PP.json")
+        ppService.readJsonAsset()
 //        monitorValService.readJsonAsset(fileName = "monitorVAL.json")
 //        addSampleService.readJsonAsset(fileName = "Add_Sample_Label_AC.json")
 //        greenBiomassService.readJsonAsset(fileName = "Assess_GreenBiomass_Yield_Cassava_AC.json")
