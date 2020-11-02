@@ -8,9 +8,9 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.valdto.ValSphsOgDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.valform.ValSphsOgEntity
-import com.tsobu.ona.database.repositories.valform.ValSphsOgRepo
-import com.tsobu.ona.forms.valform.ValSphsOgForm
+import com.tsobu.ona.database.entities.valform.ValSphsOnEntity
+import com.tsobu.ona.database.repositories.valform.ValSphsOnRepo
+import com.tsobu.ona.forms.valform.ValSphsOnForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
@@ -25,20 +25,20 @@ import java.nio.file.Paths
 
 
 @Service
-class ValSphsOgService
+class ValSphsOnService
 constructor(
         transactionManager: PlatformTransactionManager,
-        val ogRepo: ValSphsOgRepo,
+        val onRepo: ValSphsOnRepo,
         val appConfig: AppConfig) {
 
-    private val log = LoggerFactory.getLogger(ValSphsOgService::class.java)
+    private val log = LoggerFactory.getLogger(ValSphsOnService::class.java)
     private val modelMapper = ModelMapper()
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
     private val writeCsvFile = WriteCsvFile()
 
-    private val fileName = "VAL_SPHS_OG.json"
+    private val fileName = "VAL_SPHS_ON.json"
 
     fun mapJsonFile() {
         log.info("Reading table data....")
@@ -58,7 +58,7 @@ constructor(
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        val kwList = ogRepo.findAllByOrderBySubmissionDateAsc()
+        val kwList = onRepo.findAllByOrderBySubmissionDateAsc()
 
 
         val treatData = kwList.map { ogEntity ->
@@ -72,7 +72,7 @@ constructor(
 
 
         writeCsvFile.writeCsv(classMap = ValSphsOgDto::class.java, data = treatData,
-                fileName = "VAL_SPHS_OG", outPutPath = filePath)
+                fileName = "VAL_SPHS_ON", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -82,7 +82,7 @@ constructor(
         val file = Paths.get(filePath).toFile()
 
         objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true)
-        val list = objectMapper.readValue(file, object : TypeReference<List<ValSphsOgForm>>() {})
+        val list = objectMapper.readValue(file, object : TypeReference<List<ValSphsOnForm>>() {})
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
@@ -101,40 +101,40 @@ constructor(
 //        modelMapper.configuration.destinationNamingConvention = NamingConventions.NONE
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
-        val ogData = ArrayList<ValSphsOgEntity>()
+        val onData = ArrayList<ValSphsOnEntity>()
         list.forEach { ogForm ->
             //map and save to database
-            val ogEntity = modelMapper.map(ogForm, ValSphsOgEntity::class.java)
+            val onEntity = modelMapper.map(ogForm, ValSphsOnEntity::class.java)
 
             val geoPoint = myDateUtil.splitGeoPoint(ogForm.geopoint)
             if (geoPoint.isNotEmpty()) {
-                ogEntity.geoPointLatitude = geoPoint[0]
+                onEntity.geoPointLatitude = geoPoint[0]
 
                 if (myDateUtil.indexExists(geoPoint, 1)) {
-                    ogEntity.geoPointLongitude = geoPoint[1]
+                    onEntity.geoPointLongitude = geoPoint[1]
                 }
                 if (myDateUtil.indexExists(geoPoint, 2)) {
-                    ogEntity.geoPointAltitude = geoPoint[2]
+                    onEntity.geoPointAltitude = geoPoint[2]
                 }
                 if (myDateUtil.indexExists(geoPoint, 3)) {
-                    ogEntity.geoPointAccuracy = geoPoint[3]
+                    onEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            ogEntity.uuid = ogForm.formhubUuid
-            ogEntity.submissionDate = myDateUtil.convertToDateTime(ogForm.submissionTime)
-            ogEntity.todayDate = myDateUtil.convertToDate(ogForm.today)
-            ogEntity.startDate = myDateUtil.convertToDateTime(ogForm.start)
-            ogEntity.endDate = myDateUtil.convertToDateTime(ogForm.end)
-            ogEntity.instanceId = ogForm.metaInstanceID
-            ogEntity.controlKey = ogForm.metaInstanceID
+            onEntity.uuid = ogForm.formhubUuid
+            onEntity.submissionDate = myDateUtil.convertToDateTime(ogForm.submissionTime)
+            onEntity.todayDate = myDateUtil.convertToDate(ogForm.today)
+            onEntity.startDate = myDateUtil.convertToDateTime(ogForm.start)
+            onEntity.endDate = myDateUtil.convertToDateTime(ogForm.end)
+            onEntity.instanceId = ogForm.metaInstanceID
+            onEntity.controlKey = ogForm.metaInstanceID
 
-            ogEntity.gpDif = ogForm.gpDif
+            onEntity.gpDif = ogForm.gpDif
 
-            ogData.add(ogEntity)
+            onData.add(onEntity)
 
         }
 
-        ogRepo.saveAll(ogData)
+//        onRepo.saveAll(onData)
         log.info("Finished saving the data for $fileName------->")
 
         log.info("Exporting to CSV $fileName------->")

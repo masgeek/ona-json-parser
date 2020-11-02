@@ -4,4 +4,6 @@ import com.tsobu.ona.database.entities.valform.ValSphsOnEntity
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor
 
-interface ValSphsOnRep : JpaRepository<ValSphsOnEntity, Long>
+interface ValSphsOnRepo : JpaRepository<ValSphsOnEntity, Long> {
+    fun findAllByOrderBySubmissionDateAsc(): List<ValSphsOnEntity>
+}

@@ -23,10 +23,12 @@ import com.tsobu.ona.core.service.register.HhService
 import com.tsobu.ona.core.service.starchcontent.StarchContentService
 import com.tsobu.ona.core.service.valform.*
 import com.tsobu.ona.core.service.valsphs.ValSphsOgService
+import com.tsobu.ona.core.service.valsphs.ValSphsOnService
 import com.tsobu.ona.core.service.valsphstz.EzService
 import com.tsobu.ona.core.service.valsphstz.LzeService
 import com.tsobu.ona.core.service.valsphstz.LzwService
 import com.tsobu.ona.core.service.valsphstz.SzService
+import com.tsobu.ona.database.repositories.valform.ValSphsOnRepo
 import org.slf4j.LoggerFactory
 import org.springframework.boot.Banner
 import org.springframework.boot.CommandLineRunner
@@ -76,13 +78,14 @@ class OnaApplication(
         private val valSphsKwService: ValSphsKwService,
         private val batchCompositionService: BatchCompositionService,
         private val valSphsOgService: ValSphsOgService,
+        private val valSphsOnService: ValSphsOnService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
     override fun run(vararg args: String?) {
         log.info("Running Spring Boot Application press CTR-C to close the application");
 
-        valSphsOgService.readJsonAsset()
+        valSphsOnService.readJsonAsset()
 
 //        weedControlService.readJsonAsset(fileName = "Score_Weed_Control_AC.json")
 //        yieldCassavaService.readJsonAsset(fileName = "Assess_Root_Yield_Cassava_AC.json")
