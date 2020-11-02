@@ -68,16 +68,16 @@ class ValSphsOyDto {
     var conversion: String? = null
 
     @JsonProperty("geopoint-Latitude")
-    var geopointLatitude: String? = null
+    var geoPointLatitude: String? = null
 
     @JsonProperty("geopoint-Longitude")
-    var geopointLongitude: String? = null
+    var geoPointLongitude: String? = null
 
     @JsonProperty("geopoint-Altitude")
-    var geopointAltitude: String? = null
+    var geoPointAltitude: String? = null
 
     @JsonProperty("geopoint-Accuracy")
-    var geopointAccuracy: String? = null
+    var geoPointAccuracy: String? = null
 
     @JsonProperty("lat")
     var lat: String? = null
@@ -227,40 +227,40 @@ class ValSphsOyDto {
     var sc12: String? = null
 
     @JsonProperty("priceSC1")
-    var priceSC1: String? = null
+    var priceSc1: String? = null
 
     @JsonProperty("priceSC2")
-    var priceSC2: String? = null
+    var priceSc2: String? = null
 
     @JsonProperty("priceSC3")
-    var priceSC3: String? = null
+    var priceSc3: String? = null
 
     @JsonProperty("priceSC4")
-    var priceSC4: String? = null
+    var priceSc4: String? = null
 
     @JsonProperty("priceSC5")
-    var priceSC5: String? = null
+    var priceSc5: String? = null
 
     @JsonProperty("priceSC6")
-    var priceSC6: String? = null
+    var priceSc6: String? = null
 
     @JsonProperty("priceSC7")
-    var priceSC7: String? = null
+    var priceSc7: String? = null
 
     @JsonProperty("priceSC8")
-    var priceSC8: String? = null
+    var priceSc8: String? = null
 
     @JsonProperty("priceSC9")
-    var priceSC9: String? = null
+    var priceSc9: String? = null
 
     @JsonProperty("priceSC10")
-    var priceSC10: String? = null
+    var priceSc10: String? = null
 
     @JsonProperty("priceSC11")
-    var priceSC11: String? = null
+    var priceSc11: String? = null
 
     @JsonProperty("priceSC12")
-    var priceSC12: String? = null
+    var priceSc12: String? = null
 
     @JsonProperty("product")
     var product: String? = null
@@ -446,37 +446,37 @@ class ValSphsOyDto {
     var sCp4: String? = null
 
     @JsonProperty("priceSC0")
-    var priceSC0: String? = null
+    var priceSc0: String? = null
 
     @JsonProperty("priceSCm1")
-    var priceSCm1: String? = null
+    var priceScm1: String? = null
 
     @JsonProperty("priceSCm2")
-    var priceSCm2: String? = null
+    var priceScm2: String? = null
 
     @JsonProperty("priceSCm3")
-    var priceSCm3: String? = null
+    var priceScm3: String? = null
 
     @JsonProperty("priceSCm4")
-    var priceSCm4: String? = null
+    var priceScm4: String? = null
 
     @JsonProperty("priceSCp1")
-    var priceSCp1: String? = null
+    var priceScp1: String? = null
 
     @JsonProperty("priceSCp2")
-    var priceSCp2: String? = null
+    var priceScp2: String? = null
 
     @JsonProperty("priceSCp3")
-    var priceSCp3: String? = null
+    var priceScp3: String? = null
 
     @JsonProperty("priceSCp4")
-    var priceSCp4: String? = null
+    var priceScp4: String? = null
 
     @JsonProperty("Yp0h0")
     var yp0h0: String? = null
 
     @JsonProperty("Yp0h0_AB")
-    var yp0h0AB: String? = null
+    var yp0h0Ab: String? = null
 
     @JsonProperty("Yp0hm1")
     var yp0hm1: String? = null
@@ -506,7 +506,7 @@ class ValSphsOyDto {
     var gRp0h0: String? = null
 
     @JsonProperty("GRp0h0_AB")
-    var gRp0h0AB: String? = null
+    var gRp0h0Ab: String? = null
 
     @JsonProperty("GRp0h0_ABcurr")
     var gRp0h0ABcurr: String? = null
@@ -593,28 +593,28 @@ class ValSphsOyDto {
     var gPp0hp4: String? = null
 
     @JsonProperty("GRmax")
-    var gRmax: String? = null
+    var grMax: String? = null
 
     @JsonProperty("GRmax_AB")
-    var gRmaxAB: String? = null
+    var grMaxAb: String? = null
 
     @JsonProperty("GRdif")
-    var gRdif: String? = null
+    var grDif: String? = null
 
     @JsonProperty("GRdif_AB")
-    var gRdifAB: String? = null
+    var grDifAb: String? = null
 
     @JsonProperty("GRdif_ABcurr")
-    var gRdifABcurr: String? = null
+    var grDifAbcurr: String? = null
 
     @JsonProperty("GPmax")
-    var gPmax: String? = null
+    var gpMax: String? = null
 
     @JsonProperty("GPdif")
-    var gPdif: String? = null
+    var gpDif: String? = null
 
     @JsonProperty("GPdifcurr")
-    var gPdifcurr: String? = null
+    var gpDifcurr: String? = null
 
     @JsonProperty("optHarvest")
     var optHarvest: String? = null
@@ -632,10 +632,10 @@ class ValSphsOyDto {
     var difHarvestNote: String? = null
 
     @JsonProperty("GRdifNote")
-    var gRdifNote: String? = null
+    var grDifNote: String? = null
 
     @JsonProperty("GRmaxNote")
-    var gRmaxNote: String? = null
+    var grMaxNote: String? = null
 
     @JsonProperty("sensible")
     var sensible: String? = null

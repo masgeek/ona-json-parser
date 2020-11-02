@@ -6,11 +6,12 @@ import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.valdto.ValSphsOgDto
+import com.tsobu.ona.core.dto.json.valdto.ValSphsOyDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.valform.ValSphsOnEntity
-import com.tsobu.ona.database.repositories.valform.ValSphsOnRepo
-import com.tsobu.ona.forms.valform.ValSphsOnForm
+import com.tsobu.ona.database.entities.valform.ValSphsOyEntity
+import com.tsobu.ona.database.repositories.valform.ValSphsOyRepo
+import com.tsobu.ona.forms.valform.ValSphsOyForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
@@ -28,7 +29,7 @@ import java.nio.file.Paths
 class ValSphsOyService
 constructor(
         transactionManager: PlatformTransactionManager,
-        val onRepo: ValSphsOnRepo,
+        val oyRepo: ValSphsOyRepo,
         val appConfig: AppConfig) {
 
     private val log = LoggerFactory.getLogger(ValSphsOyService::class.java)
@@ -58,16 +59,16 @@ constructor(
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        val kwList = onRepo.findAllByOrderBySubmissionDateAsc()
+        val kwList = oyRepo.findAllByOrderBySubmissionDateAsc()
 
 
-        val treatData = kwList.map { ogEntity ->
-            val ogDto = modelMapper.map(ogEntity, ValSphsOgDto::class.java)
-            ogDto.submissionDate = myDateUtil.convertTimeToString(ogEntity.submissionDate)
-            ogDto.start = myDateUtil.convertTimeToString(ogEntity.startDate)
-            ogDto.end = myDateUtil.convertTimeToString(ogEntity.endDate)
+        val treatData = kwList.map { oyEntity ->
+            val oyDto = modelMapper.map(oyEntity, ValSphsOyDto::class.java)
+            oyDto.submissionDate = myDateUtil.convertTimeToString(oyEntity.submissionDate)
+            oyDto.start = myDateUtil.convertTimeToString(oyEntity.startDate)
+            oyDto.end = myDateUtil.convertTimeToString(oyEntity.endDate)
 
-            ogDto
+            oyDto
         }
 
 
@@ -82,7 +83,7 @@ constructor(
         val file = Paths.get(filePath).toFile()
 
         objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true)
-        val list = objectMapper.readValue(file, object : TypeReference<List<ValSphsOnForm>>() {})
+        val list = objectMapper.readValue(file, object : TypeReference<List<ValSphsOyForm>>() {})
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
@@ -101,12 +102,12 @@ constructor(
 //        modelMapper.configuration.destinationNamingConvention = NamingConventions.NONE
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
-        val onData = ArrayList<ValSphsOnEntity>()
-        list.forEach { ogForm ->
+        val oyData = ArrayList<ValSphsOyEntity>()
+        list.forEach { oyForm ->
             //map and save to database
-            val onEntity = modelMapper.map(ogForm, ValSphsOnEntity::class.java)
+            val onEntity = modelMapper.map(oyForm, ValSphsOyEntity::class.java)
 
-            val geoPoint = myDateUtil.splitGeoPoint(ogForm.geopoint)
+            val geoPoint = myDateUtil.splitGeoPoint(oyForm.geopoint)
             if (geoPoint.isNotEmpty()) {
                 onEntity.geoPointLatitude = geoPoint[0]
 
@@ -120,24 +121,24 @@ constructor(
                     onEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            onEntity.uuid = ogForm.formhubUuid
-            onEntity.submissionDate = myDateUtil.convertToDateTime(ogForm.submissionTime)
-            onEntity.todayDate = myDateUtil.convertToDate(ogForm.today)
-            onEntity.startDate = myDateUtil.convertToDateTime(ogForm.start)
-            onEntity.endDate = myDateUtil.convertToDateTime(ogForm.end)
-            onEntity.instanceId = ogForm.metaInstanceID
-            onEntity.controlKey = ogForm.metaInstanceID
+            onEntity.uuid = oyForm.formhubUuid
+            onEntity.submissionDate = myDateUtil.convertToDateTime(oyForm.submissionTime)
+            onEntity.todayDate = myDateUtil.convertToDate(oyForm.today)
+            onEntity.startDate = myDateUtil.convertToDateTime(oyForm.start)
+            onEntity.endDate = myDateUtil.convertToDateTime(oyForm.end)
+            onEntity.instanceId = oyForm.metaInstanceID
+            onEntity.controlKey = oyForm.metaInstanceID
 
-            onEntity.gpDif = ogForm.gpDif
+            onEntity.gpDif = oyForm.gpDif
 
-            onData.add(onEntity)
+            oyData.add(onEntity)
 
         }
 
-//        onRepo.saveAll(onData)
+//        oyRepo.saveAll(oyData)
         log.info("Finished saving the data for $fileName------->")
 
         log.info("Exporting to CSV $fileName------->")
-//        mapJsonFile()
+        mapJsonFile()
     }
 }

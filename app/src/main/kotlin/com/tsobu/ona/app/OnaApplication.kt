@@ -29,7 +29,6 @@ import com.tsobu.ona.core.service.valsphstz.EzService
 import com.tsobu.ona.core.service.valsphstz.LzeService
 import com.tsobu.ona.core.service.valsphstz.LzwService
 import com.tsobu.ona.core.service.valsphstz.SzService
-import com.tsobu.ona.database.repositories.valform.ValSphsOnRepo
 import org.slf4j.LoggerFactory
 import org.springframework.boot.Banner
 import org.springframework.boot.CommandLineRunner
@@ -87,7 +86,7 @@ class OnaApplication(
     override fun run(vararg args: String?) {
         log.info("Running Spring Boot Application press CTR-C to close the application");
 
-//        valSphsOyService.readJsonAsset()
+        valSphsOyService.readJsonAsset()
 
 //        weedControlService.readJsonAsset(fileName = "Score_Weed_Control_AC.json")
 //        yieldCassavaService.readJsonAsset(fileName = "Assess_Root_Yield_Cassava_AC.json")
