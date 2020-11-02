@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.valdto.ValSphsOgDto
-import com.tsobu.ona.core.dto.json.valdto.ValSphsOnDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.valform.ValSphsOnEntity
@@ -26,20 +25,20 @@ import java.nio.file.Paths
 
 
 @Service
-class ValSphsOnService
+class ValSphsOyService
 constructor(
         transactionManager: PlatformTransactionManager,
         val onRepo: ValSphsOnRepo,
         val appConfig: AppConfig) {
 
-    private val log = LoggerFactory.getLogger(ValSphsOnService::class.java)
+    private val log = LoggerFactory.getLogger(ValSphsOyService::class.java)
     private val modelMapper = ModelMapper()
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
     private val writeCsvFile = WriteCsvFile()
 
-    private val fileName = "VAL_SPHS_ON.json"
+    private val fileName = "VAL_SPHS_OY.json"
 
     fun mapJsonFile() {
         log.info("Reading table data....")
@@ -62,18 +61,18 @@ constructor(
         val kwList = onRepo.findAllByOrderBySubmissionDateAsc()
 
 
-        val treatData = kwList.map { onEntity ->
-            val ogDto = modelMapper.map(onEntity, ValSphsOnDto::class.java)
-            ogDto.submissionDate = myDateUtil.convertTimeToString(onEntity.submissionDate)
-            ogDto.start = myDateUtil.convertTimeToString(onEntity.startDate)
-            ogDto.end = myDateUtil.convertTimeToString(onEntity.endDate)
+        val treatData = kwList.map { ogEntity ->
+            val ogDto = modelMapper.map(ogEntity, ValSphsOgDto::class.java)
+            ogDto.submissionDate = myDateUtil.convertTimeToString(ogEntity.submissionDate)
+            ogDto.start = myDateUtil.convertTimeToString(ogEntity.startDate)
+            ogDto.end = myDateUtil.convertTimeToString(ogEntity.endDate)
 
             ogDto
         }
 
 
-        writeCsvFile.writeCsv(classMap = ValSphsOnDto::class.java, data = treatData,
-                fileName = "VAL_SPHS_ON", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = ValSphsOgDto::class.java, data = treatData,
+                fileName = "VAL_SPHS_OY", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -139,6 +138,6 @@ constructor(
         log.info("Finished saving the data for $fileName------->")
 
         log.info("Exporting to CSV $fileName------->")
-        mapJsonFile()
+//        mapJsonFile()
     }
 }
