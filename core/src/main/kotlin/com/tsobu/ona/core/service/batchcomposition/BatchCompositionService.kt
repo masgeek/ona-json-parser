@@ -172,9 +172,9 @@ constructor(
             }
         }
 
-//        compositionRepo.saveAll(compositionList)
-//        nextRepo.saveAll(nextEntityList)
-//        sampleRepo.saveAll(sampleEntityList)
+        compositionRepo.saveAll(compositionList)
+        nextRepo.saveAll(nextEntityList)
+        sampleRepo.saveAll(sampleEntityList)
 
         log.info("Finished saving the data for $fileName------->")
 

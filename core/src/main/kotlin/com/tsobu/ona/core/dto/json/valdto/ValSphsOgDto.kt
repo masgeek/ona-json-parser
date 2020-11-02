@@ -68,16 +68,16 @@ class ValSphsOgDto {
     var conversion: String? = null
 
     @JsonProperty("geopoint-Latitude")
-    var geopointLatitude: String? = null
+    var geoPointLatitude: String? = null
 
     @JsonProperty("geopoint-Longitude")
-    var geopointLongitude: String? = null
+    var geoPointLongitude: String? = null
 
     @JsonProperty("geopoint-Altitude")
-    var geopointAltitude: String? = null
+    var geoPointAltitude: String? = null
 
     @JsonProperty("geopoint-Accuracy")
-    var geopointAccuracy: String? = null
+    var geoPointAccuracy: String? = null
 
     @JsonProperty("lat")
     var lat: String? = null
@@ -476,7 +476,7 @@ class ValSphsOgDto {
     var yp0h0: String? = null
 
     @JsonProperty("Yp0h0_AB")
-    var yp0h0AB: String? = null
+    var yp0h0Ab: String? = null
 
     @JsonProperty("Yp0hm1")
     var yp0hm1: String? = null
@@ -506,7 +506,7 @@ class ValSphsOgDto {
     var gRp0h0: String? = null
 
     @JsonProperty("GRp0h0_AB")
-    var gRp0h0AB: String? = null
+    var gRp0h0Ab: String? = null
 
     @JsonProperty("GRp0h0_ABcurr")
     var gRp0h0ABcurr: String? = null
@@ -593,28 +593,28 @@ class ValSphsOgDto {
     var gPp0hp4: Any? = null
 
     @JsonProperty("GRmax")
-    var gRmax: String? = null
+    var grMax: String? = null
 
     @JsonProperty("GRmax_AB")
-    var gRmaxAB: String? = null
+    var grMaxAb: String? = null
 
     @JsonProperty("GRdif")
-    var gRdif: String? = null
+    var grDif: String? = null
 
     @JsonProperty("GRdif_AB")
-    var gRdifAB: String? = null
+    var grDifAb: String? = null
 
     @JsonProperty("GRdif_ABcurr")
-    var gRdifABcurr: String? = null
+    var grDifAbCurr: String? = null
 
     @JsonProperty("GPmax")
-    var gPmax: String? = null
+    var gpMax: String? = null
 
     @JsonProperty("GPdif")
-    var gPdif: String? = null
+    var gpDif: String? = null
 
     @JsonProperty("GPdifcurr")
-    var gPdifcurr: String? = null
+    var gpDifCurr: String? = null
 
     @JsonProperty("optHarvest")
     var optHarvest: String? = null
@@ -632,10 +632,10 @@ class ValSphsOgDto {
     var difHarvestNote: String? = null
 
     @JsonProperty("GRdifNote")
-    var gRdifNote: String? = null
+    var grDifNote: String? = null
 
     @JsonProperty("GRmaxNote")
-    var gRmaxNote: String? = null
+    var grMaxNote: String? = null
 
     @JsonProperty("sensible")
     var sensible: String? = null
@@ -659,7 +659,7 @@ class ValSphsOgDto {
     var end: String? = null
 
     @JsonProperty("instanceID")
-    var instanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("KEY")
     var controlKey: String? = null
