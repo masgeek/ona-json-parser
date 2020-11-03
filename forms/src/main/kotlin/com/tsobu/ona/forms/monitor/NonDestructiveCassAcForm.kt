@@ -7,9 +7,9 @@ import java.util.*
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-class NonDestructiveCassavaAcForm {
+class NonDestructiveCassAcForm {
     @JsonProperty("ID")
-    var acId: List<NonDestructiveCassavaAcIdForm> = ArrayList()
+    var acId: List<NonDestructiveCassAcIdForm> = ArrayList()
 
     @JsonProperty("_id")
     var id: Int? = null

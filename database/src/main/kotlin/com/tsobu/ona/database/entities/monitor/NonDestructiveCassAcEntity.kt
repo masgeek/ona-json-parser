@@ -88,8 +88,8 @@ class NonDestructiveCassAcEntity : BaseEntity() {
     @Column(name = "generated_table_list_label_26")
     var generatedTableListLabel26: String? = null
 
-    @Column(name = "repeat")
-    var repeat: String? = null
+    @Column(name = "repeat_value")
+    var repeatValue: String? = null
 
     @Column(name = "main_branches")
     var mainBranches: String? = null

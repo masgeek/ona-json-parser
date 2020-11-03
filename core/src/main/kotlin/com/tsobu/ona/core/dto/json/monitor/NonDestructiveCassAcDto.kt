@@ -14,7 +14,7 @@ class NonDestructiveCassAcDto {
     var uuid: String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("today")
     var today: String? = null
@@ -95,11 +95,11 @@ class NonDestructiveCassAcDto {
     var setOfId: String? = null
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("instanceID")
     var instanceID: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 }
