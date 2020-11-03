@@ -17,6 +17,7 @@ import com.tsobu.ona.core.service.datavalsphs.SphsService
 import com.tsobu.ona.core.service.greenbiomass.GreenBiomassService
 import com.tsobu.ona.core.service.lignifiedstem.LignifiedStemService
 import com.tsobu.ona.core.service.monitorval.MonitorValService
+import com.tsobu.ona.core.service.register.EaService
 import com.tsobu.ona.core.service.register.HhService
 import com.tsobu.ona.core.service.starchcontent.StarchContentService
 import com.tsobu.ona.core.service.valform.*
@@ -52,6 +53,7 @@ class OnaApplication(
         private val sphsService: SphsService,
         private val frService: FrService,
         private val hhService: HhService,
+        private val eaService: EaService,
         private val ppTzService: PpTzService,
         private val ppService: PpService,
         private val monitorValService: MonitorValService,
@@ -86,7 +88,7 @@ class OnaApplication(
     override fun run(vararg args: String?) {
         log.info("Running Spring Boot Application press CTR-C to close the application");
 
-        cisService.readJsonAsset()
+        eaService.readJsonAsset()
 
 //        weedControlService.readJsonAsset(fileName = "Score_Weed_Control_AC.json")
 //        yieldCassavaService.readJsonAsset(fileName = "Assess_Root_Yield_Cassava_AC.json")
