@@ -12,6 +12,7 @@ import com.tsobu.ona.core.service.batchcomposition.BatchCompositionService
 import com.tsobu.ona.core.service.collect.CollectLeafTagsService
 import com.tsobu.ona.core.service.collect.CollectPsService
 import com.tsobu.ona.core.service.collect.CollectSsService
+import com.tsobu.ona.core.service.confirm.PoConfirmService
 import com.tsobu.ona.core.service.dataval.*
 import com.tsobu.ona.core.service.datavalsphs.SphsService
 import com.tsobu.ona.core.service.greenbiomass.GreenBiomassService
@@ -81,14 +82,15 @@ class OnaApplication(
         private val valSphsOnService: ValSphsOnService,
         private val valSphsOyService: ValSphsOyService,
         private val icService: IcService,
-        private val cisService: CisService
+        private val cisService: CisService,
+        private val poConfirmService: PoConfirmService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
     override fun run(vararg args: String?) {
         log.info("Running Spring Boot Application press CTR-C to close the application");
 
-        eaService.readJsonAsset()
+        poConfirmService.readJsonAsset()
 
 //        weedControlService.readJsonAsset(fileName = "Score_Weed_Control_AC.json")
 //        yieldCassavaService.readJsonAsset(fileName = "Assess_Root_Yield_Cassava_AC.json")
