@@ -60,10 +60,7 @@ class MyUtils {
         if (date.monthValue < 10) {
             yearMonth = "0${date.monthValue}"
         }
-        val dateTimeString = "${dayMonth}-${yearMonth}-${date.year} $time"
-//        log.info(dateTimeString)
-
-        return dateTimeString
+        return "${dayMonth}-${yearMonth}-${date.year} $time"
     }
 
 }
