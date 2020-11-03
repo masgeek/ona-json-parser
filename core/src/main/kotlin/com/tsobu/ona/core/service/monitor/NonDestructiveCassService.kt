@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.monitor.NonDestructiveCassAcDto
+import com.tsobu.ona.core.dto.json.monitor.NonDestructiveCassAcIdDto
 import com.tsobu.ona.core.dto.json.monitor.NonDestructiveCassAcNdmDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
@@ -48,7 +49,8 @@ constructor(
     fun mapJsonFile() {
         log.info("Reading table data....")
         val confirmList = cassAcRepo.findAllByOrderBySubmissionDateAsc()
-        val labelList = cassAcIdRepo.findAll()
+        val cassAcIdList = cassAcIdRepo.findAll()
+        val casAcNdmList = cassAcNdmRepo.findAll()
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
@@ -74,12 +76,12 @@ constructor(
             cassAcDto
         }
 
-        val cassAcIdData = labelList.map { plotLabelingEntity ->
-            val acIdRepo = modelMapper.map(plotLabelingEntity, NonDestructiveCassAcIdRepo::class.java)
+        val cassAcIdData = cassAcIdList.map { plotLabelingEntity ->
+            val acIdRepo = modelMapper.map(plotLabelingEntity, NonDestructiveCassAcIdDto::class.java)
             acIdRepo
         }
 
-        val cassAcidNdmData = labelList.map { plotLabelingEntity ->
+        val cassAcidNdmData = casAcNdmList.map { plotLabelingEntity ->
             val cassAcNdmDto = modelMapper.map(plotLabelingEntity, NonDestructiveCassAcNdmDto::class.java)
             cassAcNdmDto
         }
@@ -88,7 +90,7 @@ constructor(
         writeCsvFile.writeCsv(classMap = NonDestructiveCassAcDto::class.java, data = cassAcData,
                 fileName = "Monitor_NonDestructive_Cassava_AC", outPutPath = filePath)
 
-        writeCsvFile.writeCsv(classMap = NonDestructiveCassAcIdRepo::class.java, data = cassAcIdData,
+        writeCsvFile.writeCsv(classMap = NonDestructiveCassAcIdDto::class.java, data = cassAcIdData,
                 fileName = "Monitor_NonDestructive_Cassava_AC-ID", outPutPath = filePath)
 
         writeCsvFile.writeCsv(classMap = NonDestructiveCassAcNdmDto::class.java, data = cassAcidNdmData,
@@ -177,10 +179,10 @@ constructor(
             cassAcData.add(poAcEntity)
         }
 
-//        cassAcRepo.saveAll(cassAcData)
-//        cassAcIdRepo.saveAll(cassAcIdData)
+        cassAcRepo.saveAll(cassAcData)
+        cassAcIdRepo.saveAll(cassAcIdData)
         cassAcNdmRepo.saveAll(cassAcNdmData)
         log.info("Finished saving the data for $fileName------->")
-//        mapJsonFile()
+        mapJsonFile()
     }
 }
