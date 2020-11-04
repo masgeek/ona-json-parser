@@ -36,6 +36,8 @@ constructor(
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
     private val writeCsvFile = WriteCsvFile()
+
+    private val fileName = "Assign_FD_AC.json"
     fun mapJsonFile() {
         log.info("Reading table data....")
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {

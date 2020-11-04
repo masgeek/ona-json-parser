@@ -37,6 +37,8 @@ constructor(
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
     private val writeCsvFile = WriteCsvFile()
+    private val fileName = "dataVAL_FR.json"
+
     fun mapJsonFile() {
         log.info("Reading table data....")
         val frList = frRepo.findAllByOrderBySubmissionDateAsc()
@@ -70,7 +72,7 @@ constructor(
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
-    fun readJsonAsset(fileName: String) {
+    fun readJsonAsset() {
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 

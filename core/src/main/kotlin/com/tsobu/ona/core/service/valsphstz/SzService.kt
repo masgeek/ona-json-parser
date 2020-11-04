@@ -36,6 +36,7 @@ constructor(
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
     private val writeCsvFile = WriteCsvFile()
+    private val fileName = "VAL_SPHS_TZSZ.json"
     fun mapJsonFile() {
         log.info("Reading ValSphsTzSzDto table here")
         val scores = szRepo.findAll()
@@ -68,7 +69,7 @@ constructor(
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
-    fun readJsonAsset(fileName: String) {
+    fun readJsonAsset() {
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 

@@ -43,6 +43,7 @@ constructor(
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
     private val writeCsvFile = WriteCsvFile()
 
+    private val fileName = "dataVAL_PP_TZ.json"
     fun mapJsonFile() {
         log.info("Reading table data....")
         val frList = ppTzRepo.findAllByOrderBySubmissionDateAsc()
@@ -106,7 +107,7 @@ constructor(
         }
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        writeCsvFile.writeCsv(classMap = FrDto::class.java, data = ppTzData, fileName = "dataVAL_PP_TZ-", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = FrDto::class.java, data = ppTzData, fileName = "dataVAL_PP_TZ", outPutPath = filePath)
         writeCsvFile.writeCsv(classMap = PpTzWaP1Dto::class.java, data = as1Data, fileName = "dataVAL_PP_TZ-weedAssessment_P1", outPutPath = filePath)
         writeCsvFile.writeCsv(classMap = PpTzWaP2Dto::class.java, data = as2Data, fileName = "dataVAL_PP_TZ-weedAssessment_P2", outPutPath = filePath)
         writeCsvFile.writeCsv(classMap = PpTzWaP3Dto::class.java, data = as3Data, fileName = "dataVAL_PP_TZ-weedAssessment_P3", outPutPath = filePath)
@@ -117,7 +118,7 @@ constructor(
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
-    fun readJsonAsset(fileName: String) {
+    fun readJsonAsset() {
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 

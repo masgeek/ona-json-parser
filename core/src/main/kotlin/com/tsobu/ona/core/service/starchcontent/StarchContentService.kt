@@ -40,6 +40,7 @@ constructor(
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
     private val writeCsvFile = WriteCsvFile()
+    private val fileName = "Assess_Starch_Content_AC.json"
     fun mapJsonFile() {
         log.info("Reading table data....")
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
@@ -85,7 +86,7 @@ constructor(
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
-    fun readJsonAsset(fileName: String) {
+    fun readJsonAsset() {
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 

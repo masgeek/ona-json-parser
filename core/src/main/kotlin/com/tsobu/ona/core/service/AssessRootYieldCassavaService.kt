@@ -41,7 +41,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-
+    private val fileName = "Assess_Root_Yield_Cassava_AC.json"
     fun mapJsonFile() {
         log.info("Reading weed table here")
         val scores = yieldCassavaRepo.findAll()
@@ -69,7 +69,7 @@ constructor(
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
-    fun readJsonAsset(fileName: String) {
+    fun readJsonAsset() {
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 

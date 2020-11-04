@@ -12,7 +12,7 @@ import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.datavalsphs.*
 import com.tsobu.ona.database.repositories.datavalsphs.*
-import com.tsobu.ona.forms.datavalsphs.*
+import com.tsobu.ona.forms.datavalsphs.SphsForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
@@ -46,6 +46,7 @@ constructor(
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
     private val writeCsvFile = WriteCsvFile()
+    private val fileName = "dataVAL_SPHS.json"
     fun mapJsonFile() {
         log.info("Reading tables here")
         val sphsList = sphsRepo.findAllByOrderBySubmissionDateAsc()
@@ -108,7 +109,7 @@ constructor(
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
-    fun readJsonAsset(fileName: String) {
+    fun readJsonAsset() {
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 

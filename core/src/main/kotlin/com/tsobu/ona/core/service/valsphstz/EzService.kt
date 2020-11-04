@@ -37,6 +37,7 @@ constructor(
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
     private val writeCsvFile = WriteCsvFile()
+    private val fileName = "VAL_SPHS_TZEZ.json"
     fun mapJsonFile() {
         log.info("Reading table data....")
         val ezList = ezRepo.findAllByOrderBySubmissionDateAsc()
@@ -65,12 +66,12 @@ constructor(
         }
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        writeCsvFile.writeCsv(classMap = EzDto::class.java, data = ezData, fileName = "VAL_SPHS_TZEZ",outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = EzDto::class.java, data = ezData, fileName = "VAL_SPHS_TZEZ", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
-    fun readJsonAsset(fileName: String) {
+    fun readJsonAsset() {
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
