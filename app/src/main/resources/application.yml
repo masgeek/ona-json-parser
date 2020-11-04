@@ -1,0 +1,25 @@
+debug: false
+trace: false
+
+spring:
+  main:
+    web-application-type: NONE
+  profiles:
+    active: cmd
+  liquibase:
+    enabled: false
+    change-log: "classpath:db/changelog.xml"
+    rollback-file: "I://development//rollback.sql"
+
+
+  jpa:
+    properties:
+      hibernate:
+        generate_statistics: false
+        jdbc:
+          batch_size: 5
+        order_inserts: true
+
+ona:
+  json-path: "D://development//python//ona-download//downloads//json//"
+  output-path: "D://development//python//ona-download//downloads//converted//"
