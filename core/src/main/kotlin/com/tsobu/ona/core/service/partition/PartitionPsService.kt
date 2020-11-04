@@ -30,7 +30,7 @@ import java.nio.file.Paths
 
 
 @Service
-class PartitionService
+class PartitionPsService
 constructor(
         transactionManager: PlatformTransactionManager,
         val acRepo: PartitionPsAcRepo,
@@ -38,7 +38,7 @@ constructor(
         val plantSampleRepo: PartitionPsAcPlantSampleRepo,
         val appConfig: AppConfig) {
 
-    private val log = LoggerFactory.getLogger(PartitionService::class.java)
+    private val log = LoggerFactory.getLogger(PartitionPsService::class.java)
     private val modelMapper = ModelMapper()
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
