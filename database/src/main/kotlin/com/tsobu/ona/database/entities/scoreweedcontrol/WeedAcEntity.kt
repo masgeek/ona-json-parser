@@ -54,5 +54,5 @@ class WeedAcEntity : BaseEntity() {
     var weedRepeat: String? = null
     var setOfId: String? = null
     var instanceId: String? = null
-    var weedKey: String? = null
+    var controlKey: String? = null
 }

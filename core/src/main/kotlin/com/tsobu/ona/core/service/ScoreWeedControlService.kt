@@ -112,7 +112,7 @@ constructor(
                 weedEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
                 weedEntity.setOfId = "${myVal.metaInstanceID}/ID"
                 weedEntity.instanceId = myVal.metaInstanceID
-                weedEntity.weedKey = myVal.metaInstanceID
+                weedEntity.controlKey = myVal.metaInstanceID
 
                 weedEntity.deviceId = myVal.deviceid
                 weedEntity.subscriberId = myVal.subscriberId
