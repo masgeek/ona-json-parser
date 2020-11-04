@@ -277,6 +277,6 @@ class PraSphsEntity : BaseEntity() {
     @Column(name = "instance_id")
     var instanceId: String? = null
 
-    @Column(name = "control_key")
+    @Column(name = "control_key", unique = true)
     var controlKey: String? = null
 }

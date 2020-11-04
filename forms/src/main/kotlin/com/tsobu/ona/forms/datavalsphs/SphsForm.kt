@@ -3,6 +3,7 @@ package com.tsobu.ona.forms.datavalsphs
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
+import java.util.*
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -402,4 +403,7 @@ class SphsForm {
 
     @JsonProperty("harvest_CON_Tri_detail")
     var harvestConTriDetailFormList: List<HarvestConTriDetailForm>? = null
+
+    @JsonProperty("harvest_CON_Tri")
+    var harvestCONTri: List<HarvestConTriForm> = ArrayList()
 }
