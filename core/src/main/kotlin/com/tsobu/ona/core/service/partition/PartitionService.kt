@@ -49,8 +49,8 @@ constructor(
     fun mapJsonFile() {
         log.info("Reading table data....")
         val confirmList = acRepo.findAllByOrderBySubmissionDateAsc()
-        val cassAcIdList = acDmRepo.findAll()
-        val casAcNdmList = plantSampleRepo.findAll()
+        val acDmList = acDmRepo.findAll()
+        val plantSampleList = plantSampleRepo.findAll()
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
@@ -68,32 +68,32 @@ constructor(
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
 
-        val cassAcData = confirmList.map { assignAcEntity ->
-            val cassAcDto = modelMapper.map(assignAcEntity, PartitionPsAcDto::class.java)
-            cassAcDto.submissionDate = myDateUtil.convertTimeToString(assignAcEntity.submissionDate)
-            cassAcDto.startDate = myDateUtil.convertTimeToString(assignAcEntity.startDate)
-            cassAcDto.endDate = myDateUtil.convertTimeToString(assignAcEntity.endDate)
-            cassAcDto
+        val acData = confirmList.map { assignAcEntity ->
+            val acDto = modelMapper.map(assignAcEntity, PartitionPsAcDto::class.java)
+            acDto.submissionDate = myDateUtil.convertTimeToString(assignAcEntity.submissionDate)
+            acDto.startDate = myDateUtil.convertTimeToString(assignAcEntity.startDate)
+            acDto.endDate = myDateUtil.convertTimeToString(assignAcEntity.endDate)
+            acDto
         }
 
-        val cassAcIdData = cassAcIdList.map { plotLabelingEntity ->
-            val acIdRepo = modelMapper.map(plotLabelingEntity, PartitionPsAcDmDto::class.java)
-            acIdRepo
+        val acDmData = acDmList.map { plotLabelingEntity ->
+            val acDmDto = modelMapper.map(plotLabelingEntity, PartitionPsAcDmDto::class.java)
+            acDmDto
         }
 
-        val cassAcidNdmData = casAcNdmList.map { plotLabelingEntity ->
-            val cassAcNdmDto = modelMapper.map(plotLabelingEntity, PartitionPsAcPlantSampleDto::class.java)
-            cassAcNdmDto
+        val plantSampleData = plantSampleList.map { plotLabelingEntity ->
+            val plantSampleDto = modelMapper.map(plotLabelingEntity, PartitionPsAcPlantSampleDto::class.java)
+            plantSampleDto
         }
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        writeCsvFile.writeCsv(classMap = PartitionPsAcDto::class.java, data = cassAcData,
+        writeCsvFile.writeCsv(classMap = PartitionPsAcDto::class.java, data = acData,
                 fileName = "Partition_PS_AC", outPutPath = filePath)
 
-        writeCsvFile.writeCsv(classMap = PartitionPsAcDmDto::class.java, data = cassAcIdData,
+        writeCsvFile.writeCsv(classMap = PartitionPsAcDmDto::class.java, data = acDmData,
                 fileName = "Partition_PS_AC-DM", outPutPath = filePath)
 
-        writeCsvFile.writeCsv(classMap = PartitionPsAcPlantSampleDto::class.java, data = cassAcidNdmData,
+        writeCsvFile.writeCsv(classMap = PartitionPsAcPlantSampleDto::class.java, data = plantSampleData,
                 fileName = "Partition_PS_AC-plantSample", outPutPath = filePath)
     }
 
@@ -167,10 +167,10 @@ constructor(
         }
 
 
-//        acRepo.saveAll(acData)
-//         plantSampleRepo.saveAll(plantSampleData)
+        acRepo.saveAll(acData)
+        plantSampleRepo.saveAll(plantSampleData)
         acDmRepo.saveAll(acDmData)
         log.info("Finished saving the data for $fileName------->")
-//        mapJsonFile()
+        mapJsonFile()
     }
 }
