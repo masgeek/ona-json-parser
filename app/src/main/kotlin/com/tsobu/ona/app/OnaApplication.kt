@@ -25,6 +25,10 @@ import com.tsobu.ona.core.service.record.CanopyDimensionsService
 import com.tsobu.ona.core.service.record.RecordDmService
 import com.tsobu.ona.core.service.register.EaService
 import com.tsobu.ona.core.service.register.HhService
+import com.tsobu.ona.core.service.replace.ReplaceFbService
+import com.tsobu.ona.core.service.replace.ReplaceFdService
+import com.tsobu.ona.core.service.replace.ReplacePoService
+import com.tsobu.ona.core.service.replace.ReplaceTlService
 import com.tsobu.ona.core.service.starchcontent.StarchContentService
 import com.tsobu.ona.core.service.valform.*
 import com.tsobu.ona.core.service.valsphs.ValSphsOgService
@@ -93,14 +97,18 @@ class OnaApplication(
         private val partitionPsService: PartitionPsService,
         private val poolSampleService: PoolSampleService,
         private val canopyDimensionsService: CanopyDimensionsService,
-        private val recordDmService: RecordDmService
+        private val recordDmService: RecordDmService,
+        private val replacePoService: ReplacePoService,
+        private val replaceFbService: ReplaceFbService,
+        private val replaceFdService: ReplaceFdService,
+        private val replaceTlService: ReplaceTlService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
     override fun run(vararg args: String?) {
         log.info("Running Spring Boot Application press CTR-C to close the application");
 
-        recordDmService.mapJsonFile()
+        replaceTlService.readJsonAsset()
 
 //        weedControlService.readJsonAsset(fileName = "Score_Weed_Control_AC.json")
 //        yieldCassavaService.readJsonAsset(fileName = "Assess_Root_Yield_Cassava_AC.json")
