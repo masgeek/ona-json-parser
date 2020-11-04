@@ -262,5 +262,6 @@ constructor(
         assessmentP6Repo.saveAll(weedAssessmentP6Data)
 
         log.info("Finished saving the data for $fileName------->")
+        mapJsonFile()
     }
 }

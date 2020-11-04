@@ -153,5 +153,6 @@ constructor(
         yieldCassYaRepo.saveAll(yieldCassYaData)
 
         log.info("Finished saving the data for $fileName------->")
+        mapJsonFile()
     }
 }

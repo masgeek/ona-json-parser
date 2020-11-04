@@ -119,11 +119,9 @@ constructor(
             cisEntity.todayDate = myDateUtil.convertToDate(cisForm.today)
             cisEntity.startDate = myDateUtil.convertToDateTime(cisForm.start)
             cisEntity.endDate = myDateUtil.convertToDateTime(cisForm.end)
-//            cisEntity.plantingDate = myDateUtil.convertToDate(cisForm.plantingDate)
             cisEntity.instanceID = cisForm.metaInstanceID
             cisEntity.controlKey = cisForm.metaInstanceID
 
-//            cisEntity.eventValue = cisForm.eventValue
 
             try {
                 icData.add(cisEntity)
@@ -132,7 +130,7 @@ constructor(
             }
         }
 
-//        cisRepo.saveAll(icData)
+        cisRepo.saveAll(icData)
         log.info("Finished saving the data for $fileName------->")
         mapJsonFile()
     }

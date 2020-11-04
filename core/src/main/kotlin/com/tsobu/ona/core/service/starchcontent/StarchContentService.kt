@@ -157,5 +157,6 @@ constructor(
         assessStarchRepo.saveAll(assessStarchData)
 
         log.info("Finished saving the data for $fileName------->")
+        mapJsonFile()
     }
 }

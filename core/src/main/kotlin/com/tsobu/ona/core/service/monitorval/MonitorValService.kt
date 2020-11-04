@@ -362,5 +362,6 @@ constructor(
         trialRatingAllRepo.saveAll(trialRatingAllData)
 
         log.info("Finished saving the data for $fileName------->")
+        mapJsonFile()
     }
 }

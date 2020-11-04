@@ -174,6 +174,7 @@ constructor(
             scoreWeedControlAcIdRepo.saveAll(weedIdData)
             scoreWeedControlAcWdRepo.saveAll(weedWdData)
             log.info("Finished saving the data for $fileName------->")
+            mapJsonFile()
         }
     }
 }

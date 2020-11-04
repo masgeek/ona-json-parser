@@ -128,5 +128,6 @@ constructor(
         hhRepo.saveAll(hhEntityData)
 
         log.info("Finished saving the data for $fileName------->")
+        mapJsonFile()
     }
 }

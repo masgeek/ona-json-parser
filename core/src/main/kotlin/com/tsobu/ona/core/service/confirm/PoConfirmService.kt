@@ -151,8 +151,8 @@ constructor(
             confirmData.add(poAcEntity)
         }
 
-//        assignAcRepo.saveAll(confirmData)
-//        plotLabelingRepo.saveAll(labelData)
+        assignAcRepo.saveAll(confirmData)
+        plotLabelingRepo.saveAll(labelData)
 
         log.info("Finished saving the data for $fileName------->")
         mapJsonFile()

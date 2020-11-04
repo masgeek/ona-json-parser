@@ -153,8 +153,8 @@ constructor(
             }
         }
 
-//        psAcRepo.saveAll(psAcData)
-//        plantSampleRepo.saveAll(plantSampleAcData)
+        psAcRepo.saveAll(psAcData)
+        plantSampleRepo.saveAll(plantSampleAcData)
 
         log.info("Finished saving the data for $fileName------->")
 

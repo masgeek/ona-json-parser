@@ -147,6 +147,7 @@ constructor(
             yieldCassavaRepo.saveAll(data)
             yieldAssessmentRepo.saveAll(yieldAssessmentData)
             log.info("Finished saving the data for $fileName------->")
+            mapJsonFile()
         }
     }
 }

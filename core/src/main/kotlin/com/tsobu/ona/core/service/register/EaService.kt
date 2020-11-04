@@ -127,7 +127,7 @@ constructor(
             }
         }
 
-//        eaRepo.saveAll(eaData)
+        eaRepo.saveAll(eaData)
 
         log.info("Finished saving the data for $fileName------->")
         mapJsonFile()

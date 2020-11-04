@@ -277,6 +277,7 @@ constructor(
             remainPlantConRepo.saveAll(remainPlantConEntityData)
             cornerPlantConRepo.saveAll(cornerPlantConEntityData)
             log.info("Finished saving the data for $fileName------->")
+            mapJsonFile()
         }
     }
 }
