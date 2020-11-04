@@ -13,7 +13,7 @@ class RecordCanopyDimensionsIdForm {
     var cdList: List<RecordCanopyDimensionsCdForm> = ArrayList()
 
     @JsonProperty("ID/CD_count")
-    var cDCount: String? = null
+    var cdCount: String? = null
 
     @JsonProperty("ID/plotID")
     var plotId: String? = null
