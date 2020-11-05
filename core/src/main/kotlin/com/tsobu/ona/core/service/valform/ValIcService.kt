@@ -135,7 +135,7 @@ constructor(
             log.info("Added data to table ${valFrEntity.controlKey} with surname as ${valIcForm.xformIdString}")
         }
 
-//        valIcRepo.saveAll(valIcData)
+        valIcRepo.saveAll(valIcData)
 
         log.info("Finished saving the data for $fileName------->")
 

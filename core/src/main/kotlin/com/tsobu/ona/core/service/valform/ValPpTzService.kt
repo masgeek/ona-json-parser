@@ -160,8 +160,8 @@ constructor(
 
         }
 
-//        ppRepo.saveAll(ppData)
-//        pwRepo.saveAll(pwData)
+        ppRepo.saveAll(ppData)
+        pwRepo.saveAll(pwData)
 
         log.info("Finished saving the data for $fileName------->")
 

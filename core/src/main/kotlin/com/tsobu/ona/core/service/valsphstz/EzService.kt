@@ -123,7 +123,7 @@ constructor(
 
             try {
                 val saved = ezRepo.save(ezEntity)
-                log.info("Added data to table ${saved.controlKey} with surname as ${myVal.xformIdString}")
+                log.info("Added data to table ${saved.controlKey}")
             } catch (ex: Exception) {
                 log.error(ex.message, ex.stackTrace)
             }

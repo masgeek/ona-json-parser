@@ -135,7 +135,7 @@ constructor(
 
         }
 
-//        oyRepo.saveAll(oyData)
+        oyRepo.saveAll(oyData)
         log.info("Finished saving the data for $fileName------->")
 
         log.info("Exporting to CSV $fileName------->")
