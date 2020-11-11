@@ -20,7 +20,7 @@ class AssignTlAcEntity : BaseEntity() {
     var startDate: LocalDateTime? = null
 
     @Column(name = "today_date")
-    var todayDate: LocalDate? = null
+    var todayDate: LocalDateTime? = null
 
     @Column(name = "device_id")
     var deviceId: String? = null
@@ -86,7 +86,7 @@ class AssignTlAcEntity : BaseEntity() {
     var trialCode: String? = null
 
     @Column(name = "planting_date")
-    var plantingDate: LocalDate? = null
+    var plantingDate: LocalDateTime? = null
 
     @Column(name = "end_date")
     var endDate: LocalDateTime? = null

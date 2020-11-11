@@ -14,7 +14,7 @@ class SzEntity : BaseEntity() {
     var uuid: String? = null
     var startDate: LocalDateTime? = null
     var endDate: LocalDateTime? = null
-    var todayDate: LocalDate? = null
+    var todayDate: LocalDateTime? = null
     var deviceid: String? = null
     var subscriberId: String? = null
     var email: String? = null
@@ -42,11 +42,11 @@ class SzEntity : BaseEntity() {
     var currency: String? = null
     var conversion: String? = null
 
-    var plantingDate: LocalDate? = null
+    var plantingDate: LocalDateTime? = null
     var season: String? = null
     var plantingWeek0: String? = null
 
-    var harvestDate: LocalDate? = null
+    var harvestDate: LocalDateTime? = null
 
     var harvestWeek0: String? = null
 

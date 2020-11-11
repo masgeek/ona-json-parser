@@ -20,7 +20,7 @@ class PpTzEntity : BaseEntity() {
     var startDate: LocalDateTime? = null
 
     @Column(name = "today_date")
-    var todayDate: LocalDate? = null
+    var todayDate: LocalDateTime? = null
 
     @Column(name = "device_id")
     var deviceId: String? = null
@@ -191,7 +191,7 @@ class PpTzEntity : BaseEntity() {
     var fertilizer1: String? = null
 
     @Column(name = "planting_date")
-    var plantingDate: LocalDate? = null
+    var plantingDate: LocalDateTime? = null
 
     @Column(name = "variety")
     var variety: String? = null
@@ -236,7 +236,7 @@ class PpTzEntity : BaseEntity() {
     var gapping: String? = null
 
     @Column(name = "gapping_date")
-    var gappingDate: LocalDate? = null
+    var gappingDate: LocalDateTime? = null
 
     @Column(name = "gapping_type")
     var gappingType: String? = null
@@ -263,7 +263,7 @@ class PpTzEntity : BaseEntity() {
     var nrWeeding: String? = null
 
     @Column(name = "date_weeding_1")
-    var dateWeeding1: LocalDate? = null
+    var dateWeeding1: LocalDateTime? = null
 
     @Column(name = "weeding_method_1")
     var weedingMethod1: String? = null
@@ -275,49 +275,49 @@ class PpTzEntity : BaseEntity() {
     var weedingMethod2: String? = null
 
     @Column(name = "date_weeding_3")
-    var dateWeeding3: LocalDate? = null
+    var dateWeeding3: LocalDateTime? = null
 
     @Column(name = "weeding_method_3")
     var weedingMethod3: String? = null
 
     @Column(name = "date_weeding_4")
-    var dateWeeding4: LocalDate? = null
+    var dateWeeding4: LocalDateTime? = null
 
     @Column(name = "weeding_method_4")
     var weedingMethod4: String? = null
 
     @Column(name = "date_weeding_5")
-    var dateWeeding5: LocalDate? = null
+    var dateWeeding5: LocalDateTime? = null
 
     @Column(name = "weeding_method_5")
     var weedingMethod5: String? = null
 
     @Column(name = "date_weeding_6")
-    var dateWeeding6: LocalDate? = null
+    var dateWeeding6: LocalDateTime? = null
 
     @Column(name = "weeding_method_6")
     var weedingMethod6: String? = null
 
     @Column(name = "date_weeding_7")
-    var dateWeeding7: LocalDate? = null
+    var dateWeeding7: LocalDateTime? = null
 
     @Column(name = "weeding_method_7")
     var weedingMethod7: String? = null
 
     @Column(name = "date_weeding_8")
-    var dateWeeding8: LocalDate? = null
+    var dateWeeding8: LocalDateTime? = null
 
     @Column(name = "weeding_method_8")
     var weedingMethod8: String? = null
 
     @Column(name = "date_weeding_9")
-    var dateWeeding9: LocalDate? = null
+    var dateWeeding9: LocalDateTime? = null
 
     @Column(name = "weeding_method_9")
     var weedingMethod9: String? = null
 
     @Column(name = "date_weeding_10")
-    var dateWeeding10: LocalDate? = null
+    var dateWeeding10: LocalDateTime? = null
 
     @Column(name = "weeding_method_10")
     var weedingMethod10: String? = null
@@ -407,7 +407,7 @@ class PpTzEntity : BaseEntity() {
     var setOfWeedAssessmentP6: String? = null
 
     @Column(name = "harvest_date")
-    var harvestDate: LocalDate? = null
+    var harvestDate: LocalDateTime? = null
 
     @Column(name = "tuberized_marketable_roots_nr_p1")
     var tuberizedMarketableRootsNrP1: String? = null

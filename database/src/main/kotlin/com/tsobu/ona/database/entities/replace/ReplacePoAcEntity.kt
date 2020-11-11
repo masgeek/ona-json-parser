@@ -20,7 +20,7 @@ class ReplacePoAcEntity : BaseEntity() {
     var startDate: LocalDateTime? = null
 
     @Column(name = "today_date")
-    var todayDate: LocalDate? = null
+    var todayDate: LocalDateTime? = null
 
     @Column(name = "deviceid")
     var deviceid: String? = null

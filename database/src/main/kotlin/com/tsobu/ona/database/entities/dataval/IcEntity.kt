@@ -20,7 +20,7 @@ class IcEntity : BaseEntity() {
     var startDate: LocalDateTime? = null
 
     @Column(name = "today_date")
-    var todayDate: LocalDate? = null
+    var todayDate: LocalDateTime? = null
 
     @Column(name = "deviceid")
     var deviceid: String? = null
@@ -116,7 +116,7 @@ class IcEntity : BaseEntity() {
     var harrowMethod3: String? = null
 
     @Column(name = "planting_date")
-    var plantingDate: LocalDate? = null
+    var plantingDate: LocalDateTime? = null
 
     @Column(name = "cassava_variety")
     var cassavaVariety: String? = null

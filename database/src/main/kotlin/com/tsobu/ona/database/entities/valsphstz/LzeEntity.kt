@@ -23,7 +23,7 @@ class LzeEntity : BaseEntity() {
     var endDate: LocalDateTime? = null
 
     @Column(name = "today_date")
-    var todayDate: LocalDate? = null
+    var todayDate: LocalDateTime? = null
 
     @Column(name = "deviceid")
     var deviceid: String? = null
@@ -92,7 +92,7 @@ class LzeEntity : BaseEntity() {
     var lon: String? = null
 
     @Column(name = "plantingdate")
-    var plantingDate: LocalDate? = null
+    var plantingDate: LocalDateTime? = null
 
     @Column(name = "season")
     var season: String? = null
@@ -101,7 +101,7 @@ class LzeEntity : BaseEntity() {
     var plantingweek0: String? = null
 
     @Column(name = "harvestdate")
-    var harvestDate: LocalDate? = null
+    var harvestDate: LocalDateTime? = null
 
     @Column(name = "harvestweek0")
     var harvestweek0: String? = null

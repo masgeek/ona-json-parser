@@ -21,7 +21,7 @@ class ConfirmPoAcEntity : BaseEntity() {
     var startDate: LocalDateTime? = null
 
     @Column(name = "today_date")
-    var todayDate: LocalDate? = null
+    var todayDate: LocalDateTime? = null
 
     @Column(name = "deviceid")
     var deviceid: String? = null
@@ -84,7 +84,7 @@ class ConfirmPoAcEntity : BaseEntity() {
     var fieldBookId: String? = null
 
     @Column(name = "planting_date")
-    var plantingDate: LocalDate? = null
+    var plantingDate: LocalDateTime? = null
 
     @Column(name = "trial_code")
     var trialCode: String? = null

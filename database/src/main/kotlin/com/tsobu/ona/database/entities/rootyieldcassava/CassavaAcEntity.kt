@@ -14,7 +14,7 @@ class CassavaAcEntity : BaseEntity() {
     var submissionDate: LocalDateTime? = null
     var uuid: String? = null
     var startDate: LocalDateTime? = null
-    var todayDate: LocalDate? = null
+    var todayDate: LocalDateTime? = null
     var deviceId: String? = null
     var subscriberId: String? = null
     var email: String? = null

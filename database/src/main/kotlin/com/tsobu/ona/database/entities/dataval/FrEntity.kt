@@ -20,7 +20,7 @@ class FrEntity : BaseEntity() {
     var startDate: LocalDateTime? = null
 
     @Column(name = "today_date")
-    var todayDate: LocalDate? = null
+    var todayDate: LocalDateTime? = null
 
     @Column(name = "device_id")
     var deviceId: String? = null
@@ -113,7 +113,7 @@ class FrEntity : BaseEntity() {
     var harrowMethod3: String? = null
 
     @Column(name = "planting_date")
-    var plantingDate: LocalDate? = null
+    var plantingDate: LocalDateTime? = null
 
     @Column(name = "trial_type")
     var trialType: String? = null
@@ -326,7 +326,7 @@ class FrEntity : BaseEntity() {
     var rateTheftMissing: String? = null
 
     @Column(name = "harvest_date")
-    var harvestDate: LocalDate? = null
+    var harvestDate: LocalDateTime? = null
 
     @Column(name = "tuberized_marketable_roots_nr_con")
     var tuberizedMarketableRootsNrCon: String? = null

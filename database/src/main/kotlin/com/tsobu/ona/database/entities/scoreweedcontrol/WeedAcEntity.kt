@@ -13,7 +13,7 @@ class WeedAcEntity : BaseEntity() {
     var uuid: String? = null
 
     var submissionDate: LocalDateTime? = null
-    var todayDate: LocalDate? = null
+    var todayDate: LocalDateTime? = null
     var startDate: LocalDateTime? = null
     var endDate: LocalDateTime? = null
     var deviceId: String? = null

@@ -20,7 +20,7 @@ class PpEntity : BaseEntity() {
     var startDate: LocalDateTime? = null
 
     @Column(name = "today_date")
-    var todayDate: LocalDate? = null
+    var todayDate: LocalDateTime? = null
 
     @Column(name = "device_id")
     var deviceId: String? = null
@@ -368,7 +368,7 @@ class PpEntity : BaseEntity() {
     var fertilizer1: String? = null
 
     @Column(name = "planting_date")
-    var plantingDate: LocalDate? = null
+    var plantingDate: LocalDateTime? = null
 
     @Column(name = "variety")
     var variety: String? = null
@@ -566,7 +566,7 @@ class PpEntity : BaseEntity() {
     var setOfWeedassessmentAltBpp3: String? = null
 
     @Column(name = "harvest_date")
-    var harvestDate: LocalDate? = null
+    var harvestDate: LocalDateTime? = null
 
     @Column(name = "tuberized_marketable_roots_nr_con")
     var tuberizedMarketableRootsNrCon: String? = null
