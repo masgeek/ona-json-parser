@@ -227,40 +227,40 @@ class ValSphsKwDto {
     var sc12: String? = null
 
     @JsonProperty("priceSC1")
-    var priceSC1: String? = null
+    var priceSc1: String? = null
 
     @JsonProperty("priceSC2")
-    var priceSC2: String? = null
+    var priceSc2: String? = null
 
     @JsonProperty("priceSC3")
-    var priceSC3: String? = null
+    var priceSc3: String? = null
 
     @JsonProperty("priceSC4")
-    var priceSC4: String? = null
+    var priceSc4: String? = null
 
     @JsonProperty("priceSC5")
-    var priceSC5: String? = null
+    var priceSc5: String? = null
 
     @JsonProperty("priceSC6")
-    var priceSC6: String? = null
+    var priceSc6: String? = null
 
     @JsonProperty("priceSC7")
-    var priceSC7: String? = null
+    var priceSc7: String? = null
 
     @JsonProperty("priceSC8")
-    var priceSC8: String? = null
+    var priceSc8: String? = null
 
     @JsonProperty("priceSC9")
-    var priceSC9: String? = null
+    var priceSc9: String? = null
 
     @JsonProperty("priceSC10")
-    var priceSC10: String? = null
+    var priceSc10: String? = null
 
     @JsonProperty("priceSC11")
-    var priceSC11: String? = null
+    var priceSc11: String? = null
 
     @JsonProperty("priceSC12")
-    var priceSC12: String? = null
+    var priceSc12: String? = null
 
     @JsonProperty("product")
     var product: String? = null
@@ -365,112 +365,112 @@ class ValSphsKwDto {
     var lookupp0hp4Id: String? = null
 
     @JsonProperty("WYp0h0")
-    var wYp0h0: String? = null
+    var wyP0h0: String? = null
 
     @JsonProperty("WYp0hm1")
-    var wYp0hm1: String? = null
+    var wyP0hm1: String? = null
 
     @JsonProperty("WYp0hm2")
-    var wYp0hm2: String? = null
+    var wyP0hm2: String? = null
 
     @JsonProperty("WYp0hm3")
-    var wYp0hm3: String? = null
+    var wyP0hm3: String? = null
 
     @JsonProperty("WYp0hm4")
-    var wYp0hm4: String? = null
+    var wyP0hm4: String? = null
 
     @JsonProperty("WYp0hp1")
-    var wYp0hp1: String? = null
+    var wyP0hp1: String? = null
 
     @JsonProperty("WYp0hp2")
-    var wYp0hp2: String? = null
+    var wyP0hp2: String? = null
 
     @JsonProperty("WYp0hp3")
-    var wYp0hp3: Any? = null
+    var wyP0hp3: Any? = null
 
     @JsonProperty("WYp0hp4")
-    var wYp0hp4: Any? = null
+    var wyP0hp4: Any? = null
 
     @JsonProperty("CYp0h0")
-    var cYp0h0: String? = null
+    var cyP0h0: String? = null
 
     @JsonProperty("CYp0hm1")
-    var cYp0hm1: String? = null
+    var cyP0hm1: String? = null
 
     @JsonProperty("CYp0hm2")
-    var cYp0hm2: String? = null
+    var cyP0hm2: String? = null
 
     @JsonProperty("CYp0hm3")
-    var cYp0hm3: String? = null
+    var cyP0hm3: String? = null
 
     @JsonProperty("CYp0hm4")
-    var cYp0hm4: String? = null
+    var cyP0hm4: String? = null
 
     @JsonProperty("CYp0hp1")
-    var cYp0hp1: String? = null
+    var cyP0hp1: String? = null
 
     @JsonProperty("CYp0hp2")
-    var cYp0hp2: String? = null
+    var cyP0hp2: String? = null
 
     @JsonProperty("CYp0hp3")
-    var cYp0hp3: Any? = null
+    var cyP0hp3: Any? = null
 
     @JsonProperty("CYp0hp4")
-    var cYp0hp4: Any? = null
+    var cyP0hp4: Any? = null
 
     @JsonProperty("SC0")
     var sc0: String? = null
 
     @JsonProperty("SCm1")
-    var sCm1: String? = null
+    var scM1: String? = null
 
     @JsonProperty("SCm2")
-    var sCm2: String? = null
+    var scM2: String? = null
 
     @JsonProperty("SCm3")
-    var sCm3: String? = null
+    var scM3: String? = null
 
     @JsonProperty("SCm4")
-    var sCm4: String? = null
+    var scM4: String? = null
 
     @JsonProperty("SCp1")
-    var sCp1: String? = null
+    var scP1: String? = null
 
     @JsonProperty("SCp2")
-    var sCp2: String? = null
+    var scP2: String? = null
 
     @JsonProperty("SCp3")
-    var sCp3: String? = null
+    var scP3: String? = null
 
     @JsonProperty("SCp4")
-    var sCp4: String? = null
+    var scP4: String? = null
 
     @JsonProperty("priceSC0")
-    var priceSC0: String? = null
+    var priceSc0: String? = null
 
     @JsonProperty("priceSCm1")
-    var priceSCm1: String? = null
+    var priceScm1: String? = null
 
     @JsonProperty("priceSCm2")
-    var priceSCm2: String? = null
+    var priceScm2: String? = null
 
     @JsonProperty("priceSCm3")
-    var priceSCm3: String? = null
+    var priceScm3: String? = null
 
     @JsonProperty("priceSCm4")
-    var priceSCm4: String? = null
+    var priceScm4: String? = null
 
     @JsonProperty("priceSCp1")
-    var priceSCp1: String? = null
+    var priceScp1: String? = null
 
     @JsonProperty("priceSCp2")
-    var priceSCp2: String? = null
+    var priceScp2: String? = null
 
     @JsonProperty("priceSCp3")
-    var priceSCp3: String? = null
+    var priceScp3: String? = null
 
     @JsonProperty("priceSCp4")
-    var priceSCp4: String? = null
+    var priceScp4: String? = null
 
     @JsonProperty("Yp0h0")
     var yp0h0: String? = null
@@ -503,37 +503,37 @@ class ValSphsKwDto {
     var yp0hp4: Any? = null
 
     @JsonProperty("GRp0h0")
-    var gRp0h0: String? = null
+    var grP0h0: String? = null
 
     @JsonProperty("GRp0h0_AB")
-    var gRp0h0AB: String? = null
+    var grP0h0AB: String? = null
 
     @JsonProperty("GRp0h0_ABcurr")
-    var gRp0h0ABCurr: String? = null
+    var grP0h0ABCurr: String? = null
 
     @JsonProperty("GRp0hm1")
-    var gRp0hm1: String? = null
+    var grP0hm1: String? = null
 
     @JsonProperty("GRp0hm2")
-    var gRp0hm2: String? = null
+    var grP0hm2: String? = null
 
     @JsonProperty("GRp0hm3")
-    var gRp0hm3: String? = null
+    var grP0hm3: String? = null
 
     @JsonProperty("GRp0hm4")
-    var gRp0hm4: String? = null
+    var grP0hm4: String? = null
 
     @JsonProperty("GRp0hp1")
-    var gRp0hp1: String? = null
+    var grP0hp1: String? = null
 
     @JsonProperty("GRp0hp2")
-    var gRp0hp2: String? = null
+    var grP0hp2: String? = null
 
     @JsonProperty("GRp0hp3")
-    var gRp0hp3: Any? = null
+    var grP0hp3: Any? = null
 
     @JsonProperty("GRp0hp4")
-    var gRp0hp4: Any? = null
+    var grP0hp4: Any? = null
 
     @JsonProperty("Pp0h0")
     var pp0h0: String? = null
@@ -563,34 +563,34 @@ class ValSphsKwDto {
     var pp0hp4: Any? = null
 
     @JsonProperty("GPp0h0")
-    var gPp0h0: String? = null
+    var gpP0h0: String? = null
 
     @JsonProperty("GPp0h0curr")
-    var gPp0h0Curr: String? = null
+    var gpP0h0Curr: String? = null
 
     @JsonProperty("GPp0hm1")
-    var gPp0hm1: String? = null
+    var gpP0hm1: String? = null
 
     @JsonProperty("GPp0hm2")
-    var gPp0hm2: String? = null
+    var gpP0hm2: String? = null
 
     @JsonProperty("GPp0hm3")
-    var gPp0hm3: String? = null
+    var gpP0hm3: String? = null
 
     @JsonProperty("GPp0hm4")
-    var gPp0hm4: String? = null
+    var gpP0hm4: String? = null
 
     @JsonProperty("GPp0hp1")
-    var gPp0hp1: String? = null
+    var gpP0hp1: String? = null
 
     @JsonProperty("GPp0hp2")
-    var gPp0hp2: String? = null
+    var gpP0hp2: String? = null
 
     @JsonProperty("GPp0hp3")
-    var gPp0hp3: Any? = null
+    var gpP0hp3: Any? = null
 
     @JsonProperty("GPp0hp4")
-    var gPp0hp4: Any? = null
+    var gpP0hp4: Any? = null
 
     @JsonProperty("GRmax")
     var grMax: String? = null
@@ -608,7 +608,7 @@ class ValSphsKwDto {
     var grDifABCurr: String? = null
 
     @JsonProperty("GPmax")
-    var gPmax: String? = null
+    var gpMax: String? = null
 
     @JsonProperty("GPdif")
     var gpDif: String? = null

@@ -17,9 +17,9 @@ class WriteCsvFile {
         try {
             val mapper = CsvMapper()
             mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true)
-            mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true);
-            val schema: CsvSchema = mapper.schemaFor(classMap)
-                    .withUseHeader(true)
+//            mapper.configure(MapperFeature.USE_STD_BEAN_NAMING , true)
+            mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, false)
+            val schema: CsvSchema = mapper.schemaFor(classMap).withUseHeader(true)
 
             val fullFilePath = "$outPutPath$fileName.csv"
             val tempFile = File(fullFilePath)

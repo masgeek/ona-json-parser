@@ -72,7 +72,7 @@ constructor(
         }
 
 
-        writeCsvFile.writeCsv(classMap = ValSphsOgDto::class.java, data = treatData,
+        writeCsvFile.writeCsv(classMap = ValSphsOyDto::class.java, data = treatData,
                 fileName = "VAL_SPHS_OY", outPutPath = filePath)
     }
 

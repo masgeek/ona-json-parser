@@ -55,7 +55,7 @@ constructor(
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
 //        modelMapper.configuration.isAmbiguityIgnored = true
-        modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
+        modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
         val filePath = "${appConfig.globalProperties().outputPath}"
         val kwList = kwRepo.findAllByOrderBySubmissionDateAsc()
@@ -71,8 +71,7 @@ constructor(
         }
 
 
-        writeCsvFile.writeCsv(classMap = ValSphsKwDto::class.java, data = treatData,
-                fileName = "VAL_SPHS_KW", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = ValSphsKwDto::class.java, data = treatData,fileName = "VAL_SPHS_KW", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")

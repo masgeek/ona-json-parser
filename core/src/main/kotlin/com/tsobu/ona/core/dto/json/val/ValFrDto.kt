@@ -332,7 +332,7 @@ class ValFrDto {
     var validationNote: String? = null
 
     @JsonProperty("NOTNote")
-    var nOTNote: String? = null
+    var noteNote: String? = null
 
     @JsonProperty("quantityUreaNote")
     var quantityUreaNote: String? = null
