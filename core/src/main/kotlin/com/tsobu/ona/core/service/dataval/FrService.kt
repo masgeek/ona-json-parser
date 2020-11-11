@@ -66,6 +66,21 @@ constructor(
             frDto.todayDate = myDateUtil.convertDateToString(frEntity.todayDate)
             frDto.harvestDate = myDateUtil.convertDateToString(frEntity.harvestDate)
             frDto.plantingDate = myDateUtil.convertDateToString(frEntity.plantingDate)
+            frDto.dateWeeding1 = myDateUtil.convertDateToString(frEntity.dateWeeding1)
+            frDto.dateWeeding2 = myDateUtil.convertDateToString(frEntity.dateWeeding2)
+            frDto.dateWeeding3 = myDateUtil.convertDateToString(frEntity.dateWeeding3)
+            frDto.dateWeeding4 = myDateUtil.convertDateToString(frEntity.dateWeeding4)
+            frDto.dateWeeding5 = myDateUtil.convertDateToString(frEntity.dateWeeding5)
+            frDto.dateWeeding6 = myDateUtil.convertDateToString(frEntity.dateWeeding6)
+            frDto.dateWeeding7 = myDateUtil.convertDateToString(frEntity.dateWeeding7)
+            frDto.dateWeeding8 = myDateUtil.convertDateToString(frEntity.dateWeeding8)
+            frDto.dateWeeding9 = myDateUtil.convertDateToString(frEntity.dateWeeding9)
+            frDto.dateWeeding10 = myDateUtil.convertDateToString(frEntity.dateWeeding10)
+
+            frDto.gappingDate = myDateUtil.convertDateToString(frEntity.gappingDate)
+
+            frDto.dateFertilizer1 = myDateUtil.convertDateToString(frEntity.dateFertilizer1)
+            frDto.dateFertilizer2 = myDateUtil.convertDateToString(frEntity.dateFertilizer2)
             frDto
         }
 
@@ -80,7 +95,7 @@ constructor(
         val file = Paths.get(filePath).toFile()
 
         val list = objectMapper.readValue(file, object : TypeReference<List<FrForm>>() {})
-        
+
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
                 return if (context.source is String) {

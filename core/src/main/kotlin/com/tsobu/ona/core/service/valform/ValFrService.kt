@@ -67,6 +67,7 @@ constructor(
             starchContentAcDto.today = myDateUtil.convertDateToString(valFrEntity.todayDate)
             starchContentAcDto.start = myDateUtil.convertTimeToString(valFrEntity.startDate)
             starchContentAcDto.end = myDateUtil.convertTimeToString(valFrEntity.endDate)
+            starchContentAcDto.plantingDate = myDateUtil.convertDateToString(valFrEntity.plantingDate)
             starchContentAcDto
         }
 
