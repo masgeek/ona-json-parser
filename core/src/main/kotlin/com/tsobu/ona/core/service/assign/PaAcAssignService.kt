@@ -79,7 +79,7 @@ constructor(
         }
 
 
-        writeCsvFile.writeCsv(classMap = AssignFdAcDto::class.java,
+        writeCsvFile.writeCsv(classMap = AssignPaAcDto::class.java,
                 data = fdAcData,
                 fileName = "Assign_PA_AC",
                 outPutPath = filePath)

@@ -77,12 +77,11 @@ constructor(
 
         val ppTzPwData = pwList.map { ppTzPwEntity ->
             val ppTzPwDto = modelMapper.map(ppTzPwEntity, ValPpTzPwDto::class.java)
-//            pwDto.parentKey = ppTzPwEntity.controlKey
             ppTzPwDto
         }
 
 
-        writeCsvFile.writeCsv(classMap = ValPpDto::class.java, data = ppTzData,
+        writeCsvFile.writeCsv(classMap = ValPpTzDto::class.java, data = ppTzData,
                 fileName = "VAL_PP_TZ", outPutPath = filePath)
 
         writeCsvFile.writeCsv(classMap = ValPpTzPwDto::class.java, data = ppTzPwData,
