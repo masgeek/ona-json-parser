@@ -72,6 +72,8 @@ constructor(
 
         val tagsAcIdData = tagsAcEntityList.map { soilSampleEntity ->
             val tagsAcIdDto = modelMapper.map(soilSampleEntity, CollectLeafTagsAcIdDto::class.java)
+            tagsAcIdDto.dateAttached = myDateUtil.convertDateToString(soilSampleEntity.dateAttached)
+            tagsAcIdDto.dateRecovered = myDateUtil.convertDateToString(soilSampleEntity.dateRecovered)
             tagsAcIdDto
         }
 

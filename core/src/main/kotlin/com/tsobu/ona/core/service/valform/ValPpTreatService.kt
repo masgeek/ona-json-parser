@@ -8,8 +8,8 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.`val`.VaLPpTreatDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.valform.ValPpTreatEntity
-import com.tsobu.ona.database.repositories.valform.ValPpTreatRepo
+import com.tsobu.ona.database.entities.`val`.ValPpTreatEntity
+import com.tsobu.ona.database.repositories.`val`.ValPpTreatRepo
 import com.tsobu.ona.forms.valform.ValPpTreatForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition

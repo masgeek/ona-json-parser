@@ -1,6 +1,7 @@
 package com.tsobu.ona.database.entities.collect
 
 import com.tsobu.ona.database.entities.BaseEntity
+import java.time.LocalDateTime
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Table
@@ -15,10 +16,10 @@ class CollectLeafTagsAcIdEntity : BaseEntity() {
     var plotId: String? = null
 
     @Column(name = "date_attached")
-    var dateAttached: String? = null
+    var dateAttached: LocalDateTime? = null
 
     @Column(name = "date_recovered")
-    var dateRecovered: String? = null
+    var dateRecovered: LocalDateTime? = null
 
     @Column(name = "parent_key")
     var parentKey: String? = null

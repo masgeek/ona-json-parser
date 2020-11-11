@@ -5,12 +5,11 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.`val`.ValSphsOgDto
 import com.tsobu.ona.core.dto.json.`val`.ValSphsOyDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.valform.ValSphsOyEntity
-import com.tsobu.ona.database.repositories.valform.ValSphsOyRepo
+import com.tsobu.ona.database.entities.`val`.ValSphsOyEntity
+import com.tsobu.ona.database.repositories.`val`.ValSphsOyRepo
 import com.tsobu.ona.forms.valform.ValSphsOyForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition

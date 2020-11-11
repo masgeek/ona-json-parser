@@ -9,10 +9,10 @@ import com.tsobu.ona.core.dto.json.`val`.ValPpDto
 import com.tsobu.ona.core.dto.json.`val`.ValPpPwDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.valform.ValPpEntity
-import com.tsobu.ona.database.entities.valform.ValPpPwEntity
-import com.tsobu.ona.database.repositories.valform.ValPpPwRepo
-import com.tsobu.ona.database.repositories.valform.ValPpRepo
+import com.tsobu.ona.database.entities.`val`.ValPpEntity
+import com.tsobu.ona.database.entities.`val`.ValPpPwEntity
+import com.tsobu.ona.database.repositories.`val`.ValPpPwRepo
+import com.tsobu.ona.database.repositories.`val`.ValPpRepo
 import com.tsobu.ona.forms.valform.ValPpForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition

@@ -10,8 +10,8 @@ import com.tsobu.ona.core.dto.json.datavarsphs.RemainPlantConDto
 import com.tsobu.ona.core.dto.json.datavarsphs.RemainPlantRecDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.datavalsphs.*
-import com.tsobu.ona.database.repositories.datavalsphs.*
+import com.tsobu.ona.database.entities.dataval.*
+import com.tsobu.ona.database.repositories.dataval.*
 import com.tsobu.ona.forms.datavalsphs.SphsForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition

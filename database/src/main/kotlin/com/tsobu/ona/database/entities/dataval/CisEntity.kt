@@ -1,7 +1,6 @@
 package com.tsobu.ona.database.entities.dataval
 
 import com.tsobu.ona.database.entities.BaseEntity
-import java.time.LocalDate
 import java.time.LocalDateTime
 import javax.persistence.Column
 import javax.persistence.Entity
@@ -116,13 +115,13 @@ class CisEntity : BaseEntity() {
     var sameDayPlanting: String? = null
 
     @Column(name = "planting_date")
-    var plantingDate: String? = null
+    var plantingDate: LocalDateTime? = null
 
     @Column(name = "planting_date_cs")
-    var plantingDateCs: String? = null
+    var plantingDateCs: LocalDateTime? = null
 
     @Column(name = "planting_date_sp")
-    var plantingDateSp: String? = null
+    var plantingDateSp: LocalDateTime? = null
 
     @Column(name = "cassava_variety")
     var cassavaVariety: String? = null
@@ -179,13 +178,13 @@ class CisEntity : BaseEntity() {
     var fertilizer0: String? = null
 
     @Column(name = "date_fertilizer0")
-    var dateFertilizer0: String? = null
+    var dateFertilizer0: LocalDateTime? = null
 
     @Column(name = "sweet_potato_replanting")
     var sweetPotatoReplanting: String? = null
 
     @Column(name = "sweet_potato_replanting_date")
-    var sweetPotatoReplantingDate: String? = null
+    var sweetPotatoReplantingDate: LocalDateTime? = null
 
     @Column(name = "sweet_potato_replantingtype")
     var sweetPotatoReplantingtype: String? = null
@@ -194,7 +193,7 @@ class CisEntity : BaseEntity() {
     var fertilizer1: String? = null
 
     @Column(name = "date_fertilizer1")
-    var dateFertilizer1: String? = null
+    var dateFertilizer1: LocalDateTime? = null
 
     @Column(name = "nr_rows")
     var nrRows: String? = null
@@ -311,7 +310,7 @@ class CisEntity : BaseEntity() {
     var cassavaGapping: String? = null
 
     @Column(name = "cassava_gapping_date")
-    var cassavaGappingDate: String? = null
+    var cassavaGappingDate: LocalDateTime? = null
 
     @Column(name = "cassava_gapping_type")
     var cassavaGappingType: String? = null
@@ -347,61 +346,61 @@ class CisEntity : BaseEntity() {
     var nrWeeding: String? = null
 
     @Column(name = "date_weeding1")
-    var dateWeeding1: String? = null
+    var dateWeeding1: LocalDateTime? = null
 
     @Column(name = "weeding_method1")
     var weedingMethod1: String? = null
 
     @Column(name = "date_weeding2")
-    var dateWeeding2: String? = null
+    var dateWeeding2: LocalDateTime? = null
 
     @Column(name = "weeding_method2")
     var weedingMethod2: String? = null
 
     @Column(name = "date_weeding3")
-    var dateWeeding3: String? = null
+    var dateWeeding3: LocalDateTime? = null
 
     @Column(name = "weeding_method3")
     var weedingMethod3: String? = null
 
     @Column(name = "date_weeding4")
-    var dateWeeding4: String? = null
+    var dateWeeding4: LocalDateTime? = null
 
     @Column(name = "weeding_method4")
     var weedingMethod4: String? = null
 
     @Column(name = "date_weeding5")
-    var dateWeeding5: String? = null
+    var dateWeeding5: LocalDateTime? = null
 
     @Column(name = "weeding_method5")
     var weedingMethod5: String? = null
 
     @Column(name = "date_weeding6")
-    var dateWeeding6: String? = null
+    var dateWeeding6: LocalDateTime? = null
 
     @Column(name = "weeding_method6")
     var weedingMethod6: String? = null
 
     @Column(name = "date_weeding7")
-    var dateWeeding7: String? = null
+    var dateWeeding7: LocalDateTime? = null
 
     @Column(name = "weeding_method7")
     var weedingMethod7: String? = null
 
     @Column(name = "date_weeding8")
-    var dateWeeding8: String? = null
+    var dateWeeding8: LocalDateTime? = null
 
     @Column(name = "weeding_method8")
     var weedingMethod8: String? = null
 
     @Column(name = "date_weeding9")
-    var dateWeeding9: String? = null
+    var dateWeeding9: LocalDateTime? = null
 
     @Column(name = "weeding_method9")
     var weedingMethod9: String? = null
 
     @Column(name = "date_weeding10")
-    var dateWeeding10: String? = null
+    var dateWeeding10: LocalDateTime? = null
 
     @Column(name = "weeding_method10")
     var weedingMethod10: String? = null
@@ -451,8 +450,8 @@ class CisEntity : BaseEntity() {
     @Column(name = "rate_theft_missing_cassava")
     var rateTheftMissingCassava: String? = null
 
-    @Column(name = "datesweet_potato_harvest")
-    var datesweetPotatoHarvest: String? = null
+    @Column(name = "date_sweet_potato_harvest")
+    var dateSweetPotatoHarvest: LocalDateTime? = null
 
     @Column(name = "tuber_nr_note_sp")
     var tuberNrNoteSp: String? = null
@@ -551,7 +550,7 @@ class CisEntity : BaseEntity() {
     var tuberPrice: String? = null
 
     @Column(name = "date_cassava_harvest")
-    var dateCassavaHarvest: String? = null
+    var dateCassavaHarvest: LocalDateTime? = null
 
     @Column(name = "tuberized_marketable_roots_nr_cs")
     var tuberizedMarketableRootsNrCs: String? = null
@@ -613,7 +612,7 @@ class CisEntity : BaseEntity() {
     @Column(name = "roots_price")
     var rootsPrice: String? = null
 
-    @Column(name = "comment_value",columnDefinition = "TEXT")
+    @Column(name = "comment_value")
     var commentValue: String? = null
 
     @Column(name = "thankyou")
@@ -623,7 +622,7 @@ class CisEntity : BaseEntity() {
     var endDate: LocalDateTime? = null
 
     @Column(name = "instance_id")
-    var instanceID: String? = null
+    var instanceId: String? = null
 
     @Column(name = "control_key")
     var controlKey: String? = null

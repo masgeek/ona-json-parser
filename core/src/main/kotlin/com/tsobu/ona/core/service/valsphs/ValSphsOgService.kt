@@ -8,8 +8,8 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.`val`.ValSphsOgDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.valform.ValSphsOgEntity
-import com.tsobu.ona.database.repositories.valform.ValSphsOgRepo
+import com.tsobu.ona.database.entities.`val`.ValSphsOgEntity
+import com.tsobu.ona.database.repositories.`val`.ValSphsOgRepo
 import com.tsobu.ona.forms.valform.ValSphsOgForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition

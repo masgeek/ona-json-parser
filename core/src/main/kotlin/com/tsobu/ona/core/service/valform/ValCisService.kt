@@ -8,8 +8,8 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.`val`.ValCisDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.valform.ValCisEntity
-import com.tsobu.ona.database.repositories.valform.ValCisRepo
+import com.tsobu.ona.database.entities.`val`.ValCisEntity
+import com.tsobu.ona.database.repositories.`val`.ValCisRepo
 import com.tsobu.ona.forms.valform.ValCisForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
