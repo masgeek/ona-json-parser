@@ -68,6 +68,7 @@ constructor(
             yieldCassAcDto.submissionDate = myDateUtil.toDateTimeString(acEntity.submissionDate)
             yieldCassAcDto.start = myDateUtil.toDateTimeString(acEntity.startDate)
             yieldCassAcDto.end = myDateUtil.toDateTimeString(acEntity.endDate)
+            yieldCassAcDto.today = myDateUtil.toDateToString(acEntity.todayDate)
             yieldCassAcDto
         }
 

@@ -60,9 +60,29 @@ constructor(
 
         val icData = frList.map { cisEntity ->
             val cisDto = modelMapper.map(cisEntity, CisDto::class.java)
-            cisDto.submissionDate = myDateUtil.convertToDateTimeString(cisEntity.submissionDate)
-            cisDto.startDate= myDateUtil.convertToDateTimeString(cisEntity.startDate)
-            cisDto.endDate = myDateUtil.convertToDateTimeString(cisEntity.endDate)
+            cisDto.submissionDate = myDateUtil.toDateTimeString(cisEntity.submissionDate)
+            cisDto.startDate = myDateUtil.toDateTimeString(cisEntity.startDate)
+            cisDto.endDate = myDateUtil.toDateTimeString(cisEntity.endDate)
+            cisDto.today = myDateUtil.toDateToString(cisEntity.todayDate)
+
+            cisDto.dateCassavaHarvest = myDateUtil.toDateToString(cisEntity.dateCassavaHarvest)
+            cisDto.dateSweetPotatoHarvest = myDateUtil.toDateToString(cisEntity.dateSweetPotatoHarvest)
+            cisDto.plantingDate = myDateUtil.toDateToString(cisEntity.plantingDate)
+            cisDto.dateWeeding1 = myDateUtil.toDateToString(cisEntity.dateWeeding1)
+            cisDto.dateWeeding2 = myDateUtil.toDateToString(cisEntity.dateWeeding2)
+            cisDto.dateWeeding3 = myDateUtil.toDateToString(cisEntity.dateWeeding3)
+            cisDto.dateWeeding4 = myDateUtil.toDateToString(cisEntity.dateWeeding4)
+            cisDto.dateWeeding5 = myDateUtil.toDateToString(cisEntity.dateWeeding5)
+            cisDto.dateWeeding6 = myDateUtil.toDateToString(cisEntity.dateWeeding6)
+            cisDto.dateWeeding7 = myDateUtil.toDateToString(cisEntity.dateWeeding7)
+            cisDto.dateWeeding8 = myDateUtil.toDateToString(cisEntity.dateWeeding8)
+            cisDto.dateWeeding9 = myDateUtil.toDateToString(cisEntity.dateWeeding9)
+            cisDto.dateWeeding10 = myDateUtil.toDateToString(cisEntity.dateWeeding10)
+
+            cisDto.cassavaGappingDate = myDateUtil.toDateToString(cisEntity.cassavaGappingDate)
+
+            cisDto.dateFertilizer0 = myDateUtil.toDateToString(cisEntity.dateFertilizer0)
+            cisDto.dateFertilizer1 = myDateUtil.toDateToString(cisEntity.dateFertilizer1)
 
             cisDto
         }

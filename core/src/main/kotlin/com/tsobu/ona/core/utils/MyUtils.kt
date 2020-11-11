@@ -44,7 +44,7 @@ class MyUtils {
         return instant.atZone(ZoneId.of("UTC")).toLocalDateTime()
     }
 
-    fun convertToDateTimeString(localDateTime: LocalDateTime?, format: String = "MMM dd, yyyy hh:mm:ss a"): String? {
+    fun toDateTimeString(localDateTime: LocalDateTime?, format: String = "MMM dd, yyyy hh:mm:ss a"): String? {
         if (localDateTime == null) {
             return null
         }
@@ -53,7 +53,7 @@ class MyUtils {
         return dateFormat2.format(localDateTime)
     }
 
-    fun convertDateToString(localDateTime: LocalDateTime?, format: String = "MMM dd, yyyy"): String? {
-        return convertToDateTimeString(localDateTime, format)
+    fun toDateToString(localDateTime: LocalDateTime?, format: String = "MMM dd, yyyy"): String? {
+        return toDateTimeString(localDateTime, format)
     }
 }

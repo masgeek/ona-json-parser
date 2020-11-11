@@ -62,9 +62,10 @@ constructor(
 
         val tlAcData = tlAcEntityList.map { assignTlAcEntity ->
             val assignPaAcDto = modelMapper.map(assignTlAcEntity, AssignTlAcDto::class.java)
-            assignPaAcDto.submissionDate = myDateUtil.convertToDateTimeString(assignTlAcEntity.submissionDate)
-            assignPaAcDto.start = myDateUtil.convertToDateTimeString(assignTlAcEntity.startDate)
-            assignPaAcDto.end = myDateUtil.convertToDateTimeString(assignTlAcEntity.endDate)
+            assignPaAcDto.submissionDate = myDateUtil.toDateTimeString(assignTlAcEntity.submissionDate)
+            assignPaAcDto.start = myDateUtil.toDateTimeString(assignTlAcEntity.startDate)
+            assignPaAcDto.end = myDateUtil.toDateTimeString(assignTlAcEntity.endDate)
+            assignPaAcDto.today = myDateUtil.toDateToString(assignTlAcEntity.todayDate)
             assignPaAcDto
         }
 

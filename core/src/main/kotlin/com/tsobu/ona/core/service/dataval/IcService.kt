@@ -60,9 +60,34 @@ constructor(
 
         val icData = frList.map { icEntity ->
             val icDto = modelMapper.map(icEntity, IcDto::class.java)
-            icDto.submissionDate = myDateUtil.convertToDateTimeString(icEntity.submissionDate)
-            icDto.startDate = myDateUtil.convertToDateTimeString(icEntity.startDate)
-            icDto.endDate = myDateUtil.convertToDateTimeString(icEntity.endDate)
+            icDto.submissionDate = myDateUtil.toDateTimeString(icEntity.submissionDate)
+            icDto.startDate = myDateUtil.toDateTimeString(icEntity.startDate)
+            icDto.endDate = myDateUtil.toDateTimeString(icEntity.endDate)
+
+            icDto.today= myDateUtil.toDateToString(icEntity.todayDate)
+            icDto.dateCassavaHarvest = myDateUtil.toDateToString(icEntity.dateCassavaHarvest)
+            icDto.dateMaizeHarvest = myDateUtil.toDateToString(icEntity.dateMaizeHarvest)
+            icDto.cassavaGappingDate = myDateUtil.toDateToString(icEntity.cassavaGappingDate)
+
+            icDto.plantingDate = myDateUtil.toDateToString(icEntity.plantingDate)
+            icDto.dateWeeding1 = myDateUtil.toDateToString(icEntity.dateWeeding1)
+            icDto.dateWeeding2 = myDateUtil.toDateToString(icEntity.dateWeeding2)
+            icDto.dateWeeding3 = myDateUtil.toDateToString(icEntity.dateWeeding3)
+            icDto.dateWeeding4 = myDateUtil.toDateToString(icEntity.dateWeeding4)
+            icDto.dateWeeding5 = myDateUtil.toDateToString(icEntity.dateWeeding5)
+            icDto.dateWeeding6 = myDateUtil.toDateToString(icEntity.dateWeeding6)
+            icDto.dateWeeding7 = myDateUtil.toDateToString(icEntity.dateWeeding7)
+            icDto.dateWeeding8 = myDateUtil.toDateToString(icEntity.dateWeeding8)
+            icDto.dateWeeding9 = myDateUtil.toDateToString(icEntity.dateWeeding9)
+            icDto.dateWeeding10 = myDateUtil.toDateToString(icEntity.dateWeeding10)
+
+            icDto.maizeReseedingDate = myDateUtil.toDateToString(icEntity.maizeReseedingDate)
+            icDto.maizeThinningDate = myDateUtil.toDateToString(icEntity.maizeThinningDate)
+
+            icDto.dateFertilizer0 = myDateUtil.toDateToString(icEntity.dateFertilizer0)
+            icDto.dateFertilizer1 = myDateUtil.toDateToString(icEntity.dateFertilizer1)
+            icDto.dateFertilizer2 = myDateUtil.toDateToString(icEntity.dateFertilizer2)
+
             icDto
         }
 

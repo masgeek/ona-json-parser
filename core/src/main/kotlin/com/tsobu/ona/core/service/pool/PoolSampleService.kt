@@ -70,9 +70,10 @@ constructor(
 
         val acData = confirmList.map { poolSamplesAcEntity ->
             val poolSamplesAcDto = modelMapper.map(poolSamplesAcEntity, PoolSamplesAcDto::class.java)
-            poolSamplesAcDto.submissionDate = myDateUtil.convertToDateTimeString(poolSamplesAcEntity.submissionDate)
-            poolSamplesAcDto.startDate = myDateUtil.convertToDateTimeString(poolSamplesAcEntity.startDate)
-            poolSamplesAcDto.endDate = myDateUtil.convertToDateTimeString(poolSamplesAcEntity.endDate)
+            poolSamplesAcDto.submissionDate = myDateUtil.toDateTimeString(poolSamplesAcEntity.submissionDate)
+            poolSamplesAcDto.startDate = myDateUtil.toDateTimeString(poolSamplesAcEntity.startDate)
+            poolSamplesAcDto.endDate = myDateUtil.toDateTimeString(poolSamplesAcEntity.endDate)
+            poolSamplesAcDto.today = myDateUtil.toDateToString(poolSamplesAcEntity.todayDate)
             poolSamplesAcDto
         }
 

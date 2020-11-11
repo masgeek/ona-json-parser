@@ -64,16 +64,17 @@ constructor(
 
         val tagsAcData = tagsEntityList.map { ssAcEntity ->
             val tagsAcDto = modelMapper.map(ssAcEntity, CollectLeafTagsAcDto::class.java)
-            tagsAcDto.submissionDate = myDateUtil.convertToDateTimeString(ssAcEntity.submissionDate)
-            tagsAcDto.start = myDateUtil.convertToDateTimeString(ssAcEntity.startDate)
-            tagsAcDto.end = myDateUtil.convertToDateTimeString(ssAcEntity.endDate)
+            tagsAcDto.submissionDate = myDateUtil.toDateTimeString(ssAcEntity.submissionDate)
+            tagsAcDto.start = myDateUtil.toDateTimeString(ssAcEntity.startDate)
+            tagsAcDto.end = myDateUtil.toDateTimeString(ssAcEntity.endDate)
+            tagsAcDto.today = myDateUtil.toDateToString(ssAcEntity.todayDate)
             tagsAcDto
         }
 
         val tagsAcIdData = tagsAcEntityList.map { soilSampleEntity ->
             val tagsAcIdDto = modelMapper.map(soilSampleEntity, CollectLeafTagsAcIdDto::class.java)
-            tagsAcIdDto.dateAttached = myDateUtil.convertDateToString(soilSampleEntity.dateAttached)
-            tagsAcIdDto.dateRecovered = myDateUtil.convertDateToString(soilSampleEntity.dateRecovered)
+            tagsAcIdDto.dateAttached = myDateUtil.toDateToString(soilSampleEntity.dateAttached)
+            tagsAcIdDto.dateRecovered = myDateUtil.toDateToString(soilSampleEntity.dateRecovered)
             tagsAcIdDto
         }
 

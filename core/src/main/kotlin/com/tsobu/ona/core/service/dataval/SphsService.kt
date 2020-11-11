@@ -1,4 +1,4 @@
-package com.tsobu.ona.core.service.datavalsphs
+package com.tsobu.ona.core.service.dataval
 
 
 import com.fasterxml.jackson.core.type.TypeReference
@@ -60,9 +60,34 @@ constructor(
 
         val sphsData = sphsList.map { sphsEntity ->
             val sphsDto = modelMapper.map(sphsEntity, SphsDto::class.java)
-            sphsDto.submissionDate = myDateUtil.convertToDateTimeString(sphsEntity.submissionDate)
-            sphsDto.startDate = myDateUtil.convertToDateTimeString(sphsEntity.startDate)
-            sphsDto.endDate = myDateUtil.convertToDateTimeString(sphsEntity.endDate)
+            sphsDto.submissionDate = myDateUtil.toDateTimeString(sphsEntity.submissionDate)
+            sphsDto.startDate = myDateUtil.toDateTimeString(sphsEntity.startDate)
+            sphsDto.endDate = myDateUtil.toDateTimeString(sphsEntity.endDate)
+            sphsDto.todayDate = myDateUtil.toDateToString(sphsEntity.todayDate)
+
+            sphsDto.todayDate = myDateUtil.toDateToString(sphsEntity.todayDate)
+
+            sphsDto.gappingDate = myDateUtil.toDateToString(sphsEntity.gappingDate)
+            sphsDto.plantingDate = myDateUtil.toDateToString(sphsEntity.plantingDate)
+            sphsDto.dateWeeding1 = myDateUtil.toDateToString(sphsEntity.dateWeeding1)
+            sphsDto.dateWeeding2 = myDateUtil.toDateToString(sphsEntity.dateWeeding2)
+            sphsDto.dateWeeding3 = myDateUtil.toDateToString(sphsEntity.dateWeeding3)
+            sphsDto.dateWeeding4 = myDateUtil.toDateToString(sphsEntity.dateWeeding4)
+            sphsDto.dateWeeding5 = myDateUtil.toDateToString(sphsEntity.dateWeeding5)
+            sphsDto.dateWeeding6 = myDateUtil.toDateToString(sphsEntity.dateWeeding6)
+            sphsDto.dateWeeding7 = myDateUtil.toDateToString(sphsEntity.dateWeeding7)
+            sphsDto.dateWeeding8 = myDateUtil.toDateToString(sphsEntity.dateWeeding8)
+            sphsDto.dateWeeding9 = myDateUtil.toDateToString(sphsEntity.dateWeeding9)
+            sphsDto.dateWeeding10 = myDateUtil.toDateToString(sphsEntity.dateWeeding10)
+
+            sphsDto.harvestDateQuestionCon = myDateUtil.toDateToString(sphsEntity.harvestDateQuestionCon)
+            sphsDto.effHarvestDateCon = myDateUtil.toDateToString(sphsEntity.effHarvestDateCon)
+            sphsDto.effHarvestDateConTri = myDateUtil.toDateToString(sphsEntity.effHarvestDateConTri)
+            sphsDto.harvestDateQuestionRec = myDateUtil.toDateToString(sphsEntity.harvestDateQuestionRec)
+            sphsDto.effHarvestDateRec = myDateUtil.toDateToString(sphsEntity.effHarvestDateRec)
+            sphsDto.effHarvestDateRecTri = myDateUtil.toDateToString(sphsEntity.effHarvestDateRecTri)
+            sphsDto.intHarvestDateCon = myDateUtil.toDateToString(sphsEntity.intHarvestDateCon)
+            sphsDto.intHarvestDateRec = myDateUtil.toDateToString(sphsEntity.intHarvestDateRec)
             sphsDto
         }
 
@@ -97,14 +122,14 @@ constructor(
         }
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        writeCsvFile.writeCsv(classMap = SphsDto::class.java,data = sphsData, fileName = "dataVAL_SPHS",outPutPath = filePath)
-        writeCsvFile.writeCsv(classMap = CornerPlantRecDto::class.java,data = cornerPlantRecData, fileName = "dataVAL_SPHS-cornerPlant_REC",outPutPath = filePath)
-        writeCsvFile.writeCsv(classMap = CornerPlantConDto::class.java, data = cornerPlantConData, fileName = "dataVAL_SPHS-cornerPlant_CON",outPutPath = filePath)
-        writeCsvFile.writeCsv(classMap = ConTriDetailDto::class.java, data = conTriDetailData, fileName = "dataVAL_SPHS-harvest_CON_Tri_detail",outPutPath = filePath)
-        writeCsvFile.writeCsv(classMap = RecTriDetailDto::class.java, data = recTriDetailData, fileName = "dataVAL_SPHS-harvest_REC_Tri_detail",outPutPath = filePath)
-        writeCsvFile.writeCsv(classMap = HarvestRecTriDto::class.java, data = harvestRecTriData, fileName = "dataVAL_SPHS-harvest_REC_Tri",outPutPath = filePath)
-        writeCsvFile.writeCsv(classMap = RemainPlantRecDto::class.java, data = remainPlantRecData, fileName = "dataVAL_SPHS-remainPlant_REC",outPutPath = filePath)
-        writeCsvFile.writeCsv(classMap = RemainPlantConDto::class.java, data = remainPlantConData, fileName = "dataVAL_SPHS-remainPlant_CON",outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = SphsDto::class.java, data = sphsData, fileName = "dataVAL_SPHS", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = CornerPlantRecDto::class.java, data = cornerPlantRecData, fileName = "dataVAL_SPHS-cornerPlant_REC", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = CornerPlantConDto::class.java, data = cornerPlantConData, fileName = "dataVAL_SPHS-cornerPlant_CON", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = ConTriDetailDto::class.java, data = conTriDetailData, fileName = "dataVAL_SPHS-harvest_CON_Tri_detail", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = RecTriDetailDto::class.java, data = recTriDetailData, fileName = "dataVAL_SPHS-harvest_REC_Tri_detail", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = HarvestRecTriDto::class.java, data = harvestRecTriData, fileName = "dataVAL_SPHS-harvest_REC_Tri", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = RemainPlantRecDto::class.java, data = remainPlantRecData, fileName = "dataVAL_SPHS-remainPlant_REC", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = RemainPlantConDto::class.java, data = remainPlantConData, fileName = "dataVAL_SPHS-remainPlant_CON", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")

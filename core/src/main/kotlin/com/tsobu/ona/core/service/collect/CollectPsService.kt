@@ -64,9 +64,10 @@ constructor(
 
         val psAcData = psAcEntityList.map { psAcEntity ->
             val collectPsAcDto = modelMapper.map(psAcEntity, CollectPsAcDto::class.java)
-            collectPsAcDto.submissionDate = myDateUtil.convertToDateTimeString(psAcEntity.submissionDate)
-            collectPsAcDto.start = myDateUtil.convertToDateTimeString(psAcEntity.startDate)
-            collectPsAcDto.end = myDateUtil.convertToDateTimeString(psAcEntity.endDate)
+            collectPsAcDto.submissionDate = myDateUtil.toDateTimeString(psAcEntity.submissionDate)
+            collectPsAcDto.start = myDateUtil.toDateTimeString(psAcEntity.startDate)
+            collectPsAcDto.end = myDateUtil.toDateTimeString(psAcEntity.endDate)
+            collectPsAcDto.today = myDateUtil.toDateToString(psAcEntity.todayDate)
             collectPsAcDto
         }
 

@@ -73,9 +73,10 @@ constructor(
 
         val compositionData = compositionList.map { compositionEntity ->
             val compositionDto = modelMapper.map(compositionEntity, CompositionDto::class.java)
-            compositionDto.submissionDate = myDateUtil.convertToDateTimeString(compositionEntity.submissionDate)
-            compositionDto.start = myDateUtil.convertToDateTimeString(compositionEntity.startDate)
-            compositionDto.end = myDateUtil.convertToDateTimeString(compositionEntity.endDate)
+            compositionDto.submissionDate = myDateUtil.toDateTimeString(compositionEntity.submissionDate)
+            compositionDto.start = myDateUtil.toDateTimeString(compositionEntity.startDate)
+            compositionDto.end = myDateUtil.toDateTimeString(compositionEntity.endDate)
+            compositionDto.today = myDateUtil.toDateToString(compositionEntity.todayDate)
             compositionDto
         }
 

@@ -60,9 +60,10 @@ constructor(
 
         val praSphsData = acList.map { praSphsEntity ->
             val praSphsDto = modelMapper.map(praSphsEntity, PraSphsDto::class.java)
-            praSphsDto.submissionDate = myDateUtil.convertToDateTimeString(praSphsEntity.submissionDate)
-            praSphsDto.startDate = myDateUtil.convertToDateTimeString(praSphsEntity.startDate)
-            praSphsDto.endDate = myDateUtil.convertToDateTimeString(praSphsEntity.endDate)
+            praSphsDto.submissionDate = myDateUtil.toDateTimeString(praSphsEntity.submissionDate)
+            praSphsDto.startDate = myDateUtil.toDateTimeString(praSphsEntity.startDate)
+            praSphsDto.endDate = myDateUtil.toDateTimeString(praSphsEntity.endDate)
+            praSphsDto.today = myDateUtil.toDateToString(praSphsEntity.todayDate)
             praSphsDto
         }
         val filePath = "${appConfig.globalProperties().outputPath}"

@@ -61,9 +61,10 @@ constructor(
 
         val fdAcData = fdAcEntityList.map { fdAcEntity ->
             val starchContentAcDto = modelMapper.map(fdAcEntity, AssignFdAcDto::class.java)
-            starchContentAcDto.submissionDate = myDateUtil.convertToDateTimeString(fdAcEntity.submissionDate)
-            starchContentAcDto.start = myDateUtil.convertToDateTimeString(fdAcEntity.startDate)
-            starchContentAcDto.end = myDateUtil.convertToDateTimeString(fdAcEntity.endDate)
+            starchContentAcDto.submissionDate = myDateUtil.toDateTimeString(fdAcEntity.submissionDate)
+            starchContentAcDto.start = myDateUtil.toDateTimeString(fdAcEntity.startDate)
+            starchContentAcDto.end = myDateUtil.toDateTimeString(fdAcEntity.endDate)
+            starchContentAcDto.today = myDateUtil.toDateToString(fdAcEntity.todayDate)
             starchContentAcDto
         }
 

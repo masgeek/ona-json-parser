@@ -82,7 +82,7 @@ constructor(
 
         val monitorValData = monitorValList.map { monitorValEntity ->
             val monitorValDto = modelMapper.map(monitorValEntity, MonitorValDto::class.java)
-            monitorValDto.submissionDate = myDateUtil.convertToDateTimeString(monitorValEntity.submissionDate)
+            monitorValDto.submissionDate = myDateUtil.toDateTimeString(monitorValEntity.submissionDate)
             monitorValDto
         }
         val installCorrectDetailsData = installCorrectDetailsList.map { correctDetailsEntity ->

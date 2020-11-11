@@ -59,9 +59,9 @@ constructor(
 
         val ezData = ezList.map { ezEntity ->
             val sphsTzSzDto = modelMapper.map(ezEntity, EzDto::class.java)
-            sphsTzSzDto.submissionDate = myDateUtil.convertToDateTimeString(ezEntity.submissionDate)
-            sphsTzSzDto.startDate = myDateUtil.convertToDateTimeString(ezEntity.startDate)
-            sphsTzSzDto.endDate = myDateUtil.convertToDateTimeString(ezEntity.endDate)
+            sphsTzSzDto.submissionDate = myDateUtil.toDateTimeString(ezEntity.submissionDate)
+            sphsTzSzDto.startDate = myDateUtil.toDateTimeString(ezEntity.startDate)
+            sphsTzSzDto.endDate = myDateUtil.toDateTimeString(ezEntity.endDate)
             sphsTzSzDto
         }
 

@@ -65,9 +65,10 @@ constructor(
 
         val confirmData = confirmList.map { assignAcEntity ->
             val assignAcDto = modelMapper.map(assignAcEntity, PoAssignAcDto::class.java)
-            assignAcDto.submissionDate = myDateUtil.convertToDateTimeString(assignAcEntity.submissionDate)
-            assignAcDto.startDate = myDateUtil.convertToDateTimeString(assignAcEntity.startDate)
-            assignAcDto.endDate = myDateUtil.convertToDateTimeString(assignAcEntity.endDate)
+            assignAcDto.submissionDate = myDateUtil.toDateTimeString(assignAcEntity.submissionDate)
+            assignAcDto.startDate = myDateUtil.toDateTimeString(assignAcEntity.startDate)
+            assignAcDto.endDate = myDateUtil.toDateTimeString(assignAcEntity.endDate)
+            assignAcDto.today = myDateUtil.toDateToString(assignAcEntity.todayDate)
             assignAcDto
         }
 

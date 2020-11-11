@@ -4,7 +4,8 @@ package com.tsobu.ona.core.service.assign
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.assign.*
+import com.tsobu.ona.core.dto.json.assign.AssignPoAcDto
+import com.tsobu.ona.core.dto.json.assign.AssignPoAcPlotLabelingDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.assign.AssignPoAcEntity
@@ -65,9 +66,10 @@ constructor(
 
         val fdAcData = fdAcEntityList.map { assignPaAcEntity ->
             val assignPaAcDto = modelMapper.map(assignPaAcEntity, AssignPoAcDto::class.java)
-            assignPaAcDto.submissionDate = myDateUtil.convertToDateTimeString(assignPaAcEntity.submissionDate)
-            assignPaAcDto.start = myDateUtil.convertToDateTimeString(assignPaAcEntity.startDate)
-            assignPaAcDto.end = myDateUtil.convertToDateTimeString(assignPaAcEntity.endDate)
+            assignPaAcDto.submissionDate = myDateUtil.toDateTimeString(assignPaAcEntity.submissionDate)
+            assignPaAcDto.start = myDateUtil.toDateTimeString(assignPaAcEntity.startDate)
+            assignPaAcDto.end = myDateUtil.toDateTimeString(assignPaAcEntity.endDate)
+            assignPaAcDto.today = myDateUtil.toDateToString(assignPaAcEntity.todayDate)
             assignPaAcDto
         }
 

@@ -65,9 +65,10 @@ constructor(
 
         val yieldCassData = yieldCassList.map { yieldCassEntity ->
             val cassavaAcFormDto = modelMapper.map(yieldCassEntity, YieldCassavaAcFormDto::class.java)
-            cassavaAcFormDto.submissionDate = myDateUtil.convertToDateTimeString(yieldCassEntity.submissionDate)
-            cassavaAcFormDto.start = myDateUtil.convertToDateTimeString(yieldCassEntity.startDate)
-            cassavaAcFormDto.end = myDateUtil.convertToDateTimeString(yieldCassEntity.endDate)
+            cassavaAcFormDto.submissionDate = myDateUtil.toDateTimeString(yieldCassEntity.submissionDate)
+            cassavaAcFormDto.start = myDateUtil.toDateTimeString(yieldCassEntity.startDate)
+            cassavaAcFormDto.end = myDateUtil.toDateTimeString(yieldCassEntity.endDate)
+            cassavaAcFormDto.today = myDateUtil.toDateToString(yieldCassEntity.todayDate)
             cassavaAcFormDto
         }
 

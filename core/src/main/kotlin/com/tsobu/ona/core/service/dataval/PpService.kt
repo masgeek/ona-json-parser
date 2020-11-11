@@ -9,7 +9,7 @@ import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.dataval.*
 import com.tsobu.ona.database.repositories.dataval.*
-import com.tsobu.ona.forms.dataval.*
+import com.tsobu.ona.forms.dataval.PpForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
@@ -39,7 +39,7 @@ constructor(
     private val log = LoggerFactory.getLogger(PpService::class.java)
     private val modelMapper = ModelMapper()
     private val objectMapper = ObjectMapper()
-    private val myUtils = MyUtils()
+    private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
     private val writeCsvFile = WriteCsvFile()
 
@@ -72,9 +72,25 @@ constructor(
 
         val ppData = ppList.map { ppEntity ->
             val ppDto = modelMapper.map(ppEntity, PpDto::class.java)
-            ppDto.submissionDate = myUtils.convertToDateTimeString(ppEntity.submissionDate)
-            ppDto.startDate = myUtils.convertToDateTimeString(ppEntity.startDate)
-            ppDto.endDate = myUtils.convertToDateTimeString(ppEntity.endDate)
+            ppDto.submissionDate = myDateUtil.toDateTimeString(ppEntity.submissionDate)
+            ppDto.startDate = myDateUtil.toDateTimeString(ppEntity.startDate)
+            ppDto.endDate = myDateUtil.toDateTimeString(ppEntity.endDate)
+
+            ppDto.todayDate = myDateUtil.toDateToString(ppEntity.todayDate)
+            ppDto.gappingDate = myDateUtil.toDateToString(ppEntity.gappingDate)
+
+            ppDto.plantingDate = myDateUtil.toDateToString(ppEntity.plantingDate)
+            ppDto.dateWeeding1 = myDateUtil.toDateToString(ppEntity.dateWeeding1)
+            ppDto.dateWeeding2 = myDateUtil.toDateToString(ppEntity.dateWeeding2)
+            ppDto.dateWeeding3 = myDateUtil.toDateToString(ppEntity.dateWeeding3)
+            ppDto.dateWeeding4 = myDateUtil.toDateToString(ppEntity.dateWeeding4)
+            ppDto.dateWeeding5 = myDateUtil.toDateToString(ppEntity.dateWeeding5)
+            ppDto.dateWeeding6 = myDateUtil.toDateToString(ppEntity.dateWeeding6)
+            ppDto.dateWeeding7 = myDateUtil.toDateToString(ppEntity.dateWeeding7)
+            ppDto.dateWeeding8 = myDateUtil.toDateToString(ppEntity.dateWeeding8)
+            ppDto.dateWeeding9 = myDateUtil.toDateToString(ppEntity.dateWeeding9)
+            ppDto.dateWeeding10 = myDateUtil.toDateToString(ppEntity.dateWeeding10)
+
             ppDto
         }
 
@@ -151,28 +167,28 @@ constructor(
         val weedAssessmentRecBpp3Data = ArrayList<PpWaRecBpp3Entity>()
         list.forEach { myVal ->
             //map and save to database
-            val geoPoint = myUtils.splitGeoPoint(myVal.geopoint)
+            val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
             val ppEntity = modelMapper.map(myVal, PpEntity::class.java)
             if (geoPoint.isNotEmpty()) {
                 ppEntity.geoPointLatitude = geoPoint[0]
 
-                if (myUtils.indexExists(geoPoint, 1)) {
+                if (myDateUtil.indexExists(geoPoint, 1)) {
                     ppEntity.geoPointLongitude = geoPoint[1]
                 }
-                if (myUtils.indexExists(geoPoint, 2)) {
+                if (myDateUtil.indexExists(geoPoint, 2)) {
                     ppEntity.geoPointAltitude = geoPoint[2]
                 }
-                if (myUtils.indexExists(geoPoint, 3)) {
+                if (myDateUtil.indexExists(geoPoint, 3)) {
                     ppEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
             ppEntity.uuid = myVal.formhubUuid
-            ppEntity.submissionDate = myUtils.convertToDateTime(myVal.submissionTime)
-            ppEntity.todayDate = myUtils.convertToDate(myVal.today)
-            ppEntity.startDate = myUtils.convertToDateTime(myVal.start)
-            ppEntity.endDate = myUtils.convertToDateTime(myVal.end)
-            ppEntity.harvestDate = myUtils.convertToDate(myVal.harvestDate)
-            ppEntity.plantingDate = myUtils.convertToDate(myVal.plantingDate)
+            ppEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
+            ppEntity.todayDate = myDateUtil.convertToDate(myVal.today)
+            ppEntity.startDate = myDateUtil.convertToDateTime(myVal.start)
+            ppEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
+            ppEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
+            ppEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
             ppEntity.instanceId = myVal.metaInstanceID
             ppEntity.controlKey = myVal.metaInstanceID
 

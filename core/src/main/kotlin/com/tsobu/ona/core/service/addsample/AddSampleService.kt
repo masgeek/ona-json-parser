@@ -71,9 +71,10 @@ constructor(
 
         val acData = acEntityList.map { acEntity ->
             val acDto = modelMapper.map(acEntity, AcDto::class.java)
-            acDto.submissionDate = myDateUtil.convertToDateTimeString(acEntity.submissionDate)
-            acDto.start = myDateUtil.convertToDateTimeString(acEntity.startDate)
-            acDto.end = myDateUtil.convertToDateTimeString(acEntity.endDate)
+            acDto.submissionDate = myDateUtil.toDateTimeString(acEntity.submissionDate)
+            acDto.start = myDateUtil.toDateTimeString(acEntity.startDate)
+            acDto.end = myDateUtil.toDateTimeString(acEntity.endDate)
+            acDto.today = myDateUtil.toDateToString(acEntity.todayDate)
             acDto
         }
 

@@ -60,9 +60,10 @@ constructor(
 
         val eaData = frList.map { eaEntity ->
             val eaDto = modelMapper.map(eaEntity, EaDto::class.java)
-            eaDto.submissionDate = myDateUtil.convertToDateTimeString(eaEntity.submissionDate)
-            eaDto.startDate = myDateUtil.convertToDateTimeString(eaEntity.startDate)
-            eaDto.endDate = myDateUtil.convertToDateTimeString(eaEntity.endDate)
+            eaDto.submissionDate = myDateUtil.toDateTimeString(eaEntity.submissionDate)
+            eaDto.startDate = myDateUtil.toDateTimeString(eaEntity.startDate)
+            eaDto.endDate = myDateUtil.toDateTimeString(eaEntity.endDate)
+            eaDto.today = myDateUtil.toDateTimeString(eaEntity.todayDate)
             eaDto
         }
 

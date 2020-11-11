@@ -64,9 +64,10 @@ constructor(
 
         val ssAcData = ssAcEntityList.map { ssAcEntity ->
             val ssAcDto = modelMapper.map(ssAcEntity, CollectSsAcDto::class.java)
-            ssAcDto.submissionDate = myDateUtil.convertToDateTimeString(ssAcEntity.submissionDate)
-            ssAcDto.start = myDateUtil.convertToDateTimeString(ssAcEntity.startDate)
-            ssAcDto.end = myDateUtil.convertToDateTimeString(ssAcEntity.endDate)
+            ssAcDto.submissionDate = myDateUtil.toDateTimeString(ssAcEntity.submissionDate)
+            ssAcDto.start = myDateUtil.toDateTimeString(ssAcEntity.startDate)
+            ssAcDto.end = myDateUtil.toDateTimeString(ssAcEntity.endDate)
+            ssAcDto.today = myDateUtil.toDateToString(ssAcEntity.todayDate)
             ssAcDto
         }
 

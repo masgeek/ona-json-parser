@@ -58,9 +58,10 @@ constructor(
 
         val hhData = frList.map { hhEntity ->
             val hhDto = modelMapper.map(hhEntity, HhDto::class.java)
-            hhDto.submissionDate = myDateUtil.convertToDateTimeString(hhEntity.submissionDate)
-            hhDto.startDate = myDateUtil.convertToDateTimeString(hhEntity.startDate)
-            hhDto.endDate = myDateUtil.convertToDateTimeString(hhEntity.endDate)
+            hhDto.submissionDate = myDateUtil.toDateTimeString(hhEntity.submissionDate)
+            hhDto.startDate = myDateUtil.toDateTimeString(hhEntity.startDate)
+            hhDto.endDate = myDateUtil.toDateTimeString(hhEntity.endDate)
+            hhDto.todayDate = myDateUtil.toDateToString(hhEntity.todayDate)
             hhDto
         }
 

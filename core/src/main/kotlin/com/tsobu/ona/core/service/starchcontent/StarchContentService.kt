@@ -65,9 +65,9 @@ constructor(
 
         val yieldCassAcData = acEntityList.map { starchContentAcEntity ->
             val starchContentAcDto = modelMapper.map(starchContentAcEntity, StarchContentAcDto::class.java)
-            starchContentAcDto.submissionDate = myDateUtil.convertToDateTimeString(starchContentAcEntity.submissionDate)
-            starchContentAcDto.start = myDateUtil.convertToDateTimeString(starchContentAcEntity.startDate)
-            starchContentAcDto.end = myDateUtil.convertToDateTimeString(starchContentAcEntity.endDate)
+            starchContentAcDto.submissionDate = myDateUtil.toDateTimeString(starchContentAcEntity.submissionDate)
+            starchContentAcDto.start = myDateUtil.toDateTimeString(starchContentAcEntity.startDate)
+            starchContentAcDto.end = myDateUtil.toDateTimeString(starchContentAcEntity.endDate)
             starchContentAcDto
         }
 

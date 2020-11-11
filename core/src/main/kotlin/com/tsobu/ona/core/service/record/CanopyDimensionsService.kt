@@ -70,9 +70,10 @@ constructor(
 
         val acData = confirmList.map { acEntity ->
             val acDto = modelMapper.map(acEntity, CanopyDimensionsAcDto::class.java)
-            acDto.submissionDate = myDateUtil.convertToDateTimeString(acEntity.submissionDate)
-            acDto.startDate = myDateUtil.convertToDateTimeString(acEntity.startDate)
-            acDto.endDate = myDateUtil.convertToDateTimeString(acEntity.endDate)
+            acDto.submissionDate = myDateUtil.toDateTimeString(acEntity.submissionDate)
+            acDto.startDate = myDateUtil.toDateTimeString(acEntity.startDate)
+            acDto.endDate = myDateUtil.toDateTimeString(acEntity.endDate)
+            acDto.today = myDateUtil.toDateToString(acEntity.todayDate)
             acDto
         }
 

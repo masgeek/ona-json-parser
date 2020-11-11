@@ -14,7 +14,7 @@ import com.tsobu.ona.core.service.collect.CollectPsService
 import com.tsobu.ona.core.service.collect.CollectSsService
 import com.tsobu.ona.core.service.confirm.PoConfirmService
 import com.tsobu.ona.core.service.dataval.*
-import com.tsobu.ona.core.service.datavalsphs.SphsService
+import com.tsobu.ona.core.service.dataval.SphsService
 import com.tsobu.ona.core.service.greenbiomass.GreenBiomassService
 import com.tsobu.ona.core.service.lignifiedstem.LignifiedStemService
 import com.tsobu.ona.core.service.monitor.NonDestructiveCassService

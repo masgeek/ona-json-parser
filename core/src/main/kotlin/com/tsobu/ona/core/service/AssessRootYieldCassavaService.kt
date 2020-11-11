@@ -49,10 +49,10 @@ constructor(
 
         val yieldCassavaData = scores.map { scoreWeedControlAc ->
             val outboxDto = modelMapper.map(scoreWeedControlAc, RootYieldCassavaAcDto::class.java)
-            outboxDto.submissionDate = myDateUtil.convertToDateTimeString(scoreWeedControlAc.submissionDate)
-            outboxDto.startDate = myDateUtil.convertToDateTimeString(scoreWeedControlAc.startDate)
-            outboxDto.endDate = myDateUtil.convertToDateTimeString(scoreWeedControlAc.endDate)
-            outboxDto.todayDate = myDateUtil.convertDateToString(scoreWeedControlAc.todayDate)
+            outboxDto.submissionDate = myDateUtil.toDateTimeString(scoreWeedControlAc.submissionDate)
+            outboxDto.startDate = myDateUtil.toDateTimeString(scoreWeedControlAc.startDate)
+            outboxDto.endDate = myDateUtil.toDateTimeString(scoreWeedControlAc.endDate)
+            outboxDto.todayDate = myDateUtil.toDateToString(scoreWeedControlAc.todayDate)
             outboxDto
         }
 

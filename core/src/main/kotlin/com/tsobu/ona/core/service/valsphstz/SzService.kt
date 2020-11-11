@@ -58,9 +58,9 @@ constructor(
 
         val valSphssTzData = scores.map { szEntity ->
             val szDto = modelMapper.map(szEntity, SzDto::class.java)
-            szDto.submissionDate = myDateUtil.convertToDateTimeString(szEntity.submissionDate)
-            szDto.startDate = myDateUtil.convertToDateTimeString(szEntity.startDate)
-            szDto.endDate = myDateUtil.convertToDateTimeString(szEntity.endDate)
+            szDto.submissionDate = myDateUtil.toDateTimeString(szEntity.submissionDate)
+            szDto.startDate = myDateUtil.toDateTimeString(szEntity.startDate)
+            szDto.endDate = myDateUtil.toDateTimeString(szEntity.endDate)
             szDto
         }
         val filePath = "${appConfig.globalProperties().outputPath}"

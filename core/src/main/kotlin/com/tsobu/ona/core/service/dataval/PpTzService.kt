@@ -71,9 +71,24 @@ constructor(
 
         val ppTzData = frList.map { ppTzEntity ->
             val ppTzDto = modelMapper.map(ppTzEntity, PpTzDto::class.java)
-            ppTzDto.submissionDate = myDateUtil.convertToDateTimeString(ppTzEntity.submissionDate)
-            ppTzDto.startDate = myDateUtil.convertToDateTimeString(ppTzEntity.startDate)
-            ppTzDto.endDate = myDateUtil.convertToDateTimeString(ppTzEntity.endDate)
+            ppTzDto.submissionDate = myDateUtil.toDateTimeString(ppTzEntity.submissionDate)
+            ppTzDto.startDate = myDateUtil.toDateTimeString(ppTzEntity.startDate)
+            ppTzDto.endDate = myDateUtil.toDateTimeString(ppTzEntity.endDate)
+
+            ppTzDto.todayDate= myDateUtil.toDateToString(ppTzEntity.todayDate)
+            ppTzDto.harvestDate = myDateUtil.toDateToString(ppTzEntity.harvestDate)
+            ppTzDto.gappingDate = myDateUtil.toDateToString(ppTzEntity.gappingDate)
+            ppTzDto.plantingDate = myDateUtil.toDateToString(ppTzEntity.plantingDate)
+            ppTzDto.dateWeeding1 = myDateUtil.toDateToString(ppTzEntity.dateWeeding1)
+            ppTzDto.dateWeeding2 = myDateUtil.toDateToString(ppTzEntity.dateWeeding2)
+            ppTzDto.dateWeeding3 = myDateUtil.toDateToString(ppTzEntity.dateWeeding3)
+            ppTzDto.dateWeeding4 = myDateUtil.toDateToString(ppTzEntity.dateWeeding4)
+            ppTzDto.dateWeeding5 = myDateUtil.toDateToString(ppTzEntity.dateWeeding5)
+            ppTzDto.dateWeeding6 = myDateUtil.toDateToString(ppTzEntity.dateWeeding6)
+            ppTzDto.dateWeeding7 = myDateUtil.toDateToString(ppTzEntity.dateWeeding7)
+            ppTzDto.dateWeeding8 = myDateUtil.toDateToString(ppTzEntity.dateWeeding8)
+            ppTzDto.dateWeeding9 = myDateUtil.toDateToString(ppTzEntity.dateWeeding9)
+            ppTzDto.dateWeeding10 = myDateUtil.toDateToString(ppTzEntity.dateWeeding10)
 
             ppTzDto
         }
