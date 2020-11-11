@@ -59,11 +59,14 @@ constructor(
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
         val frData = frList.map { frEntity ->
-            val sphsTzSzDto = modelMapper.map(frEntity, FrDto::class.java)
-            sphsTzSzDto.submissionDate = myDateUtil.convertTimeToString(frEntity.submissionDate)
-            sphsTzSzDto.startDate = myDateUtil.convertTimeToString(frEntity.startDate)
-            sphsTzSzDto.endDate = myDateUtil.convertTimeToString(frEntity.endDate)
-            sphsTzSzDto
+            val frDto = modelMapper.map(frEntity, FrDto::class.java)
+            frDto.submissionDate = myDateUtil.convertTimeToString(frEntity.submissionDate)
+            frDto.startDate = myDateUtil.convertTimeToString(frEntity.startDate)
+            frDto.endDate = myDateUtil.convertTimeToString(frEntity.endDate)
+            frDto.todayDate = myDateUtil.convertDateToString(frEntity.todayDate)
+            frDto.harvestDate = myDateUtil.convertDateToString(frEntity.harvestDate)
+            frDto.plantingDate = myDateUtil.convertDateToString(frEntity.plantingDate)
+            frDto
         }
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -77,8 +80,7 @@ constructor(
         val file = Paths.get(filePath).toFile()
 
         val list = objectMapper.readValue(file, object : TypeReference<List<FrForm>>() {})
-
-        val data = ArrayList<SzEntity>()
+        
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
                 return if (context.source is String) {

@@ -64,14 +64,14 @@ constructor(
         val valFrData = valFrEntityList.map { valFrEntity ->
             val starchContentAcDto = modelMapper.map(valFrEntity, ValFrDto::class.java)
             starchContentAcDto.submissionDate = myDateUtil.convertTimeToString(valFrEntity.submissionDate)
+            starchContentAcDto.today = myDateUtil.convertDateToString(valFrEntity.todayDate)
             starchContentAcDto.start = myDateUtil.convertTimeToString(valFrEntity.startDate)
             starchContentAcDto.end = myDateUtil.convertTimeToString(valFrEntity.endDate)
             starchContentAcDto
         }
 
 
-        writeCsvFile.writeCsv(classMap = ValFrDto::class.java, data = valFrData,
-                fileName = "VAL_FR", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = ValFrDto::class.java, data = valFrData, fileName = "VAL_FR", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")

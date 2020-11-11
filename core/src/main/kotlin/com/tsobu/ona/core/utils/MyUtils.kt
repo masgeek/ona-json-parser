@@ -53,4 +53,8 @@ class MyUtils {
 
         return dateFormat2.format(localDateTime)
     }
+
+    fun convertDateToString(localDateTime: LocalDateTime?, format: String = "MMM dd, yyyy"): String? {
+        return convertTimeToString(localDateTime, format)
+    }
 }

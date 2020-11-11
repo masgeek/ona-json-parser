@@ -70,6 +70,7 @@ constructor(
             assignPaAcDto.submissionDate = myDateUtil.convertTimeToString(assignPaAcEntity.submissionDate)
             assignPaAcDto.start = myDateUtil.convertTimeToString(assignPaAcEntity.startDate)
             assignPaAcDto.end = myDateUtil.convertTimeToString(assignPaAcEntity.endDate)
+            assignPaAcDto.today = myDateUtil.convertTimeToString(assignPaAcEntity.todayDate)
             assignPaAcDto
         }
 

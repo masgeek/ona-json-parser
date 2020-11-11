@@ -3,8 +3,6 @@ package com.tsobu.ona.core.utils
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
-import java.time.LocalDate
-import java.time.LocalDateTime
 
 internal class MyUtilsTest {
 
@@ -23,7 +21,7 @@ internal class MyUtilsTest {
         val dateVal = myUtil.convertToDate(today)
 
         val convertedDateTime = myUtil.convertTimeToString(dateTimeVal)
-        val convertedDate = myUtil.convertTimeToString(dateVal, "MMM dd, yyyy")
+        val convertedDate = myUtil.convertDateToString(dateVal)
         assertEquals(expectedDateTime, convertedDateTime)
         assertEquals(expectedDate, convertedDate)
     }
