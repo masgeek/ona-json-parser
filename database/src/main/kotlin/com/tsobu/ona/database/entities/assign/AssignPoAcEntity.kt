@@ -1,7 +1,6 @@
 package com.tsobu.ona.database.entities.assign
 
 import com.tsobu.ona.database.entities.BaseEntity
-import java.time.LocalDate
 import java.time.LocalDateTime
 import javax.persistence.Column
 import javax.persistence.Entity
@@ -85,7 +84,7 @@ class AssignPoAcEntity : BaseEntity() {
     @Column(name = "complete_setup")
     var completeSetup: String? = null
 
-    @Column(name = "treats", columnDefinition = "TEXT")
+    @Column(name = "treats")
     var treats: String? = null
 
     @Column(name = "nr_treatments")
