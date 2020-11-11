@@ -70,9 +70,9 @@ constructor(
 
         val acData = confirmList.map { assignAcEntity ->
             val acDto = modelMapper.map(assignAcEntity, PartitionPsAcDto::class.java)
-            acDto.submissionDate = myDateUtil.convertTimeToString(assignAcEntity.submissionDate)
-            acDto.startDate = myDateUtil.convertTimeToString(assignAcEntity.startDate)
-            acDto.endDate = myDateUtil.convertTimeToString(assignAcEntity.endDate)
+            acDto.submissionDate = myDateUtil.convertToDateTimeString(assignAcEntity.submissionDate)
+            acDto.startDate = myDateUtil.convertToDateTimeString(assignAcEntity.startDate)
+            acDto.endDate = myDateUtil.convertToDateTimeString(assignAcEntity.endDate)
             acDto
         }
 

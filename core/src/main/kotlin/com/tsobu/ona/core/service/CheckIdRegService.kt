@@ -60,9 +60,9 @@ constructor(
 
         val tlAcData = checkIdRegEntityList.map { checkIdRegEntity ->
             val checkIdRegDto = modelMapper.map(checkIdRegEntity, CheckIdRegDto::class.java)
-            checkIdRegDto.submissionDate = myDateUtil.convertTimeToString(checkIdRegEntity.submissionDate)
-            checkIdRegDto.start = myDateUtil.convertTimeToString(checkIdRegEntity.startDate)
-            checkIdRegDto.end = myDateUtil.convertTimeToString(checkIdRegEntity.endDate)
+            checkIdRegDto.submissionDate = myDateUtil.convertToDateTimeString(checkIdRegEntity.submissionDate)
+            checkIdRegDto.start = myDateUtil.convertToDateTimeString(checkIdRegEntity.startDate)
+            checkIdRegDto.end = myDateUtil.convertToDateTimeString(checkIdRegEntity.endDate)
             checkIdRegDto
         }
 

@@ -68,9 +68,9 @@ constructor(
 
         val valPpData = ppList.map { valPpEntity ->
             val valIcDto = modelMapper.map(valPpEntity, ValPpDto::class.java)
-            valIcDto.submissionDate = myDateUtil.convertTimeToString(valPpEntity.submissionDate)
-            valIcDto.start = myDateUtil.convertTimeToString(valPpEntity.startDate)
-            valIcDto.end = myDateUtil.convertTimeToString(valPpEntity.endDate)
+            valIcDto.submissionDate = myDateUtil.convertToDateTimeString(valPpEntity.submissionDate)
+            valIcDto.start = myDateUtil.convertToDateTimeString(valPpEntity.startDate)
+            valIcDto.end = myDateUtil.convertToDateTimeString(valPpEntity.endDate)
             valIcDto
         }
 

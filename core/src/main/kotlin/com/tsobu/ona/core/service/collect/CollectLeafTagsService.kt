@@ -64,9 +64,9 @@ constructor(
 
         val tagsAcData = tagsEntityList.map { ssAcEntity ->
             val tagsAcDto = modelMapper.map(ssAcEntity, CollectLeafTagsAcDto::class.java)
-            tagsAcDto.submissionDate = myDateUtil.convertTimeToString(ssAcEntity.submissionDate)
-            tagsAcDto.start = myDateUtil.convertTimeToString(ssAcEntity.startDate)
-            tagsAcDto.end = myDateUtil.convertTimeToString(ssAcEntity.endDate)
+            tagsAcDto.submissionDate = myDateUtil.convertToDateTimeString(ssAcEntity.submissionDate)
+            tagsAcDto.start = myDateUtil.convertToDateTimeString(ssAcEntity.startDate)
+            tagsAcDto.end = myDateUtil.convertToDateTimeString(ssAcEntity.endDate)
             tagsAcDto
         }
 

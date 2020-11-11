@@ -65,9 +65,9 @@ constructor(
 
         val yieldCassAcData = acEntityList.map { acEntity ->
             val yieldCassAcDto = modelMapper.map(acEntity, LignifiedStemYieldCassAcDto::class.java)
-            yieldCassAcDto.submissionDate = myDateUtil.convertTimeToString(acEntity.submissionDate)
-            yieldCassAcDto.start = myDateUtil.convertTimeToString(acEntity.startDate)
-            yieldCassAcDto.end = myDateUtil.convertTimeToString(acEntity.endDate)
+            yieldCassAcDto.submissionDate = myDateUtil.convertToDateTimeString(acEntity.submissionDate)
+            yieldCassAcDto.start = myDateUtil.convertToDateTimeString(acEntity.startDate)
+            yieldCassAcDto.end = myDateUtil.convertToDateTimeString(acEntity.endDate)
             yieldCassAcDto
         }
 

@@ -60,9 +60,9 @@ constructor(
 
         val sphsData = sphsList.map { sphsEntity ->
             val sphsDto = modelMapper.map(sphsEntity, SphsDto::class.java)
-            sphsDto.submissionDate = myDateUtil.convertTimeToString(sphsEntity.submissionDate)
-            sphsDto.startDate = myDateUtil.convertTimeToString(sphsEntity.startDate)
-            sphsDto.endDate = myDateUtil.convertTimeToString(sphsEntity.endDate)
+            sphsDto.submissionDate = myDateUtil.convertToDateTimeString(sphsEntity.submissionDate)
+            sphsDto.startDate = myDateUtil.convertToDateTimeString(sphsEntity.startDate)
+            sphsDto.endDate = myDateUtil.convertToDateTimeString(sphsEntity.endDate)
             sphsDto
         }
 

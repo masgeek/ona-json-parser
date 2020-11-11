@@ -60,9 +60,9 @@ constructor(
 
         val icData = frList.map { icEntity ->
             val icDto = modelMapper.map(icEntity, IcDto::class.java)
-            icDto.submissionDate = myDateUtil.convertTimeToString(icEntity.submissionDate)
-            icDto.startDate = myDateUtil.convertTimeToString(icEntity.startDate)
-            icDto.endDate = myDateUtil.convertTimeToString(icEntity.endDate)
+            icDto.submissionDate = myDateUtil.convertToDateTimeString(icEntity.submissionDate)
+            icDto.startDate = myDateUtil.convertToDateTimeString(icEntity.startDate)
+            icDto.endDate = myDateUtil.convertToDateTimeString(icEntity.endDate)
             icDto
         }
 
@@ -119,7 +119,7 @@ constructor(
             icEntity.startDate = myDateUtil.convertToDateTime(icForm.start)
             icEntity.endDate = myDateUtil.convertToDateTime(icForm.end)
             icEntity.plantingDate = myDateUtil.convertToDate(icForm.plantingDate)
-            icEntity.instanceiD = icForm.metaInstanceID
+            icEntity.instanceid = icForm.metaInstanceID
             icEntity.controlKey = icForm.metaInstanceID
 
 //            icEntity.commentValue = icForm.commentValue

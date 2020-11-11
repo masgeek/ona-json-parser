@@ -59,9 +59,9 @@ constructor(
 
         val lzeData = lzeList.map { lzeEntity ->
             val lzeDto = modelMapper.map(lzeEntity, LzeDto::class.java)
-            lzeDto.submissionDate = myDateUtil.convertTimeToString(lzeEntity.submissionDate)
-            lzeDto.startDate = myDateUtil.convertTimeToString(lzeEntity.startDate)
-            lzeDto.endDate = myDateUtil.convertTimeToString(lzeEntity.endDate)
+            lzeDto.submissionDate = myDateUtil.convertToDateTimeString(lzeEntity.submissionDate)
+            lzeDto.startDate = myDateUtil.convertToDateTimeString(lzeEntity.startDate)
+            lzeDto.endDate = myDateUtil.convertToDateTimeString(lzeEntity.endDate)
             lzeDto
         }
 

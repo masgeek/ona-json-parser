@@ -63,10 +63,10 @@ constructor(
 
         val valFrData = valFrEntityList.map { valFrEntity ->
             val starchContentAcDto = modelMapper.map(valFrEntity, ValFrDto::class.java)
-            starchContentAcDto.submissionDate = myDateUtil.convertTimeToString(valFrEntity.submissionDate)
+            starchContentAcDto.submissionDate = myDateUtil.convertToDateTimeString(valFrEntity.submissionDate)
             starchContentAcDto.today = myDateUtil.convertDateToString(valFrEntity.todayDate)
-            starchContentAcDto.start = myDateUtil.convertTimeToString(valFrEntity.startDate)
-            starchContentAcDto.end = myDateUtil.convertTimeToString(valFrEntity.endDate)
+            starchContentAcDto.start = myDateUtil.convertToDateTimeString(valFrEntity.startDate)
+            starchContentAcDto.end = myDateUtil.convertToDateTimeString(valFrEntity.endDate)
             starchContentAcDto.plantingDate = myDateUtil.convertDateToString(valFrEntity.plantingDate)
             starchContentAcDto
         }

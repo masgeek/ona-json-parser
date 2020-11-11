@@ -4,8 +4,6 @@ package com.tsobu.ona.core.service.record
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.record.CanopyDimensionsAcCdDto
-import com.tsobu.ona.core.dto.json.record.CanopyDimensionsAcDto
 import com.tsobu.ona.core.dto.json.record.RecordDmPsAcDto
 import com.tsobu.ona.core.dto.json.record.RecordDmPsAcPlantSampleDto
 import com.tsobu.ona.core.utils.MyUtils
@@ -67,9 +65,9 @@ constructor(
 
         val acData = acList.map { acEntity ->
             val acDto = modelMapper.map(acEntity, RecordDmPsAcDto::class.java)
-            acDto.submissionDate = myDateUtil.convertTimeToString(acEntity.submissionDate)
-            acDto.startDate = myDateUtil.convertTimeToString(acEntity.startDate)
-            acDto.endDate = myDateUtil.convertTimeToString(acEntity.endDate)
+            acDto.submissionDate = myDateUtil.convertToDateTimeString(acEntity.submissionDate)
+            acDto.startDate = myDateUtil.convertToDateTimeString(acEntity.startDate)
+            acDto.endDate = myDateUtil.convertToDateTimeString(acEntity.endDate)
             acDto
         }
 

@@ -20,7 +20,7 @@ internal class MyUtilsTest {
         val dateTimeVal = myUtil.convertToDateTime(submissionTime)
         val dateVal = myUtil.convertToDate(today)
 
-        val convertedDateTime = myUtil.convertTimeToString(dateTimeVal)
+        val convertedDateTime = myUtil.convertToDateTimeString(dateTimeVal)
         val convertedDate = myUtil.convertDateToString(dateVal)
         assertEquals(expectedDateTime, convertedDateTime)
         assertEquals(expectedDate, convertedDate)

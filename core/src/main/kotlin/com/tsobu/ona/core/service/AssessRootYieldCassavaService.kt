@@ -49,9 +49,10 @@ constructor(
 
         val yieldCassavaData = scores.map { scoreWeedControlAc ->
             val outboxDto = modelMapper.map(scoreWeedControlAc, RootYieldCassavaAcDto::class.java)
-            outboxDto.submissionDate = myDateUtil.convertTimeToString(scoreWeedControlAc.submissionDate)
-            outboxDto.startDate = myDateUtil.convertTimeToString(scoreWeedControlAc.startDate)
-            outboxDto.endDate = myDateUtil.convertTimeToString(scoreWeedControlAc.endDate)
+            outboxDto.submissionDate = myDateUtil.convertToDateTimeString(scoreWeedControlAc.submissionDate)
+            outboxDto.startDate = myDateUtil.convertToDateTimeString(scoreWeedControlAc.startDate)
+            outboxDto.endDate = myDateUtil.convertToDateTimeString(scoreWeedControlAc.endDate)
+            outboxDto.todayDate = myDateUtil.convertDateToString(scoreWeedControlAc.todayDate)
             outboxDto
         }
 
@@ -101,16 +102,16 @@ constructor(
                 val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
                 val yieldCassavaEntity = modelMapper.map(myVal, RootYieldCassavaAcEntity::class.java)
                 if (geoPoint.isNotEmpty()) {
-                    yieldCassavaEntity.geoPointLatitude = geoPoint[0].toDouble()
+                    yieldCassavaEntity.geoPointLatitude = geoPoint[0]
 
                     if (myDateUtil.indexExists(geoPoint, 1)) {
-                        yieldCassavaEntity.geoPointLongitude = geoPoint[1].toDouble()
+                        yieldCassavaEntity.geoPointLongitude = geoPoint[1]
                     }
                     if (myDateUtil.indexExists(geoPoint, 2)) {
-                        yieldCassavaEntity.geoPointAltitude = geoPoint[2].toDouble()
+                        yieldCassavaEntity.geoPointAltitude = geoPoint[2]
                     }
                     if (myDateUtil.indexExists(geoPoint, 3)) {
-                        yieldCassavaEntity.geoPointAccuracy = geoPoint[3].toDouble()
+                        yieldCassavaEntity.geoPointAccuracy = geoPoint[3]
                     }
                 }
                 yieldCassavaEntity.uuid = myVal.formhubUuid
@@ -118,7 +119,7 @@ constructor(
                 yieldCassavaEntity.todayDate = myDateUtil.convertToDate(myVal.today)
                 yieldCassavaEntity.startDate = myDateUtil.convertToDateTime(myVal.start)
                 yieldCassavaEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
-                yieldCassavaEntity.setOfYieldAssessment = "${myVal.metaInstanceID}/yieldAssessment"
+                yieldCassavaEntity.setOfYieldAssesment = "${myVal.metaInstanceID}/yieldAssessment"
                 yieldCassavaEntity.instanceId = myVal.metaInstanceID
                 yieldCassavaEntity.controlKey = myVal.metaInstanceID
 
@@ -133,8 +134,8 @@ constructor(
                     val yieldAssessment = modelMapper.map(ya, AcYieldAssessmentEntity::class.java)
 
                     yieldAssessment.parentKey = yieldCassavaEntity.controlKey
-                    yieldAssessment.controlKey = "${yieldCassavaEntity.setOfYieldAssessment}[$assessmentCount]"
-                    yieldAssessment.setOfYieldAssessment = yieldCassavaEntity.setOfYieldAssessment
+                    yieldAssessment.controlKey = "${yieldCassavaEntity.setOfYieldAssesment}[$assessmentCount]"
+                    yieldAssessment.setOfYieldAssessment = yieldCassavaEntity.setOfYieldAssesment
                     yieldAssessment.nrPlantsNp = ya.nrPlantsNp
 
                     log.info("Added >>> ${yieldAssessment.plotId}: ${yieldAssessment.plantId} with for assessment being $assessmentCount")

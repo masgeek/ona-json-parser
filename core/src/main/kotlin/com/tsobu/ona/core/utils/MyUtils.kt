@@ -2,7 +2,6 @@ package com.tsobu.ona.core.utils
 
 import org.slf4j.LoggerFactory
 import java.time.Instant
-import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
@@ -45,7 +44,7 @@ class MyUtils {
         return instant.atZone(ZoneId.of("UTC")).toLocalDateTime()
     }
 
-    fun convertTimeToString(localDateTime: LocalDateTime?, format: String = "MMM dd, yyyy hh:mm:ss a"): String? {
+    fun convertToDateTimeString(localDateTime: LocalDateTime?, format: String = "MMM dd, yyyy hh:mm:ss a"): String? {
         if (localDateTime == null) {
             return null
         }
@@ -55,6 +54,6 @@ class MyUtils {
     }
 
     fun convertDateToString(localDateTime: LocalDateTime?, format: String = "MMM dd, yyyy"): String? {
-        return convertTimeToString(localDateTime, format)
+        return convertToDateTimeString(localDateTime, format)
     }
 }

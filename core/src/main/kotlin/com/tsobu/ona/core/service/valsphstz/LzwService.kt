@@ -59,9 +59,9 @@ constructor(
 
         val lzwData = lzwList.map { lzwEntity ->
             val lzWDto = modelMapper.map(lzwEntity, LzwDto::class.java)
-            lzWDto.submissionDate = myDateUtil.convertTimeToString(lzwEntity.submissionDate)
-            lzWDto.startDate = myDateUtil.convertTimeToString(lzwEntity.startDate)
-            lzWDto.endDate = myDateUtil.convertTimeToString(lzwEntity.endDate)
+            lzWDto.submissionDate = myDateUtil.convertToDateTimeString(lzwEntity.submissionDate)
+            lzWDto.startDate = myDateUtil.convertToDateTimeString(lzwEntity.startDate)
+            lzWDto.endDate = myDateUtil.convertToDateTimeString(lzwEntity.endDate)
             lzWDto
         }
 

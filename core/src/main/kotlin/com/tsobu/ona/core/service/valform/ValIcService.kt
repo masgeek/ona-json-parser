@@ -63,9 +63,9 @@ constructor(
 
         val valIcData = valIcEntityList.map { valIcEntity ->
             val valIcDto = modelMapper.map(valIcEntity, ValIcDto::class.java)
-            valIcDto.submissionDate = myDateUtil.convertTimeToString(valIcEntity.submissionDate)
-            valIcDto.start = myDateUtil.convertTimeToString(valIcEntity.startDate)
-            valIcDto.end = myDateUtil.convertTimeToString(valIcEntity.endDate)
+            valIcDto.submissionDate = myDateUtil.convertToDateTimeString(valIcEntity.submissionDate)
+            valIcDto.start = myDateUtil.convertToDateTimeString(valIcEntity.startDate)
+            valIcDto.end = myDateUtil.convertToDateTimeString(valIcEntity.endDate)
 //            valIcDto.purposeVal = valIcEntity.confirmVal
             valIcDto
         }

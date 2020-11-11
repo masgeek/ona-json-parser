@@ -60,9 +60,9 @@ constructor(
 
         val icData = frList.map { cisEntity ->
             val cisDto = modelMapper.map(cisEntity, CisDto::class.java)
-            cisDto.submissionDate = myDateUtil.convertTimeToString(cisEntity.submissionDate)
-            cisDto.startDate= myDateUtil.convertTimeToString(cisEntity.startDate)
-            cisDto.endDate = myDateUtil.convertTimeToString(cisEntity.endDate)
+            cisDto.submissionDate = myDateUtil.convertToDateTimeString(cisEntity.submissionDate)
+            cisDto.startDate= myDateUtil.convertToDateTimeString(cisEntity.startDate)
+            cisDto.endDate = myDateUtil.convertToDateTimeString(cisEntity.endDate)
 
             cisDto
         }
@@ -119,7 +119,7 @@ constructor(
             cisEntity.todayDate = myDateUtil.convertToDate(cisForm.today)
             cisEntity.startDate = myDateUtil.convertToDateTime(cisForm.start)
             cisEntity.endDate = myDateUtil.convertToDateTime(cisForm.end)
-            cisEntity.instanceID = cisForm.metaInstanceID
+            cisEntity.instanceId = cisForm.metaInstanceID
             cisEntity.controlKey = cisForm.metaInstanceID
 
 

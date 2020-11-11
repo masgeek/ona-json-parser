@@ -70,9 +70,9 @@ constructor(
 
         val cassAcData = confirmList.map { assignAcEntity ->
             val cassAcDto = modelMapper.map(assignAcEntity, NonDestructiveCassAcDto::class.java)
-            cassAcDto.submissionDate = myDateUtil.convertTimeToString(assignAcEntity.submissionDate)
-            cassAcDto.startDate = myDateUtil.convertTimeToString(assignAcEntity.startDate)
-            cassAcDto.endDate = myDateUtil.convertTimeToString(assignAcEntity.endDate)
+            cassAcDto.submissionDate = myDateUtil.convertToDateTimeString(assignAcEntity.submissionDate)
+            cassAcDto.startDate = myDateUtil.convertToDateTimeString(assignAcEntity.startDate)
+            cassAcDto.endDate = myDateUtil.convertToDateTimeString(assignAcEntity.endDate)
             cassAcDto
         }
 

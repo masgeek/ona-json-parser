@@ -63,9 +63,9 @@ constructor(
 
         val treatData = kwList.map { oyEntity ->
             val oyDto = modelMapper.map(oyEntity, ValSphsOyDto::class.java)
-            oyDto.submissionDate = myDateUtil.convertTimeToString(oyEntity.submissionDate)
-            oyDto.start = myDateUtil.convertTimeToString(oyEntity.startDate)
-            oyDto.end = myDateUtil.convertTimeToString(oyEntity.endDate)
+            oyDto.submissionDate = myDateUtil.convertToDateTimeString(oyEntity.submissionDate)
+            oyDto.start = myDateUtil.convertToDateTimeString(oyEntity.startDate)
+            oyDto.end = myDateUtil.convertToDateTimeString(oyEntity.endDate)
 
             oyDto
         }

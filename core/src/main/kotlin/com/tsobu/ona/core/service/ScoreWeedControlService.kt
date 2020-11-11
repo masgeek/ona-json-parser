@@ -49,9 +49,9 @@ constructor(
 
         val scoreWeedData = scores.map { scoreWeedControlAc ->
             val outboxDto = modelMapper.map(scoreWeedControlAc, ScoreWeedControlAcDto::class.java)
-            outboxDto.submissionDate = myDateUtil.convertTimeToString(scoreWeedControlAc.submissionDate)
-            outboxDto.startDate = myDateUtil.convertTimeToString(scoreWeedControlAc.startDate)
-            outboxDto.endDate = myDateUtil.convertTimeToString(scoreWeedControlAc.endDate)
+            outboxDto.submissionDate = myDateUtil.convertToDateTimeString(scoreWeedControlAc.submissionDate)
+            outboxDto.startDate = myDateUtil.convertToDateTimeString(scoreWeedControlAc.startDate)
+            outboxDto.endDate = myDateUtil.convertToDateTimeString(scoreWeedControlAc.endDate)
             outboxDto
         }
 

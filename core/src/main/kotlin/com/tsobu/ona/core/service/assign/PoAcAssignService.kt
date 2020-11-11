@@ -65,9 +65,9 @@ constructor(
 
         val fdAcData = fdAcEntityList.map { assignPaAcEntity ->
             val assignPaAcDto = modelMapper.map(assignPaAcEntity, AssignPoAcDto::class.java)
-            assignPaAcDto.submissionDate = myDateUtil.convertTimeToString(assignPaAcEntity.submissionDate)
-            assignPaAcDto.start = myDateUtil.convertTimeToString(assignPaAcEntity.startDate)
-            assignPaAcDto.end = myDateUtil.convertTimeToString(assignPaAcEntity.endDate)
+            assignPaAcDto.submissionDate = myDateUtil.convertToDateTimeString(assignPaAcEntity.submissionDate)
+            assignPaAcDto.start = myDateUtil.convertToDateTimeString(assignPaAcEntity.startDate)
+            assignPaAcDto.end = myDateUtil.convertToDateTimeString(assignPaAcEntity.endDate)
             assignPaAcDto
         }
 
