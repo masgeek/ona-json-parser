@@ -68,6 +68,7 @@ constructor(
             starchContentAcDto.submissionDate = myDateUtil.toDateTimeString(starchContentAcEntity.submissionDate)
             starchContentAcDto.start = myDateUtil.toDateTimeString(starchContentAcEntity.startDate)
             starchContentAcDto.end = myDateUtil.toDateTimeString(starchContentAcEntity.endDate)
+            starchContentAcDto.today = myDateUtil.toDateToString(starchContentAcEntity.todayDate)
             starchContentAcDto
         }
 

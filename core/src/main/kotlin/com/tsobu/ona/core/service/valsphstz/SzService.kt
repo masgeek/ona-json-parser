@@ -61,6 +61,9 @@ constructor(
             szDto.submissionDate = myDateUtil.toDateTimeString(szEntity.submissionDate)
             szDto.startDate = myDateUtil.toDateTimeString(szEntity.startDate)
             szDto.endDate = myDateUtil.toDateTimeString(szEntity.endDate)
+            szDto.todayDate = myDateUtil.toDateToString(szEntity.todayDate)
+            szDto.plantingDate = myDateUtil.toDateToString(szEntity.plantingDate)
+            szDto.harvestDate = myDateUtil.toDateToString(szEntity.harvestDate)
             szDto
         }
         val filePath = "${appConfig.globalProperties().outputPath}"

@@ -52,6 +52,7 @@ constructor(
             outboxDto.submissionDate = myDateUtil.toDateTimeString(scoreWeedControlAc.submissionDate)
             outboxDto.startDate = myDateUtil.toDateTimeString(scoreWeedControlAc.startDate)
             outboxDto.endDate = myDateUtil.toDateTimeString(scoreWeedControlAc.endDate)
+            outboxDto.todayDate = myDateUtil.toDateToString(scoreWeedControlAc.todayDate)
             outboxDto
         }
 

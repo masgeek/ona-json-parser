@@ -66,12 +66,15 @@ constructor(
             kwDto.submissionDate = myDateUtil.toDateTimeString(kwEntity.submissionDate)
             kwDto.start = myDateUtil.toDateTimeString(kwEntity.startDate)
             kwDto.end = myDateUtil.toDateTimeString(kwEntity.endDate)
+            kwDto.today = myDateUtil.toDateToString(kwEntity.todayDate)
+            kwDto.harvestDate = myDateUtil.toDateToString(kwEntity.harvestDate)
+            kwDto.plantingDate = myDateUtil.toDateToString(kwEntity.plantingDate)
 
             kwDto
         }
 
 
-        writeCsvFile.writeCsv(classMap = ValSphsKwDto::class.java, data = treatData,fileName = "VAL_SPHS_KW", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = ValSphsKwDto::class.java, data = treatData, fileName = "VAL_SPHS_KW", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")

@@ -71,6 +71,8 @@ constructor(
             ppTzDto.submissionDate = myDateUtil.toDateTimeString(ppTzEntity.submissionDate)
             ppTzDto.start = myDateUtil.toDateTimeString(ppTzEntity.startDate)
             ppTzDto.end = myDateUtil.toDateTimeString(ppTzEntity.endDate)
+            ppTzDto.today = myDateUtil.toDateToString(ppTzEntity.todayDate)
+            ppTzDto.plantingDate = myDateUtil.toDateToString(ppTzEntity.plantingDate)
             ppTzDto
         }
 

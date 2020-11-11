@@ -66,6 +66,7 @@ constructor(
             treatDto.submissionDate = myDateUtil.toDateTimeString(treatEntity.submissionDate)
             treatDto.start = myDateUtil.toDateTimeString(treatEntity.startDate)
             treatDto.end = myDateUtil.toDateTimeString(treatEntity.endDate)
+            treatDto.today = myDateUtil.toDateToString(treatEntity.todayDate)
             treatDto
         }
 

@@ -66,6 +66,8 @@ constructor(
             starchContentAcDto.submissionDate = myDateUtil.toDateTimeString(valCisEntity.submissionDate)
             starchContentAcDto.start = myDateUtil.toDateTimeString(valCisEntity.startDate)
             starchContentAcDto.end = myDateUtil.toDateTimeString(valCisEntity.endDate)
+            starchContentAcDto.today = myDateUtil.toDateToString(valCisEntity.todayDate)
+            starchContentAcDto.plantingDate = myDateUtil.toDateToString(valCisEntity.plantingDate)
             starchContentAcDto
         }
 

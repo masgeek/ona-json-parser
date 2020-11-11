@@ -71,6 +71,8 @@ constructor(
             valIcDto.submissionDate = myDateUtil.toDateTimeString(valPpEntity.submissionDate)
             valIcDto.start = myDateUtil.toDateTimeString(valPpEntity.startDate)
             valIcDto.end = myDateUtil.toDateTimeString(valPpEntity.endDate)
+            valIcDto.today = myDateUtil.toDateToString(valPpEntity.todayDate)
+            valIcDto.plantingDate = myDateUtil.toDateToString(valPpEntity.plantingDate)
             valIcDto
         }
 

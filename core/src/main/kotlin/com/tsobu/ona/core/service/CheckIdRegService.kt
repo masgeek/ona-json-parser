@@ -63,6 +63,7 @@ constructor(
             checkIdRegDto.submissionDate = myDateUtil.toDateTimeString(checkIdRegEntity.submissionDate)
             checkIdRegDto.start = myDateUtil.toDateTimeString(checkIdRegEntity.startDate)
             checkIdRegDto.end = myDateUtil.toDateTimeString(checkIdRegEntity.endDate)
+            checkIdRegDto.today = myDateUtil.toDateToString(checkIdRegEntity.todayDate)
             checkIdRegDto
         }
 

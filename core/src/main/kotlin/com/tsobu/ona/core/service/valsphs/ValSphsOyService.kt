@@ -66,6 +66,9 @@ constructor(
             oyDto.submissionDate = myDateUtil.toDateTimeString(oyEntity.submissionDate)
             oyDto.start = myDateUtil.toDateTimeString(oyEntity.startDate)
             oyDto.end = myDateUtil.toDateTimeString(oyEntity.endDate)
+            oyDto.today = myDateUtil.toDateToString(oyEntity.todayDate)
+            oyDto.plantingDate = myDateUtil.toDateToString(oyEntity.plantingDate)
+            oyDto.harvestDate = myDateUtil.toDateToString(oyEntity.harvestDate)
 
             oyDto
         }

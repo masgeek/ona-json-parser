@@ -54,7 +54,6 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -66,6 +65,9 @@ constructor(
             ogDto.submissionDate = myDateUtil.toDateTimeString(onEntity.submissionDate)
             ogDto.start = myDateUtil.toDateTimeString(onEntity.startDate)
             ogDto.end = myDateUtil.toDateTimeString(onEntity.endDate)
+            ogDto.today = myDateUtil.toDateToString(onEntity.todayDate)
+            ogDto.plantingDate = myDateUtil.toDateToString(onEntity.plantingDate)
+            ogDto.harvestDate = myDateUtil.toDateToString(onEntity.harvestDate)
 
             ogDto
         }

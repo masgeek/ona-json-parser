@@ -62,11 +62,14 @@ constructor(
             lzeDto.submissionDate = myDateUtil.toDateTimeString(lzeEntity.submissionDate)
             lzeDto.startDate = myDateUtil.toDateTimeString(lzeEntity.startDate)
             lzeDto.endDate = myDateUtil.toDateTimeString(lzeEntity.endDate)
+            lzeDto.todayDate = myDateUtil.toDateToString(lzeEntity.todayDate)
+            lzeDto.plantingDate = myDateUtil.toDateToString(lzeEntity.plantingDate)
+            lzeDto.harvestDate = myDateUtil.toDateToString(lzeEntity.harvestDate)
             lzeDto
         }
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        writeCsvFile.writeCsv(classMap = LzeDto::class.java, data = lzeData, fileName = "VAL_SPHS_TZLZE",outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = LzeDto::class.java, data = lzeData, fileName = "VAL_SPHS_TZLZE", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")

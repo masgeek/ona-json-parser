@@ -58,11 +58,14 @@ constructor(
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
         val ezData = ezList.map { ezEntity ->
-            val sphsTzSzDto = modelMapper.map(ezEntity, EzDto::class.java)
-            sphsTzSzDto.submissionDate = myDateUtil.toDateTimeString(ezEntity.submissionDate)
-            sphsTzSzDto.startDate = myDateUtil.toDateTimeString(ezEntity.startDate)
-            sphsTzSzDto.endDate = myDateUtil.toDateTimeString(ezEntity.endDate)
-            sphsTzSzDto
+            val ezDto = modelMapper.map(ezEntity, EzDto::class.java)
+            ezDto.submissionDate = myDateUtil.toDateTimeString(ezEntity.submissionDate)
+            ezDto.startDate = myDateUtil.toDateTimeString(ezEntity.startDate)
+            ezDto.endDate = myDateUtil.toDateTimeString(ezEntity.endDate)
+            ezDto.todayDate = myDateUtil.toDateToString(ezEntity.todayDate)
+            ezDto.plantingDate = myDateUtil.toDateToString(ezEntity.plantingDate)
+            ezDto.harvestDate = myDateUtil.toDateToString(ezEntity.harvestDate)
+            ezDto
         }
 
         val filePath = "${appConfig.globalProperties().outputPath}"

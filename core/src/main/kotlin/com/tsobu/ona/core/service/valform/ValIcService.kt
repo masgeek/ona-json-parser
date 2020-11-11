@@ -66,7 +66,8 @@ constructor(
             valIcDto.submissionDate = myDateUtil.toDateTimeString(valIcEntity.submissionDate)
             valIcDto.start = myDateUtil.toDateTimeString(valIcEntity.startDate)
             valIcDto.end = myDateUtil.toDateTimeString(valIcEntity.endDate)
-//            valIcDto.purposeVal = valIcEntity.confirmVal
+            valIcDto.today = myDateUtil.toDateToString(valIcEntity.todayDate)
+            valIcDto.plantingDate = myDateUtil.toDateToString(valIcEntity.plantingDate)
             valIcDto
         }
 
