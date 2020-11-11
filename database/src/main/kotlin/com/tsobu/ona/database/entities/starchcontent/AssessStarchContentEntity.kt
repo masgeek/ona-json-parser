@@ -1,4 +1,4 @@
-package com.tsobu.ona.database.entities.greenbiomass
+package com.tsobu.ona.database.entities.starchcontent
 
 import com.tsobu.ona.database.entities.BaseEntity
 import java.time.LocalDateTime
@@ -7,8 +7,8 @@ import javax.persistence.Entity
 import javax.persistence.Table
 
 @Entity
-@Table(name = "assess_green_biomass_yield_cass")
-class YieldCassEntity : BaseEntity() {
+@Table(name = "assess_starch_content_ac_assess_starch")
+class AssessStarchContentEntity : BaseEntity() {
     @Column(name = "submission_date")
     var submissionDate: LocalDateTime? = null
 
@@ -36,8 +36,8 @@ class YieldCassEntity : BaseEntity() {
     @Column(name = "simserial")
     var simserial: String? = null
 
-    @Column(name = "phonenumber")
-    var phonenumber: String? = null
+    @Column(name = "phone_number")
+    var phoneNumber: String? = null
 
     @Column(name = "banner")
     var banner: String? = null
@@ -54,8 +54,8 @@ class YieldCassEntity : BaseEntity() {
     @Column(name = "login")
     var login: String? = null
 
-    @Column(name = "first_name")
-    var firstName: String? = null
+    @Column(name = "firstname")
+    var firstname: String? = null
 
     @Column(name = "surname")
     var surname: String? = null
@@ -75,23 +75,32 @@ class YieldCassEntity : BaseEntity() {
     @Column(name = "entity_value")
     var entityValue: String? = null
 
-    @Column(name = "partitioning")
-    var partitioning: String? = null
+    @Column(name = "basket_type")
+    var basketType: String? = null
 
-    @Column(name = "sampling")
-    var sampling: String? = null
+    @Column(name = "basket_float")
+    var basketFloat: String? = null
 
-    @Column(name = "measure_sec")
-    var measureSec: String? = null
+    @Column(name = "correction_note1")
+    var correctionNote1: String? = null
 
-    @Column(name = "sampling_sec")
-    var samplingSec: String? = null
+    @Column(name = "basket_air")
+    var basketAir: String? = null
+
+    @Column(name = "basket_water")
+    var basketWater: String? = null
+
+    @Column(name = "correction_note2")
+    var correctionNote2: String? = null
+
+    @Column(name = "correction_basket")
+    var correctionBasket: String? = null
 
     @Column(name = "repeat_value")
     var repeatValue: String? = null
 
-    @Column(name = "set_of_yield_assessment")
-    var setOfYieldAssessment: String? = null
+    @Column(name = "set_of_assess_starch")
+    var setOfAssessStarch: String? = null
 
     @Column(name = "end_date")
     var endDate: LocalDateTime? = null

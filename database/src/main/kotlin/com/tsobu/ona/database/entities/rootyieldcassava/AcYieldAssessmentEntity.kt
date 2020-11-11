@@ -6,59 +6,90 @@ import javax.persistence.Entity
 import javax.persistence.Table
 
 @Entity
-@Table(name = "assess_root_yield_cassava_ac_yield_assessment")
+@Table(name = "assess_root_yield_cassava_ac_ya")
 class AcYieldAssessmentEntity : BaseEntity() {
-
+    
+    @Column(name = "plot_id")
     var plotId: String? = null
+
+    @Column(name = "section_id")
     var sectionId: String? = null
+
+    @Column(name = "plant_id")
     var plantId: String? = null
-    var densityVariable: String? = null
-    var nrRowsVariable: String? = null
-    var nrPlantsRowVariable: String? = null
-    var plotDimNote: String? = null
 
-    @Column(name = "l1_variable")
-    var l1Variable: String? = null
-
-    @Column(name = "w1_variable")
-    var w1Variable: String? = null
-
-    @Column(name = "l2_variable")
-    var l2Variable: String? = null
-
-    @Column(name = "w2_variable")
-    var w2Variable: String? = null
-    var betweenRowVariable: String? = null
-    var withinRowVariable: String? = null
-    var densityVariableCalc: String? = null
-    var maxStandVariable: String? = null
-    var plotSizeVariable: String? = null
-    var noteVariable: String? = null
+    @Column(name = "nr_plants_np")
     var nrPlantsNp: String? = null
+
+    @Column(name = "nr_plants_se")
     var nrPlantsSe: String? = null
 
-    @Column(name = "generated_table_list_label_73")
-    var generatedTableListLabel73: String? = null
-    var tuberizedRootsNr: String? = null
-    var tuberizedMarketableRootsNr: String? = null
+    @Column(name = "sec_value")
+    var secValue: String? = null
 
-    @Column(name = "generated_table_list_label_77")
-    var generatedTableListLabel77: String? = null
-    var tuberizedRootsFw: String? = null
-    var tuberizedDiseasedRootsFw: String? = null
-    var tuberizedSmallRootsFw: String? = null
-    var tuberizedMarketableRootsFw: String? = null
-    var tuberizedRootsFwSs: String? = null
-    var plantSampleIdTuberizedRoots: String? = null
-    var tuberizedSmallRootsFwSs: String? = null
-    var plantSampleIdTuberizedSmallRoots: String? = null
-    var tuberizedMarketableRootsFwSs: String? = null
-    var plantSampleIdTuberizedMarketableRoots: String? = null
-    var disease: String? = null
-    var diseaseScoreRoots: String? = null
-    var diseaseScoreRootsIncidence: String? = null
-    var diseaseScoreRootsSeverity: String? = null
+    @Column(name = "generated_table_list_label_37")
+    var generatedTableListLabel37: String? = null
+
+    @Column(name = "leaves_fw")
+    var leavesFw: String? = null
+
+    @Column(name = "green_stems_fw")
+    var greenStemsFw: String? = null
+
+    @Column(name = "green_stems_leaves_fw")
+    var greenStemsLeavesFw: String? = null
+
+    @Column(name = "leaves_sec_fw")
+    var leavesSecFw: String? = null
+
+    @Column(name = "green_stems_sec_fw")
+    var greenStemsSecFw: String? = null
+
+    @Column(name = "green_stems_leaves_sec_fw")
+    var greenStemsLeavesSecFw: String? = null
+
+    @Column(name = "leaves_fw_ss")
+    var leavesFwSs: String? = null
+
+    @Column(name = "plant_sample_id_leaves")
+    var plantSampleIdLeaves: String? = null
+
+    @Column(name = "green_stems_fw_ss")
+    var greenStemsFwSs: String? = null
+
+    @Column(name = "plant_sample_id_green_stems")
+    var plantSampleIdGreenStems: String? = null
+
+    @Column(name = "green_stems_leaves_fw_ss")
+    var greenStemsLeavesFwSs: String? = null
+
+    @Column(name = "plant_sample_id_green_stems_leaves")
+    var plantSampleIdGreenStemsLeaves: String? = null
+
+    @Column(name = "leaves_sec_fw_ss")
+    var leavesSecFwSs: String? = null
+
+    @Column(name = "plant_sample_id_leaves_sec")
+    var plantSampleIdLeavesSec: String? = null
+
+    @Column(name = "green_stems_sec_fw_ss")
+    var greenStemsSecFwSs: String? = null
+
+    @Column(name = "plant_sample_id_green_stems_sec")
+    var plantSampleIdGreenStemsSec: String? = null
+
+    @Column(name = "green_stems_leaves_sec_fw_ss")
+    var greenStemsLeavesSecFwSs: String? = null
+
+    @Column(name = "plant_sample_id_green_stems_leaves_sec")
+    var plantSampleIdGreenStemsLeavesSec: String? = null
+
+    @Column(name = "parent_key")
     var parentKey: String? = null
+
+    @Column(name = "control_key")
     var controlKey: String? = null
+
+    @Column(name = "set_of_yield_assessment")
     var setOfYieldAssessment: String? = null
 }

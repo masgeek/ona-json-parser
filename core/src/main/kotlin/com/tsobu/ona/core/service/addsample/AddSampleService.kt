@@ -9,7 +9,7 @@ import com.tsobu.ona.core.dto.json.addsample.AcNewLabelDto
 import com.tsobu.ona.core.dto.json.addsample.AcSampleDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.addsample.AcEntity
+import com.tsobu.ona.database.entities.addsample.SampleLabelAcEntity
 import com.tsobu.ona.database.entities.addsample.AcNewLabelEntity
 import com.tsobu.ona.database.entities.addsample.AcSampleEntity
 import com.tsobu.ona.database.repositories.addsample.AcNewLabelRepo
@@ -114,12 +114,12 @@ constructor(
         modelMapper.configuration.isAmbiguityIgnored = true
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
-        val acEntityData = ArrayList<AcEntity>()
+        val acEntityData = ArrayList<SampleLabelAcEntity>()
         val acSampleData = ArrayList<AcSampleEntity>()
         val acNewLabelData = ArrayList<AcNewLabelEntity>()
         list.forEach { acForm ->
             //map and save to database
-            val acEntity = modelMapper.map(acForm, AcEntity::class.java)
+            val acEntity = modelMapper.map(acForm, SampleLabelAcEntity::class.java)
             acEntity.uuid = acForm.formhubUuid
             acEntity.submissionDate = myDateUtil.convertToDateTime(acForm.submissionTime)
             acEntity.todayDate = myDateUtil.convertToDate(acForm.today)

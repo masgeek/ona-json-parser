@@ -9,7 +9,7 @@ import com.tsobu.ona.core.dto.json.starchcontent.StarchContentAcDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.starchcontent.AssessStarchContentAcEntity
-import com.tsobu.ona.database.entities.starchcontent.AssessStarchEntity
+import com.tsobu.ona.database.entities.starchcontent.AssessStarchContentEntity
 import com.tsobu.ona.database.repositories.starchcontent.AssessStarchContentAcRepo
 import com.tsobu.ona.database.repositories.starchcontent.AssessStarchRepo
 import com.tsobu.ona.forms.starchcontent.AssessStarchContentAcForm
@@ -108,7 +108,7 @@ constructor(
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val starchContentAcData = ArrayList<AssessStarchContentAcEntity>()
-        val assessStarchData = ArrayList<AssessStarchEntity>()
+        val assessStarchData = ArrayList<AssessStarchContentEntity>()
         list.forEach { starchContentAcForm ->
             //map and save to database
             val starchContentAcEntity = modelMapper.map(starchContentAcForm, AssessStarchContentAcEntity::class.java)
@@ -143,7 +143,7 @@ constructor(
             var assessStarchCounter = 1
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
             assessStarchList?.forEach { acSample ->
-                val yieldCassAcYaEntity = modelMapper.map(acSample, AssessStarchEntity::class.java)
+                val yieldCassAcYaEntity = modelMapper.map(acSample, AssessStarchContentEntity::class.java)
                 yieldCassAcYaEntity.parentKey = starchContentAcEntity.controlKey
                 yieldCassAcYaEntity.controlKey = "${starchContentAcEntity.controlKey}/assessStarch[$assessStarchCounter]"
                 yieldCassAcYaEntity.setOfAssessStarch = "${starchContentAcEntity.controlKey}/assessStarch"

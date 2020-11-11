@@ -1,7 +1,6 @@
 package com.tsobu.ona.database.entities.addsample
 
 import com.tsobu.ona.database.entities.BaseEntity
-import java.time.LocalDate
 import java.time.LocalDateTime
 import javax.persistence.Column
 import javax.persistence.Entity
@@ -9,7 +8,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "add_sample_label_ac")
-class AcEntity : BaseEntity() {
+class SampleLabelAcEntity : BaseEntity() {
     @Column(name = "submission_date")
     var submissionDate: LocalDateTime? = null
 

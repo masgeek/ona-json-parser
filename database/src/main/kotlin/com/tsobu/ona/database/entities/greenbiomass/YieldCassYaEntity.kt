@@ -6,7 +6,7 @@ import javax.persistence.Entity
 import javax.persistence.Table
 
 @Entity
-@Table(name = "assess_greenbiomass_yield_cass_ya")
+@Table(name = "assess_green_biomass_yield_cass_ya")
 class YieldCassYaEntity : BaseEntity() {
     @Column(name = "plot_id")
     var plotId: String? = null
@@ -80,7 +80,7 @@ class YieldCassYaEntity : BaseEntity() {
     @Column(name = "green_stems_leaves_sec_fw_ss")
     var greenStemsLeavesSecFwSs: String? = null
 
-    @Column(name = "plantsampleid_greenstemsleavessec")
+    @Column(name = "plant_sample_id_green_stems_leaves_sec")
     var plantsampleidGreenstemsleavessec: String? = null
 
     @Column(name = "parent_key")

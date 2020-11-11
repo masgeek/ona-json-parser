@@ -9,7 +9,7 @@ import com.tsobu.ona.core.dto.json.RootYieldCassavaAcYieldAssessmentDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.rootyieldcassava.AcYieldAssessmentEntity
-import com.tsobu.ona.database.entities.rootyieldcassava.CassavaAcEntity
+import com.tsobu.ona.database.entities.rootyieldcassava.RootYieldCassavaAcEntity
 import com.tsobu.ona.database.entities.scoreweedcontrol.WdEntity
 import com.tsobu.ona.database.repositories.RootYieldCassavaAcRepo
 import com.tsobu.ona.database.repositories.RootYieldCassavaAcYieldAssessmentRepo
@@ -75,7 +75,7 @@ constructor(
 
         val list = objectMapper.readValue(file, object : TypeReference<List<AssesRootYieldCassavaForm>>() {})
 
-        val data = ArrayList<CassavaAcEntity>()
+        val data = ArrayList<RootYieldCassavaAcEntity>()
         val yieldAssessmentData = ArrayList<AcYieldAssessmentEntity>()
         val weedWdData = ArrayList<WdEntity>()
 
@@ -99,7 +99,7 @@ constructor(
             list.forEach { myVal ->
                 //map and save to database
                 val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
-                val yieldCassavaEntity = modelMapper.map(myVal, CassavaAcEntity::class.java)
+                val yieldCassavaEntity = modelMapper.map(myVal, RootYieldCassavaAcEntity::class.java)
                 if (geoPoint.isNotEmpty()) {
                     yieldCassavaEntity.geoPointLatitude = geoPoint[0].toDouble()
 
