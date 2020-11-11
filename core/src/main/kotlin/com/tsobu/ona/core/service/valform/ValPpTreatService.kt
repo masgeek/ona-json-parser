@@ -5,10 +5,9 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.valdto.VaLPpTreatDto
+import com.tsobu.ona.core.dto.json.`val`.VaLPpTreatDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.valform.ValPpPwEntity
 import com.tsobu.ona.database.entities.valform.ValPpTreatEntity
 import com.tsobu.ona.database.repositories.valform.ValPpTreatRepo
 import com.tsobu.ona.forms.valform.ValPpTreatForm

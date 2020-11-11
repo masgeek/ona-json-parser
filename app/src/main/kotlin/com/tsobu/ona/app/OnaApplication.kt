@@ -108,7 +108,10 @@ class OnaApplication(
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
     override fun run(vararg args: String?) {
-        log.info("Running Spring Boot Application press CTR-C to close the application");
+        log.info("Running Spring Boot Application press CTR-C to close the application")
+
+//        valSphsKwService.readJsonAsset()
+
         weedControlService.readJsonAsset()
         yieldCassavaService.readJsonAsset()
         szService.readJsonAsset()

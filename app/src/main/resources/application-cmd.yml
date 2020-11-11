@@ -1,11 +1,6 @@
-logging:
-  level:
-    org:
-      hibernate:
-        SQL: ${SQL_MODE:error}
 spring:
   datasource:
-    url: ${DB_URL:"jdbc:mysql://127.0.0.1:3306/ona"}
+    url: ${DB_URL:jdbc:mysql://127.0.0.1:3306/ona}
     username: ${DB_USER:root}
     password: ${DB_PASS:}
   jpa:
@@ -20,5 +15,3 @@ spring:
       naming:
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyHbmImpl
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
-  liquibase:
-    change-log: "classpath:db/db-changelog.xml"

@@ -1,16 +1,19 @@
 debug: false
 trace: false
-
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: ${SQL_MODE:error}
 spring:
   main:
     web-application-type: NONE
   profiles:
-    active: cmd
+    active: dev
   liquibase:
     enabled: false
     change-log: "classpath:db/changelog.xml"
     rollback-file: "rollback.sql"
-
 
   jpa:
     properties:

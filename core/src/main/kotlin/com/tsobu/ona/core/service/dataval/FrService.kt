@@ -67,7 +67,7 @@ constructor(
         }
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        writeCsvFile.writeCsv(classMap = FrDto::class.java, data = frData, fileName = "dataVAL_FR",outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = FrDto::class.java, data = frData, fileName = "dataVAL_FR", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -133,5 +133,6 @@ constructor(
         frRepo.saveAll(frEntityData)
 
         log.info("Finished saving the data for $fileName------->")
+        mapJsonFile()
     }
 }

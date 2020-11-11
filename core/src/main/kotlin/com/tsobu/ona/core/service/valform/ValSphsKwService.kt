@@ -5,8 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.valdto.VaLPpTreatDto
-import com.tsobu.ona.core.dto.json.valdto.ValSphsKwDto
+import com.tsobu.ona.core.dto.json.`val`.ValSphsKwDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.valform.ValSphsKwEntity
@@ -72,7 +71,7 @@ constructor(
         }
 
 
-        writeCsvFile.writeCsv(classMap = VaLPpTreatDto::class.java, data = treatData,
+        writeCsvFile.writeCsv(classMap = ValSphsKwDto::class.java, data = treatData,
                 fileName = "VAL_SPHS_KW", outPutPath = filePath)
     }
 

@@ -1,4 +1,4 @@
-package com.tsobu.ona.core.dto.json.valdto
+package com.tsobu.ona.core.dto.json.`val`
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
