@@ -9,23 +9,33 @@ import javax.persistence.Table
 @Table(name = "score_weed_control_ac_id")
 class AcIdEntity : BaseEntity() {
 
+    @Column(name = "section_id")
     var sectionId: String? = null
+
+    @Column(name = "plot_id")
     var plotId: String? = null
 
-    @Column(name = "nr_days_last_weeded", columnDefinition = "decimal", precision = 10, scale = 6)
-    var daysLastWeeded: Double? = null
+    @Column(name = "nr_days_last_weeded")
+    var nrDaysLastWeeded: Double? = null
 
-    @Column(name = "score_weeding_eff", columnDefinition = "decimal", precision = 10, scale = 6)
+    @Column(name = "score_weeding_eff")
     var scoreWeedingEff: Double? = null
 
-    @Column(name = "score_crop_injury", columnDefinition = "decimal", precision = 10, scale = 6)
+    @Column(name = "score_crop_injury")
     var scoreCropInjury: Double? = null
 
-    @Column(name = "wd_count", columnDefinition = "decimal", precision = 10, scale = 6)
-    var weedcount: Double? = null
+    @Column(name = "wd_count")
+    var wdCount: Double? = null
 
+    @Column(name = "set_of_wd")
     var setOfWd: String? = null
+
+    @Column(name = "parent_key")
     var parentKey: String? = null
+
+    @Column(name = "control_key")
     var controlKey: String? = null
+
+    @Column(name = "set_of_id")
     var setOfId: String? = null
 }

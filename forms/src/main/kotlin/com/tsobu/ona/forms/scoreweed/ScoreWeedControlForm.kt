@@ -52,7 +52,7 @@ class ScoreWeedControlForm {
     var version: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: String? = null
+    var deviceId: String? = null
 
     @JsonProperty("geopoint")
     var geopoint: String? = null
@@ -69,7 +69,7 @@ class ScoreWeedControlForm {
     var xFormId: String? = null
 
     @JsonProperty("simserial")
-    var simserial: String? = null
+    var simSerial: String? = null
 
     @JsonProperty("phonenumber")
     var phoneNumber: String? = null

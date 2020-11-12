@@ -7,8 +7,8 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcDto
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcIdDto
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcWdDto
-import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.CsvUtility
+import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.database.entities.scoreweedcontrol.AcIdEntity
 import com.tsobu.ona.database.entities.scoreweedcontrol.WdEntity
 import com.tsobu.ona.database.entities.scoreweedcontrol.WeedAcEntity
@@ -94,16 +94,16 @@ constructor(
                 val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
                 val weedEntity = WeedAcEntity()
                 if (geoPoint.isNotEmpty()) {
-                    weedEntity.geoPointLatitude = geoPoint[0].toDouble()
+                    weedEntity.geoPointLatitude = geoPoint[0]
 
                     if (myDateUtil.indexExists(geoPoint, 1)) {
-                        weedEntity.geoPointLongitude = geoPoint[1].toDouble()
+                        weedEntity.geoPointLongitude = geoPoint[1]
                     }
                     if (myDateUtil.indexExists(geoPoint, 2)) {
-                        weedEntity.geoPointAltitude = geoPoint[2].toDouble()
+                        weedEntity.geoPointAltitude = geoPoint[2]
                     }
                     if (myDateUtil.indexExists(geoPoint, 3)) {
-                        weedEntity.geoPointAccuracy = geoPoint[3].toDouble()
+                        weedEntity.geoPointAccuracy = geoPoint[3]
                     }
                 }
                 weedEntity.formHubUuId = myVal.formHubUuid
@@ -115,19 +115,6 @@ constructor(
                 weedEntity.instanceId = myVal.instanceId
                 weedEntity.controlKey = myVal.instanceId
 
-                weedEntity.deviceId = myVal.deviceid
-                weedEntity.subscriberId = myVal.subscriberId
-                weedEntity.email = myVal.email
-                weedEntity.username = myVal.username
-                weedEntity.simSerial = myVal.simserial
-                weedEntity.phoneNumber = myVal.phoneNumber
-                weedEntity.project = myVal.project
-                weedEntity.country = myVal.country
-                weedEntity.login = myVal.login
-                weedEntity.weedEntity = myVal.weedEntity
-                weedEntity.weedDetail = myVal.weedDetail
-                weedEntity.nrQuadrants = myVal.nrQuadrants
-
                 data.add(weedEntity)
 
                 //now we evaluate the weed id list
@@ -135,12 +122,6 @@ constructor(
                 var weedListIdCount = 1
                 weedIdList?.forEach { weedList ->
                     val weedIdEntity = AcIdEntity()
-                    weedIdEntity.sectionId = weedList.sectionId
-                    weedIdEntity.plotId = weedList.plotId
-                    weedIdEntity.daysLastWeeded = weedList.daysLastWeeded
-                    weedIdEntity.scoreWeedingEff = weedList.scoreWeedingEff
-                    weedIdEntity.scoreCropInjury = weedList.scoreCropInjury
-                    weedIdEntity.weedcount = weedList.weedCount
                     weedIdEntity.parentKey = weedEntity.instanceId
                     weedIdEntity.setOfId = weedEntity.setOfId
                     weedIdEntity.setOfWd = "${weedEntity.setOfId}[$weedListIdCount]/WD"
