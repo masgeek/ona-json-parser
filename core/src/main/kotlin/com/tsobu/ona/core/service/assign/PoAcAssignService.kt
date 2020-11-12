@@ -6,8 +6,8 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.assign.AssignPoAcDto
 import com.tsobu.ona.core.dto.json.assign.AssignPoAcPlotLabelingDto
-import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.CsvUtility
+import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.database.entities.assign.AssignPoAcEntity
 import com.tsobu.ona.database.entities.assign.AssignPoAcPlotLabelingEntity
 import com.tsobu.ona.database.repositories.assign.AssignPoAcPlotLabelingRepo
@@ -73,7 +73,7 @@ constructor(
             assignPaAcDto
         }
 
-        val plantLabellingData = plantLabellingEntityList.map { plantLabelingEntity ->
+        val plotLabelingData = plantLabellingEntityList.map { plantLabelingEntity ->
             val plantLabelingDto = modelMapper.map(plantLabelingEntity, AssignPoAcPlotLabelingDto::class.java)
             plantLabelingDto
         }
@@ -85,8 +85,8 @@ constructor(
                 outPutPath = filePath)
 
         writeCsvFile.writeCsv(classMap = AssignPoAcPlotLabelingDto::class.java,
-                data = plantLabellingData,
-                fileName = "Assign_PO_AC-plantLabeling",
+                data = plotLabelingData,
+                fileName = "Assign_PO_AC-plotLabeling",
                 outPutPath = filePath)
     }
 

@@ -4,6 +4,7 @@ import com.opencsv.CSVReader
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.database.entities.FormColumnValidationEntity
 import com.tsobu.ona.database.repositories.FormColumnValidationRepo
+import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import java.io.File
 import java.io.FilenameFilter
@@ -16,6 +17,8 @@ import java.nio.file.Paths
 class ValidationService(
         val columnValidationRepo: FormColumnValidationRepo,
         val appConfig: AppConfig) {
+
+    private val log = LoggerFactory.getLogger(ValidationService::class.java)
 
     fun validateCsvColumnCount() {
         val destinationFileList = readFileList(appConfig.globalProperties().outputPath!!)
@@ -36,24 +39,11 @@ class ValidationService(
             if (exists.isPresent) {
                 validationEntity = exists.get()
             }
-            val path = Paths.get(file.absolutePath)
-            val bytes: Long = Files.size(path)
-            val kbSize = bytes / 1024
-            println("File name: " + file.name)
-            println("File path: " + file.absolutePath)
-            println("Size : $kbSize KB")
-            println(" ")
-
-            //read the thing
-            val reader: Reader = Files.newBufferedReader(path)
-            val csvReader = CSVReader(reader)
-            val records = csvReader.readNext()
+            val records = readCsvFile(file)
 
             validationEntity.formName = file.name
-            validationEntity.actualColumnCount = records.size
-            validationEntity.actualFileSizeKb = kbSize
-            csvReader.close()
-            reader.close()
+            validationEntity.actualColumnCount = records.columnCount
+            validationEntity.actualFileSizeKb = records.fileSizeKb
             validationData.add(validationEntity)
         }
         return validationData
@@ -67,28 +57,32 @@ class ValidationService(
             if (exists.isPresent) {
                 validationEntity = exists.get()
             }
-            val path = Paths.get(file.absolutePath)
-            val bytes: Long = Files.size(path)
-            val kbSize = bytes / 1024
-            println("File name: " + file.name)
-            println("File path: " + file.absolutePath)
-            println("Size : $kbSize KB")
-            println(" ")
 
-            //read the thing
-            val reader: Reader = Files.newBufferedReader(path)
-            val csvReader = CSVReader(reader)
-            val records = csvReader.readNext()
+            val records = readCsvFile(file)
 
-            validationEntity.formName = file.name
-            validationEntity.expectedColumnCount = records.size
-            validationEntity.expectedFileSizeKb = kbSize
-            validationEntity.processed = true
-            csvReader.close()
-            reader.close()
+            validationEntity.formName = records.fileName
+            validationEntity.expectedColumnCount = records.columnCount
+            validationEntity.expectedFileSizeKb = records.fileSizeKb
             validationData.add(validationEntity)
         }
         return validationData
+    }
+
+    fun readCsvFile(file: File): CsvInfo {
+        val path = Paths.get(file.absolutePath)
+        val bytes: Long = Files.size(path)
+        val kbSize = bytes / 1024
+        log.info("File name: " + file.name)
+        log.info("File path: " + file.absolutePath)
+        log.info("Size : $kbSize KB")
+
+        val reader: Reader = Files.newBufferedReader(path)
+        val csvReader = CSVReader(reader)
+
+        val results = csvReader.readNext()
+        csvReader.close()
+        reader.close()
+        return CsvInfo(results.size, kbSize, file.name)
     }
 
     fun readFileList(directoryPath: String, fileSuffix: String = ".csv"): Array<File>? {
