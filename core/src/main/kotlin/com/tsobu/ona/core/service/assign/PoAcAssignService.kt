@@ -7,7 +7,7 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.assign.AssignPoAcDto
 import com.tsobu.ona.core.dto.json.assign.AssignPoAcPlotLabelingDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.assign.AssignPoAcEntity
 import com.tsobu.ona.database.entities.assign.AssignPoAcPlotLabelingEntity
 import com.tsobu.ona.database.repositories.assign.AssignPoAcPlotLabelingRepo
@@ -39,7 +39,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "Assign_PO_AC.json"
     fun mapJsonFile() {

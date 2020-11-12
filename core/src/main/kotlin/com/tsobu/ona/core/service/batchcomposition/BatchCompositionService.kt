@@ -9,7 +9,7 @@ import com.tsobu.ona.core.dto.json.batchcomposition.CompositionDto
 import com.tsobu.ona.core.dto.json.batchcomposition.NextDto
 import com.tsobu.ona.core.dto.json.batchcomposition.SampleDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.batchcomposition.CompositionEntity
 import com.tsobu.ona.database.entities.batchcomposition.NextEntity
 import com.tsobu.ona.database.entities.batchcomposition.SampleEntity
@@ -44,7 +44,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "sample_batch_composition.json"
 

@@ -7,7 +7,7 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.collect.CollectLeafTagsAcDto
 import com.tsobu.ona.core.dto.json.collect.CollectLeafTagsAcIdDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.collect.CollectLeafTagsAcEntity
 import com.tsobu.ona.database.entities.collect.CollectLeafTagsAcIdEntity
 import com.tsobu.ona.database.repositories.collect.CollectLeafTagsAcIdRepo
@@ -37,7 +37,7 @@ constructor(
     private val modelMapper = ModelMapper()
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "Collect_Leaf_Tags_AC.json"
     fun mapJsonFile() {

@@ -7,7 +7,7 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.lignifiedstem.LignifiedStemYieldCassAcDto
 import com.tsobu.ona.core.dto.json.lignifiedstem.LignifiedStemYieldCassAcYaDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.lignifiedstem.LignifiedStemYieldCassAcEntity
 import com.tsobu.ona.database.entities.lignifiedstem.LignifiedStemYieldCassAcYaEntity
 import com.tsobu.ona.database.repositories.lignifiedstem.LignifiedStemYieldCassAcRepo
@@ -39,7 +39,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
     private val fileName = "Assess_LignifiedStem_Yield_Cassava_AC.json"
     fun mapJsonFile() {
         log.info("Reading table data....")

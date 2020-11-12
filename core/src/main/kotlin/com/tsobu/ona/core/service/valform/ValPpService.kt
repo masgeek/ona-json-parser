@@ -8,7 +8,7 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.`val`.ValPpDto
 import com.tsobu.ona.core.dto.json.`val`.ValPpPwDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.`val`.ValPpEntity
 import com.tsobu.ona.database.entities.`val`.ValPpPwEntity
 import com.tsobu.ona.database.repositories.`val`.ValPpPwRepo
@@ -40,7 +40,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "VAL_PP.json"
 

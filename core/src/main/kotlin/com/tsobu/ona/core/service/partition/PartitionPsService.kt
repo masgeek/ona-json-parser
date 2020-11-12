@@ -8,7 +8,7 @@ import com.tsobu.ona.core.dto.json.partition.PartitionPsAcDmDto
 import com.tsobu.ona.core.dto.json.partition.PartitionPsAcDto
 import com.tsobu.ona.core.dto.json.partition.PartitionPsAcPlantSampleDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.partition.PartitionPsAcDmEntity
 import com.tsobu.ona.database.entities.partition.PartitionPsAcEntity
 import com.tsobu.ona.database.entities.partition.PartitionPsAcPlantSampleEntity
@@ -43,7 +43,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     val fileName = "Partition_PS_AC.json"
     fun mapJsonFile() {

@@ -8,7 +8,7 @@ import com.tsobu.ona.core.dto.json.monitor.NonDestructiveCassAcDto
 import com.tsobu.ona.core.dto.json.monitor.NonDestructiveCassAcIdDto
 import com.tsobu.ona.core.dto.json.monitor.NonDestructiveCassAcNdmDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.monitor.NonDestructiveCassAcEntity
 import com.tsobu.ona.database.entities.monitor.NonDestructiveCassAcIdEntity
 import com.tsobu.ona.database.entities.monitor.NonDestructiveCassAcNdmEntity
@@ -43,7 +43,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     val fileName = "Monitor_NonDestructive_Cassava_AC.json"
     fun mapJsonFile() {

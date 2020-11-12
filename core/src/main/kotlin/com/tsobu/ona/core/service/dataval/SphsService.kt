@@ -9,7 +9,7 @@ import com.tsobu.ona.core.dto.json.datavarsphs.CornerPlantRecDto
 import com.tsobu.ona.core.dto.json.datavarsphs.RemainPlantConDto
 import com.tsobu.ona.core.dto.json.datavarsphs.RemainPlantRecDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.dataval.*
 import com.tsobu.ona.database.repositories.dataval.*
 import com.tsobu.ona.forms.datavalsphs.SphsForm
@@ -45,7 +45,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
     private val fileName = "dataVAL_SPHS.json"
     fun mapJsonFile() {
         log.info("Reading tables here")

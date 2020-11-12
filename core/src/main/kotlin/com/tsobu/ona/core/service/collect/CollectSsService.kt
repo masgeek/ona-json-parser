@@ -7,7 +7,7 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.collect.CollectSsAcDto
 import com.tsobu.ona.core.dto.json.collect.CollectSsAcSoilSampleDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.collect.CollectSsAcEntity
 import com.tsobu.ona.database.entities.collect.CollectSsAcSoilSampleEntity
 import com.tsobu.ona.database.repositories.collect.CollectSsAcRepo
@@ -37,7 +37,7 @@ constructor(
     private val modelMapper = ModelMapper()
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "Collect_SS_AC.json"
     fun mapJsonFile() {

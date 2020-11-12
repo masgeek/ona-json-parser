@@ -7,7 +7,7 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.greenbiomass.YieldAssessmentFormDto
 import com.tsobu.ona.core.dto.json.greenbiomass.YieldCassavaAcFormDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.greenbiomass.YieldCassEntity
 import com.tsobu.ona.database.entities.greenbiomass.YieldCassYaEntity
 import com.tsobu.ona.database.repositories.greenbiomass.YieldCassRepo
@@ -39,7 +39,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
     private val fileName = "Assess_GreenBiomass_Yield_Cassava_AC.json"
     fun mapJsonFile() {
         log.info("Reading table data....")

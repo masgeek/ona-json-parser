@@ -8,7 +8,7 @@ import com.tsobu.ona.core.dto.json.ScoreWeedControlAcDto
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcIdDto
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcWdDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.scoreweedcontrol.AcIdEntity
 import com.tsobu.ona.database.entities.scoreweedcontrol.WdEntity
 import com.tsobu.ona.database.entities.scoreweedcontrol.WeedAcEntity
@@ -67,7 +67,7 @@ constructor(
         }
 
 
-        val writeCsvFile = WriteCsvFile()
+        val writeCsvFile = CsvUtility()
         val filePath = "${appConfig.globalProperties().outputPath}"
 
         writeCsvFile.writeCsv(classMap = ScoreWeedControlAcDto::class.java, data = scoreWeedData, fileName = "Score_Weed_Control_AC", outPutPath = filePath)

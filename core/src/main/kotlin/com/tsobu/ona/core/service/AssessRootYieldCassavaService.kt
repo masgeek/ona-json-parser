@@ -7,7 +7,7 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.RootYieldCassavaAcDto
 import com.tsobu.ona.core.dto.json.RootYieldCassavaAcYieldAssessmentDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.rootyieldcassava.RootYieldCassAcYaEntity
 import com.tsobu.ona.database.entities.rootyieldcassava.RootYieldCassAcEntity
 import com.tsobu.ona.database.entities.scoreweedcontrol.WdEntity
@@ -61,7 +61,7 @@ constructor(
             outboxDto
         }
 
-        val writeCsvFile = WriteCsvFile()
+        val writeCsvFile = CsvUtility()
         val filePath = "${appConfig.globalProperties().outputPath}"
         writeCsvFile.writeCsv(classMap = RootYieldCassavaAcDto::class.java, data = yieldCassavaData, fileName = "Assess_Root_Yield_Cassava_AC", outPutPath = filePath)
         writeCsvFile.writeCsv(classMap = RootYieldCassavaAcYieldAssessmentDto::class.java, data = yieldAssesData, fileName = "Assess_Root_Yield_Cassava_AC-yieldAssessment", outPutPath = filePath)

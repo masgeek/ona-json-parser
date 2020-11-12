@@ -8,7 +8,7 @@ import com.tsobu.ona.core.dto.json.record.CanopyDimensionsAcCdDto
 import com.tsobu.ona.core.dto.json.record.CanopyDimensionsAcDto
 import com.tsobu.ona.core.dto.json.record.CanopyDimensionsAcIdDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.record.CanopyDimensionsAcCdEntity
 import com.tsobu.ona.database.entities.record.CanopyDimensionsAcEntity
 import com.tsobu.ona.database.entities.record.CanopyDimensionsAcIdEntity
@@ -43,7 +43,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     val fileName = "Record_Canopy_Dimensions_AC.json"
     fun mapJsonFile() {

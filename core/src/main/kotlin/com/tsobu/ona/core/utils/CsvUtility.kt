@@ -9,9 +9,9 @@ import org.slf4j.LoggerFactory
 import java.io.File
 
 
-class WriteCsvFile {
+class CsvUtility {
 
-    private val log = LoggerFactory.getLogger(WriteCsvFile::class.java)
+    private val log = LoggerFactory.getLogger(CsvUtility::class.java)
 
     fun writeCsv(classMap: Class<*>?, data: List<*>, fileName: String, outPutPath: String) {
         val mapper = CsvMapper()

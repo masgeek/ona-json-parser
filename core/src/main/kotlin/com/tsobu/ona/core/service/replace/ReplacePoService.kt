@@ -7,7 +7,7 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.replace.ReplacePoAcDto
 import com.tsobu.ona.core.dto.json.replace.ReplacePoAcReplaceLabelDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.replace.ReplacePoAcEntity
 import com.tsobu.ona.database.entities.replace.ReplacePoAcReplaceLabelEntity
 import com.tsobu.ona.database.repositories.replace.ReplacePoAcReplaceLabelRepo
@@ -39,7 +39,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     val fileName = "Replace_PO_AC.json"
     fun mapJsonFile() {

@@ -8,7 +8,7 @@ import com.tsobu.ona.core.dto.json.pool.PoolSamplesAcDto
 import com.tsobu.ona.core.dto.json.pool.PoolSamplesAcOldLabelDto
 import com.tsobu.ona.core.dto.json.pool.PoolSamplesAcSampleDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.pool.PoolSamplesAcEntity
 import com.tsobu.ona.database.entities.pool.PoolSamplesAcOldLabelEntity
 import com.tsobu.ona.database.entities.pool.PoolSamplesAcSampleEntity
@@ -43,7 +43,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     val fileName = "Pool_Samples_AC.json"
     fun mapJsonFile() {
