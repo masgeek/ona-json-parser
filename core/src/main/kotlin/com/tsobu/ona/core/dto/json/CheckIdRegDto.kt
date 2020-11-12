@@ -50,7 +50,7 @@ class CheckIdRegDto {
     var remark2: String? = null
 
     @JsonProperty("typeID")
-    var typeID: String? = null
+    var typeId: String? = null
 
     @JsonProperty("EAID")
     var eaid: String? = null
@@ -104,7 +104,7 @@ class CheckIdRegDto {
     var partner: String? = null
 
     @JsonProperty("title")
-    var title: String? = null
+    var titleValue: String? = null
 
     @JsonProperty("role")
     var role: String? = null
@@ -266,7 +266,7 @@ class CheckIdRegDto {
     var end: String? = null
 
     @JsonProperty("instanceID")
-    var instanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("KEY")
     var controlKey: String? = null

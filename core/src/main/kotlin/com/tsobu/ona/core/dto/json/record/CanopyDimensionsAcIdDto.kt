@@ -11,10 +11,10 @@ class CanopyDimensionsAcIdDto {
     var nrMeasurements: String? = null
 
     @JsonProperty("sectionID")
-    var sectionID: String? = null
+    var sectionId: String? = null
 
     @JsonProperty("plotID")
-    var plotID: String? = null
+    var plotId: String? = null
 
     @JsonProperty("CD_count")
     var cDCount: String? = null

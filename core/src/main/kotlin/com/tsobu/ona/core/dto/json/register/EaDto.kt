@@ -113,7 +113,7 @@ class EaDto {
     var partner: String? = null
 
     @JsonProperty("title")
-    var title: String? = null
+    var titleValue: String? = null
 
     @JsonProperty("role")
     var role: String? = null
@@ -146,8 +146,8 @@ class EaDto {
     var endDate: String? = null
 
     @JsonProperty("instanceID")
-    var instanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 }

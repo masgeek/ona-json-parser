@@ -71,14 +71,14 @@ class AssignFdAcDto {
     var geopointAccuracy: String? = null
 
     @JsonProperty("fieldID")
-    var fieldID: String? = null
+    var fieldId: String? = null
 
     @JsonProperty("end")
     var end: String? = null
 
     @JsonProperty("instanceID")
-    var instanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 }

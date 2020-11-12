@@ -171,16 +171,16 @@ constructor(
                 val geoPoint = myDateUtil.splitGeoPoint(sphs.geopoint)
                 val sphsEntity = modelMapper.map(sphs, SphsEntity::class.java)
                 if (geoPoint.isNotEmpty()) {
-                    sphsEntity.geoPointLatitude = geoPoint[0].toDouble()
+                    sphsEntity.geoPointLatitude = geoPoint[0]
 
                     if (myDateUtil.indexExists(geoPoint, 1)) {
-                        sphsEntity.geoPointLongitude = geoPoint[1].toDouble()
+                        sphsEntity.geoPointLongitude = geoPoint[1]
                     }
                     if (myDateUtil.indexExists(geoPoint, 2)) {
-                        sphsEntity.geoPointAltitude = geoPoint[2].toDouble()
+                        sphsEntity.geoPointAltitude = geoPoint[2]
                     }
                     if (myDateUtil.indexExists(geoPoint, 3)) {
-                        sphsEntity.geoPointAccuracy = geoPoint[3].toDouble()
+                        sphsEntity.geoPointAccuracy = geoPoint[3]
                     }
                 }
                 sphsEntity.formHubUuId = sphs.formHubUuid

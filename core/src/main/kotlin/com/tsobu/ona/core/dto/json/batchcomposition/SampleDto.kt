@@ -11,10 +11,10 @@ class SampleDto {
     var nr: String? = null
 
     @JsonProperty("plantSampleID")
-    var plantSampleID: String? = null
+    var plantSampleId: String? = null
 
     @JsonProperty("soilSampleID")
-    var soilSampleID: String? = null
+    var soilSampleId: String? = null
 
     @JsonProperty("PS_key")
     var pSKey: String? = null

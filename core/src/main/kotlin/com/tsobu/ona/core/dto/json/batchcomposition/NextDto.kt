@@ -32,7 +32,7 @@ class NextDto {
     var confirmDC: String? = null
 
     @JsonProperty("sampleBatchID")
-    var sampleBatchID: String? = null
+    var sampleBatchId: String? = null
 
     @JsonProperty("confirmName")
     var confirmName: String? = null

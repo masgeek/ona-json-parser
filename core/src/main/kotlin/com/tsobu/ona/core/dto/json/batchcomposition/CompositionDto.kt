@@ -83,7 +83,7 @@ class CompositionDto {
     var receiveErrorNote: String? = null
 
     @JsonProperty("SET-OF-sampleList-sample")
-    var sETOFSampleListSample: String? = null
+    var setOfSampleListSample: String? = null
 
     @JsonProperty("countFW")
     var countFW: String? = null
@@ -116,13 +116,13 @@ class CompositionDto {
     var nextCount: String? = null
 
     @JsonProperty("SET-OF-nextStep-next")
-    var sETOFNextStepNext: String? = null
+    var setOfNextStepNext: String? = null
 
     @JsonProperty("end")
     var end: String? = null
 
     @JsonProperty("instanceID")
-    var instanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("KEY")
     var controlKey: String? = null

@@ -5,10 +5,9 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.monitorval.*
-import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.CsvUtility
+import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.database.entities.monitorval.*
-import com.tsobu.ona.database.entities.valsphstz.SzEntity
 import com.tsobu.ona.database.repositories.monitorval.*
 import com.tsobu.ona.forms.monitorval.MonitorValForm
 import org.modelmapper.AbstractCondition
@@ -156,8 +155,7 @@ constructor(
         val file = Paths.get(filePath).toFile()
 
         val list = objectMapper.readValue(file, object : TypeReference<List<MonitorValForm>>() {})
-
-        val data = ArrayList<SzEntity>()
+        
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
                 return if (context.source is String) {

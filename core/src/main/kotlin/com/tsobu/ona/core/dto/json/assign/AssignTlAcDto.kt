@@ -71,13 +71,13 @@ class AssignTlAcDto {
     var geopointAccuracy: String? = null
 
     @JsonProperty("fieldID")
-    var fieldID: String? = null
+    var fieldId: String? = null
 
     @JsonProperty("trialID")
-    var trialID: String? = null
+    var trialId: String? = null
 
     @JsonProperty("fieldbookID")
-    var fieldbookID: String? = null
+    var fieldbookId: String? = null
 
     @JsonProperty("trialCode")
     var trialCode: String? = null
@@ -89,8 +89,8 @@ class AssignTlAcDto {
     var end: String? = null
 
     @JsonProperty("instanceID")
-    var instanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 }

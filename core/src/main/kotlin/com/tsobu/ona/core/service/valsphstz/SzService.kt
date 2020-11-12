@@ -99,16 +99,16 @@ constructor(
             val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
             val szEntity = modelMapper.map(myVal, SzEntity::class.java)
             if (geoPoint.isNotEmpty()) {
-                szEntity.geoPointLatitude = geoPoint[0].toDouble()
+                szEntity.geoPointLatitude = geoPoint[0]
 
                 if (myDateUtil.indexExists(geoPoint, 1)) {
-                    szEntity.geoPointLongitude = geoPoint[1].toDouble()
+                    szEntity.geoPointLongitude = geoPoint[1]
                 }
                 if (myDateUtil.indexExists(geoPoint, 2)) {
-                    szEntity.geoPointAltitude = geoPoint[2].toDouble()
+                    szEntity.geoPointAltitude = geoPoint[2]
                 }
                 if (myDateUtil.indexExists(geoPoint, 3)) {
-                    szEntity.geoPointAccuracy = geoPoint[3].toDouble()
+                    szEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
             szEntity.formHubUuId = myVal.formhubUuid
@@ -118,7 +118,7 @@ constructor(
             szEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
             szEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
             szEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
-            szEntity.instanceid = myVal.instanceId
+            szEntity.instanceId = myVal.instanceId
             szEntity.controlKey = myVal.instanceId
 
             try {

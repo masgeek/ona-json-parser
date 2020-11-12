@@ -71,7 +71,7 @@ class AssignPoAcDto {
     var geopointAccuracy: String? = null
 
     @JsonProperty("trialID")
-    var trialID: String? = null
+    var trialId: String? = null
 
     @JsonProperty("trialCode")
     var trialCode: String? = null
@@ -95,14 +95,14 @@ class AssignPoAcDto {
     var plotLabelingCount: String? = null
 
     @JsonProperty("SET-OF-plotLabeling")
-    var sETOFPlotLabeling: String? = null
+    var setOfPlotLabeling: String? = null
 
     @JsonProperty("end")
     var end: String? = null
 
     @JsonProperty("instanceID")
-    var instanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 }

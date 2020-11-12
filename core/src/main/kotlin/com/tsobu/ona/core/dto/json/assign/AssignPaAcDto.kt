@@ -74,10 +74,10 @@ class AssignPaAcDto {
     var entity: String? = null
 
     @JsonProperty("plotID")
-    var plotID: String? = null
+    var plotId: String? = null
 
     @JsonProperty("sectionID")
-    var sectionID: String? = null
+    var sectionId: String? = null
 
     @JsonProperty("nrPlants")
     var nrPlants: String? = null
@@ -89,14 +89,14 @@ class AssignPaAcDto {
     var plantLabelingCount: String? = null
 
     @JsonProperty("SET-OF-plantLabeling")
-    var sETOFPlantLabeling: String? = null
+    var setOfPlantLabeling: String? = null
 
     @JsonProperty("end")
     var end: String? = null
 
     @JsonProperty("instanceID")
-    var instanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 }

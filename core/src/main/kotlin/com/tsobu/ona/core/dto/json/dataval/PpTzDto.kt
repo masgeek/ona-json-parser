@@ -371,37 +371,37 @@ class PpTzDto {
     var weedAssessmentP1Count: String? = null
 
     @JsonProperty("SET-OF-weedAssessment_P1")
-    var sETOFWeedAssessmentP1: String? = null
+    var setOfWeedAssessmentP1: String? = null
 
     @JsonProperty("weedAssessment_P2_count")
     var weedAssessmentP2Count: String? = null
 
     @JsonProperty("SET-OF-weedAssessment_P2")
-    var sETOFWeedAssessmentP2: String? = null
+    var setOfWeedAssessmentP2: String? = null
 
     @JsonProperty("weedAssessment_P3_count")
     var weedAssessmentP3Count: String? = null
 
     @JsonProperty("SET-OF-weedAssessment_P3")
-    var sETOFWeedAssessmentP3: String? = null
+    var setOfWeedAssessmentP3: String? = null
 
     @JsonProperty("weedAssessment_P4_count")
     var weedAssessmentP4Count: String? = null
 
     @JsonProperty("SET-OF-weedAssessment_P4")
-    var sETOFWeedAssessmentP4: String? = null
+    var setOfWeedAssessmentP4: String? = null
 
     @JsonProperty("weedAssessment_P5_count")
     var weedAssessmentP5Count: String? = null
 
     @JsonProperty("SET-OF-weedAssessment_P5")
-    var sETOFWeedAssessmentP5: String? = null
+    var setOfWeedAssessmentP5: String? = null
 
     @JsonProperty("weedAssessment_P6_count")
     var weedAssessmentP6Count: String? = null
 
     @JsonProperty("SET-OF-weedAssessment_P6")
-    var sETOFWeedAssessmentP6: String? = null
+    var setOfWeedAssessmentP6: String? = null
 
     @JsonProperty("harvestDate")
     var harvestDate: String? = null

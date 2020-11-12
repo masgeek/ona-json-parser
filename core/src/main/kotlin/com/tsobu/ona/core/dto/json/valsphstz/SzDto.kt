@@ -246,7 +246,7 @@ class SzDto {
     var endDate: String? = null
 
     @JsonProperty("instanceID")
-    var instanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("deviceid")
     var deviceid: String? = null

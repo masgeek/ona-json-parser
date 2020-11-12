@@ -83,14 +83,14 @@ class LignifiedStemYieldCassAcDto {
     var repeat: String? = null
 
     @JsonProperty("SET-OF-yieldAssessment")
-    var sETOFYieldAssessment: String? = null
+    var setOfYieldAssessment: String? = null
 
     @JsonProperty("end")
     var end: String? = null
 
     @JsonProperty("instanceID")
-    var instanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 }

@@ -201,10 +201,10 @@ class SphsDto {
     var nameValue: String? = null
 
     @JsonProperty("EAID")
-    var eAID: String? = null
+    var eAId: String? = null
 
     @JsonProperty("HHID")
-    var hHID: String? = null
+    var hHId: String? = null
 
     @JsonProperty("fieldID")
     var fieldId: String? = null

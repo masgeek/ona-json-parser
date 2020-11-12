@@ -116,7 +116,7 @@ class MonitorValDto {
     var zoneSelect: String? = null
 
     @JsonProperty("zone")
-    var zone: String? = null
+    var zoneValue: String? = null
 
     @JsonProperty("useCase")
     var useCase: String? = null

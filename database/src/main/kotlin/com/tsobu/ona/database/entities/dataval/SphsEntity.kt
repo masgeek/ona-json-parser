@@ -85,19 +85,19 @@ class SphsEntity : BaseEntity() {
     var locField: String? = null
 
     @Column(name = "geo_point_latitude")
-    var geoPointLatitude: Double? = null
+    var geoPointLatitude: String? = null
 
     @Column(name = "geo_point_longitude")
-    var geoPointLongitude: Double? = null
+    var geoPointLongitude: String? = null
 
     @Column(name = "geo_point_altitude")
-    var geoPointAltitude: Double? = null
+    var geoPointAltitude: String? = null
 
     @Column(name = "geo_point_accuracy")
-    var geoPointAccuracy: Double? = null
+    var geoPointAccuracy: String? = null
 
-    @Column(name = "plotdim_con")
-    var plotdimCon: String? = null
+    @Column(name = "plot_dim_con")
+    var plotDimCon: String? = null
 
     @Column(name = "plot_l1_con")
     var plotL1Con: String? = null
