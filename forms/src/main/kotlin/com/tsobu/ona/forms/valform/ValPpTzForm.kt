@@ -283,7 +283,7 @@ class ValPpTzForm {
     var herbicideAccess: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var metaInstanceId: String? = null
 
     @JsonProperty("netValueDifT0FL")
     var netValueDifT0FL: String? = null
@@ -394,7 +394,7 @@ class ValPpTzForm {
     var basicTillMethodSelect1: String? = null
 
     @JsonProperty("meta/deprecatedID")
-    var metaDeprecatedID: String? = null
+    var metaDeprecatedId: String? = null
 
     @JsonProperty("fallowAge")
     var fallowAge: String? = null

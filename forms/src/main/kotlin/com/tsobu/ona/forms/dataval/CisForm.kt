@@ -108,7 +108,7 @@ class CisForm {
     var dateFertilizer0: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var metaInstanceId: String? = null
 
     @JsonProperty("sameDayPlanting")
     var sameDayPlanting: String? = null

@@ -39,7 +39,7 @@ class ReplaceFbAcForm {
     var status: String? = null
 
     @JsonProperty("trialID")
-    var trialID: String? = null
+    var trialId: String? = null
 
     @JsonProperty("_version")
     var version: String? = null
@@ -63,7 +63,7 @@ class ReplaceFbAcForm {
     var simserial: String? = null
 
     @JsonProperty("fieldbookID")
-    var fieldbookID: String? = null
+    var fieldbookId: String? = null
 
     @JsonProperty("_attachments")
     var attachments: List<Any> = ArrayList()
@@ -87,7 +87,7 @@ class ReplaceFbAcForm {
     var submittedBy: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var metaInstanceId: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null

@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class NonDestructiveCassIdNdmForm {
     @JsonProperty("ID/NDM/plantID")
-    var plantID: String? = null
+    var plantId: String? = null
 
     @JsonProperty("ID/NDM/apex/stemSize")
     var stemSize: String? = null

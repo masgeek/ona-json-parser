@@ -94,7 +94,7 @@ class ValPpTreatForm {
     var countrySelect: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var metaInstanceId: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null
@@ -181,7 +181,7 @@ class ValPpTreatForm {
     var lastEdited: String? = null
 
     @JsonProperty("meta/deprecatedID")
-    var metaDeprecatedID: String? = null
+    var metaDeprecatedId: String? = null
 
     @JsonProperty("currentPracticeMethod/harrowCP")
     var currentPracticeMethodHarrowCP: String? = null

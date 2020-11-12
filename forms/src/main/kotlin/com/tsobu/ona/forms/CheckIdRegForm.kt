@@ -57,7 +57,7 @@ class CheckIdRegForm {
     var notes: List<Any> = ArrayList()
 
     @JsonProperty("typeID")
-    var typeID: String? = null
+    var typeId: String? = null
 
     @JsonProperty("_edited")
     var edited: Boolean? = null
@@ -129,7 +129,7 @@ class CheckIdRegForm {
     var submittedBy: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var metaInstanceId: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null

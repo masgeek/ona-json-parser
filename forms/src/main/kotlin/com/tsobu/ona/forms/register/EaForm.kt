@@ -101,7 +101,7 @@ class EaForm {
     var detailsEAAgeEA: Int? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var metaInstanceId: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null
@@ -191,5 +191,5 @@ class EaForm {
     var lastEdited: String? = null
 
     @JsonProperty("meta/deprecatedID")
-    var metaDeprecatedID: String? = null
+    var metaDeprecatedId: String? = null
 }

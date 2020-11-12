@@ -283,7 +283,7 @@ class ValSphsOyForm {
     var yP0hp4: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var metaInstanceId: String? = null
 
     @JsonProperty("plantingDensity")
     var plantingDensity: String? = null

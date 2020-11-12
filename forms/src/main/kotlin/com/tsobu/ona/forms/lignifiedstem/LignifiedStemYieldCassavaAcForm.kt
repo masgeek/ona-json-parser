@@ -87,7 +87,7 @@ class LignifiedStemYieldCassavaAcForm {
     var submittedBy: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var metaInstanceId: String? = null
 
     @JsonProperty("yieldAssessment")
     var yieldAssessmentList: List<LignfiedYieldAssessment>? = null

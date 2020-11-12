@@ -193,7 +193,7 @@ class ValCisForm {
     var extraProfitPerc: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var metaInstanceId: String? = null
 
     @JsonProperty("tuberYieldRedIC")
     var tuberYieldRedIC: String? = null

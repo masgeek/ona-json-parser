@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder("SubmissionDate", "uuid", "start", "today", "deviceid", "subscriberid", "email", "username", "simserial", "phonenumber", "banner", "intro", "project", "country", "login", "firstName", "surName", "geopoint-Latitude", "geopoint-Longitude", "geopoint-Altitude", "geopoint-Accuracy", "entity", "partitioning", "sampling", "measureSec", "samplingSec", "repeat", "SET-OF-yieldAssessmentForm", "end", "instanceID", "KEY")
+@JsonPropertyOrder("SubmissionDate", "uuid", "start", "today", "deviceid", "subscriberid", "email", "username", "simserial", "phonenumber", "banner", "intro", "project", "country", "login", "firstName", "surName", "geopoint-Latitude", "geopoint-Longitude", "geopoint-Altitude", "geopoint-Accuracy", "entity", "partitioning", "sampling", "measureSec", "samplingSec", "repeat", "SET-OF-yieldAssessment", "end", "instanceID", "KEY")
 class YieldCassavaAcFormDto {
     @JsonProperty("SubmissionDate")
     var submissionDate: String? = null
@@ -88,7 +88,7 @@ class YieldCassavaAcFormDto {
     @JsonProperty("repeat")
     var repeat: String? = null
 
-    @JsonProperty("SET-OF-yieldAssessmentForm")
+    @JsonProperty("SET-OF-yieldAssessment")
     var setOfYieldAssessment: String? = null
 
     @JsonProperty("end")

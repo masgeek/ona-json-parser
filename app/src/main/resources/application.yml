@@ -26,3 +26,4 @@ spring:
 ona:
   json-path: ${JSON_PATH:json}
   output-path: ${OUTPUT_PATH:converted}
+  compare-path: ${COMPARE_PATH:onaData}

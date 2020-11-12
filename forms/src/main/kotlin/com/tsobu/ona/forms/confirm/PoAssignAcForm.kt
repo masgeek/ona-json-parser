@@ -42,10 +42,10 @@ class PoAssignAcForm {
     var status: String? = null
 
     @JsonProperty("fieldID")
-    var fieldID: String? = null
+    var fieldId: String? = null
 
     @JsonProperty("trialID")
-    var trialID: String? = null
+    var trialId: String? = null
 
     @JsonProperty("_version")
     var version: String? = null
@@ -69,7 +69,7 @@ class PoAssignAcForm {
     var trialCode: String? = null
 
     @JsonProperty("fieldbookID")
-    var fieldbookID: String? = null
+    var fieldbookId: String? = null
 
     @JsonProperty("_attachments")
     var attachments: List<Any> = ArrayList()
@@ -105,7 +105,7 @@ class PoAssignAcForm {
     var completeSetup: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var metaInstanceId: String? = null
 
     @JsonProperty("purpose/country")
     var country: String? = null

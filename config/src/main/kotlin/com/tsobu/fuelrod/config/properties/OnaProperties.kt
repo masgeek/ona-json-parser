@@ -9,4 +9,7 @@ class OnaProperties {
 
     @NotBlank
     var outputPath: String? = null
+
+    @NotBlank
+    var comparePath: String? = null
 }

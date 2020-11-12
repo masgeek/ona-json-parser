@@ -81,7 +81,7 @@ class AssignFdAcForm {
     var submittedBy: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var metaInstanceId: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null

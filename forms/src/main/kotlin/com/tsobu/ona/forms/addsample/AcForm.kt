@@ -84,7 +84,7 @@ class AcForm {
     var submittedBy: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null
@@ -99,14 +99,14 @@ class AcForm {
     var mediaAllReceived: Boolean? = null
 
     @JsonProperty("purpose/country")
-    var purposeCountry: String? = null
+    var country: String? = null
 
     @JsonProperty("purpose/project")
-    var purposeProject: String? = null
+    var project: String? = null
 
     @JsonProperty("enumerator/surName")
-    var enumeratorSurName: String? = null
+    var surName: String? = null
 
     @JsonProperty("enumerator/firstName")
-    var enumeratorFirstName: String? = null
+    var firstName: String? = null
 }

@@ -16,10 +16,10 @@ open class BaseFormData {
     var end: String? = null
 
     @JsonProperty("EAID")
-    var eAID: String? = null
+    var eAId: String? = null
 
     @JsonProperty("HHID")
-    var hHID: String? = null
+    var hHId: String? = null
 
     @JsonProperty("zone")
     var zone: String? = null
@@ -103,7 +103,7 @@ open class BaseFormData {
     var purposeEvent: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var metaInstanceId: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null

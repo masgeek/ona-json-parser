@@ -99,7 +99,7 @@ class ScoreWeedControlForm {
     var submittedBy: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var metaInstanceId: String? = null
 
     @JsonProperty("purpose/country")
     var country: String? = null

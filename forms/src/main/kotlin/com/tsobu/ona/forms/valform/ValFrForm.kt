@@ -229,7 +229,7 @@ class ValFrForm {
     var rateNafakaMin: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var metaInstanceId: String? = null
 
     @JsonProperty("netRevLocCur_AB")
     var netRevLocCurAB: String? = null
@@ -298,7 +298,7 @@ class ValFrForm {
     var lastEdited: String? = null
 
     @JsonProperty("meta/deprecatedID")
-    var metaDeprecatedID: String? = null
+    var metaDeprecatedId: String? = null
 
     @JsonProperty("densityDetails/withinRow")
     var densityDetailsWithinRow: Double? = null

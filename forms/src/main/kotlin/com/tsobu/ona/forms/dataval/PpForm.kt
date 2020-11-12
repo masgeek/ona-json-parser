@@ -114,7 +114,7 @@ class PpForm {
     var eventValue: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var metaInstanceId: String? = null
 
     @JsonProperty("purpose/redPlot")
     var redPlot: String? = null
@@ -147,13 +147,13 @@ class PpForm {
     var rateWeeds: String? = null
 
     @JsonProperty("plantStand/nrPlants_ALT")
-    var plantStandNrPlantsALT: String? = null
+    var nrPlantsAlt: String? = null
 
     @JsonProperty("plantStand/nrPlants_CON")
-    var plantStandNrPlantsCON: String? = null
+    var nrPlantsCon: String? = null
 
     @JsonProperty("plantStand/nrPlants_REC")
-    var plantStandNrPlantsREC: String? = null
+    var nrPlantsRec: String? = null
 
     @JsonProperty("trialRating/rateDrought")
     var rateDrought: String? = null
@@ -165,15 +165,13 @@ class PpForm {
     var rateLodging: String? = null
 
     @JsonProperty("weedAssessment_ALT_count")
-    var weedAssessmentALTCount: String? = null
+    var weedAssessmentAltCount: String? = null
 
     @JsonProperty("weedAssessment_CON_count")
-    var weedAssessmentCONCount: String? = null
+    var weedAssessmentConCount: String? = null
 
     @JsonProperty("weedAssessment_REC_count")
-    var weedAssessmentRECCount: String? = null
-
-   
+    var weedAssessmentRecCount: String? = null
 
     @JsonProperty("farmerEvaluation/costScore")
     var costScore: String? = null
@@ -230,13 +228,13 @@ class PpForm {
     var weedAssessmentRecBpp3Count: String? = null
 
     @JsonProperty("weedingDetails/weedingMethod1")
-    var weedingDetailsWeedingMethod1: String? = null
+    var weedingMethod1: String? = null
 
     @JsonProperty("weedingDetails/weedingMethod2")
-    var weedingDetailsWeedingMethod2: String? = null
+    var weedingMethod2: String? = null
 
     @JsonProperty("weedingDetails/weedingMethod3")
-    var weedingDetailsWeedingMethod3: String? = null
+    var weedingMethod3: String? = null
 
     @JsonProperty("herbicideDetails/herbicideActor")
     var herbicideActor: String? = null
@@ -445,7 +443,7 @@ class PpForm {
 
 
     @JsonProperty("weedingDetails/weedingMethod4")
-    var weedingDetailsWeedingMethod4: String? = null
+    var weedingMethod4: String? = null
 
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_ALT")

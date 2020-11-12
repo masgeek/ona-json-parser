@@ -33,7 +33,7 @@ class ReplaceTlAcForm {
     var notes: List<Any> = ArrayList()
 
     @JsonProperty("plotID")
-    var plotID: String? = null
+    var plotId: String? = null
 
     @JsonProperty("_edited")
     var edited: Boolean? = null
@@ -42,7 +42,7 @@ class ReplaceTlAcForm {
     var status: String? = null
 
     @JsonProperty("trialID")
-    var trialID: String? = null
+    var trialId: String? = null
 
     @JsonProperty("_version")
     var version: String? = null
@@ -90,7 +90,7 @@ class ReplaceTlAcForm {
     var submittedBy: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var metaInstanceId: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null
@@ -108,7 +108,7 @@ class ReplaceTlAcForm {
     var fieldLabel: String? = null
 
     @JsonProperty("fieldbookID")
-    var fieldbookID: String? = null
+    var fieldbookId: String? = null
 
     @JsonProperty("purpose/country")
     var country: String? = null
@@ -123,7 +123,7 @@ class ReplaceTlAcForm {
     var email: String? = null
 
     @JsonProperty("fieldID")
-    var fieldID: String? = null
+    var fieldId: String? = null
 
     @JsonProperty("phonenumber")
     var phonenumber: String? = null

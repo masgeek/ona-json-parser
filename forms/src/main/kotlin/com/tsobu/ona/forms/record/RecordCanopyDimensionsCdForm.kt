@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)class RecordCanopyDimensionsCdForm {
     @JsonProperty("ID/CD/plantID")
-    var plantID: String? = null
+    var plantId: String? = null
 
     @JsonProperty("ID/CD/canopy/canopyWidth")
     var canopyWidth: Int? = null

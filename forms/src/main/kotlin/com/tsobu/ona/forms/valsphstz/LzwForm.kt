@@ -494,7 +494,7 @@ class LzwForm {
     var cyp0hp4: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var metaInstanceId: String? = null
 
     @JsonProperty("results/CYp0hp1")
     var cyp0hp1: String? = null

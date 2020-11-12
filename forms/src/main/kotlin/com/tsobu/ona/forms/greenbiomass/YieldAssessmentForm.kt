@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 @JsonPropertyOrder("yieldAssessment/plotID", "yieldAssessment/leavesFWss", "yieldAssessment/nrPlantsNP", "yieldAssessment/greenStemsFWss", "yieldAssessment/plantSampleID_leaves", "yieldAssessment/plantSampleID_greenStems", "yieldAssessment/abovegroundBiomassFW/leavesFW", "yieldAssessment/abovegroundBiomassFW/greenStemsFW", "yieldAssessment/greenStemsLeavesFWss", "yieldAssessment/plantSampleID_greenStemsLeaves", "yieldAssessment/abovegroundBiomassFW/greenStemsLeavesFW", "yieldAssessment/sec", "yieldAssessment/plantID", "yieldAssessment/abovegroundBiomassFW/leavesSecFW", "yieldAssessment/abovegroundBiomassFW/greenStemsSecFW")
 class YieldAssessmentForm {
     @JsonProperty("yieldAssessment/plotID")
-    var yieldAssessmentPlotID: String? = null
+    var yieldAssessmentPlotId: String? = null
 
     @JsonProperty("yieldAssessment/leavesFWss")
     var yieldAssessmentLeavesFWss: String? = null
@@ -44,7 +44,7 @@ class YieldAssessmentForm {
     var yieldAssessmentSec: String? = null
 
     @JsonProperty("yieldAssessment/plantID")
-    var yieldAssessmentPlantID: String? = null
+    var yieldAssessmentPlantId: String? = null
 
     @JsonProperty("yieldAssessment/abovegroundBiomassFW/leavesSecFW")
     var yieldAssessmentAbovegroundBiomassFWLeavesSecFW: Double? = null
