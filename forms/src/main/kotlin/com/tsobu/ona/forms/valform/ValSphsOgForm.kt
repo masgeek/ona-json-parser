@@ -184,16 +184,16 @@ class ValSphsOgForm {
     var pp0h0: String? = null
 
     @JsonProperty("results/Yp0h0")
-    var yP0h0: String? = null
+    var yp0h0: String? = null
 
     @JsonProperty("thankyou/call")
     var callValue: String? = null
 
     @JsonProperty("results/CYp0h0")
-    var cYp0h0: String? = null
+    var cyp0h0: String? = null
 
     @JsonProperty("results/GPp0h0")
-    var gPp0h0: String? = null
+    var gpp0h0: String? = null
 
     @JsonProperty("results/Pp0hm1")
     var pp0hm1: String? = null
@@ -220,31 +220,31 @@ class ValSphsOgForm {
     var pp0hp4: String? = null
 
     @JsonProperty("results/WYp0h0")
-    var wYp0h0: String? = null
+    var wyp0h0: String? = null
 
     @JsonProperty("results/Yp0hm1")
-    var yP0hm1: String? = null
+    var yp0hm1: String? = null
 
     @JsonProperty("results/Yp0hm2")
-    var yP0hm2: String? = null
+    var yp0hm2: String? = null
 
     @JsonProperty("results/Yp0hm3")
-    var yP0hm3: String? = null
+    var yp0hm3: String? = null
 
     @JsonProperty("results/Yp0hm4")
-    var yP0hm4: String? = null
+    var yp0hm4: String? = null
 
     @JsonProperty("results/Yp0hp1")
-    var yP0hp1: String? = null
+    var yp0hp1: String? = null
 
     @JsonProperty("results/Yp0hp2")
-    var yP0hp2: String? = null
+    var yp0hp2: String? = null
 
     @JsonProperty("results/Yp0hp3")
-    var yP0hp3: String? = null
+    var yp0hp3: String? = null
 
     @JsonProperty("results/Yp0hp4")
-    var yP0hp4: String? = null
+    var yp0hp4: String? = null
 
     @JsonProperty("transformRatio")
     var transformRatio: String? = null
@@ -259,76 +259,76 @@ class ValSphsOgForm {
     var plantingDensity: String? = null
 
     @JsonProperty("results/CYp0hm1")
-    var cYp0hm1: String? = null
+    var cyp0hm1: String? = null
 
     @JsonProperty("results/CYp0hm2")
-    var cYp0hm2: String? = null
+    var cyp0hm2: String? = null
 
     @JsonProperty("results/CYp0hm3")
-    var cYp0hm3: String? = null
+    var cyp0hm3: String? = null
 
     @JsonProperty("results/CYp0hm4")
-    var cYp0hm4: String? = null
+    var cyp0hm4: String? = null
 
     @JsonProperty("results/CYp0hp1")
-    var cYp0hp1: String? = null
+    var cyp0hp1: String? = null
 
     @JsonProperty("results/CYp0hp2")
-    var cYp0hp2: String? = null
+    var cyp0hp2: String? = null
 
     @JsonProperty("results/CYp0hp3")
-    var cYp0hp3: String? = null
+    var cyp0hp3: String? = null
 
     @JsonProperty("results/CYp0hp4")
-    var cYp0hp4: String? = null
+    var cyp0hp4: String? = null
 
     @JsonProperty("results/GPp0hm1")
-    var gPp0hm1: String? = null
+    var gpp0hm1: String? = null
 
     @JsonProperty("results/GPp0hm2")
-    var gPp0hm2: String? = null
+    var gpp0hm2: String? = null
 
     @JsonProperty("results/GPp0hm3")
-    var gPp0hm3: String? = null
+    var gpp0hm3: String? = null
 
     @JsonProperty("results/GPp0hm4")
-    var gPp0hm4: String? = null
+    var gpp0hm4: String? = null
 
     @JsonProperty("results/GPp0hp1")
-    var gPp0hp1: String? = null
+    var gpp0hp1: String? = null
 
     @JsonProperty("results/GPp0hp2")
-    var gPp0hp2: String? = null
+    var gpp0hp2: String? = null
 
     @JsonProperty("results/GPp0hp3")
-    var gPp0hp3: String? = null
+    var gpp0hp3: String? = null
 
     @JsonProperty("results/GPp0hp4")
-    var gPp0hp4: String? = null
+    var gpp0hp4: String? = null
 
     @JsonProperty("results/WYp0hm1")
-    var wYp0hm1: String? = null
+    var wyp0hm1: String? = null
 
     @JsonProperty("results/WYp0hm2")
-    var wYp0hm2: String? = null
+    var wyp0hm2: String? = null
 
     @JsonProperty("results/WYp0hm3")
-    var wYp0hm3: String? = null
+    var wyp0hm3: String? = null
 
     @JsonProperty("results/WYp0hm4")
-    var wYp0hm4: String? = null
+    var wyp0hm4: String? = null
 
     @JsonProperty("results/WYp0hp1")
-    var wYp0hp1: String? = null
+    var wyp0hp1: String? = null
 
     @JsonProperty("results/WYp0hp2")
-    var wYp0hp2: String? = null
+    var wyp0hp2: String? = null
 
     @JsonProperty("results/WYp0hp3")
-    var wYp0hp3: String? = null
+    var wyp0hp3: String? = null
 
     @JsonProperty("results/WYp0hp4")
-    var wYp0hp4: String? = null
+    var wyp0hp4: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null
@@ -343,7 +343,7 @@ class ValSphsOgForm {
     var grMaxAb: String? = null
 
     @JsonProperty("results/Yp0h0_AB")
-    var yp0h0AB: String? = null
+    var yp0h0Ab: String? = null
 
     @JsonProperty("results/sensible")
     var sensible: String? = null
@@ -352,13 +352,13 @@ class ValSphsOgForm {
     var gpDifCurr: String? = null
 
     @JsonProperty("results/GRp0h0_AB")
-    var gRp0h0AB: String? = null
+    var grp0h0Ab: String? = null
 
     @JsonProperty("_bamboo_dataset_id")
     var bambooDatasetId: String? = null
 
     @JsonProperty("results/GPp0h0curr")
-    var gPp0h0curr: String? = null
+    var gpp0h0curr: String? = null
 
     @JsonProperty("results/optHarvest")
     var optHarvest: String? = null
@@ -406,19 +406,19 @@ class ValSphsOgForm {
     var priceR0: String? = null
 
     @JsonProperty("results/GRdif_ABcurr")
-    var grDifABcurr: String? = null
+    var grDifAbCurr: String? = null
 
     @JsonProperty("harvest/harvestWeekm1")
-    var harvestWeekm1: String? = null
+    var harvestWeekM1: String? = null
 
     @JsonProperty("harvest/harvestWeekm2")
-    var harvestWeekm2: String? = null
+    var harvestWeekM2: String? = null
 
     @JsonProperty("harvest/harvestWeekm3")
-    var harvestWeekm3: String? = null
+    var harvestWeekM3: String? = null
 
     @JsonProperty("harvest/harvestWeekm4")
-    var harvestWeekm4: String? = null
+    var harvestWeekM4: String? = null
 
     @JsonProperty("harvest/harvestWeekp1")
     var harvestWeekP1: String? = null
@@ -445,7 +445,7 @@ class ValSphsOgForm {
     var priceRp4: String? = null
 
     @JsonProperty("results/GRp0h0_ABcurr")
-    var gRp0h0ABcurr: String? = null
+    var grp0h0AbCurr: String? = null
 
     @JsonProperty("results/lookupp0h0_id")
     var lookupp0h0Id: String? = null
@@ -541,31 +541,31 @@ class ValSphsOgForm {
     var starchFactory: String? = null
 
     @JsonProperty("results/GRp0h0")
-    var gRp0h0: String? = null
+    var grp0h0: String? = null
 
     @JsonProperty("results/GRp0hm1")
-    var gRp0hm1: String? = null
+    var grp0hm1: String? = null
 
     @JsonProperty("results/GRp0hm2")
-    var gRp0hm2: String? = null
+    var grp0hm2: String? = null
 
     @JsonProperty("results/GRp0hm3")
-    var gRp0hm3: String? = null
+    var grp0hm3: String? = null
 
     @JsonProperty("results/GRp0hm4")
-    var gRp0hm4: String? = null
+    var grp0hm4: String? = null
 
     @JsonProperty("results/GRp0hp1")
-    var gRp0hp1: String? = null
+    var grp0hp1: String? = null
 
     @JsonProperty("results/GRp0hp2")
-    var gRp0hp2: String? = null
+    var grp0hp2: String? = null
 
     @JsonProperty("results/GRp0hp3")
-    var gRp0hp3: String? = null
+    var grp0hp3: String? = null
 
     @JsonProperty("results/GRp0hp4")
-    var gRp0hp4: String? = null
+    var grp0hp4: String? = null
 
     @JsonProperty("results/priceSC0")
     var priceSc0: String? = null
@@ -604,28 +604,28 @@ class ValSphsOgForm {
     var price0: String? = null
 
     @JsonProperty("priceDetails/pricem1")
-    var pricem1: String? = null
+    var priceM1: String? = null
 
     @JsonProperty("priceDetails/pricem2")
-    var pricem2: String? = null
+    var priceM2: String? = null
 
     @JsonProperty("priceDetails/pricem3")
-    var pricem3: String? = null
+    var priceM3: String? = null
 
     @JsonProperty("priceDetails/pricem4")
-    var pricem4: String? = null
+    var priceM4: String? = null
 
     @JsonProperty("priceDetails/pricep1")
-    var pricep1: String? = null
+    var priceP1: String? = null
 
     @JsonProperty("priceDetails/pricep2")
-    var pricep2: String? = null
+    var priceP2: String? = null
 
     @JsonProperty("priceDetails/pricep3")
-    var pricep3: String? = null
+    var priceP3: String? = null
 
     @JsonProperty("priceDetails/pricep4")
-    var pricep4: String? = null
+    var priceP4: String? = null
 
     @JsonProperty("priceDetails/priceNote")
     var priceNote: String? = null

@@ -5,8 +5,8 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.dataval.*
-import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.CsvUtility
+import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.database.entities.dataval.*
 import com.tsobu.ona.database.repositories.dataval.*
 import com.tsobu.ona.forms.dataval.PpForm
@@ -77,6 +77,7 @@ constructor(
             ppDto.endDate = myDateUtil.toDateTimeString(ppEntity.endDate)
 
             ppDto.todayDate = myDateUtil.toDateToString(ppEntity.todayDate)
+            ppDto.harvestDate = myDateUtil.toDateToString(ppEntity.harvestDate)
             ppDto.gappingDate = myDateUtil.toDateToString(ppEntity.gappingDate)
 
             ppDto.plantingDate = myDateUtil.toDateToString(ppEntity.plantingDate)
@@ -189,6 +190,13 @@ constructor(
             ppEntity.endDate = myDateUtil.convertToDateTime(myVal.endDate)
             ppEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
             ppEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
+
+
+            ppEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
+            ppEntity.dateWeeding1 = myDateUtil.convertToDate(myVal.dateWeeding1)
+            ppEntity.dateWeeding2 = myDateUtil.convertToDate(myVal.dateWeeding2)
+            ppEntity.dateWeeding3 = myDateUtil.convertToDate(myVal.dateWeeding3)
+
             ppEntity.instanceId = myVal.instanceId
             ppEntity.controlKey = myVal.instanceId
 

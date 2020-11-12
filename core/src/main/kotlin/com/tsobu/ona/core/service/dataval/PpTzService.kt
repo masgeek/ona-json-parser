@@ -186,6 +186,12 @@ constructor(
             ppTzEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
             ppTzEntity.instanceId = myVal.instanceId
             ppTzEntity.controlKey = myVal.instanceId
+
+            ppTzEntity.todayDate= myDateUtil.convertToDate(myVal.todayDate)
+            ppTzEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
+            ppTzEntity.gappingDate = myDateUtil.convertToDate(myVal.gappingDate)
+            ppTzEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
+
             ppTzEntityData.add(ppTzEntity)
 
 

@@ -82,6 +82,9 @@ constructor(
         val monitorValData = monitorValList.map { monitorValEntity ->
             val monitorValDto = modelMapper.map(monitorValEntity, MonitorValDto::class.java)
             monitorValDto.submissionDate = myDateUtil.toDateTimeString(monitorValEntity.submissionDate)
+            monitorValDto.startDate = myDateUtil.toDateToString(monitorValEntity.startDate)
+            monitorValDto.todayDate = myDateUtil.toDateToString(monitorValEntity.todayDate)
+            monitorValDto.endDate = myDateUtil.toDateToString(monitorValEntity.endDate)
             monitorValDto
         }
         val installCorrectDetailsData = installCorrectDetailsList.map { correctDetailsEntity ->
@@ -155,7 +158,7 @@ constructor(
         val file = Paths.get(filePath).toFile()
 
         val list = objectMapper.readValue(file, object : TypeReference<List<MonitorValForm>>() {})
-        
+
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
                 return if (context.source is String) {

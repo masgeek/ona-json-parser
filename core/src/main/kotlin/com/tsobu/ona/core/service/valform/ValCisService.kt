@@ -130,8 +130,6 @@ constructor(
             valCisEntity.instanceId = valCisForm.instanceId
             valCisEntity.controlKey = valCisForm.instanceId
 
-//            valCisEntity.costFertilizerAbText = valCisForm.costFertilizerAbText
-
             valCisData.add(valCisEntity)
             log.info("Added data to table ${valCisEntity.controlKey} with surname as ${valCisForm.xformIdString}")
         }

@@ -5,8 +5,8 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.replace.ReplaceFbAcDto
-import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.CsvUtility
+import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.database.entities.replace.ReplaceFbAcEntity
 import com.tsobu.ona.database.repositories.replace.ReplaceFbAcRepo
 import com.tsobu.ona.forms.replace.ReplaceFbAcForm
@@ -67,8 +67,7 @@ constructor(
             acDto
         }
         val filePath = "${appConfig.globalProperties().outputPath}"
-        writeCsvFile.writeCsv(classMap = ReplaceFbAcDto::class.java, data = acData,
-                fileName = "Replace_FB_AC", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = ReplaceFbAcDto::class.java, data = acData, fileName = "Replace_FB_AC", outPutPath = filePath)
 
     }
 

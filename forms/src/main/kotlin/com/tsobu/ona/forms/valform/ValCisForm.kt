@@ -136,7 +136,7 @@ class ValCisForm {
     var extraProfit: String? = null
 
     @JsonProperty("purpose/VAL")
-    var purposeVAL: String? = null
+    var purposeVal: String? = null
 
     @JsonProperty("rootYieldMC")
     var rootYieldMC: String? = null

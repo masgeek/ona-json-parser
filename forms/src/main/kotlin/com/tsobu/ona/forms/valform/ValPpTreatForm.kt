@@ -181,7 +181,7 @@ class ValPpTreatForm {
     var lastEdited: String? = null
 
     @JsonProperty("meta/deprecatedID")
-    var metaDeprecatedId: String? = null
+    var deprecatedId: String? = null
 
     @JsonProperty("currentPracticeMethod/harrowCP")
     var currentPracticeMethodHarrowCP: String? = null

@@ -119,7 +119,7 @@ class EaDto {
     var role: String? = null
 
     @JsonProperty("level")
-    var level: String? = null
+    var levelValue: String? = null
 
     @JsonProperty("levelName")
     var levelName: String? = null

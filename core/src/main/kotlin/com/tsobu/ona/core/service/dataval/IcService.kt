@@ -5,8 +5,8 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.dataval.IcDto
-import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.CsvUtility
+import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.database.entities.dataval.IcEntity
 import com.tsobu.ona.database.repositories.dataval.IcRepo
 import com.tsobu.ona.forms.dataval.IcForm
@@ -64,7 +64,7 @@ constructor(
             icDto.startDate = myDateUtil.toDateTimeString(icEntity.startDate)
             icDto.endDate = myDateUtil.toDateTimeString(icEntity.endDate)
 
-            icDto.todayDate= myDateUtil.toDateToString(icEntity.todayDate)
+            icDto.todayDate = myDateUtil.toDateToString(icEntity.todayDate)
             icDto.dateCassavaHarvest = myDateUtil.toDateToString(icEntity.dateCassavaHarvest)
             icDto.dateMaizeHarvest = myDateUtil.toDateToString(icEntity.dateMaizeHarvest)
             icDto.cassavaGappingDate = myDateUtil.toDateToString(icEntity.cassavaGappingDate)
@@ -139,21 +139,34 @@ constructor(
                 }
             }
             icEntity.formHubUuId = icForm.formhubUuid
+            icEntity.instanceid = icForm.instanceId
+            icEntity.controlKey = icForm.instanceId
+
             icEntity.submissionDate = myDateUtil.convertToDateTime(icForm.submissionTime)
             icEntity.todayDate = myDateUtil.convertToDate(icForm.todayDate)
             icEntity.startDate = myDateUtil.convertToDateTime(icForm.startDate)
             icEntity.endDate = myDateUtil.convertToDateTime(icForm.endDate)
             icEntity.plantingDate = myDateUtil.convertToDate(icForm.plantingDate)
-            icEntity.instanceid = icForm.instanceId
-            icEntity.controlKey = icForm.instanceId
+            icEntity.dateFertilizer0 = myDateUtil.convertToDate(icForm.dateFertilizer0)
+            icEntity.dateFertilizer1 = myDateUtil.convertToDate(icForm.dateFertilizer1)
+            icEntity.dateFertilizer2 = myDateUtil.convertToDate(icForm.dateFertilizer2)
+            icEntity.dateCassavaHarvest = myDateUtil.convertToDate(icForm.dateCassavaHarvest)
+            icEntity.dateMaizeHarvest = myDateUtil.convertToDate(icForm.dateMaizeHarvest)
+            icEntity.cassavaGappingDate = myDateUtil.convertToDate(icForm.cassavaGappingDate)
+            icEntity.maizeReseedingDate = myDateUtil.convertToDate(icForm.maizeReseedingDate)
+            icEntity.maizeThinningDate = myDateUtil.convertToDate(icForm.maizeThinningDate)
+            icEntity.dateWeeding1 = myDateUtil.convertToDate(icForm.dateWeeding1)
+            icEntity.dateWeeding2 = myDateUtil.convertToDate(icForm.dateWeeding2)
+            icEntity.dateWeeding3 = myDateUtil.convertToDate(icForm.dateWeeding3)
+            icEntity.dateWeeding4 = myDateUtil.convertToDate(icForm.dateWeeding4)
+            icEntity.dateWeeding5 = myDateUtil.convertToDate(icForm.dateWeeding5)
+            icEntity.dateWeeding6 = myDateUtil.convertToDate(icForm.dateWeeding6)
+            icEntity.dateWeeding7 = myDateUtil.convertToDate(icForm.dateWeeding7)
 
-//            icEntity.commentValue = icForm.commentValue
 
-            try {
-                icData.add(icEntity)
-            } catch (ex: Exception) {
-                log.error(ex.message, ex.stackTrace)
-            }
+
+            log.info("Processing planting date for id ${icEntity.controlKey} with date as ${icForm.plantingDate}")
+            icData.add(icEntity)
         }
 
         icRepo.saveAll(icData)

@@ -136,13 +136,13 @@ class ValFrForm {
     var conversion: String? = null
 
     @JsonProperty("rateMOP_AB")
-    var rateMOPAB: String? = null
+    var rateMOPAb: String? = null
 
     @JsonProperty("rateTSP_AB")
-    var rateTSPAB: String? = null
+    var rateTSPAb: String? = null
 
     @JsonProperty("purpose/VAL")
-    var purposeVAL: String? = null
+    var purposeVal: String? = null
 
     @JsonProperty("quantityMOP")
     var quantityMOP: String? = null
@@ -157,7 +157,7 @@ class ValFrForm {
     var rateTSPMin: String? = null
 
     @JsonProperty("rateUrea_AB")
-    var rateUreaAB: String? = null
+    var rateUreaAb: String? = null
 
     @JsonProperty("_attachments")
     var attachments: List<Any> = ArrayList()
@@ -175,7 +175,7 @@ class ValFrForm {
     var formhubUuid: String? = null
 
     @JsonProperty("increaseY_AB")
-    var increaseYAB: String? = null
+    var increaseYAb: String? = null
 
     @JsonProperty("netRevLocCur")
     var netRevLocCur: String? = null
@@ -217,7 +217,7 @@ class ValFrForm {
     var quantity2Urea: String? = null
 
     @JsonProperty("rateNafaka_AB")
-    var rateNafakaAB: String? = null
+    var rateNafakaAb: String? = null
 
     @JsonProperty("thankyou/call")
     var callValue: String? = null
@@ -232,7 +232,7 @@ class ValFrForm {
     var instanceId: String? = null
 
     @JsonProperty("netRevLocCur_AB")
-    var netRevLocCurAB: String? = null
+    var netRevLocCurAb: String? = null
 
     @JsonProperty("plantingDensity")
     var plantingDensity: String? = null
@@ -259,13 +259,13 @@ class ValFrForm {
     var bambooDatasetId: String? = null
 
     @JsonProperty("totalCostLocCur_AB")
-    var totalCostLocCurAB: String? = null
+    var totalCostLocCurAb: String? = null
 
     @JsonProperty("_media_all_received")
     var mediaAllReceived: Boolean? = null
 
     @JsonProperty("netRevLocCur_ABcurr")
-    var netRevLocCurABcurr: String? = null
+    var netRevLocCurAbCurr: String? = null
 
     @JsonProperty("thankyou/confirmVAL")
     var confirmVal: String? = null
@@ -277,7 +277,7 @@ class ValFrForm {
     var netRevLocCurPlotcurr: String? = null
 
     @JsonProperty("totalCostLocCur_ABcurr")
-    var totalCostLocCurABcurr: String? = null
+    var totalCostLocCurAbCurr: String? = null
 
     @JsonProperty("totalCostLocCurPlotcurr")
     var totalCostLocCurPlotCurr: String? = null
@@ -298,13 +298,13 @@ class ValFrForm {
     var lastEdited: String? = null
 
     @JsonProperty("meta/deprecatedID")
-    var metaDeprecatedId: String? = null
+    var deprecatedId: String? = null
 
     @JsonProperty("densityDetails/withinRow")
-    var densityDetailsWithinRow: Double? = null
+    var withinRow: Double? = null
 
     @JsonProperty("densityDetails/betweenRow")
-    var densityDetailsBetweenRow: Double? = null
+    var betweenRow: Double? = null
 
     @JsonProperty("FCY")
     var fcy: String? = null
@@ -328,13 +328,13 @@ class ValFrForm {
     var quantity2DAP: String? = null
 
     @JsonProperty("rateDAP_AB")
-    var rateDAPAB: String? = null
+    var rateDAPAb: String? = null
 
     @JsonProperty("rateNPK")
     var rateNPK: String? = null
 
     @JsonProperty("rateNPK_AB")
-    var rateNPKAB: String? = null
+    var rateNPKAb: String? = null
 
     @JsonProperty("quantityNPK")
     var quantityNPK: String? = null

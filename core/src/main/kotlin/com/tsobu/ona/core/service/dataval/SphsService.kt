@@ -8,8 +8,8 @@ import com.tsobu.ona.core.dto.json.datavalsphs.*
 import com.tsobu.ona.core.dto.json.datavarsphs.CornerPlantRecDto
 import com.tsobu.ona.core.dto.json.datavarsphs.RemainPlantConDto
 import com.tsobu.ona.core.dto.json.datavarsphs.RemainPlantRecDto
-import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.CsvUtility
+import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.database.entities.dataval.*
 import com.tsobu.ona.database.repositories.dataval.*
 import com.tsobu.ona.forms.datavalsphs.SphsForm
@@ -63,8 +63,6 @@ constructor(
             sphsDto.submissionDate = myDateUtil.toDateTimeString(sphsEntity.submissionDate)
             sphsDto.startDate = myDateUtil.toDateTimeString(sphsEntity.startDate)
             sphsDto.endDate = myDateUtil.toDateTimeString(sphsEntity.endDate)
-            sphsDto.todayDate = myDateUtil.toDateToString(sphsEntity.todayDate)
-
             sphsDto.todayDate = myDateUtil.toDateToString(sphsEntity.todayDate)
 
             sphsDto.gappingDate = myDateUtil.toDateToString(sphsEntity.gappingDate)
@@ -165,144 +163,162 @@ constructor(
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
 
-        transactionTemplate.execute {
-            list.forEach { sphs ->
-                //map and save to database
-                val geoPoint = myDateUtil.splitGeoPoint(sphs.geopoint)
-                val sphsEntity = modelMapper.map(sphs, SphsEntity::class.java)
-                if (geoPoint.isNotEmpty()) {
-                    sphsEntity.geoPointLatitude = geoPoint[0]
+        list.forEach { sphs ->
+            //map and save to database
+            val geoPoint = myDateUtil.splitGeoPoint(sphs.geopoint)
+            val sphsEntity = modelMapper.map(sphs, SphsEntity::class.java)
+            if (geoPoint.isNotEmpty()) {
+                sphsEntity.geoPointLatitude = geoPoint[0]
 
-                    if (myDateUtil.indexExists(geoPoint, 1)) {
-                        sphsEntity.geoPointLongitude = geoPoint[1]
-                    }
-                    if (myDateUtil.indexExists(geoPoint, 2)) {
-                        sphsEntity.geoPointAltitude = geoPoint[2]
-                    }
-                    if (myDateUtil.indexExists(geoPoint, 3)) {
-                        sphsEntity.geoPointAccuracy = geoPoint[3]
-                    }
+                if (myDateUtil.indexExists(geoPoint, 1)) {
+                    sphsEntity.geoPointLongitude = geoPoint[1]
                 }
-                sphsEntity.formHubUuId = sphs.formHubUuid
-                sphsEntity.submissionDate = myDateUtil.convertToDateTime(sphs.submissionTime)
-                sphsEntity.todayDate = myDateUtil.convertToDate(sphs.todayDate)
-                sphsEntity.plantingDate = myDateUtil.convertToDate(sphs.plantingDate)
-                sphsEntity.startDate = myDateUtil.convertToDateTime(sphs.startDate)
-                sphsEntity.endDate = myDateUtil.convertToDateTime(sphs.endDate)
-                sphsEntity.instanceId = sphs.instanceId
-                sphsEntity.controlKey = sphs.instanceId
-                sphsEntity.plotL2Con = sphs.plotL2con
-
-                sphsEntityData.add(sphsEntity)
-
-                val harvestRecTriList = sphs.harvestRecTriForm
-                var recTriCount = 1
-                harvestRecTriList?.forEach { harvestRecTri ->
-                    val recTriEntity = modelMapper.map(harvestRecTri, HarvestRecTriEntity::class.java)
-                    recTriEntity.parentKey = sphsEntity.controlKey
-                    recTriEntity.setOfHarvestRecTri = "${recTriEntity.parentKey}/harvest_REC_Tri"
-                    recTriEntity.controlKey = "${recTriEntity.parentKey}/harvest_REC_Tri[$recTriCount]"
-
-                    recTriEntityData.add(recTriEntity)
-                    recTriCount = recTriCount.plus(1)
+                if (myDateUtil.indexExists(geoPoint, 2)) {
+                    sphsEntity.geoPointAltitude = geoPoint[2]
                 }
-
-                val recTriDetailList = sphs.harvestRecTriDetailForm
-                var recTriDetailCount = 1
-                recTriDetailList?.forEach { harvestRecTriDetail ->
-                    val triDetailEntity = modelMapper.map(harvestRecTriDetail, HarvestRecTriDetailEntity::class.java)
-
-                    triDetailEntity.parentKey = sphsEntity.controlKey
-                    triDetailEntity.setOfHarvest = "${triDetailEntity.parentKey}/harvest_REC_Tri_detail"
-                    triDetailEntity.controlKey = "${triDetailEntity.parentKey}/harvest_REC_Tri_detail[$recTriDetailCount]"
-                    triDetailEntity.setOfCornerPlant = "${sphsEntity.controlKey}/harvest_REC_Tri_detail[$recTriDetailCount]/cornerPlant_REC"
-                    triDetailEntity.setOfRemainPlant = "${sphsEntity.controlKey}/harvest_REC_Tri_detail[$recTriDetailCount]/remainPlant_REC"
-
-
-                    recTriDetailEntityData.add(triDetailEntity)
-
-                    var remainPlantCounter = 1
-                    val remainPlantList = harvestRecTriDetail.remainPlantRecForm
-                    remainPlantList?.forEach { remainPlantRec ->
-                        val remainPlantEntity = modelMapper.map(remainPlantRec, RemainPlantRecEntity::class.java)
-
-                        remainPlantEntity.parentKey = "${triDetailEntity.setOfHarvest}[$remainPlantCounter]"
-                        remainPlantEntity.setOfRemainPlantRec = "${remainPlantEntity.parentKey}/remainPlant_REC"
-                        remainPlantEntity.controlKey = "${remainPlantEntity.setOfRemainPlantRec}[$remainPlantCounter]"
-
-                        remainPlantEntityData.add(remainPlantEntity)
-                        remainPlantCounter = remainPlantCounter.plus(1)
-                    }
-
-                    var cornerPlantCounter = 1
-                    val cornerPlantList = harvestRecTriDetail.cornerPlantRecForm
-                    cornerPlantList?.forEach { cornerPlantRec ->
-                        val cornerPlantEntity = modelMapper.map(cornerPlantRec, CornerPlantRecEntity::class.java)
-
-                        cornerPlantEntity.parentKey = "${triDetailEntity.setOfHarvest}[$cornerPlantCounter]"
-                        cornerPlantEntity.setOfCornerPlantRec = "${cornerPlantEntity.parentKey}/cornerPlant_REC"
-                        cornerPlantEntity.controlKey = "${cornerPlantEntity.setOfCornerPlantRec}[$cornerPlantCounter]"
-
-                        cornerPlantEntityData.add(cornerPlantEntity)
-
-                        cornerPlantCounter = cornerPlantCounter.plus(1)
-                    }
-
-                    recTriDetailCount = recTriDetailCount.plus(1)
+                if (myDateUtil.indexExists(geoPoint, 3)) {
+                    sphsEntity.geoPointAccuracy = geoPoint[3]
                 }
+            }
+            sphsEntity.formHubUuId = sphs.formHubUuid
+            sphsEntity.submissionDate = myDateUtil.convertToDateTime(sphs.submissionTime)
+            sphsEntity.todayDate = myDateUtil.convertToDate(sphs.todayDate)
+            sphsEntity.plantingDate = myDateUtil.convertToDate(sphs.plantingDate)
+            sphsEntity.startDate = myDateUtil.convertToDateTime(sphs.startDate)
+            sphsEntity.endDate = myDateUtil.convertToDateTime(sphs.endDate)
+            sphsEntity.instanceId = sphs.instanceId
+            sphsEntity.controlKey = sphs.instanceId
 
-                val harvestConTriDetailList = sphs.harvestConTriDetailFormList
-                var conTriDetailCounter = 1
-                harvestConTriDetailList?.forEach { conTriDetail ->
-                    val conTriDetailEntity = modelMapper.map(conTriDetail, HarvestConTriDetailEntity::class.java)
+            sphsEntity.gappingDate = myDateUtil.convertToDateTime(sphs.gappingDate)
+            sphsEntity.plantingDate = myDateUtil.convertToDateTime(sphs.plantingDate)
+            sphsEntity.dateWeeding1 = myDateUtil.convertToDateTime(sphs.dateWeeding1)
+            sphsEntity.dateWeeding2 = myDateUtil.convertToDateTime(sphs.dateWeeding2)
+            sphsEntity.dateWeeding3 = myDateUtil.convertToDateTime(sphs.dateWeeding3)
+            sphsEntity.dateWeeding4 = myDateUtil.convertToDateTime(sphs.dateWeeding4)
+            sphsEntity.dateWeeding5 = myDateUtil.convertToDateTime(sphs.dateWeeding5)
+            sphsEntity.dateWeeding6 = myDateUtil.convertToDateTime(sphs.dateWeeding6)
+            sphsEntity.dateWeeding7 = myDateUtil.convertToDateTime(sphs.dateWeeding7)
+            sphsEntity.dateWeeding8 = myDateUtil.convertToDateTime(sphs.dateWeeding8)
+            sphsEntity.dateWeeding9 = myDateUtil.convertToDateTime(sphs.dateWeeding9)
+            sphsEntity.dateWeeding10 = myDateUtil.convertToDateTime(sphs.dateWeeding10)
 
-                    conTriDetailEntity.parentKey = sphsEntity.controlKey
-                    conTriDetailEntity.setOfHarvestConTriDetail = "${conTriDetailEntity.parentKey}/harvest_CON_Tri_detail"
-                    conTriDetailEntity.controlKey = "${conTriDetailEntity.parentKey}/harvest_CON_Tri_detail[$conTriDetailCounter]"
-                    conTriDetailEntity.setOfRemainPlantCon = "${conTriDetailEntity.controlKey}/remainPlant_CON"
-                    conTriDetailEntity.setOfCornerPlantCon = "${conTriDetailEntity.controlKey}/cornerPlant_CON"
+            sphsEntity.harvestDateQuestionCon = myDateUtil.convertToDateTime(sphs.harvestDateQuestionCon)
+            sphsEntity.effHarvestDateCon = myDateUtil.convertToDateTime(sphs.effHarvestDateCon)
+            sphsEntity.effHarvestDateConTri = myDateUtil.convertToDateTime(sphs.effHarvestDateConTri)
+            sphsEntity.harvestDateQuestionRec = myDateUtil.convertToDateTime(sphs.harvestDateQuestionRec)
+            sphsEntity.effHarvestDateRec = myDateUtil.convertToDateTime(sphs.effHarvestDateRec)
+            sphsEntity.intHarvestDateCon = myDateUtil.convertToDateTime(sphs.intHarvestDateCon)
+            sphsEntity.intHarvestDateRec = myDateUtil.convertToDateTime(sphs.intHarvestDateRec)
 
-                    harvestConTriDetailEntityData.add(conTriDetailEntity)
-                    conTriDetailCounter = conTriDetailCounter.plus(1)
+            sphsEntityData.add(sphsEntity)
 
-                    var remainPlantConCounter = 1
-                    val remainPlantConList = conTriDetail.remainPlantConFormList
-                    remainPlantConList?.forEach { remainPlantCon ->
-                        val remainPlantConEntity = modelMapper.map(remainPlantCon, RemainPlantConEntity::class.java)
-                        remainPlantConEntity.parentKey = conTriDetailEntity.controlKey
-                        remainPlantConEntity.setOfRemainPlantCon = "${conTriDetailEntity.controlKey}/remainPlant_CON"
-                        remainPlantConEntity.controlKey = "${conTriDetailEntity.controlKey}/remainPlant_CON[${remainPlantConCounter}]"
+            val harvestRecTriList = sphs.harvestRecTriForm
+            var recTriCount = 1
+            harvestRecTriList?.forEach { harvestRecTri ->
+                val recTriEntity = modelMapper.map(harvestRecTri, HarvestRecTriEntity::class.java)
+                recTriEntity.parentKey = sphsEntity.controlKey
+                recTriEntity.setOfHarvestRecTri = "${recTriEntity.parentKey}/harvest_REC_Tri"
+                recTriEntity.controlKey = "${recTriEntity.parentKey}/harvest_REC_Tri[$recTriCount]"
 
-                        remainPlantConEntityData.add(remainPlantConEntity)
-                        remainPlantConCounter = remainPlantConCounter.plus(1)
-                    }
-
-                    var cornerPlantConCounter = 1
-                    val cornerPlantConList = conTriDetail.cornerPlantConFormList
-                    cornerPlantConList?.forEach { cornerPlantCon ->
-                        val cornerPlantConEntity = modelMapper.map(cornerPlantCon, CornerPlantConEntity::class.java)
-                        cornerPlantConEntity.parentKey = conTriDetailEntity.controlKey
-                        cornerPlantConEntity.setOfCornerPlantCon = "${conTriDetailEntity.controlKey}/cornerPlant_CON"
-                        cornerPlantConEntity.controlKey = "${conTriDetailEntity.controlKey}/cornerPlant_CON[${cornerPlantConCounter}]"
-
-                        cornerPlantConEntityData.add(cornerPlantConEntity)
-                        cornerPlantConCounter = cornerPlantConCounter.plus(1)
-                    }
-                }
-
+                recTriEntityData.add(recTriEntity)
+                recTriCount = recTriCount.plus(1)
             }
 
-            log.info("Saving all the data to the database now")
-            sphsRepo.saveAll(sphsEntityData)
-            harvestRecTriDetailRepo.saveAll(recTriDetailEntityData)
-            harvestRecTriRepo.saveAll(recTriEntityData)
-            remainPlantRecRepo.saveAll(remainPlantEntityData)
-            cornerPlantRecRepo.saveAll(cornerPlantEntityData)
-            harvestConTriDetailRepo.saveAll(harvestConTriDetailEntityData)
-            remainPlantConRepo.saveAll(remainPlantConEntityData)
-            cornerPlantConRepo.saveAll(cornerPlantConEntityData)
-            log.info("Finished saving the data for $fileName------->")
-            mapJsonFile()
+            val recTriDetailList = sphs.harvestRecTriDetailForm
+            var recTriDetailCount = 1
+            recTriDetailList?.forEach { harvestRecTriDetail ->
+                val triDetailEntity = modelMapper.map(harvestRecTriDetail, HarvestRecTriDetailEntity::class.java)
+
+                triDetailEntity.parentKey = sphsEntity.controlKey
+                triDetailEntity.setOfHarvest = "${triDetailEntity.parentKey}/harvest_REC_Tri_detail"
+                triDetailEntity.controlKey = "${triDetailEntity.parentKey}/harvest_REC_Tri_detail[$recTriDetailCount]"
+                triDetailEntity.setOfCornerPlant = "${sphsEntity.controlKey}/harvest_REC_Tri_detail[$recTriDetailCount]/cornerPlant_REC"
+                triDetailEntity.setOfRemainPlant = "${sphsEntity.controlKey}/harvest_REC_Tri_detail[$recTriDetailCount]/remainPlant_REC"
+
+
+                recTriDetailEntityData.add(triDetailEntity)
+
+                var remainPlantCounter = 1
+                val remainPlantList = harvestRecTriDetail.remainPlantRecForm
+                remainPlantList?.forEach { remainPlantRec ->
+                    val remainPlantEntity = modelMapper.map(remainPlantRec, RemainPlantRecEntity::class.java)
+
+                    remainPlantEntity.parentKey = "${triDetailEntity.setOfHarvest}[$remainPlantCounter]"
+                    remainPlantEntity.setOfRemainPlantRec = "${remainPlantEntity.parentKey}/remainPlant_REC"
+                    remainPlantEntity.controlKey = "${remainPlantEntity.setOfRemainPlantRec}[$remainPlantCounter]"
+
+                    remainPlantEntityData.add(remainPlantEntity)
+                    remainPlantCounter = remainPlantCounter.plus(1)
+                }
+
+                var cornerPlantCounter = 1
+                val cornerPlantList = harvestRecTriDetail.cornerPlantRecForm
+                cornerPlantList?.forEach { cornerPlantRec ->
+                    val cornerPlantEntity = modelMapper.map(cornerPlantRec, CornerPlantRecEntity::class.java)
+
+                    cornerPlantEntity.parentKey = "${triDetailEntity.setOfHarvest}[$cornerPlantCounter]"
+                    cornerPlantEntity.setOfCornerPlantRec = "${cornerPlantEntity.parentKey}/cornerPlant_REC"
+                    cornerPlantEntity.controlKey = "${cornerPlantEntity.setOfCornerPlantRec}[$cornerPlantCounter]"
+
+                    cornerPlantEntityData.add(cornerPlantEntity)
+
+                    cornerPlantCounter = cornerPlantCounter.plus(1)
+                }
+
+                recTriDetailCount = recTriDetailCount.plus(1)
+            }
+
+            val harvestConTriDetailList = sphs.harvestConTriDetailFormList
+            var conTriDetailCounter = 1
+            harvestConTriDetailList?.forEach { conTriDetail ->
+                val conTriDetailEntity = modelMapper.map(conTriDetail, HarvestConTriDetailEntity::class.java)
+
+                conTriDetailEntity.parentKey = sphsEntity.controlKey
+                conTriDetailEntity.setOfHarvestConTriDetail = "${conTriDetailEntity.parentKey}/harvest_CON_Tri_detail"
+                conTriDetailEntity.controlKey = "${conTriDetailEntity.parentKey}/harvest_CON_Tri_detail[$conTriDetailCounter]"
+                conTriDetailEntity.setOfRemainPlantCon = "${conTriDetailEntity.controlKey}/remainPlant_CON"
+                conTriDetailEntity.setOfCornerPlantCon = "${conTriDetailEntity.controlKey}/cornerPlant_CON"
+
+                harvestConTriDetailEntityData.add(conTriDetailEntity)
+                conTriDetailCounter = conTriDetailCounter.plus(1)
+
+                var remainPlantConCounter = 1
+                val remainPlantConList = conTriDetail.remainPlantConFormList
+                remainPlantConList?.forEach { remainPlantCon ->
+                    val remainPlantConEntity = modelMapper.map(remainPlantCon, RemainPlantConEntity::class.java)
+                    remainPlantConEntity.parentKey = conTriDetailEntity.controlKey
+                    remainPlantConEntity.setOfRemainPlantCon = "${conTriDetailEntity.controlKey}/remainPlant_CON"
+                    remainPlantConEntity.controlKey = "${conTriDetailEntity.controlKey}/remainPlant_CON[${remainPlantConCounter}]"
+
+                    remainPlantConEntityData.add(remainPlantConEntity)
+                    remainPlantConCounter = remainPlantConCounter.plus(1)
+                }
+
+                var cornerPlantConCounter = 1
+                val cornerPlantConList = conTriDetail.cornerPlantConFormList
+                cornerPlantConList?.forEach { cornerPlantCon ->
+                    val cornerPlantConEntity = modelMapper.map(cornerPlantCon, CornerPlantConEntity::class.java)
+                    cornerPlantConEntity.parentKey = conTriDetailEntity.controlKey
+                    cornerPlantConEntity.setOfCornerPlantCon = "${conTriDetailEntity.controlKey}/cornerPlant_CON"
+                    cornerPlantConEntity.controlKey = "${conTriDetailEntity.controlKey}/cornerPlant_CON[${cornerPlantConCounter}]"
+
+                    cornerPlantConEntityData.add(cornerPlantConEntity)
+                    cornerPlantConCounter = cornerPlantConCounter.plus(1)
+                }
+            }
+
         }
+
+        log.info("Saving all the data to the database now")
+        sphsRepo.saveAll(sphsEntityData)
+        harvestRecTriDetailRepo.saveAll(recTriDetailEntityData)
+        harvestRecTriRepo.saveAll(recTriEntityData)
+        remainPlantRecRepo.saveAll(remainPlantEntityData)
+        cornerPlantRecRepo.saveAll(cornerPlantEntityData)
+        harvestConTriDetailRepo.saveAll(harvestConTriDetailEntityData)
+        remainPlantConRepo.saveAll(remainPlantConEntityData)
+        cornerPlantConRepo.saveAll(cornerPlantConEntityData)
+        log.info("Finished saving the data for $fileName------->")
+        mapJsonFile()
     }
 }

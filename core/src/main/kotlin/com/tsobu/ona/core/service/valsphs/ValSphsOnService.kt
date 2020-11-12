@@ -6,8 +6,8 @@ import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.`val`.ValSphsOnDto
-import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.CsvUtility
+import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.database.entities.`val`.ValSphsOnEntity
 import com.tsobu.ona.database.repositories.`val`.ValSphsOnRepo
 import com.tsobu.ona.forms.valform.ValSphsOnForm
@@ -127,6 +127,8 @@ constructor(
             onEntity.todayDate = myDateUtil.convertToDate(ogForm.todayDate)
             onEntity.startDate = myDateUtil.convertToDateTime(ogForm.startDate)
             onEntity.endDate = myDateUtil.convertToDateTime(ogForm.endDate)
+            onEntity.plantingDate = myDateUtil.convertToDateTime(ogForm.plantingDate)
+            onEntity.harvestDate = myDateUtil.convertToDateTime(ogForm.harvestDate)
             onEntity.instanceId = ogForm.instanceId
             onEntity.controlKey = ogForm.instanceId
 

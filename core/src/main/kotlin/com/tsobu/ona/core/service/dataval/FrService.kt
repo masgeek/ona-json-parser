@@ -5,8 +5,8 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.dataval.FrDto
-import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.CsvUtility
+import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.database.entities.dataval.FrEntity
 import com.tsobu.ona.database.repositories.dataval.FrRepo
 import com.tsobu.ona.forms.dataval.FrForm
@@ -111,10 +111,10 @@ constructor(
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
         val frEntityData = ArrayList<FrEntity>()
-        list.forEach { myVal ->
+        list.forEach { frForm ->
             //map and save to database
-            val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
-            val frEntity = modelMapper.map(myVal, FrEntity::class.java)
+            val geoPoint = myDateUtil.splitGeoPoint(frForm.geopoint)
+            val frEntity = modelMapper.map(frForm, FrEntity::class.java)
             if (geoPoint.isNotEmpty()) {
                 frEntity.geoPointLatitude = geoPoint[0]
 
@@ -128,22 +128,28 @@ constructor(
                     frEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            frEntity.formHubUuId = myVal.formhubUuid
-            frEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
-            frEntity.todayDate = myDateUtil.convertToDate(myVal.todayDate)
-            frEntity.startDate = myDateUtil.convertToDateTime(myVal.startDate)
-            frEntity.endDate = myDateUtil.convertToDateTime(myVal.endDate)
-            frEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
-            frEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
-            frEntity.instanceId = myVal.instanceId
-            frEntity.controlKey = myVal.instanceId
+            frEntity.formHubUuId = frForm.formhubUuid
+            frEntity.submissionDate = myDateUtil.convertToDateTime(frForm.submissionTime)
+            frEntity.todayDate = myDateUtil.convertToDate(frForm.todayDate)
+            frEntity.startDate = myDateUtil.convertToDateTime(frForm.startDate)
+            frEntity.endDate = myDateUtil.convertToDateTime(frForm.endDate)
+            frEntity.plantingDate = myDateUtil.convertToDate(frForm.plantingDate)
+            frEntity.harvestDate = myDateUtil.convertToDate(frForm.harvestDate)
+            frEntity.plantingDate = myDateUtil.convertToDate(frForm.plantingDate)
+            frEntity.dateWeeding1 = myDateUtil.convertToDate(frForm.dateWeeding1)
+            frEntity.dateWeeding2 = myDateUtil.convertToDate(frForm.dateWeeding2)
+            frEntity.dateWeeding3 = myDateUtil.convertToDate(frForm.dateWeeding3)
+            frEntity.dateWeeding4 = myDateUtil.convertToDate(frForm.dateWeeding4)
+            frEntity.dateWeeding5 = myDateUtil.convertToDate(frForm.dateWeeding5)
+            frEntity.gappingDate = myDateUtil.convertToDate(frForm.gappingDate)
+            
 
-            try {
-                frEntityData.add(frEntity)
-                log.info("Added data to table ${frEntity.controlKey} with surname as ${myVal.xformIdString}")
-            } catch (ex: Exception) {
-                log.error(ex.message, ex.stackTrace)
-            }
+            frEntity.instanceId = frForm.instanceId
+            frEntity.controlKey = frForm.instanceId
+
+            frEntityData.add(frEntity)
+            log.info("Added data to table ${frEntity.controlKey} with surname as ${frForm.xformIdString}")
+
         }
 
         frRepo.saveAll(frEntityData)
