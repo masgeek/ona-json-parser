@@ -189,8 +189,8 @@ constructor(
                 sphsEntity.plantingDate = myDateUtil.convertToDate(sphs.plantingDate)
                 sphsEntity.startDate = myDateUtil.convertToDateTime(sphs.start)
                 sphsEntity.endDate = myDateUtil.convertToDateTime(sphs.end)
-                sphsEntity.instanceId = sphs.metaInstanceID
-                sphsEntity.controlKey = sphs.metaInstanceID
+                sphsEntity.instanceId = sphs.instanceId
+                sphsEntity.controlKey = sphs.instanceId
                 sphsEntity.plotL2Con = sphs.plotL2con
 
                 sphsEntityData.add(sphsEntity)

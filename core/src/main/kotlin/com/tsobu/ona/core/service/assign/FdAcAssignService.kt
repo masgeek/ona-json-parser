@@ -120,8 +120,8 @@ constructor(
             assignFdAcEntity.todayDate = myDateUtil.convertToDate(assignFdAcForm.today)
             assignFdAcEntity.startDate = myDateUtil.convertToDateTime(assignFdAcForm.start)
             assignFdAcEntity.endDate = myDateUtil.convertToDateTime(assignFdAcForm.end)
-            assignFdAcEntity.instanceId = assignFdAcForm.metaInstanceID
-            assignFdAcEntity.controlKey = assignFdAcForm.metaInstanceID
+            assignFdAcEntity.instanceId = assignFdAcForm.instanceId
+            assignFdAcEntity.controlKey = assignFdAcForm.instanceId
 
             fdAcData.add(assignFdAcEntity)
             log.info("Added data to table ${assignFdAcEntity.controlKey} with surname as ${assignFdAcForm.xformIdString}")

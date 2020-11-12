@@ -133,10 +133,10 @@ constructor(
             acEntity.todayDate = myDateUtil.convertToDate(poolSamplesAcForm.today)
             acEntity.startDate = myDateUtil.convertToDateTime(poolSamplesAcForm.start)
             acEntity.endDate = myDateUtil.convertToDateTime(poolSamplesAcForm.end)
-            acEntity.instanceId = poolSamplesAcForm.metaInstanceID
-            acEntity.controlKey = poolSamplesAcForm.metaInstanceID
+            acEntity.instanceId = poolSamplesAcForm.instanceId
+            acEntity.controlKey = poolSamplesAcForm.instanceId
 
-            acEntity.setOfSample = "${poolSamplesAcForm.metaInstanceID}/sample"
+            acEntity.setOfSample = "${poolSamplesAcForm.instanceId}/sample"
 
             //child data
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
@@ -147,8 +147,8 @@ constructor(
                 plEntity.parentKey = acEntity.controlKey
 
                 plEntity.setOfSample = acEntity.setOfSample
-                plEntity.controlKey = "${poolSamplesAcForm.metaInstanceID}/sample[$sampleCounter]"
-                plEntity.setOfOldLabel = "${poolSamplesAcForm.metaInstanceID}/sample[$sampleCounter]/oldLabel"
+                plEntity.controlKey = "${poolSamplesAcForm.instanceId}/sample[$sampleCounter]"
+                plEntity.setOfOldLabel = "${poolSamplesAcForm.instanceId}/sample[$sampleCounter]/oldLabel"
 
                 sampleCounter = sampleCounter.plus(1)
                 sampleData.add(plEntity)
@@ -159,7 +159,7 @@ constructor(
                     val ndmEntity = modelMapper.map(oldLabelForm, PoolSamplesAcOldLabelEntity::class.java)
                     ndmEntity.parentKey = plEntity.controlKey
                     ndmEntity.controlKey = "${plEntity.controlKey}/oldLabel[$labelCounter]"
-                    ndmEntity.setOfOldLabel = "${poolSamplesAcForm.metaInstanceID}/sample[$sampleCounter]/oldLabel"
+                    ndmEntity.setOfOldLabel = "${poolSamplesAcForm.instanceId}/sample[$sampleCounter]/oldLabel"
 
                     labelCounter = labelCounter.plus(1)
                     oldLabelData.add(ndmEntity)

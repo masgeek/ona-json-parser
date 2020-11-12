@@ -81,7 +81,7 @@ import java.util.*
     var submittedBy: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceId: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("purpose/country")
     var country: String? = null

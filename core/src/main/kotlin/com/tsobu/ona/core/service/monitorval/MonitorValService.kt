@@ -206,8 +206,8 @@ constructor(
             monitorValEntity.todayDate = myDateUtil.convertToDate(monitorValForm.today)
             monitorValEntity.startDate = myDateUtil.convertToDateTime(monitorValForm.start)
             monitorValEntity.endDate = myDateUtil.convertToDateTime(monitorValForm.end)
-            monitorValEntity.instanceId = monitorValForm.metaInstanceID
-            monitorValEntity.controlKey = monitorValForm.metaInstanceID
+            monitorValEntity.instanceId = monitorValForm.instanceId
+            monitorValEntity.controlKey = monitorValForm.instanceId
 
             monitorValEntity.setOfPlotLayout = "${monitorValEntity.controlKey}/plotLayout"
             monitorValEntity.setOfMaizePlantHeight = "${monitorValEntity.controlKey}/maizePlantHeight"

@@ -121,8 +121,8 @@ constructor(
             checkIdRegEntity.todayDate = myDateUtil.convertToDate(checkIdRegForm.today)
             checkIdRegEntity.startDate = myDateUtil.convertToDateTime(checkIdRegForm.start)
             checkIdRegEntity.endDate = myDateUtil.convertToDateTime(checkIdRegForm.end)
-            checkIdRegEntity.instanceId = checkIdRegForm.metaInstanceID
-            checkIdRegEntity.controlKey = checkIdRegForm.metaInstanceID
+            checkIdRegEntity.instanceId = checkIdRegForm.instanceId
+            checkIdRegEntity.controlKey = checkIdRegForm.instanceId
 
             checkIdRegData.add(checkIdRegEntity)
         }

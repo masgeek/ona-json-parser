@@ -128,8 +128,8 @@ constructor(
             ogEntity.todayDate = myDateUtil.convertToDate(ogForm.today)
             ogEntity.startDate = myDateUtil.convertToDateTime(ogForm.start)
             ogEntity.endDate = myDateUtil.convertToDateTime(ogForm.end)
-            ogEntity.instanceId = ogForm.metaInstanceID
-            ogEntity.controlKey = ogForm.metaInstanceID
+            ogEntity.instanceId = ogForm.instanceId
+            ogEntity.controlKey = ogForm.instanceId
 
             ogEntity.gpDif = ogForm.gpDif
 

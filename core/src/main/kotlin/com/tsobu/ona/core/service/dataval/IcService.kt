@@ -144,8 +144,8 @@ constructor(
             icEntity.startDate = myDateUtil.convertToDateTime(icForm.start)
             icEntity.endDate = myDateUtil.convertToDateTime(icForm.end)
             icEntity.plantingDate = myDateUtil.convertToDate(icForm.plantingDate)
-            icEntity.instanceid = icForm.metaInstanceID
-            icEntity.controlKey = icForm.metaInstanceID
+            icEntity.instanceid = icForm.instanceId
+            icEntity.controlKey = icForm.instanceId
 
 //            icEntity.commentValue = icForm.commentValue
 

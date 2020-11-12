@@ -135,8 +135,8 @@ constructor(
             frEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
             frEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
             frEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
-            frEntity.instanceId = myVal.metaInstanceID
-            frEntity.controlKey = myVal.metaInstanceID
+            frEntity.instanceId = myVal.instanceId
+            frEntity.controlKey = myVal.instanceId
 
             try {
                 frEntityData.add(frEntity)

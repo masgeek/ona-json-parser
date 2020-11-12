@@ -133,10 +133,10 @@ constructor(
             acEntity.todayDate = myDateUtil.convertToDate(acForm.today)
             acEntity.startDate = myDateUtil.convertToDateTime(acForm.start)
             acEntity.endDate = myDateUtil.convertToDateTime(acForm.end)
-            acEntity.instanceID = acForm.metaInstanceID
-            acEntity.controlKey = acForm.metaInstanceID
+            acEntity.instanceID = acForm.instanceId
+            acEntity.controlKey = acForm.instanceId
 
-            acEntity.setOfPlantSample = "${acForm.metaInstanceID}/plantSample"
+            acEntity.setOfPlantSample = "${acForm.instanceId}/plantSample"
 
             //child data
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
@@ -146,8 +146,8 @@ constructor(
                 val plEntity = modelMapper.map(plantSampleForm, PartitionPsAcPlantSampleEntity::class.java)
                 plEntity.parentKey = acEntity.controlKey
                 plEntity.setOfPlantSample = acEntity.setOfPlantSample
-                plEntity.controlKey = "${acForm.metaInstanceID}/plantSample[$acIdCounter]"
-                plEntity.setOfDm = "${acForm.metaInstanceID}/plantSample[$acIdCounter]/DM"
+                plEntity.controlKey = "${acForm.instanceId}/plantSample[$acIdCounter]"
+                plEntity.setOfDm = "${acForm.instanceId}/plantSample[$acIdCounter]/DM"
 
                 acIdCounter = acIdCounter.plus(1)
                 plantSampleData.add(plEntity)
@@ -158,7 +158,7 @@ constructor(
                     val ndmEntity = modelMapper.map(ndmForm, PartitionPsAcDmEntity::class.java)
                     ndmEntity.parentKey = plEntity.controlKey
                     ndmEntity.controlKey = "${plEntity.controlKey}/DM[$acNdmCounter]"
-                    ndmEntity.setOfDm = "${acForm.metaInstanceID}/plantSample[$acIdCounter]/DM"
+                    ndmEntity.setOfDm = "${acForm.instanceId}/plantSample[$acIdCounter]/DM"
 
                     acNdmCounter = acNdmCounter.plus(1)
                     acDmData.add(ndmEntity)

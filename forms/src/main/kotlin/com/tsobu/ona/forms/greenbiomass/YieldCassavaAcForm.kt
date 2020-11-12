@@ -84,7 +84,7 @@ class YieldCassavaAcForm {
     var submittedBy: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceId: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("yieldAssessment")
     var yieldAssessmentList: List<YieldAssessmentForm> = ArrayList()

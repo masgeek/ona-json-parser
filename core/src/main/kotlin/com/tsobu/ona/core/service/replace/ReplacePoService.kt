@@ -134,10 +134,10 @@ constructor(
             acEntity.todayDate = myDateUtil.convertToDate(acForm.today)
             acEntity.startDate = myDateUtil.convertToDateTime(acForm.start)
             acEntity.endDate = myDateUtil.convertToDateTime(acForm.end)
-            acEntity.instanceId = acForm.metaInstanceID
-            acEntity.controlKey = acForm.metaInstanceID
+            acEntity.instanceId = acForm.instanceId
+            acEntity.controlKey = acForm.instanceId
 
-            acEntity.setOfReplaceLabel = "${acForm.metaInstanceID}/replaceLabel"
+            acEntity.setOfReplaceLabel = "${acForm.instanceId}/replaceLabel"
 
             //child data
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
@@ -147,7 +147,7 @@ constructor(
                 val idEntity = modelMapper.map(plantSampleForm, ReplacePoAcReplaceLabelEntity::class.java)
                 idEntity.parentKey = acEntity.controlKey
                 idEntity.setOfReplaceLabel = acEntity.setOfReplaceLabel
-                idEntity.controlKey = "${acForm.metaInstanceID}/replaceLabel[$labelCounter]"
+                idEntity.controlKey = "${acForm.instanceId}/replaceLabel[$labelCounter]"
 
                 labelCounter = labelCounter.plus(1)
                 labelData.add(idEntity)

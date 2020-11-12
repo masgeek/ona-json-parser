@@ -117,8 +117,8 @@ constructor(
             frEntity.todayDate = myDateUtil.convertToDate(eaForm.today)
             frEntity.startDate = myDateUtil.convertToDateTime(eaForm.start)
             frEntity.endDate = myDateUtil.convertToDateTime(eaForm.end)
-            frEntity.instanceId = eaForm.metaInstanceID
-            frEntity.controlKey = eaForm.metaInstanceID
+            frEntity.instanceId = eaForm.instanceId
+            frEntity.controlKey = eaForm.instanceId
 
             try {
                 eaData.add(frEntity)

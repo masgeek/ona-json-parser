@@ -256,7 +256,7 @@ class ValSphsTzlzeForm {
     var transformRatio: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceId: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("plantingDensity")
     var plantingDensity: String? = null

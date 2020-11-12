@@ -247,7 +247,7 @@ class ValPpForm {
     var herbicideAccess: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceId: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("netValueDifT0FL")
     var netValueDifT0FL: String? = null

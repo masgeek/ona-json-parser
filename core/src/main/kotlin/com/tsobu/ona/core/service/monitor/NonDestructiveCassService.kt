@@ -146,10 +146,10 @@ constructor(
             poAcEntity.todayDate = myDateUtil.convertToDate(acForm.today)
             poAcEntity.startDate = myDateUtil.convertToDateTime(acForm.start)
             poAcEntity.endDate = myDateUtil.convertToDateTime(acForm.end)
-            poAcEntity.instanceId = acForm.metaInstanceID
-            poAcEntity.controlKey = acForm.metaInstanceID
+            poAcEntity.instanceId = acForm.instanceId
+            poAcEntity.controlKey = acForm.instanceId
 
-            poAcEntity.setOfId = "${acForm.metaInstanceID}/ID"
+            poAcEntity.setOfId = "${acForm.instanceId}/ID"
 
             //child data
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
@@ -159,8 +159,8 @@ constructor(
                 val acIdEntity = modelMapper.map(acIdForm, NonDestructiveCassAcIdEntity::class.java)
                 acIdEntity.parentKey = poAcEntity.controlKey
                 acIdEntity.setOfId = poAcEntity.setOfId
-                acIdEntity.controlKey = "${acForm.metaInstanceID}/ID[$acIdCounter]"
-                acIdEntity.setOfNdm = "${acForm.metaInstanceID}/ID[$acIdCounter]/NDM"
+                acIdEntity.controlKey = "${acForm.instanceId}/ID[$acIdCounter]"
+                acIdEntity.setOfNdm = "${acForm.instanceId}/ID[$acIdCounter]/NDM"
 
                 acIdCounter = acIdCounter.plus(1)
                 cassAcIdData.add(acIdEntity)
@@ -171,7 +171,7 @@ constructor(
                     val ndmEntity = modelMapper.map(ndmForm, NonDestructiveCassAcNdmEntity::class.java)
                     ndmEntity.parentKey = acIdEntity.controlKey
                     ndmEntity.controlKey = "${acIdEntity.controlKey}/NDM[$acNdmCounter]"
-                    ndmEntity.setOfNdm = "${acForm.metaInstanceID}/ID[$acIdCounter]/NDM"
+                    ndmEntity.setOfNdm = "${acForm.instanceId}/ID[$acIdCounter]/NDM"
 
                     acNdmCounter = acNdmCounter.plus(1)
                     cassAcNdmData.add(ndmEntity)

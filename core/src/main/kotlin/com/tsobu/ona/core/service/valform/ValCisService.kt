@@ -127,8 +127,8 @@ constructor(
             valCisEntity.startDate = myDateUtil.convertToDateTime(valCisForm.start)
             valCisEntity.endDate = myDateUtil.convertToDateTime(valCisForm.end)
             valCisEntity.plantingDate = myDateUtil.convertToDate(valCisForm.plantingDate)
-            valCisEntity.instanceId = valCisForm.metaInstanceID
-            valCisEntity.controlKey = valCisForm.metaInstanceID
+            valCisEntity.instanceId = valCisForm.instanceId
+            valCisEntity.controlKey = valCisForm.instanceId
 
 //            valCisEntity.costFertilizerAbText = valCisForm.costFertilizerAbText
 

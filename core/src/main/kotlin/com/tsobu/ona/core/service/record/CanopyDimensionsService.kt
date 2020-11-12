@@ -147,10 +147,10 @@ constructor(
             acEntity.todayDate = myDateUtil.convertToDate(acForm.today)
             acEntity.startDate = myDateUtil.convertToDateTime(acForm.start)
             acEntity.endDate = myDateUtil.convertToDateTime(acForm.end)
-            acEntity.instanceId = acForm.metaInstanceID
-            acEntity.controlKey = acForm.metaInstanceID
+            acEntity.instanceId = acForm.instanceId
+            acEntity.controlKey = acForm.instanceId
 
-            acEntity.setOfId = "${acForm.metaInstanceID}/ID"
+            acEntity.setOfId = "${acForm.instanceId}/ID"
 
             //child data
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
@@ -160,8 +160,8 @@ constructor(
                 val idEntity = modelMapper.map(idForm, CanopyDimensionsAcIdEntity::class.java)
                 idEntity.parentKey = acEntity.controlKey
                 idEntity.setOfId = acEntity.setOfId
-                idEntity.controlKey = "${acForm.metaInstanceID}/ID[$sampleCounter]"
-                idEntity.setOfCd = "${acForm.metaInstanceID}/ID[$sampleCounter]/CD"
+                idEntity.controlKey = "${acForm.instanceId}/ID[$sampleCounter]"
+                idEntity.setOfCd = "${acForm.instanceId}/ID[$sampleCounter]/CD"
 
                 sampleCounter = sampleCounter.plus(1)
                 idData.add(idEntity)
@@ -172,7 +172,7 @@ constructor(
                     val cdEntity = modelMapper.map(cdForm, CanopyDimensionsAcCdEntity::class.java)
                     cdEntity.parentKey = idEntity.controlKey
                     cdEntity.controlKey = "${idEntity.controlKey}/CD[$labelCounter]"
-                    cdEntity.setOfCd = "${acForm.metaInstanceID}/ID[$sampleCounter]/CD"
+                    cdEntity.setOfCd = "${acForm.instanceId}/ID[$sampleCounter]/CD"
 
                     labelCounter = labelCounter.plus(1)
                     cdData.add(cdEntity)

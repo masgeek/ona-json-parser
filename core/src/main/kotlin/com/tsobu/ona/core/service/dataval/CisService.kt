@@ -139,8 +139,8 @@ constructor(
             cisEntity.todayDate = myDateUtil.convertToDate(cisForm.today)
             cisEntity.startDate = myDateUtil.convertToDateTime(cisForm.start)
             cisEntity.endDate = myDateUtil.convertToDateTime(cisForm.end)
-            cisEntity.instanceId = cisForm.metaInstanceID
-            cisEntity.controlKey = cisForm.metaInstanceID
+            cisEntity.instanceId = cisForm.instanceId
+            cisEntity.controlKey = cisForm.instanceId
 
 
             try {

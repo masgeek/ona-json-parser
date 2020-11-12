@@ -148,7 +148,7 @@ class ValIcForm {
     var profitExtraAB: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceId: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("profitExtraPlot")
     var profitExtraPlot: String? = null

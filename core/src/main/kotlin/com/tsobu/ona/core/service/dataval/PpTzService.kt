@@ -184,8 +184,8 @@ constructor(
             ppTzEntity.startDate = myDateUtil.convertToDateTime(myVal.start)
             ppTzEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
             ppTzEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
-            ppTzEntity.instanceId = myVal.metaInstanceID
-            ppTzEntity.controlKey = myVal.metaInstanceID
+            ppTzEntity.instanceId = myVal.instanceId
+            ppTzEntity.controlKey = myVal.instanceId
             ppTzEntityData.add(ppTzEntity)
 
 

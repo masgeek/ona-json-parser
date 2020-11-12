@@ -127,8 +127,8 @@ constructor(
             kwEntity.todayDate = myDateUtil.convertToDate(kwForm.today)
             kwEntity.startDate = myDateUtil.convertToDateTime(kwForm.start)
             kwEntity.endDate = myDateUtil.convertToDateTime(kwForm.end)
-            kwEntity.instanceId = kwForm.metaInstanceID
-            kwEntity.controlKey = kwForm.metaInstanceID
+            kwEntity.instanceId = kwForm.instanceId
+            kwEntity.controlKey = kwForm.instanceId
 
             kwData.add(kwEntity)
 

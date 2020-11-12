@@ -129,9 +129,9 @@ constructor(
             yieldCassavaEntity.todayDate = myDateUtil.convertToDate(yieldCassavaForm.today)
             yieldCassavaEntity.startDate = myDateUtil.convertToDateTime(yieldCassavaForm.start)
             yieldCassavaEntity.endDate = myDateUtil.convertToDateTime(yieldCassavaForm.end)
-            yieldCassavaEntity.setOfYieldAssesment = "${yieldCassavaForm.metaInstanceID}/yieldAssessment"
-            yieldCassavaEntity.instanceId = yieldCassavaForm.metaInstanceID
-            yieldCassavaEntity.controlKey = yieldCassavaForm.metaInstanceID
+            yieldCassavaEntity.setOfYieldAssesment = "${yieldCassavaForm.instanceId}/yieldAssessment"
+            yieldCassavaEntity.instanceId = yieldCassavaForm.instanceId
+            yieldCassavaEntity.controlKey = yieldCassavaForm.instanceId
 
             data.add(yieldCassavaEntity)
 

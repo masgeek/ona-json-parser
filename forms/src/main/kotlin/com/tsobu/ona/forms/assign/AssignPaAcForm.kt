@@ -90,7 +90,7 @@ class AssignPaAcForm {
     var plantLabelingList: List<PlantLabelingPaAcForm> ?=null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceId: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("purpose/country")
     var purposeCountry: String? = null

@@ -125,8 +125,8 @@ constructor(
             treatEntity.todayDate = myDateUtil.convertToDate(treatForm.today)
             treatEntity.startDate = myDateUtil.convertToDateTime(treatForm.start)
             treatEntity.endDate = myDateUtil.convertToDateTime(treatForm.end)
-            treatEntity.instanceId = treatForm.metaInstanceID
-            treatEntity.controlKey = treatForm.metaInstanceID
+            treatEntity.instanceId = treatForm.instanceId
+            treatEntity.controlKey = treatForm.instanceId
 
             treatData.add(treatEntity)
 

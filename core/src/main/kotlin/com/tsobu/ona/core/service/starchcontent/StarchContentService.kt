@@ -133,8 +133,8 @@ constructor(
             starchContentAcEntity.todayDate = myDateUtil.convertToDate(starchContentAcForm.today)
             starchContentAcEntity.startDate = myDateUtil.convertToDateTime(starchContentAcForm.start)
             starchContentAcEntity.endDate = myDateUtil.convertToDateTime(starchContentAcForm.end)
-            starchContentAcEntity.instanceId = starchContentAcForm.metaInstanceID
-            starchContentAcEntity.controlKey = starchContentAcForm.metaInstanceID
+            starchContentAcEntity.instanceId = starchContentAcForm.instanceId
+            starchContentAcEntity.controlKey = starchContentAcForm.instanceId
             starchContentAcEntity.setOfAssessStarch = "${starchContentAcEntity.controlKey}/assessStarch"
 
             starchContentAcData.add(starchContentAcEntity)

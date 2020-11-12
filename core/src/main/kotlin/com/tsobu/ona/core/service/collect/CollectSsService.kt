@@ -136,8 +136,8 @@ constructor(
             ssAcEntity.todayDate = myDateUtil.convertToDate(ssAcForm.today)
             ssAcEntity.startDate = myDateUtil.convertToDateTime(ssAcForm.start)
             ssAcEntity.endDate = myDateUtil.convertToDateTime(ssAcForm.end)
-            ssAcEntity.instanceId = ssAcForm.metaInstanceID
-            ssAcEntity.controlKey = ssAcForm.metaInstanceID
+            ssAcEntity.instanceId = ssAcForm.instanceId
+            ssAcEntity.controlKey = ssAcForm.instanceId
             ssAcEntity.setOfSoilSample = "${ssAcEntity.controlKey}/soilSample"
 
             ssAcData.add(ssAcEntity)

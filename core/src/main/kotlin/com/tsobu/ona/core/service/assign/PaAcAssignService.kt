@@ -138,8 +138,8 @@ constructor(
             assignPaAcEntity.todayDate = myDateUtil.convertToDate(assignFdAcForm.today)
             assignPaAcEntity.startDate = myDateUtil.convertToDateTime(assignFdAcForm.start)
             assignPaAcEntity.endDate = myDateUtil.convertToDateTime(assignFdAcForm.end)
-            assignPaAcEntity.instanceId = assignFdAcForm.metaInstanceId
-            assignPaAcEntity.controlKey = assignFdAcForm.metaInstanceId
+            assignPaAcEntity.instanceId = assignFdAcForm.instanceId
+            assignPaAcEntity.controlKey = assignFdAcForm.instanceId
 
             assignPaAcEntity.setOfPlantLabeling = "${assignPaAcEntity.controlKey}/plantLabeling"
 

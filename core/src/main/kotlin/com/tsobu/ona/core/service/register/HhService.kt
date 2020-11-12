@@ -115,8 +115,8 @@ constructor(
             frEntity.todayDate = myDateUtil.convertToDate(myVal.today)
             frEntity.startDate = myDateUtil.convertToDateTime(myVal.start)
             frEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
-            frEntity.instanceId = myVal.metaInstanceID
-            frEntity.controlKey = myVal.metaInstanceID
+            frEntity.instanceId = myVal.instanceId
+            frEntity.controlKey = myVal.instanceId
 
             try {
                 hhEntityData.add(frEntity)

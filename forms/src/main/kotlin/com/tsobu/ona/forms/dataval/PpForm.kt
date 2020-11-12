@@ -114,7 +114,7 @@ class PpForm {
     var eventValue: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceId: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("purpose/redPlot")
     var redPlot: String? = null

@@ -130,10 +130,10 @@ constructor(
             poAcEntity.startDate = myDateUtil.convertToDateTime(poAssignAcForm.start)
             poAcEntity.endDate = myDateUtil.convertToDateTime(poAssignAcForm.end)
             poAcEntity.plantingDate = myDateUtil.convertToDate(poAssignAcForm.plantingDate)
-            poAcEntity.instanceid = poAssignAcForm.metaInstanceID
-            poAcEntity.controlKey = poAssignAcForm.metaInstanceID
+            poAcEntity.instanceid = poAssignAcForm.instanceId
+            poAcEntity.controlKey = poAssignAcForm.instanceId
 
-            poAcEntity.setOfPlotLabeling = "${poAssignAcForm.metaInstanceID}/plotLabeling"
+            poAcEntity.setOfPlotLabeling = "${poAssignAcForm.instanceId}/plotLabeling"
 
             //child data
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
@@ -143,8 +143,8 @@ constructor(
                 val labelEntity = modelMapper.map(labelingForm, ConfirmPoAcPlotLabelingEntity::class.java)
                 labelEntity.parentKey = poAcEntity.controlKey
                 labelEntity.setOfPlotLabeling = poAcEntity.setOfPlotLabeling
-                labelEntity.controlKey = "${poAssignAcForm.metaInstanceID}/plotLabeling[$nextCounter]"
-                labelEntity.setOfPlotLabeling = "${poAssignAcForm.metaInstanceID}/plotLabeling"
+                labelEntity.controlKey = "${poAssignAcForm.instanceId}/plotLabeling[$nextCounter]"
+                labelEntity.setOfPlotLabeling = "${poAssignAcForm.instanceId}/plotLabeling"
 
                 nextCounter = nextCounter.plus(1)
                 labelData.add(labelEntity)

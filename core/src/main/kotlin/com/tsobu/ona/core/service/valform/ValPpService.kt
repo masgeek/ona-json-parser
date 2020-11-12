@@ -142,8 +142,8 @@ constructor(
             valPpEntity.startDate = myDateUtil.convertToDateTime(ppForm.start)
             valPpEntity.endDate = myDateUtil.convertToDateTime(ppForm.end)
             valPpEntity.plantingDate = myDateUtil.convertToDate(ppForm.plantingDate)
-            valPpEntity.instanceId = ppForm.metaInstanceID
-            valPpEntity.controlKey = ppForm.metaInstanceID
+            valPpEntity.instanceId = ppForm.instanceId
+            valPpEntity.controlKey = ppForm.instanceId
 
             ppData.add(valPpEntity)
 

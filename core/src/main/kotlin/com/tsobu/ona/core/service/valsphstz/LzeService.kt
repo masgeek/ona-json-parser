@@ -120,8 +120,8 @@ constructor(
             ezEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
             ezEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
             ezEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
-            ezEntity.instanceId = myVal.metaInstanceID
-            ezEntity.controlKey = myVal.metaInstanceID
+            ezEntity.instanceId = myVal.instanceId
+            ezEntity.controlKey = myVal.instanceId
 
 
             try {

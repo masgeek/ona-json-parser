@@ -120,10 +120,10 @@ constructor(
             acEntity.todayDate = myDateUtil.convertToDate(acForm.today)
             acEntity.startDate = myDateUtil.convertToDateTime(acForm.start)
             acEntity.endDate = myDateUtil.convertToDateTime(acForm.end)
-            acEntity.instanceId = acForm.metaInstanceID
-            acEntity.controlKey = acForm.metaInstanceID
+            acEntity.instanceId = acForm.instanceId
+            acEntity.controlKey = acForm.instanceId
 
-            acEntity.setOfPlantSample = "${acForm.metaInstanceID}/plantSample"
+            acEntity.setOfPlantSample = "${acForm.instanceId}/plantSample"
 
             //child data
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
@@ -133,7 +133,7 @@ constructor(
                 val idEntity = modelMapper.map(plantSampleForm, RecordDmPsAcPlantSampleEntity::class.java)
                 idEntity.parentKey = acEntity.controlKey
                 idEntity.setOfPlantSample = acEntity.setOfPlantSample
-                idEntity.controlKey = "${acForm.metaInstanceID}/plantSample[$sampleCounter]"
+                idEntity.controlKey = "${acForm.instanceId}/plantSample[$sampleCounter]"
 
                 sampleCounter = sampleCounter.plus(1)
                 plantSampleData.add(idEntity)

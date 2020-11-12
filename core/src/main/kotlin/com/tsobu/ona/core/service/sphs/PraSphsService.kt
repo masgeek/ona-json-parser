@@ -118,8 +118,8 @@ constructor(
             praSphsEntity.todayDate = myDateUtil.convertToDate(praSphsForm.today)
             praSphsEntity.startDate = myDateUtil.convertToDateTime(praSphsForm.start)
             praSphsEntity.endDate = myDateUtil.convertToDateTime(praSphsForm.end)
-            praSphsEntity.instanceId = praSphsForm.metaInstanceID
-            praSphsEntity.controlKey = praSphsForm.metaInstanceID
+            praSphsEntity.instanceId = praSphsForm.instanceId
+            praSphsEntity.controlKey = praSphsForm.instanceId
 
             praSphsData.add(praSphsEntity)
         }

@@ -126,8 +126,8 @@ constructor(
             valFrEntity.startDate = myDateUtil.convertToDateTime(valFrForm.start)
             valFrEntity.endDate = myDateUtil.convertToDateTime(valFrForm.end)
             valFrEntity.plantingDate = myDateUtil.convertToDate(valFrForm.plantingDate)
-            valFrEntity.instanceId = valFrForm.metaInstanceID
-            valFrEntity.controlKey = valFrForm.metaInstanceID
+            valFrEntity.instanceId = valFrForm.instanceId
+            valFrEntity.controlKey = valFrForm.instanceId
 
             valFrData.add(valFrEntity)
             log.info("Added data to table ${valFrEntity.controlKey} with surname as ${valFrForm.xformIdString}")

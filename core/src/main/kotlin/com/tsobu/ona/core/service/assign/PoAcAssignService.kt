@@ -138,8 +138,8 @@ constructor(
             assignPoAcEntity.todayDate = myDateUtil.convertToDate(assignPoAcForm.today)
             assignPoAcEntity.startDate = myDateUtil.convertToDateTime(assignPoAcForm.start)
             assignPoAcEntity.endDate = myDateUtil.convertToDateTime(assignPoAcForm.end)
-            assignPoAcEntity.instanceId = assignPoAcForm.metaInstanceId
-            assignPoAcEntity.controlKey = assignPoAcForm.metaInstanceId
+            assignPoAcEntity.instanceId = assignPoAcForm.instanceId
+            assignPoAcEntity.controlKey = assignPoAcForm.instanceId
 
             assignPoAcEntity.setOfPlotLabeling = "${assignPoAcEntity.controlKey}/plotLabeling"
 

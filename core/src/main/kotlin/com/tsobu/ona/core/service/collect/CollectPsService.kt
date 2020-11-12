@@ -135,8 +135,8 @@ constructor(
             psAcEntity.todayDate = myDateUtil.convertToDate(psAcForm.today)
             psAcEntity.startDate = myDateUtil.convertToDateTime(psAcForm.start)
             psAcEntity.endDate = myDateUtil.convertToDateTime(psAcForm.end)
-            psAcEntity.instanceId = psAcForm.metaInstanceID
-            psAcEntity.controlKey = psAcForm.metaInstanceID
+            psAcEntity.instanceId = psAcForm.instanceId
+            psAcEntity.controlKey = psAcForm.instanceId
             psAcEntity.setOfPlantSample = "${psAcEntity.controlKey}/plantSample"
             psAcData.add(psAcEntity)
 

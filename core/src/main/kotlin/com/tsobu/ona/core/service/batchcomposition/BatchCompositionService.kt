@@ -138,8 +138,8 @@ constructor(
             compositionEntity.todayDate = myDateUtil.convertToDate(compositionForm.today)
             compositionEntity.startDate = myDateUtil.convertToDateTime(compositionForm.start)
             compositionEntity.endDate = myDateUtil.convertToDateTime(compositionForm.end)
-            compositionEntity.instanceId = compositionForm.metaInstanceID
-            compositionEntity.controlKey = compositionForm.metaInstanceID
+            compositionEntity.instanceId = compositionForm.instanceId
+            compositionEntity.controlKey = compositionForm.instanceId
 
             compositionEntity.setOfSampleListSample = "${compositionEntity.instanceId}/sample"
             compositionEntity.setOfNextStepNext = "${compositionEntity.instanceId}/next"

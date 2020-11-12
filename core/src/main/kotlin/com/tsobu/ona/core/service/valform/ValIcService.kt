@@ -127,8 +127,8 @@ constructor(
             valFrEntity.startDate = myDateUtil.convertToDateTime(valIcForm.start)
             valFrEntity.endDate = myDateUtil.convertToDateTime(valIcForm.end)
             valFrEntity.plantingDate = myDateUtil.convertToDate(valIcForm.plantingDate)
-            valFrEntity.instanceId = valIcForm.metaInstanceID
-            valFrEntity.controlKey = valIcForm.metaInstanceID
+            valFrEntity.instanceId = valIcForm.instanceId
+            valFrEntity.controlKey = valIcForm.instanceId
 
 //            valFrEntity.profitExtraPlot = valIcForm.callValue
 

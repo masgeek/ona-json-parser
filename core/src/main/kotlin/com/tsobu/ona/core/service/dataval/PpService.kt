@@ -189,8 +189,8 @@ constructor(
             ppEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
             ppEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
             ppEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
-            ppEntity.instanceId = myVal.metaInstanceID
-            ppEntity.controlKey = myVal.metaInstanceID
+            ppEntity.instanceId = myVal.instanceId
+            ppEntity.controlKey = myVal.instanceId
 
             ppEntityData.add(ppEntity)
 

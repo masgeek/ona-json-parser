@@ -229,7 +229,7 @@ class ValFrForm {
     var rateNafakaMin: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceId: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("netRevLocCur_AB")
     var netRevLocCurAB: String? = null

@@ -118,8 +118,8 @@ constructor(
             szEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
             szEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
             szEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
-            szEntity.instanceid = myVal.metaInstanceID
-            szEntity.controlKey = myVal.metaInstanceID
+            szEntity.instanceid = myVal.instanceId
+            szEntity.controlKey = myVal.instanceId
 
             try {
                 val saved = szRepo.save(szEntity)

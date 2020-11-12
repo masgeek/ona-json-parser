@@ -250,7 +250,7 @@ class ValSphsOnForm {
     var unitNameSelect: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceId: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("plantingDensity")
     var plantingDensity: String? = null

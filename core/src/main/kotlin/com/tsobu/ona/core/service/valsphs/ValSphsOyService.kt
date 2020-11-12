@@ -128,8 +128,8 @@ constructor(
             onEntity.todayDate = myDateUtil.convertToDate(oyForm.today)
             onEntity.startDate = myDateUtil.convertToDateTime(oyForm.start)
             onEntity.endDate = myDateUtil.convertToDateTime(oyForm.end)
-            onEntity.instanceId = oyForm.metaInstanceID
-            onEntity.controlKey = oyForm.metaInstanceID
+            onEntity.instanceId = oyForm.instanceId
+            onEntity.controlKey = oyForm.instanceId
 
             onEntity.gpDif = oyForm.gpDif
 

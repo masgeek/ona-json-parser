@@ -141,9 +141,9 @@ constructor(
             ppTzEntity.startDate = myDateUtil.convertToDateTime(ppForm.start)
             ppTzEntity.endDate = myDateUtil.convertToDateTime(ppForm.end)
             ppTzEntity.plantingDate = myDateUtil.convertToDate(ppForm.plantingDate)
-            ppTzEntity.instanceId = ppForm.metaInstanceID
-            ppTzEntity.controlKey = ppForm.metaInstanceID
-            ppTzEntity.setOfPw = "${ppForm.metaInstanceID}/PW"
+            ppTzEntity.instanceId = ppForm.instanceId
+            ppTzEntity.controlKey = ppForm.instanceId
+            ppTzEntity.setOfPw = "${ppForm.instanceId}/PW"
 
             ppData.add(ppTzEntity)
 

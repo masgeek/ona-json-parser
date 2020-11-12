@@ -138,8 +138,8 @@ constructor(
             tagsAcEntity.todayDate = myDateUtil.convertToDate(leafTagsAcForm.today)
             tagsAcEntity.startDate = myDateUtil.convertToDateTime(leafTagsAcForm.start)
             tagsAcEntity.endDate = myDateUtil.convertToDateTime(leafTagsAcForm.end)
-            tagsAcEntity.instanceId = leafTagsAcForm.metaInstanceID
-            tagsAcEntity.controlKey = leafTagsAcForm.metaInstanceID
+            tagsAcEntity.instanceId = leafTagsAcForm.instanceId
+            tagsAcEntity.controlKey = leafTagsAcForm.instanceId
             tagsAcEntity.setOfId = "${tagsAcEntity.controlKey}/ID"
 
             leafTagAcData.add(tagsAcEntity)

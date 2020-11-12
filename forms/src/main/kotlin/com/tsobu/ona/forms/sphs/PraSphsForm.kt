@@ -126,7 +126,7 @@ class PraSphsForm {
     var unitNameSelect: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceId: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("unitLocalWeight")
     var unitLocalWeight: String? = null

@@ -123,8 +123,8 @@ constructor(
             tlAcEntity.todayDate = myDateUtil.convertToDate(assignTlAcForm.today)
             tlAcEntity.startDate = myDateUtil.convertToDateTime(assignTlAcForm.start)
             tlAcEntity.endDate = myDateUtil.convertToDateTime(assignTlAcForm.end)
-            tlAcEntity.instanceId = assignTlAcForm.metaInstanceId
-            tlAcEntity.controlKey = assignTlAcForm.metaInstanceId
+            tlAcEntity.instanceId = assignTlAcForm.instanceId
+            tlAcEntity.controlKey = assignTlAcForm.instanceId
 
             tlAcData.add(tlAcEntity)
         }

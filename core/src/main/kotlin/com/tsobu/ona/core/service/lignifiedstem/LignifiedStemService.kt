@@ -133,8 +133,8 @@ constructor(
             yieldCassAcEntity.todayDate = myDateUtil.convertToDate(yieldCassavaAcForm.today)
             yieldCassAcEntity.startDate = myDateUtil.convertToDateTime(yieldCassavaAcForm.start)
             yieldCassAcEntity.endDate = myDateUtil.convertToDateTime(yieldCassavaAcForm.end)
-            yieldCassAcEntity.instanceId = yieldCassavaAcForm.metaInstanceID
-            yieldCassAcEntity.controlKey = yieldCassavaAcForm.metaInstanceID
+            yieldCassAcEntity.instanceId = yieldCassavaAcForm.instanceId
+            yieldCassAcEntity.controlKey = yieldCassavaAcForm.instanceId
             yieldCassAcEntity.setOfYieldAssessment = "${yieldCassAcEntity.controlKey}/yieldAssessment"
 
             lignifiedAcData.add(yieldCassAcEntity)
