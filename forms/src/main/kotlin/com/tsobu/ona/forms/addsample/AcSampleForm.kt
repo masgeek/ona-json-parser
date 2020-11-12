@@ -6,9 +6,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder("sample/newLabel", "sample/nrLabels", "sample/plantSampleID", "sample/newLabel_count", "sample/soilSampleID")
-class AcSample {
+class AcSampleForm {
     @JsonProperty("sample/newLabel")
-    var acNewLabel: List<AcNewLabel>? = null
+    var acNewLabel: List<AcNewLabelForm>? = null
 
     @JsonProperty("sample/nrLabels")
     var nrLabels: String? = null

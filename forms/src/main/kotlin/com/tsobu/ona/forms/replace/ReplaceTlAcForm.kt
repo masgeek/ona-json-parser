@@ -60,7 +60,7 @@ class ReplaceTlAcForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xFormId: Int? = null
 
     @JsonProperty("plotLabel")
     var plotLabel: String? = null

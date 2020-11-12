@@ -84,7 +84,7 @@ class CheckIdRegForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: String? = null
+    var xFormId: String? = null
 
     @JsonProperty("levelName")
     var levelName: String? = null

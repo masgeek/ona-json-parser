@@ -139,7 +139,7 @@ class ValPpTzForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: String? = null
+    var xFormId: String? = null
 
     @JsonProperty("implement")
     var implement: String? = null

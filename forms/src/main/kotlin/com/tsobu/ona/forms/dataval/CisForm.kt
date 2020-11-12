@@ -66,7 +66,7 @@ class CisForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xFormId: Int? = null
 
     @JsonProperty("loc_field")
     var locField: String? = null

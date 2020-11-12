@@ -51,7 +51,7 @@ class SampleBatchCompositionForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xFormId: Int? = null
 
     @JsonProperty("intro/aim")
     var aim: String? = null

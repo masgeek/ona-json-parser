@@ -60,7 +60,7 @@ class ReplaceFdAcForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xFormId: Int? = null
 
     @JsonProperty("simserial")
     var simserial: String? = null

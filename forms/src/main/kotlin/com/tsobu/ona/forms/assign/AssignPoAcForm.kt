@@ -57,7 +57,7 @@ class AssignPoAcForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: String? = null
+    var xFormId: String? = null
 
     @JsonProperty("simserial")
     var simserial: String? = null
@@ -78,7 +78,7 @@ class AssignPoAcForm {
     var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
-    var formhubUuId: String? = null
+    var formHubUuId: String? = null
 
     @JsonProperty("nrTreatments")
     var nrTreatments: String? = null

@@ -36,7 +36,7 @@ class AcForm {
     var entity: String? = null
 
     @JsonProperty("sample")
-    var acSampleList: List<AcSample>? = null
+    var acSampleList: List<AcSampleForm>? = null
 
     @JsonProperty("_edited")
     var edited: Boolean? = null
@@ -57,7 +57,7 @@ class AcForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: String? = null
+    var xFormId: String? = null
 
     @JsonProperty("simserial")
     var simserial: String? = null

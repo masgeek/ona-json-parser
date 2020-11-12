@@ -65,7 +65,7 @@ class FrForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: String? = null
+    var xFormId: String? = null
 
     @JsonProperty("loc_field")
     var locField: String? = null

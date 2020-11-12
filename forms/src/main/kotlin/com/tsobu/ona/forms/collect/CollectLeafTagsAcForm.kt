@@ -72,7 +72,7 @@ class CollectLeafTagsAcForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: String? = null
+    var xFormId: String? = null
 
     @JsonProperty("_attachments")
     var attachments: List<Any> = ArrayList()

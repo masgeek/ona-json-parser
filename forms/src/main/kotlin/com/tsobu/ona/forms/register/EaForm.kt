@@ -71,7 +71,7 @@ class EaForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xFormId: Int? = null
 
     @JsonProperty("_attachments")
     var attachments: List<Attachment> = ArrayList()

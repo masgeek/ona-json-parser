@@ -78,7 +78,7 @@ class PraSphsForm {
     var duration: Double? = null
 
     @JsonProperty("_xform_id")
-    var xformId: String? = null
+    var xFormId: String? = null
 
     @JsonProperty("simserial")
     var simserial: String? = null

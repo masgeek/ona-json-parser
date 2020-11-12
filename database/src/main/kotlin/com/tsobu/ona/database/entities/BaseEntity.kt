@@ -10,7 +10,7 @@ open class BaseEntity {
     @Column(name = "id", updatable = false, nullable = false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    var id: Long? = null
+    var recordPk: Long? = null
 
 //    @CreationTimestamp
 //    @Column(name = "created_at", updatable = false, nullable = false)
