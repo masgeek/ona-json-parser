@@ -127,8 +127,9 @@ constructor(
             onEntity.todayDate = myDateUtil.convertToDate(ogForm.todayDate)
             onEntity.startDate = myDateUtil.convertToDateTime(ogForm.startDate)
             onEntity.endDate = myDateUtil.convertToDateTime(ogForm.endDate)
-            onEntity.plantingDate = myDateUtil.convertToDateTime(ogForm.plantingDate)
-            onEntity.harvestDate = myDateUtil.convertToDateTime(ogForm.harvestDate)
+
+            onEntity.plantingDate = myDateUtil.convertToDate(ogForm.plantingDate)
+            onEntity.harvestDate = myDateUtil.convertToDate(ogForm.harvestDate)
             onEntity.instanceId = ogForm.instanceId
             onEntity.controlKey = ogForm.instanceId
 

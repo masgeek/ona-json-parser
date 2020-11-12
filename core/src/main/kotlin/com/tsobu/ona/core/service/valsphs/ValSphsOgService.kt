@@ -128,6 +128,9 @@ constructor(
             ogEntity.todayDate = myDateUtil.convertToDate(ogForm.todayDate)
             ogEntity.startDate = myDateUtil.convertToDateTime(ogForm.startDate)
             ogEntity.endDate = myDateUtil.convertToDateTime(ogForm.endDate)
+
+            ogEntity.plantingDate = myDateUtil.convertToDate(ogForm.plantingDate)
+            ogEntity.harvestDate = myDateUtil.convertToDate(ogForm.harvestDate)
             ogEntity.instanceId = ogForm.instanceId
             ogEntity.controlKey = ogForm.instanceId
 
