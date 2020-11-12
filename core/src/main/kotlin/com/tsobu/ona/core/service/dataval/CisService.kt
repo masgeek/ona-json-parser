@@ -63,7 +63,7 @@ constructor(
             cisDto.submissionDate = myDateUtil.toDateTimeString(cisEntity.submissionDate)
             cisDto.startDate = myDateUtil.toDateTimeString(cisEntity.startDate)
             cisDto.endDate = myDateUtil.toDateTimeString(cisEntity.endDate)
-            cisDto.today = myDateUtil.toDateToString(cisEntity.todayDate)
+            cisDto.todayDate = myDateUtil.toDateToString(cisEntity.todayDate)
 
             cisDto.dateCassavaHarvest = myDateUtil.toDateToString(cisEntity.dateCassavaHarvest)
             cisDto.dateSweetPotatoHarvest = myDateUtil.toDateToString(cisEntity.dateSweetPotatoHarvest)
@@ -136,9 +136,9 @@ constructor(
             }
             cisEntity.formHubUuId = cisForm.formhubUuid
             cisEntity.submissionDate = myDateUtil.convertToDateTime(cisForm.submissionTime)
-            cisEntity.todayDate = myDateUtil.convertToDate(cisForm.today)
-            cisEntity.startDate = myDateUtil.convertToDateTime(cisForm.start)
-            cisEntity.endDate = myDateUtil.convertToDateTime(cisForm.end)
+            cisEntity.todayDate = myDateUtil.convertToDate(cisForm.todayDate)
+            cisEntity.startDate = myDateUtil.convertToDateTime(cisForm.startDate)
+            cisEntity.endDate = myDateUtil.convertToDateTime(cisForm.endDate)
             cisEntity.instanceId = cisForm.instanceId
             cisEntity.controlKey = cisForm.instanceId
 

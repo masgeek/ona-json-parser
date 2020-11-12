@@ -66,9 +66,9 @@ constructor(
         val yieldCassAcData = acEntityList.map { acEntity ->
             val yieldCassAcDto = modelMapper.map(acEntity, LignifiedStemYieldCassAcDto::class.java)
             yieldCassAcDto.submissionDate = myDateUtil.toDateTimeString(acEntity.submissionDate)
-            yieldCassAcDto.start = myDateUtil.toDateTimeString(acEntity.startDate)
-            yieldCassAcDto.end = myDateUtil.toDateTimeString(acEntity.endDate)
-            yieldCassAcDto.today = myDateUtil.toDateToString(acEntity.todayDate)
+            yieldCassAcDto.startDate = myDateUtil.toDateTimeString(acEntity.startDate)
+            yieldCassAcDto.endDate = myDateUtil.toDateTimeString(acEntity.endDate)
+            yieldCassAcDto.todayDate = myDateUtil.toDateToString(acEntity.todayDate)
             yieldCassAcDto
         }
 
@@ -130,9 +130,9 @@ constructor(
             }
             yieldCassAcEntity.formHubUuId = yieldCassavaAcForm.formhubUuid
             yieldCassAcEntity.submissionDate = myDateUtil.convertToDateTime(yieldCassavaAcForm.submissionTime)
-            yieldCassAcEntity.todayDate = myDateUtil.convertToDate(yieldCassavaAcForm.today)
-            yieldCassAcEntity.startDate = myDateUtil.convertToDateTime(yieldCassavaAcForm.start)
-            yieldCassAcEntity.endDate = myDateUtil.convertToDateTime(yieldCassavaAcForm.end)
+            yieldCassAcEntity.todayDate = myDateUtil.convertToDate(yieldCassavaAcForm.todayDate)
+            yieldCassAcEntity.startDate = myDateUtil.convertToDateTime(yieldCassavaAcForm.startDate)
+            yieldCassAcEntity.endDate = myDateUtil.convertToDateTime(yieldCassavaAcForm.endDate)
             yieldCassAcEntity.instanceId = yieldCassavaAcForm.instanceId
             yieldCassAcEntity.controlKey = yieldCassavaAcForm.instanceId
             yieldCassAcEntity.setOfYieldAssessment = "${yieldCassAcEntity.controlKey}/yieldAssessment"

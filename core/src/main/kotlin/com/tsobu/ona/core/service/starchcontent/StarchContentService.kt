@@ -66,9 +66,9 @@ constructor(
         val yieldCassAcData = acEntityList.map { starchContentAcEntity ->
             val starchContentAcDto = modelMapper.map(starchContentAcEntity, StarchContentAcDto::class.java)
             starchContentAcDto.submissionDate = myDateUtil.toDateTimeString(starchContentAcEntity.submissionDate)
-            starchContentAcDto.start = myDateUtil.toDateTimeString(starchContentAcEntity.startDate)
-            starchContentAcDto.end = myDateUtil.toDateTimeString(starchContentAcEntity.endDate)
-            starchContentAcDto.today = myDateUtil.toDateToString(starchContentAcEntity.todayDate)
+            starchContentAcDto.startDate = myDateUtil.toDateTimeString(starchContentAcEntity.startDate)
+            starchContentAcDto.endDate = myDateUtil.toDateTimeString(starchContentAcEntity.endDate)
+            starchContentAcDto.todayDate = myDateUtil.toDateToString(starchContentAcEntity.todayDate)
             starchContentAcDto
         }
 
@@ -130,9 +130,9 @@ constructor(
             }
             starchContentAcEntity.formHubUuId = starchContentAcForm.formhubUuid
             starchContentAcEntity.submissionDate = myDateUtil.convertToDateTime(starchContentAcForm.submissionTime)
-            starchContentAcEntity.todayDate = myDateUtil.convertToDate(starchContentAcForm.today)
-            starchContentAcEntity.startDate = myDateUtil.convertToDateTime(starchContentAcForm.start)
-            starchContentAcEntity.endDate = myDateUtil.convertToDateTime(starchContentAcForm.end)
+            starchContentAcEntity.todayDate = myDateUtil.convertToDate(starchContentAcForm.todayDate)
+            starchContentAcEntity.startDate = myDateUtil.convertToDateTime(starchContentAcForm.startDate)
+            starchContentAcEntity.endDate = myDateUtil.convertToDateTime(starchContentAcForm.endDate)
             starchContentAcEntity.instanceId = starchContentAcForm.instanceId
             starchContentAcEntity.controlKey = starchContentAcForm.instanceId
             starchContentAcEntity.setOfAssessStarch = "${starchContentAcEntity.controlKey}/assessStarch"

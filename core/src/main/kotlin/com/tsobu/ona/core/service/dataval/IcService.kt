@@ -64,7 +64,7 @@ constructor(
             icDto.startDate = myDateUtil.toDateTimeString(icEntity.startDate)
             icDto.endDate = myDateUtil.toDateTimeString(icEntity.endDate)
 
-            icDto.today= myDateUtil.toDateToString(icEntity.todayDate)
+            icDto.todayDate= myDateUtil.toDateToString(icEntity.todayDate)
             icDto.dateCassavaHarvest = myDateUtil.toDateToString(icEntity.dateCassavaHarvest)
             icDto.dateMaizeHarvest = myDateUtil.toDateToString(icEntity.dateMaizeHarvest)
             icDto.cassavaGappingDate = myDateUtil.toDateToString(icEntity.cassavaGappingDate)
@@ -140,9 +140,9 @@ constructor(
             }
             icEntity.formHubUuId = icForm.formhubUuid
             icEntity.submissionDate = myDateUtil.convertToDateTime(icForm.submissionTime)
-            icEntity.todayDate = myDateUtil.convertToDate(icForm.today)
-            icEntity.startDate = myDateUtil.convertToDateTime(icForm.start)
-            icEntity.endDate = myDateUtil.convertToDateTime(icForm.end)
+            icEntity.todayDate = myDateUtil.convertToDate(icForm.todayDate)
+            icEntity.startDate = myDateUtil.convertToDateTime(icForm.startDate)
+            icEntity.endDate = myDateUtil.convertToDateTime(icForm.endDate)
             icEntity.plantingDate = myDateUtil.convertToDate(icForm.plantingDate)
             icEntity.instanceid = icForm.instanceId
             icEntity.controlKey = icForm.instanceId

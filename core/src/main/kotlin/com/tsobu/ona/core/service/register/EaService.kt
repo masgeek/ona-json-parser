@@ -63,7 +63,7 @@ constructor(
             eaDto.submissionDate = myDateUtil.toDateTimeString(eaEntity.submissionDate)
             eaDto.startDate = myDateUtil.toDateTimeString(eaEntity.startDate)
             eaDto.endDate = myDateUtil.toDateTimeString(eaEntity.endDate)
-            eaDto.today = myDateUtil.toDateTimeString(eaEntity.todayDate)
+            eaDto.todayDate = myDateUtil.toDateTimeString(eaEntity.todayDate)
             eaDto
         }
 
@@ -114,9 +114,9 @@ constructor(
             }
             frEntity.formHubUuId = eaForm.formhubUuid
             frEntity.submissionDate = myDateUtil.convertToDateTime(eaForm.submissionTime)
-            frEntity.todayDate = myDateUtil.convertToDate(eaForm.today)
-            frEntity.startDate = myDateUtil.convertToDateTime(eaForm.start)
-            frEntity.endDate = myDateUtil.convertToDateTime(eaForm.end)
+            frEntity.todayDate = myDateUtil.convertToDate(eaForm.todayDate)
+            frEntity.startDate = myDateUtil.convertToDateTime(eaForm.startDate)
+            frEntity.endDate = myDateUtil.convertToDateTime(eaForm.endDate)
             frEntity.instanceId = eaForm.instanceId
             frEntity.controlKey = eaForm.instanceId
 

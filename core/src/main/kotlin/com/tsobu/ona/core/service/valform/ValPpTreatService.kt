@@ -64,9 +64,9 @@ constructor(
         val treatData = ppList.map { treatEntity ->
             val treatDto = modelMapper.map(treatEntity, VaLPpTreatDto::class.java)
             treatDto.submissionDate = myDateUtil.toDateTimeString(treatEntity.submissionDate)
-            treatDto.start = myDateUtil.toDateTimeString(treatEntity.startDate)
-            treatDto.end = myDateUtil.toDateTimeString(treatEntity.endDate)
-            treatDto.today = myDateUtil.toDateToString(treatEntity.todayDate)
+            treatDto.startDate = myDateUtil.toDateTimeString(treatEntity.startDate)
+            treatDto.endDate = myDateUtil.toDateTimeString(treatEntity.endDate)
+            treatDto.todayDate = myDateUtil.toDateToString(treatEntity.todayDate)
             treatDto
         }
 
@@ -122,9 +122,9 @@ constructor(
             }
             treatEntity.formHubUuId = treatForm.formhubUuid
             treatEntity.submissionDate = myDateUtil.convertToDateTime(treatForm.submissionTime)
-            treatEntity.todayDate = myDateUtil.convertToDate(treatForm.today)
-            treatEntity.startDate = myDateUtil.convertToDateTime(treatForm.start)
-            treatEntity.endDate = myDateUtil.convertToDateTime(treatForm.end)
+            treatEntity.todayDate = myDateUtil.convertToDate(treatForm.todayDate)
+            treatEntity.startDate = myDateUtil.convertToDateTime(treatForm.startDate)
+            treatEntity.endDate = myDateUtil.convertToDateTime(treatForm.endDate)
             treatEntity.instanceId = treatForm.instanceId
             treatEntity.controlKey = treatForm.instanceId
 

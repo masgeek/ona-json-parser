@@ -108,9 +108,9 @@ constructor(
                 }
                 weedEntity.formHubUuId = myVal.formHubUuid
                 weedEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
-                weedEntity.todayDate = myDateUtil.convertToDate(myVal.today)
-                weedEntity.startDate = myDateUtil.convertToDateTime(myVal.start)
-                weedEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
+                weedEntity.todayDate = myDateUtil.convertToDate(myVal.todayDate)
+                weedEntity.startDate = myDateUtil.convertToDateTime(myVal.startDate)
+                weedEntity.endDate = myDateUtil.convertToDateTime(myVal.endDate)
                 weedEntity.setOfId = "${myVal.instanceId}/ID"
                 weedEntity.instanceId = myVal.instanceId
                 weedEntity.controlKey = myVal.instanceId

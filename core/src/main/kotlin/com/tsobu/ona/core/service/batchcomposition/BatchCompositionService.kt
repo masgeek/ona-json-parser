@@ -74,9 +74,9 @@ constructor(
         val compositionData = compositionList.map { compositionEntity ->
             val compositionDto = modelMapper.map(compositionEntity, CompositionDto::class.java)
             compositionDto.submissionDate = myDateUtil.toDateTimeString(compositionEntity.submissionDate)
-            compositionDto.start = myDateUtil.toDateTimeString(compositionEntity.startDate)
-            compositionDto.end = myDateUtil.toDateTimeString(compositionEntity.endDate)
-            compositionDto.today = myDateUtil.toDateToString(compositionEntity.todayDate)
+            compositionDto.startDate = myDateUtil.toDateTimeString(compositionEntity.startDate)
+            compositionDto.endDate = myDateUtil.toDateTimeString(compositionEntity.endDate)
+            compositionDto.todayDate = myDateUtil.toDateToString(compositionEntity.todayDate)
             compositionDto
         }
 
@@ -135,9 +135,9 @@ constructor(
 
             compositionEntity.formHubUuId = compositionForm.formhubUuid
             compositionEntity.submissionDate = myDateUtil.convertToDateTime(compositionForm.submissionTime)
-            compositionEntity.todayDate = myDateUtil.convertToDate(compositionForm.today)
-            compositionEntity.startDate = myDateUtil.convertToDateTime(compositionForm.start)
-            compositionEntity.endDate = myDateUtil.convertToDateTime(compositionForm.end)
+            compositionEntity.todayDate = myDateUtil.convertToDate(compositionForm.todayDate)
+            compositionEntity.startDate = myDateUtil.convertToDateTime(compositionForm.startDate)
+            compositionEntity.endDate = myDateUtil.convertToDateTime(compositionForm.endDate)
             compositionEntity.instanceId = compositionForm.instanceId
             compositionEntity.controlKey = compositionForm.instanceId
 

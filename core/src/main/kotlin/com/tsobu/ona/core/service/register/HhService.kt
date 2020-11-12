@@ -112,9 +112,9 @@ constructor(
             }
             frEntity.formHubUuId = myVal.formhubUuid
             frEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
-            frEntity.todayDate = myDateUtil.convertToDate(myVal.today)
-            frEntity.startDate = myDateUtil.convertToDateTime(myVal.start)
-            frEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
+            frEntity.todayDate = myDateUtil.convertToDate(myVal.todayDate)
+            frEntity.startDate = myDateUtil.convertToDateTime(myVal.startDate)
+            frEntity.endDate = myDateUtil.convertToDateTime(myVal.endDate)
             frEntity.instanceId = myVal.instanceId
             frEntity.controlKey = myVal.instanceId
 

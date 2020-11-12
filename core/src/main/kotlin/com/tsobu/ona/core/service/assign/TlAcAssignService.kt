@@ -63,9 +63,9 @@ constructor(
         val tlAcData = tlAcEntityList.map { assignTlAcEntity ->
             val assignPaAcDto = modelMapper.map(assignTlAcEntity, AssignTlAcDto::class.java)
             assignPaAcDto.submissionDate = myDateUtil.toDateTimeString(assignTlAcEntity.submissionDate)
-            assignPaAcDto.start = myDateUtil.toDateTimeString(assignTlAcEntity.startDate)
-            assignPaAcDto.end = myDateUtil.toDateTimeString(assignTlAcEntity.endDate)
-            assignPaAcDto.today = myDateUtil.toDateToString(assignTlAcEntity.todayDate)
+            assignPaAcDto.startDate = myDateUtil.toDateTimeString(assignTlAcEntity.startDate)
+            assignPaAcDto.endDate = myDateUtil.toDateTimeString(assignTlAcEntity.endDate)
+            assignPaAcDto.todayDate = myDateUtil.toDateToString(assignTlAcEntity.todayDate)
             assignPaAcDto
         }
 
@@ -120,9 +120,9 @@ constructor(
             }
             tlAcEntity.formHubUuId = assignTlAcForm.formHubUuId
             tlAcEntity.submissionDate = myDateUtil.convertToDateTime(assignTlAcForm.submissionTime)
-            tlAcEntity.todayDate = myDateUtil.convertToDate(assignTlAcForm.today)
-            tlAcEntity.startDate = myDateUtil.convertToDateTime(assignTlAcForm.start)
-            tlAcEntity.endDate = myDateUtil.convertToDateTime(assignTlAcForm.end)
+            tlAcEntity.todayDate = myDateUtil.convertToDate(assignTlAcForm.todayDate)
+            tlAcEntity.startDate = myDateUtil.convertToDateTime(assignTlAcForm.startDate)
+            tlAcEntity.endDate = myDateUtil.convertToDateTime(assignTlAcForm.endDate)
             tlAcEntity.instanceId = assignTlAcForm.instanceId
             tlAcEntity.controlKey = assignTlAcForm.instanceId
 

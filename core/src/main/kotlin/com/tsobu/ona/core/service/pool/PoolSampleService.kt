@@ -73,7 +73,7 @@ constructor(
             poolSamplesAcDto.submissionDate = myDateUtil.toDateTimeString(poolSamplesAcEntity.submissionDate)
             poolSamplesAcDto.startDate = myDateUtil.toDateTimeString(poolSamplesAcEntity.startDate)
             poolSamplesAcDto.endDate = myDateUtil.toDateTimeString(poolSamplesAcEntity.endDate)
-            poolSamplesAcDto.today = myDateUtil.toDateToString(poolSamplesAcEntity.todayDate)
+            poolSamplesAcDto.todayDate = myDateUtil.toDateToString(poolSamplesAcEntity.todayDate)
             poolSamplesAcDto
         }
 
@@ -130,9 +130,9 @@ constructor(
 
             acEntity.formHubUuId = poolSamplesAcForm.formhubUuid
             acEntity.submissionDate = myDateUtil.convertToDateTime(poolSamplesAcForm.submissionTime)
-            acEntity.todayDate = myDateUtil.convertToDate(poolSamplesAcForm.today)
-            acEntity.startDate = myDateUtil.convertToDateTime(poolSamplesAcForm.start)
-            acEntity.endDate = myDateUtil.convertToDateTime(poolSamplesAcForm.end)
+            acEntity.todayDate = myDateUtil.convertToDate(poolSamplesAcForm.todayDate)
+            acEntity.startDate = myDateUtil.convertToDateTime(poolSamplesAcForm.startDate)
+            acEntity.endDate = myDateUtil.convertToDateTime(poolSamplesAcForm.endDate)
             acEntity.instanceId = poolSamplesAcForm.instanceId
             acEntity.controlKey = poolSamplesAcForm.instanceId
 

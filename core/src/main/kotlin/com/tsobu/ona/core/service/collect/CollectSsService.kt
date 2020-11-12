@@ -65,9 +65,9 @@ constructor(
         val ssAcData = ssAcEntityList.map { ssAcEntity ->
             val ssAcDto = modelMapper.map(ssAcEntity, CollectSsAcDto::class.java)
             ssAcDto.submissionDate = myDateUtil.toDateTimeString(ssAcEntity.submissionDate)
-            ssAcDto.start = myDateUtil.toDateTimeString(ssAcEntity.startDate)
-            ssAcDto.end = myDateUtil.toDateTimeString(ssAcEntity.endDate)
-            ssAcDto.today = myDateUtil.toDateToString(ssAcEntity.todayDate)
+            ssAcDto.startDate = myDateUtil.toDateTimeString(ssAcEntity.startDate)
+            ssAcDto.endDate = myDateUtil.toDateTimeString(ssAcEntity.endDate)
+            ssAcDto.todayDate = myDateUtil.toDateToString(ssAcEntity.todayDate)
             ssAcDto
         }
 
@@ -133,9 +133,9 @@ constructor(
             }
             ssAcEntity.formHubUuId = ssAcForm.formhubUuid
             ssAcEntity.submissionDate = myDateUtil.convertToDateTime(ssAcForm.submissionTime)
-            ssAcEntity.todayDate = myDateUtil.convertToDate(ssAcForm.today)
-            ssAcEntity.startDate = myDateUtil.convertToDateTime(ssAcForm.start)
-            ssAcEntity.endDate = myDateUtil.convertToDateTime(ssAcForm.end)
+            ssAcEntity.todayDate = myDateUtil.convertToDate(ssAcForm.todayDate)
+            ssAcEntity.startDate = myDateUtil.convertToDateTime(ssAcForm.startDate)
+            ssAcEntity.endDate = myDateUtil.convertToDateTime(ssAcForm.endDate)
             ssAcEntity.instanceId = ssAcForm.instanceId
             ssAcEntity.controlKey = ssAcForm.instanceId
             ssAcEntity.setOfSoilSample = "${ssAcEntity.controlKey}/soilSample"

@@ -72,9 +72,9 @@ constructor(
         val acData = acEntityList.map { acEntity ->
             val acDto = modelMapper.map(acEntity, AcDto::class.java)
             acDto.submissionDate = myDateUtil.toDateTimeString(acEntity.submissionDate)
-            acDto.start = myDateUtil.toDateTimeString(acEntity.startDate)
-            acDto.end = myDateUtil.toDateTimeString(acEntity.endDate)
-            acDto.today = myDateUtil.toDateToString(acEntity.todayDate)
+            acDto.startDate = myDateUtil.toDateTimeString(acEntity.startDate)
+            acDto.endDate = myDateUtil.toDateTimeString(acEntity.endDate)
+            acDto.todayDate = myDateUtil.toDateToString(acEntity.todayDate)
             acDto
         }
 
@@ -123,9 +123,9 @@ constructor(
             val acEntity = modelMapper.map(acForm, SampleLabelAcEntity::class.java)
             acEntity.formHubUuId = acForm.formhubUuid
             acEntity.submissionDate = myDateUtil.convertToDateTime(acForm.submissionTime)
-            acEntity.todayDate = myDateUtil.convertToDate(acForm.today)
-            acEntity.startDate = myDateUtil.convertToDateTime(acForm.start)
-            acEntity.endDate = myDateUtil.convertToDateTime(acForm.end)
+            acEntity.todayDate = myDateUtil.convertToDate(acForm.todayDate)
+            acEntity.startDate = myDateUtil.convertToDateTime(acForm.startDate)
+            acEntity.endDate = myDateUtil.convertToDateTime(acForm.endDate)
             acEntity.instanceId = acForm.instanceId
             acEntity.controlKey = acForm.instanceId
             acEntity.setOfSample = "${acEntity.controlKey}/sample"

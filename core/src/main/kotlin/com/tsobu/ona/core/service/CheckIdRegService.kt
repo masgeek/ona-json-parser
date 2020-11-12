@@ -61,9 +61,9 @@ constructor(
         val tlAcData = checkIdRegEntityList.map { checkIdRegEntity ->
             val checkIdRegDto = modelMapper.map(checkIdRegEntity, CheckIdRegDto::class.java)
             checkIdRegDto.submissionDate = myDateUtil.toDateTimeString(checkIdRegEntity.submissionDate)
-            checkIdRegDto.start = myDateUtil.toDateTimeString(checkIdRegEntity.startDate)
-            checkIdRegDto.end = myDateUtil.toDateTimeString(checkIdRegEntity.endDate)
-            checkIdRegDto.today = myDateUtil.toDateToString(checkIdRegEntity.todayDate)
+            checkIdRegDto.startDate = myDateUtil.toDateTimeString(checkIdRegEntity.startDate)
+            checkIdRegDto.endDate = myDateUtil.toDateTimeString(checkIdRegEntity.endDate)
+            checkIdRegDto.todayDate = myDateUtil.toDateToString(checkIdRegEntity.todayDate)
             checkIdRegDto
         }
 
@@ -118,9 +118,9 @@ constructor(
             }
             checkIdRegEntity.formHubUuId = checkIdRegForm.formhubUuid
             checkIdRegEntity.submissionDate = myDateUtil.convertToDateTime(checkIdRegForm.submissionTime)
-            checkIdRegEntity.todayDate = myDateUtil.convertToDate(checkIdRegForm.today)
-            checkIdRegEntity.startDate = myDateUtil.convertToDateTime(checkIdRegForm.start)
-            checkIdRegEntity.endDate = myDateUtil.convertToDateTime(checkIdRegForm.end)
+            checkIdRegEntity.todayDate = myDateUtil.convertToDate(checkIdRegForm.todayDate)
+            checkIdRegEntity.startDate = myDateUtil.convertToDateTime(checkIdRegForm.startDate)
+            checkIdRegEntity.endDate = myDateUtil.convertToDateTime(checkIdRegForm.endDate)
             checkIdRegEntity.instanceId = checkIdRegForm.instanceId
             checkIdRegEntity.controlKey = checkIdRegForm.instanceId
 

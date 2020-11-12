@@ -185,10 +185,10 @@ constructor(
                 }
                 sphsEntity.formHubUuId = sphs.formHubUuid
                 sphsEntity.submissionDate = myDateUtil.convertToDateTime(sphs.submissionTime)
-                sphsEntity.todayDate = myDateUtil.convertToDate(sphs.today)
+                sphsEntity.todayDate = myDateUtil.convertToDate(sphs.todayDate)
                 sphsEntity.plantingDate = myDateUtil.convertToDate(sphs.plantingDate)
-                sphsEntity.startDate = myDateUtil.convertToDateTime(sphs.start)
-                sphsEntity.endDate = myDateUtil.convertToDateTime(sphs.end)
+                sphsEntity.startDate = myDateUtil.convertToDateTime(sphs.startDate)
+                sphsEntity.endDate = myDateUtil.convertToDateTime(sphs.endDate)
                 sphsEntity.instanceId = sphs.instanceId
                 sphsEntity.controlKey = sphs.instanceId
                 sphsEntity.plotL2Con = sphs.plotL2con

@@ -184,9 +184,9 @@ constructor(
             }
             ppEntity.formHubUuId = myVal.formhubUuid
             ppEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
-            ppEntity.todayDate = myDateUtil.convertToDate(myVal.today)
-            ppEntity.startDate = myDateUtil.convertToDateTime(myVal.start)
-            ppEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
+            ppEntity.todayDate = myDateUtil.convertToDate(myVal.todayDate)
+            ppEntity.startDate = myDateUtil.convertToDateTime(myVal.startDate)
+            ppEntity.endDate = myDateUtil.convertToDateTime(myVal.endDate)
             ppEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
             ppEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
             ppEntity.instanceId = myVal.instanceId

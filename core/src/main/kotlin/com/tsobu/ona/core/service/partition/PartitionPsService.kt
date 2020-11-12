@@ -73,7 +73,7 @@ constructor(
             acDto.submissionDate = myDateUtil.toDateTimeString(assignAcEntity.submissionDate)
             acDto.startDate = myDateUtil.toDateTimeString(assignAcEntity.startDate)
             acDto.endDate = myDateUtil.toDateTimeString(assignAcEntity.endDate)
-            acDto.today = myDateUtil.toDateToString(assignAcEntity.todayDate)
+            acDto.todayDate = myDateUtil.toDateToString(assignAcEntity.todayDate)
             acDto
         }
 
@@ -130,9 +130,9 @@ constructor(
 
             acEntity.formHubUuId = acForm.formhubUuid
             acEntity.submissionDate = myDateUtil.convertToDateTime(acForm.submissionTime)
-            acEntity.todayDate = myDateUtil.convertToDate(acForm.today)
-            acEntity.startDate = myDateUtil.convertToDateTime(acForm.start)
-            acEntity.endDate = myDateUtil.convertToDateTime(acForm.end)
+            acEntity.todayDate = myDateUtil.convertToDate(acForm.todayDate)
+            acEntity.startDate = myDateUtil.convertToDateTime(acForm.startDate)
+            acEntity.endDate = myDateUtil.convertToDateTime(acForm.endDate)
             acEntity.instanceID = acForm.instanceId
             acEntity.controlKey = acForm.instanceId
 

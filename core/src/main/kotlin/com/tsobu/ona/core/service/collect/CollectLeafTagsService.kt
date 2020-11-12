@@ -65,9 +65,9 @@ constructor(
         val tagsAcData = tagsEntityList.map { ssAcEntity ->
             val tagsAcDto = modelMapper.map(ssAcEntity, CollectLeafTagsAcDto::class.java)
             tagsAcDto.submissionDate = myDateUtil.toDateTimeString(ssAcEntity.submissionDate)
-            tagsAcDto.start = myDateUtil.toDateTimeString(ssAcEntity.startDate)
-            tagsAcDto.end = myDateUtil.toDateTimeString(ssAcEntity.endDate)
-            tagsAcDto.today = myDateUtil.toDateToString(ssAcEntity.todayDate)
+            tagsAcDto.startDate = myDateUtil.toDateTimeString(ssAcEntity.startDate)
+            tagsAcDto.endDate = myDateUtil.toDateTimeString(ssAcEntity.endDate)
+            tagsAcDto.todayDate = myDateUtil.toDateToString(ssAcEntity.todayDate)
             tagsAcDto
         }
 
@@ -135,9 +135,9 @@ constructor(
             }
             tagsAcEntity.formHubUuId = leafTagsAcForm.formhubUuid
             tagsAcEntity.submissionDate = myDateUtil.convertToDateTime(leafTagsAcForm.submissionTime)
-            tagsAcEntity.todayDate = myDateUtil.convertToDate(leafTagsAcForm.today)
-            tagsAcEntity.startDate = myDateUtil.convertToDateTime(leafTagsAcForm.start)
-            tagsAcEntity.endDate = myDateUtil.convertToDateTime(leafTagsAcForm.end)
+            tagsAcEntity.todayDate = myDateUtil.convertToDate(leafTagsAcForm.todayDate)
+            tagsAcEntity.startDate = myDateUtil.convertToDateTime(leafTagsAcForm.startDate)
+            tagsAcEntity.endDate = myDateUtil.convertToDateTime(leafTagsAcForm.endDate)
             tagsAcEntity.instanceId = leafTagsAcForm.instanceId
             tagsAcEntity.controlKey = leafTagsAcForm.instanceId
             tagsAcEntity.setOfId = "${tagsAcEntity.controlKey}/ID"

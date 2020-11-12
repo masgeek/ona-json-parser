@@ -69,9 +69,9 @@ constructor(
         val valPpData = ppList.map { valPpEntity ->
             val valIcDto = modelMapper.map(valPpEntity, ValPpDto::class.java)
             valIcDto.submissionDate = myDateUtil.toDateTimeString(valPpEntity.submissionDate)
-            valIcDto.start = myDateUtil.toDateTimeString(valPpEntity.startDate)
-            valIcDto.end = myDateUtil.toDateTimeString(valPpEntity.endDate)
-            valIcDto.today = myDateUtil.toDateToString(valPpEntity.todayDate)
+            valIcDto.startDate = myDateUtil.toDateTimeString(valPpEntity.startDate)
+            valIcDto.endDate = myDateUtil.toDateTimeString(valPpEntity.endDate)
+            valIcDto.todayDate = myDateUtil.toDateToString(valPpEntity.todayDate)
             valIcDto.plantingDate = myDateUtil.toDateToString(valPpEntity.plantingDate)
             valIcDto
         }
@@ -138,9 +138,9 @@ constructor(
             }
             valPpEntity.formHubUuId = ppForm.formhubUuid
             valPpEntity.submissionDate = myDateUtil.convertToDateTime(ppForm.submissionTime)
-            valPpEntity.todayDate = myDateUtil.convertToDate(ppForm.today)
-            valPpEntity.startDate = myDateUtil.convertToDateTime(ppForm.start)
-            valPpEntity.endDate = myDateUtil.convertToDateTime(ppForm.end)
+            valPpEntity.todayDate = myDateUtil.convertToDate(ppForm.todayDate)
+            valPpEntity.startDate = myDateUtil.convertToDateTime(ppForm.startDate)
+            valPpEntity.endDate = myDateUtil.convertToDateTime(ppForm.endDate)
             valPpEntity.plantingDate = myDateUtil.convertToDate(ppForm.plantingDate)
             valPpEntity.instanceId = ppForm.instanceId
             valPpEntity.controlKey = ppForm.instanceId

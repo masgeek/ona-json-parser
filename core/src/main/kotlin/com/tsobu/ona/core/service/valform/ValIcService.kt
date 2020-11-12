@@ -64,9 +64,9 @@ constructor(
         val valIcData = valIcEntityList.map { valIcEntity ->
             val valIcDto = modelMapper.map(valIcEntity, ValIcDto::class.java)
             valIcDto.submissionDate = myDateUtil.toDateTimeString(valIcEntity.submissionDate)
-            valIcDto.start = myDateUtil.toDateTimeString(valIcEntity.startDate)
-            valIcDto.end = myDateUtil.toDateTimeString(valIcEntity.endDate)
-            valIcDto.today = myDateUtil.toDateToString(valIcEntity.todayDate)
+            valIcDto.startDate = myDateUtil.toDateTimeString(valIcEntity.startDate)
+            valIcDto.endDate = myDateUtil.toDateTimeString(valIcEntity.endDate)
+            valIcDto.todayDate = myDateUtil.toDateToString(valIcEntity.todayDate)
             valIcDto.plantingDate = myDateUtil.toDateToString(valIcEntity.plantingDate)
             valIcDto
         }
@@ -123,9 +123,9 @@ constructor(
             }
             valFrEntity.formHubUuId = valIcForm.formhubUuid
             valFrEntity.submissionDate = myDateUtil.convertToDateTime(valIcForm.submissionTime)
-            valFrEntity.todayDate = myDateUtil.convertToDate(valIcForm.today)
-            valFrEntity.startDate = myDateUtil.convertToDateTime(valIcForm.start)
-            valFrEntity.endDate = myDateUtil.convertToDateTime(valIcForm.end)
+            valFrEntity.todayDate = myDateUtil.convertToDate(valIcForm.todayDate)
+            valFrEntity.startDate = myDateUtil.convertToDateTime(valIcForm.startDate)
+            valFrEntity.endDate = myDateUtil.convertToDateTime(valIcForm.endDate)
             valFrEntity.plantingDate = myDateUtil.convertToDate(valIcForm.plantingDate)
             valFrEntity.instanceId = valIcForm.instanceId
             valFrEntity.controlKey = valIcForm.instanceId

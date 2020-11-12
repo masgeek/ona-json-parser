@@ -65,9 +65,9 @@ constructor(
         val psAcData = psAcEntityList.map { psAcEntity ->
             val collectPsAcDto = modelMapper.map(psAcEntity, CollectPsAcDto::class.java)
             collectPsAcDto.submissionDate = myDateUtil.toDateTimeString(psAcEntity.submissionDate)
-            collectPsAcDto.start = myDateUtil.toDateTimeString(psAcEntity.startDate)
-            collectPsAcDto.end = myDateUtil.toDateTimeString(psAcEntity.endDate)
-            collectPsAcDto.today = myDateUtil.toDateToString(psAcEntity.todayDate)
+            collectPsAcDto.startDate = myDateUtil.toDateTimeString(psAcEntity.startDate)
+            collectPsAcDto.endDate = myDateUtil.toDateTimeString(psAcEntity.endDate)
+            collectPsAcDto.todayDate = myDateUtil.toDateToString(psAcEntity.todayDate)
             collectPsAcDto
         }
 
@@ -132,9 +132,9 @@ constructor(
             }
             psAcEntity.formHubUuId = psAcForm.formhubUuid
             psAcEntity.submissionDate = myDateUtil.convertToDateTime(psAcForm.submissionTime)
-            psAcEntity.todayDate = myDateUtil.convertToDate(psAcForm.today)
-            psAcEntity.startDate = myDateUtil.convertToDateTime(psAcForm.start)
-            psAcEntity.endDate = myDateUtil.convertToDateTime(psAcForm.end)
+            psAcEntity.todayDate = myDateUtil.convertToDate(psAcForm.todayDate)
+            psAcEntity.startDate = myDateUtil.convertToDateTime(psAcForm.startDate)
+            psAcEntity.endDate = myDateUtil.convertToDateTime(psAcForm.endDate)
             psAcEntity.instanceId = psAcForm.instanceId
             psAcEntity.controlKey = psAcForm.instanceId
             psAcEntity.setOfPlantSample = "${psAcEntity.controlKey}/plantSample"

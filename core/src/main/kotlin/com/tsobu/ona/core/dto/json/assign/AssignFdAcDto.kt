@@ -14,10 +14,10 @@ class AssignFdAcDto {
     var uuid: String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("deviceid")
     var deviceid: String? = null
@@ -74,7 +74,7 @@ class AssignFdAcDto {
     var fieldId: String? = null
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("instanceID")
     var instanceId: String? = null

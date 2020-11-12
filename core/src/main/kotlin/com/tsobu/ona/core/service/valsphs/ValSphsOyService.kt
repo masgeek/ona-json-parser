@@ -64,9 +64,9 @@ constructor(
         val treatData = kwList.map { oyEntity ->
             val oyDto = modelMapper.map(oyEntity, ValSphsOyDto::class.java)
             oyDto.submissionDate = myDateUtil.toDateTimeString(oyEntity.submissionDate)
-            oyDto.start = myDateUtil.toDateTimeString(oyEntity.startDate)
-            oyDto.end = myDateUtil.toDateTimeString(oyEntity.endDate)
-            oyDto.today = myDateUtil.toDateToString(oyEntity.todayDate)
+            oyDto.startDate = myDateUtil.toDateTimeString(oyEntity.startDate)
+            oyDto.endDate = myDateUtil.toDateTimeString(oyEntity.endDate)
+            oyDto.todayDate = myDateUtil.toDateToString(oyEntity.todayDate)
             oyDto.plantingDate = myDateUtil.toDateToString(oyEntity.plantingDate)
             oyDto.harvestDate = myDateUtil.toDateToString(oyEntity.harvestDate)
 
@@ -125,9 +125,9 @@ constructor(
             }
             onEntity.formHubUuId = oyForm.formhubUuid
             onEntity.submissionDate = myDateUtil.convertToDateTime(oyForm.submissionTime)
-            onEntity.todayDate = myDateUtil.convertToDate(oyForm.today)
-            onEntity.startDate = myDateUtil.convertToDateTime(oyForm.start)
-            onEntity.endDate = myDateUtil.convertToDateTime(oyForm.end)
+            onEntity.todayDate = myDateUtil.convertToDate(oyForm.todayDate)
+            onEntity.startDate = myDateUtil.convertToDateTime(oyForm.startDate)
+            onEntity.endDate = myDateUtil.convertToDateTime(oyForm.endDate)
             onEntity.instanceId = oyForm.instanceId
             onEntity.controlKey = oyForm.instanceId
 

@@ -64,9 +64,9 @@ constructor(
         val treatData = kwList.map { ogEntity ->
             val ogDto = modelMapper.map(ogEntity, ValSphsOgDto::class.java)
             ogDto.submissionDate = myDateUtil.toDateTimeString(ogEntity.submissionDate)
-            ogDto.start = myDateUtil.toDateTimeString(ogEntity.startDate)
-            ogDto.end = myDateUtil.toDateTimeString(ogEntity.endDate)
-            ogDto.today = myDateUtil.toDateToString(ogEntity.todayDate)
+            ogDto.startDate = myDateUtil.toDateTimeString(ogEntity.startDate)
+            ogDto.endDate = myDateUtil.toDateTimeString(ogEntity.endDate)
+            ogDto.todayDate = myDateUtil.toDateToString(ogEntity.todayDate)
             ogDto.plantingDate = myDateUtil.toDateToString(ogEntity.plantingDate)
             ogDto.harvestDate = myDateUtil.toDateToString(ogEntity.harvestDate)
 
@@ -125,9 +125,9 @@ constructor(
             }
             ogEntity.formHubUuId = ogForm.formhubUuid
             ogEntity.submissionDate = myDateUtil.convertToDateTime(ogForm.submissionTime)
-            ogEntity.todayDate = myDateUtil.convertToDate(ogForm.today)
-            ogEntity.startDate = myDateUtil.convertToDateTime(ogForm.start)
-            ogEntity.endDate = myDateUtil.convertToDateTime(ogForm.end)
+            ogEntity.todayDate = myDateUtil.convertToDate(ogForm.todayDate)
+            ogEntity.startDate = myDateUtil.convertToDateTime(ogForm.startDate)
+            ogEntity.endDate = myDateUtil.convertToDateTime(ogForm.endDate)
             ogEntity.instanceId = ogForm.instanceId
             ogEntity.controlKey = ogForm.instanceId
 

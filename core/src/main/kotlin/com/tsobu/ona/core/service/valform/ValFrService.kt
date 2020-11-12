@@ -64,9 +64,9 @@ constructor(
         val valFrData = valFrEntityList.map { valFrEntity ->
             val starchContentAcDto = modelMapper.map(valFrEntity, ValFrDto::class.java)
             starchContentAcDto.submissionDate = myDateUtil.toDateTimeString(valFrEntity.submissionDate)
-            starchContentAcDto.today = myDateUtil.toDateToString(valFrEntity.todayDate)
-            starchContentAcDto.start = myDateUtil.toDateTimeString(valFrEntity.startDate)
-            starchContentAcDto.end = myDateUtil.toDateTimeString(valFrEntity.endDate)
+            starchContentAcDto.todayDate = myDateUtil.toDateToString(valFrEntity.todayDate)
+            starchContentAcDto.startDate = myDateUtil.toDateTimeString(valFrEntity.startDate)
+            starchContentAcDto.endDate = myDateUtil.toDateTimeString(valFrEntity.endDate)
             starchContentAcDto.plantingDate = myDateUtil.toDateToString(valFrEntity.plantingDate)
             starchContentAcDto
         }
@@ -122,9 +122,9 @@ constructor(
             }
             valFrEntity.formHubUuId = valFrForm.formhubUuid
             valFrEntity.submissionDate = myDateUtil.convertToDateTime(valFrForm.submissionTime)
-            valFrEntity.todayDate = myDateUtil.convertToDate(valFrForm.today)
-            valFrEntity.startDate = myDateUtil.convertToDateTime(valFrForm.start)
-            valFrEntity.endDate = myDateUtil.convertToDateTime(valFrForm.end)
+            valFrEntity.todayDate = myDateUtil.convertToDate(valFrForm.todayDate)
+            valFrEntity.startDate = myDateUtil.convertToDateTime(valFrForm.startDate)
+            valFrEntity.endDate = myDateUtil.convertToDateTime(valFrForm.endDate)
             valFrEntity.plantingDate = myDateUtil.convertToDate(valFrForm.plantingDate)
             valFrEntity.instanceId = valFrForm.instanceId
             valFrEntity.controlKey = valFrForm.instanceId

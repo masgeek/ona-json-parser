@@ -12,7 +12,7 @@ class SampleBatchCompositionForm {
     var id: Int? = null
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("_tags")
     var tags: List<Any> = ArrayList()
@@ -24,10 +24,10 @@ class SampleBatchCompositionForm {
     var email: String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("_notes")
     var notes: List<Any> = ArrayList()

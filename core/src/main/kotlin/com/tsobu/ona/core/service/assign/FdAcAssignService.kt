@@ -62,9 +62,9 @@ constructor(
         val fdAcData = fdAcEntityList.map { fdAcEntity ->
             val starchContentAcDto = modelMapper.map(fdAcEntity, AssignFdAcDto::class.java)
             starchContentAcDto.submissionDate = myDateUtil.toDateTimeString(fdAcEntity.submissionDate)
-            starchContentAcDto.start = myDateUtil.toDateTimeString(fdAcEntity.startDate)
-            starchContentAcDto.end = myDateUtil.toDateTimeString(fdAcEntity.endDate)
-            starchContentAcDto.today = myDateUtil.toDateToString(fdAcEntity.todayDate)
+            starchContentAcDto.startDate = myDateUtil.toDateTimeString(fdAcEntity.startDate)
+            starchContentAcDto.endDate = myDateUtil.toDateTimeString(fdAcEntity.endDate)
+            starchContentAcDto.todayDate = myDateUtil.toDateToString(fdAcEntity.todayDate)
             starchContentAcDto
         }
 
@@ -117,9 +117,9 @@ constructor(
             }
             assignFdAcEntity.formHubUuId = assignFdAcForm.formhubUuid
             assignFdAcEntity.submissionDate = myDateUtil.convertToDateTime(assignFdAcForm.submissionTime)
-            assignFdAcEntity.todayDate = myDateUtil.convertToDate(assignFdAcForm.today)
-            assignFdAcEntity.startDate = myDateUtil.convertToDateTime(assignFdAcForm.start)
-            assignFdAcEntity.endDate = myDateUtil.convertToDateTime(assignFdAcForm.end)
+            assignFdAcEntity.todayDate = myDateUtil.convertToDate(assignFdAcForm.todayDate)
+            assignFdAcEntity.startDate = myDateUtil.convertToDateTime(assignFdAcForm.startDate)
+            assignFdAcEntity.endDate = myDateUtil.convertToDateTime(assignFdAcForm.endDate)
             assignFdAcEntity.instanceId = assignFdAcForm.instanceId
             assignFdAcEntity.controlKey = assignFdAcForm.instanceId
 

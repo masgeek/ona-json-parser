@@ -63,7 +63,7 @@ constructor(
             praSphsDto.submissionDate = myDateUtil.toDateTimeString(praSphsEntity.submissionDate)
             praSphsDto.startDate = myDateUtil.toDateTimeString(praSphsEntity.startDate)
             praSphsDto.endDate = myDateUtil.toDateTimeString(praSphsEntity.endDate)
-            praSphsDto.today = myDateUtil.toDateToString(praSphsEntity.todayDate)
+            praSphsDto.todayDate = myDateUtil.toDateToString(praSphsEntity.todayDate)
             praSphsDto
         }
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -115,9 +115,9 @@ constructor(
             }
             praSphsEntity.formHubUuId = praSphsForm.formhubUuid
             praSphsEntity.submissionDate = myDateUtil.convertToDateTime(praSphsForm.submissionTime)
-            praSphsEntity.todayDate = myDateUtil.convertToDate(praSphsForm.today)
-            praSphsEntity.startDate = myDateUtil.convertToDateTime(praSphsForm.start)
-            praSphsEntity.endDate = myDateUtil.convertToDateTime(praSphsForm.end)
+            praSphsEntity.todayDate = myDateUtil.convertToDate(praSphsForm.todayDate)
+            praSphsEntity.startDate = myDateUtil.convertToDateTime(praSphsForm.startDate)
+            praSphsEntity.endDate = myDateUtil.convertToDateTime(praSphsForm.endDate)
             praSphsEntity.instanceId = praSphsForm.instanceId
             praSphsEntity.controlKey = praSphsForm.instanceId
 

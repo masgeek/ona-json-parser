@@ -68,7 +68,7 @@ constructor(
             assignAcDto.submissionDate = myDateUtil.toDateTimeString(assignAcEntity.submissionDate)
             assignAcDto.startDate = myDateUtil.toDateTimeString(assignAcEntity.startDate)
             assignAcDto.endDate = myDateUtil.toDateTimeString(assignAcEntity.endDate)
-            assignAcDto.today = myDateUtil.toDateToString(assignAcEntity.todayDate)
+            assignAcDto.todayDate = myDateUtil.toDateToString(assignAcEntity.todayDate)
             assignAcDto
         }
 
@@ -126,9 +126,9 @@ constructor(
             }
             poAcEntity.formHubUuId = poAssignAcForm.formhubUuid
             poAcEntity.submissionDate = myDateUtil.convertToDateTime(poAssignAcForm.submissionTime)
-            poAcEntity.todayDate = myDateUtil.convertToDate(poAssignAcForm.today)
-            poAcEntity.startDate = myDateUtil.convertToDateTime(poAssignAcForm.start)
-            poAcEntity.endDate = myDateUtil.convertToDateTime(poAssignAcForm.end)
+            poAcEntity.todayDate = myDateUtil.convertToDate(poAssignAcForm.todayDate)
+            poAcEntity.startDate = myDateUtil.convertToDateTime(poAssignAcForm.startDate)
+            poAcEntity.endDate = myDateUtil.convertToDateTime(poAssignAcForm.endDate)
             poAcEntity.plantingDate = myDateUtil.convertToDate(poAssignAcForm.plantingDate)
             poAcEntity.instanceid = poAssignAcForm.instanceId
             poAcEntity.controlKey = poAssignAcForm.instanceId

@@ -64,9 +64,9 @@ constructor(
         val treatData = kwList.map { kwEntity ->
             val kwDto = modelMapper.map(kwEntity, ValSphsKwDto::class.java)
             kwDto.submissionDate = myDateUtil.toDateTimeString(kwEntity.submissionDate)
-            kwDto.start = myDateUtil.toDateTimeString(kwEntity.startDate)
-            kwDto.end = myDateUtil.toDateTimeString(kwEntity.endDate)
-            kwDto.today = myDateUtil.toDateToString(kwEntity.todayDate)
+            kwDto.startDate = myDateUtil.toDateTimeString(kwEntity.startDate)
+            kwDto.endDate = myDateUtil.toDateTimeString(kwEntity.endDate)
+            kwDto.todayDate = myDateUtil.toDateToString(kwEntity.todayDate)
             kwDto.harvestDate = myDateUtil.toDateToString(kwEntity.harvestDate)
             kwDto.plantingDate = myDateUtil.toDateToString(kwEntity.plantingDate)
 
@@ -124,9 +124,9 @@ constructor(
             }
             kwEntity.formHubUuId = kwForm.formhubUuid
             kwEntity.submissionDate = myDateUtil.convertToDateTime(kwForm.submissionTime)
-            kwEntity.todayDate = myDateUtil.convertToDate(kwForm.today)
-            kwEntity.startDate = myDateUtil.convertToDateTime(kwForm.start)
-            kwEntity.endDate = myDateUtil.convertToDateTime(kwForm.end)
+            kwEntity.todayDate = myDateUtil.convertToDate(kwForm.todayDate)
+            kwEntity.startDate = myDateUtil.convertToDateTime(kwForm.startDate)
+            kwEntity.endDate = myDateUtil.convertToDateTime(kwForm.endDate)
             kwEntity.instanceId = kwForm.instanceId
             kwEntity.controlKey = kwForm.instanceId
 

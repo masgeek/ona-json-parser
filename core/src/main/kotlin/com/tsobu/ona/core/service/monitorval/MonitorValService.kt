@@ -201,9 +201,9 @@ constructor(
             }
             monitorValEntity.formHubUuId = monitorValForm.formhubUuid
             monitorValEntity.submissionDate = myDateUtil.convertToDateTime(monitorValForm.submissionTime)
-            monitorValEntity.todayDate = myDateUtil.convertToDate(monitorValForm.today)
-            monitorValEntity.startDate = myDateUtil.convertToDateTime(monitorValForm.start)
-            monitorValEntity.endDate = myDateUtil.convertToDateTime(monitorValForm.end)
+            monitorValEntity.todayDate = myDateUtil.convertToDate(monitorValForm.todayDate)
+            monitorValEntity.startDate = myDateUtil.convertToDateTime(monitorValForm.startDate)
+            monitorValEntity.endDate = myDateUtil.convertToDateTime(monitorValForm.endDate)
             monitorValEntity.instanceId = monitorValForm.instanceId
             monitorValEntity.controlKey = monitorValForm.instanceId
 
