@@ -23,9 +23,8 @@ class MyUtils {
     }
 
     fun convertToDateTime(dateTimeString: String?): LocalDateTime? {
-
         if (dateTimeString == null) {
-            return LocalDateTime.now()
+            return null
         }
 
         val timeString = dateTimeString.split(".")

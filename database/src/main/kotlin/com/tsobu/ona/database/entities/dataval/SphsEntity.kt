@@ -216,11 +216,11 @@ class SphsEntity : BaseEntity() {
     @Column(name = "variety")
     var variety: String? = null
 
-    @Column(name = "harvest_date_question_con")
-    var harvestDateQuestionCon: LocalDateTime? = null
+    @Column(name = "harvest_date_question_con", columnDefinition = "TEXT")
+    var harvestDateQuestionCon: String? = null
 
-    @Column(name = "harvest_date_question_rec")
-    var harvestDateQuestionRec: LocalDateTime? = null
+    @Column(name = "harvest_date_question_rec", columnDefinition = "TEXT")
+    var harvestDateQuestionRec: String? = null
 
     @Column(name = "int_harvest_date_con")
     var intHarvestDateCon: LocalDateTime? = null
@@ -408,7 +408,7 @@ class SphsEntity : BaseEntity() {
     @Column(name = "overall_score")
     var overallScore: String? = null
 
-    @Column(name = "comment_value",columnDefinition = "TEXT")
+    @Column(name = "comment_value", columnDefinition = "TEXT")
     var commentValue: String? = null
 
     @Column(name = "thank_you")

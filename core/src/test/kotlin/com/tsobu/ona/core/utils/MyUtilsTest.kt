@@ -1,8 +1,7 @@
 package com.tsobu.ona.core.utils
 
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-
-import org.junit.jupiter.api.Assertions.*
 
 internal class MyUtilsTest {
 
@@ -24,5 +23,12 @@ internal class MyUtilsTest {
         val convertedDate = myUtil.toDateToString(dateVal)
         assertEquals(expectedDateTime, convertedDateTime)
         assertEquals(expectedDate, convertedDate)
+    }
+
+    @Test
+    fun convert_date_only_to_date_time() {
+        val today = "2018-04-23"
+        val dateVal = myUtil.convertToDate(today)
+        assertEquals("2018-04-23T00:00", dateVal.toString())
     }
 }

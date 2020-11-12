@@ -111,7 +111,7 @@ class OnaApplication(
     override fun run(vararg args: String?) {
         log.info("Running Spring Boot Application press CTR-C to close the application")
 
-        icService.readJsonAsset()
+        sphsService.readJsonAsset()
 
 //        weedControlService.readJsonAsset()
 //        assessRootYieldCassavaService.readJsonAsset()
