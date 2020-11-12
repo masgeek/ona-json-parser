@@ -136,7 +136,7 @@ class FrDto {
     var submissionDate: String? = null
 
     @JsonProperty("uuid")
-    var uuid: String? = null
+    var formHubUuId:String? = null
 
     @JsonProperty("start")
     var startDate: String? = null
@@ -490,7 +490,7 @@ class FrDto {
     var priceRoots: String? = null
 
     @JsonProperty("comment")
-    var comment: String? = null
+    var commentValue: String? = null
 
     @JsonProperty("thankyou")
     var thankyou: String? = null

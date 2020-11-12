@@ -236,7 +236,7 @@ class MonitorValForm {
     var trialQualitySome: List<TrialQualitySome>? = null
 
     @JsonProperty("comment")
-    var comment: String? = null
+    var commentValue: String? = null
 
     @JsonProperty("problems_All")
     var problemsAll: String? = null

@@ -187,6 +187,7 @@ constructor(
             sphsEntity.instanceId = sphs.instanceId
             sphsEntity.controlKey = sphs.instanceId
 
+
             sphsEntity.gappingDate = myDateUtil.convertToDate(sphs.gappingDate)
             sphsEntity.plantingDate = myDateUtil.convertToDate(sphs.plantingDate)
 
@@ -271,6 +272,7 @@ constructor(
             harvestConTriDetailList?.forEach { conTriDetail ->
                 val conTriDetailEntity = modelMapper.map(conTriDetail, HarvestConTriDetailEntity::class.java)
 
+                conTriDetailEntity.parentKey = sphsEntity.controlKey
                 conTriDetailEntity.parentKey = sphsEntity.controlKey
                 conTriDetailEntity.setOfHarvestConTriDetail = "${conTriDetailEntity.parentKey}/harvest_CON_Tri_detail"
                 conTriDetailEntity.controlKey = "${conTriDetailEntity.parentKey}/harvest_CON_Tri_detail[$conTriDetailCounter]"

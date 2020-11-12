@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
         "KEY"
 )
 class ScoreWeedControlAcDto {
-    var uuid: String? = null
+    var formHubUuId:String? = null
 
     @JsonProperty("SubmissionDate")
     var submissionDate: String? = null

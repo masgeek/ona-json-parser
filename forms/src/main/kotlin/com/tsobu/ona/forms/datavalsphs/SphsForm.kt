@@ -39,7 +39,7 @@ class SphsForm {
 
 
     @JsonProperty("comment")
-    val comment: String? = null
+    var commentValue: String? = null
 
     @JsonProperty("_status")
     var status: String? = null
@@ -72,13 +72,13 @@ class SphsForm {
     var duration: String? = null
 
     @JsonProperty("_xform_id")
-    var xformId = 0
+    var xformId :Int?=null
 
     @JsonProperty("loc_field")
     var locField: String? = null
 
     @JsonProperty("nrWeeding")
-    var nrWeeding = 0
+    var nrWeeding :Int?=null
 
     @JsonProperty("simserial")
     var simSerial: String? = null
@@ -93,10 +93,10 @@ class SphsForm {
     var geolocation: List<Double>? = null
 
     @JsonProperty("_media_count")
-    var mediaCount = 0
+    var mediaCount :Int?=null
 
     @JsonProperty("_total_media")
-    var totalMedia = 0
+    var totalMedia :Int?=null
 
     @JsonProperty("formhub/uuid")
     var formHubUuid: String? = null

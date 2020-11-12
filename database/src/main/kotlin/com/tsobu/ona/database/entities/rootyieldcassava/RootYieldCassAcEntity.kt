@@ -101,10 +101,10 @@ class RootYieldCassAcEntity : BaseEntity() {
     var densityFixed: String? = null
 
     @Column(name = "nr_rows_fixed")
-    var nrRowsFixed: Int? = null
+    var nrRowsFixed: String? = null
 
     @Column(name = "nr_plants_row_fixed")
-    var nrPlantsRowFixed: Int? = null
+    var nrPlantsRowFixed: String? = null
 
     @Column(name = "plot_dim_note")
     var plotDimNote: String? = null

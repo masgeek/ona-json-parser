@@ -464,7 +464,7 @@ class LzwDto {
     var unitnameselect: String? = null
 
     @JsonProperty("uuid")
-    var uuid: String? = null
+    var formHubUuId:String? = null
 
     @JsonProperty("SCm3")
     var scm3: String? = null

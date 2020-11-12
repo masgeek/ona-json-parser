@@ -110,7 +110,7 @@ class HhEntity : BaseEntity() {
     var genderHh: String? = null
 
     @Column(name = "age_hh")
-    var ageHh: Int? = null
+    var ageHh: String? = null
 
     @Column(name = "relation_hh")
     var relationHh: String? = null

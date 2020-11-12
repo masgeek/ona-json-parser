@@ -20,7 +20,7 @@ class FrForm {
 
 
     @JsonProperty("comment")
-    var comment: String? = null
+    var commentValue: String? = null
 
     @JsonProperty("_tags")
     var tags: List<Any>? = null

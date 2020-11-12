@@ -85,10 +85,10 @@ class HhForm {
     var geolocation: List<Double>? = null
 
     @JsonProperty("_media_count")
-    var mediaCount = 0
+    var mediaCount :Int?=null
 
     @JsonProperty("_total_media")
-    var totalMedia = 0
+    var totalMedia :Int?=null
 
     @JsonProperty("formhub/uuid")
     var formhubUuid: String? = null
@@ -103,7 +103,7 @@ class HhForm {
     var photoProfileHh: String? = null
 
     @JsonProperty("detailsHH/ageHH")
-    var ageHh = 0
+    var ageHh :Int?=null
 
     @JsonProperty("meta/instanceID")
     var instanceId: String? = null

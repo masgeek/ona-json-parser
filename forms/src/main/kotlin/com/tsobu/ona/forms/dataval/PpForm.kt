@@ -42,7 +42,7 @@ class PpForm {
     var status: String? = null
 
     @JsonProperty("comment")
-    var comment: String? = null
+    var commentValue: String? = null
 
     @JsonProperty("country")
     var country: String? = null

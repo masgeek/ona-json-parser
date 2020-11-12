@@ -229,10 +229,10 @@ class SphsEntity : BaseEntity() {
     var intHarvestDateRec: LocalDateTime? = null
 
     @Column(name = "nr_plants_con")
-    var nrPlantsCon: Int? = null
+    var nrPlantsCon: String? = null
 
     @Column(name = "nr_plants_rec")
-    var nrPlantsRec: Int? = null
+    var nrPlantsRec: String? = null
 
     @Column(name = "gapping")
     var gapping: String? = null
@@ -268,7 +268,7 @@ class SphsEntity : BaseEntity() {
     var fertilizer5: String? = null
 
     @Column(name = "nr_weeding")
-    var nrWeeding: Int? = null
+    var nrWeeding: String? = null
 
     @Column(name = "date_weeding1")
     var dateWeeding1: LocalDateTime? = null
