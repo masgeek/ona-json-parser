@@ -3,6 +3,7 @@ package com.tsobu.ona.app
 import com.tsobu.ona.core.service.AssessRootYieldCassavaService
 import com.tsobu.ona.core.service.CheckIdRegService
 import com.tsobu.ona.core.service.ScoreWeedControlService
+import com.tsobu.ona.core.service.ValidationService
 import com.tsobu.ona.core.service.addsample.AddSampleService
 import com.tsobu.ona.core.service.assign.FdAcAssignService
 import com.tsobu.ona.core.service.assign.PaAcAssignService
@@ -14,7 +15,6 @@ import com.tsobu.ona.core.service.collect.CollectPsService
 import com.tsobu.ona.core.service.collect.CollectSsService
 import com.tsobu.ona.core.service.confirm.PoConfirmService
 import com.tsobu.ona.core.service.dataval.*
-import com.tsobu.ona.core.service.dataval.SphsService
 import com.tsobu.ona.core.service.greenbiomass.GreenBiomassService
 import com.tsobu.ona.core.service.lignifiedstem.LignifiedStemService
 import com.tsobu.ona.core.service.monitor.NonDestructiveCassService
@@ -103,67 +103,65 @@ class OnaApplication(
         private val replaceFbService: ReplaceFbService,
         private val replaceFdService: ReplaceFdService,
         private val replaceTlService: ReplaceTlService,
-        private val praSphsService: PraSphsService
+        private val praSphsService: PraSphsService,
+        private val validationService: ValidationService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
     override fun run(vararg args: String?) {
         log.info("Running Spring Boot Application press CTR-C to close the application")
 
-//        valFrService.readJsonAsset()
+//        weedControlService.readJsonAsset()
+//        yieldCassavaService.readJsonAsset()
+//        szService.readJsonAsset()
+//        ezService.readJsonAsset()
+//        lzwService.readJsonAsset()
+//        lzeService.readJsonAsset()
+//        sphsService.readJsonAsset()
 //        frService.readJsonAsset()
+//        hhService.readJsonAsset()
+//        eaService.readJsonAsset()
+//        ppTzService.readJsonAsset()
+//        ppService.readJsonAsset()
+//        monitorValService.readJsonAsset()
+//        addSampleService.readJsonAsset()
+//        greenBiomassService.readJsonAsset()
+//        lignifiedStemService.readJsonAsset()
+//        starchContentService.readJsonAsset()
+//        fdAcAssignService.readJsonAsset()
 //        paAcAssignService.readJsonAsset()
+//        poAcAssignService.readJsonAsset()
+//        tlAcAssignService.readJsonAsset()
+//        checkIdRegService.readJsonAsset()
+//        collectPsService.readJsonAsset()
+//        collectSsService.readJsonAsset()
+//        collectLeafTagsService.readJsonAsset()
+//        valCisService.readJsonAsset()
+//        valFrService.readJsonAsset()
+//        valIcService.readJsonAsset()
+//        valPpService.readJsonAsset()
+//        valPpTreatService.readJsonAsset()
+//        valPpTzService.readJsonAsset()
+//        valSphsKwService.readJsonAsset()
+//        batchCompositionService.readJsonAsset()
+//        valSphsOgService.readJsonAsset()
+//        valSphsOnService.readJsonAsset()
+//        valSphsOyService.readJsonAsset()
+//        icService.readJsonAsset()
+//        cisService.readJsonAsset()
+//        poConfirmService.readJsonAsset()
+//        nonDestructiveCassService.readJsonAsset()
+//        partitionPsService.readJsonAsset()
+//        poolSampleService.readJsonAsset()
+//        canopyDimensionsService.readJsonAsset()
+//        recordDmService.readJsonAsset()
+//        replacePoService.readJsonAsset()
+//        replaceFbService.readJsonAsset()
+//        replaceFdService.readJsonAsset()
+//        replaceTlService.readJsonAsset()
+//        praSphsService.readJsonAsset()
 
-
-        weedControlService.readJsonAsset()
-        yieldCassavaService.readJsonAsset()
-        szService.readJsonAsset()
-        ezService.readJsonAsset()
-        lzwService.readJsonAsset()
-        lzeService.readJsonAsset()
-        sphsService.readJsonAsset()
-        frService.readJsonAsset()
-        hhService.readJsonAsset()
-        eaService.readJsonAsset()
-        ppTzService.readJsonAsset()
-        ppService.readJsonAsset()
-        monitorValService.readJsonAsset()
-        addSampleService.readJsonAsset()
-        greenBiomassService.readJsonAsset()
-        lignifiedStemService.readJsonAsset()
-        starchContentService.readJsonAsset()
-        fdAcAssignService.readJsonAsset()
-        paAcAssignService.readJsonAsset()
-        poAcAssignService.readJsonAsset()
-        tlAcAssignService.readJsonAsset()
-        checkIdRegService.readJsonAsset()
-        collectPsService.readJsonAsset()
-        collectSsService.readJsonAsset()
-        collectLeafTagsService.readJsonAsset()
-        valCisService.readJsonAsset()
-        valFrService.readJsonAsset()
-        valIcService.readJsonAsset()
-        valPpService.readJsonAsset()
-        valPpTreatService.readJsonAsset()
-        valPpTzService.readJsonAsset()
-        valSphsKwService.readJsonAsset()
-        batchCompositionService.readJsonAsset()
-        valSphsOgService.readJsonAsset()
-        valSphsOnService.readJsonAsset()
-        valSphsOyService.readJsonAsset()
-        icService.readJsonAsset()
-        cisService.readJsonAsset()
-        poConfirmService.readJsonAsset()
-        nonDestructiveCassService.readJsonAsset()
-        partitionPsService.readJsonAsset()
-        poolSampleService.readJsonAsset()
-        canopyDimensionsService.readJsonAsset()
-        recordDmService.readJsonAsset()
-        replacePoService.readJsonAsset()
-        replaceFbService.readJsonAsset()
-        replaceFdService.readJsonAsset()
-        replaceTlService.readJsonAsset()
-        praSphsService.readJsonAsset()
+        validationService.validateCsvColumnCount()
         log.info("Hello, Iam finished");
     }
 
