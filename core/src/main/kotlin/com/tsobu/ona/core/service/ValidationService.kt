@@ -22,13 +22,8 @@ class ValidationService(
         val destinationDirector = File(appConfig.globalProperties().outputPath!!)
 
 
-        val filter = FilenameFilter { _, fileName ->
-            val lowercaseName = fileName.toLowerCase()
-            lowercaseName.endsWith(".csv")
-        }
-
         val validationData = ArrayList<FormColumnValidationEntity>()
-        val fileList = destinationDirector.listFiles(filter)
+        val fileList = readFileList(appConfig.globalProperties().outputPath!!)
         fileList?.forEach { file ->
             val exists = columnValidationRepo.findById(file.name)
             var validationEntity = FormColumnValidationEntity()
@@ -50,13 +45,22 @@ class ValidationService(
 
             validationEntity.formName = file.name
             validationEntity.actualColumnCount = records.size
-            validationEntity.fileSizeKb = kbSize
+            validationEntity.actualFileSizeKb = kbSize
             csvReader.close()
             reader.close()
-
             validationData.add(validationEntity)
         }
 
         columnValidationRepo.saveAll(validationData)
+    }
+
+    fun readFileList(directoryPath: String, fileSuffix: String = ".csv"): Array<File>? {
+        val fileDirectory = File(directoryPath)
+
+        val filter = FilenameFilter { _, fileName ->
+            val lowercaseName = fileName.toLowerCase()
+            lowercaseName.endsWith(fileSuffix)
+        }
+        return fileDirectory.listFiles(filter)
     }
 }

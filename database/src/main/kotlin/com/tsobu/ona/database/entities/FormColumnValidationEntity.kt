@@ -20,9 +20,15 @@ class FormColumnValidationEntity {
     @Column(name = "actual_column_count")
     var actualColumnCount: Int? = null
 
+    @Column(name = "expected_file_size_kb")
+    var expectedFileSizeKb: Long? = null
+
+    @Column(name = "actual_file_size_kb")
+    var actualFileSizeKb: Long? = null
+
     @Column(name = "is_valid")
     var valid: Boolean? = null
 
-    @Column(name = "file_size_kb")
-    var fileSizeKb: Long? = null
+    @Column(name = "processed")
+    var processed: Boolean? = null
 }
