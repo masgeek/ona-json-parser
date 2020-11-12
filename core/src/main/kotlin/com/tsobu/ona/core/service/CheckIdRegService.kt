@@ -116,7 +116,7 @@ constructor(
                     checkIdRegEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            checkIdRegEntity.uuid = checkIdRegForm.formhubUuid
+            checkIdRegEntity.formHubUuId = checkIdRegForm.formhubUuid
             checkIdRegEntity.submissionDate = myDateUtil.convertToDateTime(checkIdRegForm.submissionTime)
             checkIdRegEntity.todayDate = myDateUtil.convertToDate(checkIdRegForm.today)
             checkIdRegEntity.startDate = myDateUtil.convertToDateTime(checkIdRegForm.start)

@@ -123,7 +123,7 @@ constructor(
                     ogEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            ogEntity.uuid = ogForm.formhubUuid
+            ogEntity.formHubUuId = ogForm.formhubUuid
             ogEntity.submissionDate = myDateUtil.convertToDateTime(ogForm.submissionTime)
             ogEntity.todayDate = myDateUtil.convertToDate(ogForm.today)
             ogEntity.startDate = myDateUtil.convertToDateTime(ogForm.start)

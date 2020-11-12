@@ -133,7 +133,7 @@ constructor(
                     tagsAcEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            tagsAcEntity.uuid = leafTagsAcForm.formhubUuid
+            tagsAcEntity.formHubUuId = leafTagsAcForm.formhubUuid
             tagsAcEntity.submissionDate = myDateUtil.convertToDateTime(leafTagsAcForm.submissionTime)
             tagsAcEntity.todayDate = myDateUtil.convertToDate(leafTagsAcForm.today)
             tagsAcEntity.startDate = myDateUtil.convertToDateTime(leafTagsAcForm.start)

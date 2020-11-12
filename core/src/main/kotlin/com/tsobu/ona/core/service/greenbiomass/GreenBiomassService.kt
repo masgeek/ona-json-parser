@@ -125,7 +125,7 @@ constructor(
                 }
             }
 
-            yieldCassEntity.uuid = cassavaAcForm.formhubUuid
+            yieldCassEntity.formHubUuId = cassavaAcForm.formhubUuid
             yieldCassEntity.submissionDate = myDateUtil.convertToDateTime(cassavaAcForm.submissionTime)
             yieldCassEntity.todayDate = myDateUtil.convertToDate(cassavaAcForm.today)
             yieldCassEntity.startDate = myDateUtil.convertToDateTime(cassavaAcForm.start)

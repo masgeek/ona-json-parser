@@ -10,7 +10,7 @@ import javax.persistence.Table
 @Entity
 @Table(name = "score_weed_control_ac")
 class WeedAcEntity : BaseEntity() {
-    var uuid: String? = null
+    var formHubUuId: String? = null
 
     var submissionDate: LocalDateTime? = null
     var todayDate: LocalDateTime? = null

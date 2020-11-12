@@ -121,7 +121,7 @@ constructor(
                     valCisEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            valCisEntity.uuid = valCisForm.formhubUuid
+            valCisEntity.formHubUuId = valCisForm.formhubUuid
             valCisEntity.submissionDate = myDateUtil.convertToDateTime(valCisForm.submissionTime)
             valCisEntity.todayDate = myDateUtil.convertToDate(valCisForm.today)
             valCisEntity.startDate = myDateUtil.convertToDateTime(valCisForm.start)

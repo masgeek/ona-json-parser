@@ -113,7 +113,7 @@ constructor(
                     praSphsEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            praSphsEntity.uuid = praSphsForm.formhubUuid
+            praSphsEntity.formHubUuId = praSphsForm.formhubUuid
             praSphsEntity.submissionDate = myDateUtil.convertToDateTime(praSphsForm.submissionTime)
             praSphsEntity.todayDate = myDateUtil.convertToDate(praSphsForm.today)
             praSphsEntity.startDate = myDateUtil.convertToDateTime(praSphsForm.start)

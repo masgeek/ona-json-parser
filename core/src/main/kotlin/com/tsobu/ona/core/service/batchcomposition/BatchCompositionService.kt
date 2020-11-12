@@ -133,7 +133,7 @@ constructor(
             //map and save to database
             val compositionEntity = modelMapper.map(compositionForm, CompositionEntity::class.java)
 
-            compositionEntity.uuid = compositionForm.formhubUuid
+            compositionEntity.formHubUuId = compositionForm.formhubUuid
             compositionEntity.submissionDate = myDateUtil.convertToDateTime(compositionForm.submissionTime)
             compositionEntity.todayDate = myDateUtil.convertToDate(compositionForm.today)
             compositionEntity.startDate = myDateUtil.convertToDateTime(compositionForm.start)

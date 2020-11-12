@@ -334,7 +334,7 @@ class FrEntity : BaseEntity() {
     var username: String? = null
 
     @Column(name = "uuid")
-    var uuid: String? = null
+    var formHubUuId: String? = null
 
     @Column(name = "variety")
     var variety: String? = null

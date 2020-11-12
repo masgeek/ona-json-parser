@@ -138,7 +138,7 @@ constructor(
                     icEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            icEntity.uuid = icForm.formhubUuid
+            icEntity.formHubUuId = icForm.formhubUuid
             icEntity.submissionDate = myDateUtil.convertToDateTime(icForm.submissionTime)
             icEntity.todayDate = myDateUtil.convertToDate(icForm.today)
             icEntity.startDate = myDateUtil.convertToDateTime(icForm.start)

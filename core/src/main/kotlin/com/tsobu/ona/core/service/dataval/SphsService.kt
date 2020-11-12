@@ -183,7 +183,7 @@ constructor(
                         sphsEntity.geoPointAccuracy = geoPoint[3].toDouble()
                     }
                 }
-                sphsEntity.uuid = sphs.formHubUuid
+                sphsEntity.formHubUuId = sphs.formHubUuid
                 sphsEntity.submissionDate = myDateUtil.convertToDateTime(sphs.submissionTime)
                 sphsEntity.todayDate = myDateUtil.convertToDate(sphs.today)
                 sphsEntity.plantingDate = myDateUtil.convertToDate(sphs.plantingDate)

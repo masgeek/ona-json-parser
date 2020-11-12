@@ -120,7 +120,7 @@ constructor(
                     treatEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            treatEntity.uuid = treatForm.formhubUuid
+            treatEntity.formHubUuId = treatForm.formhubUuid
             treatEntity.submissionDate = myDateUtil.convertToDateTime(treatForm.submissionTime)
             treatEntity.todayDate = myDateUtil.convertToDate(treatForm.today)
             treatEntity.startDate = myDateUtil.convertToDateTime(treatForm.start)

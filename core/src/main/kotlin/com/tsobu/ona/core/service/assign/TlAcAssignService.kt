@@ -118,7 +118,7 @@ constructor(
                     tlAcEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            tlAcEntity.uuid = assignTlAcForm.formhubUuId
+            tlAcEntity.formHubUuId = assignTlAcForm.formHubUuId
             tlAcEntity.submissionDate = myDateUtil.convertToDateTime(assignTlAcForm.submissionTime)
             tlAcEntity.todayDate = myDateUtil.convertToDate(assignTlAcForm.today)
             tlAcEntity.startDate = myDateUtil.convertToDateTime(assignTlAcForm.start)

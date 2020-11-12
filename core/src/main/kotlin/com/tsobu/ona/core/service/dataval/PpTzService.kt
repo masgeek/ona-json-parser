@@ -178,7 +178,7 @@ constructor(
                     ppTzEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            ppTzEntity.uuid = myVal.formhubUuid
+            ppTzEntity.formHubUuId = myVal.formhubUuid
             ppTzEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
             ppTzEntity.todayDate = myDateUtil.convertToDate(myVal.today)
             ppTzEntity.startDate = myDateUtil.convertToDateTime(myVal.start)

@@ -124,7 +124,7 @@ constructor(
                     yieldCassavaEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            yieldCassavaEntity.uuid = yieldCassavaForm.formhubUuid
+            yieldCassavaEntity.formHubUuId = yieldCassavaForm.formhubUuid
             yieldCassavaEntity.submissionDate = myDateUtil.convertToDateTime(yieldCassavaForm.submissionTime)
             yieldCassavaEntity.todayDate = myDateUtil.convertToDate(yieldCassavaForm.today)
             yieldCassavaEntity.startDate = myDateUtil.convertToDateTime(yieldCassavaForm.start)

@@ -106,7 +106,7 @@ constructor(
                         weedEntity.geoPointAccuracy = geoPoint[3].toDouble()
                     }
                 }
-                weedEntity.uuid = myVal.formHubUuid
+                weedEntity.formHubUuId = myVal.formHubUuid
                 weedEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
                 weedEntity.todayDate = myDateUtil.convertToDate(myVal.today)
                 weedEntity.startDate = myDateUtil.convertToDateTime(myVal.start)

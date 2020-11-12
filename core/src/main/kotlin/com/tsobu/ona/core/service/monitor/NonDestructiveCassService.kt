@@ -141,7 +141,7 @@ constructor(
                     poAcEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            poAcEntity.uuid = acForm.formhubUuid
+            poAcEntity.formHubUuId = acForm.formhubUuid
             poAcEntity.submissionDate = myDateUtil.convertToDateTime(acForm.submissionTime)
             poAcEntity.todayDate = myDateUtil.convertToDate(acForm.today)
             poAcEntity.startDate = myDateUtil.convertToDateTime(acForm.start)

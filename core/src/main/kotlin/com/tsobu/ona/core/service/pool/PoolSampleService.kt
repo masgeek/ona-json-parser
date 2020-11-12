@@ -128,7 +128,7 @@ constructor(
             //map and save to database
             val acEntity = modelMapper.map(poolSamplesAcForm, PoolSamplesAcEntity::class.java)
 
-            acEntity.uuid = poolSamplesAcForm.formhubUuid
+            acEntity.formHubUuId = poolSamplesAcForm.formhubUuid
             acEntity.submissionDate = myDateUtil.convertToDateTime(poolSamplesAcForm.submissionTime)
             acEntity.todayDate = myDateUtil.convertToDate(poolSamplesAcForm.today)
             acEntity.startDate = myDateUtil.convertToDateTime(poolSamplesAcForm.start)

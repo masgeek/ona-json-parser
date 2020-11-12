@@ -123,7 +123,7 @@ constructor(
                     onEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            onEntity.uuid = oyForm.formhubUuid
+            onEntity.formHubUuId = oyForm.formhubUuid
             onEntity.submissionDate = myDateUtil.convertToDateTime(oyForm.submissionTime)
             onEntity.todayDate = myDateUtil.convertToDate(oyForm.today)
             onEntity.startDate = myDateUtil.convertToDateTime(oyForm.start)

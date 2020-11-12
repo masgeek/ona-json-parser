@@ -113,7 +113,7 @@ constructor(
                     ezEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            ezEntity.uuid = myVal.formhubUuid
+            ezEntity.formHubUuId = myVal.formhubUuid
             ezEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
             ezEntity.todayDate = myDateUtil.convertToDate(myVal.today)
             ezEntity.startDate = myDateUtil.convertToDateTime(myVal.start)

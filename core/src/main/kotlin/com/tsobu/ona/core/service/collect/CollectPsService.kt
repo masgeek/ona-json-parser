@@ -130,7 +130,7 @@ constructor(
                     psAcEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            psAcEntity.uuid = psAcForm.formhubUuid
+            psAcEntity.formHubUuId = psAcForm.formhubUuid
             psAcEntity.submissionDate = myDateUtil.convertToDateTime(psAcForm.submissionTime)
             psAcEntity.todayDate = myDateUtil.convertToDate(psAcForm.today)
             psAcEntity.startDate = myDateUtil.convertToDateTime(psAcForm.start)

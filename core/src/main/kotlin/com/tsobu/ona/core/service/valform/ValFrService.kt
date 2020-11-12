@@ -120,7 +120,7 @@ constructor(
                     valFrEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            valFrEntity.uuid = valFrForm.formhubUuid
+            valFrEntity.formHubUuId = valFrForm.formhubUuid
             valFrEntity.submissionDate = myDateUtil.convertToDateTime(valFrForm.submissionTime)
             valFrEntity.todayDate = myDateUtil.convertToDate(valFrForm.today)
             valFrEntity.startDate = myDateUtil.convertToDateTime(valFrForm.start)

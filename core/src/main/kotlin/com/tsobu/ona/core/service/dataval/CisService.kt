@@ -134,7 +134,7 @@ constructor(
                     cisEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            cisEntity.uuid = cisForm.formhubUuid
+            cisEntity.formHubUuId = cisForm.formhubUuid
             cisEntity.submissionDate = myDateUtil.convertToDateTime(cisForm.submissionTime)
             cisEntity.todayDate = myDateUtil.convertToDate(cisForm.today)
             cisEntity.startDate = myDateUtil.convertToDateTime(cisForm.start)

@@ -128,7 +128,7 @@ constructor(
                     yieldCassAcEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            yieldCassAcEntity.uuid = yieldCassavaAcForm.formhubUuid
+            yieldCassAcEntity.formHubUuId = yieldCassavaAcForm.formhubUuid
             yieldCassAcEntity.submissionDate = myDateUtil.convertToDateTime(yieldCassavaAcForm.submissionTime)
             yieldCassAcEntity.todayDate = myDateUtil.convertToDate(yieldCassavaAcForm.today)
             yieldCassAcEntity.startDate = myDateUtil.convertToDateTime(yieldCassavaAcForm.start)

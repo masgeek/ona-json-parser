@@ -122,7 +122,7 @@ constructor(
                     kwEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            kwEntity.uuid = kwForm.formhubUuid
+            kwEntity.formHubUuId = kwForm.formhubUuid
             kwEntity.submissionDate = myDateUtil.convertToDateTime(kwForm.submissionTime)
             kwEntity.todayDate = myDateUtil.convertToDate(kwForm.today)
             kwEntity.startDate = myDateUtil.convertToDateTime(kwForm.start)

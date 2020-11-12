@@ -112,7 +112,7 @@ constructor(
                     frEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            frEntity.uuid = eaForm.formhubUuid
+            frEntity.formHubUuId = eaForm.formhubUuid
             frEntity.submissionDate = myDateUtil.convertToDateTime(eaForm.submissionTime)
             frEntity.todayDate = myDateUtil.convertToDate(eaForm.today)
             frEntity.startDate = myDateUtil.convertToDateTime(eaForm.start)

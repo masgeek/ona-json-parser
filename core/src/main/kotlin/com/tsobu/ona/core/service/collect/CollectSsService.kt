@@ -131,7 +131,7 @@ constructor(
                     ssAcEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            ssAcEntity.uuid = ssAcForm.formhubUuid
+            ssAcEntity.formHubUuId = ssAcForm.formhubUuid
             ssAcEntity.submissionDate = myDateUtil.convertToDateTime(ssAcForm.submissionTime)
             ssAcEntity.todayDate = myDateUtil.convertToDate(ssAcForm.today)
             ssAcEntity.startDate = myDateUtil.convertToDateTime(ssAcForm.start)

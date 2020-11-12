@@ -128,7 +128,7 @@ constructor(
                     starchContentAcEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            starchContentAcEntity.uuid = starchContentAcForm.formhubUuid
+            starchContentAcEntity.formHubUuId = starchContentAcForm.formhubUuid
             starchContentAcEntity.submissionDate = myDateUtil.convertToDateTime(starchContentAcForm.submissionTime)
             starchContentAcEntity.todayDate = myDateUtil.convertToDate(starchContentAcForm.today)
             starchContentAcEntity.startDate = myDateUtil.convertToDateTime(starchContentAcForm.start)

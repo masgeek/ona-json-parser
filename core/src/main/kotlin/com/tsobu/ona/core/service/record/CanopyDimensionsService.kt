@@ -142,7 +142,7 @@ constructor(
                 }
             }
 
-            acEntity.uuid = acForm.formhubUuid
+            acEntity.formHubUuId = acForm.formhubUuid
             acEntity.submissionDate = myDateUtil.convertToDateTime(acForm.submissionTime)
             acEntity.todayDate = myDateUtil.convertToDate(acForm.today)
             acEntity.startDate = myDateUtil.convertToDateTime(acForm.start)

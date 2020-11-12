@@ -11,7 +11,7 @@ import javax.persistence.Table
 @Table(name = "val_sphs_tz_sz")
 class SzEntity : BaseEntity() {
     var submissionDate: LocalDateTime? = null
-    var uuid: String? = null
+    var formHubUuId: String? = null
     var startDate: LocalDateTime? = null
     var endDate: LocalDateTime? = null
     var todayDate: LocalDateTime? = null

@@ -201,7 +201,7 @@ constructor(
                     monitorValEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            monitorValEntity.uuid = monitorValForm.formhubUuid
+            monitorValEntity.formHubUuId = monitorValForm.formhubUuid
             monitorValEntity.submissionDate = myDateUtil.convertToDateTime(monitorValForm.submissionTime)
             monitorValEntity.todayDate = myDateUtil.convertToDate(monitorValForm.today)
             monitorValEntity.startDate = myDateUtil.convertToDateTime(monitorValForm.start)
