@@ -408,8 +408,8 @@ class SphsEntity : BaseEntity() {
     @Column(name = "overall_score")
     var overallScore: String? = null
 
-    @Column(name = "comment")
-    var comment: String? = null
+    @Column(name = "comment_value",columnDefinition = "TEXT")
+    var commentValue: String? = null
 
     @Column(name = "thank_you")
     var thankYou: String? = null

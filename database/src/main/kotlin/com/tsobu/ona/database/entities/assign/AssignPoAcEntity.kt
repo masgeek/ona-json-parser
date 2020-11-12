@@ -84,7 +84,7 @@ class AssignPoAcEntity : BaseEntity() {
     @Column(name = "complete_setup")
     var completeSetup: String? = null
 
-    @Column(name = "treats")
+    @Column(name = "treats", columnDefinition = "TEXT")
     var treats: String? = null
 
     @Column(name = "nr_treatments")

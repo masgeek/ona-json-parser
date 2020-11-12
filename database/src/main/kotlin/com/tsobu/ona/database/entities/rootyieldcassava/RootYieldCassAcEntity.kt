@@ -8,7 +8,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "assess_root_yield_cassava_ac")
-class RootYieldCassavaAcEntity : BaseEntity() {
+class RootYieldCassAcEntity : BaseEntity() {
 
     @Column(name = "submission_date")
     var submissionDate: LocalDateTime? = null

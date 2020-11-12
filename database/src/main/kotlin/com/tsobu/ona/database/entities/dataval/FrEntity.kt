@@ -18,8 +18,8 @@ class FrEntity : BaseEntity() {
     @Column(name = "clearing")
     var clearing: String? = null
 
-    @Column(name = "comment")
-    var comment: String? = null
+    @Column(name = "comment_value", columnDefinition = "TEXT")
+    var commentValue: String? = null
 
     @Column(name = "control_key")
     var controlKey: String? = null

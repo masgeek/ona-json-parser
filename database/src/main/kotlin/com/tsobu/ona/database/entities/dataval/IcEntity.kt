@@ -636,7 +636,7 @@ class IcEntity : BaseEntity() {
     @Column(name = "price_roots")
     var priceRoots: String? = null
 
-    @Column(name = "comment_value")
+    @Column(name = "comment_value",columnDefinition = "TEXT")
     var commentValue: String? = null
 
     @Column(name = "thank_you")

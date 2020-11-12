@@ -8,8 +8,8 @@ import com.tsobu.ona.core.dto.json.RootYieldCassavaAcDto
 import com.tsobu.ona.core.dto.json.RootYieldCassavaAcYieldAssessmentDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.rootyieldcassava.AcYieldAssessmentEntity
-import com.tsobu.ona.database.entities.rootyieldcassava.RootYieldCassavaAcEntity
+import com.tsobu.ona.database.entities.rootyieldcassava.RootYieldCassAcYaEntity
+import com.tsobu.ona.database.entities.rootyieldcassava.RootYieldCassAcEntity
 import com.tsobu.ona.database.entities.scoreweedcontrol.WdEntity
 import com.tsobu.ona.database.repositories.RootYieldCassavaAcRepo
 import com.tsobu.ona.database.repositories.RootYieldCassavaAcYieldAssessmentRepo
@@ -76,8 +76,8 @@ constructor(
 
         val list = objectMapper.readValue(file, object : TypeReference<List<AssesRootYieldCassavaForm>>() {})
 
-        val data = ArrayList<RootYieldCassavaAcEntity>()
-        val yieldAssessmentData = ArrayList<AcYieldAssessmentEntity>()
+        val data = ArrayList<RootYieldCassAcEntity>()
+        val yieldAssessmentData = ArrayList<RootYieldCassAcYaEntity>()
         val weedWdData = ArrayList<WdEntity>()
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
@@ -100,7 +100,7 @@ constructor(
             list.forEach { myVal ->
                 //map and save to database
                 val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
-                val yieldCassavaEntity = modelMapper.map(myVal, RootYieldCassavaAcEntity::class.java)
+                val yieldCassavaEntity = modelMapper.map(myVal, RootYieldCassAcEntity::class.java)
                 if (geoPoint.isNotEmpty()) {
                     yieldCassavaEntity.geoPointLatitude = geoPoint[0]
 
@@ -131,7 +131,7 @@ constructor(
                 val yieldAssessmentList = myVal.yieldAssessmentForm
                 var assessmentCount = 1
                 yieldAssessmentList?.forEach { ya ->
-                    val yieldAssessment = modelMapper.map(ya, AcYieldAssessmentEntity::class.java)
+                    val yieldAssessment = modelMapper.map(ya, RootYieldCassAcYaEntity::class.java)
 
                     yieldAssessment.parentKey = yieldCassavaEntity.controlKey
                     yieldAssessment.controlKey = "${yieldCassavaEntity.setOfYieldAssesment}[$assessmentCount]"

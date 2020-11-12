@@ -14,21 +14,17 @@ class WriteCsvFile {
     private val log = LoggerFactory.getLogger(WriteCsvFile::class.java)
 
     fun writeCsv(classMap: Class<*>?, data: List<*>, fileName: String, outPutPath: String) {
-        try {
-            val mapper = CsvMapper()
-            mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true)
+        val mapper = CsvMapper()
+        mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true)
 //            mapper.configure(MapperFeature.USE_STD_BEAN_NAMING , true)
-            mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, false)
-            val schema: CsvSchema = mapper.schemaFor(classMap).withUseHeader(true)
+        mapper.configure(JsonGenerator.Feature.IGNORE_UNKNOWN, false)
+        val schema: CsvSchema = mapper.schemaFor(classMap).withUseHeader(true)
 
-            val fullFilePath = "$outPutPath$fileName.csv"
-            val tempFile = File(fullFilePath)
+        val fullFilePath = "$outPutPath$fileName.csv"
+        val tempFile = File(fullFilePath)
 
-            mapper.writer(schema).writeValue(tempFile, data)
-            log.info("$fileName written out to $outPutPath")
-        } catch (ex: Exception) {
-            log.error(ex.message, ex)
-        }
+        mapper.writer(schema).writeValue(tempFile, data)
+        log.info("$fileName written out to $outPutPath")
     }
 
 }

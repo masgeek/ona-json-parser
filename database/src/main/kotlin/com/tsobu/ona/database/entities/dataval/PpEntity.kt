@@ -480,7 +480,7 @@ class PpEntity : BaseEntity() {
     @Column(name = "weeding_method10")
     var weedingMethod10: String? = null
 
-    @Column(name = "herbicides")
+    @Column(name = "herbicides",columnDefinition = "TEXT")
     var herbicides: String? = null
 
     @Column(name = "herbicide_actor")
@@ -627,8 +627,8 @@ class PpEntity : BaseEntity() {
     @Column(name = "price_roots")
     var priceRoots: String? = null
 
-    @Column(name = "comment")
-    var comment: String? = null
+    @Column(name = "comment_value",columnDefinition = "TEXT")
+    var commentValue: String? = null
 
     @Column(name = "thank_you")
     var thankYou: String? = null

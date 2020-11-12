@@ -612,7 +612,7 @@ class CisEntity : BaseEntity() {
     @Column(name = "roots_price")
     var rootsPrice: String? = null
 
-    @Column(name = "comment_value")
+    @Column(name = "comment_value", columnDefinition = "TEXT")
     var commentValue: String? = null
 
     @Column(name = "thankyou")

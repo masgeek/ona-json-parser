@@ -111,7 +111,7 @@ class OnaApplication(
         log.info("Running Spring Boot Application press CTR-C to close the application")
 
 //        valFrService.readJsonAsset()
-        frService.readJsonAsset()
+//        frService.readJsonAsset()
 //        paAcAssignService.readJsonAsset()
 
 
