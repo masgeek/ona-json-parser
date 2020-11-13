@@ -13,5 +13,14 @@ cache:
 before_install:
   - chmod +x gradlew
 
+before_deploy:
+  # Set up git user name and tag this commit
+  - git config --local user.name "IITA Travis Bot"
+  - git config --local user.email "s.barasa@cgiar.org"
+  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+  - git tag $TRAVIS_TAG
+
 script:
   - ./gradlew build
+  - ./gradlew app:release
+  - zip
