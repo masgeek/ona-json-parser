@@ -199,7 +199,7 @@ open class BaseFormData {
     var landPreparationClearing: String? = null
 
     @JsonProperty("landPreparation/vegetation")
-    var landPreparationVegetation: String? = null
+    var vegetation: String? = null
 
     @JsonProperty("confirmTreatments/confirm_P1")
     var confirmTreatmentsConfirmP1: String? = null
@@ -214,11 +214,11 @@ open class BaseFormData {
     var confirmTreatmentsConfirmP4: String? = null
 
     @JsonProperty("plantingDetails/plantingDate")
-    var plantingDetailsPlantingDate: String? = null
+    var plantingDate: String? = null
 
     @JsonProperty("landPrepationDetails/ridgingMethod")
     var landPrepationDetailsRidgingMethod: String? = null
 
     @JsonProperty("landPrepationDetails/tillageMethod")
-    var landPrepationDetailsTillageMethod: String? = null
+    var tillageMethod: String? = null
 }

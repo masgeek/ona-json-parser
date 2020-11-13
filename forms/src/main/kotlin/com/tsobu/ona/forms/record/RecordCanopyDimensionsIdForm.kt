@@ -19,5 +19,5 @@ class RecordCanopyDimensionsIdForm {
     var plotId: String? = null
 
     @JsonProperty("ID/nrMeasurements")
-    var nrMeasurements: Int? = null
+    var nrMeasurements: String? = null
 }

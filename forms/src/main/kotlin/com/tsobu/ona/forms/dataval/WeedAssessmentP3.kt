@@ -12,11 +12,11 @@ class WeedAssessmentP3 {
     var weedPicP3: String? = null
 
     @JsonProperty("weedAssessment_P3/weedCover_P3")
-    var weedCoverP3 :Int?=null
+    var weedCoverP3 :String?=null
 
     @JsonProperty("weedAssessment_P3/weedsHeight_P3")
-    var weedsHeightP3 :Int?=null
+    var weedsHeightP3 :String?=null
 
     @JsonProperty("weedAssessment_P3/cassavaHeight_P3")
-    var cassavaHeightP3 :Int?=null
+    var cassavaHeightP3 :String?=null
 }

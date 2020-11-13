@@ -9,7 +9,7 @@ import java.util.*
 @JsonPropertyOrder("_id", "end", "_tags", "_uuid", "email", "start", "today", "_notes", "_edited", "_status", "_version", "deviceid", "username", "_duration", "_xform_id", "intro/aim", "simserial", "phonenumber", "_attachments", "_geolocation", "_media_count", "_total_media", "formhub/uuid", "intro/entity", "subscriberid", "_submitted_by", "intro/station", "nextStep/next", "intro/batchType", "meta/instanceID", "_submission_time", "_xform_id_string", "sampleList/sample", "_bamboo_dataset_id", "sampleList/countFW", "sampleList/countNA", "sampleList/countNF", "sampleList/countSB", "_media_all_received", "intro/batchTypeNote", "nextStep/next_count", "sampleList/confirmSB", "sampleList/confirmAll", "meta/deprecatedID", "sampleList/confirmNA", "batchDetails/batchName_pull", "batchDetails/receiveConfirm", "batchDetails/description_pull", "batchDetails/sampleBatchID_exist", "intro/country", "intro/project", "sampleList/countDC", "sampleList/countRS", "sampleList/confirmDC", "sampleList/confirmFW", "sampleList/confirmRS")
 class SampleBatchCompositionForm {
     @JsonProperty("_id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("end")
     var endDate: String? = null
@@ -51,7 +51,7 @@ class SampleBatchCompositionForm {
     var duration: String?=null
 
     @JsonProperty("_xform_id")
-    var xFormId: Int? = null
+    var xFormId: String? = null
 
     @JsonProperty("intro/aim")
     var aim: String? = null
@@ -69,10 +69,10 @@ class SampleBatchCompositionForm {
     var geolocation: List<Any> = ArrayList()
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
     var formhubUuid: String? = null

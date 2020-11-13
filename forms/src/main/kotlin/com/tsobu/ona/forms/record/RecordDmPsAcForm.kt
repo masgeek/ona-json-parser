@@ -9,7 +9,7 @@ import java.util.*
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)class RecordDmPsAcForm {
     @JsonProperty("_id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("end")
     var endDate: String? = null
@@ -51,7 +51,7 @@ import java.util.*
     var duration: String?=null
 
     @JsonProperty("_xform_id")
-    var xFormId: Int? = null
+    var xFormId: String? = null
 
     @JsonProperty("simserial")
     var simserial: String? = null
@@ -66,10 +66,10 @@ import java.util.*
     var geolocation: List<Any> = ArrayList()
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
     var formhubUuid: String? = null

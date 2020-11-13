@@ -55,10 +55,10 @@ class ValSphsOyForm {
     var checkValue: String? = null
 
     @JsonProperty("plotL")
-    var plotL: String? = null
+    var plotLength: String? = null
 
     @JsonProperty("plotW")
-    var plotW: String? = null
+    var plotWidth: String? = null
 
     @JsonProperty("start")
     var startDate: String? = null

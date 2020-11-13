@@ -46,10 +46,10 @@ class ValPpTzForm {
     var email: String? = null
 
     @JsonProperty("plotL")
-    var plotL: String? = null
+    var plotLength: String? = null
 
     @JsonProperty("plotW")
-    var plotW: String? = null
+    var plotWidth: String? = null
 
     @JsonProperty("slash")
     var slash: String? = null

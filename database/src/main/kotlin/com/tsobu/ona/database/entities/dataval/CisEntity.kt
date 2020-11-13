@@ -166,10 +166,10 @@ class CisEntity : BaseEntity() {
     var withinRowSpic: String? = null
 
     @Column(name = "plot_w")
-    var plotW: String? = null
+    var plotWidth: String? = null
 
     @Column(name = "plot_l")
-    var plotL: String? = null
+    var plotLength: String? = null
 
     @Column(name = "plot_size")
     var plotSize: String? = null

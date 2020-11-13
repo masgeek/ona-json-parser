@@ -11,7 +11,7 @@ import java.util.*
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class EaForm {
     @JsonProperty("_id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("end")
     var endDate: String? = null
@@ -71,7 +71,7 @@ class EaForm {
     var duration: String?=null
 
     @JsonProperty("_xform_id")
-    var xFormId: Int? = null
+    var xFormId: String? = null
 
     @JsonProperty("_attachments")
     var attachments: List<Attachment> = ArrayList()
@@ -80,10 +80,10 @@ class EaForm {
     var geolocation: List<Double> = ArrayList()
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
     var formhubUuid: String? = null
@@ -98,7 +98,7 @@ class EaForm {
     var photoProfileEA: String? = null
 
     @JsonProperty("detailsEA/ageEA")
-    var detailsEAAgeEA: Int? = null
+    var detailsEAAgeEA: String? = null
 
     @JsonProperty("meta/instanceID")
     var instanceId: String? = null
@@ -113,7 +113,7 @@ class EaForm {
     var operationEAFreq: String? = null
 
     @JsonProperty("operationEA/nrHH")
-    var operationEANrHH: Int? = null
+    var operationEANrHH: String? = null
 
     @JsonProperty("_bamboo_dataset_id")
     var bambooDatasetId: String? = null

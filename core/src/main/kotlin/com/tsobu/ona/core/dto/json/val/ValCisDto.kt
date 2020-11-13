@@ -119,7 +119,7 @@ class ValCisDto {
     var rootsUnit: String? = null
 
     @JsonProperty("rootsPriceSI")
-    var rootsPriceSI: Any? = null
+    var rootsPriceSi: Any? = null
 
     @JsonProperty("rootsUnitName")
     var rootsUnitName: String? = null
@@ -137,7 +137,7 @@ class ValCisDto {
     var tuberUnit: String? = null
 
     @JsonProperty("tuberPriceSI")
-    var tuberPriceSI: Any? = null
+    var tuberPriceSi: Any? = null
 
     @JsonProperty("tuberUnitName")
     var tuberUnitName: String? = null

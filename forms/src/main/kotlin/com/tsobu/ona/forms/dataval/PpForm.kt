@@ -135,7 +135,7 @@ class PpForm {
     var harvestDate: String? = null
 
     @JsonProperty("trialRating/rateCMD")
-    var rateCMD: String? = null
+    var rateCmd: String? = null
 
     @JsonProperty("trialRating/rateFire")
     var rateFire: String? = null
@@ -192,7 +192,7 @@ class PpForm {
     var dateWeeding3: String? = null
 
     @JsonProperty("farmerEvaluation/labourScore")
-    var farmerEvaluationLabourScore: String? = null
+    var labourScore: String? = null
 
     @JsonProperty("plantStand/nrPlants_ALT_BPP3")
     var nrPlantsAltBpp3: String? = null

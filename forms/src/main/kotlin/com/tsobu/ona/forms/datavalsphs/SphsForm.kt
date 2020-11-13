@@ -72,13 +72,13 @@ class SphsForm {
     var duration: String? = null
 
     @JsonProperty("_xform_id")
-    var xformId :Int?=null
+    var xformId :String?=null
 
     @JsonProperty("loc_field")
     var locField: String? = null
 
     @JsonProperty("nrWeeding")
-    var nrWeeding :Int?=null
+    var nrWeeding :String?=null
 
     @JsonProperty("simserial")
     var simSerial: String? = null
@@ -93,10 +93,10 @@ class SphsForm {
     var geolocation: List<Double>? = null
 
     @JsonProperty("_media_count")
-    var mediaCount :Int?=null
+    var mediaCount :String?=null
 
     @JsonProperty("_total_media")
-    var totalMedia :Int?=null
+    var totalMedia :String?=null
 
     @JsonProperty("formhub/uuid")
     var formHubUuid: String? = null

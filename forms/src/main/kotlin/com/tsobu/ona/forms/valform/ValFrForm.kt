@@ -37,10 +37,10 @@ class ValFrForm {
     var uuid: String? = null
 
     @JsonProperty("plotL")
-    var plotL: String? = null
+    var plotLength: String? = null
 
     @JsonProperty("plotW")
-    var plotW: String? = null
+    var plotWidth: String? = null
 
     @JsonProperty("start")
     var startDate: String? = null
@@ -70,10 +70,10 @@ class ValFrForm {
     var country: String? = null
 
     @JsonProperty("rateMOP")
-    var rateMOP: String? = null
+    var rateMop: String? = null
 
     @JsonProperty("rateTSP")
-    var rateTSP: String? = null
+    var rateTsp: String? = null
 
     @JsonProperty("ridging")
     var ridging: String? = null
@@ -109,7 +109,7 @@ class ValFrForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: String?=null
+    var duration: String? = null
 
     @JsonProperty("_xform_id")
     var xFormId: String? = null
@@ -136,25 +136,25 @@ class ValFrForm {
     var conversion: String? = null
 
     @JsonProperty("rateMOP_AB")
-    var rateMOPAb: String? = null
+    var rateMopAb: String? = null
 
     @JsonProperty("rateTSP_AB")
-    var rateTSPAb: String? = null
+    var rateTspAb: String? = null
 
     @JsonProperty("purpose/VAL")
     var purposeVal: String? = null
 
     @JsonProperty("quantityMOP")
-    var quantityMOP: String? = null
+    var quantityMop: String? = null
 
     @JsonProperty("quantityTSP")
     var quantityTsp: String? = null
 
     @JsonProperty("rateMOP_min")
-    var rateMOPMin: String? = null
+    var rateMopMin: String? = null
 
     @JsonProperty("rateTSP_min")
-    var rateTSPMin: String? = null
+    var rateTspMin: String? = null
 
     @JsonProperty("rateUrea_AB")
     var rateUreaAb: String? = null
@@ -187,16 +187,16 @@ class ValFrForm {
     var plantingWeek: String? = null
 
     @JsonProperty("quantity1MOP")
-    var quantity1MOP: String? = null
+    var quantity1Mop: String? = null
 
     @JsonProperty("quantity1TSP")
-    var quantity1TSP: String? = null
+    var quantity1Tsp: String? = null
 
     @JsonProperty("quantity2MOP")
-    var quantity2MOP: String? = null
+    var quantity2Mop: String? = null
 
     @JsonProperty("quantity2TSP")
-    var quantity2TSP: String? = null
+    var quantity2Tsp: String? = null
 
     @JsonProperty("quantityUrea")
     var quantityUrea: String? = null
@@ -274,7 +274,7 @@ class ValFrForm {
     var totalCostLocCurPlot: String? = null
 
     @JsonProperty("netRevLocCurPlotcurr")
-    var netRevLocCurPlotcurr: String? = null
+    var netRevLocCurPlotCurr: String? = null
 
     @JsonProperty("totalCostLocCur_ABcurr")
     var totalCostLocCurAbCurr: String? = null
@@ -301,10 +301,10 @@ class ValFrForm {
     var deprecatedId: String? = null
 
     @JsonProperty("densityDetails/withinRow")
-    var withinRow: String?=null
+    var withinRow: String? = null
 
     @JsonProperty("densityDetails/betweenRow")
-    var betweenRow: String?=null
+    var betweenRow: String? = null
 
     @JsonProperty("FCY")
     var fcy: String? = null
@@ -313,34 +313,34 @@ class ValFrForm {
     var season: String? = null
 
     @JsonProperty("rateDAP")
-    var rateDAP: String? = null
+    var rateDap: String? = null
 
     @JsonProperty("quantityDAP")
-    var quantityDAP: String? = null
+    var quantityDap: String? = null
 
     @JsonProperty("rateDAP_min")
-    var rateDAPMin: String? = null
+    var rateDapMin: String? = null
 
     @JsonProperty("quantity1DAP")
-    var quantity1DAP: String? = null
+    var quantity1Dap: String? = null
 
     @JsonProperty("quantity2DAP")
-    var quantity2DAP: String? = null
+    var quantity2Dap: String? = null
 
     @JsonProperty("rateDAP_AB")
-    var rateDAPAb: String? = null
+    var rateDapAb: String? = null
 
     @JsonProperty("rateNPK")
     var rateNpk: String? = null
 
     @JsonProperty("rateNPK_AB")
-    var rateNPKAb: String? = null
+    var rateNpkAb: String? = null
 
     @JsonProperty("quantityNPK")
     var quantityNpk: String? = null
 
     @JsonProperty("rateNPK_min")
-    var rateNPKMin: String? = null
+    var rateNpkMin: String? = null
 
     @JsonProperty("quantity1NPK")
     var quantity1Npk: String? = null

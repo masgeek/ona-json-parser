@@ -107,7 +107,7 @@ class ValFrDto {
     var rateUrea: String? = null
 
     @JsonProperty("rateTSP")
-    var rateTSP: String? = null
+    var rateTSp: String? = null
 
     @JsonProperty("rateNafaka")
     var rateNafaka: String? = null
@@ -152,10 +152,10 @@ class ValFrDto {
     var withinRow: String? = null
 
     @JsonProperty("plotL")
-    var plotL: String? = null
+    var plotLength: String? = null
 
     @JsonProperty("plotW")
-    var plotW: String? = null
+    var plotWidth: String? = null
 
     @JsonProperty("plotSize")
     var plotSize: String? = null
@@ -188,7 +188,7 @@ class ValFrDto {
     var quantityUrea: String? = null
 
     @JsonProperty("quantityTSP")
-    var quantityTSP: String? = null
+    var quantityTSp: String? = null
 
     @JsonProperty("quantityNafaka")
     var quantityNafaka: String? = null
@@ -227,10 +227,10 @@ class ValFrDto {
     var quantity2Urea: String? = null
 
     @JsonProperty("quantity1TSP")
-    var quantity1TSP: String? = null
+    var quantity1TSp: String? = null
 
     @JsonProperty("quantity2TSP")
-    var quantity2TSP: String? = null
+    var quantity2TSp: String? = null
 
     @JsonProperty("quantity1Nafaka")
     var quantity1Nafaka: String? = null

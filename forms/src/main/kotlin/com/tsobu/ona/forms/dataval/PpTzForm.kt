@@ -160,10 +160,10 @@ class PpTzForm {
     var inputs2Fertilizer2: String? = null
 
     @JsonProperty("trialRating/rateCMD")
-    var rateCMD: String? = null
+    var rateCmd: String? = null
 
     @JsonProperty("trialRating/rateCBSD")
-    var rateCBSD: String? = null
+    var rateCbSd: String? = null
 
     @JsonProperty("trialRating/rateFire")
     var rateFire: String? = null
@@ -360,7 +360,7 @@ class PpTzForm {
     var qualityScore: String? = null
 
     @JsonProperty("farmerEvaluation/revenueScore")
-    var farmerEvaluationRevenueScore: String? = null
+    var revenueScore: String? = null
 
     @JsonProperty("weedAssessment_ALT_BPP3_count")
     var weedAssessmentAltBpp3Count: String? = null

@@ -12,7 +12,7 @@ class NonDestructiveCassAcForm {
     var acId: List<NonDestructiveCassAcIdForm> = ArrayList()
 
     @JsonProperty("_id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("end")
     var endDate: String? = null
@@ -63,7 +63,7 @@ class NonDestructiveCassAcForm {
     var duration: String?=null
 
     @JsonProperty("_xform_id")
-    var xFormId: Int? = null
+    var xFormId: String? = null
 
     @JsonProperty("detailSec")
     var detailSec: String? = null
@@ -78,10 +78,10 @@ class NonDestructiveCassAcForm {
     var geolocation: List<Double> = ArrayList()
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
     var formhubUuid: String? = null

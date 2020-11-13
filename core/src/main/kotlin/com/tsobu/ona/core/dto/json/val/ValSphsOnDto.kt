@@ -173,10 +173,10 @@ class ValSphsOnDto {
     var areaBasis: String? = null
 
     @JsonProperty("plotL")
-    var plotL: String? = null
+    var plotLength: String? = null
 
     @JsonProperty("plotW")
-    var plotW: String? = null
+    var plotWidth: String? = null
 
     @JsonProperty("plotSize")
     var plotSize: String? = null

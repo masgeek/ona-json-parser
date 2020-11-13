@@ -10,7 +10,7 @@ import java.util.*
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class PoolSampleForm {
     @JsonProperty("sample/nrLabels")
-    var nrLabels: Int? = null
+    var nrLabels: String? = null
 
     @JsonProperty("sample/oldLabel")
     var oldLabel: List<PoolSampleOldLabelForm> = ArrayList()
