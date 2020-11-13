@@ -11,7 +11,7 @@ class SoilSampleDto {
     var depth: String? = null
 
     @JsonProperty("soilSampleID")
-    var soilSampleID: String? = null
+    var soilSampleId: String? = null
 
     @JsonProperty("PARENT_KEY")
     var parentKey: String? = null

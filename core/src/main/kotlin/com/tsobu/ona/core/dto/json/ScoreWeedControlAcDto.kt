@@ -1,6 +1,5 @@
 package com.tsobu.ona.core.dto.json
 
-import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
@@ -38,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
         "KEY"
 )
 class ScoreWeedControlAcDto {
-    var uuid: String? = null
+    var formHubUuId:String? = null
 
     @JsonProperty("SubmissionDate")
     var submissionDate: String? = null
@@ -112,5 +111,5 @@ class ScoreWeedControlAcDto {
     var instanceId: String? = null
 
     @JsonProperty("KEY")
-    var weedKey: String? = null
+    var controlKey: String? = null
 }

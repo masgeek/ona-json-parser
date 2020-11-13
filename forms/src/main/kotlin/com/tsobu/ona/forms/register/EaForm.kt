@@ -11,10 +11,10 @@ import java.util.*
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class EaForm {
     @JsonProperty("_id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("EAID")
     var eaid: String? = null
@@ -29,13 +29,13 @@ class EaForm {
     var login: String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("state")
     var state: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("_notes")
     var notes: List<Any> = ArrayList()
@@ -68,10 +68,10 @@ class EaForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xFormId: String? = null
 
     @JsonProperty("_attachments")
     var attachments: List<Attachment> = ArrayList()
@@ -80,10 +80,10 @@ class EaForm {
     var geolocation: List<Double> = ArrayList()
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
     var formhubUuid: String? = null
@@ -98,10 +98,10 @@ class EaForm {
     var photoProfileEA: String? = null
 
     @JsonProperty("detailsEA/ageEA")
-    var detailsEAAgeEA: Int? = null
+    var detailsEAAgeEA: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null
@@ -113,7 +113,7 @@ class EaForm {
     var operationEAFreq: String? = null
 
     @JsonProperty("operationEA/nrHH")
-    var operationEANrHH: Int? = null
+    var operationEANrHH: String? = null
 
     @JsonProperty("_bamboo_dataset_id")
     var bambooDatasetId: String? = null
@@ -191,5 +191,5 @@ class EaForm {
     var lastEdited: String? = null
 
     @JsonProperty("meta/deprecatedID")
-    var metaDeprecatedID: String? = null
+    var metaDeprecatedId: String? = null
 }

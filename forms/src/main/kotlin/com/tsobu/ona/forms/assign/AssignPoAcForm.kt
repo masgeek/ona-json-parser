@@ -12,7 +12,7 @@ class AssignPoAcForm {
     var Id: String? = null
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("_tags")
     var tags: List<Any> = ArrayList()
@@ -24,10 +24,10 @@ class AssignPoAcForm {
     var login: String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("_notes")
     var notes: List<Any> = ArrayList()
@@ -54,10 +54,10 @@ class AssignPoAcForm {
     var geopoint: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
-    var xformId: String? = null
+    var xFormId: String? = null
 
     @JsonProperty("simserial")
     var simserial: String? = null
@@ -78,7 +78,7 @@ class AssignPoAcForm {
     var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
-    var formhubUuId: String? = null
+    var formHubUuId: String? = null
 
     @JsonProperty("nrTreatments")
     var nrTreatments: String? = null
@@ -96,7 +96,7 @@ class AssignPoAcForm {
     var completeSetup: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceId: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("purpose/country")
     var purposeCountry: String? = null

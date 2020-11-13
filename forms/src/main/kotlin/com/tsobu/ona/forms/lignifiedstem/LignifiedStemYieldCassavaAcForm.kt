@@ -12,7 +12,7 @@ class LignifiedStemYieldCassavaAcForm {
     var id: String? = null
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("_tags")
     var tags: List<Any> = ArrayList()
@@ -24,10 +24,10 @@ class LignifiedStemYieldCassavaAcForm {
     var login: String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("_notes")
     var notes: List<Any> = ArrayList()
@@ -57,10 +57,10 @@ class LignifiedStemYieldCassavaAcForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
-    var xformId: String? = null
+    var xFormId: String? = null
 
     @JsonProperty("simserial")
     var simserial: String? = null
@@ -87,7 +87,7 @@ class LignifiedStemYieldCassavaAcForm {
     var submittedBy: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("yieldAssessment")
     var yieldAssessmentList: List<LignfiedYieldAssessment>? = null

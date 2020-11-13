@@ -1,11 +1,10 @@
 package com.tsobu.ona.database.repositories.addsample
 
-import com.tsobu.ona.database.entities.addsample.AcEntity
-import com.tsobu.ona.database.entities.addsample.AcSampleEntity
+import com.tsobu.ona.database.entities.addsample.SampleLabelAcEntity
 import org.springframework.data.jpa.repository.JpaRepository
 
-interface AcRepo : JpaRepository<AcEntity, Long> {
-    override fun findAll(): List<AcEntity>
+interface AcRepo : JpaRepository<SampleLabelAcEntity, Long> {
+    override fun findAll(): List<SampleLabelAcEntity>
 
-    fun findAllByOrderBySubmissionDateAsc(): List<AcEntity>
+    fun findAllByOrderBySubmissionDateAsc(): List<SampleLabelAcEntity>
 }

@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.dataval.CisDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.dataval.CisEntity
 import com.tsobu.ona.database.repositories.dataval.CisRepo
 import com.tsobu.ona.forms.dataval.CisForm
@@ -35,7 +35,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     val fileName = "dataVAL_CIS.json"
     fun mapJsonFile() {
@@ -54,15 +54,35 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
 
         val icData = frList.map { cisEntity ->
             val cisDto = modelMapper.map(cisEntity, CisDto::class.java)
-            cisDto.submissionDate = myDateUtil.convertTimeToString(cisEntity.submissionDate)
-            cisDto.startDate= myDateUtil.convertTimeToString(cisEntity.startDate)
-            cisDto.endDate = myDateUtil.convertTimeToString(cisEntity.endDate)
+            cisDto.submissionDate = myDateUtil.toDateTimeString(cisEntity.submissionDate)
+            cisDto.startDate = myDateUtil.toDateTimeString(cisEntity.startDate)
+            cisDto.endDate = myDateUtil.toDateTimeString(cisEntity.endDate)
+            cisDto.todayDate = myDateUtil.toDateToString(cisEntity.todayDate)
+
+            cisDto.dateCassavaHarvest = myDateUtil.toDateToString(cisEntity.dateCassavaHarvest)
+            cisDto.dateSweetPotatoHarvest = myDateUtil.toDateToString(cisEntity.dateSweetPotatoHarvest)
+            cisDto.plantingDate = myDateUtil.toDateToString(cisEntity.plantingDate)
+            cisDto.dateWeeding1 = myDateUtil.toDateToString(cisEntity.dateWeeding1)
+            cisDto.dateWeeding2 = myDateUtil.toDateToString(cisEntity.dateWeeding2)
+            cisDto.dateWeeding3 = myDateUtil.toDateToString(cisEntity.dateWeeding3)
+            cisDto.dateWeeding4 = myDateUtil.toDateToString(cisEntity.dateWeeding4)
+            cisDto.dateWeeding5 = myDateUtil.toDateToString(cisEntity.dateWeeding5)
+            cisDto.dateWeeding6 = myDateUtil.toDateToString(cisEntity.dateWeeding6)
+            cisDto.dateWeeding7 = myDateUtil.toDateToString(cisEntity.dateWeeding7)
+            cisDto.dateWeeding8 = myDateUtil.toDateToString(cisEntity.dateWeeding8)
+            cisDto.dateWeeding9 = myDateUtil.toDateToString(cisEntity.dateWeeding9)
+            cisDto.dateWeeding10 = myDateUtil.toDateToString(cisEntity.dateWeeding10)
+
+            cisDto.cassavaGappingDate = myDateUtil.toDateToString(cisEntity.cassavaGappingDate)
+
+            cisDto.dateFertilizer0 = myDateUtil.toDateToString(cisEntity.dateFertilizer0)
+            cisDto.dateFertilizer1 = myDateUtil.toDateToString(cisEntity.dateFertilizer1)
 
             cisDto
         }
@@ -91,7 +111,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
 //        modelMapper.configuration.sourceNamingConvention = NamingConventions.NONE
 //        modelMapper.configuration.destinationNamingConvention = NamingConventions.NONE
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
@@ -114,16 +134,14 @@ constructor(
                     cisEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            cisEntity.uuid = cisForm.formhubUuid
+            cisEntity.formHubUuId = cisForm.formhubUuid
             cisEntity.submissionDate = myDateUtil.convertToDateTime(cisForm.submissionTime)
-            cisEntity.todayDate = myDateUtil.convertToDate(cisForm.today)
-            cisEntity.startDate = myDateUtil.convertToDateTime(cisForm.start)
-            cisEntity.endDate = myDateUtil.convertToDateTime(cisForm.end)
-//            cisEntity.plantingDate = myDateUtil.convertToDate(cisForm.plantingDate)
-            cisEntity.instanceID = cisForm.metaInstanceID
-            cisEntity.controlKey = cisForm.metaInstanceID
+            cisEntity.todayDate = myDateUtil.convertToDate(cisForm.todayDate)
+            cisEntity.startDate = myDateUtil.convertToDateTime(cisForm.startDate)
+            cisEntity.endDate = myDateUtil.convertToDateTime(cisForm.endDate)
+            cisEntity.instanceId = cisForm.instanceId
+            cisEntity.controlKey = cisForm.instanceId
 
-//            cisEntity.eventValue = cisForm.eventValue
 
             try {
                 icData.add(cisEntity)
@@ -132,7 +150,7 @@ constructor(
             }
         }
 
-//        cisRepo.saveAll(icData)
+        cisRepo.saveAll(icData)
         log.info("Finished saving the data for $fileName------->")
         mapJsonFile()
     }

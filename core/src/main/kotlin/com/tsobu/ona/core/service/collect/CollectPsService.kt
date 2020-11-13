@@ -7,7 +7,7 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.collect.CollectPsAcDto
 import com.tsobu.ona.core.dto.json.collect.CollectPsAcPlantSampleDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.collect.CollectPsAcEntity
 import com.tsobu.ona.database.entities.collect.CollectPsAcPlantSampleEntity
 import com.tsobu.ona.database.repositories.collect.CollectPsAcPlantSampleRepo
@@ -37,7 +37,7 @@ constructor(
     private val modelMapper = ModelMapper()
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "Collect_PS_AC.json"
     fun mapJsonFile() {
@@ -54,7 +54,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -64,9 +64,10 @@ constructor(
 
         val psAcData = psAcEntityList.map { psAcEntity ->
             val collectPsAcDto = modelMapper.map(psAcEntity, CollectPsAcDto::class.java)
-            collectPsAcDto.submissionDate = myDateUtil.convertTimeToString(psAcEntity.submissionDate)
-            collectPsAcDto.start = myDateUtil.convertTimeToString(psAcEntity.startDate)
-            collectPsAcDto.end = myDateUtil.convertTimeToString(psAcEntity.endDate)
+            collectPsAcDto.submissionDate = myDateUtil.toDateTimeString(psAcEntity.submissionDate)
+            collectPsAcDto.startDate = myDateUtil.toDateTimeString(psAcEntity.startDate)
+            collectPsAcDto.endDate = myDateUtil.toDateTimeString(psAcEntity.endDate)
+            collectPsAcDto.todayDate = myDateUtil.toDateToString(psAcEntity.todayDate)
             collectPsAcDto
         }
 
@@ -106,7 +107,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val psAcData = ArrayList<CollectPsAcEntity>()
@@ -129,13 +130,13 @@ constructor(
                     psAcEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            psAcEntity.uuid = psAcForm.formhubUuid
+            psAcEntity.formHubUuId = psAcForm.formhubUuid
             psAcEntity.submissionDate = myDateUtil.convertToDateTime(psAcForm.submissionTime)
-            psAcEntity.todayDate = myDateUtil.convertToDate(psAcForm.today)
-            psAcEntity.startDate = myDateUtil.convertToDateTime(psAcForm.start)
-            psAcEntity.endDate = myDateUtil.convertToDateTime(psAcForm.end)
-            psAcEntity.instanceId = psAcForm.metaInstanceID
-            psAcEntity.controlKey = psAcForm.metaInstanceID
+            psAcEntity.todayDate = myDateUtil.convertToDate(psAcForm.todayDate)
+            psAcEntity.startDate = myDateUtil.convertToDateTime(psAcForm.startDate)
+            psAcEntity.endDate = myDateUtil.convertToDateTime(psAcForm.endDate)
+            psAcEntity.instanceId = psAcForm.instanceId
+            psAcEntity.controlKey = psAcForm.instanceId
             psAcEntity.setOfPlantSample = "${psAcEntity.controlKey}/plantSample"
             psAcData.add(psAcEntity)
 
@@ -153,8 +154,8 @@ constructor(
             }
         }
 
-//        psAcRepo.saveAll(psAcData)
-//        plantSampleRepo.saveAll(plantSampleAcData)
+        psAcRepo.saveAll(psAcData)
+        plantSampleRepo.saveAll(plantSampleAcData)
 
         log.info("Finished saving the data for $fileName------->")
 

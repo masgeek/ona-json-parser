@@ -11,13 +11,13 @@ class IcDto {
     var submissionDate: String? = null
 
     @JsonProperty("uuid")
-    var uuid: String? = null
+    var formHubUuId:String? = null
 
     @JsonProperty("start")
     var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("deviceid")
     var deviceid: String? = null
@@ -131,10 +131,10 @@ class IcDto {
     var withinRow: String? = null
 
     @JsonProperty("plotW")
-    var plotW: String? = null
+    var plotWidth: String? = null
 
     @JsonProperty("plotL")
-    var plotL: String? = null
+    var plotLength: String? = null
 
     @JsonProperty("plotSize")
     var plotSize: String? = null
@@ -635,7 +635,7 @@ class IcDto {
     var priceRoots: String? = null
 
     @JsonProperty("comment")
-    var comment: String? = null
+    var commentValue: String? = null
 
     @JsonProperty("thankyou")
     var thankyou: String? = null
@@ -644,7 +644,7 @@ class IcDto {
     var endDate: String? = null
 
     @JsonProperty("instanceID")
-    var instanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("KEY")
     var controlKey: String? = null

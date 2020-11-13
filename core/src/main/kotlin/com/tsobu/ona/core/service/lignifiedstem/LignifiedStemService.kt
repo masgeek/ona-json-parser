@@ -7,7 +7,7 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.lignifiedstem.LignifiedStemYieldCassAcDto
 import com.tsobu.ona.core.dto.json.lignifiedstem.LignifiedStemYieldCassAcYaDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.lignifiedstem.LignifiedStemYieldCassAcEntity
 import com.tsobu.ona.database.entities.lignifiedstem.LignifiedStemYieldCassAcYaEntity
 import com.tsobu.ona.database.repositories.lignifiedstem.LignifiedStemYieldCassAcRepo
@@ -39,7 +39,8 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
+    private val fileName = "Assess_LignifiedStem_Yield_Cassava_AC.json"
     fun mapJsonFile() {
         log.info("Reading table data....")
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
@@ -54,7 +55,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -64,9 +65,10 @@ constructor(
 
         val yieldCassAcData = acEntityList.map { acEntity ->
             val yieldCassAcDto = modelMapper.map(acEntity, LignifiedStemYieldCassAcDto::class.java)
-            yieldCassAcDto.submissionDate = myDateUtil.convertTimeToString(acEntity.submissionDate)
-            yieldCassAcDto.start = myDateUtil.convertTimeToString(acEntity.startDate)
-            yieldCassAcDto.end = myDateUtil.convertTimeToString(acEntity.endDate)
+            yieldCassAcDto.submissionDate = myDateUtil.toDateTimeString(acEntity.submissionDate)
+            yieldCassAcDto.startDate = myDateUtil.toDateTimeString(acEntity.startDate)
+            yieldCassAcDto.endDate = myDateUtil.toDateTimeString(acEntity.endDate)
+            yieldCassAcDto.todayDate = myDateUtil.toDateToString(acEntity.todayDate)
             yieldCassAcDto
         }
 
@@ -85,7 +87,7 @@ constructor(
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
-    fun readJsonAsset(fileName: String) {
+    fun readJsonAsset() {
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
@@ -103,7 +105,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val lignifiedAcData = ArrayList<LignifiedStemYieldCassAcEntity>()
@@ -126,13 +128,13 @@ constructor(
                     yieldCassAcEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            yieldCassAcEntity.uuid = yieldCassavaAcForm.formhubUuid
+            yieldCassAcEntity.formHubUuId = yieldCassavaAcForm.formhubUuid
             yieldCassAcEntity.submissionDate = myDateUtil.convertToDateTime(yieldCassavaAcForm.submissionTime)
-            yieldCassAcEntity.todayDate = myDateUtil.convertToDate(yieldCassavaAcForm.today)
-            yieldCassAcEntity.startDate = myDateUtil.convertToDateTime(yieldCassavaAcForm.start)
-            yieldCassAcEntity.endDate = myDateUtil.convertToDateTime(yieldCassavaAcForm.end)
-            yieldCassAcEntity.instanceId = yieldCassavaAcForm.metaInstanceID
-            yieldCassAcEntity.controlKey = yieldCassavaAcForm.metaInstanceID
+            yieldCassAcEntity.todayDate = myDateUtil.convertToDate(yieldCassavaAcForm.todayDate)
+            yieldCassAcEntity.startDate = myDateUtil.convertToDateTime(yieldCassavaAcForm.startDate)
+            yieldCassAcEntity.endDate = myDateUtil.convertToDateTime(yieldCassavaAcForm.endDate)
+            yieldCassAcEntity.instanceId = yieldCassavaAcForm.instanceId
+            yieldCassAcEntity.controlKey = yieldCassavaAcForm.instanceId
             yieldCassAcEntity.setOfYieldAssessment = "${yieldCassAcEntity.controlKey}/yieldAssessment"
 
             lignifiedAcData.add(yieldCassAcEntity)
@@ -155,5 +157,6 @@ constructor(
         yieldCassAcYaRepo.saveAll(lignifiedAcYaData)
 
         log.info("Finished saving the data for $fileName------->")
+        mapJsonFile()
     }
 }

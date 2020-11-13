@@ -5,11 +5,11 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.valdto.ValIcDto
+import com.tsobu.ona.core.dto.json.`val`.ValIcDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.valform.ValIcEntity
-import com.tsobu.ona.database.repositories.valform.ValIcRepo
+import com.tsobu.ona.core.utils.CsvUtility
+import com.tsobu.ona.database.entities.`val`.ValIcEntity
+import com.tsobu.ona.database.repositories.`val`.ValIcRepo
 import com.tsobu.ona.forms.valform.ValIcForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
@@ -36,7 +36,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "VAL_IC.json"
 
@@ -54,7 +54,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -63,10 +63,11 @@ constructor(
 
         val valIcData = valIcEntityList.map { valIcEntity ->
             val valIcDto = modelMapper.map(valIcEntity, ValIcDto::class.java)
-            valIcDto.submissionDate = myDateUtil.convertTimeToString(valIcEntity.submissionDate)
-            valIcDto.start = myDateUtil.convertTimeToString(valIcEntity.startDate)
-            valIcDto.end = myDateUtil.convertTimeToString(valIcEntity.endDate)
-//            valIcDto.purposeVal = valIcEntity.confirmVal
+            valIcDto.submissionDate = myDateUtil.toDateTimeString(valIcEntity.submissionDate)
+            valIcDto.startDate = myDateUtil.toDateTimeString(valIcEntity.startDate)
+            valIcDto.endDate = myDateUtil.toDateTimeString(valIcEntity.endDate)
+            valIcDto.todayDate = myDateUtil.toDateToString(valIcEntity.todayDate)
+            valIcDto.plantingDate = myDateUtil.toDateToString(valIcEntity.plantingDate)
             valIcDto
         }
 
@@ -96,7 +97,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
 //        modelMapper.configuration.sourceNamingConvention = NamingConventions.NONE
 //        modelMapper.configuration.destinationNamingConvention = NamingConventions.NONE
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
@@ -120,14 +121,14 @@ constructor(
                     valFrEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            valFrEntity.uuid = valIcForm.formhubUuid
+            valFrEntity.formHubUuId = valIcForm.formhubUuid
             valFrEntity.submissionDate = myDateUtil.convertToDateTime(valIcForm.submissionTime)
-            valFrEntity.todayDate = myDateUtil.convertToDate(valIcForm.today)
-            valFrEntity.startDate = myDateUtil.convertToDateTime(valIcForm.start)
-            valFrEntity.endDate = myDateUtil.convertToDateTime(valIcForm.end)
+            valFrEntity.todayDate = myDateUtil.convertToDate(valIcForm.todayDate)
+            valFrEntity.startDate = myDateUtil.convertToDateTime(valIcForm.startDate)
+            valFrEntity.endDate = myDateUtil.convertToDateTime(valIcForm.endDate)
             valFrEntity.plantingDate = myDateUtil.convertToDate(valIcForm.plantingDate)
-            valFrEntity.instanceId = valIcForm.metaInstanceID
-            valFrEntity.controlKey = valIcForm.metaInstanceID
+            valFrEntity.instanceId = valIcForm.instanceId
+            valFrEntity.controlKey = valIcForm.instanceId
 
 //            valFrEntity.profitExtraPlot = valIcForm.callValue
 
@@ -135,7 +136,7 @@ constructor(
             log.info("Added data to table ${valFrEntity.controlKey} with surname as ${valIcForm.xformIdString}")
         }
 
-//        valIcRepo.saveAll(valIcData)
+        valIcRepo.saveAll(valIcData)
 
         log.info("Finished saving the data for $fileName------->")
 

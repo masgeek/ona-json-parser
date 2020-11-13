@@ -5,12 +5,11 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.valdto.VaLPpTreatDto
-import com.tsobu.ona.core.dto.json.valdto.ValSphsKwDto
+import com.tsobu.ona.core.dto.json.`val`.ValSphsKwDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.valform.ValSphsKwEntity
-import com.tsobu.ona.database.repositories.valform.ValSphsKwRepo
+import com.tsobu.ona.core.utils.CsvUtility
+import com.tsobu.ona.database.entities.`val`.ValSphsKwEntity
+import com.tsobu.ona.database.repositories.`val`.ValSphsKwRepo
 import com.tsobu.ona.forms.valform.ValSphsKwForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
@@ -37,7 +36,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "VAL_SPHS_KW.json"
 
@@ -55,8 +54,8 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
-        modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
+//        modelMapper.configuration.isAmbiguityIgnored = false
+        modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
         val filePath = "${appConfig.globalProperties().outputPath}"
         val kwList = kwRepo.findAllByOrderBySubmissionDateAsc()
@@ -64,16 +63,18 @@ constructor(
 
         val treatData = kwList.map { kwEntity ->
             val kwDto = modelMapper.map(kwEntity, ValSphsKwDto::class.java)
-            kwDto.submissionDate = myDateUtil.convertTimeToString(kwEntity.submissionDate)
-            kwDto.start = myDateUtil.convertTimeToString(kwEntity.startDate)
-            kwDto.end = myDateUtil.convertTimeToString(kwEntity.endDate)
+            kwDto.submissionDate = myDateUtil.toDateTimeString(kwEntity.submissionDate)
+            kwDto.startDate = myDateUtil.toDateTimeString(kwEntity.startDate)
+            kwDto.endDate = myDateUtil.toDateTimeString(kwEntity.endDate)
+            kwDto.todayDate = myDateUtil.toDateToString(kwEntity.todayDate)
+            kwDto.harvestDate = myDateUtil.toDateToString(kwEntity.harvestDate)
+            kwDto.plantingDate = myDateUtil.toDateToString(kwEntity.plantingDate)
 
             kwDto
         }
 
 
-        writeCsvFile.writeCsv(classMap = VaLPpTreatDto::class.java, data = treatData,
-                fileName = "VAL_SPHS_KW", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = ValSphsKwDto::class.java, data = treatData, fileName = "VAL_SPHS_KW", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -97,7 +98,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
 //        modelMapper.configuration.sourceNamingConvention = NamingConventions.NONE
 //        modelMapper.configuration.destinationNamingConvention = NamingConventions.NONE
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
@@ -121,13 +122,13 @@ constructor(
                     kwEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            kwEntity.uuid = kwForm.formhubUuid
+            kwEntity.formHubUuId = kwForm.formhubUuid
             kwEntity.submissionDate = myDateUtil.convertToDateTime(kwForm.submissionTime)
-            kwEntity.todayDate = myDateUtil.convertToDate(kwForm.today)
-            kwEntity.startDate = myDateUtil.convertToDateTime(kwForm.start)
-            kwEntity.endDate = myDateUtil.convertToDateTime(kwForm.end)
-            kwEntity.instanceId = kwForm.metaInstanceID
-            kwEntity.controlKey = kwForm.metaInstanceID
+            kwEntity.todayDate = myDateUtil.convertToDate(kwForm.todayDate)
+            kwEntity.startDate = myDateUtil.convertToDateTime(kwForm.startDate)
+            kwEntity.endDate = myDateUtil.convertToDateTime(kwForm.endDate)
+            kwEntity.instanceId = kwForm.instanceId
+            kwEntity.controlKey = kwForm.instanceId
 
             kwData.add(kwEntity)
 

@@ -14,7 +14,7 @@ class PartitionPsAcPlantSampleDto {
     var plantPart: String? = null
 
     @JsonProperty("DM_count")
-    var dMCount: String? = null
+    var dmCount: String? = null
 
     @JsonProperty("SET-OF-DM")
     var setOfDm: String? = null

@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.CheckIdRegDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.CheckIdRegEntity
 import com.tsobu.ona.database.repositories.CheckIdRegRepo
 import com.tsobu.ona.forms.CheckIdRegForm
@@ -33,7 +33,7 @@ constructor(
     private val modelMapper = ModelMapper()
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "Check_ID_Registration.json"
     fun mapJsonFile() {
@@ -50,7 +50,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -60,9 +60,10 @@ constructor(
 
         val tlAcData = checkIdRegEntityList.map { checkIdRegEntity ->
             val checkIdRegDto = modelMapper.map(checkIdRegEntity, CheckIdRegDto::class.java)
-            checkIdRegDto.submissionDate = myDateUtil.convertTimeToString(checkIdRegEntity.submissionDate)
-            checkIdRegDto.start = myDateUtil.convertTimeToString(checkIdRegEntity.startDate)
-            checkIdRegDto.end = myDateUtil.convertTimeToString(checkIdRegEntity.endDate)
+            checkIdRegDto.submissionDate = myDateUtil.toDateTimeString(checkIdRegEntity.submissionDate)
+            checkIdRegDto.startDate = myDateUtil.toDateTimeString(checkIdRegEntity.startDate)
+            checkIdRegDto.endDate = myDateUtil.toDateTimeString(checkIdRegEntity.endDate)
+            checkIdRegDto.todayDate = myDateUtil.toDateToString(checkIdRegEntity.todayDate)
             checkIdRegDto
         }
 
@@ -93,7 +94,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val checkIdRegData = ArrayList<CheckIdRegEntity>()
@@ -115,13 +116,13 @@ constructor(
                     checkIdRegEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            checkIdRegEntity.uuid = checkIdRegForm.formhubUuid
+            checkIdRegEntity.formHubUuId = checkIdRegForm.formhubUuid
             checkIdRegEntity.submissionDate = myDateUtil.convertToDateTime(checkIdRegForm.submissionTime)
-            checkIdRegEntity.todayDate = myDateUtil.convertToDate(checkIdRegForm.today)
-            checkIdRegEntity.startDate = myDateUtil.convertToDateTime(checkIdRegForm.start)
-            checkIdRegEntity.endDate = myDateUtil.convertToDateTime(checkIdRegForm.end)
-            checkIdRegEntity.instanceId = checkIdRegForm.metaInstanceID
-            checkIdRegEntity.controlKey = checkIdRegForm.metaInstanceID
+            checkIdRegEntity.todayDate = myDateUtil.convertToDate(checkIdRegForm.todayDate)
+            checkIdRegEntity.startDate = myDateUtil.convertToDateTime(checkIdRegForm.startDate)
+            checkIdRegEntity.endDate = myDateUtil.convertToDateTime(checkIdRegForm.endDate)
+            checkIdRegEntity.instanceId = checkIdRegForm.instanceId
+            checkIdRegEntity.controlKey = checkIdRegForm.instanceId
 
             checkIdRegData.add(checkIdRegEntity)
         }

@@ -4,9 +4,10 @@ package com.tsobu.ona.core.service.assign
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.assign.*
+import com.tsobu.ona.core.dto.json.assign.AssignPoAcDto
+import com.tsobu.ona.core.dto.json.assign.AssignPoAcPlotLabelingDto
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.assign.AssignPoAcEntity
 import com.tsobu.ona.database.entities.assign.AssignPoAcPlotLabelingEntity
 import com.tsobu.ona.database.repositories.assign.AssignPoAcPlotLabelingRepo
@@ -38,7 +39,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "Assign_PO_AC.json"
     fun mapJsonFile() {
@@ -55,7 +56,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -65,13 +66,14 @@ constructor(
 
         val fdAcData = fdAcEntityList.map { assignPaAcEntity ->
             val assignPaAcDto = modelMapper.map(assignPaAcEntity, AssignPoAcDto::class.java)
-            assignPaAcDto.submissionDate = myDateUtil.convertTimeToString(assignPaAcEntity.submissionDate)
-            assignPaAcDto.start = myDateUtil.convertTimeToString(assignPaAcEntity.startDate)
-            assignPaAcDto.end = myDateUtil.convertTimeToString(assignPaAcEntity.endDate)
+            assignPaAcDto.submissionDate = myDateUtil.toDateTimeString(assignPaAcEntity.submissionDate)
+            assignPaAcDto.startDate = myDateUtil.toDateTimeString(assignPaAcEntity.startDate)
+            assignPaAcDto.endDate = myDateUtil.toDateTimeString(assignPaAcEntity.endDate)
+            assignPaAcDto.todayDate = myDateUtil.toDateToString(assignPaAcEntity.todayDate)
             assignPaAcDto
         }
 
-        val plantLabellingData = plantLabellingEntityList.map { plantLabelingEntity ->
+        val plotLabelingData = plantLabellingEntityList.map { plantLabelingEntity ->
             val plantLabelingDto = modelMapper.map(plantLabelingEntity, AssignPoAcPlotLabelingDto::class.java)
             plantLabelingDto
         }
@@ -83,8 +85,8 @@ constructor(
                 outPutPath = filePath)
 
         writeCsvFile.writeCsv(classMap = AssignPoAcPlotLabelingDto::class.java,
-                data = plantLabellingData,
-                fileName = "Assign_PO_AC-plantLabeling",
+                data = plotLabelingData,
+                fileName = "Assign_PO_AC-plotLabeling",
                 outPutPath = filePath)
     }
 
@@ -108,7 +110,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val poAcData = ArrayList<AssignPoAcEntity>()
@@ -131,13 +133,13 @@ constructor(
                     assignPoAcEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            assignPoAcEntity.uuid = assignPoAcForm.formhubUuId
+            assignPoAcEntity.formHubUuId = assignPoAcForm.formHubUuId
             assignPoAcEntity.submissionDate = myDateUtil.convertToDateTime(assignPoAcForm.submissionTime)
-            assignPoAcEntity.todayDate = myDateUtil.convertToDate(assignPoAcForm.today)
-            assignPoAcEntity.startDate = myDateUtil.convertToDateTime(assignPoAcForm.start)
-            assignPoAcEntity.endDate = myDateUtil.convertToDateTime(assignPoAcForm.end)
-            assignPoAcEntity.instanceId = assignPoAcForm.metaInstanceId
-            assignPoAcEntity.controlKey = assignPoAcForm.metaInstanceId
+            assignPoAcEntity.todayDate = myDateUtil.convertToDate(assignPoAcForm.todayDate)
+            assignPoAcEntity.startDate = myDateUtil.convertToDateTime(assignPoAcForm.startDate)
+            assignPoAcEntity.endDate = myDateUtil.convertToDateTime(assignPoAcForm.endDate)
+            assignPoAcEntity.instanceId = assignPoAcForm.instanceId
+            assignPoAcEntity.controlKey = assignPoAcForm.instanceId
 
             assignPoAcEntity.setOfPlotLabeling = "${assignPoAcEntity.controlKey}/plotLabeling"
 

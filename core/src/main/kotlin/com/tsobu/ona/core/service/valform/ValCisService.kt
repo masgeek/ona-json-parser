@@ -5,11 +5,11 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.valdto.ValCisDto
+import com.tsobu.ona.core.dto.json.`val`.ValCisDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.valform.ValCisEntity
-import com.tsobu.ona.database.repositories.valform.ValCisRepo
+import com.tsobu.ona.core.utils.CsvUtility
+import com.tsobu.ona.database.entities.`val`.ValCisEntity
+import com.tsobu.ona.database.repositories.`val`.ValCisRepo
 import com.tsobu.ona.forms.valform.ValCisForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
@@ -36,7 +36,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "VAL_CIS.json"
 
@@ -54,7 +54,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -63,9 +63,11 @@ constructor(
 
         val fdAcData = fdAcEntityList.map { valCisEntity ->
             val starchContentAcDto = modelMapper.map(valCisEntity, ValCisDto::class.java)
-            starchContentAcDto.submissionDate = myDateUtil.convertTimeToString(valCisEntity.submissionDate)
-            starchContentAcDto.start = myDateUtil.convertTimeToString(valCisEntity.startDate)
-            starchContentAcDto.end = myDateUtil.convertTimeToString(valCisEntity.endDate)
+            starchContentAcDto.submissionDate = myDateUtil.toDateTimeString(valCisEntity.submissionDate)
+            starchContentAcDto.startDate = myDateUtil.toDateTimeString(valCisEntity.startDate)
+            starchContentAcDto.endDate = myDateUtil.toDateTimeString(valCisEntity.endDate)
+            starchContentAcDto.todayDate = myDateUtil.toDateToString(valCisEntity.todayDate)
+            starchContentAcDto.plantingDate = myDateUtil.toDateToString(valCisEntity.plantingDate)
             starchContentAcDto
         }
 
@@ -95,7 +97,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
 //        modelMapper.configuration.sourceNamingConvention = NamingConventions.NONE
 //        modelMapper.configuration.destinationNamingConvention = NamingConventions.NONE
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
@@ -119,16 +121,14 @@ constructor(
                     valCisEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            valCisEntity.uuid = valCisForm.formhubUuid
+            valCisEntity.formHubUuId = valCisForm.formhubUuid
             valCisEntity.submissionDate = myDateUtil.convertToDateTime(valCisForm.submissionTime)
-            valCisEntity.todayDate = myDateUtil.convertToDate(valCisForm.today)
-            valCisEntity.startDate = myDateUtil.convertToDateTime(valCisForm.start)
-            valCisEntity.endDate = myDateUtil.convertToDateTime(valCisForm.end)
+            valCisEntity.todayDate = myDateUtil.convertToDate(valCisForm.todayDate)
+            valCisEntity.startDate = myDateUtil.convertToDateTime(valCisForm.startDate)
+            valCisEntity.endDate = myDateUtil.convertToDateTime(valCisForm.endDate)
             valCisEntity.plantingDate = myDateUtil.convertToDate(valCisForm.plantingDate)
-            valCisEntity.instanceId = valCisForm.metaInstanceID
-            valCisEntity.controlKey = valCisForm.metaInstanceID
-
-//            valCisEntity.costFertilizerAbText = valCisForm.costFertilizerAbText
+            valCisEntity.instanceId = valCisForm.instanceId
+            valCisEntity.controlKey = valCisForm.instanceId
 
             valCisData.add(valCisEntity)
             log.info("Added data to table ${valCisEntity.controlKey} with surname as ${valCisForm.xformIdString}")

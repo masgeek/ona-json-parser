@@ -5,11 +5,11 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.valdto.ValFrDto
+import com.tsobu.ona.core.dto.json.`val`.ValFrDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.valform.ValFrEntity
-import com.tsobu.ona.database.repositories.valform.ValFrRepo
+import com.tsobu.ona.core.utils.CsvUtility
+import com.tsobu.ona.database.entities.`val`.ValFrEntity
+import com.tsobu.ona.database.repositories.`val`.ValFrRepo
 import com.tsobu.ona.forms.valform.ValFrForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
@@ -36,7 +36,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "VAL_FR.json"
 
@@ -54,7 +54,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -63,15 +63,16 @@ constructor(
 
         val valFrData = valFrEntityList.map { valFrEntity ->
             val starchContentAcDto = modelMapper.map(valFrEntity, ValFrDto::class.java)
-            starchContentAcDto.submissionDate = myDateUtil.convertTimeToString(valFrEntity.submissionDate)
-            starchContentAcDto.start = myDateUtil.convertTimeToString(valFrEntity.startDate)
-            starchContentAcDto.end = myDateUtil.convertTimeToString(valFrEntity.endDate)
+            starchContentAcDto.submissionDate = myDateUtil.toDateTimeString(valFrEntity.submissionDate)
+            starchContentAcDto.todayDate = myDateUtil.toDateToString(valFrEntity.todayDate)
+            starchContentAcDto.startDate = myDateUtil.toDateTimeString(valFrEntity.startDate)
+            starchContentAcDto.endDate = myDateUtil.toDateTimeString(valFrEntity.endDate)
+            starchContentAcDto.plantingDate = myDateUtil.toDateToString(valFrEntity.plantingDate)
             starchContentAcDto
         }
 
 
-        writeCsvFile.writeCsv(classMap = ValFrDto::class.java, data = valFrData,
-                fileName = "VAL_FR", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = ValFrDto::class.java, data = valFrData, fileName = "VAL_FR", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -95,7 +96,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
 //        modelMapper.configuration.sourceNamingConvention = NamingConventions.NONE
 //        modelMapper.configuration.destinationNamingConvention = NamingConventions.NONE
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
@@ -119,20 +120,20 @@ constructor(
                     valFrEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            valFrEntity.uuid = valFrForm.formhubUuid
+            valFrEntity.formHubUuId = valFrForm.formhubUuid
             valFrEntity.submissionDate = myDateUtil.convertToDateTime(valFrForm.submissionTime)
-            valFrEntity.todayDate = myDateUtil.convertToDate(valFrForm.today)
-            valFrEntity.startDate = myDateUtil.convertToDateTime(valFrForm.start)
-            valFrEntity.endDate = myDateUtil.convertToDateTime(valFrForm.end)
+            valFrEntity.todayDate = myDateUtil.convertToDate(valFrForm.todayDate)
+            valFrEntity.startDate = myDateUtil.convertToDateTime(valFrForm.startDate)
+            valFrEntity.endDate = myDateUtil.convertToDateTime(valFrForm.endDate)
             valFrEntity.plantingDate = myDateUtil.convertToDate(valFrForm.plantingDate)
-            valFrEntity.instanceId = valFrForm.metaInstanceID
-            valFrEntity.controlKey = valFrForm.metaInstanceID
+            valFrEntity.instanceId = valFrForm.instanceId
+            valFrEntity.controlKey = valFrForm.instanceId
 
             valFrData.add(valFrEntity)
             log.info("Added data to table ${valFrEntity.controlKey} with surname as ${valFrForm.xformIdString}")
         }
 
-//        valFrRepo.saveAll(valFrData)
+        valFrRepo.saveAll(valFrData)
 
         log.info("Finished saving the data for $fileName------->")
 

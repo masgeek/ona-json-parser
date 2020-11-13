@@ -10,7 +10,7 @@ import com.tsobu.ona.forms.Attachment
 class HhForm {
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("EAEN")
     var eaen: String? = null
@@ -31,13 +31,13 @@ class HhForm {
     var locHh: String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("state")
     var state: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("_notes")
     var notes: List<Any>? = null
@@ -70,10 +70,10 @@ class HhForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
-    var xformId: String? = null
+    var xFormId: String? = null
 
     @JsonProperty("simserial")
     var simSerial: String? = null
@@ -85,10 +85,10 @@ class HhForm {
     var geolocation: List<Double>? = null
 
     @JsonProperty("_media_count")
-    var mediaCount = 0
+    var mediaCount :String?=null
 
     @JsonProperty("_total_media")
-    var totalMedia = 0
+    var totalMedia :String?=null
 
     @JsonProperty("formhub/uuid")
     var formhubUuid: String? = null
@@ -103,10 +103,10 @@ class HhForm {
     var photoProfileHh: String? = null
 
     @JsonProperty("detailsHH/ageHH")
-    var ageHh = 0
+    var ageHh :String?=null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null

@@ -8,7 +8,7 @@ import com.tsobu.ona.core.dto.json.partition.PartitionPsAcDmDto
 import com.tsobu.ona.core.dto.json.partition.PartitionPsAcDto
 import com.tsobu.ona.core.dto.json.partition.PartitionPsAcPlantSampleDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.partition.PartitionPsAcDmEntity
 import com.tsobu.ona.database.entities.partition.PartitionPsAcEntity
 import com.tsobu.ona.database.entities.partition.PartitionPsAcPlantSampleEntity
@@ -43,7 +43,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     val fileName = "Partition_PS_AC.json"
     fun mapJsonFile() {
@@ -64,15 +64,16 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
 
         val acData = confirmList.map { assignAcEntity ->
             val acDto = modelMapper.map(assignAcEntity, PartitionPsAcDto::class.java)
-            acDto.submissionDate = myDateUtil.convertTimeToString(assignAcEntity.submissionDate)
-            acDto.startDate = myDateUtil.convertTimeToString(assignAcEntity.startDate)
-            acDto.endDate = myDateUtil.convertTimeToString(assignAcEntity.endDate)
+            acDto.submissionDate = myDateUtil.toDateTimeString(assignAcEntity.submissionDate)
+            acDto.startDate = myDateUtil.toDateTimeString(assignAcEntity.startDate)
+            acDto.endDate = myDateUtil.toDateTimeString(assignAcEntity.endDate)
+            acDto.todayDate = myDateUtil.toDateToString(assignAcEntity.todayDate)
             acDto
         }
 
@@ -117,7 +118,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val acData = ArrayList<PartitionPsAcEntity>()
@@ -127,15 +128,15 @@ constructor(
             //map and save to database
             val acEntity = modelMapper.map(acForm, PartitionPsAcEntity::class.java)
 
-            acEntity.uuid = acForm.formhubUuid
+            acEntity.formHubUuId = acForm.formhubUuid
             acEntity.submissionDate = myDateUtil.convertToDateTime(acForm.submissionTime)
-            acEntity.todayDate = myDateUtil.convertToDate(acForm.today)
-            acEntity.startDate = myDateUtil.convertToDateTime(acForm.start)
-            acEntity.endDate = myDateUtil.convertToDateTime(acForm.end)
-            acEntity.instanceID = acForm.metaInstanceID
-            acEntity.controlKey = acForm.metaInstanceID
+            acEntity.todayDate = myDateUtil.convertToDate(acForm.todayDate)
+            acEntity.startDate = myDateUtil.convertToDateTime(acForm.startDate)
+            acEntity.endDate = myDateUtil.convertToDateTime(acForm.endDate)
+            acEntity.instanceID = acForm.instanceId
+            acEntity.controlKey = acForm.instanceId
 
-            acEntity.setOfPlantSample = "${acForm.metaInstanceID}/plantSample"
+            acEntity.setOfPlantSample = "${acForm.instanceId}/plantSample"
 
             //child data
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
@@ -145,8 +146,8 @@ constructor(
                 val plEntity = modelMapper.map(plantSampleForm, PartitionPsAcPlantSampleEntity::class.java)
                 plEntity.parentKey = acEntity.controlKey
                 plEntity.setOfPlantSample = acEntity.setOfPlantSample
-                plEntity.controlKey = "${acForm.metaInstanceID}/plantSample[$acIdCounter]"
-                plEntity.setOfDm = "${acForm.metaInstanceID}/plantSample[$acIdCounter]/DM"
+                plEntity.controlKey = "${acForm.instanceId}/plantSample[$acIdCounter]"
+                plEntity.setOfDm = "${acForm.instanceId}/plantSample[$acIdCounter]/DM"
 
                 acIdCounter = acIdCounter.plus(1)
                 plantSampleData.add(plEntity)
@@ -157,7 +158,7 @@ constructor(
                     val ndmEntity = modelMapper.map(ndmForm, PartitionPsAcDmEntity::class.java)
                     ndmEntity.parentKey = plEntity.controlKey
                     ndmEntity.controlKey = "${plEntity.controlKey}/DM[$acNdmCounter]"
-                    ndmEntity.setOfDm = "${acForm.metaInstanceID}/plantSample[$acIdCounter]/DM"
+                    ndmEntity.setOfDm = "${acForm.instanceId}/plantSample[$acIdCounter]/DM"
 
                     acNdmCounter = acNdmCounter.plus(1)
                     acDmData.add(ndmEntity)

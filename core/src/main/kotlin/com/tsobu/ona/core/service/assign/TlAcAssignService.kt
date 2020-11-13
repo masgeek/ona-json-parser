@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.assign.*
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.assign.AssignTlAcEntity
 import com.tsobu.ona.database.repositories.assign.AssignTlAcRepo
 import com.tsobu.ona.forms.assign.AssignTlAcForm
@@ -35,7 +35,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "Assign_TL_AC.json"
     fun mapJsonFile() {
@@ -52,7 +52,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -62,9 +62,10 @@ constructor(
 
         val tlAcData = tlAcEntityList.map { assignTlAcEntity ->
             val assignPaAcDto = modelMapper.map(assignTlAcEntity, AssignTlAcDto::class.java)
-            assignPaAcDto.submissionDate = myDateUtil.convertTimeToString(assignTlAcEntity.submissionDate)
-            assignPaAcDto.start = myDateUtil.convertTimeToString(assignTlAcEntity.startDate)
-            assignPaAcDto.end = myDateUtil.convertTimeToString(assignTlAcEntity.endDate)
+            assignPaAcDto.submissionDate = myDateUtil.toDateTimeString(assignTlAcEntity.submissionDate)
+            assignPaAcDto.startDate = myDateUtil.toDateTimeString(assignTlAcEntity.startDate)
+            assignPaAcDto.endDate = myDateUtil.toDateTimeString(assignTlAcEntity.endDate)
+            assignPaAcDto.todayDate = myDateUtil.toDateToString(assignTlAcEntity.todayDate)
             assignPaAcDto
         }
 
@@ -95,7 +96,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val tlAcData = ArrayList<AssignTlAcEntity>()
@@ -117,13 +118,13 @@ constructor(
                     tlAcEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            tlAcEntity.uuid = assignTlAcForm.formhubUuId
+            tlAcEntity.formHubUuId = assignTlAcForm.formHubUuId
             tlAcEntity.submissionDate = myDateUtil.convertToDateTime(assignTlAcForm.submissionTime)
-            tlAcEntity.todayDate = myDateUtil.convertToDate(assignTlAcForm.today)
-            tlAcEntity.startDate = myDateUtil.convertToDateTime(assignTlAcForm.start)
-            tlAcEntity.endDate = myDateUtil.convertToDateTime(assignTlAcForm.end)
-            tlAcEntity.instanceId = assignTlAcForm.metaInstanceId
-            tlAcEntity.controlKey = assignTlAcForm.metaInstanceId
+            tlAcEntity.todayDate = myDateUtil.convertToDate(assignTlAcForm.todayDate)
+            tlAcEntity.startDate = myDateUtil.convertToDateTime(assignTlAcForm.startDate)
+            tlAcEntity.endDate = myDateUtil.convertToDateTime(assignTlAcForm.endDate)
+            tlAcEntity.instanceId = assignTlAcForm.instanceId
+            tlAcEntity.controlKey = assignTlAcForm.instanceId
 
             tlAcData.add(tlAcEntity)
         }

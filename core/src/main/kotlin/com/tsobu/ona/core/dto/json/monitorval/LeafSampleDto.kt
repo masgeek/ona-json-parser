@@ -14,7 +14,7 @@ class LeafSampleDto {
     var leafSamplePlotLabel: String? = null
 
     @JsonProperty("plantSampleID")
-    var plantSampleID: String? = null
+    var plantSampleId: String? = null
 
     @JsonProperty("PARENT_KEY")
     var parentKey: String? = null

@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.dataval.*
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.dataval.*
 import com.tsobu.ona.database.repositories.dataval.*
 import com.tsobu.ona.forms.dataval.PpTzForm
@@ -41,8 +41,9 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
+    private val fileName = "dataVAL_PP_TZ.json"
     fun mapJsonFile() {
         log.info("Reading table data....")
         val frList = ppTzRepo.findAllByOrderBySubmissionDateAsc()
@@ -65,14 +66,29 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
         val ppTzData = frList.map { ppTzEntity ->
             val ppTzDto = modelMapper.map(ppTzEntity, PpTzDto::class.java)
-            ppTzDto.submissionDate = myDateUtil.convertTimeToString(ppTzEntity.submissionDate)
-            ppTzDto.startDate = myDateUtil.convertTimeToString(ppTzEntity.startDate)
-            ppTzDto.endDate = myDateUtil.convertTimeToString(ppTzEntity.endDate)
+            ppTzDto.submissionDate = myDateUtil.toDateTimeString(ppTzEntity.submissionDate)
+            ppTzDto.startDate = myDateUtil.toDateTimeString(ppTzEntity.startDate)
+            ppTzDto.endDate = myDateUtil.toDateTimeString(ppTzEntity.endDate)
+
+            ppTzDto.todayDate= myDateUtil.toDateToString(ppTzEntity.todayDate)
+            ppTzDto.harvestDate = myDateUtil.toDateToString(ppTzEntity.harvestDate)
+            ppTzDto.gappingDate = myDateUtil.toDateToString(ppTzEntity.gappingDate)
+            ppTzDto.plantingDate = myDateUtil.toDateToString(ppTzEntity.plantingDate)
+            ppTzDto.dateWeeding1 = myDateUtil.toDateToString(ppTzEntity.dateWeeding1)
+            ppTzDto.dateWeeding2 = myDateUtil.toDateToString(ppTzEntity.dateWeeding2)
+            ppTzDto.dateWeeding3 = myDateUtil.toDateToString(ppTzEntity.dateWeeding3)
+            ppTzDto.dateWeeding4 = myDateUtil.toDateToString(ppTzEntity.dateWeeding4)
+            ppTzDto.dateWeeding5 = myDateUtil.toDateToString(ppTzEntity.dateWeeding5)
+            ppTzDto.dateWeeding6 = myDateUtil.toDateToString(ppTzEntity.dateWeeding6)
+            ppTzDto.dateWeeding7 = myDateUtil.toDateToString(ppTzEntity.dateWeeding7)
+            ppTzDto.dateWeeding8 = myDateUtil.toDateToString(ppTzEntity.dateWeeding8)
+            ppTzDto.dateWeeding9 = myDateUtil.toDateToString(ppTzEntity.dateWeeding9)
+            ppTzDto.dateWeeding10 = myDateUtil.toDateToString(ppTzEntity.dateWeeding10)
 
             ppTzDto
         }
@@ -106,7 +122,7 @@ constructor(
         }
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        writeCsvFile.writeCsv(classMap = FrDto::class.java, data = ppTzData, fileName = "dataVAL_PP_TZ-", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = PpTzDto::class.java, data = ppTzData, fileName = "dataVAL_PP_TZ", outPutPath = filePath)
         writeCsvFile.writeCsv(classMap = PpTzWaP1Dto::class.java, data = as1Data, fileName = "dataVAL_PP_TZ-weedAssessment_P1", outPutPath = filePath)
         writeCsvFile.writeCsv(classMap = PpTzWaP2Dto::class.java, data = as2Data, fileName = "dataVAL_PP_TZ-weedAssessment_P2", outPutPath = filePath)
         writeCsvFile.writeCsv(classMap = PpTzWaP3Dto::class.java, data = as3Data, fileName = "dataVAL_PP_TZ-weedAssessment_P3", outPutPath = filePath)
@@ -117,7 +133,7 @@ constructor(
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
-    fun readJsonAsset(fileName: String) {
+    fun readJsonAsset() {
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
@@ -135,7 +151,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
         val ppTzEntityData = ArrayList<PpTzEntity>()
@@ -162,14 +178,20 @@ constructor(
                     ppTzEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            ppTzEntity.uuid = myVal.formhubUuid
+            ppTzEntity.formHubUuId = myVal.formhubUuid
             ppTzEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
-            ppTzEntity.todayDate = myDateUtil.convertToDate(myVal.today)
-            ppTzEntity.startDate = myDateUtil.convertToDateTime(myVal.start)
-            ppTzEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
+            ppTzEntity.todayDate = myDateUtil.convertToDate(myVal.todayDate)
+            ppTzEntity.startDate = myDateUtil.convertToDateTime(myVal.startDate)
+            ppTzEntity.endDate = myDateUtil.convertToDateTime(myVal.endDate)
             ppTzEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
-            ppTzEntity.instanceId = myVal.metaInstanceID
-            ppTzEntity.controlKey = myVal.metaInstanceID
+            ppTzEntity.instanceId = myVal.instanceId
+            ppTzEntity.controlKey = myVal.instanceId
+
+            ppTzEntity.todayDate= myDateUtil.convertToDate(myVal.todayDate)
+            ppTzEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
+            ppTzEntity.gappingDate = myDateUtil.convertToDate(myVal.gappingDate)
+            ppTzEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
+
             ppTzEntityData.add(ppTzEntity)
 
 
@@ -261,5 +283,6 @@ constructor(
         assessmentP6Repo.saveAll(weedAssessmentP6Data)
 
         log.info("Finished saving the data for $fileName------->")
+        mapJsonFile()
     }
 }

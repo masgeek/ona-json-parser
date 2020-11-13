@@ -14,13 +14,13 @@ class HhEntity : BaseEntity() {
     var submissionDate: LocalDateTime? = null
 
     @Column(name = "uuid")
-    var uuid: String? = null
+    var formHubUuId: String? = null
 
     @Column(name = "start_date")
     var startDate: LocalDateTime? = null
 
     @Column(name = "today_date")
-    var todayDate: LocalDate? = null
+    var todayDate: LocalDateTime? = null
 
     @Column(name = "device_id")
     var deviceId: String? = null
@@ -110,7 +110,7 @@ class HhEntity : BaseEntity() {
     var genderHh: String? = null
 
     @Column(name = "age_hh")
-    var ageHh: Int? = null
+    var ageHh: String? = null
 
     @Column(name = "relation_hh")
     var relationHh: String? = null

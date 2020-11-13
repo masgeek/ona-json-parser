@@ -5,15 +5,14 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.valdto.ValPpDto
-import com.tsobu.ona.core.dto.json.valdto.ValPpTzDto
-import com.tsobu.ona.core.dto.json.valdto.ValPpTzPwDto
+import com.tsobu.ona.core.dto.json.`val`.ValPpTzDto
+import com.tsobu.ona.core.dto.json.`val`.ValPpTzPwDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.valform.ValPpTzEntity
-import com.tsobu.ona.database.entities.valform.ValPpTzPwEntity
-import com.tsobu.ona.database.repositories.valform.ValPpTzPwRepo
-import com.tsobu.ona.database.repositories.valform.ValPpTzRepo
+import com.tsobu.ona.core.utils.CsvUtility
+import com.tsobu.ona.database.entities.`val`.ValPpTzEntity
+import com.tsobu.ona.database.entities.`val`.ValPpTzPwEntity
+import com.tsobu.ona.database.repositories.`val`.ValPpTzPwRepo
+import com.tsobu.ona.database.repositories.`val`.ValPpTzRepo
 import com.tsobu.ona.forms.valform.ValPpTzForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
@@ -41,7 +40,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "VAL_PP_TZ.json"
 
@@ -59,7 +58,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -69,20 +68,21 @@ constructor(
 
         val ppTzData = ppList.map { ppTzEntity ->
             val ppTzDto = modelMapper.map(ppTzEntity, ValPpTzDto::class.java)
-            ppTzDto.submissionDate = myDateUtil.convertTimeToString(ppTzEntity.submissionDate)
-            ppTzDto.start = myDateUtil.convertTimeToString(ppTzEntity.startDate)
-            ppTzDto.end = myDateUtil.convertTimeToString(ppTzEntity.endDate)
+            ppTzDto.submissionDate = myDateUtil.toDateTimeString(ppTzEntity.submissionDate)
+            ppTzDto.startDate = myDateUtil.toDateTimeString(ppTzEntity.startDate)
+            ppTzDto.endDate = myDateUtil.toDateTimeString(ppTzEntity.endDate)
+            ppTzDto.todayDate = myDateUtil.toDateToString(ppTzEntity.todayDate)
+            ppTzDto.plantingDate = myDateUtil.toDateToString(ppTzEntity.plantingDate)
             ppTzDto
         }
 
         val ppTzPwData = pwList.map { ppTzPwEntity ->
             val ppTzPwDto = modelMapper.map(ppTzPwEntity, ValPpTzPwDto::class.java)
-//            pwDto.parentKey = ppTzPwEntity.controlKey
             ppTzPwDto
         }
 
 
-        writeCsvFile.writeCsv(classMap = ValPpDto::class.java, data = ppTzData,
+        writeCsvFile.writeCsv(classMap = ValPpTzDto::class.java, data = ppTzData,
                 fileName = "VAL_PP_TZ", outPutPath = filePath)
 
         writeCsvFile.writeCsv(classMap = ValPpTzPwDto::class.java, data = ppTzPwData,
@@ -110,7 +110,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
 //        modelMapper.configuration.sourceNamingConvention = NamingConventions.NONE
 //        modelMapper.configuration.destinationNamingConvention = NamingConventions.NONE
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
@@ -135,15 +135,15 @@ constructor(
                     ppTzEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            ppTzEntity.uuid = ppForm.formhubUuid
+            ppTzEntity.formHubUuId = ppForm.formhubUuid
             ppTzEntity.submissionDate = myDateUtil.convertToDateTime(ppForm.submissionTime)
-            ppTzEntity.todayDate = myDateUtil.convertToDate(ppForm.today)
-            ppTzEntity.startDate = myDateUtil.convertToDateTime(ppForm.start)
-            ppTzEntity.endDate = myDateUtil.convertToDateTime(ppForm.end)
+            ppTzEntity.todayDate = myDateUtil.convertToDate(ppForm.todayDate)
+            ppTzEntity.startDate = myDateUtil.convertToDateTime(ppForm.startDate)
+            ppTzEntity.endDate = myDateUtil.convertToDateTime(ppForm.endDate)
             ppTzEntity.plantingDate = myDateUtil.convertToDate(ppForm.plantingDate)
-            ppTzEntity.instanceId = ppForm.metaInstanceID
-            ppTzEntity.controlKey = ppForm.metaInstanceID
-            ppTzEntity.setOfPw = "${ppForm.metaInstanceID}/PW"
+            ppTzEntity.instanceId = ppForm.instanceId
+            ppTzEntity.controlKey = ppForm.instanceId
+            ppTzEntity.setOfPw = "${ppForm.instanceId}/PW"
 
             ppData.add(ppTzEntity)
 
@@ -160,8 +160,8 @@ constructor(
 
         }
 
-//        ppRepo.saveAll(ppData)
-//        pwRepo.saveAll(pwData)
+        ppRepo.saveAll(ppData)
+        pwRepo.saveAll(pwData)
 
         log.info("Finished saving the data for $fileName------->")
 

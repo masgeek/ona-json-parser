@@ -7,8 +7,8 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcDto
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcIdDto
 import com.tsobu.ona.core.dto.json.ScoreWeedControlAcWdDto
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.scoreweedcontrol.AcIdEntity
 import com.tsobu.ona.database.entities.scoreweedcontrol.WdEntity
 import com.tsobu.ona.database.entities.scoreweedcontrol.WeedAcEntity
@@ -40,7 +40,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-
+    private val fileName = "Score_Weed_Control_AC.json"
     fun mapJsonFile() {
         log.info("Reading weed table here")
         val scores = scoreWeedControlAcRepo.findAll()
@@ -49,9 +49,10 @@ constructor(
 
         val scoreWeedData = scores.map { scoreWeedControlAc ->
             val outboxDto = modelMapper.map(scoreWeedControlAc, ScoreWeedControlAcDto::class.java)
-            outboxDto.submissionDate = myDateUtil.convertTimeToString(scoreWeedControlAc.submissionDate)
-            outboxDto.startDate = myDateUtil.convertTimeToString(scoreWeedControlAc.startDate)
-            outboxDto.endDate = myDateUtil.convertTimeToString(scoreWeedControlAc.endDate)
+            outboxDto.submissionDate = myDateUtil.toDateTimeString(scoreWeedControlAc.submissionDate)
+            outboxDto.startDate = myDateUtil.toDateTimeString(scoreWeedControlAc.startDate)
+            outboxDto.endDate = myDateUtil.toDateTimeString(scoreWeedControlAc.endDate)
+            outboxDto.todayDate = myDateUtil.toDateToString(scoreWeedControlAc.todayDate)
             outboxDto
         }
 
@@ -66,7 +67,7 @@ constructor(
         }
 
 
-        val writeCsvFile = WriteCsvFile()
+        val writeCsvFile = CsvUtility()
         val filePath = "${appConfig.globalProperties().outputPath}"
 
         writeCsvFile.writeCsv(classMap = ScoreWeedControlAcDto::class.java, data = scoreWeedData, fileName = "Score_Weed_Control_AC", outPutPath = filePath)
@@ -76,7 +77,7 @@ constructor(
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
-    fun readJsonAsset(fileName: String) {
+    fun readJsonAsset() {
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
@@ -93,39 +94,26 @@ constructor(
                 val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
                 val weedEntity = WeedAcEntity()
                 if (geoPoint.isNotEmpty()) {
-                    weedEntity.geoPointLatitude = geoPoint[0].toDouble()
+                    weedEntity.geoPointLatitude = geoPoint[0]
 
                     if (myDateUtil.indexExists(geoPoint, 1)) {
-                        weedEntity.geoPointLongitude = geoPoint[1].toDouble()
+                        weedEntity.geoPointLongitude = geoPoint[1]
                     }
                     if (myDateUtil.indexExists(geoPoint, 2)) {
-                        weedEntity.geoPointAltitude = geoPoint[2].toDouble()
+                        weedEntity.geoPointAltitude = geoPoint[2]
                     }
                     if (myDateUtil.indexExists(geoPoint, 3)) {
-                        weedEntity.geoPointAccuracy = geoPoint[3].toDouble()
+                        weedEntity.geoPointAccuracy = geoPoint[3]
                     }
                 }
-                weedEntity.uuid = myVal.formHubUuid
+                weedEntity.formHubUuId = myVal.formHubUuid
                 weedEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
-                weedEntity.todayDate = myDateUtil.convertToDate(myVal.today)
-                weedEntity.startDate = myDateUtil.convertToDateTime(myVal.start)
-                weedEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
-                weedEntity.setOfId = "${myVal.metaInstanceID}/ID"
-                weedEntity.instanceId = myVal.metaInstanceID
-                weedEntity.weedKey = myVal.metaInstanceID
-
-                weedEntity.deviceId = myVal.deviceid
-                weedEntity.subscriberId = myVal.subscriberId
-                weedEntity.email = myVal.email
-                weedEntity.username = myVal.username
-                weedEntity.simSerial = myVal.simserial
-                weedEntity.phoneNumber = myVal.phoneNumber
-                weedEntity.project = myVal.project
-                weedEntity.country = myVal.country
-                weedEntity.login = myVal.login
-                weedEntity.weedEntity = myVal.weedEntity
-                weedEntity.weedDetail = myVal.weedDetail
-                weedEntity.nrQuadrants = myVal.nrQuadrants
+                weedEntity.todayDate = myDateUtil.convertToDate(myVal.todayDate)
+                weedEntity.startDate = myDateUtil.convertToDateTime(myVal.startDate)
+                weedEntity.endDate = myDateUtil.convertToDateTime(myVal.endDate)
+                weedEntity.setOfId = "${myVal.instanceId}/ID"
+                weedEntity.instanceId = myVal.instanceId
+                weedEntity.controlKey = myVal.instanceId
 
                 data.add(weedEntity)
 
@@ -134,12 +122,6 @@ constructor(
                 var weedListIdCount = 1
                 weedIdList?.forEach { weedList ->
                     val weedIdEntity = AcIdEntity()
-                    weedIdEntity.sectionId = weedList.sectionId
-                    weedIdEntity.plotId = weedList.plotId
-                    weedIdEntity.daysLastWeeded = weedList.daysLastWeeded
-                    weedIdEntity.scoreWeedingEff = weedList.scoreWeedingEff
-                    weedIdEntity.scoreCropInjury = weedList.scoreCropInjury
-                    weedIdEntity.weedcount = weedList.weedCount
                     weedIdEntity.parentKey = weedEntity.instanceId
                     weedIdEntity.setOfId = weedEntity.setOfId
                     weedIdEntity.setOfWd = "${weedEntity.setOfId}[$weedListIdCount]/WD"
@@ -174,6 +156,7 @@ constructor(
             scoreWeedControlAcIdRepo.saveAll(weedIdData)
             scoreWeedControlAcWdRepo.saveAll(weedWdData)
             log.info("Finished saving the data for $fileName------->")
+            mapJsonFile()
         }
     }
 }

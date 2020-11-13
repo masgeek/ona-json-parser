@@ -8,14 +8,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 @JsonPropertyOrder("plantID", "PARENT_KEY", "KEY", "SET-OF-plantLabeling")
 class AssignPaAcPlantLabelingDto {
     @JsonProperty("plantID")
-    var plantID: String? = null
+    var plantId: String? = null
 
     @JsonProperty("PARENT_KEY")
     var parentKey: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 
     @JsonProperty("SET-OF-plantLabeling")
-    var sETOFPlantLabeling: String? = null
+    var setOfPlantLabeling: String? = null
 }

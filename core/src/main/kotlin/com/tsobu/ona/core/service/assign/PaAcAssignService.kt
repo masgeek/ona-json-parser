@@ -4,11 +4,10 @@ package com.tsobu.ona.core.service.assign
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.assign.AssignFdAcDto
 import com.tsobu.ona.core.dto.json.assign.AssignPaAcDto
 import com.tsobu.ona.core.dto.json.assign.AssignPaAcPlantLabelingDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.assign.AssignPaAcEntity
 import com.tsobu.ona.database.entities.assign.AssignPaAcPlantLabelingEntity
 import com.tsobu.ona.database.repositories.assign.AssignPaAcPlantLabelingRepo
@@ -40,7 +39,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "Assign_PA_AC.json"
     fun mapJsonFile() {
@@ -57,7 +56,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -67,9 +66,10 @@ constructor(
 
         val fdAcData = fdAcEntityList.map { assignPaAcEntity ->
             val assignPaAcDto = modelMapper.map(assignPaAcEntity, AssignPaAcDto::class.java)
-            assignPaAcDto.submissionDate = myDateUtil.convertTimeToString(assignPaAcEntity.submissionDate)
-            assignPaAcDto.start = myDateUtil.convertTimeToString(assignPaAcEntity.startDate)
-            assignPaAcDto.end = myDateUtil.convertTimeToString(assignPaAcEntity.endDate)
+            assignPaAcDto.submissionDate = myDateUtil.toDateTimeString(assignPaAcEntity.submissionDate)
+            assignPaAcDto.startDate = myDateUtil.toDateTimeString(assignPaAcEntity.startDate)
+            assignPaAcDto.endDate = myDateUtil.toDateTimeString(assignPaAcEntity.endDate)
+            assignPaAcDto.todayDate = myDateUtil.toDateToString(assignPaAcEntity.todayDate)
             assignPaAcDto
         }
 
@@ -79,7 +79,7 @@ constructor(
         }
 
 
-        writeCsvFile.writeCsv(classMap = AssignFdAcDto::class.java,
+        writeCsvFile.writeCsv(classMap = AssignPaAcDto::class.java,
                 data = fdAcData,
                 fileName = "Assign_PA_AC",
                 outPutPath = filePath)
@@ -110,7 +110,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val paAcData = ArrayList<AssignPaAcEntity>()
@@ -133,13 +133,13 @@ constructor(
                     assignPaAcEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            assignPaAcEntity.uuid = assignFdAcForm.formhubUuId
+            assignPaAcEntity.formHubUuId = assignFdAcForm.formHubUuId
             assignPaAcEntity.submissionDate = myDateUtil.convertToDateTime(assignFdAcForm.submissionTime)
-            assignPaAcEntity.todayDate = myDateUtil.convertToDate(assignFdAcForm.today)
-            assignPaAcEntity.startDate = myDateUtil.convertToDateTime(assignFdAcForm.start)
-            assignPaAcEntity.endDate = myDateUtil.convertToDateTime(assignFdAcForm.end)
-            assignPaAcEntity.instanceId = assignFdAcForm.metaInstanceId
-            assignPaAcEntity.controlKey = assignFdAcForm.metaInstanceId
+            assignPaAcEntity.todayDate = myDateUtil.convertToDate(assignFdAcForm.todayDate)
+            assignPaAcEntity.startDate = myDateUtil.convertToDateTime(assignFdAcForm.startDate)
+            assignPaAcEntity.endDate = myDateUtil.convertToDateTime(assignFdAcForm.endDate)
+            assignPaAcEntity.instanceId = assignFdAcForm.instanceId
+            assignPaAcEntity.controlKey = assignFdAcForm.instanceId
 
             assignPaAcEntity.setOfPlantLabeling = "${assignPaAcEntity.controlKey}/plantLabeling"
 

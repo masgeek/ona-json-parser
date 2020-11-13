@@ -150,7 +150,7 @@ class SphsDto {
     var submissionDate: String? = null
 
     @JsonProperty("uuid")
-    var uuid: String? = null
+    var formHubUuId:String? = null
 
     @JsonProperty("start")
     var startDate: String? = null
@@ -201,10 +201,10 @@ class SphsDto {
     var nameValue: String? = null
 
     @JsonProperty("EAID")
-    var eAID: String? = null
+    var eaid: String? = null
 
     @JsonProperty("HHID")
-    var hHID: String? = null
+    var hhid: String? = null
 
     @JsonProperty("fieldID")
     var fieldId: String? = null
@@ -546,7 +546,7 @@ class SphsDto {
     var overallScore: String? = null
 
     @JsonProperty("comment")
-    var comment: String? = null
+    var commentValue: String? = null
 
     @JsonProperty("thankyou")
     var thankYou: String? = null

@@ -9,14 +9,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 @JsonPropertyOrder("PW/problemWeed", "PW/problemWeedPic", "PW/problemWeedCover", "PW/problemWeedLabel")
 class ValPpTzPwForm {
     @JsonProperty("PW/problemWeed")
-    var pWProblemWeed: String? = null
+    var problemWeed: String? = null
 
     @JsonProperty("PW/problemWeedPic")
-    var pWProblemWeedPic: String? = null
+    var problemWeedPic: String? = null
 
     @JsonProperty("PW/problemWeedCover")
-    var pWProblemWeedCover: String? = null
+    var problemWeedCover: String? = null
 
     @JsonProperty("PW/problemWeedLabel")
-    var pWProblemWeedLabel: String? = null
+    var problemWeedLabel: String? = null
 }

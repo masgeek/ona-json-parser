@@ -7,9 +7,9 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.starchcontent.AssessStarchDto
 import com.tsobu.ona.core.dto.json.starchcontent.StarchContentAcDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.starchcontent.AssessStarchContentAcEntity
-import com.tsobu.ona.database.entities.starchcontent.AssessStarchEntity
+import com.tsobu.ona.database.entities.starchcontent.AssessStarchContentEntity
 import com.tsobu.ona.database.repositories.starchcontent.AssessStarchContentAcRepo
 import com.tsobu.ona.database.repositories.starchcontent.AssessStarchRepo
 import com.tsobu.ona.forms.starchcontent.AssessStarchContentAcForm
@@ -39,7 +39,8 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
+    private val fileName = "Assess_Starch_Content_AC.json"
     fun mapJsonFile() {
         log.info("Reading table data....")
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
@@ -54,7 +55,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -64,9 +65,10 @@ constructor(
 
         val yieldCassAcData = acEntityList.map { starchContentAcEntity ->
             val starchContentAcDto = modelMapper.map(starchContentAcEntity, StarchContentAcDto::class.java)
-            starchContentAcDto.submissionDate = myDateUtil.convertTimeToString(starchContentAcEntity.submissionDate)
-            starchContentAcDto.start = myDateUtil.convertTimeToString(starchContentAcEntity.startDate)
-            starchContentAcDto.end = myDateUtil.convertTimeToString(starchContentAcEntity.endDate)
+            starchContentAcDto.submissionDate = myDateUtil.toDateTimeString(starchContentAcEntity.submissionDate)
+            starchContentAcDto.startDate = myDateUtil.toDateTimeString(starchContentAcEntity.startDate)
+            starchContentAcDto.endDate = myDateUtil.toDateTimeString(starchContentAcEntity.endDate)
+            starchContentAcDto.todayDate = myDateUtil.toDateToString(starchContentAcEntity.todayDate)
             starchContentAcDto
         }
 
@@ -85,7 +87,7 @@ constructor(
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
-    fun readJsonAsset(fileName: String) {
+    fun readJsonAsset() {
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
@@ -103,11 +105,11 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val starchContentAcData = ArrayList<AssessStarchContentAcEntity>()
-        val assessStarchData = ArrayList<AssessStarchEntity>()
+        val assessStarchData = ArrayList<AssessStarchContentEntity>()
         list.forEach { starchContentAcForm ->
             //map and save to database
             val starchContentAcEntity = modelMapper.map(starchContentAcForm, AssessStarchContentAcEntity::class.java)
@@ -126,13 +128,13 @@ constructor(
                     starchContentAcEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            starchContentAcEntity.uuid = starchContentAcForm.formhubUuid
+            starchContentAcEntity.formHubUuId = starchContentAcForm.formhubUuid
             starchContentAcEntity.submissionDate = myDateUtil.convertToDateTime(starchContentAcForm.submissionTime)
-            starchContentAcEntity.todayDate = myDateUtil.convertToDate(starchContentAcForm.today)
-            starchContentAcEntity.startDate = myDateUtil.convertToDateTime(starchContentAcForm.start)
-            starchContentAcEntity.endDate = myDateUtil.convertToDateTime(starchContentAcForm.end)
-            starchContentAcEntity.instanceId = starchContentAcForm.metaInstanceID
-            starchContentAcEntity.controlKey = starchContentAcForm.metaInstanceID
+            starchContentAcEntity.todayDate = myDateUtil.convertToDate(starchContentAcForm.todayDate)
+            starchContentAcEntity.startDate = myDateUtil.convertToDateTime(starchContentAcForm.startDate)
+            starchContentAcEntity.endDate = myDateUtil.convertToDateTime(starchContentAcForm.endDate)
+            starchContentAcEntity.instanceId = starchContentAcForm.instanceId
+            starchContentAcEntity.controlKey = starchContentAcForm.instanceId
             starchContentAcEntity.setOfAssessStarch = "${starchContentAcEntity.controlKey}/assessStarch"
 
             starchContentAcData.add(starchContentAcEntity)
@@ -142,7 +144,7 @@ constructor(
             var assessStarchCounter = 1
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
             assessStarchList?.forEach { acSample ->
-                val yieldCassAcYaEntity = modelMapper.map(acSample, AssessStarchEntity::class.java)
+                val yieldCassAcYaEntity = modelMapper.map(acSample, AssessStarchContentEntity::class.java)
                 yieldCassAcYaEntity.parentKey = starchContentAcEntity.controlKey
                 yieldCassAcYaEntity.controlKey = "${starchContentAcEntity.controlKey}/assessStarch[$assessStarchCounter]"
                 yieldCassAcYaEntity.setOfAssessStarch = "${starchContentAcEntity.controlKey}/assessStarch"
@@ -156,5 +158,6 @@ constructor(
         assessStarchRepo.saveAll(assessStarchData)
 
         log.info("Finished saving the data for $fileName------->")
+        mapJsonFile()
     }
 }

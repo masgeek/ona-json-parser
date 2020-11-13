@@ -12,7 +12,7 @@ class PraSphsForm {
     var id: String? = null
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("lat")
     var lat: String? = null
@@ -36,10 +36,10 @@ class PraSphsForm {
     var uuid: String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("_notes")
     var notes: List<Any> = ArrayList()
@@ -75,10 +75,10 @@ class PraSphsForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
-    var xformId: String? = null
+    var xFormId: String? = null
 
     @JsonProperty("simserial")
     var simserial: String? = null
@@ -90,7 +90,7 @@ class PraSphsForm {
     var nrParRoots: String? = null
 
     @JsonProperty("unitWeight")
-    var unitWeight: String? = null
+    var UnitWeight: String? = null
 
     @JsonProperty("nrParStarch")
     var nrParStarch: String? = null
@@ -126,7 +126,7 @@ class PraSphsForm {
     var unitNameSelect: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("unitLocalWeight")
     var unitLocalWeight: String? = null

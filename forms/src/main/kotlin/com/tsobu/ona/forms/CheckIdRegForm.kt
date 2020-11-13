@@ -12,7 +12,7 @@ class CheckIdRegForm {
     var id: String? = null
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("gov")
     var gov: String? = null
@@ -45,19 +45,19 @@ class CheckIdRegForm {
     var locEA: String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("title")
     var title: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("_notes")
     var notes: List<Any> = ArrayList()
 
     @JsonProperty("typeID")
-    var typeID: String? = null
+    var typeId: String? = null
 
     @JsonProperty("_edited")
     var edited: Boolean? = null
@@ -81,10 +81,10 @@ class CheckIdRegForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
-    var xformId: String? = null
+    var xFormId: String? = null
 
     @JsonProperty("levelName")
     var levelName: String? = null
@@ -129,7 +129,7 @@ class CheckIdRegForm {
     var submittedBy: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null

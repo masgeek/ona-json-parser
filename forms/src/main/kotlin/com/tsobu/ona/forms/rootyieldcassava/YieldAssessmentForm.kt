@@ -8,49 +8,88 @@ import com.fasterxml.jackson.annotation.JsonProperty
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class YieldAssessmentForm {
 
-    @JsonProperty("yieldAssessmentForm/plotID")
-    var plotId: String? = null
+    @JsonProperty("yieldAssessment/plantID")
+    var plantId: String? = null
 
-    @JsonProperty("yieldAssessmentForm/nrPlantsNP")
-    var nrPlantsNp: String? = null
-
-    @JsonProperty("yieldAssessmentForm/tuberizedRootsFWss")
-    var tuberizedRootsFwSs: String? = null
-
-    @JsonProperty("yieldAssessmentForm/rootFW/tuberizedRootsFW")
-    var tuberizedRootsFw: String? = null
-
-    @JsonProperty("yieldAssessmentForm/rootNr/tuberizedRootsNr")
-    var tuberizedRootsNr: String? = null
-
-    @JsonProperty("yieldAssessmentForm/plantSampleID_tuberizedRoots")
-    var plantSampleIDTuberizedRoots: String? = null
-
-    @JsonProperty("yieldAssessmentForm/plantID")
-    var plantID: String? = null
-
-    @JsonProperty("yieldAssessmentForm/PD/disease")
+    @JsonProperty("yieldAssessment/PD/disease")
     var disease: String? = null
 
-    @JsonProperty("yieldAssessmentForm/rootFW/tuberizedSmallRootsFW")
+    @JsonProperty("yieldAssessment/rootFW/tuberizedSmallRootsFW")
     var tuberizedSmallRootsFw: String? = null
 
-    @JsonProperty("yieldAssessmentForm/tuberizedSmallRootsFWss")
-    var tuberizedSmallRootsFwSs: String? = null
-
-    @JsonProperty("yieldAssessmentForm/PD/diseaseScoreRoots_severity")
+    @JsonProperty("yieldAssessment/PD/diseaseScoreRoots_severity")
     var diseaseScoreRootsSeverity: String? = null
 
-    @JsonProperty("yieldAssessmentForm/PD/diseaseScoreRoots_incidence")
-    var diseaseScoreRootsIncidence: String? = null
-
-    @JsonProperty("yieldAssessmentForm/rootFW/tuberizedDiseasedRootsFW")
+    @JsonProperty("yieldAssessment/rootFW/tuberizedDiseasedRootsFW")
     var tuberizedDiseasedRootsFw: String? = null
 
-    @JsonProperty("yieldAssessmentForm/rootFW/tuberizedMarketableRootsFW")
+    @JsonProperty("yieldAssessment/rootFW/tuberizedMarketableRootsFW")
     var tuberizedMarketableRootsFw: String? = null
 
-    @JsonProperty("yieldAssessmentForm/rootNr/tuberizedMarketableRootsNr")
-    var tuberizedMarketableRootsNr: String? = null
+    @JsonProperty("yieldAssessment/rootNr/tuberizedMarketableRootsNr")
+    var rootNrTuberizedMarketableRootsNr: String? = null
+
+    @JsonProperty("yieldAssessment/plotID")
+    var plotId: String? = null
+
+    @JsonProperty("yieldAssessment/nrPlantsNP")
+    var nrPlantsNp: String? = null
+
+    @JsonProperty("yieldAssessment/tuberizedMarketableRootsFWss")
+    var tuberizedMarketableRootsFwSs: String? = null
+
+    @JsonProperty("yieldAssessment/PD/diseaseScoreRoots_incidence")
+    var diseaseScoreRootsIncidence: String? = null
+
+    @JsonProperty("yieldAssessment/plantSampleID_tuberizedMarketableRoots")
+    var plantSampleIDTuberizedMarketableRoots: String? = null
+
+    @JsonProperty("yieldAssessment/rootFW/tuberizedRootsFW")
+    var tuberizedRootsFw: String? = null
+
+    @JsonProperty("yieldAssessment/rootNr/tuberizedRootsNr")
+    var rootNrTuberizedRootsNr: String? = null
+
+    @JsonProperty("yieldAssessment/tuberizedRootsFWss")
+    var tuberizedRootsFwSs: String? = null
+
+    @JsonProperty("yieldAssessment/plantSampleID_tuberizedRoots")
+    var plantSampleIDTuberizedRoots: String? = null
+
+    @JsonProperty("yieldAssessment/tuberizedSmallRootsFWss")
+    var tuberizedSmallRootsFwSs: String? = null
+
+    @JsonProperty("yieldAssessment/plantSampleID_tuberizedSmallRoots")
+    var plantSampleIdTuberizedSmallRoots: String? = null
+
+    @JsonProperty("yieldAssessment/maxStandVariable")
+    var maxStandVariable: String? = null
+
+    @JsonProperty("yieldAssessment/plotSizeVariable")
+    var plotSizeVariable: String? = null
+
+    @JsonProperty("yieldAssessment/densityVariableCalc")
+    var densityVariableCalc: String? = null
+
+    @JsonProperty("yieldAssessment/Variable/nrRowsVariable")
+    var nrRowsVariable: String? = null
+
+    @JsonProperty("yieldAssessment/Variable/densityVariable")
+    var densityVariable: String? = null
+
+    @JsonProperty("yieldAssessment/Variable/nrPlantsRowVariable")
+    var nrPlantsRowVariable: String? = null
+
+    @JsonProperty("yieldAssessment/Variable/L1Variable")
+    var l1Variable: String? = null
+
+    @JsonProperty("yieldAssessment/Variable/L2Variable")
+    var l2Variable: String? = null
+
+    @JsonProperty("yieldAssessment/Variable/W1Variable")
+    var w1Variable: String? = null
+
+    @JsonProperty("yieldAssessment/Variable/W2Variable")
+    var w2Variable: String? = null
 
 }

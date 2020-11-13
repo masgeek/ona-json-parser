@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 @JsonPropertyOrder("ID/sectionID", "ID/tag/dateAttached", "ID/tag/dateRecovered")
 class CollectLeafTagsAcIdForm {
     @JsonProperty("ID/sectionID")
-    var sectionID: String? = null
+    var sectionId: String? = null
 
     @JsonProperty("ID/tag/dateAttached")
     var dateAttached: String? = null

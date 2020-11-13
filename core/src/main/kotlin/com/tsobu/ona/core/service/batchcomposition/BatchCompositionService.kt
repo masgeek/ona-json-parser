@@ -9,7 +9,7 @@ import com.tsobu.ona.core.dto.json.batchcomposition.CompositionDto
 import com.tsobu.ona.core.dto.json.batchcomposition.NextDto
 import com.tsobu.ona.core.dto.json.batchcomposition.SampleDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.batchcomposition.CompositionEntity
 import com.tsobu.ona.database.entities.batchcomposition.NextEntity
 import com.tsobu.ona.database.entities.batchcomposition.SampleEntity
@@ -44,7 +44,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "sample_batch_composition.json"
 
@@ -62,7 +62,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -73,9 +73,10 @@ constructor(
 
         val compositionData = compositionList.map { compositionEntity ->
             val compositionDto = modelMapper.map(compositionEntity, CompositionDto::class.java)
-            compositionDto.submissionDate = myDateUtil.convertTimeToString(compositionEntity.submissionDate)
-            compositionDto.start = myDateUtil.convertTimeToString(compositionEntity.startDate)
-            compositionDto.end = myDateUtil.convertTimeToString(compositionEntity.endDate)
+            compositionDto.submissionDate = myDateUtil.toDateTimeString(compositionEntity.submissionDate)
+            compositionDto.startDate = myDateUtil.toDateTimeString(compositionEntity.startDate)
+            compositionDto.endDate = myDateUtil.toDateTimeString(compositionEntity.endDate)
+            compositionDto.todayDate = myDateUtil.toDateToString(compositionEntity.todayDate)
             compositionDto
         }
 
@@ -120,7 +121,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
 //        modelMapper.configuration.sourceNamingConvention = NamingConventions.NONE
 //        modelMapper.configuration.destinationNamingConvention = NamingConventions.NONE
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
@@ -132,13 +133,13 @@ constructor(
             //map and save to database
             val compositionEntity = modelMapper.map(compositionForm, CompositionEntity::class.java)
 
-            compositionEntity.uuid = compositionForm.formhubUuid
+            compositionEntity.formHubUuId = compositionForm.formhubUuid
             compositionEntity.submissionDate = myDateUtil.convertToDateTime(compositionForm.submissionTime)
-            compositionEntity.todayDate = myDateUtil.convertToDate(compositionForm.today)
-            compositionEntity.startDate = myDateUtil.convertToDateTime(compositionForm.start)
-            compositionEntity.endDate = myDateUtil.convertToDateTime(compositionForm.end)
-            compositionEntity.instanceId = compositionForm.metaInstanceID
-            compositionEntity.controlKey = compositionForm.metaInstanceID
+            compositionEntity.todayDate = myDateUtil.convertToDate(compositionForm.todayDate)
+            compositionEntity.startDate = myDateUtil.convertToDateTime(compositionForm.startDate)
+            compositionEntity.endDate = myDateUtil.convertToDateTime(compositionForm.endDate)
+            compositionEntity.instanceId = compositionForm.instanceId
+            compositionEntity.controlKey = compositionForm.instanceId
 
             compositionEntity.setOfSampleListSample = "${compositionEntity.instanceId}/sample"
             compositionEntity.setOfNextStepNext = "${compositionEntity.instanceId}/next"

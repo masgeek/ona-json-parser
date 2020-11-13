@@ -1,7 +1,6 @@
 package com.tsobu.ona.database.entities.assign
 
 import com.tsobu.ona.database.entities.BaseEntity
-import java.time.LocalDate
 import java.time.LocalDateTime
 import javax.persistence.Column
 import javax.persistence.Entity
@@ -14,13 +13,13 @@ class AssignFdAcEntity : BaseEntity() {
     var submissionDate: LocalDateTime? = null
 
     @Column(name = "uuid")
-    var uuid: String? = null
+    var formHubUuId: String? = null
 
     @Column(name = "start_date")
     var startDate: LocalDateTime? = null
 
     @Column(name = "today_date")
-    var todayDate: LocalDate? = null
+    var todayDate: LocalDateTime? = null
 
     @Column(name = "device_id")
     var deviceId: String? = null

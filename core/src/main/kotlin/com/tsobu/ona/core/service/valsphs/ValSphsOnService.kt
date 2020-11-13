@@ -5,12 +5,11 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.valdto.ValSphsOgDto
-import com.tsobu.ona.core.dto.json.valdto.ValSphsOnDto
+import com.tsobu.ona.core.dto.json.`val`.ValSphsOnDto
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.valform.ValSphsOnEntity
-import com.tsobu.ona.database.repositories.valform.ValSphsOnRepo
+import com.tsobu.ona.database.entities.`val`.ValSphsOnEntity
+import com.tsobu.ona.database.repositories.`val`.ValSphsOnRepo
 import com.tsobu.ona.forms.valform.ValSphsOnForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
@@ -37,7 +36,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "VAL_SPHS_ON.json"
 
@@ -55,7 +54,6 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -64,9 +62,12 @@ constructor(
 
         val treatData = kwList.map { onEntity ->
             val ogDto = modelMapper.map(onEntity, ValSphsOnDto::class.java)
-            ogDto.submissionDate = myDateUtil.convertTimeToString(onEntity.submissionDate)
-            ogDto.start = myDateUtil.convertTimeToString(onEntity.startDate)
-            ogDto.end = myDateUtil.convertTimeToString(onEntity.endDate)
+            ogDto.submissionDate = myDateUtil.toDateTimeString(onEntity.submissionDate)
+            ogDto.startDate = myDateUtil.toDateTimeString(onEntity.startDate)
+            ogDto.endDate = myDateUtil.toDateTimeString(onEntity.endDate)
+            ogDto.todayDate = myDateUtil.toDateToString(onEntity.todayDate)
+            ogDto.plantingDate = myDateUtil.toDateToString(onEntity.plantingDate)
+            ogDto.harvestDate = myDateUtil.toDateToString(onEntity.harvestDate)
 
             ogDto
         }
@@ -97,7 +98,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
 //        modelMapper.configuration.sourceNamingConvention = NamingConventions.NONE
 //        modelMapper.configuration.destinationNamingConvention = NamingConventions.NONE
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
@@ -121,13 +122,16 @@ constructor(
                     onEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            onEntity.uuid = ogForm.formhubUuid
+            onEntity.formHubUuId = ogForm.formhubUuid
             onEntity.submissionDate = myDateUtil.convertToDateTime(ogForm.submissionTime)
-            onEntity.todayDate = myDateUtil.convertToDate(ogForm.today)
-            onEntity.startDate = myDateUtil.convertToDateTime(ogForm.start)
-            onEntity.endDate = myDateUtil.convertToDateTime(ogForm.end)
-            onEntity.instanceId = ogForm.metaInstanceID
-            onEntity.controlKey = ogForm.metaInstanceID
+            onEntity.todayDate = myDateUtil.convertToDate(ogForm.todayDate)
+            onEntity.startDate = myDateUtil.convertToDateTime(ogForm.startDate)
+            onEntity.endDate = myDateUtil.convertToDateTime(ogForm.endDate)
+
+            onEntity.plantingDate = myDateUtil.convertToDate(ogForm.plantingDate)
+            onEntity.harvestDate = myDateUtil.convertToDate(ogForm.harvestDate)
+            onEntity.instanceId = ogForm.instanceId
+            onEntity.controlKey = ogForm.instanceId
 
             onEntity.gpDif = ogForm.gpDif
 
@@ -135,7 +139,7 @@ constructor(
 
         }
 
-//        onRepo.saveAll(onData)
+        onRepo.saveAll(onData)
         log.info("Finished saving the data for $fileName------->")
 
         log.info("Exporting to CSV $fileName------->")

@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.valsphstz.SzDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.valsphstz.SzEntity
 import com.tsobu.ona.database.repositories.valsphstz.SzRepo
 import com.tsobu.ona.forms.valsphstz.SzForm
@@ -35,7 +35,8 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
+    private val fileName = "VAL_SPHS_TZSZ.json"
     fun mapJsonFile() {
         log.info("Reading ValSphsTzSzDto table here")
         val scores = szRepo.findAll()
@@ -52,14 +53,17 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
         val valSphssTzData = scores.map { szEntity ->
             val szDto = modelMapper.map(szEntity, SzDto::class.java)
-            szDto.submissionDate = myDateUtil.convertTimeToString(szEntity.submissionDate)
-            szDto.startDate = myDateUtil.convertTimeToString(szEntity.startDate)
-            szDto.endDate = myDateUtil.convertTimeToString(szEntity.endDate)
+            szDto.submissionDate = myDateUtil.toDateTimeString(szEntity.submissionDate)
+            szDto.startDate = myDateUtil.toDateTimeString(szEntity.startDate)
+            szDto.endDate = myDateUtil.toDateTimeString(szEntity.endDate)
+            szDto.todayDate = myDateUtil.toDateToString(szEntity.todayDate)
+            szDto.plantingDate = myDateUtil.toDateToString(szEntity.plantingDate)
+            szDto.harvestDate = myDateUtil.toDateToString(szEntity.harvestDate)
             szDto
         }
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -68,7 +72,7 @@ constructor(
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
-    fun readJsonAsset(fileName: String) {
+    fun readJsonAsset() {
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
@@ -87,7 +91,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
         list.forEach { myVal ->
@@ -95,27 +99,27 @@ constructor(
             val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
             val szEntity = modelMapper.map(myVal, SzEntity::class.java)
             if (geoPoint.isNotEmpty()) {
-                szEntity.geoPointLatitude = geoPoint[0].toDouble()
+                szEntity.geoPointLatitude = geoPoint[0]
 
                 if (myDateUtil.indexExists(geoPoint, 1)) {
-                    szEntity.geoPointLongitude = geoPoint[1].toDouble()
+                    szEntity.geoPointLongitude = geoPoint[1]
                 }
                 if (myDateUtil.indexExists(geoPoint, 2)) {
-                    szEntity.geoPointAltitude = geoPoint[2].toDouble()
+                    szEntity.geoPointAltitude = geoPoint[2]
                 }
                 if (myDateUtil.indexExists(geoPoint, 3)) {
-                    szEntity.geoPointAccuracy = geoPoint[3].toDouble()
+                    szEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            szEntity.uuid = myVal.formhubUuid
+            szEntity.formHubUuId = myVal.formhubUuid
             szEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
-            szEntity.todayDate = myDateUtil.convertToDate(myVal.today)
-            szEntity.startDate = myDateUtil.convertToDateTime(myVal.start)
-            szEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
+            szEntity.todayDate = myDateUtil.convertToDate(myVal.todayDate)
+            szEntity.startDate = myDateUtil.convertToDateTime(myVal.startDate)
+            szEntity.endDate = myDateUtil.convertToDateTime(myVal.endDate)
             szEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
             szEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
-            szEntity.instanceid = myVal.metaInstanceID
-            szEntity.controlKey = myVal.metaInstanceID
+            szEntity.instanceId = myVal.instanceId
+            szEntity.controlKey = myVal.instanceId
 
             try {
                 val saved = szRepo.save(szEntity)
@@ -127,5 +131,6 @@ constructor(
 
 
         log.info("Finished saving the data for $fileName------->")
+        mapJsonFile()
     }
 }

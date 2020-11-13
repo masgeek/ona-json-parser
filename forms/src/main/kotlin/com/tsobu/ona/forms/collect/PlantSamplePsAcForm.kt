@@ -14,7 +14,7 @@ class PlantSamplePsAcForm {
     var plantSampleId: String? = null
 
     @JsonProperty("plantSample/details/plantFW")
-    var plantFw: Double? = null
+    var plantFw: String?=null
 
     @JsonProperty("plantSample/details/plantPart")
     var plantPart: String? = null

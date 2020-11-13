@@ -7,7 +7,7 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.collect.CollectSsAcDto
 import com.tsobu.ona.core.dto.json.collect.CollectSsAcSoilSampleDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.collect.CollectSsAcEntity
 import com.tsobu.ona.database.entities.collect.CollectSsAcSoilSampleEntity
 import com.tsobu.ona.database.repositories.collect.CollectSsAcRepo
@@ -37,7 +37,7 @@ constructor(
     private val modelMapper = ModelMapper()
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "Collect_SS_AC.json"
     fun mapJsonFile() {
@@ -54,7 +54,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -64,9 +64,10 @@ constructor(
 
         val ssAcData = ssAcEntityList.map { ssAcEntity ->
             val ssAcDto = modelMapper.map(ssAcEntity, CollectSsAcDto::class.java)
-            ssAcDto.submissionDate = myDateUtil.convertTimeToString(ssAcEntity.submissionDate)
-            ssAcDto.start = myDateUtil.convertTimeToString(ssAcEntity.startDate)
-            ssAcDto.end = myDateUtil.convertTimeToString(ssAcEntity.endDate)
+            ssAcDto.submissionDate = myDateUtil.toDateTimeString(ssAcEntity.submissionDate)
+            ssAcDto.startDate = myDateUtil.toDateTimeString(ssAcEntity.startDate)
+            ssAcDto.endDate = myDateUtil.toDateTimeString(ssAcEntity.endDate)
+            ssAcDto.todayDate = myDateUtil.toDateToString(ssAcEntity.todayDate)
             ssAcDto
         }
 
@@ -107,7 +108,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val ssAcData = ArrayList<CollectSsAcEntity>()
@@ -130,13 +131,13 @@ constructor(
                     ssAcEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            ssAcEntity.uuid = ssAcForm.formhubUuid
+            ssAcEntity.formHubUuId = ssAcForm.formhubUuid
             ssAcEntity.submissionDate = myDateUtil.convertToDateTime(ssAcForm.submissionTime)
-            ssAcEntity.todayDate = myDateUtil.convertToDate(ssAcForm.today)
-            ssAcEntity.startDate = myDateUtil.convertToDateTime(ssAcForm.start)
-            ssAcEntity.endDate = myDateUtil.convertToDateTime(ssAcForm.end)
-            ssAcEntity.instanceId = ssAcForm.metaInstanceID
-            ssAcEntity.controlKey = ssAcForm.metaInstanceID
+            ssAcEntity.todayDate = myDateUtil.convertToDate(ssAcForm.todayDate)
+            ssAcEntity.startDate = myDateUtil.convertToDateTime(ssAcForm.startDate)
+            ssAcEntity.endDate = myDateUtil.convertToDateTime(ssAcForm.endDate)
+            ssAcEntity.instanceId = ssAcForm.instanceId
+            ssAcEntity.controlKey = ssAcForm.instanceId
             ssAcEntity.setOfSoilSample = "${ssAcEntity.controlKey}/soilSample"
 
             ssAcData.add(ssAcEntity)

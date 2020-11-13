@@ -5,12 +5,11 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.valdto.ValSphsOgDto
-import com.tsobu.ona.core.dto.json.valdto.ValSphsOyDto
+import com.tsobu.ona.core.dto.json.`val`.ValSphsOyDto
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.valform.ValSphsOyEntity
-import com.tsobu.ona.database.repositories.valform.ValSphsOyRepo
+import com.tsobu.ona.database.entities.`val`.ValSphsOyEntity
+import com.tsobu.ona.database.repositories.`val`.ValSphsOyRepo
 import com.tsobu.ona.forms.valform.ValSphsOyForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
@@ -37,7 +36,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "VAL_SPHS_OY.json"
 
@@ -55,7 +54,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -64,15 +63,18 @@ constructor(
 
         val treatData = kwList.map { oyEntity ->
             val oyDto = modelMapper.map(oyEntity, ValSphsOyDto::class.java)
-            oyDto.submissionDate = myDateUtil.convertTimeToString(oyEntity.submissionDate)
-            oyDto.start = myDateUtil.convertTimeToString(oyEntity.startDate)
-            oyDto.end = myDateUtil.convertTimeToString(oyEntity.endDate)
+            oyDto.submissionDate = myDateUtil.toDateTimeString(oyEntity.submissionDate)
+            oyDto.startDate = myDateUtil.toDateTimeString(oyEntity.startDate)
+            oyDto.endDate = myDateUtil.toDateTimeString(oyEntity.endDate)
+            oyDto.todayDate = myDateUtil.toDateToString(oyEntity.todayDate)
+            oyDto.plantingDate = myDateUtil.toDateToString(oyEntity.plantingDate)
+            oyDto.harvestDate = myDateUtil.toDateToString(oyEntity.harvestDate)
 
             oyDto
         }
 
 
-        writeCsvFile.writeCsv(classMap = ValSphsOgDto::class.java, data = treatData,
+        writeCsvFile.writeCsv(classMap = ValSphsOyDto::class.java, data = treatData,
                 fileName = "VAL_SPHS_OY", outPutPath = filePath)
     }
 
@@ -97,7 +99,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
 //        modelMapper.configuration.sourceNamingConvention = NamingConventions.NONE
 //        modelMapper.configuration.destinationNamingConvention = NamingConventions.NONE
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
@@ -121,13 +123,16 @@ constructor(
                     onEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            onEntity.uuid = oyForm.formhubUuid
+            onEntity.formHubUuId = oyForm.formhubUuid
             onEntity.submissionDate = myDateUtil.convertToDateTime(oyForm.submissionTime)
-            onEntity.todayDate = myDateUtil.convertToDate(oyForm.today)
-            onEntity.startDate = myDateUtil.convertToDateTime(oyForm.start)
-            onEntity.endDate = myDateUtil.convertToDateTime(oyForm.end)
-            onEntity.instanceId = oyForm.metaInstanceID
-            onEntity.controlKey = oyForm.metaInstanceID
+            onEntity.todayDate = myDateUtil.convertToDate(oyForm.todayDate)
+            onEntity.startDate = myDateUtil.convertToDateTime(oyForm.startDate)
+            onEntity.endDate = myDateUtil.convertToDateTime(oyForm.endDate)
+            onEntity.plantingDate = myDateUtil.convertToDate(oyForm.plantingDate)
+            onEntity.harvestDate = myDateUtil.convertToDate(oyForm.harvestDate)
+
+            onEntity.instanceId = oyForm.instanceId
+            onEntity.controlKey = oyForm.instanceId
 
             onEntity.gpDif = oyForm.gpDif
 
@@ -135,7 +140,7 @@ constructor(
 
         }
 
-//        oyRepo.saveAll(oyData)
+        oyRepo.saveAll(oyData)
         log.info("Finished saving the data for $fileName------->")
 
         log.info("Exporting to CSV $fileName------->")

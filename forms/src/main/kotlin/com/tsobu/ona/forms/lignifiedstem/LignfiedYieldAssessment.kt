@@ -23,10 +23,10 @@ class LignfiedYieldAssessment {
     var plantSampleIdOldPlantingStick: String? = null
 
     @JsonProperty("yieldAssessment/abovegroundBiomassFW/lignifiedStemsFW")
-    var lignifiedStemsFw: Double? = null
+    var lignifiedStemsFw: String?=null
 
     @JsonProperty("yieldAssessment/abovegroundBiomassFW/oldPlantingStickFW")
-    var oldPlantingStickFw: Double? = null
+    var oldPlantingStickFw: String?=null
 
     @JsonProperty("yieldAssessment/plotID")
     var plotId: String? = null

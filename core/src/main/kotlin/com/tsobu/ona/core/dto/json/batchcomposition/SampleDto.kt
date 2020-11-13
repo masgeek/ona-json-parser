@@ -11,22 +11,22 @@ class SampleDto {
     var nr: String? = null
 
     @JsonProperty("plantSampleID")
-    var plantSampleID: String? = null
+    var plantSampleId: String? = null
 
     @JsonProperty("soilSampleID")
-    var soilSampleID: String? = null
+    var soilSampleId: String? = null
 
     @JsonProperty("PS_key")
-    var pSKey: String? = null
+    var psKey: String? = null
 
     @JsonProperty("SS_key")
-    var sSKey: String? = null
+    var ssKey: String? = null
 
     @JsonProperty("reportAction_PS")
-    var reportActionPS: String? = null
+    var reportActionPs: String? = null
 
     @JsonProperty("reportAction_SS")
-    var reportActionSS: String? = null
+    var reportActionSs: String? = null
 
     @JsonProperty("FW")
     var fw: String? = null
@@ -44,19 +44,19 @@ class SampleDto {
     var sb: String? = null
 
     @JsonProperty("noteFW")
-    var noteFW: String? = null
+    var noteFw: String? = null
 
     @JsonProperty("noteDC")
-    var noteDC: String? = null
+    var noteDc: String? = null
 
     @JsonProperty("noteRS")
-    var noteRS: String? = null
+    var noteRs: String? = null
 
     @JsonProperty("noteNA")
-    var noteNA: String? = null
+    var noteNa: String? = null
 
     @JsonProperty("noteSB")
-    var noteSB: String? = null
+    var noteSb: String? = null
 
     @JsonProperty("PARENT_KEY")
     var parentKey: String? = null

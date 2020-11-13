@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.register.EaDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.register.EaEntity
 import com.tsobu.ona.database.repositories.register.EaRepo
 import com.tsobu.ona.forms.register.EaForm
@@ -35,7 +35,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     val fileName = "Register_EA.json"
     fun mapJsonFile() {
@@ -54,15 +54,16 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
 
         val eaData = frList.map { eaEntity ->
             val eaDto = modelMapper.map(eaEntity, EaDto::class.java)
-            eaDto.submissionDate = myDateUtil.convertTimeToString(eaEntity.submissionDate)
-            eaDto.startDate = myDateUtil.convertTimeToString(eaEntity.startDate)
-            eaDto.endDate = myDateUtil.convertTimeToString(eaEntity.endDate)
+            eaDto.submissionDate = myDateUtil.toDateTimeString(eaEntity.submissionDate)
+            eaDto.startDate = myDateUtil.toDateTimeString(eaEntity.startDate)
+            eaDto.endDate = myDateUtil.toDateTimeString(eaEntity.endDate)
+            eaDto.todayDate = myDateUtil.toDateTimeString(eaEntity.todayDate)
             eaDto
         }
 
@@ -90,7 +91,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val eaData = ArrayList<EaEntity>()
@@ -111,13 +112,13 @@ constructor(
                     frEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            frEntity.uuid = eaForm.formhubUuid
+            frEntity.formHubUuId = eaForm.formhubUuid
             frEntity.submissionDate = myDateUtil.convertToDateTime(eaForm.submissionTime)
-            frEntity.todayDate = myDateUtil.convertToDate(eaForm.today)
-            frEntity.startDate = myDateUtil.convertToDateTime(eaForm.start)
-            frEntity.endDate = myDateUtil.convertToDateTime(eaForm.end)
-            frEntity.instanceId = eaForm.metaInstanceID
-            frEntity.controlKey = eaForm.metaInstanceID
+            frEntity.todayDate = myDateUtil.convertToDate(eaForm.todayDate)
+            frEntity.startDate = myDateUtil.convertToDateTime(eaForm.startDate)
+            frEntity.endDate = myDateUtil.convertToDateTime(eaForm.endDate)
+            frEntity.instanceId = eaForm.instanceId
+            frEntity.controlKey = eaForm.instanceId
 
             try {
                 eaData.add(frEntity)
@@ -127,7 +128,7 @@ constructor(
             }
         }
 
-//        eaRepo.saveAll(eaData)
+        eaRepo.saveAll(eaData)
 
         log.info("Finished saving the data for $fileName------->")
         mapJsonFile()

@@ -377,7 +377,7 @@ class LzeForm {
     var grp0h0Ab: String? = null
 
     @JsonProperty("unitWeight")
-    var unitweight: String? = null
+    var UnitWeight: String? = null
 
     @JsonProperty("priceDetails/priceRp4")
     var pricerp4 :String?=null
@@ -455,7 +455,7 @@ class LzeForm {
     var harvestweekm1: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("results/WYp0hp1")
     var wyp0hp1: String? = null
@@ -464,7 +464,7 @@ class LzeForm {
     var lookupp0hp1Id: String? = null
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("results/Yp0hm4")
     var yp0hm4: String? = null
@@ -494,7 +494,7 @@ class LzeForm {
     var cyp0hp4: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("results/CYp0hp1")
     var cyp0hp1: String? = null
@@ -506,7 +506,7 @@ class LzeForm {
     var cyp0hp2: String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("harvest/harvestAgem1")
     var harvestagem1: String? = null

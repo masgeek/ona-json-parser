@@ -7,7 +7,7 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.replace.ReplacePoAcDto
 import com.tsobu.ona.core.dto.json.replace.ReplacePoAcReplaceLabelDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.replace.ReplacePoAcEntity
 import com.tsobu.ona.database.entities.replace.ReplacePoAcReplaceLabelEntity
 import com.tsobu.ona.database.repositories.replace.ReplacePoAcReplaceLabelRepo
@@ -39,7 +39,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     val fileName = "Replace_PO_AC.json"
     fun mapJsonFile() {
@@ -59,15 +59,16 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
 
         val acData = acList.map { acEntity ->
             val acDto = modelMapper.map(acEntity, ReplacePoAcDto::class.java)
-            acDto.submissionDate = myDateUtil.convertTimeToString(acEntity.submissionDate)
-            acDto.startDate = myDateUtil.convertTimeToString(acEntity.startDate)
-            acDto.endDate = myDateUtil.convertTimeToString(acEntity.endDate)
+            acDto.submissionDate = myDateUtil.toDateTimeString(acEntity.submissionDate)
+            acDto.startDate = myDateUtil.toDateTimeString(acEntity.startDate)
+            acDto.endDate = myDateUtil.toDateTimeString(acEntity.endDate)
+            acDto.todayDate = myDateUtil.toDateToString(acEntity.todayDate)
             acDto
         }
 
@@ -105,7 +106,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val acData = ArrayList<ReplacePoAcEntity>()
@@ -128,15 +129,15 @@ constructor(
                     acEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            acEntity.uuid = acForm.formhubUuid
+            acEntity.formHubUuId = acForm.formhubUuid
             acEntity.submissionDate = myDateUtil.convertToDateTime(acForm.submissionTime)
-            acEntity.todayDate = myDateUtil.convertToDate(acForm.today)
-            acEntity.startDate = myDateUtil.convertToDateTime(acForm.start)
-            acEntity.endDate = myDateUtil.convertToDateTime(acForm.end)
-            acEntity.instanceId = acForm.metaInstanceID
-            acEntity.controlKey = acForm.metaInstanceID
+            acEntity.todayDate = myDateUtil.convertToDate(acForm.todayDate)
+            acEntity.startDate = myDateUtil.convertToDateTime(acForm.startDate)
+            acEntity.endDate = myDateUtil.convertToDateTime(acForm.endDate)
+            acEntity.instanceId = acForm.instanceId
+            acEntity.controlKey = acForm.instanceId
 
-            acEntity.setOfReplaceLabel = "${acForm.metaInstanceID}/replaceLabel"
+            acEntity.setOfReplaceLabel = "${acForm.instanceId}/replaceLabel"
 
             //child data
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
@@ -146,7 +147,7 @@ constructor(
                 val idEntity = modelMapper.map(plantSampleForm, ReplacePoAcReplaceLabelEntity::class.java)
                 idEntity.parentKey = acEntity.controlKey
                 idEntity.setOfReplaceLabel = acEntity.setOfReplaceLabel
-                idEntity.controlKey = "${acForm.metaInstanceID}/replaceLabel[$labelCounter]"
+                idEntity.controlKey = "${acForm.instanceId}/replaceLabel[$labelCounter]"
 
                 labelCounter = labelCounter.plus(1)
                 labelData.add(idEntity)

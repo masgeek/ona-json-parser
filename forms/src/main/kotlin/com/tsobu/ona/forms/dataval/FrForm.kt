@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 class FrForm {
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("EAID")
     var eaid: String? = null
@@ -20,7 +20,7 @@ class FrForm {
 
 
     @JsonProperty("comment")
-    var comment: String? = null
+    var commentValue: String? = null
 
     @JsonProperty("_tags")
     var tags: List<Any>? = null
@@ -29,10 +29,10 @@ class FrForm {
     var uuid: String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("_notes")
     var notes: List<Any>? = null
@@ -62,10 +62,10 @@ class FrForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
-    var xformId: String? = null
+    var xFormId: String? = null
 
     @JsonProperty("loc_field")
     var locField: String? = null
@@ -110,7 +110,7 @@ class FrForm {
     var purposeEvent: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null
@@ -158,28 +158,28 @@ class FrForm {
     var rateLodging: String? = null
 
     @JsonProperty("plotLayout_CON/plotL1_CON")
-    var plotL1Con: Double? = null
+    var plotL1Con: String?=null
 
     @JsonProperty("plotLayout_CON/plotL2_CON")
-    var plotL2Con: Double? = null
+    var plotL2Con: String?=null
 
     @JsonProperty("plotLayout_CON/plotW1_CON")
-    var plotW1Con: Double? = null
+    var plotW1Con: String?=null
 
     @JsonProperty("plotLayout_CON/plotW2_CON")
-    var plotW2Con: Double? = null
+    var plotW2Con: String?=null
 
     @JsonProperty("plotLayout_SSR/plotL1_SSR")
-    var plotL1Ssr: Double? = null
+    var plotL1Ssr: String?=null
 
     @JsonProperty("plotLayout_SSR/plotL2_SSR")
-    var plotL2Ssr: Double? = null
+    var plotL2Ssr: String?=null
 
     @JsonProperty("plotLayout_SSR/plotW1_SSR")
-    var plotW1Ssr: Double? = null
+    var plotW1Ssr: String?=null
 
     @JsonProperty("plotLayout_SSR/plotW2_SSR")
-    var plotW2Ssr: Double? = null
+    var plotW2Ssr: String?=null
 
     @JsonProperty("farmerEvaluation/costScore")
     var costScore: String? = null
@@ -236,10 +236,10 @@ class FrForm {
     var weedingMethod5: String? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsFW_CON")
-    var tuberizedMarketableRootsFwCon: Double? = null
+    var tuberizedMarketableRootsFwCon: String?=null
 
     @JsonProperty("harvest/tuberizedMarketableRootsFW_SSR")
-    var tuberizedMarketableRootsFwSsr: Double? = null
+    var tuberizedMarketableRootsFwSsr: String?=null
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_CON")
     var tuberizedMarketableRootsNrCon: String? = null

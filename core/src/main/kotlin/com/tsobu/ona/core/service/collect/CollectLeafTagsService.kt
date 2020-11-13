@@ -7,7 +7,7 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.collect.CollectLeafTagsAcDto
 import com.tsobu.ona.core.dto.json.collect.CollectLeafTagsAcIdDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.collect.CollectLeafTagsAcEntity
 import com.tsobu.ona.database.entities.collect.CollectLeafTagsAcIdEntity
 import com.tsobu.ona.database.repositories.collect.CollectLeafTagsAcIdRepo
@@ -37,7 +37,7 @@ constructor(
     private val modelMapper = ModelMapper()
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "Collect_Leaf_Tags_AC.json"
     fun mapJsonFile() {
@@ -54,7 +54,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -64,14 +64,17 @@ constructor(
 
         val tagsAcData = tagsEntityList.map { ssAcEntity ->
             val tagsAcDto = modelMapper.map(ssAcEntity, CollectLeafTagsAcDto::class.java)
-            tagsAcDto.submissionDate = myDateUtil.convertTimeToString(ssAcEntity.submissionDate)
-            tagsAcDto.start = myDateUtil.convertTimeToString(ssAcEntity.startDate)
-            tagsAcDto.end = myDateUtil.convertTimeToString(ssAcEntity.endDate)
+            tagsAcDto.submissionDate = myDateUtil.toDateTimeString(ssAcEntity.submissionDate)
+            tagsAcDto.startDate = myDateUtil.toDateTimeString(ssAcEntity.startDate)
+            tagsAcDto.endDate = myDateUtil.toDateTimeString(ssAcEntity.endDate)
+            tagsAcDto.todayDate = myDateUtil.toDateToString(ssAcEntity.todayDate)
             tagsAcDto
         }
 
         val tagsAcIdData = tagsAcEntityList.map { soilSampleEntity ->
             val tagsAcIdDto = modelMapper.map(soilSampleEntity, CollectLeafTagsAcIdDto::class.java)
+            tagsAcIdDto.dateAttached = myDateUtil.toDateToString(soilSampleEntity.dateAttached)
+            tagsAcIdDto.dateRecovered = myDateUtil.toDateToString(soilSampleEntity.dateRecovered)
             tagsAcIdDto
         }
 
@@ -107,7 +110,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val leafTagAcData = ArrayList<CollectLeafTagsAcEntity>()
@@ -130,13 +133,13 @@ constructor(
                     tagsAcEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            tagsAcEntity.uuid = leafTagsAcForm.formhubUuid
+            tagsAcEntity.formHubUuId = leafTagsAcForm.formhubUuid
             tagsAcEntity.submissionDate = myDateUtil.convertToDateTime(leafTagsAcForm.submissionTime)
-            tagsAcEntity.todayDate = myDateUtil.convertToDate(leafTagsAcForm.today)
-            tagsAcEntity.startDate = myDateUtil.convertToDateTime(leafTagsAcForm.start)
-            tagsAcEntity.endDate = myDateUtil.convertToDateTime(leafTagsAcForm.end)
-            tagsAcEntity.instanceId = leafTagsAcForm.metaInstanceID
-            tagsAcEntity.controlKey = leafTagsAcForm.metaInstanceID
+            tagsAcEntity.todayDate = myDateUtil.convertToDate(leafTagsAcForm.todayDate)
+            tagsAcEntity.startDate = myDateUtil.convertToDateTime(leafTagsAcForm.startDate)
+            tagsAcEntity.endDate = myDateUtil.convertToDateTime(leafTagsAcForm.endDate)
+            tagsAcEntity.instanceId = leafTagsAcForm.instanceId
+            tagsAcEntity.controlKey = leafTagsAcForm.instanceId
             tagsAcEntity.setOfId = "${tagsAcEntity.controlKey}/ID"
 
             leafTagAcData.add(tagsAcEntity)

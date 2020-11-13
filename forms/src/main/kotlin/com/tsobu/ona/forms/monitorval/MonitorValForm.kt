@@ -11,7 +11,7 @@ class MonitorValForm {
     var id: String? = null
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("EAID")
     var eaid: String? = null
@@ -32,10 +32,10 @@ class MonitorValForm {
     var plots: String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("_notes")
     var notes: List<Any>? = null
@@ -83,10 +83,10 @@ class MonitorValForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
-    var xformId: String? = null
+    var xFormId: String? = null
 
     @JsonProperty("detailsEA")
     var detailsEa: String? = null
@@ -155,7 +155,7 @@ class MonitorValForm {
     var nrPlotsCorrect: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null
@@ -236,7 +236,7 @@ class MonitorValForm {
     var trialQualitySome: List<TrialQualitySome>? = null
 
     @JsonProperty("comment")
-    var comment: String? = null
+    var commentValue: String? = null
 
     @JsonProperty("problems_All")
     var problemsAll: String? = null
@@ -344,7 +344,7 @@ class MonitorValForm {
     var leafSample: List<LeafSample>? = null
 
     @JsonProperty("siteDetails1/slope")
-    var slope: Double? = null
+    var slope: String?=null
 
     @JsonProperty("managementDetails")
     var managementDetails: String? = null

@@ -17,14 +17,14 @@ class AssignPoAcPlotLabelingDto {
     var treatNr: String? = null
 
     @JsonProperty("plotID")
-    var plotID: String? = null
+    var plotId: String? = null
 
     @JsonProperty("PARENT_KEY")
     var parentKey: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 
     @JsonProperty("SET-OF-plotLabeling")
-    var sETOFPlotLabeling: String? = null
+    var setOfPlotLabeling: String? = null
 }

@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.sphs.PraSphsDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.sphs.PraSphsEntity
 import com.tsobu.ona.database.repositories.sphs.PraSphsRepo
 import com.tsobu.ona.forms.sphs.PraSphsForm
@@ -35,7 +35,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     val fileName = "PRA_SPHS.json"
     fun mapJsonFile() {
@@ -54,15 +54,16 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
 
         val praSphsData = acList.map { praSphsEntity ->
             val praSphsDto = modelMapper.map(praSphsEntity, PraSphsDto::class.java)
-            praSphsDto.submissionDate = myDateUtil.convertTimeToString(praSphsEntity.submissionDate)
-            praSphsDto.startDate = myDateUtil.convertTimeToString(praSphsEntity.startDate)
-            praSphsDto.endDate = myDateUtil.convertTimeToString(praSphsEntity.endDate)
+            praSphsDto.submissionDate = myDateUtil.toDateTimeString(praSphsEntity.submissionDate)
+            praSphsDto.startDate = myDateUtil.toDateTimeString(praSphsEntity.startDate)
+            praSphsDto.endDate = myDateUtil.toDateTimeString(praSphsEntity.endDate)
+            praSphsDto.todayDate = myDateUtil.toDateToString(praSphsEntity.todayDate)
             praSphsDto
         }
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -91,7 +92,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val praSphsData = ArrayList<PraSphsEntity>()
@@ -112,13 +113,13 @@ constructor(
                     praSphsEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            praSphsEntity.uuid = praSphsForm.formhubUuid
+            praSphsEntity.formHubUuId = praSphsForm.formhubUuid
             praSphsEntity.submissionDate = myDateUtil.convertToDateTime(praSphsForm.submissionTime)
-            praSphsEntity.todayDate = myDateUtil.convertToDate(praSphsForm.today)
-            praSphsEntity.startDate = myDateUtil.convertToDateTime(praSphsForm.start)
-            praSphsEntity.endDate = myDateUtil.convertToDateTime(praSphsForm.end)
-            praSphsEntity.instanceId = praSphsForm.metaInstanceID
-            praSphsEntity.controlKey = praSphsForm.metaInstanceID
+            praSphsEntity.todayDate = myDateUtil.convertToDate(praSphsForm.todayDate)
+            praSphsEntity.startDate = myDateUtil.convertToDateTime(praSphsForm.startDate)
+            praSphsEntity.endDate = myDateUtil.convertToDateTime(praSphsForm.endDate)
+            praSphsEntity.instanceId = praSphsForm.instanceId
+            praSphsEntity.controlKey = praSphsForm.instanceId
 
             praSphsData.add(praSphsEntity)
         }

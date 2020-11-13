@@ -42,6 +42,8 @@ dependencies {
     api("commons-codec:commons-codec:1.15")
     api("com.github.rozidan:modelmapper-spring-boot-starter:2.3.1")
 
+    implementation("com.opencsv:opencsv:4.6")
+
     implementation("org.apache.commons:commons-collections4:4.4")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api")

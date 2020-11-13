@@ -11,13 +11,13 @@ class CollectPsAcDto {
     var submissionDate: String? = null
 
     @JsonProperty("uuid")
-    var uuid: String? = null
+    var formHubUuId:String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("deviceid")
     var deviceid: String? = null
@@ -77,7 +77,7 @@ class CollectPsAcDto {
     var crop: String? = null
 
     @JsonProperty("assessFW")
-    var assessFW: String? = null
+    var assessFw: String? = null
 
     @JsonProperty("repeat")
     var repeat: String? = null
@@ -86,11 +86,11 @@ class CollectPsAcDto {
     var setOfPlantSample: String? = null
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("instanceID")
     var instanceId: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 }

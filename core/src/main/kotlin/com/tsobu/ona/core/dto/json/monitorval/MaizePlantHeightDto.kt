@@ -14,7 +14,7 @@ class MaizePlantHeightDto {
     var plantHeightPlotLabel: String? = null
 
     @JsonProperty("PH_count")
-    var pHCount: String? = null
+    var phCount: String? = null
 
     @JsonProperty("SET-OF-PH")
     var setOfPh: String? = null

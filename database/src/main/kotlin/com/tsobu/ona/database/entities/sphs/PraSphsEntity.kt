@@ -14,13 +14,13 @@ class PraSphsEntity : BaseEntity() {
     var submissionDate: LocalDateTime? = null
 
     @Column(name = "uuid")
-    var uuid: String? = null
+    var formHubUuId: String? = null
 
     @Column(name = "start_date")
     var startDate: LocalDateTime? = null
 
     @Column(name = "today_date")
-    var todayDate: LocalDate? = null
+    var todayDate: LocalDateTime? = null
 
     @Column(name = "deviceid")
     var deviceid: String? = null
@@ -277,6 +277,6 @@ class PraSphsEntity : BaseEntity() {
     @Column(name = "instance_id")
     var instanceId: String? = null
 
-    @Column(name = "control_key")
+    @Column(name = "control_key", unique = true)
     var controlKey: String? = null
 }

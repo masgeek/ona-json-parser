@@ -11,13 +11,13 @@ class RecordDmPsAcDto {
     var submissionDate: String? = null
 
     @JsonProperty("uuid")
-    var uuid: String? = null
+    var formHubUuId:String? = null
 
     @JsonProperty("start")
     var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("deviceid")
     var deviceid: String? = null
@@ -68,7 +68,7 @@ class RecordDmPsAcDto {
     var endDate: String? = null
 
     @JsonProperty("instanceID")
-    var instanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("KEY")
     var controlKey: String? = null

@@ -8,7 +8,7 @@ import com.tsobu.ona.core.dto.json.record.CanopyDimensionsAcCdDto
 import com.tsobu.ona.core.dto.json.record.CanopyDimensionsAcDto
 import com.tsobu.ona.core.dto.json.record.CanopyDimensionsAcIdDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.record.CanopyDimensionsAcCdEntity
 import com.tsobu.ona.database.entities.record.CanopyDimensionsAcEntity
 import com.tsobu.ona.database.entities.record.CanopyDimensionsAcIdEntity
@@ -43,7 +43,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     val fileName = "Record_Canopy_Dimensions_AC.json"
     fun mapJsonFile() {
@@ -64,15 +64,16 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
 
         val acData = confirmList.map { acEntity ->
             val acDto = modelMapper.map(acEntity, CanopyDimensionsAcDto::class.java)
-            acDto.submissionDate = myDateUtil.convertTimeToString(acEntity.submissionDate)
-            acDto.startDate = myDateUtil.convertTimeToString(acEntity.startDate)
-            acDto.endDate = myDateUtil.convertTimeToString(acEntity.endDate)
+            acDto.submissionDate = myDateUtil.toDateTimeString(acEntity.submissionDate)
+            acDto.startDate = myDateUtil.toDateTimeString(acEntity.startDate)
+            acDto.endDate = myDateUtil.toDateTimeString(acEntity.endDate)
+            acDto.todayDate = myDateUtil.toDateToString(acEntity.todayDate)
             acDto
         }
 
@@ -117,7 +118,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val acData = ArrayList<CanopyDimensionsAcEntity>()
@@ -141,15 +142,15 @@ constructor(
                 }
             }
 
-            acEntity.uuid = acForm.formhubUuid
+            acEntity.formHubUuId = acForm.formhubUuid
             acEntity.submissionDate = myDateUtil.convertToDateTime(acForm.submissionTime)
-            acEntity.todayDate = myDateUtil.convertToDate(acForm.today)
-            acEntity.startDate = myDateUtil.convertToDateTime(acForm.start)
-            acEntity.endDate = myDateUtil.convertToDateTime(acForm.end)
-            acEntity.instanceId = acForm.metaInstanceID
-            acEntity.controlKey = acForm.metaInstanceID
+            acEntity.todayDate = myDateUtil.convertToDate(acForm.todayDate)
+            acEntity.startDate = myDateUtil.convertToDateTime(acForm.startDate)
+            acEntity.endDate = myDateUtil.convertToDateTime(acForm.endDate)
+            acEntity.instanceId = acForm.instanceId
+            acEntity.controlKey = acForm.instanceId
 
-            acEntity.setOfId = "${acForm.metaInstanceID}/ID"
+            acEntity.setOfId = "${acForm.instanceId}/ID"
 
             //child data
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
@@ -159,8 +160,8 @@ constructor(
                 val idEntity = modelMapper.map(idForm, CanopyDimensionsAcIdEntity::class.java)
                 idEntity.parentKey = acEntity.controlKey
                 idEntity.setOfId = acEntity.setOfId
-                idEntity.controlKey = "${acForm.metaInstanceID}/ID[$sampleCounter]"
-                idEntity.setOfCd = "${acForm.metaInstanceID}/ID[$sampleCounter]/CD"
+                idEntity.controlKey = "${acForm.instanceId}/ID[$sampleCounter]"
+                idEntity.setOfCd = "${acForm.instanceId}/ID[$sampleCounter]/CD"
 
                 sampleCounter = sampleCounter.plus(1)
                 idData.add(idEntity)
@@ -171,7 +172,7 @@ constructor(
                     val cdEntity = modelMapper.map(cdForm, CanopyDimensionsAcCdEntity::class.java)
                     cdEntity.parentKey = idEntity.controlKey
                     cdEntity.controlKey = "${idEntity.controlKey}/CD[$labelCounter]"
-                    cdEntity.setOfCd = "${acForm.metaInstanceID}/ID[$sampleCounter]/CD"
+                    cdEntity.setOfCd = "${acForm.instanceId}/ID[$sampleCounter]/CD"
 
                     labelCounter = labelCounter.plus(1)
                     cdData.add(cdEntity)

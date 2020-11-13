@@ -12,7 +12,7 @@ class SzForm {
     var submissionId: String? = null
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("lat")
     var lat: String? = null
@@ -45,10 +45,10 @@ class SzForm {
     var plotWidth: String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("_notes")
     var notes: List<Any>? = null
@@ -96,10 +96,10 @@ class SzForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
-    var xformId: String? = null
+    var xFormId: String? = null
 
     @JsonProperty("areaBasis")
     var areaBasis: String? = null
@@ -111,7 +111,7 @@ class SzForm {
     var conversion: String? = null
 
     @JsonProperty("unitWeight")
-    var unitWeight: String? = null
+    var UnitWeight: String? = null
 
     @JsonProperty("yieldLevel")
     var yieldLevel: String? = null
@@ -264,7 +264,7 @@ class SzForm {
     var unitNameSelect: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("plantingDensity")
     var plantingDensity: String? = null

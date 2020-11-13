@@ -5,10 +5,9 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.monitorval.*
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
 import com.tsobu.ona.database.entities.monitorval.*
-import com.tsobu.ona.database.entities.valsphstz.SzEntity
 import com.tsobu.ona.database.repositories.monitorval.*
 import com.tsobu.ona.forms.monitorval.MonitorValForm
 import org.modelmapper.AbstractCondition
@@ -47,7 +46,9 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
+
+    private val fileName = "monitorVAL.json"
     fun mapJsonFile() {
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
@@ -61,7 +62,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         log.info("Reading table data....")
@@ -80,7 +81,10 @@ constructor(
 
         val monitorValData = monitorValList.map { monitorValEntity ->
             val monitorValDto = modelMapper.map(monitorValEntity, MonitorValDto::class.java)
-            monitorValDto.submissionDate = myDateUtil.convertTimeToString(monitorValEntity.submissionDate)
+            monitorValDto.submissionDate = myDateUtil.toDateTimeString(monitorValEntity.submissionDate)
+            monitorValDto.startDate = myDateUtil.toDateToString(monitorValEntity.startDate)
+            monitorValDto.todayDate = myDateUtil.toDateToString(monitorValEntity.todayDate)
+            monitorValDto.endDate = myDateUtil.toDateToString(monitorValEntity.endDate)
             monitorValDto
         }
         val installCorrectDetailsData = installCorrectDetailsList.map { correctDetailsEntity ->
@@ -149,13 +153,12 @@ constructor(
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
-    fun readJsonAsset(fileName: String) {
+    fun readJsonAsset() {
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
         val list = objectMapper.readValue(file, object : TypeReference<List<MonitorValForm>>() {})
 
-        val data = ArrayList<SzEntity>()
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
                 return if (context.source is String) {
@@ -168,7 +171,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val monitorValEntityData = ArrayList<MonitorValEntity>()
@@ -199,13 +202,13 @@ constructor(
                     monitorValEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            monitorValEntity.uuid = monitorValForm.formhubUuid
+            monitorValEntity.formHubUuId = monitorValForm.formhubUuid
             monitorValEntity.submissionDate = myDateUtil.convertToDateTime(monitorValForm.submissionTime)
-            monitorValEntity.todayDate = myDateUtil.convertToDate(monitorValForm.today)
-            monitorValEntity.startDate = myDateUtil.convertToDateTime(monitorValForm.start)
-            monitorValEntity.endDate = myDateUtil.convertToDateTime(monitorValForm.end)
-            monitorValEntity.instanceId = monitorValForm.metaInstanceID
-            monitorValEntity.controlKey = monitorValForm.metaInstanceID
+            monitorValEntity.todayDate = myDateUtil.convertToDate(monitorValForm.todayDate)
+            monitorValEntity.startDate = myDateUtil.convertToDateTime(monitorValForm.startDate)
+            monitorValEntity.endDate = myDateUtil.convertToDateTime(monitorValForm.endDate)
+            monitorValEntity.instanceId = monitorValForm.instanceId
+            monitorValEntity.controlKey = monitorValForm.instanceId
 
             monitorValEntity.setOfPlotLayout = "${monitorValEntity.controlKey}/plotLayout"
             monitorValEntity.setOfMaizePlantHeight = "${monitorValEntity.controlKey}/maizePlantHeight"
@@ -360,5 +363,6 @@ constructor(
         trialRatingAllRepo.saveAll(trialRatingAllData)
 
         log.info("Finished saving the data for $fileName------->")
+        mapJsonFile()
     }
 }

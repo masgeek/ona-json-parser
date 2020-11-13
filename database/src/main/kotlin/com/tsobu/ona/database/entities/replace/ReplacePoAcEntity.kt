@@ -14,13 +14,13 @@ class ReplacePoAcEntity : BaseEntity() {
     var submissionDate: LocalDateTime? = null
 
     @Column(name = "uuid")
-    var uuid: String? = null
+    var formHubUuId: String? = null
 
     @Column(name = "start_date")
     var startDate: LocalDateTime? = null
 
     @Column(name = "today_date")
-    var todayDate: LocalDate? = null
+    var todayDate: LocalDateTime? = null
 
     @Column(name = "deviceid")
     var deviceid: String? = null

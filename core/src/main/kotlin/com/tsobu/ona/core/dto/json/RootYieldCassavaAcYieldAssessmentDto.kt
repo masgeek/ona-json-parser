@@ -45,7 +45,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
         "diseaseScoreRoots_severity",
         "PARENT_KEY",
         "KEY",
-        "SET-OF-yieldAssessmentForm"
+        "SET-OF-yieldAssessment"
 )
 class RootYieldCassavaAcYieldAssessmentDto {
 
@@ -166,6 +166,6 @@ class RootYieldCassavaAcYieldAssessmentDto {
     @JsonProperty("KEY")
     var controlKey: String? = null
 
-    @JsonProperty("SET-OF-yieldAssessmentForm")
+    @JsonProperty("SET-OF-yieldAssessment")
     var setOfYieldAssessment: String? = null
 }

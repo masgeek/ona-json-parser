@@ -8,7 +8,7 @@ import com.tsobu.ona.core.dto.json.monitor.NonDestructiveCassAcDto
 import com.tsobu.ona.core.dto.json.monitor.NonDestructiveCassAcIdDto
 import com.tsobu.ona.core.dto.json.monitor.NonDestructiveCassAcNdmDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.monitor.NonDestructiveCassAcEntity
 import com.tsobu.ona.database.entities.monitor.NonDestructiveCassAcIdEntity
 import com.tsobu.ona.database.entities.monitor.NonDestructiveCassAcNdmEntity
@@ -43,7 +43,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     val fileName = "Monitor_NonDestructive_Cassava_AC.json"
     fun mapJsonFile() {
@@ -64,15 +64,16 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
 
         val cassAcData = confirmList.map { assignAcEntity ->
             val cassAcDto = modelMapper.map(assignAcEntity, NonDestructiveCassAcDto::class.java)
-            cassAcDto.submissionDate = myDateUtil.convertTimeToString(assignAcEntity.submissionDate)
-            cassAcDto.startDate = myDateUtil.convertTimeToString(assignAcEntity.startDate)
-            cassAcDto.endDate = myDateUtil.convertTimeToString(assignAcEntity.endDate)
+            cassAcDto.submissionDate = myDateUtil.toDateTimeString(assignAcEntity.submissionDate)
+            cassAcDto.startDate = myDateUtil.toDateTimeString(assignAcEntity.startDate)
+            cassAcDto.endDate = myDateUtil.toDateTimeString(assignAcEntity.endDate)
+            cassAcDto.todayDate = myDateUtil.toDateTimeString(assignAcEntity.todayDate)
             cassAcDto
         }
 
@@ -117,7 +118,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val cassAcData = ArrayList<NonDestructiveCassAcEntity>()
@@ -140,15 +141,15 @@ constructor(
                     poAcEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            poAcEntity.uuid = acForm.formhubUuid
+            poAcEntity.formHubUuId = acForm.formhubUuid
             poAcEntity.submissionDate = myDateUtil.convertToDateTime(acForm.submissionTime)
-            poAcEntity.todayDate = myDateUtil.convertToDate(acForm.today)
-            poAcEntity.startDate = myDateUtil.convertToDateTime(acForm.start)
-            poAcEntity.endDate = myDateUtil.convertToDateTime(acForm.end)
-            poAcEntity.instanceId = acForm.metaInstanceID
-            poAcEntity.controlKey = acForm.metaInstanceID
+            poAcEntity.todayDate = myDateUtil.convertToDate(acForm.todayDate)
+            poAcEntity.startDate = myDateUtil.convertToDateTime(acForm.startDate)
+            poAcEntity.endDate = myDateUtil.convertToDateTime(acForm.endDate)
+            poAcEntity.instanceId = acForm.instanceId
+            poAcEntity.controlKey = acForm.instanceId
 
-            poAcEntity.setOfId = "${acForm.metaInstanceID}/ID"
+            poAcEntity.setOfId = "${acForm.instanceId}/ID"
 
             //child data
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
@@ -158,8 +159,8 @@ constructor(
                 val acIdEntity = modelMapper.map(acIdForm, NonDestructiveCassAcIdEntity::class.java)
                 acIdEntity.parentKey = poAcEntity.controlKey
                 acIdEntity.setOfId = poAcEntity.setOfId
-                acIdEntity.controlKey = "${acForm.metaInstanceID}/ID[$acIdCounter]"
-                acIdEntity.setOfNdm = "${acForm.metaInstanceID}/ID[$acIdCounter]/NDM"
+                acIdEntity.controlKey = "${acForm.instanceId}/ID[$acIdCounter]"
+                acIdEntity.setOfNdm = "${acForm.instanceId}/ID[$acIdCounter]/NDM"
 
                 acIdCounter = acIdCounter.plus(1)
                 cassAcIdData.add(acIdEntity)
@@ -170,7 +171,7 @@ constructor(
                     val ndmEntity = modelMapper.map(ndmForm, NonDestructiveCassAcNdmEntity::class.java)
                     ndmEntity.parentKey = acIdEntity.controlKey
                     ndmEntity.controlKey = "${acIdEntity.controlKey}/NDM[$acNdmCounter]"
-                    ndmEntity.setOfNdm = "${acForm.metaInstanceID}/ID[$acIdCounter]/NDM"
+                    ndmEntity.setOfNdm = "${acForm.instanceId}/ID[$acIdCounter]/NDM"
 
                     acNdmCounter = acNdmCounter.plus(1)
                     cassAcNdmData.add(ndmEntity)

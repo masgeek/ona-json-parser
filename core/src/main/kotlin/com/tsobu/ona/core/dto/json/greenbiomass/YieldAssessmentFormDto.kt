@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder("plotID", "sectionID", "plantID", "nrPlantsNP", "nrPlantsSE", "sec", "generated_table_list_label_37", "leavesFW", "greenStemsFW", "greenStemsLeavesFW", "leavesSecFW", "greenStemsSecFW", "greenStemsLeavesSecFW", "leavesFWss", "plantSampleID_leaves", "greenStemsFWss", "plantSampleID_greenStems", "greenStemsLeavesFWss", "plantSampleID_greenStemsLeaves", "leavesSecFWss", "plantSampleID_leavesSec", "greenStemsSecFWss", "plantSampleID_greenStemsSec", "greenStemsLeavesSecFWss", "plantSampleID_greenStemsLeavesSec", "PARENT_KEY", "KEY", "SET-OF-yieldAssessmentForm")
+@JsonPropertyOrder("plotID", "sectionID", "plantID", "nrPlantsNP", "nrPlantsSE", "sec", "generated_table_list_label_37", "leavesFW", "greenStemsFW", "greenStemsLeavesFW", "leavesSecFW", "greenStemsSecFW", "greenStemsLeavesSecFW", "leavesFWss", "plantSampleID_leaves", "greenStemsFWss", "plantSampleID_greenStems", "greenStemsLeavesFWss", "plantSampleID_greenStemsLeaves", "leavesSecFWss", "plantSampleID_leavesSec", "greenStemsSecFWss", "plantSampleID_greenStemsSec", "greenStemsLeavesSecFWss", "plantSampleID_greenStemsLeavesSec", "PARENT_KEY", "KEY", "SET-OF-yieldAssessment")
 class YieldAssessmentFormDto {
     @JsonProperty("plotID")
     var plotId: String? = null
@@ -88,6 +88,6 @@ class YieldAssessmentFormDto {
     @JsonProperty("KEY")
     var controlKey: String? = null
 
-    @JsonProperty("SET-OF-yieldAssessmentForm")
+    @JsonProperty("SET-OF-yieldAssessment")
     var setOfYieldAssessment: String? = null
 }

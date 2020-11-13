@@ -11,11 +11,11 @@ class HarvestRecTriForm {
     var triangleNrRec: String? = null
 
     @JsonProperty("harvest_REC_Tri/nrPlants_REC_Tri")
-    var nrPlantsRecTri = 0
+    var nrPlantsRecTri :String?=null
 
     @JsonProperty("harvest_REC_Tri/tuberizedMarketableRootsFW_REC_Tri")
-    var tuberizedMarketableRootsFwRecTri = 0.0
+    var tuberizedMarketableRootsFwRecTri :String?=null
 
     @JsonProperty("harvest_REC_Tri/tuberizedMarketableRootsNr_REC_Tri")
-    var tuberizedMarketableRootsNrRecTri = 0
+    var tuberizedMarketableRootsNrRecTri :String?=null
 }

@@ -131,7 +131,7 @@ class LzwDto {
     var grp0hp1: String? = null
 
     @JsonProperty("GRdif_ABcurr")
-    var grdifAbcurr: String? = null
+    var grdifAbCurr: String? = null
 
     @JsonProperty("GPp0hm4")
     var gpp0hm4: String? = null
@@ -281,7 +281,7 @@ class LzwDto {
     var pp0hp1: String? = null
 
     @JsonProperty("GRp0h0_ABcurr")
-    var grp0h0Abcurr: String? = null
+    var grp0h0AbCurr: String? = null
 
     @JsonProperty("Pp0hp3")
     var pp0hp3: String? = null
@@ -329,7 +329,7 @@ class LzwDto {
     var season: String? = null
 
     @JsonProperty("GPp0h0curr")
-    var gpp0h0curr: String? = null
+    var gpp0h0Curr: String? = null
 
     @JsonProperty("plotSize")
     var plotSize: String? = null
@@ -425,7 +425,7 @@ class LzwDto {
     var harvestweekp3: String? = null
 
     @JsonProperty("GPdifcurr")
-    var gpdifcurr: String? = null
+    var gpdifCurr: String? = null
 
     @JsonProperty("harvestWeekp4")
     var harvestweekp4: String? = null
@@ -464,7 +464,7 @@ class LzwDto {
     var unitnameselect: String? = null
 
     @JsonProperty("uuid")
-    var uuid: String? = null
+    var formHubUuId:String? = null
 
     @JsonProperty("SCm3")
     var scm3: String? = null

@@ -11,13 +11,13 @@ class AssignPaAcDto {
     var submissionDate: String? = null
 
     @JsonProperty("uuid")
-    var uuid: String? = null
+    var formHubUuId:String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("deviceid")
     var deviceid: String? = null
@@ -74,10 +74,10 @@ class AssignPaAcDto {
     var entity: String? = null
 
     @JsonProperty("plotID")
-    var plotID: String? = null
+    var plotId: String? = null
 
     @JsonProperty("sectionID")
-    var sectionID: String? = null
+    var sectionId: String? = null
 
     @JsonProperty("nrPlants")
     var nrPlants: String? = null
@@ -89,14 +89,14 @@ class AssignPaAcDto {
     var plantLabelingCount: String? = null
 
     @JsonProperty("SET-OF-plantLabeling")
-    var sETOFPlantLabeling: String? = null
+    var setOfPlantLabeling: String? = null
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("instanceID")
-    var instanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 }

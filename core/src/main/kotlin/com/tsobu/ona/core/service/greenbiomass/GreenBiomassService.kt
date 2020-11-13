@@ -7,7 +7,7 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.greenbiomass.YieldAssessmentFormDto
 import com.tsobu.ona.core.dto.json.greenbiomass.YieldCassavaAcFormDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.greenbiomass.YieldCassEntity
 import com.tsobu.ona.database.entities.greenbiomass.YieldCassYaEntity
 import com.tsobu.ona.database.repositories.greenbiomass.YieldCassRepo
@@ -39,7 +39,8 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
+    private val fileName = "Assess_GreenBiomass_Yield_Cassava_AC.json"
     fun mapJsonFile() {
         log.info("Reading table data....")
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
@@ -54,7 +55,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -64,9 +65,10 @@ constructor(
 
         val yieldCassData = yieldCassList.map { yieldCassEntity ->
             val cassavaAcFormDto = modelMapper.map(yieldCassEntity, YieldCassavaAcFormDto::class.java)
-            cassavaAcFormDto.submissionDate = myDateUtil.convertTimeToString(yieldCassEntity.submissionDate)
-            cassavaAcFormDto.start = myDateUtil.convertTimeToString(yieldCassEntity.startDate)
-            cassavaAcFormDto.end = myDateUtil.convertTimeToString(yieldCassEntity.endDate)
+            cassavaAcFormDto.submissionDate = myDateUtil.toDateTimeString(yieldCassEntity.submissionDate)
+            cassavaAcFormDto.startDate = myDateUtil.toDateTimeString(yieldCassEntity.startDate)
+            cassavaAcFormDto.endDate = myDateUtil.toDateTimeString(yieldCassEntity.endDate)
+            cassavaAcFormDto.todayDate = myDateUtil.toDateToString(yieldCassEntity.todayDate)
             cassavaAcFormDto
         }
 
@@ -81,7 +83,7 @@ constructor(
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
-    fun readJsonAsset(fileName: String) {
+    fun readJsonAsset() {
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
@@ -99,7 +101,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val yieldCassData = ArrayList<YieldCassEntity>()
@@ -123,13 +125,13 @@ constructor(
                 }
             }
 
-            yieldCassEntity.uuid = cassavaAcForm.formhubUuid
+            yieldCassEntity.formHubUuId = cassavaAcForm.formhubUuid
             yieldCassEntity.submissionDate = myDateUtil.convertToDateTime(cassavaAcForm.submissionTime)
-            yieldCassEntity.todayDate = myDateUtil.convertToDate(cassavaAcForm.today)
-            yieldCassEntity.startDate = myDateUtil.convertToDateTime(cassavaAcForm.start)
-            yieldCassEntity.endDate = myDateUtil.convertToDateTime(cassavaAcForm.end)
-            yieldCassEntity.instanceId = cassavaAcForm.metaInstanceID
-            yieldCassEntity.controlKey = cassavaAcForm.metaInstanceID
+            yieldCassEntity.todayDate = myDateUtil.convertToDate(cassavaAcForm.todayDate)
+            yieldCassEntity.startDate = myDateUtil.convertToDateTime(cassavaAcForm.startDate)
+            yieldCassEntity.endDate = myDateUtil.convertToDateTime(cassavaAcForm.endDate)
+            yieldCassEntity.instanceId = cassavaAcForm.instanceId
+            yieldCassEntity.controlKey = cassavaAcForm.instanceId
             yieldCassEntity.setOfYieldAssessment = "${yieldCassEntity.controlKey}/yieldAssessment"
 
             yieldCassData.add(yieldCassEntity)
@@ -152,5 +154,6 @@ constructor(
         yieldCassYaRepo.saveAll(yieldCassYaData)
 
         log.info("Finished saving the data for $fileName------->")
+        mapJsonFile()
     }
 }

@@ -11,13 +11,13 @@ class CompositionDto {
     var submissionDate: String? = null
 
     @JsonProperty("uuid")
-    var uuid: String? = null
+    var formHubUuId:String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("deviceid")
     var deviceid: String? = null
@@ -83,46 +83,46 @@ class CompositionDto {
     var receiveErrorNote: String? = null
 
     @JsonProperty("SET-OF-sampleList-sample")
-    var sETOFSampleListSample: String? = null
+    var setOfSampleListSample: String? = null
 
     @JsonProperty("countFW")
-    var countFW: String? = null
+    var countFw: String? = null
 
     @JsonProperty("countDC")
-    var countDC: String? = null
+    var countDc: String? = null
 
     @JsonProperty("countRS")
-    var countRS: String? = null
+    var countRs: String? = null
 
     @JsonProperty("countSB")
-    var countSB: String? = null
+    var countSb: String? = null
 
     @JsonProperty("confirmAll")
     var confirmAll: String? = null
 
     @JsonProperty("confirmFW")
-    var confirmFW: String? = null
+    var confirmFw: String? = null
 
     @JsonProperty("confirmDC")
-    var confirmDC: String? = null
+    var confirmDc: String? = null
 
     @JsonProperty("confirmRS")
-    var confirmRS: String? = null
+    var confirmRs: String? = null
 
     @JsonProperty("confirmSB")
-    var confirmSB: String? = null
+    var confirmSb: String? = null
 
     @JsonProperty("next_count")
     var nextCount: String? = null
 
     @JsonProperty("SET-OF-nextStep-next")
-    var sETOFNextStepNext: String? = null
+    var setOfNextStepNext: String? = null
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("instanceID")
-    var instanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("KEY")
     var controlKey: String? = null

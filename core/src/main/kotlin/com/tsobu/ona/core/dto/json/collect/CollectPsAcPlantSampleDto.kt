@@ -23,13 +23,13 @@ class CollectPsAcPlantSampleDto {
     var plantPart: String? = null
 
     @JsonProperty("plantFW")
-    var plantFW: Any? = null
+    var plantFw: Any? = null
 
     @JsonProperty("PARENT_KEY")
     var parentKey: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 
     @JsonProperty("SET-OF-plantSample")
     var setOfPlantSample: String? = null

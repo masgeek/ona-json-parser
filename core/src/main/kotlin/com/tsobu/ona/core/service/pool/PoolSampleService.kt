@@ -8,7 +8,7 @@ import com.tsobu.ona.core.dto.json.pool.PoolSamplesAcDto
 import com.tsobu.ona.core.dto.json.pool.PoolSamplesAcOldLabelDto
 import com.tsobu.ona.core.dto.json.pool.PoolSamplesAcSampleDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.pool.PoolSamplesAcEntity
 import com.tsobu.ona.database.entities.pool.PoolSamplesAcOldLabelEntity
 import com.tsobu.ona.database.entities.pool.PoolSamplesAcSampleEntity
@@ -43,7 +43,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     val fileName = "Pool_Samples_AC.json"
     fun mapJsonFile() {
@@ -64,15 +64,16 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
 
         val acData = confirmList.map { poolSamplesAcEntity ->
             val poolSamplesAcDto = modelMapper.map(poolSamplesAcEntity, PoolSamplesAcDto::class.java)
-            poolSamplesAcDto.submissionDate = myDateUtil.convertTimeToString(poolSamplesAcEntity.submissionDate)
-            poolSamplesAcDto.startDate = myDateUtil.convertTimeToString(poolSamplesAcEntity.startDate)
-            poolSamplesAcDto.endDate = myDateUtil.convertTimeToString(poolSamplesAcEntity.endDate)
+            poolSamplesAcDto.submissionDate = myDateUtil.toDateTimeString(poolSamplesAcEntity.submissionDate)
+            poolSamplesAcDto.startDate = myDateUtil.toDateTimeString(poolSamplesAcEntity.startDate)
+            poolSamplesAcDto.endDate = myDateUtil.toDateTimeString(poolSamplesAcEntity.endDate)
+            poolSamplesAcDto.todayDate = myDateUtil.toDateToString(poolSamplesAcEntity.todayDate)
             poolSamplesAcDto
         }
 
@@ -117,7 +118,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val acData = ArrayList<PoolSamplesAcEntity>()
@@ -127,15 +128,15 @@ constructor(
             //map and save to database
             val acEntity = modelMapper.map(poolSamplesAcForm, PoolSamplesAcEntity::class.java)
 
-            acEntity.uuid = poolSamplesAcForm.formhubUuid
+            acEntity.formHubUuId = poolSamplesAcForm.formhubUuid
             acEntity.submissionDate = myDateUtil.convertToDateTime(poolSamplesAcForm.submissionTime)
-            acEntity.todayDate = myDateUtil.convertToDate(poolSamplesAcForm.today)
-            acEntity.startDate = myDateUtil.convertToDateTime(poolSamplesAcForm.start)
-            acEntity.endDate = myDateUtil.convertToDateTime(poolSamplesAcForm.end)
-            acEntity.instanceId = poolSamplesAcForm.metaInstanceID
-            acEntity.controlKey = poolSamplesAcForm.metaInstanceID
+            acEntity.todayDate = myDateUtil.convertToDate(poolSamplesAcForm.todayDate)
+            acEntity.startDate = myDateUtil.convertToDateTime(poolSamplesAcForm.startDate)
+            acEntity.endDate = myDateUtil.convertToDateTime(poolSamplesAcForm.endDate)
+            acEntity.instanceId = poolSamplesAcForm.instanceId
+            acEntity.controlKey = poolSamplesAcForm.instanceId
 
-            acEntity.setOfSample = "${poolSamplesAcForm.metaInstanceID}/sample"
+            acEntity.setOfSample = "${poolSamplesAcForm.instanceId}/sample"
 
             //child data
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
@@ -146,8 +147,8 @@ constructor(
                 plEntity.parentKey = acEntity.controlKey
 
                 plEntity.setOfSample = acEntity.setOfSample
-                plEntity.controlKey = "${poolSamplesAcForm.metaInstanceID}/sample[$sampleCounter]"
-                plEntity.setOfOldLabel = "${poolSamplesAcForm.metaInstanceID}/sample[$sampleCounter]/oldLabel"
+                plEntity.controlKey = "${poolSamplesAcForm.instanceId}/sample[$sampleCounter]"
+                plEntity.setOfOldLabel = "${poolSamplesAcForm.instanceId}/sample[$sampleCounter]/oldLabel"
 
                 sampleCounter = sampleCounter.plus(1)
                 sampleData.add(plEntity)
@@ -158,7 +159,7 @@ constructor(
                     val ndmEntity = modelMapper.map(oldLabelForm, PoolSamplesAcOldLabelEntity::class.java)
                     ndmEntity.parentKey = plEntity.controlKey
                     ndmEntity.controlKey = "${plEntity.controlKey}/oldLabel[$labelCounter]"
-                    ndmEntity.setOfOldLabel = "${poolSamplesAcForm.metaInstanceID}/sample[$sampleCounter]/oldLabel"
+                    ndmEntity.setOfOldLabel = "${poolSamplesAcForm.instanceId}/sample[$sampleCounter]/oldLabel"
 
                     labelCounter = labelCounter.plus(1)
                     oldLabelData.add(ndmEntity)

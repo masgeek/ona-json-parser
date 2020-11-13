@@ -7,7 +7,7 @@ import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.confirm.PoAssignAcDto
 import com.tsobu.ona.core.dto.json.confirm.PoAssignAcPlotLabellingDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.confirm.ConfirmPoAcEntity
 import com.tsobu.ona.database.entities.confirm.ConfirmPoAcPlotLabelingEntity
 import com.tsobu.ona.database.repositories.confirm.PoAssignAcPlotLabelingRepo
@@ -39,7 +39,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     val fileName = "Confirm_PO_Assign_AC.json"
     fun mapJsonFile() {
@@ -59,15 +59,16 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
 
         val confirmData = confirmList.map { assignAcEntity ->
             val assignAcDto = modelMapper.map(assignAcEntity, PoAssignAcDto::class.java)
-            assignAcDto.submissionDate = myDateUtil.convertTimeToString(assignAcEntity.submissionDate)
-            assignAcDto.startDate = myDateUtil.convertTimeToString(assignAcEntity.startDate)
-            assignAcDto.endDate = myDateUtil.convertTimeToString(assignAcEntity.endDate)
+            assignAcDto.submissionDate = myDateUtil.toDateTimeString(assignAcEntity.submissionDate)
+            assignAcDto.startDate = myDateUtil.toDateTimeString(assignAcEntity.startDate)
+            assignAcDto.endDate = myDateUtil.toDateTimeString(assignAcEntity.endDate)
+            assignAcDto.todayDate = myDateUtil.toDateToString(assignAcEntity.todayDate)
             assignAcDto
         }
 
@@ -101,7 +102,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val confirmData = ArrayList<ConfirmPoAcEntity>()
@@ -123,16 +124,16 @@ constructor(
                     poAcEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            poAcEntity.uuid = poAssignAcForm.formhubUuid
+            poAcEntity.formHubUuId = poAssignAcForm.formhubUuid
             poAcEntity.submissionDate = myDateUtil.convertToDateTime(poAssignAcForm.submissionTime)
-            poAcEntity.todayDate = myDateUtil.convertToDate(poAssignAcForm.today)
-            poAcEntity.startDate = myDateUtil.convertToDateTime(poAssignAcForm.start)
-            poAcEntity.endDate = myDateUtil.convertToDateTime(poAssignAcForm.end)
+            poAcEntity.todayDate = myDateUtil.convertToDate(poAssignAcForm.todayDate)
+            poAcEntity.startDate = myDateUtil.convertToDateTime(poAssignAcForm.startDate)
+            poAcEntity.endDate = myDateUtil.convertToDateTime(poAssignAcForm.endDate)
             poAcEntity.plantingDate = myDateUtil.convertToDate(poAssignAcForm.plantingDate)
-            poAcEntity.instanceid = poAssignAcForm.metaInstanceID
-            poAcEntity.controlKey = poAssignAcForm.metaInstanceID
+            poAcEntity.instanceid = poAssignAcForm.instanceId
+            poAcEntity.controlKey = poAssignAcForm.instanceId
 
-            poAcEntity.setOfPlotLabeling = "${poAssignAcForm.metaInstanceID}/plotLabeling"
+            poAcEntity.setOfPlotLabeling = "${poAssignAcForm.instanceId}/plotLabeling"
 
             //child data
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
@@ -142,8 +143,8 @@ constructor(
                 val labelEntity = modelMapper.map(labelingForm, ConfirmPoAcPlotLabelingEntity::class.java)
                 labelEntity.parentKey = poAcEntity.controlKey
                 labelEntity.setOfPlotLabeling = poAcEntity.setOfPlotLabeling
-                labelEntity.controlKey = "${poAssignAcForm.metaInstanceID}/plotLabeling[$nextCounter]"
-                labelEntity.setOfPlotLabeling = "${poAssignAcForm.metaInstanceID}/plotLabeling"
+                labelEntity.controlKey = "${poAssignAcForm.instanceId}/plotLabeling[$nextCounter]"
+                labelEntity.setOfPlotLabeling = "${poAssignAcForm.instanceId}/plotLabeling"
 
                 nextCounter = nextCounter.plus(1)
                 labelData.add(labelEntity)
@@ -151,8 +152,8 @@ constructor(
             confirmData.add(poAcEntity)
         }
 
-//        assignAcRepo.saveAll(confirmData)
-//        plotLabelingRepo.saveAll(labelData)
+        assignAcRepo.saveAll(confirmData)
+        plotLabelingRepo.saveAll(labelData)
 
         log.info("Finished saving the data for $fileName------->")
         mapJsonFile()

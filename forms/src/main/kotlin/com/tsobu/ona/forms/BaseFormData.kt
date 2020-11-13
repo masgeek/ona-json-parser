@@ -13,13 +13,13 @@ open class BaseFormData {
     var id: String? = null
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("EAID")
-    var eAID: String? = null
+    var eAId: String? = null
 
     @JsonProperty("HHID")
-    var hHID: String? = null
+    var hHId: String? = null
 
     @JsonProperty("zone")
     var zone: String? = null
@@ -31,10 +31,10 @@ open class BaseFormData {
     var uuid: String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("_notes")
     var notes: List<Any>? = null
@@ -64,10 +64,10 @@ open class BaseFormData {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
-    var xformId: String? = null
+    var xFormId: String? = null
 
     @JsonProperty("loc_field")
     var locField: String? = null
@@ -103,7 +103,7 @@ open class BaseFormData {
     var purposeEvent: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null
@@ -130,52 +130,52 @@ open class BaseFormData {
     var plantingDetailsVariety: String? = null
 
     @JsonProperty("plotLayout_P1/plotL1_P1")
-    var plotLayoutP1PlotL1P1: Double? = null
+    var plotLayoutP1PlotL1P1: String?=null
 
     @JsonProperty("plotLayout_P1/plotL2_P1")
-    var plotLayoutP1PlotL2P1: Double? = null
+    var plotLayoutP1PlotL2P1: String?=null
 
     @JsonProperty("plotLayout_P1/plotW1_P1")
-    var plotLayoutP1PlotW1P1: Double? = null
+    var plotLayoutP1PlotW1P1: String?=null
 
     @JsonProperty("plotLayout_P1/plotW2_P1")
-    var plotLayoutP1PlotW2P1: Double? = null
+    var plotLayoutP1PlotW2P1: String?=null
 
     @JsonProperty("plotLayout_P2/plotL1_P2")
-    var plotLayoutP2PlotL1P2: Double? = null
+    var plotLayoutP2PlotL1P2: String?=null
 
     @JsonProperty("plotLayout_P2/plotL2_P2")
-    var plotLayoutP2PlotL2P2: Double? = null
+    var plotLayoutP2PlotL2P2: String?=null
 
     @JsonProperty("plotLayout_P2/plotW1_P2")
-    var plotLayoutP2PlotW1P2: Double? = null
+    var plotLayoutP2PlotW1P2: String?=null
 
     @JsonProperty("plotLayout_P2/plotW2_P2")
-    var plotLayoutP2PlotW2P2: Double? = null
+    var plotLayoutP2PlotW2P2: String?=null
 
     @JsonProperty("plotLayout_P3/plotL1_P3")
-    var plotLayoutP3PlotL1P3: Double? = null
+    var plotLayoutP3PlotL1P3: String?=null
 
     @JsonProperty("plotLayout_P3/plotL2_P3")
-    var plotLayoutP3PlotL2P3: Double? = null
+    var plotLayoutP3PlotL2P3: String?=null
 
     @JsonProperty("plotLayout_P3/plotW1_P3")
-    var plotLayoutP3PlotW1P3: Double? = null
+    var plotLayoutP3PlotW1P3: String?=null
 
     @JsonProperty("plotLayout_P3/plotW2_P3")
-    var plotLayoutP3PlotW2P3: Double? = null
+    var plotLayoutP3PlotW2P3: String?=null
 
     @JsonProperty("plotLayout_P4/plotL1_P4")
-    var plotLayoutP4PlotL1P4: Double? = null
+    var plotLayoutP4PlotL1P4: String?=null
 
     @JsonProperty("plotLayout_P4/plotL2_P4")
-    var plotLayoutP4PlotL2P4: Double? = null
+    var plotLayoutP4PlotL2P4: String?=null
 
     @JsonProperty("plotLayout_P4/plotW1_P4")
-    var plotLayoutP4PlotW1P4: Double? = null
+    var plotLayoutP4PlotW1P4: String?=null
 
     @JsonProperty("plotLayout_P4/plotW2_P4")
-    var plotLayoutP4PlotW2P4: Double? = null
+    var plotLayoutP4PlotW2P4: String?=null
 
     @JsonProperty("weedAssessment_P1_count")
     var weedAssessmentP1Count: String? = null
@@ -199,7 +199,7 @@ open class BaseFormData {
     var landPreparationClearing: String? = null
 
     @JsonProperty("landPreparation/vegetation")
-    var landPreparationVegetation: String? = null
+    var vegetation: String? = null
 
     @JsonProperty("confirmTreatments/confirm_P1")
     var confirmTreatmentsConfirmP1: String? = null
@@ -214,11 +214,11 @@ open class BaseFormData {
     var confirmTreatmentsConfirmP4: String? = null
 
     @JsonProperty("plantingDetails/plantingDate")
-    var plantingDetailsPlantingDate: String? = null
+    var plantingDate: String? = null
 
     @JsonProperty("landPrepationDetails/ridgingMethod")
     var landPrepationDetailsRidgingMethod: String? = null
 
     @JsonProperty("landPrepationDetails/tillageMethod")
-    var landPrepationDetailsTillageMethod: String? = null
+    var tillageMethod: String? = null
 }

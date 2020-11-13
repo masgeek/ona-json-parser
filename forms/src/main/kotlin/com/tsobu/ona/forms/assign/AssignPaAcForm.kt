@@ -9,10 +9,10 @@ import java.util.*
 @JsonPropertyOrder("_id", "end", "_tags", "_uuid", "login", "start", "today", "_notes", "entity", "plotID", "_edited", "_status", "_version", "deviceid", "geopoint", "nrPlants", "_duration", "_xform_id", "simserial", "_attachments", "_geolocation", "_media_count", "_total_media", "formhub/uuid", "subscriberid", "_submitted_by", "plantLabeling", "meta/instanceID", "purpose/country", "purpose/project", "_submission_time", "_xform_id_string", "_bamboo_dataset_id", "_media_all_received", "plantLabeling_count", "username", "enumerator/surName", "enumerator/firstName", "email", "phonenumber")
 class AssignPaAcForm {
     @JsonProperty("_id")
-    var Id: String? = null
+    var id: String? = null
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("_tags")
     var tags: List<Any> = ArrayList()
@@ -24,10 +24,10 @@ class AssignPaAcForm {
     var login: String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("_notes")
     var notes: List<Any> = ArrayList()
@@ -57,10 +57,10 @@ class AssignPaAcForm {
     var nrPlants: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
-    var xformId: String? = null
+    var xFormId: String? = null
 
     @JsonProperty("simserial")
     var simserial: String? = null
@@ -78,7 +78,7 @@ class AssignPaAcForm {
     var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
-    var formhubUuId: String? = null
+    var formHubUuId: String? = null
 
     @JsonProperty("subscriberid")
     var subscriberId: String? = null
@@ -90,7 +90,7 @@ class AssignPaAcForm {
     var plantLabelingList: List<PlantLabelingPaAcForm> ?=null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceId: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("purpose/country")
     var purposeCountry: String? = null

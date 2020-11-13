@@ -13,7 +13,7 @@ class ValSphsKwForm {
     var id: String? = null
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("lat")
     var lat: String? = null
@@ -40,16 +40,16 @@ class ValSphsKwForm {
     var checkValue: String? = null
 
     @JsonProperty("plotL")
-    var plotL: String? = null
+    var plotLength: String? = null
 
     @JsonProperty("plotW")
-    var plotW: String? = null
+    var plotWidth: String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("_notes")
     var notes: List<Any> = ArrayList()
@@ -94,10 +94,10 @@ class ValSphsKwForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
-    var xformId: String? = null
+    var xFormId: String? = null
 
     @JsonProperty("areaBasis")
     var areaBasis: String? = null
@@ -109,7 +109,7 @@ class ValSphsKwForm {
     var conversion: String? = null
 
     @JsonProperty("unitWeight")
-    var unitWeight: String? = null
+    var UnitWeight: String? = null
 
     @JsonProperty("yieldLevel")
     var yieldLevel: String? = null
@@ -118,7 +118,7 @@ class ValSphsKwForm {
     var priceStarch: String? = null
 
     @JsonProperty("purpose/VAL")
-    var purposeVAL: String? = null
+    var purposeVal: String? = null
 
     @JsonProperty("results/SC0")
     var SC0: String? = null
@@ -199,7 +199,7 @@ class ValSphsKwForm {
     var cyP0h0: String? = null
 
     @JsonProperty("results/GPp0h0")
-    var gpP0h0: String? = null
+    var gpp0h0: String? = null
 
     @JsonProperty("results/GRp0h0")
     var grP0h0: String? = null
@@ -220,7 +220,7 @@ class ValSphsKwForm {
     var pp0hp1: String? = null
 
     @JsonProperty("results/WYp0h0")
-    var wYp0h0: String? = null
+    var wyp0h0: String? = null
 
     @JsonProperty("results/Yp0hm1")
     var yp0hm1: String? = null
@@ -241,7 +241,7 @@ class ValSphsKwForm {
     var transformRatio: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("plantingDensity")
     var plantingDensity: String? = null
@@ -262,19 +262,19 @@ class ValSphsKwForm {
     var cyP0hp1: String? = null
 
     @JsonProperty("results/GPp0hm1")
-    var gpP0hm1: String? = null
+    var gpp0hm1: String? = null
 
     @JsonProperty("results/GPp0hm2")
-    var gpP0hm2: String? = null
+    var gpp0hm2: String? = null
 
     @JsonProperty("results/GPp0hm3")
-    var gpP0hm3: String? = null
+    var gpp0hm3: String? = null
 
     @JsonProperty("results/GPp0hm4")
-    var gpP0hm4: String? = null
+    var gpp0hm4: String? = null
 
     @JsonProperty("results/GPp0hp1")
-    var gpP0hp1: String? = null
+    var gpp0hp1: String? = null
 
     @JsonProperty("results/GRp0hm1")
     var grP0hm1: String? = null
@@ -292,19 +292,19 @@ class ValSphsKwForm {
     var grP0hp1: String? = null
 
     @JsonProperty("results/WYp0hm1")
-    var wYp0hm1: String? = null
+    var wyp0hm1: String? = null
 
     @JsonProperty("results/WYp0hm2")
-    var wYp0hm2: String? = null
+    var wyp0hm2: String? = null
 
     @JsonProperty("results/WYp0hm3")
-    var wYp0hm3: String? = null
+    var wyp0hm3: String? = null
 
     @JsonProperty("results/WYp0hm4")
-    var wYp0hm4: String? = null
+    var wyp0hm4: String? = null
 
     @JsonProperty("results/WYp0hp1")
-    var wYp0hp1: String? = null
+    var wyp0hp1: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null
@@ -313,13 +313,13 @@ class ValSphsKwForm {
     var xformIdString: String? = null
 
     @JsonProperty("results/GRdif_AB")
-    var grDifAB: String? = null
+    var grDifAb: String? = null
 
     @JsonProperty("results/GRmax_AB")
-    var grMaxAB: String? = null
+    var grMaxAb: String? = null
 
     @JsonProperty("results/Yp0h0_AB")
-    var yp0h0AB: String? = null
+    var yp0h0Ab: String? = null
 
     @JsonProperty("results/sensible")
     var Sensible: String? = null
@@ -328,13 +328,13 @@ class ValSphsKwForm {
     var gPdifcurr: String? = null
 
     @JsonProperty("results/GRp0h0_AB")
-    var grP0h0AB: String? = null
+    var grP0h0Ab: String? = null
 
     @JsonProperty("_bamboo_dataset_id")
     var bambooDatasetId: String? = null
 
     @JsonProperty("results/GPp0h0curr")
-    var gpP0h0curr: String? = null
+    var gpp0h0curr: String? = null
 
     @JsonProperty("results/optHarvest")
     var optHarvest: String? = null
@@ -355,28 +355,28 @@ class ValSphsKwForm {
     var confirmVal: String? = null
 
     @JsonProperty("harvest/harvestAgem1")
-    var harvestAgem1: String? = null
+    var harvestAgeM1: String? = null
 
     @JsonProperty("harvest/harvestAgem2")
-    var harvestAgem2: String? = null
+    var harvestAgeM2: String? = null
 
     @JsonProperty("harvest/harvestAgem3")
-    var harvestAgem3: String? = null
+    var harvestAgeM3: String? = null
 
     @JsonProperty("harvest/harvestAgem4")
-    var harvestAgem4: String? = null
+    var harvestAgeM4: String? = null
 
     @JsonProperty("harvest/harvestAgep1")
-    var harvestAgep1: String? = null
+    var harvestAgeP1: String? = null
 
     @JsonProperty("harvest/harvestAgep2")
-    var harvestAgep2: String? = null
+    var harvestAgeP2: String? = null
 
     @JsonProperty("harvest/harvestAgep3")
-    var harvestAgep3: String? = null
+    var harvestAgeP3: String? = null
 
     @JsonProperty("harvest/harvestAgep4")
-    var harvestAgep4: String? = null
+    var harvestAgeP4: String? = null
 
     @JsonProperty("harvest/harvestWeek0")
     var harvestWeek0: String? = null
@@ -385,55 +385,55 @@ class ValSphsKwForm {
     var priceR0: String? = null
 
     @JsonProperty("priceDetails/pricem1")
-    var pricem1: String? = null
+    var priceM1: String? = null
 
     @JsonProperty("priceDetails/pricem2")
-    var pricem2: String? = null
+    var priceM2: String? = null
 
     @JsonProperty("priceDetails/pricem3")
-    var pricem3: String? = null
+    var priceM3: String? = null
 
     @JsonProperty("priceDetails/pricem4")
-    var pricem4: String? = null
+    var priceM4: String? = null
 
     @JsonProperty("priceDetails/pricep1")
-    var pricep1: String? = null
+    var priceP1: String? = null
 
     @JsonProperty("priceDetails/pricep2")
-    var pricep2: String? = null
+    var priceP2: String? = null
 
     @JsonProperty("priceDetails/pricep3")
-    var pricep3: String? = null
+    var priceP3: String? = null
 
     @JsonProperty("priceDetails/pricep4")
-    var pricep4: String? = null
+    var priceP4: String? = null
 
     @JsonProperty("results/GRdif_ABcurr")
     var grDifAbCurr: String? = null
 
     @JsonProperty("harvest/harvestWeekm1")
-    var harvestWeekm1: String? = null
+    var harvestWeekM1: String? = null
 
     @JsonProperty("harvest/harvestWeekm2")
-    var harvestWeekm2: String? = null
+    var harvestWeekM2: String? = null
 
     @JsonProperty("harvest/harvestWeekm3")
-    var harvestWeekm3: String? = null
+    var harvestWeekM3: String? = null
 
     @JsonProperty("harvest/harvestWeekm4")
-    var harvestWeekm4: String? = null
+    var harvestWeekM4: String? = null
 
     @JsonProperty("harvest/harvestWeekp1")
-    var harvestWeekp1: String? = null
+    var harvestWeekP1: String? = null
 
     @JsonProperty("harvest/harvestWeekp2")
-    var harvestWeekp2: String? = null
+    var harvestWeekP2: String? = null
 
     @JsonProperty("harvest/harvestWeekp3")
-    var harvestWeekp3: String? = null
+    var harvestWeekP3: String? = null
 
     @JsonProperty("harvest/harvestWeekp4")
-    var harvestWeekp4: String? = null
+    var harvestWeekP4: String? = null
 
     @JsonProperty("priceDetails/priceRm2")
     var priceRm2: String? = null
@@ -448,7 +448,7 @@ class ValSphsKwForm {
     var priceRp4: String? = null
 
     @JsonProperty("results/GRp0h0_ABcurr")
-    var grP0h0ABcurr: String? = null
+    var grP0h0AbCurr: String? = null
 
     @JsonProperty("results/lookupp0h0_id")
     var lookupp0h0Id: String? = null
@@ -481,10 +481,10 @@ class ValSphsKwForm {
     var optHarvestText: String? = null
 
     @JsonProperty("densityDetails/withinRow")
-    var withinRow: Double? = null
+    var withinRow: String?=null
 
     @JsonProperty("densityDetails/betweenRow")
-    var betweenRow: Double? = null
+    var betweenRow: String?=null
 
     @JsonProperty("results/Pp0hp2")
     var pp0hp2: String? = null
@@ -496,13 +496,13 @@ class ValSphsKwForm {
     var cyP0hp2: String? = null
 
     @JsonProperty("results/GPp0hp2")
-    var gpP0hp2: String? = null
+    var gpp0hp2: String? = null
 
     @JsonProperty("results/GRp0hp2")
     var grP0hp2: String? = null
 
     @JsonProperty("results/WYp0hp2")
-    var wYp0hp2: String? = null
+    var wyp0hp2: String? = null
 
     @JsonProperty("results/Pp0hp3")
     var pp0hp3: String? = null
@@ -523,10 +523,10 @@ class ValSphsKwForm {
     var cyP0hp4: String? = null
 
     @JsonProperty("results/GPp0hp3")
-    var gpP0hp3: String? = null
+    var gpp0hp3: String? = null
 
     @JsonProperty("results/GPp0hp4")
-    var gpP0hp4: String? = null
+    var gpp0hp4: String? = null
 
     @JsonProperty("results/GRp0hp3")
     var grP0hp3: String? = null
@@ -535,10 +535,10 @@ class ValSphsKwForm {
     var grP0hp4: String? = null
 
     @JsonProperty("results/WYp0hp3")
-    var wYp0hp3: String? = null
+    var wyp0hp3: String? = null
 
     @JsonProperty("results/WYp0hp4")
-    var wYp0hp4: String? = null
+    var wyp0hp4: String? = null
 
     @JsonProperty("unitNameSelect")
     var unitNameSelect: String? = null

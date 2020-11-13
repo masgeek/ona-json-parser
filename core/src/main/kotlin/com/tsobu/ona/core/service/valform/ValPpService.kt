@@ -5,14 +5,14 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.valdto.ValPpDto
-import com.tsobu.ona.core.dto.json.valdto.ValPpPwDto
+import com.tsobu.ona.core.dto.json.`val`.ValPpDto
+import com.tsobu.ona.core.dto.json.`val`.ValPpPwDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.valform.ValPpEntity
-import com.tsobu.ona.database.entities.valform.ValPpPwEntity
-import com.tsobu.ona.database.repositories.valform.ValPpPwRepo
-import com.tsobu.ona.database.repositories.valform.ValPpRepo
+import com.tsobu.ona.core.utils.CsvUtility
+import com.tsobu.ona.database.entities.`val`.ValPpEntity
+import com.tsobu.ona.database.entities.`val`.ValPpPwEntity
+import com.tsobu.ona.database.repositories.`val`.ValPpPwRepo
+import com.tsobu.ona.database.repositories.`val`.ValPpRepo
 import com.tsobu.ona.forms.valform.ValPpForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
@@ -40,7 +40,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "VAL_PP.json"
 
@@ -58,7 +58,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -68,9 +68,11 @@ constructor(
 
         val valPpData = ppList.map { valPpEntity ->
             val valIcDto = modelMapper.map(valPpEntity, ValPpDto::class.java)
-            valIcDto.submissionDate = myDateUtil.convertTimeToString(valPpEntity.submissionDate)
-            valIcDto.start = myDateUtil.convertTimeToString(valPpEntity.startDate)
-            valIcDto.end = myDateUtil.convertTimeToString(valPpEntity.endDate)
+            valIcDto.submissionDate = myDateUtil.toDateTimeString(valPpEntity.submissionDate)
+            valIcDto.startDate = myDateUtil.toDateTimeString(valPpEntity.startDate)
+            valIcDto.endDate = myDateUtil.toDateTimeString(valPpEntity.endDate)
+            valIcDto.todayDate = myDateUtil.toDateToString(valPpEntity.todayDate)
+            valIcDto.plantingDate = myDateUtil.toDateToString(valPpEntity.plantingDate)
             valIcDto
         }
 
@@ -109,7 +111,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
 //        modelMapper.configuration.sourceNamingConvention = NamingConventions.NONE
 //        modelMapper.configuration.destinationNamingConvention = NamingConventions.NONE
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
@@ -134,14 +136,14 @@ constructor(
                     valPpEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            valPpEntity.uuid = ppForm.formhubUuid
+            valPpEntity.formHubUuId = ppForm.formhubUuid
             valPpEntity.submissionDate = myDateUtil.convertToDateTime(ppForm.submissionTime)
-            valPpEntity.todayDate = myDateUtil.convertToDate(ppForm.today)
-            valPpEntity.startDate = myDateUtil.convertToDateTime(ppForm.start)
-            valPpEntity.endDate = myDateUtil.convertToDateTime(ppForm.end)
+            valPpEntity.todayDate = myDateUtil.convertToDate(ppForm.todayDate)
+            valPpEntity.startDate = myDateUtil.convertToDateTime(ppForm.startDate)
+            valPpEntity.endDate = myDateUtil.convertToDateTime(ppForm.endDate)
             valPpEntity.plantingDate = myDateUtil.convertToDate(ppForm.plantingDate)
-            valPpEntity.instanceId = ppForm.metaInstanceID
-            valPpEntity.controlKey = ppForm.metaInstanceID
+            valPpEntity.instanceId = ppForm.instanceId
+            valPpEntity.controlKey = ppForm.instanceId
 
             ppData.add(valPpEntity)
 

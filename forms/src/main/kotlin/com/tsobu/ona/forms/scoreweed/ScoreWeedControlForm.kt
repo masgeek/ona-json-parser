@@ -16,7 +16,7 @@ class ScoreWeedControlForm {
     var id: String? = null
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("_tags")
     var tags: List<Any>? = null
@@ -28,10 +28,10 @@ class ScoreWeedControlForm {
     var login: String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("_notes")
     var notes: List<Any>? = null
@@ -52,7 +52,7 @@ class ScoreWeedControlForm {
     var version: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: String? = null
+    var deviceId: String? = null
 
     @JsonProperty("geopoint")
     var geopoint: String? = null
@@ -66,10 +66,10 @@ class ScoreWeedControlForm {
     var duration: String? = null
 
     @JsonProperty("_xform_id")
-    var xformId: String? = null
+    var xFormId: String? = null
 
     @JsonProperty("simserial")
-    var simserial: String? = null
+    var simSerial: String? = null
 
     @JsonProperty("phonenumber")
     var phoneNumber: String? = null
@@ -99,7 +99,7 @@ class ScoreWeedControlForm {
     var submittedBy: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("purpose/country")
     var country: String? = null

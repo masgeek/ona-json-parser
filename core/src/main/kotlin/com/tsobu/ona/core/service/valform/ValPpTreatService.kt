@@ -5,12 +5,11 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.valdto.VaLPpTreatDto
+import com.tsobu.ona.core.dto.json.`val`.VaLPpTreatDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
-import com.tsobu.ona.database.entities.valform.ValPpPwEntity
-import com.tsobu.ona.database.entities.valform.ValPpTreatEntity
-import com.tsobu.ona.database.repositories.valform.ValPpTreatRepo
+import com.tsobu.ona.core.utils.CsvUtility
+import com.tsobu.ona.database.entities.`val`.ValPpTreatEntity
+import com.tsobu.ona.database.repositories.`val`.ValPpTreatRepo
 import com.tsobu.ona.forms.valform.ValPpTreatForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
@@ -37,7 +36,7 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
 
     private val fileName = "VAL_PP_Treat.json"
 
@@ -55,7 +54,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
@@ -64,9 +63,10 @@ constructor(
 
         val treatData = ppList.map { treatEntity ->
             val treatDto = modelMapper.map(treatEntity, VaLPpTreatDto::class.java)
-            treatDto.submissionDate = myDateUtil.convertTimeToString(treatEntity.submissionDate)
-            treatDto.start = myDateUtil.convertTimeToString(treatEntity.startDate)
-            treatDto.end = myDateUtil.convertTimeToString(treatEntity.endDate)
+            treatDto.submissionDate = myDateUtil.toDateTimeString(treatEntity.submissionDate)
+            treatDto.startDate = myDateUtil.toDateTimeString(treatEntity.startDate)
+            treatDto.endDate = myDateUtil.toDateTimeString(treatEntity.endDate)
+            treatDto.todayDate = myDateUtil.toDateToString(treatEntity.todayDate)
             treatDto
         }
 
@@ -96,7 +96,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-//        modelMapper.configuration.isAmbiguityIgnored = true
+//        modelMapper.configuration.isAmbiguityIgnored = false
 //        modelMapper.configuration.sourceNamingConvention = NamingConventions.NONE
 //        modelMapper.configuration.destinationNamingConvention = NamingConventions.NONE
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
@@ -120,13 +120,13 @@ constructor(
                     treatEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            treatEntity.uuid = treatForm.formhubUuid
+            treatEntity.formHubUuId = treatForm.formhubUuid
             treatEntity.submissionDate = myDateUtil.convertToDateTime(treatForm.submissionTime)
-            treatEntity.todayDate = myDateUtil.convertToDate(treatForm.today)
-            treatEntity.startDate = myDateUtil.convertToDateTime(treatForm.start)
-            treatEntity.endDate = myDateUtil.convertToDateTime(treatForm.end)
-            treatEntity.instanceId = treatForm.metaInstanceID
-            treatEntity.controlKey = treatForm.metaInstanceID
+            treatEntity.todayDate = myDateUtil.convertToDate(treatForm.todayDate)
+            treatEntity.startDate = myDateUtil.convertToDateTime(treatForm.startDate)
+            treatEntity.endDate = myDateUtil.convertToDateTime(treatForm.endDate)
+            treatEntity.instanceId = treatForm.instanceId
+            treatEntity.controlKey = treatForm.instanceId
 
             treatData.add(treatEntity)
 

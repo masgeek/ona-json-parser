@@ -12,11 +12,11 @@ class WeedAssessmentP4 {
     var weedPicP4: String? = null
 
     @JsonProperty("weedAssessment_P4/weedCover_P4")
-    var weedCoverP4 = 0
+    var weedCoverP4 :String?=null
 
     @JsonProperty("weedAssessment_P4/weedsHeight_P4")
-    var weedsHeightP4 = 0
+    var weedsHeightP4 :String?=null
 
     @JsonProperty("weedAssessment_P4/cassavaHeight_P4")
-    var cassavaHeightP4 = 0
+    var cassavaHeightP4 :String?=null
 }

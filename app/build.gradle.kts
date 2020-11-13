@@ -4,6 +4,19 @@ plugins {
     kotlin("plugin.spring")
 }
 
+tasks.register<Copy>("release") {
+    dependsOn("build")
+    from("$rootDir/java-downloader.sh", "$rootDir/example.env", "$rootDir/app/build/libs")
+    into(file("$rootDir/release"))
+
+    rename("example.env", ".env")
+    rename("([^a-zA-Z]+).jar", ".jar")
+
+}
+
+tasks.withType<Delete> {
+    delete("$rootDir/release")
+}
 
 dependencies {
     implementation(project(":config"))

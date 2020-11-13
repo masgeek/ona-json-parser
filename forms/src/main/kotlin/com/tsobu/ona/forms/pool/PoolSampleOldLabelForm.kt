@@ -12,5 +12,5 @@ class PoolSampleOldLabelForm {
     var posValue: String? = null
 
     @JsonProperty("sample/oldLabel/plantSampleID")
-    var plantSampleID: String? = null
+    var plantSampleId: String? = null
 }

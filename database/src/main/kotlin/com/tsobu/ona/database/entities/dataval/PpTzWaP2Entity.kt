@@ -9,7 +9,7 @@ import javax.persistence.Table
 @Table(name = "dataval_pp_tz_wa_p2")
 class PpTzWaP2Entity : BaseEntity() {
     @Column(name = "index_p2")
-    var indexP2: Int? = null
+    var indexP2: String? = null
 
     @Column(name = "weed_pic_p2")
     var weedPicP2: String? = null

@@ -1,7 +1,6 @@
 package com.tsobu.ona.database.entities.dataval
 
 import com.tsobu.ona.database.entities.BaseEntity
-import java.time.LocalDate
 import java.time.LocalDateTime
 import javax.persistence.Column
 import javax.persistence.Entity
@@ -14,13 +13,13 @@ class PpEntity : BaseEntity() {
     var submissionDate: LocalDateTime? = null
 
     @Column(name = "uuid")
-    var uuid: String? = null
+    var formHubUuId: String? = null
 
     @Column(name = "start_date")
     var startDate: LocalDateTime? = null
 
     @Column(name = "today_date")
-    var todayDate: LocalDate? = null
+    var todayDate: LocalDateTime? = null
 
     @Column(name = "device_id")
     var deviceId: String? = null
@@ -368,7 +367,7 @@ class PpEntity : BaseEntity() {
     var fertilizer1: String? = null
 
     @Column(name = "planting_date")
-    var plantingDate: LocalDate? = null
+    var plantingDate: LocalDateTime? = null
 
     @Column(name = "variety")
     var variety: String? = null
@@ -395,7 +394,7 @@ class PpEntity : BaseEntity() {
     var gapping: String? = null
 
     @Column(name = "gapping_date")
-    var gappingDate: String? = null
+    var gappingDate: LocalDateTime? = null
 
     @Column(name = "gapping_type")
     var gappingType: String? = null
@@ -422,66 +421,66 @@ class PpEntity : BaseEntity() {
     var nrWeeding: String? = null
 
     @Column(name = "date_weeding1")
-    var dateWeeding1: String? = null
+    var dateWeeding1: LocalDateTime? = null
 
     @Column(name = "weeding_method1")
     var weedingMethod1: String? = null
 
     @Column(name = "date_weeding2")
-    var dateWeeding2: String? = null
+    var dateWeeding2: LocalDateTime? = null
 
     @Column(name = "weeding_method2")
     var weedingMethod2: String? = null
 
     @Column(name = "date_weeding3")
-    var dateWeeding3: String? = null
+    var dateWeeding3: LocalDateTime? = null
 
     @Column(name = "weeding_method3")
     var weedingMethod3: String? = null
 
     @Column(name = "date_weeding4")
-    var dateWeeding4: String? = null
+    var dateWeeding4: LocalDateTime? = null
 
     @Column(name = "weeding_method4")
     var weedingMethod4: String? = null
 
     @Column(name = "date_weeding5")
-    var dateWeeding5: String? = null
+    var dateWeeding5: LocalDateTime? = null
 
     @Column(name = "weeding_method5")
     var weedingMethod5: String? = null
 
     @Column(name = "date_weeding6")
-    var dateWeeding6: String? = null
+    var dateWeeding6: LocalDateTime? = null
 
     @Column(name = "weeding_method6")
     var weedingMethod6: String? = null
 
     @Column(name = "date_weeding7")
-    var dateWeeding7: String? = null
+    var dateWeeding7: LocalDateTime? = null
 
     @Column(name = "weeding_method7")
     var weedingMethod7: String? = null
 
     @Column(name = "date_weeding8")
-    var dateWeeding8: String? = null
+    var dateWeeding8: LocalDateTime? = null
 
     @Column(name = "weeding_method8")
     var weedingMethod8: String? = null
 
     @Column(name = "date_weeding9")
-    var dateWeeding9: String? = null
+    var dateWeeding9: LocalDateTime? = null
 
     @Column(name = "weeding_method9")
     var weedingMethod9: String? = null
 
     @Column(name = "date_weeding10")
-    var dateWeeding10: String? = null
+    var dateWeeding10: LocalDateTime? = null
 
     @Column(name = "weeding_method10")
     var weedingMethod10: String? = null
 
-    @Column(name = "herbicides", columnDefinition = "TEXT")
+    @Column(name = "herbicides",columnDefinition = "TEXT")
     var herbicides: String? = null
 
     @Column(name = "herbicide_actor")
@@ -566,7 +565,7 @@ class PpEntity : BaseEntity() {
     var setOfWeedassessmentAltBpp3: String? = null
 
     @Column(name = "harvest_date")
-    var harvestDate: LocalDate? = null
+    var harvestDate: LocalDateTime? = null
 
     @Column(name = "tuberized_marketable_roots_nr_con")
     var tuberizedMarketableRootsNrCon: String? = null
@@ -628,8 +627,8 @@ class PpEntity : BaseEntity() {
     @Column(name = "price_roots")
     var priceRoots: String? = null
 
-    @Column(name = "comment", columnDefinition = "TEXT")
-    var comment: String? = null
+    @Column(name = "comment_value",columnDefinition = "TEXT")
+    var commentValue: String? = null
 
     @Column(name = "thank_you")
     var thankYou: String? = null

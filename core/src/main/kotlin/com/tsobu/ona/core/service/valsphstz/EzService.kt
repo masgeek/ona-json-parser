@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.valsphstz.EzDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.valsphstz.EzEntity
 import com.tsobu.ona.database.entities.valsphstz.SzEntity
 import com.tsobu.ona.database.repositories.valsphstz.EzRepo
@@ -36,7 +36,8 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
+    private val fileName = "VAL_SPHS_TZEZ.json"
     fun mapJsonFile() {
         log.info("Reading table data....")
         val ezList = ezRepo.findAllByOrderBySubmissionDateAsc()
@@ -53,24 +54,27 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
         val ezData = ezList.map { ezEntity ->
-            val sphsTzSzDto = modelMapper.map(ezEntity, EzDto::class.java)
-            sphsTzSzDto.submissionDate = myDateUtil.convertTimeToString(ezEntity.submissionDate)
-            sphsTzSzDto.startDate = myDateUtil.convertTimeToString(ezEntity.startDate)
-            sphsTzSzDto.endDate = myDateUtil.convertTimeToString(ezEntity.endDate)
-            sphsTzSzDto
+            val ezDto = modelMapper.map(ezEntity, EzDto::class.java)
+            ezDto.submissionDate = myDateUtil.toDateTimeString(ezEntity.submissionDate)
+            ezDto.startDate = myDateUtil.toDateTimeString(ezEntity.startDate)
+            ezDto.endDate = myDateUtil.toDateTimeString(ezEntity.endDate)
+            ezDto.todayDate = myDateUtil.toDateToString(ezEntity.todayDate)
+            ezDto.plantingDate = myDateUtil.toDateToString(ezEntity.plantingDate)
+            ezDto.harvestDate = myDateUtil.toDateToString(ezEntity.harvestDate)
+            ezDto
         }
 
         val filePath = "${appConfig.globalProperties().outputPath}"
-        writeCsvFile.writeCsv(classMap = EzDto::class.java, data = ezData, fileName = "VAL_SPHS_TZEZ",outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = EzDto::class.java, data = ezData, fileName = "VAL_SPHS_TZEZ", outPutPath = filePath)
     }
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
-    fun readJsonAsset(fileName: String) {
+    fun readJsonAsset() {
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
@@ -89,7 +93,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
         list.forEach { myVal ->
@@ -109,20 +113,20 @@ constructor(
                     ezEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            ezEntity.uuid = myVal.formhubUuid
+            ezEntity.formHubUuId = myVal.formhubUuid
             ezEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
-            ezEntity.todayDate = myDateUtil.convertToDate(myVal.today)
-            ezEntity.startDate = myDateUtil.convertToDateTime(myVal.start)
-            ezEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
+            ezEntity.todayDate = myDateUtil.convertToDate(myVal.todayDate)
+            ezEntity.startDate = myDateUtil.convertToDateTime(myVal.startDate)
+            ezEntity.endDate = myDateUtil.convertToDateTime(myVal.endDate)
             ezEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
             ezEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
-            ezEntity.instanceId = myVal.metaInstanceID
-            ezEntity.controlKey = myVal.metaInstanceID
+            ezEntity.instanceId = myVal.instanceId
+            ezEntity.controlKey = myVal.instanceId
 
 
             try {
                 val saved = ezRepo.save(ezEntity)
-                log.info("Added data to table ${saved.controlKey} with surname as ${myVal.xformIdString}")
+                log.info("Added data to table ${saved.controlKey}")
             } catch (ex: Exception) {
                 log.error(ex.message, ex.stackTrace)
             }
@@ -130,5 +134,6 @@ constructor(
 
 
         log.info("Finished saving the data for $fileName------->")
+        mapJsonFile()
     }
 }

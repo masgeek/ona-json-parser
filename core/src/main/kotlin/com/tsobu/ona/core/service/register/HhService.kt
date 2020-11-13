@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.register.HhDto
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.core.utils.WriteCsvFile
+import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.register.HhEntity
 import com.tsobu.ona.database.repositories.register.HhRepo
 import com.tsobu.ona.forms.register.HhForm
@@ -35,7 +35,8 @@ constructor(
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
     private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
-    private val writeCsvFile = WriteCsvFile()
+    private val writeCsvFile = CsvUtility()
+    private val fileName = "Register_HH.json"
     fun mapJsonFile() {
         log.info("Reading table data....")
         val frList = hhRepo.findAllByOrderBySubmissionDateAsc()
@@ -52,14 +53,15 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
         val hhData = frList.map { hhEntity ->
             val hhDto = modelMapper.map(hhEntity, HhDto::class.java)
-            hhDto.submissionDate = myDateUtil.convertTimeToString(hhEntity.submissionDate)
-            hhDto.startDate = myDateUtil.convertTimeToString(hhEntity.startDate)
-            hhDto.endDate = myDateUtil.convertTimeToString(hhEntity.endDate)
+            hhDto.submissionDate = myDateUtil.toDateTimeString(hhEntity.submissionDate)
+            hhDto.startDate = myDateUtil.toDateTimeString(hhEntity.startDate)
+            hhDto.endDate = myDateUtil.toDateTimeString(hhEntity.endDate)
+            hhDto.todayDate = myDateUtil.toDateToString(hhEntity.todayDate)
             hhDto
         }
 
@@ -69,7 +71,7 @@ constructor(
 
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
-    fun readJsonAsset(fileName: String) {
+    fun readJsonAsset() {
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
@@ -87,7 +89,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = true
+        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
         val hhEntityData = ArrayList<HhEntity>()
@@ -108,13 +110,13 @@ constructor(
                     frEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            frEntity.uuid = myVal.formhubUuid
+            frEntity.formHubUuId = myVal.formhubUuid
             frEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
-            frEntity.todayDate = myDateUtil.convertToDate(myVal.today)
-            frEntity.startDate = myDateUtil.convertToDateTime(myVal.start)
-            frEntity.endDate = myDateUtil.convertToDateTime(myVal.end)
-            frEntity.instanceId = myVal.metaInstanceID
-            frEntity.controlKey = myVal.metaInstanceID
+            frEntity.todayDate = myDateUtil.convertToDate(myVal.todayDate)
+            frEntity.startDate = myDateUtil.convertToDateTime(myVal.startDate)
+            frEntity.endDate = myDateUtil.convertToDateTime(myVal.endDate)
+            frEntity.instanceId = myVal.instanceId
+            frEntity.controlKey = myVal.instanceId
 
             try {
                 hhEntityData.add(frEntity)
@@ -127,5 +129,6 @@ constructor(
         hhRepo.saveAll(hhEntityData)
 
         log.info("Finished saving the data for $fileName------->")
+        mapJsonFile()
     }
 }

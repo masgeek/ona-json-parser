@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class PlotLabelingForm {
     @JsonProperty("plotLabeling/plotID")
-    var plotID: String? = null
+    var plotId: String? = null
 
     @JsonProperty("plotLabeling/treatNr")
     var treatNr: String? = null

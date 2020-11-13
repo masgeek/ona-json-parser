@@ -13,7 +13,7 @@ class ValCisForm {
     var id: String? = null
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("lat")
     var lat: String? = null
@@ -37,10 +37,10 @@ class ValCisForm {
     var uuid: String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("_notes")
     var notes: List<Any> = ArrayList()
@@ -67,31 +67,31 @@ class ValCisForm {
     var geopoint: String? = null
 
     @JsonProperty("rootGRIC")
-    var rootGRIC: String? = null
+    var rootGrIc: String? = null
 
     @JsonProperty("rootGRMC")
-    var rootGRMC: String? = null
+    var rootGrMc: String? = null
 
     @JsonProperty("username")
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
-    var xformId: String? = null
+    var xFormId: String? = null
 
     @JsonProperty("areaBasis")
     var areaBasis: String? = null
 
     @JsonProperty("extraGRIC")
-    var extraGRIC: String? = null
+    var extraGrIc: String? = null
 
     @JsonProperty("rootGRICF")
-    var rootGRICF: String? = null
+    var rootGriCf: String? = null
 
     @JsonProperty("rootGRMCF")
-    var rootGRMCF: String? = null
+    var rootGrmCf: String? = null
 
     @JsonProperty("rootsUnit")
     var rootsUnit: String? = null
@@ -100,31 +100,31 @@ class ValCisForm {
     var simserial: String? = null
 
     @JsonProperty("totalGRIC")
-    var totalGRIC: String? = null
+    var totalGrIc: String? = null
 
     @JsonProperty("tuberGRIC")
-    var tuberGRIC: String? = null
+    var tuberGrIc: String? = null
 
     @JsonProperty("tuberUnit")
-    var tuberunit: String? = null
+    var tuberUnit: String? = null
 
     @JsonProperty("conversion")
     var conversion: String? = null
 
     @JsonProperty("extraGRICF")
-    var extraGRICF: String? = null
+    var extraGriCf: String? = null
 
     @JsonProperty("extraGRMCF")
-    var extraGRMCF: String? = null
+    var extraGrmCf: String? = null
 
     @JsonProperty("rootsPrice")
     var rootsPrice: String? = null
 
     @JsonProperty("totalGRICF")
-    var totalGRICF: String? = null
+    var totalGriCf: String? = null
 
     @JsonProperty("tuberGRICF")
-    var tuberGRICF: String? = null
+    var tuberGriCf: String? = null
 
     @JsonProperty("tuberPrice")
     var tuberPrice: String? = null
@@ -136,7 +136,7 @@ class ValCisForm {
     var extraProfit: String? = null
 
     @JsonProperty("purpose/VAL")
-    var purposeVAL: String? = null
+    var purposeVal: String? = null
 
     @JsonProperty("rootYieldMC")
     var rootYieldMC: String? = null
@@ -157,7 +157,7 @@ class ValCisForm {
     var formhubUuid: String? = null
 
     @JsonProperty("importanceIC")
-    var importanceIC: String? = null
+    var importanceIc: String? = null
 
     @JsonProperty("plantingDate")
     var plantingDate: String? = null
@@ -187,16 +187,16 @@ class ValCisForm {
     var costfertilizer: String? = null
 
     @JsonProperty("rootYieldRedIC")
-    var rootYieldRedIC: String? = null
+    var rootYieldRedIc: String? = null
 
     @JsonProperty("extraProfitPerc")
     var extraProfitPerc: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("tuberYieldRedIC")
-    var tuberYieldRedIC: String? = null
+    var tuberYieldRedIc: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null
@@ -208,16 +208,16 @@ class ValCisForm {
     var costFertilizerAb: String? = null
 
     @JsonProperty("unitPriceNPK50kg")
-    var unitPriceNPK50kg: String? = null
+    var unitPriceNpk50kg: String? = null
 
     @JsonProperty("extraRootYieldMCF")
-    var extraRootYieldMCF: String? = null
+    var extraRootYieldMcf: String? = null
 
     @JsonProperty("_bamboo_dataset_id")
     var bambooDatasetId: String? = null
 
     @JsonProperty("extraTuberYieldMCF")
-    var extraTuberYieldMCF: String? = null
+    var extraTuberYieldMcf: String? = null
 
     @JsonProperty("_media_all_received")
     var mediaAllReceived: Boolean? = null
@@ -229,35 +229,35 @@ class ValCisForm {
     var cassavaVarietySelect: String? = null
 
     @JsonProperty("costFertilizerAB_Text")
-    var costfertilizerabText: String? = null
-
-    @JsonProperty("rateFertilizerAB_Text")
     var costFertilizerAbText: String? = null
 
+    @JsonProperty("rateFertilizerAB_Text")
+    var rateFertilizerAbText: String? = null
+
     @JsonProperty("costDetailsNPK/costNPK")
-    var costDetailsNPKCostNPK: String? = null
+    var costNpk: String? = null
 
     @JsonProperty("sweetPotatoVarietySelect")
     var sweetPotatoVarietySelect: String? = null
 
     @JsonProperty("costDetailsNPK/bagSizeNPK")
-    var bagsizenpk: String? = null
+    var bagSizeNpk: String? = null
 
     @JsonProperty("rootsUnitDetails/rootsUnitPrice")
-    var rootsunitprice: String? = null
+    var rootsUnitPrice: String? = null
 
     @JsonProperty("tuberUnitDetails/tuberUnitPrice")
-    var tuberunitprice: String? = null
+    var tuberUnitPrice: String? = null
 
     @JsonProperty("rootsUnitDetails/rootsUnitWeight")
-    var rootsunitweight: Double? = null
+    var rootsUnitWeight: String?=null
 
     @JsonProperty("tuberUnitDetails/tuberUnitWeight")
-    var tuberunitweight: Double? = null
+    var tuberUnitWeight: String?=null
 
     @JsonProperty("tuberPriceSI")
-    var tuberpricesi: String? = null
+    var tuberPriceSi: String? = null
 
     @JsonProperty("rootsPriceSI")
-    var rootspricesi: String? = null
+    var rootsPriceSi: String? = null
 }

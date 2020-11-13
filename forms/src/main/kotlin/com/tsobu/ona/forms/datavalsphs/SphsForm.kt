@@ -3,6 +3,7 @@ package com.tsobu.ona.forms.datavalsphs
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
+import java.util.*
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -10,7 +11,7 @@ class SphsForm {
 
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("EAID")
     var eaid: String? = null
@@ -28,17 +29,17 @@ class SphsForm {
     var uuid: String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("_edited")
     var edited = false
 
 
     @JsonProperty("comment")
-    val comment: String? = null
+    var commentValue: String? = null
 
     @JsonProperty("_status")
     var status: String? = null
@@ -71,13 +72,13 @@ class SphsForm {
     var duration: String? = null
 
     @JsonProperty("_xform_id")
-    var xformId = 0
+    var xformId: String? = null
 
     @JsonProperty("loc_field")
     var locField: String? = null
 
     @JsonProperty("nrWeeding")
-    var nrWeeding = 0
+    var nrWeeding: String? = null
 
     @JsonProperty("simserial")
     var simSerial: String? = null
@@ -92,10 +93,10 @@ class SphsForm {
     var geolocation: List<Double>? = null
 
     @JsonProperty("_media_count")
-    var mediaCount = 0
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia = 0
+    var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
     var formHubUuid: String? = null
@@ -116,7 +117,7 @@ class SphsForm {
     var eventValue: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null
@@ -402,4 +403,7 @@ class SphsForm {
 
     @JsonProperty("harvest_CON_Tri_detail")
     var harvestConTriDetailFormList: List<HarvestConTriDetailForm>? = null
+
+    @JsonProperty("harvest_CON_Tri")
+    var harvestConTriForm: List<HarvestConTriForm>? = null
 }

@@ -11,13 +11,13 @@ class PoAssignAcDto {
     var submissionDate: String? = null
 
     @JsonProperty("uuid")
-    var uuid: String? = null
+    var formHubUuId:String? = null
 
     @JsonProperty("start")
     var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("deviceid")
     var deviceid: String? = null
@@ -71,13 +71,13 @@ class PoAssignAcDto {
     var geopointAccuracy: String? = null
 
     @JsonProperty("fieldID")
-    var fieldID: String? = null
+    var fieldId: String? = null
 
     @JsonProperty("trialID")
-    var trialID: String? = null
+    var trialId: String? = null
 
     @JsonProperty("fieldbookID")
-    var fieldbookID: String? = null
+    var fieldbookId: String? = null
 
     @JsonProperty("plantingDate")
     var plantingDate: String? = null
@@ -104,14 +104,14 @@ class PoAssignAcDto {
     var plotLabelingCount: String? = null
 
     @JsonProperty("SET-OF-plotLabeling")
-    var sETOFPlotLabeling: String? = null
+    var setOfPlotLabeling: String? = null
 
     @JsonProperty("end")
     var endDate: String? = null
 
     @JsonProperty("instanceID")
-    var instanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 }

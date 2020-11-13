@@ -13,7 +13,7 @@ class ValIcForm {
     var id: String? = null
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("lat")
     var lat: String? = null
@@ -34,10 +34,10 @@ class ValIcForm {
     var uuid: String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("NPK_AB")
     var npkAb: String? = null
@@ -73,19 +73,19 @@ class ValIcForm {
     var plotSize: String? = null
 
     @JsonProperty("urea1_AB")
-    var urea1AB: String? = null
+    var urea1Ab: String? = null
 
     @JsonProperty("urea2_AB")
-    var urea2AB: String? = null
+    var urea2Ab: String? = null
 
     @JsonProperty("username")
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
-    var xformId: String? = null
+    var xFormId: String? = null
 
     @JsonProperty("areaBasis")
     var areaBasis: String? = null
@@ -109,7 +109,7 @@ class ValIcForm {
     var profitExtra: String? = null
 
     @JsonProperty("purpose/VAL")
-    var purposeVAL: String? = null
+    var purposeVal: String? = null
 
     @JsonProperty("_attachments")
     var attachments: List<Any> = ArrayList()
@@ -136,7 +136,7 @@ class ValIcForm {
     var submittedBy: String? = null
 
     @JsonProperty("riskRatio2_AB")
-    var riskRatio2AB: String? = null
+    var riskRatio2Ab: String? = null
 
     @JsonProperty("thankyou/call")
     var callValue: String? = null
@@ -145,10 +145,10 @@ class ValIcForm {
     var costFertilizer: String? = null
 
     @JsonProperty("profitExtra_AB")
-    var profitExtraAB: String? = null
+    var profitExtraAb: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("profitExtraPlot")
     var profitExtraPlot: String? = null
@@ -160,10 +160,10 @@ class ValIcForm {
     var xformIdString: String? = null
 
     @JsonProperty("unitPriceNPK50kg")
-    var unitPriceNPK50kg: String? = null
+    var unitPriceNpk50kg: String? = null
 
     @JsonProperty("costFertilizer_AB")
-    var costFertilizerAB: String? = null
+    var costFertilizerAb: String? = null
 
     @JsonProperty("unitPriceUrea50kg")
     var unitPriceUrea50kg: String? = null
@@ -190,7 +190,7 @@ class ValIcForm {
     var confirmVal: String? = null
 
     @JsonProperty("unitPriceNPK50kg_AB")
-    var unitPriceNPK50kgAB: String? = null
+    var unitPriceNpk50kgAb: String? = null
 
     @JsonProperty("valueExtraCobsLarge")
     var valueExtraCobsLarge: String? = null
@@ -202,22 +202,22 @@ class ValIcForm {
     var numberExtraCobsLarge: String? = null
 
     @JsonProperty("unitPriceUrea50kg_AB")
-    var unitPriceUrea50kgAB: String? = null
+    var unitPriceUrea50kgAb: String? = null
 
     @JsonProperty("costFertilizer_ABText")
     var costFertilizerABText: String? = null
 
     @JsonProperty("costDetailsNPK/costNPK")
-    var costDetailsNPKCostNPK: String? = null
+    var costNpk: String? = null
 
     @JsonProperty("valueExtraCobsLarge_AB")
-    var valueExtraCobsLargeAB: String? = null
+    var valueExtraCobsLargeAb: String? = null
 
     @JsonProperty("numberExtraCobsLarge_AB")
-    var numberExtraCobsLargeAB: String? = null
+    var numberExtraCobsLargeAb: String? = null
 
     @JsonProperty("priceDetails/priceRoots")
-    var priceDetailsPriceRoots: String? = null
+    var priceRoots: String? = null
 
     @JsonProperty("priceExtraCobsLargePlot")
     var priceExtraCobsLargePlot: String? = null
@@ -229,7 +229,7 @@ class ValIcForm {
     var numberExtraCobsLargePlot: String? = null
 
     @JsonProperty("costDetailsNPK/bagSizeNPK")
-    var costDetailsNPKBagSizeNPK: String? = null
+    var costDetailsNPKBagSizeNpk: String? = null
 
     @JsonProperty("previousMaize/heightMaize")
     var previousMaizeHeightMaize: String? = null
@@ -238,7 +238,7 @@ class ValIcForm {
     var costDetailsUreaBagSizeUrea: String? = null
 
     @JsonProperty("priceDetails/priceMaizeCobFreshLarge")
-    var priceDetailsPriceMaizeCobFreshLarge: String? = null
+    var priceMaizeCobFreshLarge: String? = null
 
     @JsonProperty("previousMaize/previousMaizeVarietySelect")
     var previousMaizePreviousMaizeVarietySelect: String? = null
@@ -298,13 +298,13 @@ class ValIcForm {
     var quantityExtraGrain: String? = null
 
     @JsonProperty("valueExtraGrain_AB")
-    var valueExtraGrainAB: String? = null
+    var valueExtraGrainAb: String? = null
 
     @JsonProperty("valueExtraGrainPlot")
     var valueExtraGrainPlot: String? = null
 
     @JsonProperty("quantityExtraGrain_AB")
-    var quantityExtraGrainAB: String? = null
+    var quantityExtraGrainAb: String? = null
 
     @JsonProperty("quantityExtraGrainPlot")
     var quantityExtraGrainPlot: String? = null
@@ -316,5 +316,5 @@ class ValIcForm {
     var maizeGrainUnitDetailsMaizeGrainUnitPrice: String? = null
 
     @JsonProperty("maizeGrainUnitDetails/maizeGrainUnitWeight")
-    var maizeGrainUnitDetailsMaizeGrainUnitWeight: Double? = null
+    var maizeGrainUnitDetailsMaizeGrainUnitWeight: String?=null
 }

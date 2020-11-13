@@ -11,7 +11,7 @@ class MonitorValDto {
     var submissionDate: String? = null
 
     @JsonProperty("uuid")
-    var uuid: String? = null
+    var formHubUuId:String? = null
 
     @JsonProperty("start")
     var startDate: String? = null
@@ -68,7 +68,7 @@ class MonitorValDto {
     var detailsEa: String? = null
 
     @JsonProperty("detailsEANote")
-    var detailsEANote: String? = null
+    var detailsEaNote: String? = null
 
     @JsonProperty("HHID")
     var hhid: String? = null
@@ -116,7 +116,7 @@ class MonitorValDto {
     var zoneSelect: String? = null
 
     @JsonProperty("zone")
-    var zone: String? = null
+    var zoneValue: String? = null
 
     @JsonProperty("useCase")
     var useCase: String? = null
@@ -383,7 +383,7 @@ class MonitorValDto {
     var soilDepth: String? = null
 
     @JsonProperty("comment")
-    var comment: String? = null
+    var commentValue: String? = null
 
     @JsonProperty("end")
     var endDate: String? = null

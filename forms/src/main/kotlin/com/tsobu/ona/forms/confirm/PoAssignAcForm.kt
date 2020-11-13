@@ -9,10 +9,10 @@ import java.util.*
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class PoAssignAcForm {
     @JsonProperty("_id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("end")
-    var end: String? = null
+    var endDate: String? = null
 
     @JsonProperty("_tags")
     var tags: List<Any> = ArrayList()
@@ -24,10 +24,10 @@ class PoAssignAcForm {
     var login: String? = null
 
     @JsonProperty("start")
-    var start: String? = null
+    var startDate: String? = null
 
     @JsonProperty("today")
-    var today: String? = null
+    var todayDate: String? = null
 
     @JsonProperty("_notes")
     var notes: List<Any> = ArrayList()
@@ -42,10 +42,10 @@ class PoAssignAcForm {
     var status: String? = null
 
     @JsonProperty("fieldID")
-    var fieldID: String? = null
+    var fieldId: String? = null
 
     @JsonProperty("trialID")
-    var trialID: String? = null
+    var trialId: String? = null
 
     @JsonProperty("_version")
     var version: String? = null
@@ -57,10 +57,10 @@ class PoAssignAcForm {
     var geopoint: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xFormId: String? = null
 
     @JsonProperty("simserial")
     var simserial: String? = null
@@ -69,7 +69,7 @@ class PoAssignAcForm {
     var trialCode: String? = null
 
     @JsonProperty("fieldbookID")
-    var fieldbookID: String? = null
+    var fieldbookId: String? = null
 
     @JsonProperty("_attachments")
     var attachments: List<Any> = ArrayList()
@@ -78,10 +78,10 @@ class PoAssignAcForm {
     var geolocation: List<Double> = ArrayList()
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
     var formhubUuid: String? = null
@@ -105,7 +105,7 @@ class PoAssignAcForm {
     var completeSetup: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("purpose/country")
     var country: String? = null
