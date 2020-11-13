@@ -94,7 +94,7 @@ class ValSphsOnForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
     var xFormId: String? = null
@@ -475,7 +475,7 @@ class ValSphsOnForm {
     var optHarvestText: String? = null
 
     @JsonProperty("unitWeight")
-    var unitWeight: String? = null
+    var UnitWeight: String? = null
 
     @JsonProperty("results/GRdif")
     var grDif: String? = null
@@ -541,10 +541,10 @@ class ValSphsOnForm {
     var priceP4: String? = null
 
     @JsonProperty("densityDetails/withinRow")
-    var withinRow: Double? = null
+    var withinRow: String?=null
 
     @JsonProperty("densityDetails/betweenRow")
-    var betweenRow: Double? = null
+    var betweenRow: String?=null
 
     @JsonProperty("SC1")
     var sc1: String? = null

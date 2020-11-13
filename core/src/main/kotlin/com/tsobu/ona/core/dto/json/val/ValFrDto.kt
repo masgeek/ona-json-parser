@@ -275,25 +275,25 @@ class ValFrDto {
     var netRevLocCurAB: Any? = null
 
     @JsonProperty("netRevLocCur_ABcurr")
-    var netRevLocCurABcurr: String? = null
+    var netRevLocCurABCurr: String? = null
 
     @JsonProperty("totalCostLocCur_AB")
     var totalCostLocCurAB: Any? = null
 
     @JsonProperty("totalCostLocCur_ABcurr")
-    var totalCostLocCurABcurr: String? = null
+    var totalCostLocCurABCurr: String? = null
 
     @JsonProperty("netRevLocCurPlot")
     var netRevLocCurPlot: Any? = null
 
     @JsonProperty("netRevLocCurPlotcurr")
-    var netRevLocCurPlotcurr: String? = null
+    var netRevLocCurPlotCurr: String? = null
 
     @JsonProperty("totalCostLocCurPlot")
     var totalCostLocCurPlot: Any? = null
 
     @JsonProperty("totalCostLocCurPlotcurr")
-    var totalCostLocCurPlotcurr: String? = null
+    var totalCostLocCurPlotCurr: String? = null
 
     @JsonProperty("noRecommendationTZNote")
     var noRecommendationTZNote: String? = null

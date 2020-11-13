@@ -11,7 +11,7 @@ class HarvestRecTriDetailRemainPlantRecForm {
     var remainPlantNrRec: String? = null
 
     @JsonProperty("harvest_REC_Tri_detail/remainPlant_REC/remainPlant_height_REC")
-    var remainPlantHeightRec: Double? = null
+    var remainPlantHeightRec: String?=null
 
     @JsonProperty("harvest_REC_Tri_detail/remainPlant_REC/remainPlant_mainStemNR_REC")
     var remainPlantMainStemNrRec: String? = null

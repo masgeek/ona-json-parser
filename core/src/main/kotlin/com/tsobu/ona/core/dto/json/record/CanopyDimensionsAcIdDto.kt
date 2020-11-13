@@ -17,7 +17,7 @@ class CanopyDimensionsAcIdDto {
     var plotId: String? = null
 
     @JsonProperty("CD_count")
-    var cDCount: String? = null
+    var cdCount: String? = null
 
     @JsonProperty("SET-OF-CD")
     var setOfCd: String? = null

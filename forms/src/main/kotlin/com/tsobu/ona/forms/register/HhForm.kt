@@ -70,7 +70,7 @@ class HhForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
     var xFormId: String? = null

@@ -94,7 +94,7 @@ class ValSphsTzEzForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
     var xFormId: String? = null
@@ -109,7 +109,7 @@ class ValSphsTzEzForm {
     var conversion: String? = null
 
     @JsonProperty("unitWeight")
-    var unitWeight: String? = null
+    var UnitWeight: String? = null
 
     @JsonProperty("yieldLevel")
     var yieldLevel: String? = null
@@ -538,10 +538,10 @@ class ValSphsTzEzForm {
     var optHarvestText: String? = null
 
     @JsonProperty("densityDetails/withinRow")
-    var withinRow: Double? = null
+    var withinRow: String?=null
 
     @JsonProperty("densityDetails/betweenRow")
-    var betweenRow: Double? = null
+    var betweenRow: String?=null
 
     @JsonProperty("season")
     var season: String? = null

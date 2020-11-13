@@ -26,10 +26,10 @@ class YieldAssessmentForm {
     var yieldAssessmentPlantSampleIDGreenStems: String? = null
 
     @JsonProperty("yieldAssessment/abovegroundBiomassFW/leavesFW")
-    var yieldAssessmentAbovegroundBiomassFWLeavesFW: Double? = null
+    var yieldAssessmentAbovegroundBiomassFWLeavesFW: String?=null
 
     @JsonProperty("yieldAssessment/abovegroundBiomassFW/greenStemsFW")
-    var yieldAssessmentAbovegroundBiomassFWGreenStemsFW: Double? = null
+    var yieldAssessmentAbovegroundBiomassFWGreenStemsFW: String?=null
 
     @JsonProperty("yieldAssessment/greenStemsLeavesFWss")
     var yieldAssessmentGreenStemsLeavesFWss: String? = null
@@ -38,7 +38,7 @@ class YieldAssessmentForm {
     var yieldAssessmentPlantSampleIDGreenStemsLeaves: String? = null
 
     @JsonProperty("yieldAssessment/abovegroundBiomassFW/greenStemsLeavesFW")
-    var yieldAssessmentAbovegroundBiomassFWGreenStemsLeavesFW: Double? = null
+    var yieldAssessmentAbovegroundBiomassFWGreenStemsLeavesFW: String?=null
 
     @JsonProperty("yieldAssessment/sec")
     var yieldAssessmentSec: String? = null
@@ -47,8 +47,8 @@ class YieldAssessmentForm {
     var yieldAssessmentPlantId: String? = null
 
     @JsonProperty("yieldAssessment/abovegroundBiomassFW/leavesSecFW")
-    var yieldAssessmentAbovegroundBiomassFWLeavesSecFW: Double? = null
+    var yieldAssessmentAbovegroundBiomassFWLeavesSecFW: String?=null
 
     @JsonProperty("yieldAssessment/abovegroundBiomassFW/greenStemsSecFW")
-    var yieldAssessmentAbovegroundBiomassFWGreenStemsSecFW: Double? = null
+    var yieldAssessmentAbovegroundBiomassFWGreenStemsSecFW: String?=null
 }

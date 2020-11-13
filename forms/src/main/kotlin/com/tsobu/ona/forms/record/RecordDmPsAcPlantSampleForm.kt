@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class RecordDmPsAcPlantSampleForm {
     @JsonProperty("plantSample/plantDW")
-    var plantDw: Double? = null
+    var plantDw: String?=null
 
     @JsonProperty("plantSample/plantSampleID")
     var plantSampleId: String? = null

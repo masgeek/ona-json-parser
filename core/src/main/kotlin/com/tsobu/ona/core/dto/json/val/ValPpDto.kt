@@ -107,7 +107,7 @@ class ValPpDto {
     var problemWeeds: String? = null
 
     @JsonProperty("PW_count")
-    var pWCount: String? = null
+    var pwCount: String? = null
 
     @JsonProperty("SET-OF-PW")
     var setOfPw: String? = null
@@ -254,88 +254,88 @@ class ValPpDto {
     var weedingCost: String? = null
 
     @JsonProperty("costT0RG")
-    var costT0RG: String? = null
+    var costT0Rg: String? = null
 
     @JsonProperty("costT0FL")
-    var costT0FL: String? = null
+    var costT0Fl: String? = null
 
     @JsonProperty("costT1RG")
-    var costT1RG: String? = null
+    var costT1Rg: String? = null
 
     @JsonProperty("costT1FL")
-    var costT1FL: String? = null
+    var costT1Fl: String? = null
 
     @JsonProperty("costT2RG")
-    var costT2RG: String? = null
+    var costT2Rg: String? = null
 
     @JsonProperty("costT2FL")
-    var costT2FL: String? = null
+    var costT2Fl: String? = null
 
     @JsonProperty("costCP")
-    var costCP: String? = null
+    var costCp: String? = null
 
     @JsonProperty("costCPcurr")
-    var costCPcurr: String? = null
+    var costCpCurr: String? = null
 
     @JsonProperty("grossValueT0RG")
-    var grossValueT0RG: String? = null
+    var grossValueT0Rg: String? = null
 
     @JsonProperty("grossValueT0FL")
-    var grossValueT0FL: String? = null
+    var grossValueT0Fl: String? = null
 
     @JsonProperty("grossValueT1RG")
-    var grossValueT1RG: String? = null
+    var grossValueT1Rg: String? = null
 
     @JsonProperty("grossValueT1FL")
-    var grossValueT1FL: String? = null
+    var grossValueT1Fl: String? = null
 
     @JsonProperty("grossValueT2RG")
-    var grossValueT2RG: String? = null
+    var grossValueT2Rg: String? = null
 
     @JsonProperty("grossValueT2FL")
-    var grossValueT2FL: String? = null
+    var grossValueT2Fl: String? = null
 
     @JsonProperty("grossValueCP")
-    var grossValueCP: String? = null
+    var grossValueCp: String? = null
 
     @JsonProperty("netValueT0RG")
-    var netValueT0RG: String? = null
+    var netValueT0Rg: String? = null
 
     @JsonProperty("netValueT0FL")
-    var netValueT0FL: String? = null
+    var netValueT0Fl: String? = null
 
     @JsonProperty("netValueT1RG")
-    var netValueT1RG: String? = null
+    var netValueT1Rg: String? = null
 
     @JsonProperty("netValueT1FL")
-    var netValueT1FL: String? = null
+    var netValueT1Fl: String? = null
 
     @JsonProperty("netValueT2RG")
-    var netValueT2RG: String? = null
+    var netValueT2Rg: String? = null
 
     @JsonProperty("netValueT2FL")
-    var netValueT2FL: String? = null
+    var netValueT2Fl: String? = null
 
     @JsonProperty("netValueCP")
-    var netValueCP: String? = null
+    var netValueCp: String? = null
 
     @JsonProperty("netValueDifT0RG")
-    var netValueDifT0RG: String? = null
+    var netValueDifT0Rg: String? = null
 
     @JsonProperty("netValueDifT0FL")
-    var netValueDifT0FL: String? = null
+    var netValueDifT0Fl: String? = null
 
     @JsonProperty("netValueDifT1RG")
-    var netValueDifT1RG: String? = null
+    var netValueDifT1Rg: String? = null
 
     @JsonProperty("netValueDifT1FL")
-    var netValueDifT1FL: String? = null
+    var netValueDifT1Fl: String? = null
 
     @JsonProperty("netValueDifT2RG")
-    var netValueDifT2RG: String? = null
+    var netValueDifT2Rg: String? = null
 
     @JsonProperty("netValueDifT2FL")
-    var netValueDifT2FL: String? = null
+    var netValueDifT2Fl: String? = null
 
     @JsonProperty("netValueDifMax")
     var netValueDifMax: String? = null
@@ -371,13 +371,13 @@ class ValPpDto {
     var costDifAbs: String? = null
 
     @JsonProperty("netValueDifcurr")
-    var netValueDifcurr: String? = null
+    var netValueDifCurr: String? = null
 
     @JsonProperty("costDifcurr")
-    var costDifcurr: String? = null
+    var costDifCurr: String? = null
 
     @JsonProperty("optPPNote")
-    var optPPNote: String? = null
+    var optPpNote: String? = null
 
     @JsonProperty("recNote")
     var recNote: String? = null

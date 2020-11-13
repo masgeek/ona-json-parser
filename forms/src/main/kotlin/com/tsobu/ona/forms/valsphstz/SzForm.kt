@@ -96,7 +96,7 @@ class SzForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
     var xFormId: String? = null
@@ -111,7 +111,7 @@ class SzForm {
     var conversion: String? = null
 
     @JsonProperty("unitWeight")
-    var unitWeight: String? = null
+    var UnitWeight: String? = null
 
     @JsonProperty("yieldLevel")
     var yieldLevel: String? = null

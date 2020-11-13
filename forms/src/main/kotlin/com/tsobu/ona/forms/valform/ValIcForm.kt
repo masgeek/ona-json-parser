@@ -82,7 +82,7 @@ class ValIcForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
     var xFormId: String? = null
@@ -160,7 +160,7 @@ class ValIcForm {
     var xformIdString: String? = null
 
     @JsonProperty("unitPriceNPK50kg")
-    var unitPriceNPK50kg: String? = null
+    var unitPriceNpk50kg: String? = null
 
     @JsonProperty("costFertilizer_AB")
     var costFertilizerAb: String? = null
@@ -190,7 +190,7 @@ class ValIcForm {
     var confirmVal: String? = null
 
     @JsonProperty("unitPriceNPK50kg_AB")
-    var unitPriceNPK50kgAb: String? = null
+    var unitPriceNpk50kgAb: String? = null
 
     @JsonProperty("valueExtraCobsLarge")
     var valueExtraCobsLarge: String? = null
@@ -208,7 +208,7 @@ class ValIcForm {
     var costFertilizerABText: String? = null
 
     @JsonProperty("costDetailsNPK/costNPK")
-    var costDetailsNPKCostNPK: String? = null
+    var costNpk: String? = null
 
     @JsonProperty("valueExtraCobsLarge_AB")
     var valueExtraCobsLargeAb: String? = null
@@ -229,7 +229,7 @@ class ValIcForm {
     var numberExtraCobsLargePlot: String? = null
 
     @JsonProperty("costDetailsNPK/bagSizeNPK")
-    var costDetailsNPKBagSizeNPK: String? = null
+    var costDetailsNPKBagSizeNpk: String? = null
 
     @JsonProperty("previousMaize/heightMaize")
     var previousMaizeHeightMaize: String? = null
@@ -316,5 +316,5 @@ class ValIcForm {
     var maizeGrainUnitDetailsMaizeGrainUnitPrice: String? = null
 
     @JsonProperty("maizeGrainUnitDetails/maizeGrainUnitWeight")
-    var maizeGrainUnitDetailsMaizeGrainUnitWeight: Double? = null
+    var maizeGrainUnitDetailsMaizeGrainUnitWeight: String?=null
 }

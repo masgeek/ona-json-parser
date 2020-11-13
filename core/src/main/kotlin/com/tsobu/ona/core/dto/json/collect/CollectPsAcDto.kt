@@ -77,7 +77,7 @@ class CollectPsAcDto {
     var crop: String? = null
 
     @JsonProperty("assessFW")
-    var assessFW: String? = null
+    var assessFw: String? = null
 
     @JsonProperty("repeat")
     var repeat: String? = null

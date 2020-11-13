@@ -14,22 +14,22 @@ class NextDto {
     var batchName: String? = null
 
     @JsonProperty("descriptionFW")
-    var descriptionFW: String? = null
+    var descriptionFw: String? = null
 
     @JsonProperty("descriptionDC")
-    var descriptionDC: String? = null
+    var descriptionDc: String? = null
 
     @JsonProperty("descriptionRS")
-    var descriptionRS: String? = null
+    var descriptionRs: String? = null
 
     @JsonProperty("descriptionSB")
-    var descriptionSB: String? = null
+    var descriptionSb: String? = null
 
     @JsonProperty("description")
     var description: String? = null
 
     @JsonProperty("confirmDC")
-    var confirmDC: String? = null
+    var confirmDc: String? = null
 
     @JsonProperty("sampleBatchID")
     var sampleBatchId: String? = null

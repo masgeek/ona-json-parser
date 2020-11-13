@@ -64,7 +64,7 @@ open class BaseFormData {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
     var xFormId: String? = null
@@ -130,52 +130,52 @@ open class BaseFormData {
     var plantingDetailsVariety: String? = null
 
     @JsonProperty("plotLayout_P1/plotL1_P1")
-    var plotLayoutP1PlotL1P1: Double? = null
+    var plotLayoutP1PlotL1P1: String?=null
 
     @JsonProperty("plotLayout_P1/plotL2_P1")
-    var plotLayoutP1PlotL2P1: Double? = null
+    var plotLayoutP1PlotL2P1: String?=null
 
     @JsonProperty("plotLayout_P1/plotW1_P1")
-    var plotLayoutP1PlotW1P1: Double? = null
+    var plotLayoutP1PlotW1P1: String?=null
 
     @JsonProperty("plotLayout_P1/plotW2_P1")
-    var plotLayoutP1PlotW2P1: Double? = null
+    var plotLayoutP1PlotW2P1: String?=null
 
     @JsonProperty("plotLayout_P2/plotL1_P2")
-    var plotLayoutP2PlotL1P2: Double? = null
+    var plotLayoutP2PlotL1P2: String?=null
 
     @JsonProperty("plotLayout_P2/plotL2_P2")
-    var plotLayoutP2PlotL2P2: Double? = null
+    var plotLayoutP2PlotL2P2: String?=null
 
     @JsonProperty("plotLayout_P2/plotW1_P2")
-    var plotLayoutP2PlotW1P2: Double? = null
+    var plotLayoutP2PlotW1P2: String?=null
 
     @JsonProperty("plotLayout_P2/plotW2_P2")
-    var plotLayoutP2PlotW2P2: Double? = null
+    var plotLayoutP2PlotW2P2: String?=null
 
     @JsonProperty("plotLayout_P3/plotL1_P3")
-    var plotLayoutP3PlotL1P3: Double? = null
+    var plotLayoutP3PlotL1P3: String?=null
 
     @JsonProperty("plotLayout_P3/plotL2_P3")
-    var plotLayoutP3PlotL2P3: Double? = null
+    var plotLayoutP3PlotL2P3: String?=null
 
     @JsonProperty("plotLayout_P3/plotW1_P3")
-    var plotLayoutP3PlotW1P3: Double? = null
+    var plotLayoutP3PlotW1P3: String?=null
 
     @JsonProperty("plotLayout_P3/plotW2_P3")
-    var plotLayoutP3PlotW2P3: Double? = null
+    var plotLayoutP3PlotW2P3: String?=null
 
     @JsonProperty("plotLayout_P4/plotL1_P4")
-    var plotLayoutP4PlotL1P4: Double? = null
+    var plotLayoutP4PlotL1P4: String?=null
 
     @JsonProperty("plotLayout_P4/plotL2_P4")
-    var plotLayoutP4PlotL2P4: Double? = null
+    var plotLayoutP4PlotL2P4: String?=null
 
     @JsonProperty("plotLayout_P4/plotW1_P4")
-    var plotLayoutP4PlotW1P4: Double? = null
+    var plotLayoutP4PlotW1P4: String?=null
 
     @JsonProperty("plotLayout_P4/plotW2_P4")
-    var plotLayoutP4PlotW2P4: Double? = null
+    var plotLayoutP4PlotW2P4: String?=null
 
     @JsonProperty("weedAssessment_P1_count")
     var weedAssessmentP1Count: String? = null

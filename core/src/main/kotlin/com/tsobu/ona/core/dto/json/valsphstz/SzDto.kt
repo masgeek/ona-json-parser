@@ -739,7 +739,7 @@ class SzDto {
     var grp0h0Ab: String? = null
 
     @JsonProperty("GRp0h0_ABcurr")
-    var grp0h0Abcurr: String? = null
+    var grp0h0AbCurr: String? = null
 
     @JsonProperty("GRp0hm1")
     var grp0hm1: String? = null
@@ -835,7 +835,7 @@ class SzDto {
     var grdifAb: String? = null
 
     @JsonProperty("GRdif_ABcurr")
-    var grdifAbcurr: String? = null
+    var grdifAbCurr: String? = null
 
     @JsonProperty("GPmax")
     var gpmax: String? = null
@@ -844,7 +844,7 @@ class SzDto {
     var gpdif: String? = null
 
     @JsonProperty("GPdifcurr")
-    var gpdifcurr: String? = null
+    var gpdifCurr: String? = null
 
     @JsonProperty("optHarvest")
     var optHarvest: String? = null

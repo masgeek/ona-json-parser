@@ -18,14 +18,14 @@ class WeedIdForm {
     var plotId: String? = null
 
     @JsonProperty("ID/WD_count")
-    var wdCount: Double? = null
+    var wdCount: String?=null
 
     @JsonProperty("ID/scoreCropInjury")
-    var scoreCropInjury: Double? = null
+    var scoreCropInjury: String?=null
 
     @JsonProperty("ID/scoreWeedingEff")
-    var scoreWeedingEff: Double? = null
+    var scoreWeedingEff: String?=null
 
     @JsonProperty("ID/nrDaysLastWeeded")
-    var nrDaysLastWeeded: Double? = null
+    var nrDaysLastWeeded: String?=null
 }

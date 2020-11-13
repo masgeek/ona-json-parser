@@ -62,7 +62,7 @@ class FrForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
     var xFormId: String? = null
@@ -158,28 +158,28 @@ class FrForm {
     var rateLodging: String? = null
 
     @JsonProperty("plotLayout_CON/plotL1_CON")
-    var plotL1Con: Double? = null
+    var plotL1Con: String?=null
 
     @JsonProperty("plotLayout_CON/plotL2_CON")
-    var plotL2Con: Double? = null
+    var plotL2Con: String?=null
 
     @JsonProperty("plotLayout_CON/plotW1_CON")
-    var plotW1Con: Double? = null
+    var plotW1Con: String?=null
 
     @JsonProperty("plotLayout_CON/plotW2_CON")
-    var plotW2Con: Double? = null
+    var plotW2Con: String?=null
 
     @JsonProperty("plotLayout_SSR/plotL1_SSR")
-    var plotL1Ssr: Double? = null
+    var plotL1Ssr: String?=null
 
     @JsonProperty("plotLayout_SSR/plotL2_SSR")
-    var plotL2Ssr: Double? = null
+    var plotL2Ssr: String?=null
 
     @JsonProperty("plotLayout_SSR/plotW1_SSR")
-    var plotW1Ssr: Double? = null
+    var plotW1Ssr: String?=null
 
     @JsonProperty("plotLayout_SSR/plotW2_SSR")
-    var plotW2Ssr: Double? = null
+    var plotW2Ssr: String?=null
 
     @JsonProperty("farmerEvaluation/costScore")
     var costScore: String? = null
@@ -236,10 +236,10 @@ class FrForm {
     var weedingMethod5: String? = null
 
     @JsonProperty("harvest/tuberizedMarketableRootsFW_CON")
-    var tuberizedMarketableRootsFwCon: Double? = null
+    var tuberizedMarketableRootsFwCon: String?=null
 
     @JsonProperty("harvest/tuberizedMarketableRootsFW_SSR")
-    var tuberizedMarketableRootsFwSsr: Double? = null
+    var tuberizedMarketableRootsFwSsr: String?=null
 
     @JsonProperty("harvest/tuberizedMarketableRootsNr_CON")
     var tuberizedMarketableRootsNrCon: String? = null

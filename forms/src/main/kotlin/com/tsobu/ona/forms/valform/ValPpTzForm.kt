@@ -136,7 +136,7 @@ class ValPpTzForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
     var xFormId: String? = null
@@ -346,7 +346,7 @@ class ValPpTzForm {
     var ridging: String? = null
 
     @JsonProperty("densityDetails/withinRow")
-    var withinRow: Double? = null
+    var withinRow: String?=null
 
     @JsonProperty("cost/basicTill1ManualCost")
     var basicTill1ManualCost: String? = null

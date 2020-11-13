@@ -109,7 +109,7 @@ class ValFrForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
     var xFormId: String? = null
@@ -301,10 +301,10 @@ class ValFrForm {
     var deprecatedId: String? = null
 
     @JsonProperty("densityDetails/withinRow")
-    var withinRow: Double? = null
+    var withinRow: String?=null
 
     @JsonProperty("densityDetails/betweenRow")
-    var betweenRow: Double? = null
+    var betweenRow: String?=null
 
     @JsonProperty("FCY")
     var fcy: String? = null
@@ -331,20 +331,20 @@ class ValFrForm {
     var rateDAPAb: String? = null
 
     @JsonProperty("rateNPK")
-    var rateNPK: String? = null
+    var rateNpk: String? = null
 
     @JsonProperty("rateNPK_AB")
     var rateNPKAb: String? = null
 
     @JsonProperty("quantityNPK")
-    var quantityNPK: String? = null
+    var quantityNpk: String? = null
 
     @JsonProperty("rateNPK_min")
     var rateNPKMin: String? = null
 
     @JsonProperty("quantity1NPK")
-    var quantity1NPK: String? = null
+    var quantity1Npk: String? = null
 
     @JsonProperty("quantity2NPK")
-    var quantity2NPK: String? = null
+    var quantity2Npk: String? = null
 }

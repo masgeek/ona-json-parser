@@ -115,7 +115,7 @@ class ValPpForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
     var xFormId: String? = null
@@ -370,10 +370,10 @@ class ValPpForm {
     var netValueDifMaxRound: String? = null
 
     @JsonProperty("densityDetails/withinRow")
-    var withinRow: Double? = null
+    var withinRow: String?=null
 
     @JsonProperty("densityDetails/betweenRow")
-    var betweenRow: Double? = null
+    var betweenRow: String?=null
 
     @JsonProperty("plot3Details2/basicTillMethod2_plot3")
     var basicTillMethod2Plot3: String? = null

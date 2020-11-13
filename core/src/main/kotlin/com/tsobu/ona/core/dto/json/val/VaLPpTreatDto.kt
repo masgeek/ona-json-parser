@@ -71,25 +71,25 @@ class VaLPpTreatDto {
     var lon: String? = null
 
     @JsonProperty("basicTillCP")
-    var basicTillCP: String? = null
+    var basicTillCp: String? = null
 
     @JsonProperty("harrowSelectCP")
-    var harrowSelectCP: String? = null
+    var harrowSelectCp: String? = null
 
     @JsonProperty("ridgingCP")
-    var ridgingCP: String? = null
+    var ridgingCp: String? = null
 
     @JsonProperty("basicTillMethodSelect1CP")
-    var basicTillMethodSelect1CP: String? = null
+    var basicTillMethodSelect1Cp: String? = null
 
     @JsonProperty("basicTillMethodSelect2CP")
-    var basicTillMethodSelect2CP: String? = null
+    var basicTillMethodSelect2Cp: String? = null
 
     @JsonProperty("harrowCP")
-    var harrowCP: String? = null
+    var harrowCp: String? = null
 
     @JsonProperty("ridgingMethodSelectCP")
-    var ridgingMethodSelectCP: String? = null
+    var ridgingMethodSelectCp: String? = null
 
     @JsonProperty("basicTillREC")
     var basicTillREC: String? = null

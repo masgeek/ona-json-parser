@@ -509,7 +509,7 @@ class ValSphsOnDto {
     var grP0h0AB: String? = null
 
     @JsonProperty("GRp0h0_ABcurr")
-    var grP0h0ABcurr: String? = null
+    var grP0h0ABCurr: String? = null
 
     @JsonProperty("GRp0hm1")
     var grP0hm1: String? = null
@@ -566,7 +566,7 @@ class ValSphsOnDto {
     var gpP0h0: String? = null
 
     @JsonProperty("GPp0h0curr")
-    var gpP0h0curr: String? = null
+    var gpP0h0Curr: String? = null
 
     @JsonProperty("GPp0hm1")
     var gpP0hm1: String? = null

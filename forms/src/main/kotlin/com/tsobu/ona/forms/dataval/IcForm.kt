@@ -63,7 +63,7 @@ class IcForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
     var xFormId: Int? = null
@@ -354,19 +354,19 @@ class IcForm {
     var weedingMethod3: String? = null
 
     @JsonProperty("maizeHarvest_D/largeFreshCobsFW_D")
-    var largeFreshCobsFwd: Double? = null
+    var largeFreshCobsFwd: String?=null
 
     @JsonProperty("maizeHarvest_D/largeFreshCobsNr_D")
     var largeFreshCobsNrd: Int? = null
 
     @JsonProperty("maizeHarvest_D/smallFreshCobsFW_D")
-    var smallFreshCobsFwd: Double? = null
+    var smallFreshCobsFwd: String?=null
 
     @JsonProperty("maizeHarvest_D/smallFreshCobsNr_D")
     var smallFreshCobsNrd: Int? = null
 
     @JsonProperty("maizeHarvest_D/mediumFreshCobsFW_D")
-    var mediumFreshCobsFwd: Double? = null
+    var mediumFreshCobsFwd: String?=null
 
     @JsonProperty("maizeHarvest_D/mediumFreshCobsNr_D")
     var mediumFreshCobsNrd: Int? = null
@@ -375,37 +375,37 @@ class IcForm {
     var missingFreshCobsNrd: Int? = null
 
     @JsonProperty("maizeHarvest_F1/largeFreshCobsFW_F1")
-    var largeFreshCobsFwF1: Double? = null
+    var largeFreshCobsFwF1: String?=null
 
     @JsonProperty("maizeHarvest_F1/largeFreshCobsNr_F1")
     var largeFreshCobsNrF1: Int? = null
 
     @JsonProperty("maizeHarvest_F1/smallFreshCobsFW_F1")
-    var smallFreshCobsFwF1: Double? = null
+    var smallFreshCobsFwF1: String?=null
 
     @JsonProperty("maizeHarvest_F1/smallFreshCobsNr_F1")
     var smallFreshCobsNrF1: Int? = null
 
     @JsonProperty("maizeHarvest_LM/largeFreshCobsFW_LM")
-    var largeFreshCobsFWLm: Double? = null
+    var largeFreshCobsFWLm: String?=null
 
     @JsonProperty("maizeHarvest_LM/largeFreshCobsNr_LM")
     var largeFreshCobsNrLm: Int? = null
 
     @JsonProperty("maizeHarvest_LM/smallFreshCobsFW_LM")
-    var smallFreshCobsFwLm: Double? = null
+    var smallFreshCobsFwLm: String?=null
 
     @JsonProperty("maizeHarvest_LM/smallFreshCobsNr_LM")
     var smallFreshCobsNrLm: Int? = null
 
     @JsonProperty("maizeHarvest_F1/mediumFreshCobsFW_F1")
-    var mediumFreshCobsFwF1: Double? = null
+    var mediumFreshCobsFwF1: String?=null
 
     @JsonProperty("maizeHarvest_F1/mediumFreshCobsNr_F1")
     var mediumFreshCobsNrF1: Int? = null
 
     @JsonProperty("maizeHarvest_LM/mediumFreshCobsFW_LM")
-    var mediumFreshCobsFWLm: Double? = null
+    var mediumFreshCobsFWLm: String?=null
 
     @JsonProperty("maizeHarvest_LM/mediumFreshCobsNr_LM")
     var mediumFreshCobsNrLm: Int? = null
@@ -438,10 +438,10 @@ class IcForm {
     var weedingMethod4: String? = null
 
     @JsonProperty("densityDetails/withinRow")
-    var withinRow: Double? = null
+    var withinRow: String?=null
 
     @JsonProperty("densityDetails/betweenRow")
-    var betweenRow: Double? = null
+    var betweenRow: String?=null
 
     @JsonProperty("landPrepationDetails/harrowMethod2")
     var harrowMethod2: String? = null
@@ -483,16 +483,16 @@ class IcForm {
     var dateCassavaHarvest: String? = null
 
     @JsonProperty("cassavaHarvest/tuberizedMarketableRootsFW_D")
-    var tuberizedMarketableRootsFwd: Double? = null
+    var tuberizedMarketableRootsFwd: String?=null
 
     @JsonProperty("cassavaHarvest/tuberizedMarketableRootsNr_D")
     var tuberizedMarketableRootsNrd: Int? = null
 
     @JsonProperty("cassavaHarvest/tuberizedMarketableRootsFW_F1")
-    var tuberizedMarketableRootsFwF1: Double? = null
+    var tuberizedMarketableRootsFwF1: String?=null
 
     @JsonProperty("cassavaHarvest/tuberizedMarketableRootsFW_LM")
-    var tuberizedMarketableRootsFwLm: Double? = null
+    var tuberizedMarketableRootsFwLm: String?=null
 
     @JsonProperty("cassavaHarvest/tuberizedMarketableRootsNr_F1")
     var tuberizedMarketableRootsNrF1: Int? = null
@@ -540,43 +540,43 @@ class IcForm {
     var maizeGrainUnitPrice: Int? = null
 
     @JsonProperty("maizeGrainUnitDetails/maizeGrainUnitWeight")
-    var maizeGrainUnitWeight: Double? = null
+    var maizeGrainUnitWeight: String?=null
 
     @JsonProperty("plotLayout_D/plotL1_D")
-    var plotL1d: Double? = null
+    var plotL1d: String?=null
 
     @JsonProperty("plotLayout_D/plotL2_D")
-    var plotL2d: Double? = null
+    var plotL2d: String?=null
 
     @JsonProperty("plotLayout_D/plotW1_D")
-    var plotW1d: Double? = null
+    var plotW1d: String?=null
 
     @JsonProperty("plotLayout_D/plotW2_D")
-    var plotW2d: Double? = null
+    var plotW2d: String?=null
 
     @JsonProperty("plotLayout_F1/plotL1_F1")
-    var plotL1F1: Double? = null
+    var plotL1F1: String?=null
 
     @JsonProperty("plotLayout_F1/plotL2_F1")
-    var plotL2F1: Double? = null
+    var plotL2F1: String?=null
 
     @JsonProperty("plotLayout_F1/plotW1_F1")
-    var plotW1F1: Double? = null
+    var plotW1F1: String?=null
 
     @JsonProperty("plotLayout_F1/plotW2_F1")
-    var plotW2F1: Double? = null
+    var plotW2F1: String?=null
 
     @JsonProperty("plotLayout_LM/plotL1_LM")
-    var plotL1Lm: Double? = null
+    var plotL1Lm: String?=null
 
     @JsonProperty("plotLayout_LM/plotL2_LM")
-    var plotL2Lm: Double? = null
+    var plotL2Lm: String?=null
 
     @JsonProperty("plotLayout_LM/plotW1_LM")
-    var plotW1Lm: Double? = null
+    var plotW1Lm: String?=null
 
     @JsonProperty("plotLayout_LM/plotW2_LM")
-    var plotW2Lm: Double? = null
+    var plotW2Lm: String?=null
 
     @JsonProperty("weedingDetails/dateWeeding5")
     var dateWeeding5: String? = null

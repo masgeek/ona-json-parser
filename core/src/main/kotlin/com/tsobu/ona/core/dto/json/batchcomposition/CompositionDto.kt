@@ -86,31 +86,31 @@ class CompositionDto {
     var setOfSampleListSample: String? = null
 
     @JsonProperty("countFW")
-    var countFW: String? = null
+    var countFw: String? = null
 
     @JsonProperty("countDC")
-    var countDC: String? = null
+    var countDc: String? = null
 
     @JsonProperty("countRS")
-    var countRS: String? = null
+    var countRs: String? = null
 
     @JsonProperty("countSB")
-    var countSB: String? = null
+    var countSb: String? = null
 
     @JsonProperty("confirmAll")
     var confirmAll: String? = null
 
     @JsonProperty("confirmFW")
-    var confirmFW: String? = null
+    var confirmFw: String? = null
 
     @JsonProperty("confirmDC")
-    var confirmDC: String? = null
+    var confirmDc: String? = null
 
     @JsonProperty("confirmRS")
-    var confirmRS: String? = null
+    var confirmRs: String? = null
 
     @JsonProperty("confirmSB")
-    var confirmSB: String? = null
+    var confirmSb: String? = null
 
     @JsonProperty("next_count")
     var nextCount: String? = null

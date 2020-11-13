@@ -63,7 +63,7 @@ class CisForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
     var xFormId: Int? = null
@@ -159,13 +159,13 @@ class CisForm {
     var plantingDetailsSweetPotatoVariety: String? = null
 
     @JsonProperty("plantingDetails/plantingDensityCSIC")
-    var plantingDetailsPlantingDensityCSIC: String? = null
+    var plantingDetailsPlantingDensityCSIc: String? = null
 
     @JsonProperty("plantingDetails/plantingDensityCSMC")
     var plantingDetailsPlantingDensityCSMC: String? = null
 
     @JsonProperty("plantingDetails/plantingDensitySPIC")
-    var plantingDetailsPlantingDensitySPIC: String? = null
+    var plantingDetailsPlantingDensitySPIc: String? = null
 
     @JsonProperty("plantingDetails/plantingDensitySPMC")
     var plantingDetailsPlantingDensitySPMC: String? = null
@@ -189,10 +189,10 @@ class CisForm {
     var landPrepationDetailsTillageMethod2: String? = null
 
     @JsonProperty("densityDetailsCSMC/withinRowCSMC")
-    var densityDetailsCSMCWithinRowCSMC: Double? = null
+    var densityDetailsCSMCWithinRowCSMC: String?=null
 
     @JsonProperty("densityDetailsCSMC/betweenRowCSMC")
-    var densityDetailsCSMCBetweenRowCSMC: Double? = null
+    var densityDetailsCSMCBetweenRowCSMC: String?=null
 
     @JsonProperty("fertilizer1")
     var fertilizer1: String? = null
@@ -393,7 +393,7 @@ class CisForm {
     var farmerEvaluationSPCostScoreSP: String? = null
 
     @JsonProperty("tuberUnitDetails/tuberUnitWeight")
-    var tuberUnitDetailsTuberUnitWeight: Double? = null
+    var tuberUnitDetailsTuberUnitWeight: String?=null
 
     @JsonProperty("farmerEvaluation_SP/yieldScore_SP")
     var farmerEvaluationSPYieldScoreSP: String? = null
@@ -408,37 +408,37 @@ class CisForm {
     var farmerEvaluationSPRevenueScoreSP: String? = null
 
     @JsonProperty("sweetPotatoHarvest_SP/largeTubersFW_SP")
-    var sweetPotatoHarvestSPLargeTubersFWSP: Double? = null
+    var sweetPotatoHarvestSPLargeTubersFWSP: String?=null
 
     @JsonProperty("sweetPotatoHarvest_SP/largeTubersNr_SP")
     var sweetPotatoHarvestSPLargeTubersNrSP: Int? = null
 
     @JsonProperty("sweetPotatoHarvest_SP/smallTubersFW_SP")
-    var sweetPotatoHarvestSPSmallTubersFWSP: Double? = null
+    var sweetPotatoHarvestSPSmallTubersFWSP: String?=null
 
     @JsonProperty("sweetPotatoHarvest_SP/smallTubersNr_SP")
     var sweetPotatoHarvestSPSmallTubersNrSP: Int? = null
 
     @JsonProperty("sweetPotatoHarvest_CSSP/largeTubersFW_CSSP")
-    var sweetPotatoHarvestCSSPLargeTubersFWCSSP: Double? = null
+    var sweetPotatoHarvestCSSPLargeTubersFWCSSP: String?=null
 
     @JsonProperty("sweetPotatoHarvest_CSSP/largeTubersNr_CSSP")
     var sweetPotatoHarvestCSSPLargeTubersNrCSSP: Int? = null
 
     @JsonProperty("sweetPotatoHarvest_CSSP/smallTubersFW_CSSP")
-    var sweetPotatoHarvestCSSPSmallTubersFWCSSP: Double? = null
+    var sweetPotatoHarvestCSSPSmallTubersFWCSSP: String?=null
 
     @JsonProperty("sweetPotatoHarvest_CSSP/smallTubersNr_CSSP")
     var sweetPotatoHarvestCSSPSmallTubersNrCSSP: Int? = null
 
     @JsonProperty("sweetPotatoHarvest_CSSPF/largeTubersFW_CSSPF")
-    var sweetPotatoHarvestCSSPFLargeTubersFWCSSPF: Double? = null
+    var sweetPotatoHarvestCSSPFLargeTubersFWCSSPF: String?=null
 
     @JsonProperty("sweetPotatoHarvest_CSSPF/largeTubersNr_CSSPF")
     var sweetPotatoHarvestCSSPFLargeTubersNrCSSPF: Int? = null
 
     @JsonProperty("sweetPotatoHarvest_CSSPF/smallTubersFW_CSSPF")
-    var sweetPotatoHarvestCSSPFSmallTubersFWCSSPF: Double? = null
+    var sweetPotatoHarvestCSSPFSmallTubersFWCSSPF: String?=null
 
     @JsonProperty("sweetPotatoHarvest_CSSPF/smallTubersNr_CSSPF")
     var sweetPotatoHarvestCSSPFSmallTubersNrCSSPF: Int? = null
@@ -489,22 +489,22 @@ class CisForm {
     var rootsUnitDetailsRootsUnitPrice: Int? = null
 
     @JsonProperty("rootsUnitDetails/rootsUnitWeight")
-    var rootsUnitDetailsRootsUnitWeight: Double? = null
+    var rootsUnitDetailsRootsUnitWeight: String?=null
 
     @JsonProperty("cassavaHarvest_CS/tuberizedMarketableRootsFW_CS")
-    var cassavaHarvestCSTuberizedMarketableRootsFWCS: Double? = null
+    var cassavaHarvestCSTuberizedMarketableRootsFWCS: String?=null
 
     @JsonProperty("cassavaHarvest_CS/tuberizedMarketableRootsNr_CS")
     var cassavaHarvestCSTuberizedMarketableRootsNrCS: Int? = null
 
     @JsonProperty("cassavaHarvest_CSSP/tuberizedMarketableRootsFW_CSSP")
-    var cassavaHarvestCSSPTuberizedMarketableRootsFWCSSP: Double? = null
+    var cassavaHarvestCSSPTuberizedMarketableRootsFWCSSP: String?=null
 
     @JsonProperty("cassavaHarvest_CSSP/tuberizedMarketableRootsNr_CSSP")
     var cassavaHarvestCSSPTuberizedMarketableRootsNrCSSP: Int? = null
 
     @JsonProperty("cassavaHarvest_CSSPF/tuberizedMarketableRootsFW_CSSPF")
-    var cassavaHarvestCSSPFTuberizedMarketableRootsFWCSSPF: Double? = null
+    var cassavaHarvestCSSPFTuberizedMarketableRootsFWCSSPF: String?=null
 
     @JsonProperty("cassavaHarvest_CSSPF/tuberizedMarketableRootsNr_CSSPF")
     var cassavaHarvestCSSPFTuberizedMarketableRootsNrCSSPF: Int? = null

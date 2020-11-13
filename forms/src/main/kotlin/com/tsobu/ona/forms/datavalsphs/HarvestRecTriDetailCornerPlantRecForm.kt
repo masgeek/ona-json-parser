@@ -13,7 +13,7 @@ class HarvestRecTriDetailCornerPlantRecForm {
     var heightRec: String? = null
 
     @JsonProperty("harvest_REC_Tri_detail/cornerPlant_REC/cornerPlant_mainStemNR_REC")
-    var mainStemNrRec: Double? = null
+    var mainStemNrRec: String?=null
 
     @JsonProperty("harvest_REC_Tri_detail/cornerPlant_REC/cornerPlant_primBranchNr_REC")
     var primBranchNrRec: String? = null

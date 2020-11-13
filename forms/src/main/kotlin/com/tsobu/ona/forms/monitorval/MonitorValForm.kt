@@ -83,7 +83,7 @@ class MonitorValForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String?=null
 
     @JsonProperty("_xform_id")
     var xFormId: String? = null
@@ -344,7 +344,7 @@ class MonitorValForm {
     var leafSample: List<LeafSample>? = null
 
     @JsonProperty("siteDetails1/slope")
-    var slope: Double? = null
+    var slope: String?=null
 
     @JsonProperty("managementDetails")
     var managementDetails: String? = null
