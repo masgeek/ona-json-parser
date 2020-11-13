@@ -1,0 +1,29 @@
+debug: false
+trace: false
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: ${SQL_MODE:error}
+spring:
+  main:
+    web-application-type: NONE
+  profiles:
+    active: dev
+  liquibase:
+    enabled: false
+    change-log: "classpath:db/changelog.xml"
+    rollback-file: "rollback.sql"
+
+  jpa:
+    properties:
+      hibernate:
+        generate_statistics: false
+        jdbc:
+          batch_size: 5
+        order_inserts: true
+
+ona:
+  json-path: ${JSON_PATH:json}
+  output-path: ${OUTPUT_PATH:converted}
+  compare-path: ${COMPARE_PATH:onaData}
