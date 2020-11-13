@@ -144,11 +144,16 @@ constructor(
         val list = objectMapper.readValue(file, object : TypeReference<List<SphsForm>>() {})
 
         val sphsEntityData = ArrayList<SphsEntity>()
-        val recTriDetailEntityData = ArrayList<HarvestRecTriDetailEntity>()
+
         val recTriEntityData = ArrayList<HarvestRecTriEntity>()
+        val conTriEntityData = ArrayList<HarvestConTriEntity>()
+
         val remainPlantEntityData = ArrayList<RemainPlantRecEntity>()
         val cornerPlantEntityData = ArrayList<CornerPlantRecEntity>()
-        val harvestConTriDetailEntityData = ArrayList<HarvestConTriDetailEntity>()
+
+        val recTriDetailEntityData = ArrayList<HarvestRecTriDetailEntity>()
+        val conTriDetailEntityData = ArrayList<HarvestConTriDetailEntity>()
+
         val remainPlantConEntityData = ArrayList<RemainPlantConEntity>()
         val cornerPlantConEntityData = ArrayList<CornerPlantConEntity>()
 
@@ -230,6 +235,19 @@ constructor(
                 recTriCount = recTriCount.plus(1)
             }
 
+            val harvestConTriList = sphs.harvestConTriForm
+            var conTriCount = 1
+            harvestConTriList?.forEach { conTriForm ->
+                val conTriEntity = modelMapper.map(conTriForm, HarvestConTriEntity::class.java)
+                conTriEntity.parentKey = sphsEntity.controlKey
+                conTriEntity.setOfHarvestConTri = "${conTriEntity.parentKey}/harvest_CON_Tri"
+                conTriEntity.controlKey = "${conTriEntity.parentKey}/harvest_CON_Tri[$recTriCount]"
+
+                conTriEntityData.add(conTriEntity)
+                conTriCount = conTriCount.plus(1)
+
+            }
+
             val recTriDetailList = sphs.harvestRecTriDetailForm
             var recTriDetailCount = 1
             recTriDetailList?.forEach { harvestRecTriDetail ->
@@ -278,15 +296,13 @@ constructor(
             var conTriDetailCounter = 1
             harvestConTriDetailList?.forEach { conTriDetail ->
                 val conTriDetailEntity = modelMapper.map(conTriDetail, HarvestConTriDetailEntity::class.java)
-
-                conTriDetailEntity.parentKey = sphsEntity.controlKey
                 conTriDetailEntity.parentKey = sphsEntity.controlKey
                 conTriDetailEntity.setOfHarvestConTriDetail = "${conTriDetailEntity.parentKey}/harvest_CON_Tri_detail"
                 conTriDetailEntity.controlKey = "${conTriDetailEntity.parentKey}/harvest_CON_Tri_detail[$conTriDetailCounter]"
                 conTriDetailEntity.setOfRemainPlantCon = "${conTriDetailEntity.controlKey}/remainPlant_CON"
                 conTriDetailEntity.setOfCornerPlantCon = "${conTriDetailEntity.controlKey}/cornerPlant_CON"
 
-                harvestConTriDetailEntityData.add(conTriDetailEntity)
+                conTriDetailEntityData.add(conTriDetailEntity)
                 conTriDetailCounter = conTriDetailCounter.plus(1)
 
                 var remainPlantConCounter = 1
@@ -318,13 +334,19 @@ constructor(
 
         log.info("Saving all the data to the database now")
         sphsRepo.saveAll(sphsEntityData)
-        harvestRecTriDetailRepo.saveAll(recTriDetailEntityData)
+
         harvestRecTriRepo.saveAll(recTriEntityData)
+        harvestConTriRepo.saveAll(conTriEntityData)
+
         remainPlantRecRepo.saveAll(remainPlantEntityData)
         cornerPlantRecRepo.saveAll(cornerPlantEntityData)
-        harvestConTriDetailRepo.saveAll(harvestConTriDetailEntityData)
+
+        harvestRecTriDetailRepo.saveAll(recTriDetailEntityData)
+        harvestConTriDetailRepo.saveAll(conTriDetailEntityData)
+
         remainPlantConRepo.saveAll(remainPlantConEntityData)
         cornerPlantConRepo.saveAll(cornerPlantConEntityData)
+
         log.info("Finished saving the data for $fileName------->")
         mapJsonFile()
     }

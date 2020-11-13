@@ -9,23 +9,23 @@ import javax.persistence.Table
 @Table(name = "dataval_sphs_harvest_con_tri")
 class HarvestConTriEntity : BaseEntity() {
     @Column(name = "triangle_nr_con")
-    private val triangleNrCon: String? = null
+    var triangleNrCon: String? = null
 
     @Column(name = "nr_plants_con_tri")
-    private val nrPlantsConTri: String? = null
+    var nrPlantsConTri: String? = null
 
     @Column(name = "tuberized_marketable_roots_nr_con_tri")
-    private val tuberizedMarketableRootsNrConTri: String? = null
+    var tuberizedMarketableRootsNrConTri: String? = null
 
     @Column(name = "tuberized_marketable_roots_fw_con_tri")
-    private val tuberizedMarketableRootsFwConTri: String? = null
+    var tuberizedMarketableRootsFwConTri: String? = null
 
     @Column(name = "parent_key")
-    private val parentKey: String? = null
+    var parentKey: String? = null
 
     @Column(name = "control_key")
-    private val controlKey: String? = null
+    var controlKey: String? = null
 
     @Column(name = "set_of_harvest_con_tri")
-    private val setOfHarvestConTri: String? = null
+    var setOfHarvestConTri: String? = null
 }

@@ -11,7 +11,7 @@ class HarvestConTriForm {
     var triangleNrCon: String? = null
 
     @JsonProperty("harvest_CON_Tri/nrPlants_CON_Tri")
-    var nrPlantsCONTri: String? = null
+    var nrPlantsConTri: String? = null
 
     @JsonProperty("harvest_CON_Tri/tuberizedMarketableRootsFW_CON_Tri")
     var tuberizedMarketableRootsFwConTri: String? = null
