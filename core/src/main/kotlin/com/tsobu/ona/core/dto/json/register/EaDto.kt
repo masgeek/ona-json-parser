@@ -86,25 +86,25 @@ class EaDto {
     var phoneNrEN: String? = null
 
     @JsonProperty("firstNameEA")
-    var firstNameEA: String? = null
+    var firstNameEa: String? = null
 
     @JsonProperty("surNameEA")
-    var surNameEA: String? = null
+    var surNameEa: String? = null
 
     @JsonProperty("phoneNrEA")
-    var phoneNrEA: String? = null
+    var phoneNrEa: String? = null
 
     @JsonProperty("phoneNr2EA")
-    var phoneNr2EA: String? = null
+    var phoneNr2Ea: String? = null
 
     @JsonProperty("genderEA")
-    var genderEA: String? = null
+    var genderEa: String? = null
 
     @JsonProperty("ageEA")
-    var ageEA: String? = null
+    var ageEa: String? = null
 
     @JsonProperty("educationEA")
-    var educationEA: String? = null
+    var educationEa: String? = null
 
     @JsonProperty("gov")
     var gov: String? = null
@@ -125,16 +125,16 @@ class EaDto {
     var levelName: String? = null
 
     @JsonProperty("nrHH")
-    var nrHH: String? = null
+    var nrHh: String? = null
 
     @JsonProperty("freq")
     var freq: String? = null
 
     @JsonProperty("photoEA")
-    var photoEA: String? = null
+    var photoEa: String? = null
 
     @JsonProperty("photoProfileEA")
-    var photoProfileEA: String? = null
+    var photoProfileEa: String? = null
 
     @JsonProperty("EAID")
     var eaid: String? = null

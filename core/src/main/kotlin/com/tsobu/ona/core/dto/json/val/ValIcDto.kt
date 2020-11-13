@@ -281,7 +281,7 @@ class ValIcDto {
     var profitExtraPlotText: String? = null
 
     @JsonProperty("NPKPlot")
-    var nPKPlot: String? = null
+    var npkPlot: String? = null
 
     @JsonProperty("urea1Plot")
     var urea1Plot: String? = null

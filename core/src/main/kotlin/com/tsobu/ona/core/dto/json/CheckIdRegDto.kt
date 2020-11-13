@@ -59,10 +59,10 @@ class CheckIdRegDto {
     var hhid: String? = null
 
     @JsonProperty("locEA")
-    var locEA: String? = null
+    var locEa: String? = null
 
     @JsonProperty("locHH")
-    var locHH: String? = null
+    var locHh: String? = null
 
     @JsonProperty("geopoint-Latitude")
     var geopointLatitude: String? = null
@@ -77,25 +77,25 @@ class CheckIdRegDto {
     var geopointAccuracy: String? = null
 
     @JsonProperty("firstNameEA")
-    var firstNameEA: String? = null
+    var firstNameEa: String? = null
 
     @JsonProperty("surNameEA")
-    var surNameEA: String? = null
+    var surNameEa: String? = null
 
     @JsonProperty("phoneNrEA")
-    var phoneNrEA: String? = null
+    var phoneNrEa: String? = null
 
     @JsonProperty("phoneNr2EA")
-    var phoneNr2EA: String? = null
+    var phoneNr2Ea: String? = null
 
     @JsonProperty("genderEA")
-    var genderEA: String? = null
+    var genderEa: String? = null
 
     @JsonProperty("ageEA")
-    var ageEA: String? = null
+    var ageEa: String? = null
 
     @JsonProperty("educationEA")
-    var educationEA: String? = null
+    var educationEa: String? = null
 
     @JsonProperty("gov")
     var gov: String? = null
@@ -116,73 +116,73 @@ class CheckIdRegDto {
     var levelName: String? = null
 
     @JsonProperty("nrHH")
-    var nrHH: String? = null
+    var nrHh: String? = null
 
     @JsonProperty("freq")
     var freq: String? = null
 
     @JsonProperty("firstNameHH")
-    var firstNameHH: String? = null
+    var firstNameHh: String? = null
 
     @JsonProperty("surNameHH")
-    var surNameHH: String? = null
+    var surNameHh: String? = null
 
     @JsonProperty("phoneNrHH")
-    var phoneNrHH: String? = null
+    var phoneNrHh: String? = null
 
     @JsonProperty("phoneNr2HH")
-    var phoneNr2HH: String? = null
+    var phoneNr2Hh: String? = null
 
     @JsonProperty("genderHH")
-    var genderHH: String? = null
+    var genderHh: String? = null
 
     @JsonProperty("ageHH")
-    var ageHH: String? = null
+    var ageHh: String? = null
 
     @JsonProperty("relationHH")
-    var relationHH: String? = null
+    var relationHh: String? = null
 
     @JsonProperty("maritalStatusHH")
-    var maritalStatusHH: String? = null
+    var maritalStatusHh: String? = null
 
     @JsonProperty("educationHH")
-    var educationHH: String? = null
+    var educationHh: String? = null
 
     @JsonProperty("occupationHH")
-    var occupationHH: String? = null
+    var occupationHh: String? = null
 
     @JsonProperty("startYearHH")
-    var startYearHH: String? = null
+    var startYearHh: String? = null
 
     @JsonProperty("activitiesHH")
-    var activitiesHH: String? = null
+    var activitiesHh: String? = null
 
     @JsonProperty("useCaseHH")
-    var useCaseHH: String? = null
+    var useCaseHh: String? = null
 
     @JsonProperty("detailsEANote")
-    var detailsEANote: String? = null
+    var detailsEaNote: String? = null
 
     @JsonProperty("firstNameEANote")
-    var firstNameEANote: String? = null
+    var firstNameEaNote: String? = null
 
     @JsonProperty("surNameEANote")
-    var surNameEANote: String? = null
+    var surNameEaNote: String? = null
 
     @JsonProperty("phoneNrEANote")
-    var phoneNrEANote: String? = null
+    var phoneNrEaNote: String? = null
 
     @JsonProperty("phoneNr2EANote")
-    var phoneNr2EANote: String? = null
+    var phoneNr2EaNote: String? = null
 
     @JsonProperty("genderEANote")
-    var genderEANote: String? = null
+    var genderEaNote: String? = null
 
     @JsonProperty("ageEANote")
-    var ageEANote: String? = null
+    var ageEaNote: String? = null
 
     @JsonProperty("educationEANote")
-    var educationEANote: String? = null
+    var educationEaNote: String? = null
 
     @JsonProperty("govNote")
     var govNote: String? = null
@@ -194,58 +194,58 @@ class CheckIdRegDto {
     var titleNote: String? = null
 
     @JsonProperty("AONote")
-    var aONote: String? = null
+    var aoNote: String? = null
 
     @JsonProperty("nrHHNote")
-    var nrHHNote: String? = null
+    var nrHhNote: String? = null
 
     @JsonProperty("correctEA")
-    var correctEA: String? = null
+    var correctEa: String? = null
 
     @JsonProperty("detailsHHNote")
-    var detailsHHNote: String? = null
+    var detailsHhNote: String? = null
 
     @JsonProperty("firstNameHHNote")
-    var firstNameHHNote: String? = null
+    var firstNameHhNote: String? = null
 
     @JsonProperty("surNameHHNote")
-    var surNameHHNote: String? = null
+    var surNameHhNote: String? = null
 
     @JsonProperty("phoneNrHHNote")
-    var phoneNrHHNote: String? = null
+    var phoneNrHhNote: String? = null
 
     @JsonProperty("phoneNr2HHNote")
-    var phoneNr2HHNote: String? = null
+    var phoneNr2HhNote: String? = null
 
     @JsonProperty("genderHHNote")
-    var genderHHNote: String? = null
+    var genderHhNote: String? = null
 
     @JsonProperty("ageHHNote")
-    var ageHHNote: String? = null
+    var ageHhNote: String? = null
 
     @JsonProperty("relationHHNote")
-    var relationHHNote: String? = null
+    var relationHhNote: String? = null
 
     @JsonProperty("maritalStatusHHNote")
-    var maritalStatusHHNote: String? = null
+    var maritalStatusHhNote: String? = null
 
     @JsonProperty("educationHHNote")
-    var educationHHNote: String? = null
+    var educationHhNote: String? = null
 
     @JsonProperty("occupationHHNote")
-    var occupationHHNote: String? = null
+    var occupationHhNote: String? = null
 
     @JsonProperty("startYearHHNote")
-    var startYearHHNote: String? = null
+    var startYearHhNote: String? = null
 
     @JsonProperty("activitiesHHNote")
-    var activitiesHHNote: String? = null
+    var activitiesHhNote: String? = null
 
     @JsonProperty("useCaseHHNote")
-    var useCaseHHNote: String? = null
+    var useCaseHhNote: String? = null
 
     @JsonProperty("correctHH")
-    var correctHH: String? = null
+    var correctHh: String? = null
 
     @JsonProperty("endNote1")
     var endNote1: String? = null

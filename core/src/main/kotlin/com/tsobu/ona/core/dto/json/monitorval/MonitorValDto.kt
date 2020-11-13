@@ -68,7 +68,7 @@ class MonitorValDto {
     var detailsEa: String? = null
 
     @JsonProperty("detailsEANote")
-    var detailsEANote: String? = null
+    var detailsEaNote: String? = null
 
     @JsonProperty("HHID")
     var hhid: String? = null

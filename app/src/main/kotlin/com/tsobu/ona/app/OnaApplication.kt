@@ -111,7 +111,7 @@ class OnaApplication(
     override fun run(vararg args: String?) {
         log.info("Running Spring Boot Application press CTR-C to close the application")
 
-//        sphsService.readJsonAsset()
+        sphsService.mapJsonFile()
 
 //        weedControlService.readJsonAsset()
 //        assessRootYieldCassavaService.readJsonAsset()
@@ -163,7 +163,7 @@ class OnaApplication(
 //        replaceTlService.readJsonAsset()
 //        praSphsService.readJsonAsset()
 
-        validationService.validateCsvColumnCount()
+        validationService.processCsvFiles()
         log.info("Hello, Iam finished");
     }
 

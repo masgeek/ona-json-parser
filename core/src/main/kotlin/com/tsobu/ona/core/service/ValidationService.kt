@@ -20,7 +20,7 @@ class ValidationService(
 
     private val log = LoggerFactory.getLogger(ValidationService::class.java)
 
-    fun validateCsvColumnCount() {
+    fun processCsvFiles() {
         val destinationFileList = readFileList(appConfig.globalProperties().outputPath!!)
         val sourceFileList = readFileList(appConfig.globalProperties().comparePath!!)
 
@@ -29,16 +29,15 @@ class ValidationService(
 
         val sourceValidation = processSourceFiles(sourceFileList)
         columnValidationRepo.saveAll(sourceValidation)
+
+        val formList = columnValidationRepo.findAll()
+        validateColumnCount(formList)
     }
 
-    fun processDestinationFiles(fileList: Array<File>?): ArrayList<FormColumnValidationEntity> {
+    protected fun processDestinationFiles(fileList: Array<File>?): ArrayList<FormColumnValidationEntity> {
         val validationData = ArrayList<FormColumnValidationEntity>()
         fileList?.forEach { file ->
-            val exists = columnValidationRepo.findById(file.name)
-            var validationEntity = FormColumnValidationEntity()
-            if (exists.isPresent) {
-                validationEntity = exists.get()
-            }
+            val validationEntity = queryFileInfo(file.name)
             val records = readCsvFile(file)
 
             validationEntity.formName = file.name
@@ -49,15 +48,10 @@ class ValidationService(
         return validationData
     }
 
-    fun processSourceFiles(fileList: Array<File>?): ArrayList<FormColumnValidationEntity> {
+    protected fun processSourceFiles(fileList: Array<File>?): ArrayList<FormColumnValidationEntity> {
         val validationData = ArrayList<FormColumnValidationEntity>()
         fileList?.forEach { file ->
-            val exists = columnValidationRepo.findById(file.name)
-            var validationEntity = FormColumnValidationEntity()
-            if (exists.isPresent) {
-                validationEntity = exists.get()
-            }
-
+            val validationEntity = queryFileInfo(file.name)
             val records = readCsvFile(file)
 
             validationEntity.formName = records.fileName
@@ -68,7 +62,24 @@ class ValidationService(
         return validationData
     }
 
-    fun readCsvFile(file: File): CsvInfo {
+    protected fun validateColumnCount(formList: MutableList<FormColumnValidationEntity>) {
+        formList.forEach { validationEntity ->
+            val columnCountValid = validationEntity.expectedColumnCount == validationEntity.actualColumnCount
+            validationEntity.valid = columnCountValid
+            columnValidationRepo.save(validationEntity)
+        }
+    }
+
+    protected fun queryFileInfo(fileName:String): FormColumnValidationEntity {
+        val exists = columnValidationRepo.findById(fileName)
+        var columnValidationEntity = FormColumnValidationEntity()
+        if (exists.isPresent) {
+            columnValidationEntity = exists.get()
+        }
+        return columnValidationEntity
+    }
+
+    protected fun readCsvFile(file: File): CsvInfo {
         val path = Paths.get(file.absolutePath)
         val bytes: Long = Files.size(path)
         val kbSize = bytes / 1024
@@ -85,7 +96,7 @@ class ValidationService(
         return CsvInfo(results.size, kbSize, file.name)
     }
 
-    fun readFileList(directoryPath: String, fileSuffix: String = ".csv"): Array<File>? {
+    protected fun readFileList(directoryPath: String, fileSuffix: String = ".csv"): Array<File>? {
         val fileDirectory = File(directoryPath)
 
         val filter = FilenameFilter { _, fileName ->

@@ -33,6 +33,7 @@ constructor(
         val sphsRepo: SphsRepo,
         val harvestRecTriDetailRepo: HarvestRecTriDetailRepo,
         val harvestRecTriRepo: HarvestRecTriRepo,
+        val harvestConTriRepo: HarvestConTriRepo,
         val remainPlantRecRepo: RemainPlantRecRepo,
         val cornerPlantRecRepo: CornerPlantRecRepo,
         val harvestConTriDetailRepo: HarvestConTriDetailRepo,
@@ -51,6 +52,7 @@ constructor(
         log.info("Reading tables here")
         val sphsList = sphsRepo.findAllByOrderBySubmissionDateAsc()
         val harvestRecTriList = harvestRecTriRepo.findAll()
+        val harvestConTriList = harvestConTriRepo.findAll()
         val conTriDetailList = harvestConTriDetailRepo.findAll()
         val recTriDetailList = harvestRecTriDetailRepo.findAll()
         val cornerPlantConList = cornerPlantConRepo.findAll()
@@ -95,6 +97,10 @@ constructor(
             val harvestRecTriDto = modelMapper.map(harvestRecTriEntity, HarvestRecTriDto::class.java)
             harvestRecTriDto
         }
+        val harvestConTriData = harvestConTriList.map { harvestRecTriEntity ->
+            val harvestRecTriDto = modelMapper.map(harvestRecTriEntity, HarvestConTriDto::class.java)
+            harvestRecTriDto
+        }
         val recTriDetailData = recTriDetailList.map { recTriDetailEntity ->
             val recTriDetailDto = modelMapper.map(recTriDetailEntity, RecTriDetailDto::class.java)
             recTriDetailDto
@@ -124,6 +130,7 @@ constructor(
         writeCsvFile.writeCsv(classMap = ConTriDetailDto::class.java, data = conTriDetailData, fileName = "dataVAL_SPHS-harvest_CON_Tri_detail", outPutPath = filePath)
         writeCsvFile.writeCsv(classMap = RecTriDetailDto::class.java, data = recTriDetailData, fileName = "dataVAL_SPHS-harvest_REC_Tri_detail", outPutPath = filePath)
         writeCsvFile.writeCsv(classMap = HarvestRecTriDto::class.java, data = harvestRecTriData, fileName = "dataVAL_SPHS-harvest_REC_Tri", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = HarvestConTriDto::class.java, data = harvestConTriData, fileName = "dataVAL_SPHS-harvest_CON_Tri", outPutPath = filePath)
         writeCsvFile.writeCsv(classMap = RemainPlantRecDto::class.java, data = remainPlantRecData, fileName = "dataVAL_SPHS-remainPlant_REC", outPutPath = filePath)
         writeCsvFile.writeCsv(classMap = RemainPlantConDto::class.java, data = remainPlantConData, fileName = "dataVAL_SPHS-remainPlant_CON", outPutPath = filePath)
     }
