@@ -21,17 +21,22 @@ class ValidationService(
     private val log = LoggerFactory.getLogger(ValidationService::class.java)
 
     fun processCsvFiles() {
-        val destinationFileList = readFileList(appConfig.globalProperties().outputPath!!)
-        val sourceFileList = readFileList(appConfig.globalProperties().comparePath!!)
+        try {
+            val destinationFileList = readFileList(appConfig.globalProperties().outputPath!!)
+            val sourceFileList = readFileList(appConfig.globalProperties().comparePath!!)
 
-        val validationData = processDestinationFiles(destinationFileList)
-        columnValidationRepo.saveAll(validationData)
+            val sourceValidation = processSourceFiles(sourceFileList)
+            columnValidationRepo.saveAll(sourceValidation)
 
-        val sourceValidation = processSourceFiles(sourceFileList)
-        columnValidationRepo.saveAll(sourceValidation)
+            val validationData = processDestinationFiles(destinationFileList)
+            columnValidationRepo.saveAll(validationData)
 
-        val formList = columnValidationRepo.findAll()
-        validateData(formList)
+            val formList = columnValidationRepo.findAll()
+            validateData(formList)
+        } catch (ex: Exception) {
+            log.warn("Data could not be validated maybe files are empty?")
+            log.error(ex.message, ex)
+        }
     }
 
     protected fun processDestinationFiles(fileList: Array<File>?): ArrayList<FormColumnValidationEntity> {
@@ -64,8 +69,8 @@ class ValidationService(
         return validationData
     }
 
-    protected fun validateData(formList: MutableList<FormColumnValidationEntity>) {
-        formList.forEach { validationEntity ->
+    protected fun validateData(formList: MutableList<FormColumnValidationEntity>?) {
+        formList?.forEach { validationEntity ->
             val columnCountValid = validationEntity.expectedColumnCount == validationEntity.actualColumnCount
             val dataCountValid = validationEntity.actualDataCount!! >= validationEntity.expectedDataCount!!
 

@@ -33,7 +33,7 @@ constructor(
         val installCorrectDetailsRepo: InstallCorrectDetailsRepo,
         val leafSampleRepo: LeafSampleRepo,
         val maizePlantHeightRepo: MaizePlantHeightRepo,
-        val phRepo: PhRepo,
+        val monitorValPhRepo: MonitorValPhRepo,
         val plotLayoutRepo: PlotLayoutRepo,
         val trialRatingSomeRepo: TrialRatingSomeRepo,
         val problemPlotSomeRepo: ProblemPlotSomeRepo,
@@ -70,7 +70,7 @@ constructor(
         val installCorrectDetailsList = installCorrectDetailsRepo.findAll()
         val leafSampleList = leafSampleRepo.findAll()
         val maizePlantHeightList = maizePlantHeightRepo.findAll()
-        val phList = phRepo.findAll()
+        val monitorValPhList = monitorValPhRepo.findAll()
         val plotLayoutList = plotLayoutRepo.findAll()
         val problemPlotSomeList = problemPlotSomeRepo.findAll()
         val soilSampleList = soilSampleRepo.findAll()
@@ -102,8 +102,8 @@ constructor(
             maizePlantHeightDto
         }
 
-        val phListData = phList.map { phEntity ->
-            val phDto = modelMapper.map(phEntity, PhDto::class.java)
+        val monitorValPhData = monitorValPhList.map { phEntity ->
+            val phDto = modelMapper.map(phEntity, MonitorValPhDto::class.java)
             phDto
         }
 
@@ -141,7 +141,7 @@ constructor(
         writeCsvFile.writeCsv(classMap = InstallCorrectDetailsDto::class.java, data = installCorrectDetailsData, fileName = "monitorVAL-installCorrectDetails", outPutPath = filePath)
         writeCsvFile.writeCsv(classMap = LeafSampleDto::class.java, data = leafSampleListData, fileName = "monitorVAL-leafSample", outPutPath = filePath)
         writeCsvFile.writeCsv(classMap = MaizePlantHeightDto::class.java, data = maizePlantHeightListData, fileName = "monitorVAL-maizePlantHeight", outPutPath = filePath)
-        writeCsvFile.writeCsv(classMap = PhDto::class.java, data = phListData, fileName = "monitorVAL-PH", outPutPath = filePath)
+        writeCsvFile.writeCsv(classMap = MonitorValPhDto::class.java, data = monitorValPhData, fileName = "monitorVAL-PH", outPutPath = filePath)
         writeCsvFile.writeCsv(classMap = PlotLayoutDto::class.java, data = plotLayoutListData, fileName = "monitorVAL-plotLayout", outPutPath = filePath)
         writeCsvFile.writeCsv(classMap = ProblemPlotSomeDto::class.java, data = problemPlotSomeListData, fileName = "monitorVAL-problemPlot_Some", outPutPath = filePath)
         writeCsvFile.writeCsv(classMap = SoilSampleDto::class.java, data = soilSampleListData, fileName = "monitorVAL-soilSample", outPutPath = filePath)
@@ -178,7 +178,7 @@ constructor(
         val correctDetailEntityData = ArrayList<InstallCorrectDetailsEntity>()
         val leafSampleEntityData = ArrayList<LeafSampleEntity>()
         val maizePlantHeightEntityData = ArrayList<MaizePlantHeightEntity>()
-        val phEntityData = ArrayList<PhEntity>()
+        val monitorValPhEntityData = ArrayList<MonitorValPhEntity>()
         val plotLayoutData = ArrayList<PlotLayoutEntity>()
         val trialRatingSomeData = ArrayList<TrialRatingSomeEntity>()
         val plotSomeEntityData = ArrayList<ProblemPlotSomeEntity>()
@@ -259,15 +259,15 @@ constructor(
 
                 //insert the ph stuff
                 var phCounter = 1
-                val maizePlantPhList = maizePlantHeight.maizePlantHeightPh
+                val maizePlantPhList = maizePlantHeight.ph
                 maizePlantPhList?.forEach { maizePlantHeightPh ->
-                    val phEntity = modelMapper.map(maizePlantHeightPh, PhEntity::class.java)
+                    val phEntity = modelMapper.map(maizePlantHeightPh, MonitorValPhEntity::class.java)
                     phEntity.parentKey = plantHeightEntity.controlKey
                     phEntity.controlKey = "${plantHeightEntity.controlKey}/PH[$phCounter]"
                     phEntity.setOfPh = "${plantHeightEntity.controlKey}/PH"
 
                     phCounter = phCounter.plus(1)
-                    phEntityData.add(phEntity)
+                    monitorValPhEntityData.add(phEntity)
                 }
             }
 
@@ -354,7 +354,7 @@ constructor(
         installCorrectDetailsRepo.saveAll(correctDetailEntityData)
         leafSampleRepo.saveAll(leafSampleEntityData)
         maizePlantHeightRepo.saveAll(maizePlantHeightEntityData)
-        phRepo.saveAll(phEntityData)
+        monitorValPhRepo.saveAll(monitorValPhEntityData)
         plotLayoutRepo.saveAll(plotLayoutData)
         trialRatingSomeRepo.saveAll(trialRatingSomeData)
         problemPlotSomeRepo.saveAll(plotSomeEntityData)

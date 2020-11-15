@@ -109,11 +109,6 @@ class MonitorValForm {
     @JsonProperty("conversion")
     var conversion: String? = null
 
-    @JsonProperty("plotLayout")
-    var plotLayout: List<PlotLayout>? = null
-
-    @JsonProperty("soilSample")
-    var soilSample: List<SoilSample>? = null
 
     @JsonProperty("firstNameEA")
     var firstNameEa: String? = null
@@ -166,8 +161,6 @@ class MonitorValForm {
     @JsonProperty("leafSample_count")
     var leafSampleCount: String? = null
 
-    @JsonProperty("maizePlantHeight")
-    var maizePlantHeight: List<MaizePlantHeight>? = null
 
     @JsonProperty("plotLayout_count")
     var plotLayoutCount: String? = null
@@ -229,20 +222,12 @@ class MonitorValForm {
     @JsonProperty("problems_Some")
     var problemsSome: String? = null
 
-    @JsonProperty("trialRating_Some")
-    var trialRatingSome: List<TrialRatingSome>? = null
-
-    @JsonProperty("trialQuality_Some")
-    var trialQualitySome: List<TrialQualitySome>? = null
-
     @JsonProperty("comment")
     var commentValue: String? = null
 
     @JsonProperty("problems_All")
     var problemsAll: String? = null
 
-    @JsonProperty("trialRating_All")
-    var trialRatingAll: List<TrialRatingAll>? = null
 
     @JsonProperty("enumerator/surName")
     var surName: String? = null
@@ -305,7 +290,7 @@ class MonitorValForm {
     var cassavaGrownMonoCrop: String? = null
 
     @JsonProperty("siteDetails2/cassavaGrownIntercrop")
-    var siteDetails2CassavaGrownIntercrop: String? = null
+    var cassavaGrownIntercrop: String? = null
 
     @JsonProperty("siteDetails4/localSoilNameTranslated")
     var localSoilNameTranslated: String? = null
@@ -333,9 +318,6 @@ class MonitorValForm {
 
     @JsonProperty("siteDetails3/siteDetails3c/previousOtherCrops")
     var previousOtherCrops: String? = null
-
-    @JsonProperty("installCorrectDetails")
-    var installCorrectDetails: List<InstallCorrectDetail>? = null
 
     @JsonProperty("siteDetails3/siteDetails3c/fertilizerApplied")
     var fertilizerApplied: String? = null
@@ -387,4 +369,27 @@ class MonitorValForm {
 
     @JsonProperty("zoneSelect")
     var zoneSelect: String? = null
+
+    ///---- the lists
+
+    @JsonProperty("trialRating_Some")
+    var trialRatingSome: List<TrialRatingSome>? = null
+
+    @JsonProperty("trialQuality_Some")
+    var trialQualitySome: List<TrialQualitySome>? = null
+
+    @JsonProperty("maizePlantHeight")
+    var maizePlantHeight: List<MaizePlantHeight>? = null
+
+    @JsonProperty("plotLayout")
+    var plotLayout: List<PlotLayout>? = null
+
+    @JsonProperty("soilSample")
+    var soilSample: List<SoilSample>? = null
+
+    @JsonProperty("trialRating_All")
+    var trialRatingAll: List<TrialRatingAll>? = null
+
+    @JsonProperty("installCorrectDetails")
+    var installCorrectDetails: List<InstallCorrectDetail>? = null
 }
