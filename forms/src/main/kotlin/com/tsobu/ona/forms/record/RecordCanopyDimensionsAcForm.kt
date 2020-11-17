@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import java.util.*
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(ignoreUnknown = false)
 @JsonInclude(JsonInclude.Include.NON_NULL)class RecordCanopyDimensionsAcForm {
     @JsonProperty("ID")
     var idList: List<RecordCanopyDimensionsIdForm> = ArrayList()

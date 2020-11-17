@@ -55,7 +55,7 @@ constructor(
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
         modelMapper.configuration.isAmbiguityIgnored = false
-        modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
+        modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val lzeData = lzeList.map { lzeEntity ->
             val lzeDto = modelMapper.map(lzeEntity, LzeDto::class.java)
@@ -113,7 +113,7 @@ constructor(
                     ezEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            ezEntity.formHubUuId = myVal.formhubUuid
+            ezEntity.formHubUuId = myVal.formHubUuid
             ezEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
             ezEntity.todayDate = myDateUtil.convertToDate(myVal.todayDate)
             ezEntity.startDate = myDateUtil.convertToDateTime(myVal.startDate)

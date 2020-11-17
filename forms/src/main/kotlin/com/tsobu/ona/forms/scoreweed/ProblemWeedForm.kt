@@ -3,7 +3,7 @@ package com.tsobu.ona.forms.scoreweed
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(ignoreUnknown = false)
 class ProblemWeedForm {
 
     @JsonProperty("PW/problemWeed")
