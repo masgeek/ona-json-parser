@@ -43,16 +43,24 @@ class MyUtils {
         return instant.atZone(ZoneId.of("UTC")).toLocalDateTime()
     }
 
-    fun toDateTimeString(localDateTime: LocalDateTime?, format: String = "MMM dd, yyyy hh:mm:ss a"): String? {
+    fun toDateTimeString(localDateTime: LocalDateTime?, format: String = "MMM d, yyyy h:mm:ss a"): String? {
         if (localDateTime == null) {
             return null
         }
         val dateFormat2 = DateTimeFormatter.ofPattern(format)
 
-        return dateFormat2.format(localDateTime)
+        val dateString = dateFormat2.format(localDateTime)
+        return removeLeadingZeroes(dateString)
     }
 
-    fun toDateToString(localDateTime: LocalDateTime?, format: String = "MMM dd, yyyy"): String? {
+    fun toDateToString(localDateTime: LocalDateTime?, format: String = "MMM d, yyyy"): String? {
         return toDateTimeString(localDateTime, format)
+    }
+
+    private fun removeLeadingZeroes(uncleanString: String): String? {
+        var str = uncleanString
+        val strPattern = "^0+(?!$)"
+        str = str.replace(strPattern.toRegex(), "")
+        return str
     }
 }
