@@ -10,6 +10,15 @@ class NonDestructiveCassAcIdForm {
     @JsonProperty("ID/NDM")
     var ndmList: List<NonDestructiveCassIdNdmForm> = ArrayList()
 
+    @JsonProperty("ID/plotID")
+    var plotId: String? = null
+
+    @JsonProperty("ID/sectionID")
+    var sectionId: String? = null
+
+    @JsonProperty("ID/nrMeasurements")
+    var nrMeasurements: String? = null
+
     @JsonProperty("ID/NDM_count")
     var ndmCount: String? = null
 }

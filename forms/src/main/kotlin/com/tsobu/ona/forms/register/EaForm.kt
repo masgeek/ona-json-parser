@@ -11,7 +11,7 @@ import java.util.*
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class EaForm {
     @JsonProperty("_id")
-    var id: String? = null
+    var dataId: String? = null
 
     @JsonProperty("end")
     var endDate: String? = null

@@ -292,7 +292,7 @@ constructor(
                 recTriDetailCount = recTriDetailCount.plus(1)
             }
 
-            val harvestConTriDetailList = sphs.harvestConTriDetailFormList
+            val harvestConTriDetailList = sphs.harvestConTriDetailForm
             var conTriDetailCounter = 1
             harvestConTriDetailList?.forEach { conTriDetail ->
                 val conTriDetailEntity = modelMapper.map(conTriDetail, HarvestConTriDetailEntity::class.java)
