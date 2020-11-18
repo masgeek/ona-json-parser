@@ -42,7 +42,7 @@ class SampleBatchCompositionForm {
     var version: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: String? = null
+    var deviceId: String? = null
 
     @JsonProperty("username")
     var username: String? = null

@@ -203,10 +203,10 @@ class ValPpTzEntity : BaseEntity() {
     var withinRow: String? = null
 
     @Column(name = "plotl")
-    var plotl: String? = null
+    var plotLength: String? = null
 
     @Column(name = "plotw")
-    var plotw: String? = null
+    var plotWidth: String? = null
 
     @Column(name = "plot_size")
     var plotSize: String? = null
@@ -281,7 +281,7 @@ class ValPpTzEntity : BaseEntity() {
     var costCp: String? = null
 
     @Column(name = "costcpcurr")
-    var costcpcurr: String? = null
+    var costcpCurr: String? = null
 
     @Column(name = "gross_value_t0rg")
     var grossValueT0rg: String? = null

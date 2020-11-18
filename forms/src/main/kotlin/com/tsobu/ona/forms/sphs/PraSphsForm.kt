@@ -63,7 +63,7 @@ class PraSphsForm {
     var currency: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: String? = null
+    var deviceId: String? = null
 
     @JsonProperty("geopoint")
     var geopoint: String? = null
@@ -90,7 +90,7 @@ class PraSphsForm {
     var nrParRoots: String? = null
 
     @JsonProperty("unitWeight")
-    var UnitWeight: String? = null
+    var unitWeight: String? = null
 
     @JsonProperty("nrParStarch")
     var nrParStarch: String? = null

@@ -1,4 +1,4 @@
-package com.tsobu.ona.core.service.valform
+package com.tsobu.ona.core.service.valsphs
 
 
 import com.fasterxml.jackson.core.type.TypeReference
@@ -55,7 +55,7 @@ constructor(
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
 //        modelMapper.configuration.isAmbiguityIgnored = false
-        modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
+        modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
         val kwList = kwRepo.findAllByOrderBySubmissionDateAsc()
@@ -127,6 +127,8 @@ constructor(
             kwEntity.todayDate = myDateUtil.convertToDate(kwForm.todayDate)
             kwEntity.startDate = myDateUtil.convertToDateTime(kwForm.startDate)
             kwEntity.endDate = myDateUtil.convertToDateTime(kwForm.endDate)
+            kwEntity.plantingDate = myDateUtil.convertToDate(kwForm.plantingDate)
+            kwEntity.harvestDate = myDateUtil.convertToDate(kwForm.harvestDate)
             kwEntity.instanceId = kwForm.instanceId
             kwEntity.controlKey = kwForm.instanceId
 

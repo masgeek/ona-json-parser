@@ -11,22 +11,22 @@ class LzeDto {
     var lookupp0hp3Id: String? = null
 
     @JsonProperty("GRp0hm1")
-    var grp0hm1: String? = null
+    var grP0hm1: String? = null
 
     @JsonProperty("subscriberid")
-    var subscriberid: String? = null
+    var subscriberId: String? = null
 
     @JsonProperty("GRp0hm3")
-    var grp0hm3: String? = null
+    var grP0hm3: String? = null
 
     @JsonProperty("GRp0hm2")
-    var grp0hm2: String? = null
+    var grP0hm2: String? = null
 
     @JsonProperty("SubmissionDate")
     var submissionDate: String? = null
 
     @JsonProperty("GRp0hm4")
-    var grp0hm4: String? = null
+    var grP0hm4: String? = null
 
     @JsonProperty("noRecommendationNote")
     var norecommendationnote: String? = null
@@ -38,49 +38,49 @@ class LzeDto {
     var lookupp0h0Id: String? = null
 
     @JsonProperty("priceR0")
-    var pricer0: String? = null
+    var priceR0: String? = null
 
     @JsonProperty("priceSC2")
-    var pricesc2: String? = null
+    var priceSc2: String? = null
 
     @JsonProperty("harvestDate")
     var harvestDate: String? = null
 
     @JsonProperty("priceSC1")
-    var pricesc1: String? = null
+    var priceSc1: String? = null
 
     @JsonProperty("priceSC4")
-    var pricesc4: String? = null
+    var priceSc4: String? = null
 
     @JsonProperty("priceSC3")
-    var pricesc3: String? = null
+    var priceSc3: String? = null
 
     @JsonProperty("priceSC6")
-    var pricesc6: String? = null
+    var priceSc6: String? = null
 
     @JsonProperty("priceSC5")
-    var pricesc5: String? = null
+    var priceSc5: String? = null
 
     @JsonProperty("priceSC8")
-    var pricesc8: String? = null
+    var priceSc8: String? = null
 
     @JsonProperty("priceSC7")
-    var pricesc7: String? = null
+    var priceSc7: String? = null
 
     @JsonProperty("check_id")
     var checkId: String? = null
 
     @JsonProperty("GRp0h0")
-    var grp0h0: String? = null
+    var grP0h0: String? = null
 
     @JsonProperty("priceSC0")
-    var pricesc0: String? = null
+    var priceSc0: String? = null
 
     @JsonProperty("WYp0hm4")
     var wyp0hm4: String? = null
 
     @JsonProperty("SCp4")
-    var scp4: String? = null
+    var scP4: String? = null
 
     @JsonProperty("WYp0hm3")
     var wyp0hm3: String? = null
@@ -89,19 +89,19 @@ class LzeDto {
     var wyp0hm2: String? = null
 
     @JsonProperty("SCp2")
-    var scp2: String? = null
+    var scP2: String? = null
 
     @JsonProperty("WYp0hm1")
     var wyp0hm1: String? = null
 
     @JsonProperty("SCp3")
-    var scp3: String? = null
+    var scP3: String? = null
 
     @JsonProperty("intro2")
     var intro2: String? = null
 
     @JsonProperty("SCp1")
-    var scp1: String? = null
+    var scP1: String? = null
 
     @JsonProperty("HHID")
     var hhid: String? = null
@@ -112,41 +112,32 @@ class LzeDto {
     @JsonProperty("Pp0h0")
     var pp0h0: String? = null
 
-    @JsonProperty("SC10")
-    var sc10: String? = null
-
     @JsonProperty("variety")
     var variety: String? = null
 
-    @JsonProperty("SC11")
-    var sc11: String? = null
-
     @JsonProperty("GRp0hp2")
-    var grp0hp2: String? = null
-
-    @JsonProperty("SC12")
-    var sc12: String? = null
+    var grP0hp2: String? = null
 
     @JsonProperty("GRp0hp1")
-    var grp0hp1: String? = null
+    var grP0hp1: String? = null
 
     @JsonProperty("GRdif_ABcurr")
-    var grdifAbCurr: String? = null
+    var grDifAbCurr: String? = null
 
     @JsonProperty("GPp0hm4")
-    var gpp0hm4: String? = null
+    var gpP0hm4: String? = null
 
     @JsonProperty("currency")
     var currency: String? = null
 
     @JsonProperty("GPp0hm3")
-    var gpp0hm3: String? = null
+    var gpP0hm3: String? = null
 
     @JsonProperty("GPp0hm2")
-    var gpp0hm2: String? = null
+    var gpP0hm2: String? = null
 
     @JsonProperty("GPp0hm1")
-    var gpp0hm1: String? = null
+    var gpP0hm1: String? = null
 
     @JsonProperty("email")
     var email: String? = null
@@ -155,34 +146,34 @@ class LzeDto {
     var lookupp0hp2Id: String? = null
 
     @JsonProperty("unitWeightOther")
-    var unitweightother: String? = null
+    var unitWeightOther: String? = null
 
     @JsonProperty("GRp0h0_AB")
-    var grp0h0Ab: String? = null
+    var grP0h0Ab: String? = null
 
     @JsonProperty("GRp0hp4")
-    var grp0hp4: String? = null
+    var grP0hp4: String? = null
 
     @JsonProperty("GRp0hp3")
-    var grp0hp3: String? = null
+    var grP0hp3: String? = null
 
     @JsonProperty("priceSC12")
-    var pricesc12: String? = null
+    var priceSc12: String? = null
 
     @JsonProperty("call")
     var callValue: String? = null
 
     @JsonProperty("priceSC10")
-    var pricesc10: String? = null
+    var priceSc10: String? = null
 
     @JsonProperty("priceRp2")
-    var pricerp2: String? = null
+    var priceRp2: String? = null
 
     @JsonProperty("priceSC11")
-    var pricesc11: String? = null
+    var priceSc11: String? = null
 
     @JsonProperty("priceRp4")
-    var pricerp4: String? = null
+    var priceRp4: String? = null
 
     @JsonProperty("confirmVAL")
     var confirmVal: String? = null
@@ -200,7 +191,7 @@ class LzeDto {
     var geoPointAltitude: String? = null
 
     @JsonProperty("optHarvestText")
-    var optharvesttext: String? = null
+    var optHarvestText: String? = null
 
     @JsonProperty("country")
     var country: String? = null
@@ -209,13 +200,13 @@ class LzeDto {
     var plantingDate: String? = null
 
     @JsonProperty("GRdif_AB")
-    var grdifAb: String? = null
+    var grDifAb: String? = null
 
     @JsonProperty("priceRm4")
-    var pricerm4: String? = null
+    var priceRm4: String? = null
 
     @JsonProperty("harvestAge0")
-    var harvestage0: String? = null
+    var harvestAge0: String? = null
 
     @JsonProperty("CYp0h0")
     var cyp0h0: String? = null
@@ -227,40 +218,40 @@ class LzeDto {
     var wyp0hp3: String? = null
 
     @JsonProperty("GRmax")
-    var grmax: String? = null
+    var grMax: String? = null
 
     @JsonProperty("EAID")
     var eaid: String? = null
 
     @JsonProperty("priceRm2")
-    var pricerm2: String? = null
+    var priceRm2: String? = null
 
     @JsonProperty("WYp0hp2")
     var wyp0hp2: String? = null
 
     @JsonProperty("difHarvestNote")
-    var difharvestnote: String? = null
+    var difHarvestNote: String? = null
 
     @JsonProperty("WYp0hp1")
     var wyp0hp1: String? = null
 
     @JsonProperty("unitName")
-    var unitname: String? = null
+    var unitName: String? = null
 
     @JsonProperty("check")
     var checkValue: String? = null
 
     @JsonProperty("harvestAgem3")
-    var harvestagem3: String? = null
+    var harvestAgeM3: String? = null
 
     @JsonProperty("harvestAgem4")
-    var harvestagem4: String? = null
+    var harvestAgeM4: String? = null
 
     @JsonProperty("harvestAgem1")
-    var harvestagem1: String? = null
+    var harvestAgeM1: String? = null
 
     @JsonProperty("harvestAgem2")
-    var harvestagem2: String? = null
+    var harvestAgeM2: String? = null
 
     @JsonProperty("lookupp0hm2_id")
     var lookupp0hm2Id: String? = null
@@ -281,7 +272,7 @@ class LzeDto {
     var pp0hp1: String? = null
 
     @JsonProperty("GRp0h0_ABcurr")
-    var grp0h0AbCurr: String? = null
+    var grP0h0AbCurr: String? = null
 
     @JsonProperty("Pp0hp3")
     var pp0hp3: String? = null
@@ -299,7 +290,7 @@ class LzeDto {
     var betweenRow: String? = null
 
     @JsonProperty("GPdif")
-    var gpdif: String? = null
+    var gpDif: String? = null
 
     @JsonProperty("username")
     var username: String? = null
@@ -311,16 +302,16 @@ class LzeDto {
     var yp0h0Ab: String? = null
 
     @JsonProperty("priceStarch")
-    var pricestarch: String? = null
+    var priceStarch: String? = null
 
     @JsonProperty("harvestAgep2")
-    var harvestagep2: String? = null
+    var harvestAgeP2: String? = null
 
     @JsonProperty("harvestAgep3")
-    var harvestagep3: String? = null
+    var harvestAgeP3: String? = null
 
     @JsonProperty("harvestAgep4")
-    var harvestagep4: String? = null
+    var harvestAgeP4: String? = null
 
     @JsonProperty("lookupp0hm1_id")
     var lookupp0hm1Id: String? = null
@@ -329,40 +320,40 @@ class LzeDto {
     var season: String? = null
 
     @JsonProperty("GPp0h0curr")
-    var gpp0h0Curr: String? = null
+    var gpP0h0Curr: String? = null
 
     @JsonProperty("plotSize")
     var plotSize: String? = null
 
     @JsonProperty("harvestAgep1")
-    var harvestagep1: String? = null
+    var harvestAgeP1: String? = null
 
     @JsonProperty("unitLocalWeight")
-    var unitlocalweight: String? = null
+    var unitLocalWeight: String? = null
 
     @JsonProperty("GRdifNote")
-    var grdifnote: String? = null
+    var grDifNote: String? = null
 
     @JsonProperty("GPp0h0")
-    var gpp0h0: String? = null
+    var gpP0h0: String? = null
 
     @JsonProperty("CYp0hm1")
     var cyp0hm1: String? = null
 
     @JsonProperty("priceSCm2")
-    var pricescm2: String? = null
+    var priceScM2: String? = null
 
     @JsonProperty("yieldLevel")
-    var yieldlevel: String? = null
+    var yieldLevel: String? = null
 
     @JsonProperty("CYp0hm2")
     var cyp0hm2: String? = null
 
     @JsonProperty("priceSCm3")
-    var pricescm3: String? = null
+    var priceScM3: String? = null
 
     @JsonProperty("priceSCm1")
-    var pricescm1: String? = null
+    var priceScM1: String? = null
 
     @JsonProperty("CYp0hm3")
     var cyp0hm3: String? = null
@@ -371,46 +362,46 @@ class LzeDto {
     var cyp0hm4: String? = null
 
     @JsonProperty("plantingDensity")
-    var plantingdensity: String? = null
+    var plantingDensity: String? = null
 
     @JsonProperty("GRmaxNote")
-    var grmaxnote: String? = null
+    var grMaxNote: String? = null
 
     @JsonProperty("unitNameOther")
-    var unitnameother: String? = null
+    var unitNameOther: String? = null
 
     @JsonProperty("GRmax_AB")
-    var grmaxAb: String? = null
+    var grMaxAb: String? = null
 
     @JsonProperty("phonenumber")
     var phonenumber: String? = null
 
     @JsonProperty("pricem4")
-    var pricem4: String? = null
+    var priceM4: String? = null
 
     @JsonProperty("optHarvestNote")
-    var optharvestnote: String? = null
+    var optHarvestNote: String? = null
 
     @JsonProperty("lon")
     var lon: String? = null
 
     @JsonProperty("pricem1")
-    var pricem1: String? = null
+    var priceM1: String? = null
 
     @JsonProperty("pricem2")
-    var pricem2: String? = null
+    var priceM2: String? = null
 
     @JsonProperty("pricem3")
-    var pricem3: String? = null
+    var priceM3: String? = null
 
     @JsonProperty("validationNote3")
-    var validationnote3: String? = null
+    var validationNote3: String? = null
 
     @JsonProperty("validationNote2")
-    var validationnote2: String? = null
+    var validationNote2: String? = null
 
     @JsonProperty("validationNote")
-    var validationnote: String? = null
+    var validationNote: String? = null
 
     @JsonProperty("geopoint-Accuracy")
     var geoPointAccuracy: String? = null
@@ -422,13 +413,13 @@ class LzeDto {
     var product: String? = null
 
     @JsonProperty("harvestWeekp3")
-    var harvestweekp3: String? = null
+    var harvestWeekP3: String? = null
 
     @JsonProperty("GPdifcurr")
-    var gpdifCurr: String? = null
+    var gpDifCurr: String? = null
 
     @JsonProperty("harvestWeekp4")
-    var harvestweekp4: String? = null
+    var harvestWeekP4: String? = null
 
     @JsonProperty("Yp0hm1")
     var yp0hm1: String? = null
@@ -461,16 +452,16 @@ class LzeDto {
     var geoPointLongitude: String? = null
 
     @JsonProperty("unitNameSelect")
-    var unitnameselect: String? = null
+    var unitNameSelect: String? = null
 
     @JsonProperty("uuid")
     var formHubUuId:String? = null
 
     @JsonProperty("SCm3")
-    var scm3: String? = null
+    var scM3: String? = null
 
     @JsonProperty("priceSCp1")
-    var pricescp1: String? = null
+    var priceScP1: String? = null
 
     @JsonProperty("Yp0hp1")
     var yp0hp1: String? = null
@@ -479,58 +470,58 @@ class LzeDto {
     var price0: String? = null
 
     @JsonProperty("SCm4")
-    var scm4: String? = null
+    var scM4: String? = null
 
     @JsonProperty("priceSCp2")
-    var pricescp2: String? = null
+    var priceScP2: String? = null
 
     @JsonProperty("Yp0hp2")
     var yp0hp2: String? = null
 
     @JsonProperty("harvestWeek0")
-    var harvestweek0: String? = null
+    var harvestWeek0: String? = null
 
     @JsonProperty("priceNote")
-    var pricenote: String? = null
+    var priceNote: String? = null
 
     @JsonProperty("SCm1")
-    var scm1: String? = null
+    var scM1: String? = null
 
     @JsonProperty("Yp0hp3")
     var yp0hp3: String? = null
 
     @JsonProperty("SCm2")
-    var scm2: String? = null
+    var scM2: String? = null
 
     @JsonProperty("Yp0hp4")
     var yp0hp4: String? = null
 
     @JsonProperty("harvestWeekp1")
-    var harvestweekp1: String? = null
+    var harvestWeekP1: String? = null
 
     @JsonProperty("harvestWeekp2")
-    var harvestweekp2: String? = null
+    var harvestWeekP2: String? = null
 
     @JsonProperty("priceSCp3")
-    var pricescp3: String? = null
+    var priceScP3: String? = null
 
     @JsonProperty("intro")
     var intro: String? = null
 
     @JsonProperty("priceSCp4")
-    var pricescp4: String? = null
+    var priceScP4: String? = null
 
     @JsonProperty("lat")
     var lat: String? = null
 
     @JsonProperty("withinRow")
-    var withinrow: String? = null
+    var withinRow: String? = null
 
     @JsonProperty("lookupp0hp4_id")
     var lookupp0hp4Id: String? = null
 
     @JsonProperty("optHarvest")
-    var optharvest: String? = null
+    var optHarvest: String? = null
 
     @JsonProperty("simserial")
     var simserial: String? = null
@@ -545,40 +536,40 @@ class LzeDto {
     var instanceId: String? = null
 
     @JsonProperty("GRdif")
-    var grdif: String? = null
+    var grDif: String? = null
 
     @JsonProperty("GPp0hp4")
-    var gpp0hp4: String? = null
+    var gpP0hp4: String? = null
 
     @JsonProperty("GPp0hp3")
-    var gpp0hp3: String? = null
+    var gpP0hp3: String? = null
 
     @JsonProperty("GPp0hp2")
-    var gpp0hp2: String? = null
+    var gpP0hp2: String? = null
 
     @JsonProperty("GPp0hp1")
-    var gpp0hp1: String? = null
+    var gpP0hp1: String? = null
 
     @JsonProperty("unitWeight")
-    var unitweight: String? = null
+    var unitWeight: String? = null
 
     @JsonProperty("harvestWeekm2")
-    var harvestweekm2: String? = null
+    var harvestWeekM2: String? = null
 
     @JsonProperty("harvestWeekm3")
-    var harvestweekm3: String? = null
+    var harvestWeekM3: String? = null
 
     @JsonProperty("priceSCm4")
-    var pricescm4: String? = null
+    var priceScM4: String? = null
 
     @JsonProperty("harvestWeekm1")
-    var harvestweekm1: String? = null
+    var harvestWeekM1: String? = null
 
     @JsonProperty("plotW")
-    var plotw: String? = null
+    var plotWidth: String? = null
 
     @JsonProperty("harvestWeekm4")
-    var harvestweekm4: String? = null
+    var harvestWeekM4: String? = null
 
     @JsonProperty("CYp0hp1")
     var cyp0hp1: String? = null
@@ -587,10 +578,10 @@ class LzeDto {
     var cyp0hp4: String? = null
 
     @JsonProperty("GPmax")
-    var gpmax: String? = null
+    var gpMax: String? = null
 
     @JsonProperty("plotL")
-    var plotl: String? = null
+    var plotLength: String? = null
 
     @JsonProperty("CYp0hp2")
     var cyp0hp2: String? = null
@@ -602,65 +593,80 @@ class LzeDto {
     var cyp0hp3: String? = null
 
     @JsonProperty("priceSC9")
-    var pricesc9: String? = null
-
-    @JsonProperty("SC1")
-    var sc1: String? = null
+    var priceSc9: String? = null
 
     @JsonProperty("SC0")
     var sc0: String? = null
 
-    @JsonProperty("SC3")
-    var sc3: String? = null
+    @JsonProperty("SC1")
+    var sc1: String? = null
 
-    @JsonProperty("SC2")
-    var sc2: String? = null
+//    @JsonProperty("SC2")
+//    var sc2: String? = null
+//
+//    @JsonProperty("SC3")
+//    var sc3: String? = null
+//
+//    @JsonProperty("SC4")
+//    var sc4: String? = null
+//
+//    @JsonProperty("SC5")
+//    var sc5: String? = null
+//
+//    @JsonProperty("SC6")
+//    var sc6: String? = null
+//
+//    @JsonProperty("SC7")
+//    var sc7: String? = null
+//
+//    @JsonProperty("SC8")
+//    var sc8: String? = null
+//
+//    @JsonProperty("SC9")
+//    var sc9: String? = null
+//
+//    @JsonProperty("SC10")
+//    var sc10: String? = null
+//
+//    @JsonProperty("SC11")
+//    var sc11: String? = null
+//
+//    @JsonProperty("SC12")
+//    var sc12: String? = null
 
-    @JsonProperty("SC5")
-    var sc5: String? = null
-
-    @JsonProperty("SC4")
-    var sc4: String? = null
 
     @JsonProperty("WYp0h0")
     var wyp0h0: String? = null
 
-    @JsonProperty("SC7")
-    var sc7: String? = null
+
 
     @JsonProperty("plantingWeek0")
-    var plantingweek0: String? = null
+    var plantingWeek0: String? = null
 
-    @JsonProperty("SC6")
-    var sc6: String? = null
-
-    @JsonProperty("SC9")
-    var sc9: String? = null
 
     @JsonProperty("banner")
     var banner: String? = null
 
-    @JsonProperty("SC8")
-    var sc8: String? = null
+
 
     @JsonProperty("geopoint-Latitude")
     var geoPointLatitude: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: String? = null
+    var deviceId: String? = null
 
     @JsonProperty("areaBasis")
     var areabasis: String? = null
 
     @JsonProperty("pricep1")
-    var pricep1: String? = null
+    var priceP1: String? = null
 
     @JsonProperty("pricep2")
-    var pricep2: String? = null
+    var priceP2: String? = null
 
     @JsonProperty("pricep3")
-    var pricep3: String? = null
+    var priceP3: String? = null
 
     @JsonProperty("pricep4")
-    var pricep4: String? = null
+    var priceP4: String? = null
 }

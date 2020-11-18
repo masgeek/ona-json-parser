@@ -42,7 +42,7 @@ class LzeForm {
     var plotLength: String? = null
 
     @JsonProperty("plotW")
-    var plotWwidth: String? = null
+    var plotWidth: String? = null
 
     @JsonProperty("start")
     var startDate: String? = null
@@ -78,7 +78,7 @@ class LzeForm {
     var currency: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: String? = null
+    var deviceId: String? = null
 
     @JsonProperty("geopoint")
     var geopoint: String? = null
@@ -114,10 +114,10 @@ class LzeForm {
     var yieldLevel: String? = null
 
     @JsonProperty("purpose/VAL")
-    var purposeVAL: String? = null
+    var purposeVal: String? = null
 
     @JsonProperty("results/SC0")
-    var resultsSC0: String? = null
+    var sc0: String? = null
 
     @JsonProperty("_attachments")
     var attachments: List<Any> = ArrayList()

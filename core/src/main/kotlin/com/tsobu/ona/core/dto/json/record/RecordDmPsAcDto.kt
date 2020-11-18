@@ -20,10 +20,10 @@ class RecordDmPsAcDto {
     var todayDate: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: String? = null
+    var deviceId: String? = null
 
     @JsonProperty("subscriberid")
-    var subscriberid: String? = null
+    var subscriberId: String? = null
 
     @JsonProperty("email")
     var email: String? = null

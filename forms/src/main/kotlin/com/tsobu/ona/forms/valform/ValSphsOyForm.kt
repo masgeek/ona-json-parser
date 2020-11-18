@@ -91,7 +91,7 @@ class ValSphsOyForm {
     var currency: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: String? = null
+    var deviceId: String? = null
 
     @JsonProperty("geopoint")
     var geopoint: String? = null
@@ -553,7 +553,7 @@ class ValSphsOyForm {
     var unitName: String? = null
 
     @JsonProperty("unitWeight")
-    var UnitWeight: String? = null
+    var unitWeight: String? = null
 
     @JsonProperty("transformRatio")
     var transformRatio: String? = null

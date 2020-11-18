@@ -20,10 +20,10 @@ class ValSphsOgDto {
     var todayDate: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: String? = null
+    var deviceId: String? = null
 
     @JsonProperty("subscriberid")
-    var subscriberid: String? = null
+    var subscriberId: String? = null
 
     @JsonProperty("email")
     var email: String? = null
@@ -101,16 +101,16 @@ class ValSphsOgDto {
     var harvestWeek0: String? = null
 
     @JsonProperty("harvestWeekm1")
-    var harvestWeekm1: String? = null
+    var harvestWeekM1: String? = null
 
     @JsonProperty("harvestWeekm2")
-    var harvestWeekm2: String? = null
+    var harvestWeekM2: String? = null
 
     @JsonProperty("harvestWeekm3")
-    var harvestWeekm3: String? = null
+    var harvestWeekM3: String? = null
 
     @JsonProperty("harvestWeekm4")
-    var harvestWeekm4: String? = null
+    var harvestWeekM4: String? = null
 
     @JsonProperty("harvestWeekp1")
     var harvestWeekp1: String? = null
@@ -128,28 +128,28 @@ class ValSphsOgDto {
     var harvestAge0: String? = null
 
     @JsonProperty("harvestAgem1")
-    var harvestAgem1: String? = null
+    var harvestAgeM1: String? = null
 
     @JsonProperty("harvestAgem2")
-    var harvestAgem2: String? = null
+    var harvestAgeM2: String? = null
 
     @JsonProperty("harvestAgem3")
-    var harvestAgem3: String? = null
+    var harvestAgeM3: String? = null
 
     @JsonProperty("harvestAgem4")
-    var harvestAgem4: String? = null
+    var harvestAgeM4: String? = null
 
     @JsonProperty("harvestAgep1")
-    var harvestAgep1: String? = null
+    var harvestAgeP1: String? = null
 
     @JsonProperty("harvestAgep2")
-    var harvestAgep2: String? = null
+    var harvestAgeP2: String? = null
 
     @JsonProperty("harvestAgep3")
-    var harvestAgep3: String? = null
+    var harvestAgeP3: String? = null
 
     @JsonProperty("harvestAgep4")
-    var harvestAgep4: String? = null
+    var harvestAgeP4: String? = null
 
     @JsonProperty("check_id")
     var checkId: String? = null
@@ -311,28 +311,28 @@ class ValSphsOgDto {
     var price0: Any? = null
 
     @JsonProperty("pricem1")
-    var pricem1: Any? = null
+    var priceM1: Any? = null
 
     @JsonProperty("pricem2")
-    var pricem2: Any? = null
+    var priceM2: Any? = null
 
     @JsonProperty("pricem3")
-    var pricem3: Any? = null
+    var priceM3: Any? = null
 
     @JsonProperty("pricem4")
-    var pricem4: Any? = null
+    var priceM4: Any? = null
 
     @JsonProperty("pricep1")
-    var pricep1: Any? = null
+    var priceP1: Any? = null
 
     @JsonProperty("pricep2")
-    var pricep2: Any? = null
+    var priceP2: Any? = null
 
     @JsonProperty("pricep3")
-    var pricep3: Any? = null
+    var priceP3: Any? = null
 
     @JsonProperty("pricep4")
-    var pricep4: Any? = null
+    var priceP4: Any? = null
 
     @JsonProperty("noRecommendationNote")
     var noRecommendationNote: String? = null
@@ -449,28 +449,28 @@ class ValSphsOgDto {
     var priceSc0: String? = null
 
     @JsonProperty("priceSCm1")
-    var priceScm1: String? = null
+    var priceScM1: String? = null
 
     @JsonProperty("priceSCm2")
-    var priceScm2: String? = null
+    var priceScM2: String? = null
 
     @JsonProperty("priceSCm3")
-    var priceScm3: String? = null
+    var priceScM3: String? = null
 
     @JsonProperty("priceSCm4")
-    var priceScm4: String? = null
+    var priceScM4: String? = null
 
     @JsonProperty("priceSCp1")
-    var priceScp1: String? = null
+    var priceScP1: String? = null
 
     @JsonProperty("priceSCp2")
-    var priceScp2: String? = null
+    var priceScP2: String? = null
 
     @JsonProperty("priceSCp3")
-    var priceScp3: String? = null
+    var priceScP3: String? = null
 
     @JsonProperty("priceSCp4")
-    var priceScp4: String? = null
+    var priceScP4: String? = null
 
     @JsonProperty("Yp0h0")
     var yp0h0: String? = null

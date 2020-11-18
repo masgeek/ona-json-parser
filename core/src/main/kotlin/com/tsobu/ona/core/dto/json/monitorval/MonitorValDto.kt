@@ -20,10 +20,10 @@ class MonitorValDto {
     var todayDate: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: String? = null
+    var deviceId: String? = null
 
     @JsonProperty("subscriberid")
-    var subscriberid: String? = null
+    var subscriberId: String? = null
 
     @JsonProperty("email")
     var email: String? = null
@@ -242,7 +242,7 @@ class MonitorValDto {
     var trialValidityNote2: String? = null
 
     @JsonProperty("trialValid")
-    var trialValid: String? = null
+    var trialValId: String? = null
 
     @JsonProperty("plotLayout_count")
     var plotLayoutCount: String? = null

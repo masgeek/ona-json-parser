@@ -82,7 +82,7 @@ class ValSphsOgForm {
     var currency: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: String? = null
+    var deviceId: String? = null
 
     @JsonProperty("geopoint")
     var geopoint: String? = null
@@ -142,28 +142,28 @@ class ValSphsOgForm {
     var plantingDate: String? = null
 
     @JsonProperty("results/SCm1")
-    var sCm1: String? = null
+    var scM1: String? = null
 
     @JsonProperty("results/SCm2")
-    var sCm2: String? = null
+    var scM2: String? = null
 
     @JsonProperty("results/SCm3")
-    var sCm3: String? = null
+    var scM3: String? = null
 
     @JsonProperty("results/SCm4")
-    var sCm4: String? = null
+    var scM4: String? = null
 
     @JsonProperty("results/SCp1")
-    var sCp1: String? = null
+    var scP1: String? = null
 
     @JsonProperty("results/SCp2")
-    var sCp2: String? = null
+    var scP2: String? = null
 
     @JsonProperty("results/SCp3")
-    var sCp3: String? = null
+    var scP3: String? = null
 
     @JsonProperty("results/SCp4")
-    var sCp4: String? = null
+    var scP4: String? = null
 
     @JsonProperty("subscriberid")
     var subscriberid: String? = null
@@ -178,7 +178,7 @@ class ValSphsOgForm {
     var gpDif: String? = null
 
     @JsonProperty("results/GPmax")
-    var gPmax: String? = null
+    var gpMax: String? = null
 
     @JsonProperty("results/Pp0h0")
     var pp0h0: String? = null
@@ -595,7 +595,7 @@ class ValSphsOgForm {
     var priceScP4: String? = null
 
     @JsonProperty("unitWeight")
-    var UnitWeight: String? = null
+    var unitWeight: String? = null
 
     @JsonProperty("unitLocalWeight")
     var unitLocalWeight: String? = null

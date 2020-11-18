@@ -134,8 +134,6 @@ constructor(
             ogEntity.instanceId = ogForm.instanceId
             ogEntity.controlKey = ogForm.instanceId
 
-            ogEntity.gpDif = ogForm.gpDif
-
             ogData.add(ogEntity)
 
         }

@@ -79,7 +79,7 @@ class ValSphsKwForm {
     var currency: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: String? = null
+    var deviceId: String? = null
 
     @JsonProperty("geopoint")
     var geopoint: String? = null
@@ -109,7 +109,7 @@ class ValSphsKwForm {
     var conversion: String? = null
 
     @JsonProperty("unitWeight")
-    var UnitWeight: String? = null
+    var unitWeight: String? = null
 
     @JsonProperty("yieldLevel")
     var yieldLevel: String? = null
@@ -178,7 +178,7 @@ class ValSphsKwForm {
     var gPdif: String? = null
 
     @JsonProperty("results/GPmax")
-    var gPmax: String? = null
+    var gpMax: String? = null
 
     @JsonProperty("results/GRdif")
     var grDif: String? = null

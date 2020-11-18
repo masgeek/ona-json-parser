@@ -94,7 +94,7 @@ class ValSphsOgEntity : BaseEntity() {
     var season: String? = null
 
     @Column(name = "plantingweek0")
-    var plantingweek0: String? = null
+    var plantingWeek0: String? = null
 
     @Column(name = "harvest_date")
     var harvestDate: LocalDateTime? = null
@@ -103,55 +103,55 @@ class ValSphsOgEntity : BaseEntity() {
     var harvestWeek0: String? = null
 
     @Column(name = "harvest_weekm1")
-    var harvestWeekm1: String? = null
+    var harvestWeekM1: String? = null
 
     @Column(name = "harvest_weekm2")
-    var harvestWeekm2: String? = null
+    var harvestWeekM2: String? = null
 
     @Column(name = "harvest_weekm3")
-    var harvestWeekm3: String? = null
+    var harvestWeekM3: String? = null
 
     @Column(name = "harvest_weekm4")
-    var harvestWeekm4: String? = null
+    var harvestWeekM4: String? = null
 
     @Column(name = "harvest_weekp1")
-    var harvestWeekp1: String? = null
+    var harvestWeekP1: String? = null
 
     @Column(name = "harvest_weekp2")
-    var harvestWeekp2: String? = null
+    var harvestWeekP2: String? = null
 
     @Column(name = "harvest_weekp3")
-    var harvestWeekp3: String? = null
+    var harvestWeekP3: String? = null
 
     @Column(name = "harvest_weekp4")
-    var harvestWeekp4: String? = null
+    var harvestWeekP4: String? = null
 
     @Column(name = "harvest_age0")
     var harvestAge0: String? = null
 
     @Column(name = "harvest_agem1")
-    var harvestAgem1: String? = null
+    var harvestAgeM1: String? = null
 
     @Column(name = "harvest_agem2")
-    var harvestAgem2: String? = null
+    var harvestAgeM2: String? = null
 
     @Column(name = "harvest_agem3")
-    var harvestAgem3: String? = null
+    var harvestAgeM3: String? = null
 
     @Column(name = "harvest_agem4")
-    var harvestAgem4: String? = null
+    var harvestAgeM4: String? = null
 
     @Column(name = "harvest_agep1")
-    var harvestAgep1: String? = null
+    var harvestAgeP1: String? = null
 
     @Column(name = "harvest_agep2")
-    var harvestAgep2: String? = null
+    var harvestAgeP2: String? = null
 
     @Column(name = "harvest_agep3")
-    var harvestAgep3: String? = null
+    var harvestAgeP3: String? = null
 
     @Column(name = "harvest_agep4")
-    var harvestAgep4: String? = null
+    var harvestAgeP4: String? = null
 
     @Column(name = "check_id")
     var checkId: String? = null
@@ -175,10 +175,10 @@ class ValSphsOgEntity : BaseEntity() {
     var areaBasis: String? = null
 
     @Column(name = "plotl")
-    var plotl: String? = null
+    var plotLength: String? = null
 
     @Column(name = "plotw")
-    var plotw: String? = null
+    var plotWidth: String? = null
 
     @Column(name = "plot_size")
     var plotSize: String? = null
@@ -313,28 +313,28 @@ class ValSphsOgEntity : BaseEntity() {
     var price0: String? = null
 
     @Column(name = "pricem1")
-    var pricem1: String? = null
+    var priceM1: String? = null
 
     @Column(name = "pricem2")
-    var pricem2: String? = null
+    var priceM2: String? = null
 
     @Column(name = "pricem3")
-    var pricem3: String? = null
+    var priceM3: String? = null
 
     @Column(name = "pricem4")
-    var pricem4: String? = null
+    var priceM4: String? = null
 
     @Column(name = "pricep1")
-    var pricep1: String? = null
+    var priceP1: String? = null
 
     @Column(name = "pricep2")
-    var pricep2: String? = null
+    var priceP2: String? = null
 
     @Column(name = "pricep3")
-    var pricep3: String? = null
+    var priceP3: String? = null
 
     @Column(name = "pricep4")
-    var pricep4: String? = null
+    var priceP4: String? = null
 
     @Column(name = "no_recommendation_note")
     var noRecommendationNote: String? = null
@@ -424,55 +424,55 @@ class ValSphsOgEntity : BaseEntity() {
     var sc0: String? = null
 
     @Column(name = "scm1")
-    var scm1: String? = null
+    var scM1: String? = null
 
     @Column(name = "scm2")
-    var scm2: String? = null
+    var scM2: String? = null
 
     @Column(name = "scm3")
-    var scm3: String? = null
+    var scM3: String? = null
 
     @Column(name = "scm4")
-    var scm4: String? = null
+    var scM4: String? = null
 
     @Column(name = "scp1")
-    var scp1: String? = null
+    var scP1: String? = null
 
     @Column(name = "scp2")
-    var scp2: String? = null
+    var scP2: String? = null
 
     @Column(name = "scp3")
-    var scp3: String? = null
+    var scP3: String? = null
 
     @Column(name = "scp4")
-    var scp4: String? = null
+    var scP4: String? = null
 
     @Column(name = "price_sc0")
     var priceSc0: String? = null
 
     @Column(name = "price_scm1")
-    var priceScm1: String? = null
+    var priceScM1: String? = null
 
     @Column(name = "price_scm2")
-    var priceScm2: String? = null
+    var priceScM2: String? = null
 
     @Column(name = "price_scm3")
-    var priceScm3: String? = null
+    var priceScM3: String? = null
 
     @Column(name = "price_scm4")
-    var priceScm4: String? = null
+    var priceScM4: String? = null
 
     @Column(name = "price_scp1")
-    var priceScp1: String? = null
+    var priceScP1: String? = null
 
     @Column(name = "price_scp2")
-    var priceScp2: String? = null
+    var priceScP2: String? = null
 
     @Column(name = "price_scp3")
-    var priceScp3: String? = null
+    var priceScP3: String? = null
 
     @Column(name = "price_scp4")
-    var priceScp4: String? = null
+    var priceScP4: String? = null
 
     @Column(name = "yp_0h0")
     var yp0h0: String? = null
@@ -505,37 +505,37 @@ class ValSphsOgEntity : BaseEntity() {
     var yp0hp4: String? = null
 
     @Column(name = "grp_0h0")
-    var grp0h0: String? = null
+    var grP0h0: String? = null
 
     @Column(name = "grp_0h0_ab")
-    var grp0h0Ab: String? = null
+    var grP0h0Ab: String? = null
 
     @Column(name = "grp_0h0_ab_curr")
-    var grp0h0AbCurr: String? = null
+    var grP0h0AbCurr: String? = null
 
     @Column(name = "grp_0hm1")
-    var grp0hm1: String? = null
+    var grP0hm1: String? = null
 
     @Column(name = "grp_0hm2")
-    var grp0hm2: String? = null
+    var grP0hm2: String? = null
 
     @Column(name = "grp_0hm3")
-    var grp0hm3: String? = null
+    var grP0hm3: String? = null
 
     @Column(name = "grp_0hm4")
-    var grp0hm4: String? = null
+    var grP0hm4: String? = null
 
     @Column(name = "grp_0hp1")
-    var grp0hp1: String? = null
+    var grP0hp1: String? = null
 
     @Column(name = "grp_0hp2")
-    var grp0hp2: String? = null
+    var grP0hp2: String? = null
 
     @Column(name = "grp_0hp3")
-    var grp0hp3: String? = null
+    var grP0hp3: String? = null
 
     @Column(name = "grp_0hp4")
-    var grp0hp4: String? = null
+    var grP0hp4: String? = null
 
     @Column(name = "pp_0h0")
     var pp0h0: String? = null
@@ -565,34 +565,34 @@ class ValSphsOgEntity : BaseEntity() {
     var pp0hp4: String? = null
 
     @Column(name = "gpp_0h0")
-    var gpp0h0: String? = null
+    var gpP0h0: String? = null
 
     @Column(name = "gpp_0h0curr")
-    var gpp0h0curr: String? = null
+    var gpP0h0Curr: String? = null
 
     @Column(name = "gpp_0hm1")
-    var gpp0hm1: String? = null
+    var gpP0hm1: String? = null
 
     @Column(name = "gpp_0hm2")
-    var gpp0hm2: String? = null
+    var gpP0hm2: String? = null
 
     @Column(name = "gpp_0hm3")
-    var gpp0hm3: String? = null
+    var gpP0hm3: String? = null
 
     @Column(name = "gpp_0hm4")
-    var gpp0hm4: String? = null
+    var gpP0hm4: String? = null
 
     @Column(name = "gpp_0hp1")
-    var gpp0hp1: String? = null
+    var gpP0hp1: String? = null
 
     @Column(name = "gpp_0hp2")
-    var gpp0hp2: String? = null
+    var gpP0hp2: String? = null
 
     @Column(name = "gpp_0hp3")
-    var gpp0hp3: String? = null
+    var gpP0hp3: String? = null
 
     @Column(name = "gpp_0hp4")
-    var gpp0hp4: String? = null
+    var gpP0hp4: String? = null
 
     @Column(name = "gr_max")
     var grMax: String? = null

@@ -48,7 +48,7 @@ class ReplaceTlAcForm {
     var version: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: String? = null
+    var deviceId: String? = null
 
     @JsonProperty("geopoint")
     var geopoint: String? = null
