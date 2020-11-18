@@ -191,6 +191,17 @@ constructor(
             ppTzEntity.gappingDate = myDateUtil.convertToDate(myVal.gappingDate)
             ppTzEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
 
+            ppTzEntity.dateWeeding1 = myDateUtil.convertToDate(myVal.dateWeeding1)
+            ppTzEntity.dateWeeding2 = myDateUtil.convertToDate(myVal.dateWeeding2)
+            ppTzEntity.dateWeeding3 = myDateUtil.convertToDate(myVal.dateWeeding3)
+            ppTzEntity.dateWeeding4 = myDateUtil.convertToDate(myVal.dateWeeding4)
+            ppTzEntity.dateWeeding5 = myDateUtil.convertToDate(myVal.dateWeeding5)
+            ppTzEntity.dateWeeding6 = myDateUtil.convertToDate(myVal.dateWeeding6)
+            ppTzEntity.dateWeeding7 = myDateUtil.convertToDate(myVal.dateWeeding7)
+            ppTzEntity.dateWeeding8 = myDateUtil.convertToDate(myVal.dateWeeding8)
+            ppTzEntity.dateWeeding9 = myDateUtil.convertToDate(myVal.dateWeeding9)
+            ppTzEntity.dateWeeding10 = myDateUtil.convertToDate(myVal.dateWeeding10)
+            
             ppTzEntityData.add(ppTzEntity)
 
 

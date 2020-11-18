@@ -344,7 +344,7 @@ class ValPpDto {
     var netValueDifMaxRound: String? = null
 
     @JsonProperty("CPtext")
-    var cPtext: String? = null
+    var cpText: String? = null
 
     @JsonProperty("basicTillRec")
     var basicTillRec: String? = null

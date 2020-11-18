@@ -67,6 +67,7 @@ constructor(
 
             cisDto.dateCassavaHarvest = myDateUtil.toDateToString(cisEntity.dateCassavaHarvest)
             cisDto.dateSweetPotatoHarvest = myDateUtil.toDateToString(cisEntity.dateSweetPotatoHarvest)
+            cisDto.sweetPotatoReplantingDate = myDateUtil.toDateToString(cisEntity.sweetPotatoReplantingDate)
             cisDto.plantingDate = myDateUtil.toDateToString(cisEntity.plantingDate)
             cisDto.dateWeeding1 = myDateUtil.toDateToString(cisEntity.dateWeeding1)
             cisDto.dateWeeding2 = myDateUtil.toDateToString(cisEntity.dateWeeding2)
@@ -142,6 +143,18 @@ constructor(
             cisEntity.instanceId = cisForm.instanceId
             cisEntity.controlKey = cisForm.instanceId
 
+            cisEntity.dateCassavaHarvest = myDateUtil.convertToDate(cisForm.dateCassavaHarvest)
+            cisEntity.dateSweetPotatoHarvest = myDateUtil.convertToDate(cisForm.dateSweetPotatoHarvest)
+            cisEntity.plantingDate = myDateUtil.convertToDate(cisForm.plantingDate)
+            cisEntity.dateWeeding1 = myDateUtil.convertToDate(cisForm.dateWeeding1)
+            cisEntity.dateWeeding2 = myDateUtil.convertToDate(cisForm.dateWeeding2)
+            cisEntity.dateWeeding3 = myDateUtil.convertToDate(cisForm.dateWeeding3)
+            cisEntity.dateWeeding4 = myDateUtil.convertToDate(cisForm.dateWeeding4)
+            cisEntity.cassavaGappingDate = myDateUtil.convertToDate(cisForm.cassavaGappingDate)
+            cisEntity.sweetPotatoReplantingDate = myDateUtil.convertToDate(cisForm.sweetPotatoReplantingDate)
+
+            cisEntity.dateFertilizer0 = myDateUtil.convertToDate(cisForm.dateFertilizer0)
+            cisEntity.dateFertilizer1 = myDateUtil.convertToDate(cisForm.dateFertilizer1)
 
             try {
                 icData.add(cisEntity)
