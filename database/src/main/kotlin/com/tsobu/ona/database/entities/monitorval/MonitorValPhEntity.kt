@@ -7,7 +7,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "monitor_val_ph")
-class PhEntity : BaseEntity() {
+class MonitorValPhEntity : BaseEntity() {
     @Column(name = "plant_nr")
     var plantNr: String? = null
 

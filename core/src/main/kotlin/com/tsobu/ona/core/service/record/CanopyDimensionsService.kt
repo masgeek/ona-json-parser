@@ -49,7 +49,7 @@ constructor(
     fun mapJsonFile() {
         log.info("Reading table data....")
         val confirmList = acRepo.findAllByOrderBySubmissionDateAsc()
-        val acSampleList = cdRepo.findAll()
+        val cdList = cdRepo.findAll()
         val oldLabelList = idRepo.findAll()
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
@@ -77,12 +77,12 @@ constructor(
             acDto
         }
 
-        val cdData = oldLabelList.map { idEntity ->
+        val cdData = cdList.map { idEntity ->
             val cdDto = modelMapper.map(idEntity, CanopyDimensionsAcCdDto::class.java)
             cdDto
         }
 
-        val idData = acSampleList.map { cdEntity ->
+        val idData = oldLabelList.map { cdEntity ->
             val idDto = modelMapper.map(cdEntity, CanopyDimensionsAcIdDto::class.java)
             idDto
         }

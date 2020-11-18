@@ -5,11 +5,9 @@ import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import java.util.*
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(ignoreUnknown = false)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class NonDestructiveCassAcForm {
-    @JsonProperty("ID")
-    var acId: List<NonDestructiveCassAcIdForm> = ArrayList()
 
     @JsonProperty("_id")
     var id: String? = null
@@ -127,4 +125,7 @@ class NonDestructiveCassAcForm {
 
     @JsonProperty("phonenumber")
     var phonenumber: String? = null
+
+    @JsonProperty("ID")
+    var acId: List<NonDestructiveCassAcIdForm> = ArrayList()
 }

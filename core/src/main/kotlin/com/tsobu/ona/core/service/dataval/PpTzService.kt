@@ -183,7 +183,6 @@ constructor(
             ppTzEntity.todayDate = myDateUtil.convertToDate(myVal.todayDate)
             ppTzEntity.startDate = myDateUtil.convertToDateTime(myVal.startDate)
             ppTzEntity.endDate = myDateUtil.convertToDateTime(myVal.endDate)
-            ppTzEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
             ppTzEntity.instanceId = myVal.instanceId
             ppTzEntity.controlKey = myVal.instanceId
 
@@ -197,7 +196,7 @@ constructor(
 
             val weedAssessmentP1List = myVal.weedAssessmentP1
             var weedAssesP1Count = 1
-            weedAssessmentP1List?.forEach { weedAssessmentP1 ->
+            weedAssessmentP1List.forEach { weedAssessmentP1 ->
                 val assessmentP1Entity = modelMapper.map(weedAssessmentP1, PpTzWaP1Entity::class.java)
                 assessmentP1Entity.parentKey = ppTzEntity.controlKey
                 assessmentP1Entity.setOfWeedAssessmentP1 = "${assessmentP1Entity.parentKey}/weedAssessment_P1"
@@ -210,7 +209,7 @@ constructor(
 
             val weedAssessmentP2List = myVal.weedAssessmentP2
             var weedAssesP2Count = 1
-            weedAssessmentP2List?.forEach { weedAssessmentP2 ->
+            weedAssessmentP2List.forEach { weedAssessmentP2 ->
                 val assessmentP2Entity = modelMapper.map(weedAssessmentP2, PpTzWaP2Entity::class.java)
                 assessmentP2Entity.parentKey = ppTzEntity.controlKey
                 assessmentP2Entity.setOfWeedAssessmentP2 = "${assessmentP2Entity.parentKey}/weedAssessment_P2"
@@ -223,7 +222,7 @@ constructor(
 
             val weedAssessmentP3List = myVal.weedAssessmentP3
             var weedAssesP3Count = 1
-            weedAssessmentP3List?.forEach { weedAssessmentP3 ->
+            weedAssessmentP3List.forEach { weedAssessmentP3 ->
                 val assessmentP3Entity = modelMapper.map(weedAssessmentP3, PpTzWaP3Entity::class.java)
                 assessmentP3Entity.parentKey = ppTzEntity.controlKey
                 assessmentP3Entity.setOfWeedAssessmentP3 = "${assessmentP3Entity.parentKey}/weedAssessment_P3"
@@ -236,7 +235,7 @@ constructor(
 
             val weedAssessmentP4List = myVal.weedAssessmentP4
             var weedAssesP4Count = 1
-            weedAssessmentP4List?.forEach { weedAssessmentP4 ->
+            weedAssessmentP4List.forEach { weedAssessmentP4 ->
                 val assessmentP4Entity = modelMapper.map(weedAssessmentP4, PpTzWaP4Entity::class.java)
                 assessmentP4Entity.parentKey = ppTzEntity.controlKey
                 assessmentP4Entity.setOfWeedAssessmentP4 = "${assessmentP4Entity.parentKey}/weedAssessment_P4"
@@ -249,7 +248,7 @@ constructor(
 
             val weedAssessmentP5List = myVal.weedAssessmentP5
             var weedAssesP5Count = 1
-            weedAssessmentP5List?.forEach { weedAssessmentP5 ->
+            weedAssessmentP5List.forEach { weedAssessmentP5 ->
                 val assessmentP5Entity = modelMapper.map(weedAssessmentP5, PpTzWaP5Entity::class.java)
                 assessmentP5Entity.parentKey = ppTzEntity.controlKey
                 assessmentP5Entity.setOfWeedAssessmentP5 = "${assessmentP5Entity.parentKey}/weedAssessment_P5"
@@ -262,7 +261,7 @@ constructor(
 
             val weedAssessmentP6List = myVal.weedAssessmentP6
             var weedAssesP6Count = 1
-            weedAssessmentP6List?.forEach { weedAssessmentP6 ->
+            weedAssessmentP6List.forEach { weedAssessmentP6 ->
                 val assessmentP6Entity = modelMapper.map(weedAssessmentP6, PpTzWaP6Entity::class.java)
                 assessmentP6Entity.parentKey = ppTzEntity.controlKey
                 assessmentP6Entity.setOfWeedAssessmentP6 = "${assessmentP6Entity.parentKey}/weedAssessment_P6"

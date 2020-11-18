@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.tsobu.ona.forms.Attachment
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties("_id")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class HhForm {
 

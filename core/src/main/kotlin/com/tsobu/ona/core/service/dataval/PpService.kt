@@ -154,10 +154,10 @@ constructor(
         }
 
         modelMapper.configuration.propertyCondition = isStringBlank
-        modelMapper.configuration.isSkipNullEnabled = true
+//        modelMapper.configuration.isSkipNullEnabled = true
 //        modelMapper.configuration.sourceNameTokenizer = NameTokenizers.CAMEL_CASE
-        modelMapper.configuration.isAmbiguityIgnored = false
-        modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
+//        modelMapper.configuration.isAmbiguityIgnored = false
+        modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
 
         val ppEntityData = ArrayList<PpEntity>()
         val weedAssessmentAltData = ArrayList<PpWaAltEntity>()
@@ -190,6 +190,7 @@ constructor(
             ppEntity.endDate = myDateUtil.convertToDateTime(myVal.endDate)
             ppEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
             ppEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
+            ppEntity.gappingDate = myDateUtil.convertToDate(myVal.gappingDate)
 
 
             ppEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
@@ -204,7 +205,7 @@ constructor(
 
             val weedAssessmentAltList = myVal.weedAssessmentAlt
             var weedAssesAltCount = 1
-            weedAssessmentAltList?.forEach { assessmentAlt ->
+            weedAssessmentAltList.forEach { assessmentAlt ->
                 val waAltEntity = modelMapper.map(assessmentAlt, PpWaAltEntity::class.java)
                 waAltEntity.parentKey = ppEntity.controlKey
                 waAltEntity.setOfWeedAssessmentAlt = "${waAltEntity.parentKey}/weedAssessment_ALT"
@@ -216,7 +217,7 @@ constructor(
 
             val weedAssessmentAltBpp3List = myVal.weedAssessmentAltBpp3
             var weedAssesAltBppCount = 1
-            weedAssessmentAltBpp3List?.forEach { assessmentAltBpp3 ->
+            weedAssessmentAltBpp3List.forEach { assessmentAltBpp3 ->
                 val waAltBpp3Entity = modelMapper.map(assessmentAltBpp3, PpWaAltBpp3Entity::class.java)
                 waAltBpp3Entity.parentKey = ppEntity.controlKey
                 waAltBpp3Entity.setOfWeedAssessmentAltBpp3 = "${waAltBpp3Entity.parentKey}/weedAssessment_ALT_BPP3"
@@ -228,7 +229,7 @@ constructor(
 
             val weedAssessmentConList = myVal.weedAssessmentCon
             var weedAssesConCount = 1
-            weedAssessmentConList?.forEach { assessmentCon ->
+            weedAssessmentConList.forEach { assessmentCon ->
                 val waConEntity = modelMapper.map(assessmentCon, PpWaConEntity::class.java)
                 waConEntity.parentKey = ppEntity.controlKey
                 waConEntity.setOfWeedAssessmentCon = "${waConEntity.parentKey}/weedAssessment_CON"
@@ -240,7 +241,7 @@ constructor(
 
             val weedAssessmentConBpp3List = myVal.weedAssessmentConBpp3
             var weedAssesConBpp3Count = 1
-            weedAssessmentConBpp3List?.forEach { assessmentConBpp3 ->
+            weedAssessmentConBpp3List.forEach { assessmentConBpp3 ->
                 val bpp3Entity = modelMapper.map(assessmentConBpp3, PpWaConBpp3Entity::class.java)
                 bpp3Entity.parentKey = ppEntity.controlKey
                 bpp3Entity.setOfWeedAssessmentConBpp3 = "${bpp3Entity.parentKey}/weedAssessment_CON_BPP3"
@@ -252,7 +253,7 @@ constructor(
 
             val weedAssessmentRecList = myVal.weedAssessmentRec
             var weedAssesRecCount = 1
-            weedAssessmentRecList?.forEach { assessmentRec ->
+            weedAssessmentRecList.forEach { assessmentRec ->
                 val waRecEntity = modelMapper.map(assessmentRec, PpWaRecEntity::class.java)
                 waRecEntity.parentKey = ppEntity.controlKey
                 waRecEntity.setOfWeedAssessmentRec = "${waRecEntity.parentKey}/weedAssessment_REC"
@@ -264,7 +265,7 @@ constructor(
 
             val weedAssessmentRecBpp3List = myVal.weedAssessmentRecBpp3
             var weedAssesRecBpp3Count = 1
-            weedAssessmentRecBpp3List?.forEach { assessmentRecBpp3 ->
+            weedAssessmentRecBpp3List.forEach { assessmentRecBpp3 ->
                 val recBpp3Entity = modelMapper.map(assessmentRecBpp3, PpWaRecBpp3Entity::class.java)
                 recBpp3Entity.parentKey = ppEntity.controlKey
                 recBpp3Entity.setOfWeedAssessmentRecBpp3 = "${recBpp3Entity.parentKey}/weedAssessment_REC_BPP3"

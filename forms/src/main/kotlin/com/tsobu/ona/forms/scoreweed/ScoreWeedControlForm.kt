@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.tsobu.ona.forms.Attachment
 
 @Suppress("unused")
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(ignoreUnknown = false)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class ScoreWeedControlForm {
     @JsonProperty("ID")
@@ -59,8 +59,15 @@ class ScoreWeedControlForm {
 
     @JsonProperty("username")
     var username: String? = null
+
     @JsonProperty("email")
     var email: String? = null
+
+    @JsonProperty("enumerator/surName")
+    var surName: String? = null
+
+    @JsonProperty("enumerator/firstName")
+    var firstName: String? = null
 
     @JsonProperty("_duration")
     var duration: String? = null

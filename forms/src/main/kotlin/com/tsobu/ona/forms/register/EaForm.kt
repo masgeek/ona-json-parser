@@ -7,11 +7,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import com.tsobu.ona.forms.Attachment
 import java.util.*
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(ignoreUnknown = false)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class EaForm {
     @JsonProperty("_id")
-    var id: String? = null
+    var dataId: String? = null
 
     @JsonProperty("end")
     var endDate: String? = null

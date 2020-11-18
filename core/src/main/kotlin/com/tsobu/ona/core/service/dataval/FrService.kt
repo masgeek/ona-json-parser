@@ -142,13 +142,13 @@ constructor(
             frEntity.dateWeeding4 = myDateUtil.convertToDate(frForm.dateWeeding4)
             frEntity.dateWeeding5 = myDateUtil.convertToDate(frForm.dateWeeding5)
             frEntity.gappingDate = myDateUtil.convertToDate(frForm.gappingDate)
-            
+
 
             frEntity.instanceId = frForm.instanceId
             frEntity.controlKey = frForm.instanceId
 
             frEntityData.add(frEntity)
-            log.info("Added data to table ${frEntity.controlKey} with surname as ${frForm.xformIdString}")
+            log.info("Added data to table ${frEntity.controlKey} with username :${frForm.username}")
 
         }
 
