@@ -201,7 +201,7 @@ class LzeForm {
     var grp0h0: String? = null
 
     @JsonProperty("results/Pp0hm1")
-    var pp0HM1: String? = null
+    var pp0Hm1: String? = null
 
     @JsonProperty("results/Pp0hm2")
     var pp0Hm2: String? = null
@@ -228,7 +228,7 @@ class LzeForm {
     var wyp0h0: String? = null
 
     @JsonProperty("results/Yp0hm1")
-    var yp0HM1: String? = null
+    var yp0Hm1: String? = null
 
     @JsonProperty("results/Yp0hm2")
     var yp0Hm2: String? = null
@@ -261,7 +261,7 @@ class LzeForm {
     var plantingDensity: String? = null
 
     @JsonProperty("results/CYp0hm1")
-    var cypP0hM1: String? = null
+    var cypP0hm1: String? = null
 
     @JsonProperty("results/CYp0hm2")
     var cypP0hm2: String? = null
@@ -285,7 +285,7 @@ class LzeForm {
     var cypP0hp4: String? = null
 
     @JsonProperty("results/GPp0hm1")
-    var cpp0hM1: String? = null
+    var cpp0hm1: String? = null
 
     @JsonProperty("results/GPp0hm2")
     var cpp0hm2: String? = null
@@ -309,7 +309,7 @@ class LzeForm {
     var cpp0hp4: String? = null
 
     @JsonProperty("results/GRp0hm1")
-    var grp0hM1: String? = null
+    var grp0hm1: String? = null
 
     @JsonProperty("results/GRp0hm2")
     var grp0hm2: String? = null
@@ -333,7 +333,7 @@ class LzeForm {
     var grp0hp4: String? = null
 
     @JsonProperty("results/WYp0hm1")
-    var wyp0hM1: String? = null
+    var wyp0hm1: String? = null
 
     @JsonProperty("results/WYp0hm2")
     var wyp0hm2: String? = null
@@ -465,25 +465,25 @@ class LzeForm {
     var harvestWeekM1: String? = null
 
     @JsonProperty("harvest/harvestWeekm2")
-    var harvestWeekm2: String? = null
+    var harvestWeekM2: String? = null
 
     @JsonProperty("harvest/harvestWeekm3")
-    var harvestWeekm3: String? = null
+    var harvestWeekM3: String? = null
 
     @JsonProperty("harvest/harvestWeekm4")
-    var harvestWeekm4: String? = null
+    var harvestWeekM4: String? = null
 
     @JsonProperty("harvest/harvestWeekp1")
-    var harvestWeekp1: String? = null
+    var harvestWeekP1: String? = null
 
     @JsonProperty("harvest/harvestWeekp2")
-    var harvestWeekp2: String? = null
+    var harvestWeekP2: String? = null
 
     @JsonProperty("harvest/harvestWeekp3")
-    var harvestWeekp3: String? = null
+    var harvestWeekP3: String? = null
 
     @JsonProperty("harvest/harvestWeekp4")
-    var harvestWeekp4: String? = null
+    var harvestWeekP4: String? = null
 
     @JsonProperty("priceDetails/priceRm2")
     var priceRm2: Int? = null

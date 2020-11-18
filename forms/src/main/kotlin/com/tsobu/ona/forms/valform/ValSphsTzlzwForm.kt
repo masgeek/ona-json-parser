@@ -481,16 +481,16 @@ class ValSphsTzlzwForm {
     var harvestWeekM4: String? = null
 
     @JsonProperty("harvest/harvestWeekp1")
-    var harvestWeekp1: String? = null
+    var harvestWeekP1: String? = null
 
     @JsonProperty("harvest/harvestWeekp2")
-    var harvestWeekp2: String? = null
+    var harvestWeekP2: String? = null
 
     @JsonProperty("harvest/harvestWeekp3")
-    var harvestWeekp3: String? = null
+    var harvestWeekP3: String? = null
 
     @JsonProperty("harvest/harvestWeekp4")
-    var harvestWeekp4: String? = null
+    var harvestWeekP4: String? = null
 
     @JsonProperty("priceDetails/priceRm2")
     var priceRm2: String? = null

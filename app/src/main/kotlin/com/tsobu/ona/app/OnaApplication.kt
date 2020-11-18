@@ -126,11 +126,13 @@ class OnaApplication(
         eaService.readJsonAsset()
         ppTzService.readJsonAsset()
         ppService.readJsonAsset()
+
         monitorValService.readJsonAsset()
         addSampleService.readJsonAsset()
         greenBiomassService.readJsonAsset()
         lignifiedStemService.readJsonAsset()
         starchContentService.readJsonAsset()
+
         fdAcAssignService.readJsonAsset()
         paAcAssignService.readJsonAsset()
         poAcAssignService.readJsonAsset()
@@ -140,6 +142,7 @@ class OnaApplication(
         collectPsService.readJsonAsset()
         collectSsService.readJsonAsset()
         collectLeafTagsService.readJsonAsset()
+
         valCisService.readJsonAsset()
         valFrService.readJsonAsset()
         valIcService.readJsonAsset()

@@ -478,38 +478,38 @@ class LzeEntity : BaseEntity() {
     var sc1: String? = null
 
 
-//    @Column(name = "sc2")
-//    var sc2: String? = null
+    @Column(name = "sc2")
+    var sc2: String? = null
 
-//    @Column(name = "sc3")
-//    var sc3: String? = null
-//
-//    @Column(name = "sc4")
-//    var sc4: String? = null
-//
-//    @Column(name = "sc5")
-//    var sc5: String? = null
-//
-//    @Column(name = "sc6")
-//    var sc6: String? = null
-//
-//    @Column(name = "sc7")
-//    var sc7: String? = null
-//
-//    @Column(name = "sc8")
-//    var sc8: String? = null
-//
-//    @Column(name = "sc9")
-//    var sc9: String? = null
-//
-//    @Column(name = "sc10")
-//    var sc10: String? = null
-//
-//    @Column(name = "sc11")
-//    var sc11: String? = null
-//
-//    @Column(name = "sc12")
-//    var sc12: String? = null
+    @Column(name = "sc3")
+    var sc3: String? = null
+
+    @Column(name = "sc4")
+    var sc4: String? = null
+
+    @Column(name = "sc5")
+    var sc5: String? = null
+
+    @Column(name = "sc6")
+    var sc6: String? = null
+
+    @Column(name = "sc7")
+    var sc7: String? = null
+
+    @Column(name = "sc8")
+    var sc8: String? = null
+
+    @Column(name = "sc9")
+    var sc9: String? = null
+
+    @Column(name = "sc10")
+    var sc10: String? = null
+
+    @Column(name = "sc11")
+    var sc11: String? = null
+
+    @Column(name = "sc12")
+    var sc12: String? = null
 
     @Column(name = "scm1")
     var scM1: String? = null
