@@ -55,7 +55,7 @@ constructor(
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
         modelMapper.configuration.isAmbiguityIgnored = false
-        modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
+        modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val lzwData = lzwList.map { lzwEntity ->
             val lzWDto = modelMapper.map(lzwEntity, LzwDto::class.java)

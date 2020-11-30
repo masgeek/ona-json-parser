@@ -20,10 +20,10 @@ class CisDto {
     var todayDate: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: String? = null
+    var deviceId: String? = null
 
     @JsonProperty("subscriberid")
-    var subscriberid: String? = null
+    var subscriberId: String? = null
 
     @JsonProperty("email")
     var email: String? = null
@@ -431,10 +431,10 @@ class CisDto {
     var rateWeeds: String? = null
 
     @JsonProperty("rateCMD")
-    var rateCMD: String? = null
+    var rateCmd: String? = null
 
     @JsonProperty("rateCBSD")
-    var rateCBSD: String? = null
+    var rateCbSd: String? = null
 
     @JsonProperty("rateOtherDisease")
     var rateOtherDisease: String? = null

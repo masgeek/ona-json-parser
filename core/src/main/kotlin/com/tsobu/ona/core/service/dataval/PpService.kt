@@ -184,6 +184,7 @@ constructor(
                 }
             }
             ppEntity.formHubUuId = myVal.formhubUuid
+
             ppEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
             ppEntity.todayDate = myDateUtil.convertToDate(myVal.todayDate)
             ppEntity.startDate = myDateUtil.convertToDateTime(myVal.startDate)

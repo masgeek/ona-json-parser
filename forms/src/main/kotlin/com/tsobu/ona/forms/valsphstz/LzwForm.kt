@@ -377,7 +377,7 @@ class LzwForm {
     var grp0h0Ab: String? = null
 
     @JsonProperty("unitWeight")
-    var UnitWeight: String? = null
+    var unitWeight: String? = null
 
     @JsonProperty("priceDetails/priceRp4")
     var pricerp4 :String?=null
@@ -527,7 +527,7 @@ class LzwForm {
     var harvestagem4: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: String? = null
+    var deviceId: String? = null
 
     @JsonProperty("areaBasis")
     var areabasis: String? = null

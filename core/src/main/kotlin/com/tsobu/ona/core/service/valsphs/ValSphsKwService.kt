@@ -1,11 +1,11 @@
-package com.tsobu.ona.core.service.valform
+package com.tsobu.ona.core.service.valsphs
 
 
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.`val`.ValSphsKwDto
+import com.tsobu.ona.core.dto.json.valdto.ValSphsKwDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.`val`.ValSphsKwEntity
@@ -55,7 +55,7 @@ constructor(
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
 //        modelMapper.configuration.isAmbiguityIgnored = false
-        modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
+        modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val filePath = "${appConfig.globalProperties().outputPath}"
         val kwList = kwRepo.findAllByOrderBySubmissionDateAsc()
@@ -127,6 +127,8 @@ constructor(
             kwEntity.todayDate = myDateUtil.convertToDate(kwForm.todayDate)
             kwEntity.startDate = myDateUtil.convertToDateTime(kwForm.startDate)
             kwEntity.endDate = myDateUtil.convertToDateTime(kwForm.endDate)
+            kwEntity.plantingDate = myDateUtil.convertToDate(kwForm.plantingDate)
+            kwEntity.harvestDate = myDateUtil.convertToDate(kwForm.harvestDate)
             kwEntity.instanceId = kwForm.instanceId
             kwEntity.controlKey = kwForm.instanceId
 

@@ -73,7 +73,7 @@ class RootYieldCassavaAcDto {
     var todayDate: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: String? = null
+    var deviceId: String? = null
 
     @JsonProperty("subscriberid")
     var subscriberId: String? = null

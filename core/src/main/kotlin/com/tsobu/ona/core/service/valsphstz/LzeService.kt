@@ -54,7 +54,6 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val lzeData = lzeList.map { lzeEntity ->
@@ -94,38 +93,38 @@ constructor(
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
         modelMapper.configuration.isAmbiguityIgnored = false
-        modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
+        modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         list.forEach { myVal ->
             //map and save to database
             val geoPoint = myDateUtil.splitGeoPoint(myVal.geopoint)
-            val ezEntity = modelMapper.map(myVal, LzeEntity::class.java)
+            val lzeEntity = modelMapper.map(myVal, LzeEntity::class.java)
             if (geoPoint.isNotEmpty()) {
-                ezEntity.geoPointLatitude = geoPoint[0]
+                lzeEntity.geoPointLatitude = geoPoint[0]
 
                 if (myDateUtil.indexExists(geoPoint, 1)) {
-                    ezEntity.geoPointLongitude = geoPoint[1]
+                    lzeEntity.geoPointLongitude = geoPoint[1]
                 }
                 if (myDateUtil.indexExists(geoPoint, 2)) {
-                    ezEntity.geoPointAltitude = geoPoint[2]
+                    lzeEntity.geoPointAltitude = geoPoint[2]
                 }
                 if (myDateUtil.indexExists(geoPoint, 3)) {
-                    ezEntity.geoPointAccuracy = geoPoint[3]
+                    lzeEntity.geoPointAccuracy = geoPoint[3]
                 }
             }
-            ezEntity.formHubUuId = myVal.formHubUuid
-            ezEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
-            ezEntity.todayDate = myDateUtil.convertToDate(myVal.todayDate)
-            ezEntity.startDate = myDateUtil.convertToDateTime(myVal.startDate)
-            ezEntity.endDate = myDateUtil.convertToDateTime(myVal.endDate)
-            ezEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
-            ezEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
-            ezEntity.instanceId = myVal.instanceId
-            ezEntity.controlKey = myVal.instanceId
+            lzeEntity.formHubUuId = myVal.formHubUuid
+            lzeEntity.submissionDate = myDateUtil.convertToDateTime(myVal.submissionTime)
+            lzeEntity.todayDate = myDateUtil.convertToDate(myVal.todayDate)
+            lzeEntity.startDate = myDateUtil.convertToDateTime(myVal.startDate)
+            lzeEntity.endDate = myDateUtil.convertToDateTime(myVal.endDate)
+            lzeEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
+            lzeEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
+            lzeEntity.instanceId = myVal.instanceId
+            lzeEntity.controlKey = myVal.instanceId
 
 
             try {
-                val saved = lzeRepo.save(ezEntity)
+                val saved = lzeRepo.save(lzeEntity)
                 log.info("Added data to table ${saved.controlKey} with surname as ${myVal.xformIdString}")
             } catch (ex: Exception) {
                 log.error(ex.message, ex.stackTrace)

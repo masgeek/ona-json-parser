@@ -118,7 +118,7 @@ class SzForm {
     var purposeVal: String? = null
 
     @JsonProperty("results/SC0")
-    var sC0: String? = null
+    var sc0: String? = null
 
     @JsonProperty("_attachments")
     var attachments: List<Any> = ArrayList()

@@ -34,7 +34,6 @@ constructor(
     private val modelMapper = ModelMapper()
     private val objectMapper = ObjectMapper()
     private val myDateUtil = MyUtils()
-    private val transactionTemplate: TransactionTemplate = TransactionTemplate(transactionManager)
     private val writeCsvFile = CsvUtility()
     private val fileName = "dataVAL_FR.json"
 
@@ -135,6 +134,7 @@ constructor(
             frEntity.endDate = myDateUtil.convertToDateTime(frForm.endDate)
             frEntity.plantingDate = myDateUtil.convertToDate(frForm.plantingDate)
             frEntity.harvestDate = myDateUtil.convertToDate(frForm.harvestDate)
+
             frEntity.plantingDate = myDateUtil.convertToDate(frForm.plantingDate)
             frEntity.dateWeeding1 = myDateUtil.convertToDate(frForm.dateWeeding1)
             frEntity.dateWeeding2 = myDateUtil.convertToDate(frForm.dateWeeding2)
@@ -142,6 +142,8 @@ constructor(
             frEntity.dateWeeding4 = myDateUtil.convertToDate(frForm.dateWeeding4)
             frEntity.dateWeeding5 = myDateUtil.convertToDate(frForm.dateWeeding5)
             frEntity.gappingDate = myDateUtil.convertToDate(frForm.gappingDate)
+            frEntity.dateFertilizer1 = myDateUtil.convertToDate(frForm.dateFertilizer1)
+            frEntity.dateFertilizer2 = myDateUtil.convertToDate(frForm.dateFertilizer2)
 
 
             frEntity.instanceId = frForm.instanceId

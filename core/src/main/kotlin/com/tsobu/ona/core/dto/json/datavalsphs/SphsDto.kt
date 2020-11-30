@@ -288,10 +288,10 @@ class SphsDto {
     var rateWeeds: String? = null
 
     @JsonProperty("rateCMD")
-    var rateCMD: String? = null
+    var rateCmd: String? = null
 
     @JsonProperty("rateCBSD")
-    var rateCBSD: String? = null
+    var rateCbSd: String? = null
 
     @JsonProperty("rateOtherDisease")
     var rateOtherDisease: String? = null
@@ -303,10 +303,10 @@ class SphsDto {
     var reject: String? = null
 
     @JsonProperty("rejectTRUE_note")
-    var rejectTRUENote: String? = null
+    var rejectTueNote: String? = null
 
     @JsonProperty("rejectFALSE_note")
-    var rejectFALSENote: String? = null
+    var rejectFalseNote: String? = null
 
     @JsonProperty("clearing")
     var clearing: String? = null
@@ -474,7 +474,7 @@ class SphsDto {
     var tuberizedMarketableRootsNrCon: String? = null
 
     @JsonProperty("tuberizedMarketableRootsFW_CON")
-    var tuberizedMarketableRootsFWCon: String? = null
+    var tuberizedMarketableRootsFwCon: String? = null
 
     @JsonProperty("priceRoots_CON")
     var priceRootsCon: String? = null
@@ -495,22 +495,22 @@ class SphsDto {
     var effHarvestDateConTri: String? = null
 
     @JsonProperty("harvest_CON_Tri_count")
-    var harvestCONTriCount: String? = null
+    var harvestConTriCount: String? = null
 
     @JsonProperty("SET-OF-harvest_CON_Tri")
     var setOfHarvestConTri: String? = null
 
     @JsonProperty("harvest_CON_Tri_detail_count")
-    var harvestCONTriDetailCount: String? = null
+    var harvestConTriDetailCount: String? = null
 
     @JsonProperty("SET-OF-harvest_CON_Tri_detail")
-    var setOfHarvestCONTriDetail: String? = null
+    var setOfHarvestConTriDetail: String? = null
 
     @JsonProperty("effHarvestDate_REC_Tri")
     var effHarvestDateRecTri: String? = null
 
     @JsonProperty("harvest_REC_Tri_count")
-    var harvestRECTriCount: String? = null
+    var harvestRecTriCount: String? = null
 
     @JsonProperty("SET-OF-harvest_REC_Tri")
     var setOfHarvestRecTri: String? = null

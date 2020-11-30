@@ -515,10 +515,10 @@ class PpDto {
     var rateWeeds: String? = null
 
     @JsonProperty("rateCMD")
-    var rateCMD: String? = null
+    var rateCmd: String? = null
 
     @JsonProperty("rateCBSD")
-    var rateCBSD: String? = null
+    var rateCbSd: String? = null
 
     @JsonProperty("rateOtherDisease")
     var rateOtherDisease: String? = null

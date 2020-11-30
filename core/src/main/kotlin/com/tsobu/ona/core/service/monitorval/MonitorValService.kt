@@ -215,7 +215,6 @@ constructor(
             monitorValEntity.setOfSoilsample = "${monitorValEntity.controlKey}/soilSample"
             monitorValEntity.setOfLeafsample = "${monitorValEntity.controlKey}/leafSample"
 
-            log.info("WE have added surname ${monitorValEntity.surName} from ${monitorValForm.surName}")
             monitorValEntityData.add(monitorValEntity)
 
             val correctDetailsList = monitorValForm.installCorrectDetails
@@ -266,9 +265,12 @@ constructor(
                     phEntity.controlKey = "${plantHeightEntity.controlKey}/PH[$phCounter]"
                     phEntity.setOfPh = "${plantHeightEntity.controlKey}/PH"
 
+                    log.info("Maine plant height count number $phCounter")
                     phCounter = phCounter.plus(1)
                     monitorValPhEntityData.add(phEntity)
+
                 }
+                log.info("Maine plant height total count number $phCounter")
             }
 
             val plotLayoutList = monitorValForm.plotLayout
