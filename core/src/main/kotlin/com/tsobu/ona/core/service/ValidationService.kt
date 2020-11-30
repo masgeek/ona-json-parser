@@ -71,12 +71,17 @@ class ValidationService(
 
     protected fun validateData(formList: MutableList<FormColumnValidationEntity>?) {
         formList?.forEach { validationEntity ->
-            val columnCountValid = validationEntity.expectedColumnCount == validationEntity.actualColumnCount
-            val dataCountValid = validationEntity.actualDataCount!! >= validationEntity.expectedDataCount!!
+            try {
+                val columnCountValid = validationEntity.expectedColumnCount == validationEntity.actualColumnCount
+                val dataCountValid = validationEntity.actualDataCount!! >= validationEntity.expectedDataCount!!
 
-            validationEntity.columnValid = columnCountValid
-            validationEntity.dataCountValid = dataCountValid
-            columnValidationRepo.save(validationEntity)
+                validationEntity.columnValid = columnCountValid
+                validationEntity.dataCountValid = dataCountValid
+                columnValidationRepo.save(validationEntity)
+            } catch (ex: Exception) {
+                log.error("Data could not be saved because ${ex.message} for ${validationEntity.formName}")
+                log.error(ex.message, ex)
+            }
         }
     }
 

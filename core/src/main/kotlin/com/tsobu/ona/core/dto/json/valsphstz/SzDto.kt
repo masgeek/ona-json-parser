@@ -249,7 +249,7 @@ class SzDto {
     var instanceId: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: String? = null
+    var deviceId: String? = null
 
     @JsonProperty("subscriberid")
     var subscriberId: String? = null
@@ -330,16 +330,16 @@ class SzDto {
     var harvestWeek0: String? = null
 
     @JsonProperty("harvestWeekm1")
-    var harvestWeekm1: String? = null
+    var harvestWeekM1: String? = null
 
     @JsonProperty("harvestWeekm2")
-    var harvestWeekm2: String? = null
+    var harvestWeekM2: String? = null
 
     @JsonProperty("harvestWeekm3")
-    var harvestWeekm3: String? = null
+    var harvestWeekM3: String? = null
 
     @JsonProperty("harvestWeekm4")
-    var harvestWeekm4: String? = null
+    var harvestWeekM4: String? = null
 
     @JsonProperty("harvestWeekp1")
     var harvestWeekp1: String? = null
@@ -357,28 +357,28 @@ class SzDto {
     var harvestAge0: String? = null
 
     @JsonProperty("harvestAgem1")
-    var harvestAgem1: String? = null
+    var harvestAgeM1: String? = null
 
     @JsonProperty("harvestAgem2")
-    var harvestAgem2: String? = null
+    var harvestAgeM2: String? = null
 
     @JsonProperty("harvestAgem3")
-    var harvestAgem3: String? = null
+    var harvestAgeM3: String? = null
 
     @JsonProperty("harvestAgem4")
-    var harvestAgem4: String? = null
+    var harvestAgeM4: String? = null
 
     @JsonProperty("harvestAgep1")
-    var harvestAgep1: String? = null
+    var harvestAgeP1: String? = null
 
     @JsonProperty("harvestAgep2")
-    var harvestAgep2: String? = null
+    var harvestAgeP2: String? = null
 
     @JsonProperty("harvestAgep3")
-    var harvestAgep3: String? = null
+    var harvestAgeP3: String? = null
 
     @JsonProperty("harvestAgep4")
-    var harvestAgep4: String? = null
+    var harvestAgeP4: String? = null
 
     @JsonProperty("check_id")
     var checkId: String? = null
@@ -456,40 +456,40 @@ class SzDto {
     var sc12: String? = null
 
     @JsonProperty("priceSC1")
-    var pricesc1: String? = null
+    var priceSc1: String? = null
 
     @JsonProperty("priceSC2")
-    var pricesc2: String? = null
+    var priceSc2: String? = null
 
     @JsonProperty("priceSC3")
-    var pricesc3: String? = null
+    var priceSc3: String? = null
 
     @JsonProperty("priceSC4")
-    var pricesc4: String? = null
+    var priceSc4: String? = null
 
     @JsonProperty("priceSC5")
-    var pricesc5: String? = null
+    var priceSc5: String? = null
 
     @JsonProperty("priceSC6")
-    var pricesc6: String? = null
+    var priceSc6: String? = null
 
     @JsonProperty("priceSC7")
-    var pricesc7: String? = null
+    var priceSc7: String? = null
 
     @JsonProperty("priceSC8")
-    var pricesc8: String? = null
+    var priceSc8: String? = null
 
     @JsonProperty("priceSC9")
-    var pricesc9: String? = null
+    var priceSc9: String? = null
 
     @JsonProperty("priceSC10")
-    var pricesc10: String? = null
+    var priceSc10: String? = null
 
     @JsonProperty("priceSC11")
-    var pricesc11: String? = null
+    var priceSc11: String? = null
 
     @JsonProperty("priceSC12")
-    var pricesc12: String? = null
+    var priceSc12: String? = null
 
     @JsonProperty("product")
     var product: String? = null
@@ -651,35 +651,35 @@ class SzDto {
     var sc0: String? = null
 
     @JsonProperty("SCm1")
-    var scm1: String? = null
+    var scM1: String? = null
 
     @JsonProperty("SCm2")
-    var scm2: String? = null
+    var scM2: String? = null
 
     @JsonProperty("SCm3")
-    var scm3: String? = null
+    var scM3: String? = null
 
     @JsonProperty("SCm4")
-    var scm4: String? = null
+    var scM4: String? = null
 
     @JsonProperty("SCp1")
-    var scp1: String? = null
+    var scP1: String? = null
 
     @JsonProperty("SCp2")
-    var scp2: String? = null
+    var scP2: String? = null
 
     @JsonProperty("SCp3")
-    var scp3: String? = null
+    var scP3: String? = null
 
     @JsonProperty("SCp4")
-    var scp4: String? = null
+    var scP4: String? = null
 
 
     @JsonProperty("priceSC0")
-    var pricesc0: String? = null
+    var priceSc0: String? = null
 
     @JsonProperty("priceSCm1")
-    var pricescm1: String? = null
+    var priceScM1: String? = null
 
     @JsonProperty("priceSCm2")
     var priceSCm2: String? = null
@@ -688,19 +688,19 @@ class SzDto {
     var priceSCm3: String? = null
 
     @JsonProperty("priceSCm4")
-    var pricescm4: String? = null
+    var priceScM4: String? = null
 
     @JsonProperty("priceSCp1")
-    var pricescp1: String? = null
+    var priceScP1: String? = null
 
     @JsonProperty("priceSCp2")
-    var pricescp2: String? = null
+    var priceScP2: String? = null
 
     @JsonProperty("priceSCp3")
-    var pricescp3: String? = null
+    var priceScP3: String? = null
 
     @JsonProperty("priceSCp4")
-    var pricescp4: String? = null
+    var priceScP4: String? = null
 
     @JsonProperty("Yp0h0")
     var yp0h0: String? = null
@@ -733,37 +733,37 @@ class SzDto {
     var yp0hp4: String? = null
 
     @JsonProperty("GRp0h0")
-    var grp0h0: String? = null
+    var grP0h0: String? = null
 
     @JsonProperty("GRp0h0_AB")
-    var grp0h0Ab: String? = null
+    var grP0h0Ab: String? = null
 
     @JsonProperty("GRp0h0_ABcurr")
-    var grp0h0AbCurr: String? = null
+    var grP0h0AbCurr: String? = null
 
     @JsonProperty("GRp0hm1")
-    var grp0hm1: String? = null
+    var grP0hm1: String? = null
 
     @JsonProperty("GRp0hm2")
-    var grp0hm2: String? = null
+    var grP0hm2: String? = null
 
     @JsonProperty("GRp0hm3")
-    var grp0hm3: String? = null
+    var grP0hm3: String? = null
 
     @JsonProperty("GRp0hm4")
-    var grp0hm4: String? = null
+    var grP0hm4: String? = null
 
     @JsonProperty("GRp0hp1")
-    var grp0hp1: String? = null
+    var grP0hp1: String? = null
 
     @JsonProperty("GRp0hp2")
-    var grp0hp2: String? = null
+    var grP0hp2: String? = null
 
     @JsonProperty("GRp0hp3")
-    var grp0hp3: String? = null
+    var grP0hp3: String? = null
 
     @JsonProperty("GRp0hp4")
-    var grp0hp4: String? = null
+    var grP0hp4: String? = null
 
     @JsonProperty("Pp0h0")
     var pp0h0: String? = null
@@ -793,58 +793,58 @@ class SzDto {
     var pp0hp4: String? = null
 
     @JsonProperty("GPp0h0")
-    var gpp0h0: String? = null
+    var gpP0h0: String? = null
 
     @JsonProperty("GPp0h0curr")
-    var gpp0h0Curr: String? = null
+    var gpP0h0Curr: String? = null
 
     @JsonProperty("GPp0hm1")
-    var gpp0hm1: String? = null
+    var gpP0hm1: String? = null
 
     @JsonProperty("GPp0hm2")
-    var gpp0hm2: String? = null
+    var gpP0hm2: String? = null
 
     @JsonProperty("GPp0hm3")
-    var gpp0hm3: String? = null
+    var gpP0hm3: String? = null
 
     @JsonProperty("GPp0hm4")
-    var gpp0hm4: String? = null
+    var gpP0hm4: String? = null
 
     @JsonProperty("GPp0hp1")
-    var gpp0hp1: String? = null
+    var gpP0hp1: String? = null
 
     @JsonProperty("GPp0hp2")
-    var gpp0hp2: String? = null
+    var gpP0hp2: String? = null
 
     @JsonProperty("GPp0hp3")
-    var gpp0hp3: String? = null
+    var gpP0hp3: String? = null
 
     @JsonProperty("GPp0hp4")
-    var gpp0hp4: String? = null
+    var gpP0hp4: String? = null
 
     @JsonProperty("GRmax")
-    var grmax: String? = null
+    var grMax: String? = null
 
     @JsonProperty("GRmax_AB")
-    var grmaxAb: String? = null
+    var grMaxAb: String? = null
 
     @JsonProperty("GRdif")
-    var grdif: String? = null
+    var grDif: String? = null
 
     @JsonProperty("GRdif_AB")
-    var grdifAb: String? = null
+    var grDifAb: String? = null
 
     @JsonProperty("GRdif_ABcurr")
-    var grdifAbCurr: String? = null
+    var grDifAbCurr: String? = null
 
     @JsonProperty("GPmax")
-    var gpmax: String? = null
+    var gpMax: String? = null
 
     @JsonProperty("GPdif")
-    var gpdif: String? = null
+    var gpDif: String? = null
 
     @JsonProperty("GPdifcurr")
-    var gpdifCurr: String? = null
+    var gpDifCurr: String? = null
 
     @JsonProperty("optHarvest")
     var optHarvest: String? = null
@@ -862,10 +862,10 @@ class SzDto {
     var difHarvestNote: String? = null
 
     @JsonProperty("GRdifNote")
-    var grdifNote: String? = null
+    var grDifNote: String? = null
 
     @JsonProperty("GRmaxNote")
-    var grmaxNote: String? = null
+    var grMaxNote: String? = null
 
     @JsonProperty("sensible")
     var sensible: String? = null

@@ -203,10 +203,10 @@ class ValPpTzEntity : BaseEntity() {
     var withinRow: String? = null
 
     @Column(name = "plotl")
-    var plotl: String? = null
+    var plotLength: String? = null
 
     @Column(name = "plotw")
-    var plotw: String? = null
+    var plotWidth: String? = null
 
     @Column(name = "plot_size")
     var plotSize: String? = null
@@ -260,91 +260,91 @@ class ValPpTzEntity : BaseEntity() {
     var weedingCost: String? = null
 
     @Column(name = "costt0rg")
-    var costt0rg: String? = null
+    var costT0Rg: String? = null
 
     @Column(name = "costt0fl")
-    var costt0fl: String? = null
+    var costT0Fl: String? = null
 
     @Column(name = "costt1rg")
-    var costt1rg: String? = null
+    var costt1Rg: String? = null
 
     @Column(name = "costt1fl")
-    var costt1fl: String? = null
+    var costt1Fl: String? = null
 
     @Column(name = "costt2rg")
-    var costt2rg: String? = null
+    var costt2Rg: String? = null
 
     @Column(name = "costt2fl")
-    var costt2fl: String? = null
+    var costt2Fl: String? = null
 
     @Column(name = "cost_cp")
     var costCp: String? = null
 
     @Column(name = "costcpcurr")
-    var costcpcurr: String? = null
+    var costcpCurr: String? = null
 
     @Column(name = "gross_value_t0rg")
-    var grossValueT0rg: String? = null
+    var grossValueT0Rg: String? = null
 
     @Column(name = "gross_value_t0fl")
-    var grossValueT0fl: String? = null
+    var grossValueT0Fl: String? = null
 
     @Column(name = "gross_value_t1rg")
-    var grossValueT1rg: String? = null
+    var grossValueT1Rg: String? = null
 
     @Column(name = "gross_value_t1fl")
-    var grossValueT1fl: String? = null
+    var grossValueT1Fl: String? = null
 
     @Column(name = "gross_value_t2rg")
-    var grossValueT2rg: String? = null
+    var grossValueT2Rg: String? = null
 
     @Column(name = "gross_value_t2fl")
-    var grossValueT2fl: String? = null
+    var grossValueT2Fl: String? = null
 
     @Column(name = "gross_value_cp")
     var grossValueCp: String? = null
 
     @Column(name = "net_value_t0rg")
-    var netValueT0rg: String? = null
+    var netValueT0Rg: String? = null
 
     @Column(name = "net_value_t0fl")
-    var netValueT0fl: String? = null
+    var netValueT0Fl: String? = null
 
     @Column(name = "net_value_t1rg")
-    var netValueT1rg: String? = null
+    var netValueT1Rg: String? = null
 
     @Column(name = "net_value_t1fl")
-    var netValueT1fl: String? = null
+    var netValueT1Fl: String? = null
 
     @Column(name = "net_value_t2rg")
-    var netValueT2rg: String? = null
+    var netValueT2Rg: String? = null
 
     @Column(name = "net_value_t2fl")
-    var netValueT2fl: String? = null
+    var netValueT2Fl: String? = null
 
     @Column(name = "net_value_cp")
     var netValueCp: String? = null
 
     @Column(name = "net_value_dift0rg")
-    var netValueDift0rg: String? = null
+    var netValueDift0Rg: String? = null
 
     @Column(name = "net_value_dift0fl")
-    var netValueDift0fl: String? = null
+    var netValueDift0Fl: String? = null
 
     @Column(name = "net_value_dift1rg")
-    var netValueDift1rg: String? = null
+    var netValueDift1Rg: String? = null
 
     @Column(name = "net_value_dift1fl")
-    var netValueDift1fl: String? = null
+    var netValueDift1Fl: String? = null
 
     @Column(name = "net_value_dift2rg")
-    var netValueDift2rg: String? = null
+    var netValueDift2Rg: String? = null
 
     @Column(name = "net_value_dift2fl")
-    var netValueDift2fl: String? = null
+    var netValueDift2Fl: String? = null
 
     @Column(name = "net_value_difmax")
-    var netValueDifmax: String? = null
+    var netValueDifMax: String? = null
 
     @Column(name = "net_value_dif_max_round")
     var netValueDifMaxRound: String? = null

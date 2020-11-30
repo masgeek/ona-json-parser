@@ -76,7 +76,7 @@ class LzwEntity : BaseEntity() {
     var deviceid: String? = null
 
     @Column(name = "difharvestnote")
-    var difharvestnote: String? = null
+    var difharvestNote: String? = null
 
     @Column(name = "eaid")
     var eaid: String? = null
@@ -100,97 +100,97 @@ class LzwEntity : BaseEntity() {
     var geoPointLongitude: String? = null
 
     @Column(name = "gpdif")
-    var gpdif: String? = null
+    var gpDif: String? = null
 
     @Column(name = "gpdifcurr")
-    var gpdifcurr: String? = null
+    var gpDifCurr: String? = null
 
     @Column(name = "gpmax")
-    var gpmax: String? = null
+    var gpMax: String? = null
 
     @Column(name = "gpp0h0")
-    var gpp0h0: String? = null
+    var gpP0h0: String? = null
 
     @Column(name = "gpp0h0curr")
-    var gpp0h0curr: String? = null
+    var gpP0h0Curr: String? = null
 
     @Column(name = "gpp0hm1")
-    var gpp0hm1: String? = null
+    var gpP0hm1: String? = null
 
     @Column(name = "gpp0hm2")
-    var gpp0hm2: String? = null
+    var gpP0hm2: String? = null
 
     @Column(name = "gpp0hm3")
-    var gpp0hm3: String? = null
+    var gpP0hm3: String? = null
 
     @Column(name = "gpp0hm4")
-    var gpp0hm4: String? = null
+    var gpP0hm4: String? = null
 
     @Column(name = "gpp0hp1")
-    var gpp0hp1: String? = null
+    var gpP0hp1: String? = null
 
     @Column(name = "gpp0hp2")
-    var gpp0hp2: String? = null
+    var gpP0hp2: String? = null
 
     @Column(name = "gpp0hp3")
-    var gpp0hp3: String? = null
+    var gpP0hp3: String? = null
 
     @Column(name = "gpp0hp4")
-    var gpp0hp4: String? = null
+    var gpP0hp4: String? = null
 
     @Column(name = "grdif")
-    var grdif: String? = null
+    var grDif: String? = null
 
     @Column(name = "grdif_ab")
-    var grdifAb: String? = null
+    var grDifAb: String? = null
 
     @Column(name = "grdif_abcurr")
-    var grdifAbcurr: String? = null
+    var grDifAbCurr: String? = null
 
     @Column(name = "grdifnote")
-    var grdifnote: String? = null
+    var grDifNote: String? = null
 
     @Column(name = "grmax")
-    var grmax: String? = null
+    var grMax: String? = null
 
     @Column(name = "grmax_ab")
-    var grmaxAb: String? = null
+    var grMaxAb: String? = null
 
     @Column(name = "grmaxnote")
-    var grmaxnote: String? = null
+    var grMaxNote: String? = null
 
     @Column(name = "grp0h0")
-    var grp0h0: String? = null
+    var grP0h0: String? = null
 
     @Column(name = "grp0h0_ab")
-    var grp0h0Ab: String? = null
+    var grP0h0Ab: String? = null
 
     @Column(name = "grp0h0_abcurr")
-    var grp0h0Abcurr: String? = null
+    var grP0h0AbCurr: String? = null
 
     @Column(name = "grp0hm1")
-    var grp0hm1: String? = null
+    var grP0hm1: String? = null
 
     @Column(name = "grp0hm2")
-    var grp0hm2: String? = null
+    var grP0hm2: String? = null
 
     @Column(name = "grp0hm3")
-    var grp0hm3: String? = null
+    var grP0hm3: String? = null
 
     @Column(name = "grp0hm4")
-    var grp0hm4: String? = null
+    var grP0hm4: String? = null
 
     @Column(name = "grp0hp1")
-    var grp0hp1: String? = null
+    var grP0hp1: String? = null
 
     @Column(name = "grp0hp2")
-    var grp0hp2: String? = null
+    var grP0hp2: String? = null
 
     @Column(name = "grp0hp3")
-    var grp0hp3: String? = null
+    var grP0hp3: String? = null
 
     @Column(name = "grp0hp4")
-    var grp0hp4: String? = null
+    var grP0hp4: String? = null
 
     @Column(name = "harvest_date")
     var harvestDate: LocalDateTime? = null
@@ -295,16 +295,16 @@ class LzwEntity : BaseEntity() {
     var lookupp0hp4Id: String? = null
 
     @Column(name = "norecommendationnote")
-    var norecommendationnote: String? = null
+    var noRecommendationNote: String? = null
 
     @Column(name = "optharvesttext")
-    var optharvesttext: String? = null
+    var optHarvestText: String? = null
 
     @Column(name = "optharvest")
-    var optharvest: String? = null
+    var optHarvest: String? = null
 
     @Column(name = "optharvestnote")
-    var optharvestnote: String? = null
+    var optHarvestNote: String? = null
 
     @Column(name = "phonenumber")
     var phonenumber: String? = null
@@ -316,16 +316,16 @@ class LzwEntity : BaseEntity() {
     var plantingdensity: String? = null
 
     @Column(name = "plantingweek0")
-    var plantingweek0: String? = null
+    var plantingWeek0: String? = null
 
     @Column(name = "plotl")
-    var plotl: String? = null
+    var plotLength: String? = null
 
     @Column(name = "plotsize")
-    var plotsize: String? = null
+    var plotSize: String? = null
 
     @Column(name = "plotw")
-    var plotw: String? = null
+    var plotWidth: String? = null
 
     @Column(name = "pp0h0")
     var pp0h0: String? = null
@@ -358,112 +358,112 @@ class LzwEntity : BaseEntity() {
     var price0: String? = null
 
     @Column(name = "pricem1")
-    var pricem1: String? = null
+    var priceM1: String? = null
 
     @Column(name = "pricem2")
-    var pricem2: String? = null
+    var priceM2: String? = null
 
     @Column(name = "pricem3")
-    var pricem3: String? = null
+    var priceM3: String? = null
 
     @Column(name = "pricem4")
-    var pricem4: String? = null
+    var priceM4: String? = null
 
     @Column(name = "pricenote")
-    var pricenote: String? = null
+    var priceNote: String? = null
 
     @Column(name = "pricep1")
-    var pricep1: String? = null
+    var priceP1: String? = null
 
     @Column(name = "pricep2")
-    var pricep2: String? = null
+    var priceP2: String? = null
 
     @Column(name = "pricep3")
-    var pricep3: String? = null
+    var priceP3: String? = null
 
     @Column(name = "pricep4")
-    var pricep4: String? = null
+    var priceP4: String? = null
 
     @Column(name = "pricer0")
     var pricer0: String? = null
 
     @Column(name = "pricerm2")
-    var pricerm2: String? = null
+    var priceRm2: String? = null
 
     @Column(name = "pricerm4")
-    var pricerm4: String? = null
+    var priceRm4: String? = null
 
     @Column(name = "pricerp2")
-    var pricerp2: String? = null
+    var priceRp2: String? = null
 
     @Column(name = "pricerp4")
-    var pricerp4: String? = null
+    var priceRp4: String? = null
 
     @Column(name = "pricesc0")
-    var pricesc0: String? = null
+    var priceSc0: String? = null
 
     @Column(name = "pricesc1")
-    var pricesc1: String? = null
+    var priceSc1: String? = null
 
     @Column(name = "pricesc10")
-    var pricesc10: String? = null
+    var priceSc10: String? = null
 
     @Column(name = "pricesc11")
-    var pricesc11: String? = null
+    var priceSc11: String? = null
 
     @Column(name = "pricesc12")
-    var pricesc12: String? = null
+    var priceSc12: String? = null
 
     @Column(name = "pricesc2")
-    var pricesc2: String? = null
+    var priceSc2: String? = null
 
     @Column(name = "pricesc3")
-    var pricesc3: String? = null
+    var priceSc3: String? = null
 
     @Column(name = "pricesc4")
-    var pricesc4: String? = null
+    var priceSc4: String? = null
 
     @Column(name = "pricesc5")
-    var pricesc5: String? = null
+    var priceSc5: String? = null
 
     @Column(name = "pricesc6")
-    var pricesc6: String? = null
+    var priceSc6: String? = null
 
     @Column(name = "pricesc7")
-    var pricesc7: String? = null
+    var priceSc7: String? = null
 
     @Column(name = "pricesc8")
-    var pricesc8: String? = null
+    var priceSc8: String? = null
 
     @Column(name = "pricesc9")
-    var pricesc9: String? = null
+    var priceSc9: String? = null
 
     @Column(name = "pricescm1")
-    var pricescm1: String? = null
+    var priceScM1: String? = null
 
     @Column(name = "pricescm2")
-    var pricescm2: String? = null
+    var priceScM2: String? = null
 
     @Column(name = "pricescm3")
-    var pricescm3: String? = null
+    var priceScM3: String? = null
 
     @Column(name = "pricescm4")
-    var pricescm4: String? = null
+    var priceScM4: String? = null
 
     @Column(name = "pricescp1")
-    var pricescp1: String? = null
+    var priceScP1: String? = null
 
     @Column(name = "pricescp2")
-    var pricescp2: String? = null
+    var priceScP2: String? = null
 
     @Column(name = "pricescp3")
-    var pricescp3: String? = null
+    var priceScP3: String? = null
 
     @Column(name = "pricescp4")
-    var pricescp4: String? = null
+    var priceScP4: String? = null
 
     @Column(name = "pricestarch")
-    var pricestarch: String? = null
+    var priceStarch: String? = null
 
     @Column(name = "product")
     var product: String? = null
@@ -511,28 +511,28 @@ class LzwEntity : BaseEntity() {
     var sc9: String? = null
 
     @Column(name = "scm1")
-    var scm1: String? = null
+    var scM1: String? = null
 
     @Column(name = "scm2")
-    var scm2: String? = null
+    var scM2: String? = null
 
     @Column(name = "scm3")
-    var scm3: String? = null
+    var scM3: String? = null
 
     @Column(name = "scm4")
-    var scm4: String? = null
+    var scM4: String? = null
 
     @Column(name = "scp1")
-    var scp1: String? = null
+    var scP1: String? = null
 
     @Column(name = "scp2")
-    var scp2: String? = null
+    var scP2: String? = null
 
     @Column(name = "scp3")
-    var scp3: String? = null
+    var scP3: String? = null
 
     @Column(name = "scp4")
-    var scp4: String? = null
+    var scP4: String? = null
 
     @Column(name = "season")
     var season: String? = null
@@ -544,7 +544,7 @@ class LzwEntity : BaseEntity() {
     var simserial: String? = null
 
     @Column(name = "starchfactory")
-    var starchfactory: String? = null
+    var starchFactory: String? = null
 
     @Column(name = "start_date")
     var startDate: LocalDateTime? = null
@@ -559,28 +559,28 @@ class LzwEntity : BaseEntity() {
     var todayDate: LocalDateTime? = null
 
     @Column(name = "transformratio")
-    var transformratio: String? = null
+    var transformRatio: String? = null
 
     @Column(name = "unit")
     var unit: String? = null
 
     @Column(name = "unitlocalweight")
-    var unitlocalweight: String? = null
+    var unitLocalWeight: String? = null
 
     @Column(name = "unitname")
-    var unitname: String? = null
+    var unitName: String? = null
 
     @Column(name = "unitnameother")
-    var unitnameother: String? = null
+    var unitNameOther: String? = null
 
     @Column(name = "unitnameselect")
-    var unitnameselect: String? = null
+    var unitNameSelect: String? = null
 
     @Column(name = "unitweight")
-    var unitweight: String? = null
+    var unitWeight: String? = null
 
     @Column(name = "unitweightother")
-    var unitweightother: String? = null
+    var unitWeightOther: String? = null
 
     @Column(name = "username")
     var username: String? = null
@@ -589,19 +589,19 @@ class LzwEntity : BaseEntity() {
     var formHubUuId: String? = null
 
     @Column(name = "validationnote")
-    var validationnote: String? = null
+    var validationNote: String? = null
 
     @Column(name = "validationnote2")
-    var validationnote2: String? = null
+    var validationNote2: String? = null
 
     @Column(name = "validationnote3")
-    var validationnote3: String? = null
+    var validationNote3: String? = null
 
     @Column(name = "variety")
     var variety: String? = null
 
     @Column(name = "withinrow")
-    var withinrow: String? = null
+    var withinRow: String? = null
 
     @Column(name = "wyp0h0")
     var wyp0h0: String? = null
@@ -631,10 +631,10 @@ class LzwEntity : BaseEntity() {
     var wyp0hp4: String? = null
 
     @Column(name = "yh0p0note")
-    var yh0p0note: String? = null
+    var yh0p0Note: String? = null
 
     @Column(name = "yieldlevel")
-    var yieldlevel: String? = null
+    var yieldLevel: String? = null
 
     @Column(name = "yp0h0")
     var yp0h0: String? = null

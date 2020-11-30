@@ -82,8 +82,8 @@ constructor(
 
             sphsDto.effHarvestDateCon = myDateUtil.toDateToString(sphsEntity.effHarvestDateCon)
             sphsDto.effHarvestDateConTri = myDateUtil.toDateToString(sphsEntity.effHarvestDateConTri)
-            sphsDto.effHarvestDateRec = myDateUtil.toDateToString(sphsEntity.effHarvestDateRec)
             sphsDto.effHarvestDateRecTri = myDateUtil.toDateToString(sphsEntity.effHarvestDateRecTri)
+            sphsDto.effHarvestDateRec = myDateUtil.toDateToString(sphsEntity.effHarvestDateRec)
             sphsDto.intHarvestDateCon = myDateUtil.toDateToString(sphsEntity.intHarvestDateCon)
             sphsDto.intHarvestDateRec = myDateUtil.toDateToString(sphsEntity.intHarvestDateRec)
             sphsDto
@@ -217,6 +217,7 @@ constructor(
 
             sphsEntity.effHarvestDateCon = myDateUtil.convertToDate(sphs.effHarvestDateCon)
             sphsEntity.effHarvestDateConTri = myDateUtil.convertToDate(sphs.effHarvestDateConTri)
+            sphsEntity.effHarvestDateRecTri = myDateUtil.convertToDate(sphs.effHarvestDateRecTri)
             sphsEntity.effHarvestDateRec = myDateUtil.convertToDate(sphs.effHarvestDateRec)
             sphsEntity.intHarvestDateCon = myDateUtil.convertToDate(sphs.intHarvestDateCon)
             sphsEntity.intHarvestDateRec = myDateUtil.convertToDate(sphs.intHarvestDateRec)

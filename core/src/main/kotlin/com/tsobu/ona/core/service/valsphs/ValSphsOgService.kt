@@ -5,7 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.`val`.ValSphsOgDto
+import com.tsobu.ona.core.dto.json.valdto.ValSphsOgDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.`val`.ValSphsOgEntity
@@ -133,8 +133,6 @@ constructor(
             ogEntity.harvestDate = myDateUtil.convertToDate(ogForm.harvestDate)
             ogEntity.instanceId = ogForm.instanceId
             ogEntity.controlKey = ogForm.instanceId
-
-            ogEntity.gpDif = ogForm.gpDif
 
             ogData.add(ogEntity)
 

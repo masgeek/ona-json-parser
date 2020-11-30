@@ -32,6 +32,7 @@ import com.tsobu.ona.core.service.replace.ReplaceTlService
 import com.tsobu.ona.core.service.sphs.PraSphsService
 import com.tsobu.ona.core.service.starchcontent.StarchContentService
 import com.tsobu.ona.core.service.valform.*
+import com.tsobu.ona.core.service.valsphs.ValSphsKwService
 import com.tsobu.ona.core.service.valsphs.ValSphsOgService
 import com.tsobu.ona.core.service.valsphs.ValSphsOnService
 import com.tsobu.ona.core.service.valsphs.ValSphsOyService
@@ -111,7 +112,10 @@ class OnaApplication(
     override fun run(vararg args: String?) {
         log.info("Running Spring Boot Application press CTR-C to close the application")
 
-//        ppService.readJsonAsset()
+//        valPpService.readJsonAsset()
+
+//----------------------------End of debug line
+
 
         weedControlService.readJsonAsset()
         assessRootYieldCassavaService.readJsonAsset()
@@ -125,11 +129,13 @@ class OnaApplication(
         eaService.readJsonAsset()
         ppTzService.readJsonAsset()
         ppService.readJsonAsset()
+
         monitorValService.readJsonAsset()
         addSampleService.readJsonAsset()
         greenBiomassService.readJsonAsset()
         lignifiedStemService.readJsonAsset()
         starchContentService.readJsonAsset()
+
         fdAcAssignService.readJsonAsset()
         paAcAssignService.readJsonAsset()
         poAcAssignService.readJsonAsset()
@@ -139,6 +145,7 @@ class OnaApplication(
         collectPsService.readJsonAsset()
         collectSsService.readJsonAsset()
         collectLeafTagsService.readJsonAsset()
+
         valCisService.readJsonAsset()
         valFrService.readJsonAsset()
         valIcService.readJsonAsset()
@@ -147,6 +154,7 @@ class OnaApplication(
         valPpTzService.readJsonAsset()
         valSphsKwService.readJsonAsset()
         batchCompositionService.readJsonAsset()
+
         valSphsOgService.readJsonAsset()
         valSphsOnService.readJsonAsset()
         valSphsOyService.readJsonAsset()
@@ -168,7 +176,6 @@ class OnaApplication(
         validationService.processCsvFiles()
         log.info("Hello, I am finished");
     }
-
 
 }
 

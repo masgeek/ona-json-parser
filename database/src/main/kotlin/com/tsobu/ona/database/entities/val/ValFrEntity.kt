@@ -94,7 +94,7 @@ class ValFrEntity : BaseEntity() {
     var season: String? = null
 
     @Column(name = "plantingweek")
-    var plantingweek: String? = null
+    var plantingWeek: String? = null
 
     @Column(name = "area_basis")
     var areaBasis: String? = null
@@ -154,10 +154,10 @@ class ValFrEntity : BaseEntity() {
     var withinRow: String? = null
 
     @Column(name = "plotl")
-    var plotl: String? = null
+    var plotLength: String? = null
 
     @Column(name = "plotw")
-    var plotw: String? = null
+    var plotWidth: String? = null
 
     @Column(name = "plot_size")
     var plotSize: String? = null
@@ -289,13 +289,13 @@ class ValFrEntity : BaseEntity() {
     var netRevLocCurPlot: String? = null
 
     @Column(name = "net_rev_loc_curplotcurr")
-    var netRevLocCurplotcurr: String? = null
+    var netRevLocCurplotCurr: String? = null
 
     @Column(name = "total_cost_loc_cur_plot")
     var totalCostLocCurPlot: String? = null
 
     @Column(name = "total_cost_loc_curplotcurr")
-    var totalCostLocCurplotcurr: String? = null
+    var totalCostLocCurplotCurr: String? = null
 
     @Column(name = "no_recommendation_tz_note")
     var noRecommendationTzNote: String? = null

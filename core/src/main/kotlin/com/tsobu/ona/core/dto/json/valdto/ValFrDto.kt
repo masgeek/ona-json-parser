@@ -1,4 +1,4 @@
-package com.tsobu.ona.core.dto.json.`val`
+package com.tsobu.ona.core.dto.json.valdto
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
@@ -20,10 +20,10 @@ class ValFrDto {
     var todayDate: String? = null
 
     @JsonProperty("deviceid")
-    var deviceid: String? = null
+    var deviceId: String? = null
 
     @JsonProperty("subscriberid")
-    var subscriberid: String? = null
+    var subscriberId: String? = null
 
     @JsonProperty("email")
     var email: String? = null

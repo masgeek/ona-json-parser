@@ -78,7 +78,6 @@ constructor(
 
         val list = objectMapper.readValue(file, object : TypeReference<List<SzForm>>() {})
 
-        val data = ArrayList<SzEntity>()
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
                 return if (context.source is String) {
@@ -92,7 +91,7 @@ constructor(
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
         modelMapper.configuration.isAmbiguityIgnored = false
-        modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
+        modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         list.forEach { myVal ->
             //map and save to database
