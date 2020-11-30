@@ -1,4 +1,4 @@
-package com.tsobu.ona.core.dto.json.`val`
+package com.tsobu.ona.core.dto.json.valdto
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder("SubmissionDate", "uuid", "start", "today", "deviceid", "subscriberid", "email", "username", "simserial", "phonenumber", "banner", "intro", "intro2", "VAL", "EAID", "HHID", "countrySelect", "country", "currency", "conversion", "geopoint-Latitude", "geopoint-Longitude", "geopoint-Altitude", "geopoint-Accuracy", "lat", "lon", "plantingDate", "season", "plantingWeek0", "harvestDate", "harvestWeek0", "harvestWeekm1", "harvestWeekm2", "harvestWeekm3", "harvestWeekm4", "harvestWeekp1", "harvestWeekp2", "harvestWeekp3", "harvestWeekp4", "harvestAge0", "harvestAgem1", "harvestAgem2", "harvestAgem3", "harvestAgem4", "harvestAgep1", "harvestAgep2", "harvestAgep3", "harvestAgep4", "check_id", "check", "variety", "plantingDensity", "betweenRow", "withinRow", "areaBasis", "plotL", "plotW", "plotSize", "yieldLevel", "priceStarch", "starchFactory", "SC1", "SC2", "SC3", "SC4", "SC5", "SC6", "SC7", "SC8", "SC9", "SC10", "SC11", "SC12", "priceSC1", "priceSC2", "priceSC3", "priceSC4", "priceSC5", "priceSC6", "priceSC7", "priceSC8", "priceSC9", "priceSC10", "priceSC11", "priceSC12", "product", "transformRatio", "unit", "unitNameSelect", "unitNameOther", "unitWeightOther", "unitName", "unitLocalWeight", "unitWeight", "priceNote", "priceRm4", "priceRm2", "priceR0", "priceRp2", "priceRp4", "price0", "pricem1", "pricem2", "pricem3", "pricem4", "pricep1", "pricep2", "pricep3", "pricep4", "noRecommendationNote", "lookupp0h0_id", "lookupp0hm1_id", "lookupp0hm2_id", "lookupp0hm3_id", "lookupp0hm4_id", "lookupp0hp1_id", "lookupp0hp2_id", "lookupp0hp3_id", "lookupp0hp4_id", "WYp0h0", "WYp0hm1", "WYp0hm2", "WYp0hm3", "WYp0hm4", "WYp0hp1", "WYp0hp2", "WYp0hp3", "WYp0hp4", "CYp0h0", "CYp0hm1", "CYp0hm2", "CYp0hm3", "CYp0hm4", "CYp0hp1", "CYp0hp2", "CYp0hp3", "CYp0hp4", "SC0", "SCm1", "SCm2", "SCm3", "SCm4", "SCp1", "SCp2", "SCp3", "SCp4", "priceSC0", "priceSCm1", "priceSCm2", "priceSCm3", "priceSCm4", "priceSCp1", "priceSCp2", "priceSCp3", "priceSCp4", "Yp0h0", "Yp0h0_AB", "Yp0hm1", "Yp0hm2", "Yp0hm3", "Yp0hm4", "Yp0hp1", "Yp0hp2", "Yp0hp3", "Yp0hp4", "GRp0h0", "GRp0h0_AB", "GRp0h0_ABcurr", "GRp0hm1", "GRp0hm2", "GRp0hm3", "GRp0hm4", "GRp0hp1", "GRp0hp2", "GRp0hp3", "GRp0hp4", "Pp0h0", "Pp0hm1", "Pp0hm2", "Pp0hm3", "Pp0hm4", "Pp0hp1", "Pp0hp2", "Pp0hp3", "Pp0hp4", "GPp0h0", "GPp0h0curr", "GPp0hm1", "GPp0hm2", "GPp0hm3", "GPp0hm4", "GPp0hp1", "GPp0hp2", "GPp0hp3", "GPp0hp4", "GRmax", "GRmax_AB", "GRdif", "GRdif_AB", "GRdif_ABcurr", "GPmax", "GPdif", "GPdifcurr", "optHarvest", "optHarvestText", "Yh0p0Note", "optHarvestNote", "difHarvestNote", "GRdifNote", "GRmaxNote", "sensible", "validationNote", "validationNote2", "validationNote3", "call", "confirmVAL", "end", "instanceID", "KEY")
-class ValSphsOnDto {
+class ValSphsOyDto {
     @JsonProperty("SubmissionDate")
     var submissionDate: String? = null
 
@@ -23,7 +23,7 @@ class ValSphsOnDto {
     var deviceId: String? = null
 
     @JsonProperty("subscriberid")
-    var subscriberId: String? = null
+    var subscriberId: Any? = null
 
     @JsonProperty("email")
     var email: String? = null
@@ -32,7 +32,7 @@ class ValSphsOnDto {
     var username: String? = null
 
     @JsonProperty("simserial")
-    var simserial: String? = null
+    var simserial: Any? = null
 
     @JsonProperty("phonenumber")
     var phonenumber: String? = null
@@ -164,10 +164,10 @@ class ValSphsOnDto {
     var plantingDensity: String? = null
 
     @JsonProperty("betweenRow")
-    var betweenRow: String? = null
+    var betweenRow: Any? = null
 
     @JsonProperty("withinRow")
-    var withinRow: String? = null
+    var withinRow: Any? = null
 
     @JsonProperty("areaBasis")
     var areaBasis: String? = null
@@ -266,7 +266,7 @@ class ValSphsOnDto {
     var product: String? = null
 
     @JsonProperty("transformRatio")
-    var transformRatio: String? = null
+    var transformRatio: Any? = null
 
     @JsonProperty("unit")
     var unit: String? = null
@@ -284,55 +284,55 @@ class ValSphsOnDto {
     var unitName: String? = null
 
     @JsonProperty("unitLocalWeight")
-    var unitLocalWeight: String? = null
+    var unitLocalWeight: Any? = null
 
     @JsonProperty("unitWeight")
-    var unitWeight: String? = null
+    var unitWeight: Any? = null
 
     @JsonProperty("priceNote")
     var priceNote: String? = null
 
     @JsonProperty("priceRm4")
-    var priceRm4: String? = null
+    var priceRm4: Any? = null
 
     @JsonProperty("priceRm2")
-    var priceRm2: String? = null
+    var priceRm2: Any? = null
 
     @JsonProperty("priceR0")
-    var priceR0: String? = null
+    var priceR0: Any? = null
 
     @JsonProperty("priceRp2")
-    var priceRp2: String? = null
+    var priceRp2: Any? = null
 
     @JsonProperty("priceRp4")
-    var priceRp4: String? = null
+    var priceRp4: Any? = null
 
     @JsonProperty("price0")
-    var price0: String? = null
+    var price0: Any? = null
 
     @JsonProperty("pricem1")
-    var priceM1: String? = null
+    var priceM1: Any? = null
 
     @JsonProperty("pricem2")
-    var priceM2: String? = null
+    var priceM2: Any? = null
 
     @JsonProperty("pricem3")
-    var priceM3: String? = null
+    var priceM3: Any? = null
 
     @JsonProperty("pricem4")
-    var priceM4: String? = null
+    var priceM4: Any? = null
 
     @JsonProperty("pricep1")
-    var priceP1: String? = null
+    var priceP1: Any? = null
 
     @JsonProperty("pricep2")
-    var priceP2: String? = null
+    var priceP2: Any? = null
 
     @JsonProperty("pricep3")
-    var priceP3: String? = null
+    var priceP3: Any? = null
 
     @JsonProperty("pricep4")
-    var priceP4: String? = null
+    var priceP4: Any? = null
 
     @JsonProperty("noRecommendationNote")
     var noRecommendationNote: String? = null
@@ -476,7 +476,7 @@ class ValSphsOnDto {
     var yp0h0: String? = null
 
     @JsonProperty("Yp0h0_AB")
-    var yp0h0AB: String? = null
+    var yp0h0Ab: String? = null
 
     @JsonProperty("Yp0hm1")
     var yp0hm1: String? = null
@@ -506,7 +506,7 @@ class ValSphsOnDto {
     var grP0h0: String? = null
 
     @JsonProperty("GRp0h0_AB")
-    var grP0h0AB: String? = null
+    var grP0h0Ab: String? = null
 
     @JsonProperty("GRp0h0_ABcurr")
     var grP0h0ABCurr: String? = null

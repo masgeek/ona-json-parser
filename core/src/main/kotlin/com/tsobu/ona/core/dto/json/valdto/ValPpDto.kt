@@ -1,17 +1,17 @@
-package com.tsobu.ona.core.dto.json.`val`
+package com.tsobu.ona.core.dto.json.valdto
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder("SubmissionDate", "uuid", "start", "today", "deviceid", "subscriberid", "email", "username", "simserial", "phonenumber", "banner", "intro", "intro2", "VAL", "EAID", "HHID", "countrySelect", "country", "currency", "conversion", "geopoint-Latitude", "geopoint-Longitude", "geopoint-Altitude", "geopoint-Accuracy", "lat", "lon", "plantingDate", "season", "fallowType", "fallowHeight", "fallowAge", "fallowGreen", "problemWeeds", "PW_count", "SET-OF-PW", "slash", "spray", "slash1spray1Note", "slash1spray0Note", "slash0spray1Note", "slash0spray0Note", "tractorAccess", "implement", "herbicideAccess", "basicTill", "harrowSelect", "ridging", "weedingMethodSelect", "basicTillMethodSelect1", "basicTillMethod1", "basicTillMethodSelect2", "basicTillMethod2", "harrow", "ridgingMethodSelect", "ridgingMethod", "weedingMethod", "currentY", "currentYieldLevel", "CP", "variety", "plantingDensity", "betweenRow", "withinRow", "plotL", "plotW", "plotSize", "costNote", "basicTill1ManualCost", "basicTill1TractorCost", "basicTill2ManualCost", "basicTill2TractorCost", "harrowTractorCost", "ridgingManualCost", "ridgingTractorCost", "weedingManualCost", "weedingHerbicideCost", "priceRoots", "basicTill1Cost", "basicTill2Cost", "harrowCost", "ridgingCost", "weedingCost", "costT0RG", "costT0FL", "costT1RG", "costT1FL", "costT2RG", "costT2FL", "costCP", "costCPcurr", "grossValueT0RG", "grossValueT0FL", "grossValueT1RG", "grossValueT1FL", "grossValueT2RG", "grossValueT2FL", "grossValueCP", "netValueT0RG", "netValueT0FL", "netValueT1RG", "netValueT1FL", "netValueT2RG", "netValueT2FL", "netValueCP", "netValueDifT0RG", "netValueDifT0FL", "netValueDifT1RG", "netValueDifT1FL", "netValueDifT2RG", "netValueDifT2FL", "netValueDifMax", "netValueDifMaxRound", "CPtext", "basicTillRec", "ridgingRec", "recText", "harrowText", "harrowText2", "costDif", "costDifChange", "costDifAbs", "netValueDifcurr", "costDifcurr", "optPPNote", "recNote", "netValueNote", "costNote1", "costNote2", "ridgingNote", "tractorNote", "harrowNote", "validationNote", "validationNote2", "validationNote3", "validationNote4", "validationNote5", "validationNote6", "plot3", "validationNote7", "basicTill_plot3", "harrow_plot3", "ridging_plot3", "basicTillMethodSelect1_plot3", "basicTillMethod1_plot3", "basicTillMethodSelect2_plot3", "basicTillMethod2_plot3", "harrowSelect_plot3", "ridgingMethodSelect_plot3", "ridgingMethod_plot3", "plantingNote", "weedingNote", "call", "confirmVAL", "hostBPP3", "end", "instanceID", "KEY")
+@JsonPropertyOrder("SubmissionDate", "uuid", "start", "today", "deviceid", "subscriberid", "email", "username", "simserial", "phonenumber", "banner", "intro", "intro2", "VAL", "EAID", "HHID", "countrySelect", "country", "currency", "conversion", "geopoint-Latitude", "geopoint-Longitude", "geopoint-Altitude", "geopoint-Accuracy", "lat", "lon", "plantingDate", "season", "fallowType", "fallowHeight", "fallowAge", "fallowGreen", "problemWeeds", "PW_count", "SET-OF-PW", "slash", "spray", "slash1spray1Note", "slash1spray0Note", "slash0spray1Note", "slash0spray0Note", "tractorAccess", "implement", "herbicideAccess", "basicTill", "harrowSelect", "ridging", "weedingMethodSelect", "basicTillMethodSelect1", "basicTillMethod1", "basicTillMethodSelect2", "basicTillMethod2", "harrow", "ridgingMethodSelect", "ridgingMethod", "weedingMethod", "currentY", "currentYieldLevel", "CP", "variety", "plantingDensity", "betweenRow", "withinRow", "plotL", "plotW", "plotSize", "costNote", "basicTill1ManualCost", "basicTill1TractorCost", "basicTill2ManualCost", "basicTill2TractorCost", "harrowTractorCost", "ridgingManualCost", "ridgingTractorCost", "weedingManualCost", "weedingHerbicideCost", "priceRoots", "basicTill1Cost", "basicTill2Cost", "harrowCost", "ridgingCost", "weedingCost", "costT0RG", "costT0FL", "costT1RG", "costT1FL", "costT2RG", "costT2FL", "costCP", "costCPcurr", "grossValueT0RG", "grossValueT0FL", "grossValueT1RG", "grossValueT1FL", "grossValueT2RG", "grossValueT2FL", "grossValueCP", "netValueT0RG", "netValueT0FL", "netValueT1RG", "netValueT1FL", "netValueT2RG", "netValueT2FL", "netValueCP", "netValueDifT0RG", "netValueDifT0FL", "netValueDifT1RG", "netValueDifT1FL", "netValueDifT2RG", "netValueDifT2FL", "netValueDifMax", "netValueDifMaxRound", "CPtext", "basicTillRec", "ridgingRec", "recText", "harrowText", "harrowText2", "costDif", "costDifChange", "costDifAbs", "netValueDifcurr", "costDifcurr", "optPPNote", "recNote", "netValueNote", "costNote1", "costNote2", "ridgingNote", "tractorNote", "harrowNote", "validationNote", "validationNote2", "validationNote3", "validationNote4", "validationNote5", "validationNote6", "plot3", "validationNote7", "basicTill_plot3", "harrow_plot3", "ridging_plot3", "basicTillMethodSelect1_plot3", "basicTillMethod1_plot3", "basicTillMethodSelect2_plot3", "basicTillMethod2_plot3", "harrowSelect_plot3", "harrow_plot31", "ridgingMethodSelect_plot3", "ridgingMethod_plot3", "plantingNote", "weedingNote", "call", "confirmVAL", "hostBPP3", "end", "instanceID", "KEY")
 class ValPpDto {
     @JsonProperty("SubmissionDate")
     var submissionDate: String? = null
 
     @JsonProperty("uuid")
-    var formHubUuId:String? = null
+    var uuid: String? = null
 
     @JsonProperty("start")
     var startDate: String? = null
@@ -20,10 +20,10 @@ class ValPpDto {
     var todayDate: String? = null
 
     @JsonProperty("deviceid")
-    var deviceId: String? = null
+    var deviceid: String? = null
 
     @JsonProperty("subscriberid")
-    var subscriberId: String? = null
+    var subscriberid: String? = null
 
     @JsonProperty("email")
     var email: String? = null
@@ -119,16 +119,16 @@ class ValPpDto {
     var spray: String? = null
 
     @JsonProperty("slash1spray1Note")
-    var slash1spray1Note: String? = null
+    var slash1Spray1Note: String? = null
 
     @JsonProperty("slash1spray0Note")
-    var slash1spray0Note: String? = null
+    var slash1Spray0Note: String? = null
 
     @JsonProperty("slash0spray1Note")
-    var slash0spray1Note: String? = null
+    var slash0Spray1Note: String? = null
 
     @JsonProperty("slash0spray0Note")
-    var slash0spray0Note: String? = null
+    var slash0Spray0Note: String? = null
 
     @JsonProperty("tractorAccess")
     var tractorAccess: String? = null
@@ -191,10 +191,10 @@ class ValPpDto {
     var plantingDensity: String? = null
 
     @JsonProperty("betweenRow")
-    var betweenRow: Any? = null
+    var betweenRow: String? = null
 
     @JsonProperty("withinRow")
-    var withinRow: Any? = null
+    var withinRow: String? = null
 
     @JsonProperty("plotL")
     var plotLength: String? = null
@@ -212,22 +212,22 @@ class ValPpDto {
     var basicTill1ManualCost: String? = null
 
     @JsonProperty("basicTill1TractorCost")
-    var basicTill1TractorCost: Any? = null
+    var basicTill1TractorCost: String? = null
 
     @JsonProperty("basicTill2ManualCost")
     var basicTill2ManualCost: String? = null
 
     @JsonProperty("basicTill2TractorCost")
-    var basicTill2TractorCost: Any? = null
+    var basicTill2TractorCost: String? = null
 
     @JsonProperty("harrowTractorCost")
-    var harrowTractorCost: Any? = null
+    var harrowTractorCost: String? = null
 
     @JsonProperty("ridgingManualCost")
     var ridgingManualCost: String? = null
 
     @JsonProperty("ridgingTractorCost")
-    var ridgingTractorCost: Any? = null
+    var ridgingTractorCost: String? = null
 
     @JsonProperty("weedingManualCost")
     var weedingManualCost: String? = null
@@ -272,10 +272,10 @@ class ValPpDto {
     var costT2Fl: String? = null
 
     @JsonProperty("costCP")
-    var costCp: String? = null
+    var costCP: String? = null
 
     @JsonProperty("costCPcurr")
-    var costCpCurr: String? = null
+    var costCPcurr: String? = null
 
     @JsonProperty("grossValueT0RG")
     var grossValueT0Rg: String? = null
@@ -296,7 +296,7 @@ class ValPpDto {
     var grossValueT2Fl: String? = null
 
     @JsonProperty("grossValueCP")
-    var grossValueCp: String? = null
+    var grossValueCP: String? = null
 
     @JsonProperty("netValueT0RG")
     var netValueT0Rg: String? = null
@@ -317,7 +317,7 @@ class ValPpDto {
     var netValueT2Fl: String? = null
 
     @JsonProperty("netValueCP")
-    var netValueCp: String? = null
+    var netValueCP: String? = null
 
     @JsonProperty("netValueDifT0RG")
     var netValueDifT0Rg: String? = null
@@ -448,6 +448,9 @@ class ValPpDto {
     @JsonProperty("harrowSelect_plot3")
     var harrowSelectPlot3: String? = null
 
+    @JsonProperty("harrow_plot31")
+    var harrowPlot31: String? = null
+
     @JsonProperty("ridgingMethodSelect_plot3")
     var ridgingMethodSelectPlot3: String? = null
 
@@ -467,7 +470,7 @@ class ValPpDto {
     var confirmVal: String? = null
 
     @JsonProperty("hostBPP3")
-    var hostBPP3: String? = null
+    var hostBpp3: String? = null
 
     @JsonProperty("end")
     var endDate: String? = null

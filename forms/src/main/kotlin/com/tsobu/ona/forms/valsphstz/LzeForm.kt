@@ -545,6 +545,15 @@ class LzeForm {
     @JsonProperty("SC1")
     var sc1: String? = null
 
+    @JsonProperty("SC2")
+    var sc2: String? = null
+
+    @JsonProperty("SC3")
+    var sc3: String? = null
+
+    @JsonProperty("SC4")
+    var sc4: String? = null
+
     @JsonProperty("priceSC1")
     var priceSc1: String? = null
 

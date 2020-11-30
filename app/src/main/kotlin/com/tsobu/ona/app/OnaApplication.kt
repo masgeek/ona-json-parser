@@ -112,8 +112,10 @@ class OnaApplication(
     override fun run(vararg args: String?) {
         log.info("Running Spring Boot Application press CTR-C to close the application")
 
-        valPpService.mapJsonFile()
-//        ppTzService.readJsonAsset()
+//        valPpService.readJsonAsset()
+
+//----------------------------End of debug line
+
 
 //        weedControlService.readJsonAsset()
 //        assessRootYieldCassavaService.readJsonAsset()
@@ -128,7 +130,7 @@ class OnaApplication(
 //        ppTzService.readJsonAsset()
 //        ppService.readJsonAsset()
 //
-//        monitorValService.readJsonAsset()
+        monitorValService.readJsonAsset()
 //        addSampleService.readJsonAsset()
 //        greenBiomassService.readJsonAsset()
 //        lignifiedStemService.readJsonAsset()
