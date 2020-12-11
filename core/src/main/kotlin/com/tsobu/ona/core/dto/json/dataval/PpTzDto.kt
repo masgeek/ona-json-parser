@@ -83,31 +83,31 @@ class PpTzDto {
     var plotDimP1: String? = null
 
     @JsonProperty("plotL1_P1")
-    var plotL1P1: String? = null
+    var plotLength1P1: String? = null
 
     @JsonProperty("plotW1_P1")
-    var plotW1P1: String? = null
+    var plotWidth1P1: String? = null
 
     @JsonProperty("plotL2_P1")
-    var plotL2P1: String? = null
+    var plotLength2P1: String? = null
 
     @JsonProperty("plotW2_P1")
-    var plotW2P1: String? = null
+    var plotWidth2P1: String? = null
 
     @JsonProperty("plotDim_P2")
     var plotDimP2: String? = null
 
     @JsonProperty("plotL1_P2")
-    var plotL1P2: String? = null
+    var plotLength1P2: String? = null
 
     @JsonProperty("plotW1_P2")
-    var plotW1P2: String? = null
+    var plotWidth1P2: String? = null
 
     @JsonProperty("plotL2_P2")
-    var plotL2P2: String? = null
+    var plotLength2P2: String? = null
 
     @JsonProperty("plotW2_P2")
-    var plotW2P2: String? = null
+    var plotWidth2P2: String? = null
 
     @JsonProperty("plotDim_P3")
     var plotDimP3: String? = null
@@ -116,13 +116,13 @@ class PpTzDto {
     var plotL1P3: String? = null
 
     @JsonProperty("plotW1_P3")
-    var plotW1P3: String? = null
+    var plotWidth1P3: String? = null
 
     @JsonProperty("plotL2_P3")
     var plotL2P3: String? = null
 
     @JsonProperty("plotW2_P3")
-    var plotW2P3: String? = null
+    var plotWidth2P3: String? = null
 
     @JsonProperty("plotDim_P4")
     var plotDimP4: String? = null
@@ -131,13 +131,13 @@ class PpTzDto {
     var plotL1P4: String? = null
 
     @JsonProperty("plotW1_P4")
-    var plotW1P4: String? = null
+    var plotWidth1P4: String? = null
 
     @JsonProperty("plotL2_P4")
     var plotL2P4: String? = null
 
     @JsonProperty("plotW2_P4")
-    var plotW2P4: String? = null
+    var plotWidth2P4: String? = null
 
     @JsonProperty("plotDim_P5")
     var plotDimP5: String? = null
@@ -146,13 +146,13 @@ class PpTzDto {
     var plotL1P5: String? = null
 
     @JsonProperty("plotW1_P5")
-    var plotW1P5: String? = null
+    var plotWidth1P5: String? = null
 
     @JsonProperty("plotL2_P5")
     var plotL2P5: String? = null
 
     @JsonProperty("plotW2_P5")
-    var plotW2P5: String? = null
+    var plotWidth2P5: String? = null
 
     @JsonProperty("plotDim_P6")
     var plotDimP6: String? = null
@@ -161,13 +161,13 @@ class PpTzDto {
     var plotL1P6: String? = null
 
     @JsonProperty("plotW1_P6")
-    var plotW1P6: String? = null
+    var plotWidth1P6: String? = null
 
     @JsonProperty("plotL2_P6")
     var plotL2P6: String? = null
 
     @JsonProperty("plotW2_P6")
-    var plotW2P6: String? = null
+    var plotWidth2P6: String? = null
 
     @JsonProperty("clearing")
     var clearing: String? = null

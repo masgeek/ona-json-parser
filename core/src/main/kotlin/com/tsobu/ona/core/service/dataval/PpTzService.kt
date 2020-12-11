@@ -5,8 +5,8 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.dataval.*
-import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.CsvUtility
+import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.database.entities.dataval.*
 import com.tsobu.ona.database.repositories.dataval.*
 import com.tsobu.ona.forms.dataval.PpTzForm
@@ -66,8 +66,8 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = false
-        modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
+//        modelMapper.configuration.isAmbiguityIgnored = false
+        modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val ppTzData = frList.map { ppTzEntity ->
             val ppTzDto = modelMapper.map(ppTzEntity, PpTzDto::class.java)
@@ -75,7 +75,7 @@ constructor(
             ppTzDto.startDate = myDateUtil.toDateTimeString(ppTzEntity.startDate)
             ppTzDto.endDate = myDateUtil.toDateTimeString(ppTzEntity.endDate)
 
-            ppTzDto.todayDate= myDateUtil.toDateToString(ppTzEntity.todayDate)
+            ppTzDto.todayDate = myDateUtil.toDateToString(ppTzEntity.todayDate)
             ppTzDto.harvestDate = myDateUtil.toDateToString(ppTzEntity.harvestDate)
             ppTzDto.gappingDate = myDateUtil.toDateToString(ppTzEntity.gappingDate)
             ppTzDto.plantingDate = myDateUtil.toDateToString(ppTzEntity.plantingDate)
@@ -89,6 +89,27 @@ constructor(
             ppTzDto.dateWeeding8 = myDateUtil.toDateToString(ppTzEntity.dateWeeding8)
             ppTzDto.dateWeeding9 = myDateUtil.toDateToString(ppTzEntity.dateWeeding9)
             ppTzDto.dateWeeding10 = myDateUtil.toDateToString(ppTzEntity.dateWeeding10)
+
+            ppTzDto.plotLength1P1 = ppTzEntity.plotL1P1
+            ppTzDto.plotLength1P2 = ppTzEntity.plotL1P2
+
+            ppTzDto.plotLength2P1 = ppTzEntity.plotL2P1
+            ppTzDto.plotLength2P2 = ppTzEntity.plotL2P2
+
+            ppTzDto.plotWidth1P1 = ppTzEntity.plotW1P1
+            ppTzDto.plotWidth1P2 = ppTzEntity.plotW1P2
+            ppTzDto.plotWidth1P3 = ppTzEntity.plotW1P3
+            ppTzDto.plotWidth1P4 = ppTzEntity.plotW1P4
+            ppTzDto.plotWidth1P5 = ppTzEntity.plotW1P5
+            ppTzDto.plotWidth1P6 = ppTzEntity.plotW1P6
+
+
+            ppTzDto.plotWidth2P1 = ppTzEntity.plotW2P1
+            ppTzDto.plotWidth2P2 = ppTzEntity.plotW2P2
+            ppTzDto.plotWidth2P3 = ppTzEntity.plotW2P3
+            ppTzDto.plotWidth2P4 = ppTzEntity.plotW2P4
+            ppTzDto.plotWidth2P5 = ppTzEntity.plotW2P5
+            ppTzDto.plotWidth2P6 = ppTzEntity.plotW2P6
 
             ppTzDto
         }
@@ -186,7 +207,7 @@ constructor(
             ppTzEntity.instanceId = myVal.instanceId
             ppTzEntity.controlKey = myVal.instanceId
 
-            ppTzEntity.todayDate= myDateUtil.convertToDate(myVal.todayDate)
+            ppTzEntity.todayDate = myDateUtil.convertToDate(myVal.todayDate)
             ppTzEntity.harvestDate = myDateUtil.convertToDate(myVal.harvestDate)
             ppTzEntity.gappingDate = myDateUtil.convertToDate(myVal.gappingDate)
             ppTzEntity.plantingDate = myDateUtil.convertToDate(myVal.plantingDate)
@@ -201,7 +222,7 @@ constructor(
             ppTzEntity.dateWeeding8 = myDateUtil.convertToDate(myVal.dateWeeding8)
             ppTzEntity.dateWeeding9 = myDateUtil.convertToDate(myVal.dateWeeding9)
             ppTzEntity.dateWeeding10 = myDateUtil.convertToDate(myVal.dateWeeding10)
-            
+
             ppTzEntityData.add(ppTzEntity)
 
 
