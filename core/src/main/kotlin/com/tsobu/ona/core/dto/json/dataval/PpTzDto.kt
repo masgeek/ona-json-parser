@@ -11,7 +11,7 @@ class PpTzDto {
     var submissionDate: String? = null
 
     @JsonProperty("uuid")
-    var formHubUuId:String? = null
+    var formHubUuId: String? = null
 
     @JsonProperty("start")
     var startDate: String? = null
@@ -83,91 +83,91 @@ class PpTzDto {
     var plotDimP1: String? = null
 
     @JsonProperty("plotL1_P1")
-    var plotLength1P1: String? = null
+    var plotLength1P1: Double? = null
 
     @JsonProperty("plotW1_P1")
-    var plotWidth1P1: String? = null
+    var plotWidth1P1: Double? = null
 
     @JsonProperty("plotL2_P1")
-    var plotLength2P1: String? = null
+    var plotLength2P1: Double? = null
 
     @JsonProperty("plotW2_P1")
-    var plotWidth2P1: String? = null
+    var plotWidth2P1: Double? = null
 
     @JsonProperty("plotDim_P2")
     var plotDimP2: String? = null
 
     @JsonProperty("plotL1_P2")
-    var plotLength1P2: String? = null
+    var plotLength1P2: Double? = null
 
     @JsonProperty("plotW1_P2")
-    var plotWidth1P2: String? = null
+    var plotWidth1P2: Double? = null
 
     @JsonProperty("plotL2_P2")
-    var plotLength2P2: String? = null
+    var plotLength2P2: Double? = null
 
     @JsonProperty("plotW2_P2")
-    var plotWidth2P2: String? = null
+    var plotWidth2P2: Double? = null
 
     @JsonProperty("plotDim_P3")
-    var plotDimP3: String? = null
+    var plotDimP3: Double? = null
 
     @JsonProperty("plotL1_P3")
-    var plotL1P3: String? = null
+    var plotLength1P3: Double? = null
 
     @JsonProperty("plotW1_P3")
-    var plotWidth1P3: String? = null
+    var plotWidth1P3: Double? = null
 
     @JsonProperty("plotL2_P3")
-    var plotL2P3: String? = null
+    var plotLength2P3: Double? = null
 
     @JsonProperty("plotW2_P3")
-    var plotWidth2P3: String? = null
+    var plotWidth2P3: Double? = null
 
     @JsonProperty("plotDim_P4")
     var plotDimP4: String? = null
 
     @JsonProperty("plotL1_P4")
-    var plotL1P4: String? = null
+    var plotLength1P4: Double? = null
 
     @JsonProperty("plotW1_P4")
-    var plotWidth1P4: String? = null
+    var plotWidth1P4: Double? = null
 
     @JsonProperty("plotL2_P4")
-    var plotL2P4: String? = null
+    var plotLength2P4: Double? = null
 
     @JsonProperty("plotW2_P4")
-    var plotWidth2P4: String? = null
+    var plotWidth2P4: Double? = null
 
     @JsonProperty("plotDim_P5")
     var plotDimP5: String? = null
 
     @JsonProperty("plotL1_P5")
-    var plotL1P5: String? = null
+    var plotLength1P5: Double? = null
 
     @JsonProperty("plotW1_P5")
-    var plotWidth1P5: String? = null
+    var plotWidth1P5: Double? = null
 
     @JsonProperty("plotL2_P5")
-    var plotL2P5: String? = null
+    var plotLength2P5: Double? = null
 
     @JsonProperty("plotW2_P5")
-    var plotWidth2P5: String? = null
+    var plotWidth2P5: Double? = null
 
     @JsonProperty("plotDim_P6")
     var plotDimP6: String? = null
 
     @JsonProperty("plotL1_P6")
-    var plotL1P6: String? = null
+    var plotLength1P6: Double? = null
 
     @JsonProperty("plotW1_P6")
-    var plotWidth1P6: String? = null
+    var plotWidth1P6: Double? = null
 
     @JsonProperty("plotL2_P6")
-    var plotL2P6: String? = null
+    var plotLength2P6: Double? = null
 
     @JsonProperty("plotW2_P6")
-    var plotWidth2P6: String? = null
+    var plotWidth2P6: Double? = null
 
     @JsonProperty("clearing")
     var clearing: String? = null
@@ -473,7 +473,7 @@ class PpTzDto {
     var priceRoots: String? = null
 
     @JsonProperty("comment")
-    var commentValue: String? = null
+    var comment: String? = null
 
     @JsonProperty("thankyou")
     var thankyou: String? = null

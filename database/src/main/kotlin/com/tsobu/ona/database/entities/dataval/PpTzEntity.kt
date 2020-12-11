@@ -96,8 +96,8 @@ class PpTzEntity : BaseEntity() {
     @Column(name = "end_date")
     var endDate: LocalDateTime? = null
 
-    @Column(name = "event")
-    var event: String? = null
+    @Column(name = "event_value")
+    var eventValue: String? = null
 
     @Column(name = "fertilizer_1")
     var fertilizer1: String? = null
@@ -223,76 +223,76 @@ class PpTzEntity : BaseEntity() {
     var plotDimP6: String? = null
 
     @Column(name = "plot_l1_p1")
-    var plotL1P1: String? = null
+    var plotL1P1: Double? = null
 
     @Column(name = "plot_l1_p2")
-    var plotL1P2: String? = null
+    var plotL1P2: Double? = null
 
     @Column(name = "plot_l1_p3")
-    var plotL1P3: String? = null
+    var plotL1P3: Double? = null
 
     @Column(name = "plot_l1_p4")
-    var plotL1P4: String? = null
+    var plotL1P4: Double? = null
 
     @Column(name = "plot_l1_p5")
-    var plotL1P5: String? = null
+    var plotL1P5: Double? = null
 
     @Column(name = "plot_l1_p6")
-    var plotL1P6: String? = null
+    var plotL1P6: Double? = null
 
     @Column(name = "plot_l2_p1")
-    var plotL2P1: String? = null
+    var plotL2P1: Double? = null
 
     @Column(name = "plot_l2_p2")
-    var plotL2P2: String? = null
+    var plotL2P2: Double? = null
 
     @Column(name = "plot_l2_p3")
-    var plotL2P3: String? = null
+    var plotL2P3: Double? = null
 
     @Column(name = "plot_l2_p4")
-    var plotL2P4: String? = null
+    var plotL2P4: Double? = null
 
     @Column(name = "plot_l2_p5")
-    var plotL2P5: String? = null
+    var plotL2P5: Double? = null
 
     @Column(name = "plot_l2_p6")
-    var plotL2P6: String? = null
+    var plotL2P6: Double? = null
 
     @Column(name = "plot_w1_p1")
-    var plotW1P1: String? = null
+    var plotW1P1: Double? = null
 
     @Column(name = "plot_w1_p2")
-    var plotW1P2: String? = null
+    var plotW1P2: Double? = null
 
     @Column(name = "plot_w1_p3")
-    var plotW1P3: String? = null
+    var plotW1P3: Double? = null
 
     @Column(name = "plot_w1_p4")
-    var plotW1P4: String? = null
+    var plotW1P4: Double? = null
 
     @Column(name = "plot_w1_p5")
-    var plotW1P5: String? = null
+    var plotW1P5: Double? = null
 
     @Column(name = "plot_w1_p6")
-    var plotW1P6: String? = null
+    var plotW1P6: Double? = null
 
     @Column(name = "plot_w2_p1")
-    var plotW2P1: String? = null
+    var plotW2P1: Double? = null
 
     @Column(name = "plot_w2_p2")
-    var plotW2P2: String? = null
+    var plotW2P2: Double? = null
 
     @Column(name = "plot_w2_p3")
-    var plotW2P3: String? = null
+    var plotW2P3: Double? = null
 
     @Column(name = "plot_w2_p4")
-    var plotW2P4: String? = null
+    var plotW2P4: Double? = null
 
     @Column(name = "plot_w2_p5")
-    var plotW2P5: String? = null
+    var plotW2P5: Double? = null
 
     @Column(name = "plot_w2_p6")
-    var plotW2P6: String? = null
+    var plotW2P6: Double? = null
 
     @Column(name = "preferred_treatment")
     var preferredTreatment: String? = null
