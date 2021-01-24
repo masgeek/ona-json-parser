@@ -5,8 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import java.util.*
 
-//@JsonIgnoreProperties(ignoreUnknown = false)
-@JsonIgnoreProperties("_id", "_tags", "_notes")
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class SphsForm {
 
@@ -45,6 +44,9 @@ class SphsForm {
 
     @JsonProperty("country")
     var country: String? = null
+
+    @JsonProperty("today2")
+    var today2: String? = null
 
     @JsonProperty("_version")
     var version: String? = null
