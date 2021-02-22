@@ -24,6 +24,6 @@ spring:
         order_inserts: true
 
 ona:
-  json-path: ${JSON_PATH:json}
-  output-path: ${OUTPUT_PATH:converted}
-  compare-path: ${COMPARE_PATH:onaData}
+  json-path: ${JSON_PATH:D:\\dev\\python\\ona-download\\downloads\\json\\}
+  output-path: ${OUTPUT_PATH:D:\\dev\\python\\ona-download\\downloads\\converted\\}
+  compare-path: ${COMPARE_PATH:D:\\dev\\python\\ona-download\\downloads\\onaData\\}
