@@ -2,17 +2,18 @@ package com.tsobu.ona.forms.greenbiomass
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import java.util.*
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder("_id", "end", "_tags", "_uuid", "login", "start", "today", "_notes", "entity", "_edited", "_status", "_version", "deviceid", "geopoint", "username", "_duration", "_xform_id", "simserial", "_attachments", "_geolocation", "_media_count", "_total_media", "formhub/uuid", "subscriberid", "_submitted_by", "meta/instanceID", "yieldAssessment", "_submission_time", "_xform_id_string", "biomass/sampling", "_bamboo_dataset_id", "biomass/measureSec", "_media_all_received", "biomass/partitioning", "purpose/country", "purpose/project", "samplingSec", "enumerator/surName", "enumerator/firstName", "email", "phonenumber")
 class YieldCassavaAcForm {
     @JsonProperty("_id")
     var id: String? = null
 
     @JsonProperty("end")
     var endDate: String? = null
+
+    @JsonProperty("_date_modified")
+    var dateModified: String? = null
 
     @JsonProperty("_tags")
     var tags: List<Any> = ArrayList()
