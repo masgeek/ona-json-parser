@@ -79,13 +79,13 @@ class PpTzForm {
     var locField: String? = null
 
     @JsonProperty("simserial")
-    var simserial: String? = null
+    var simSerial: String? = null
 
     @JsonProperty("conversion")
     var conversion: String? = null
 
     @JsonProperty("phonenumber")
-    var phonenumber: String? = null
+    var phoneNumber: String? = null
 
     @JsonProperty("_attachments")
     var attachments: List<Attachment> = ArrayList()
@@ -103,13 +103,13 @@ class PpTzForm {
     var formhubUuid: String? = null
 
     @JsonProperty("subscriberid")
-    var subscriberid: String? = null
+    var subscriberId: String? = null
 
     @JsonProperty("_submitted_by")
     var submittedBy: String? = null
 
     @JsonProperty("purpose/event")
-    var purposeEvent: String? = null
+    var eventValue: String? = null
 
     @JsonProperty("meta/instanceID")
     var instanceId: String? = null
@@ -139,52 +139,52 @@ class PpTzForm {
     var variety: String? = null
 
     @JsonProperty("plotLayout_P1/plotL1_P1")
-    var plotL1P1: Double? = null
+    var plotLayoutP1PlotL1P1: Double? = null
 
     @JsonProperty("plotLayout_P1/plotL2_P1")
-    var plotL2P1: Double? = null
+    var plotLayoutP1PlotL2P1: Double? = null
 
     @JsonProperty("plotLayout_P1/plotW1_P1")
-    var plotW1P1: Double? = null
+    var plotLayoutP1PlotW1P1: Double? = null
 
     @JsonProperty("plotLayout_P1/plotW2_P1")
-    var plotW2P1: Double? = null
+    var plotLayoutP1PlotW2P1: Double? = null
 
     @JsonProperty("plotLayout_P2/plotL1_P2")
-    var plotL1P2: Double? = null
+    var plotLayoutP2PlotL1P2: Double? = null
 
     @JsonProperty("plotLayout_P2/plotL2_P2")
-    var plotL2P2: Double? = null
+    var plotLayoutP2PlotL2P2: Double? = null
 
     @JsonProperty("plotLayout_P2/plotW1_P2")
-    var plotW1P2: Double? = null
+    var plotLayoutP2PlotW1P2: Double? = null
 
     @JsonProperty("plotLayout_P2/plotW2_P2")
-    var plotW2P2: Double? = null
+    var plotLayoutP2PlotW2P2: Double? = null
 
     @JsonProperty("plotLayout_P3/plotL1_P3")
-    var plotL1P3: Double? = null
+    var plotLayoutP3PlotL1P3: Double? = null
 
     @JsonProperty("plotLayout_P3/plotL2_P3")
-    var plotL2P3: Double? = null
+    var plotLayoutP3PlotL2P3: Double? = null
 
     @JsonProperty("plotLayout_P3/plotW1_P3")
-    var plotW1P3: Double? = null
+    var plotLayoutP3PlotW1P3: Double? = null
 
     @JsonProperty("plotLayout_P3/plotW2_P3")
-    var plotW2P3: Double? = null
+    var plotLayoutP3PlotW2P3: Double? = null
 
     @JsonProperty("plotLayout_P4/plotL1_P4")
-    var plotL1P4: Double? = null
+    var plotLayoutP4PlotL1P4: Double? = null
 
     @JsonProperty("plotLayout_P4/plotL2_P4")
-    var plotL2P4: Double? = null
+    var plotLayoutP4PlotL2P4: Double? = null
 
     @JsonProperty("plotLayout_P4/plotW1_P4")
-    var plotW1P4: Double? = null
+    var plotLayoutP4PlotW1P4: Double? = null
 
     @JsonProperty("plotLayout_P4/plotW2_P4")
-    var plotW2P4: Double? = null
+    var plotLayoutP4PlotW2P4: Double? = null
 
     @JsonProperty("weedAssessment_P1_count")
     var weedAssessmentP1Count: String? = null
@@ -235,28 +235,28 @@ class PpTzForm {
     var deprecatedID: String? = null
 
     @JsonProperty("plotLayout_P5/plotL1_P5")
-    var plotL1P5: Double? = null
+    var plotLayoutP5PlotL1P5: Double? = null
 
     @JsonProperty("plotLayout_P5/plotL2_P5")
-    var plotL2P5: Double? = null
+    var plotLayoutP5PlotL2P5: Double? = null
 
     @JsonProperty("plotLayout_P5/plotW1_P5")
-    var plotW1P5: Double? = null
+    var plotLayoutP5PlotW1P5: Double? = null
 
     @JsonProperty("plotLayout_P5/plotW2_P5")
-    var plotW2P5: Double? = null
+    var plotLayoutP5PlotW2P5: Double? = null
 
     @JsonProperty("plotLayout_P6/plotL1_P6")
-    var plotL1P6: Double? = null
+    var plotLayoutP6PlotL1P6: Double? = null
 
     @JsonProperty("plotLayout_P6/plotL2_P6")
-    var plotL2P6: Double? = null
+    var plotLayoutP6PlotL2P6: Double? = null
 
     @JsonProperty("plotLayout_P6/plotW1_P6")
-    var plotW1P6: Double? = null
+    var plotLayoutP6PlotW1P6: Double? = null
 
     @JsonProperty("plotLayout_P6/plotW2_P6")
-    var plotW2P6: Double? = null
+    var plotLayoutP6PlotW2P6: Double? = null
 
     @JsonProperty("confirmTreatments/confirm_P5")
     var confirmP5: String? = null
