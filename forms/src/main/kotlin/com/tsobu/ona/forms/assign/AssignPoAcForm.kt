@@ -1,12 +1,13 @@
 package com.tsobu.ona.forms.assign
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import java.util.*
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder("_id", "end", "_tags", "_uuid", "login", "start", "today", "_notes", "treats", "_edited", "_status", "trialID", "_version", "deviceid", "geopoint", "_duration", "_xform_id", "simserial", "trialCode", "_attachments", "_geolocation", "_media_count", "_total_media", "formhub/uuid", "nrTreatments", "plotLabeling", "subscriberid", "_submitted_by", "completeSetup", "meta/instanceID", "purpose/country", "purpose/project", "_submission_time", "_xform_id_string", "_bamboo_dataset_id", "plotLabeling_count", "_media_all_received", "nrTreatmentsComplete", "username", "email", "phonenumber", "enumerator/surName", "enumerator/firstName")
+@JsonIgnoreProperties(ignoreUnknown = true)
 class AssignPoAcForm {
     @JsonProperty("_id")
     var Id: String? = null
