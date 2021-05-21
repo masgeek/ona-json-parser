@@ -26,6 +26,9 @@ class PpForm {
     @JsonProperty("_uuid")
     var uuid: String? = null
 
+    @JsonProperty("_date_modified")
+    var dateModified: String? = null
+
     @JsonProperty("start")
     var startDate: String? = null
 

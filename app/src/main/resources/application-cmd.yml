@@ -11,7 +11,7 @@ spring:
       dialect: org.hibernate.dialect.MySQL5Dialect
     hibernate:
       generate_statistics: ${GEN_STATS:false}
-      ddl-auto: ${DDL_MODE:validate }
+      ddl-auto: ${DDL_MODE:validate}
       naming:
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyHbmImpl
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy

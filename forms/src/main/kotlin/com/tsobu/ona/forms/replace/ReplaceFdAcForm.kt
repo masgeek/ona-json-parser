@@ -14,6 +14,9 @@ class ReplaceFdAcForm {
     @JsonProperty("end")
     var endDate: String? = null
 
+    @JsonProperty("_date_modified")
+    var dateModified: String? = null
+
     @JsonProperty("_tags")
     var tags: List<Any> = ArrayList()
 

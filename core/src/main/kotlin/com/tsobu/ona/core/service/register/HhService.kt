@@ -5,8 +5,8 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.register.HhDto
-import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.CsvUtility
+import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.database.entities.register.HhEntity
 import com.tsobu.ona.database.repositories.register.HhRepo
 import com.tsobu.ona.forms.register.HhForm
@@ -53,8 +53,7 @@ constructor(
 
         modelMapper.configuration.propertyCondition = isStringBlank
         modelMapper.configuration.isSkipNullEnabled = true
-        modelMapper.configuration.isAmbiguityIgnored = false
-        modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
+        modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
         val hhData = frList.map { hhEntity ->
             val hhDto = modelMapper.map(hhEntity, HhDto::class.java)

@@ -3,7 +3,6 @@ package com.tsobu.ona.forms.replace
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import java.util.*
 
 @JsonIgnoreProperties(ignoreUnknown = false)
@@ -13,6 +12,9 @@ import java.util.*
 
     @JsonProperty("end")
     var endDate: String? = null
+
+    @JsonProperty("_date_modified")
+    var dateModified: String? = null
 
     @JsonProperty("_tags")
     var tags: List<Any> = ArrayList()

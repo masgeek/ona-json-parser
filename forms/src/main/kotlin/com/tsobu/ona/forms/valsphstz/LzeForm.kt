@@ -93,10 +93,10 @@ class LzeForm {
     var username: String? = null
 
     @JsonProperty("_duration")
-    var duration: Double? = null
+    var duration: String? = null
 
     @JsonProperty("_xform_id")
-    var xformId: Int? = null
+    var xformId: String? = null
 
     @JsonProperty("areaBasis")
     var areaBasis: String? = null
@@ -126,10 +126,10 @@ class LzeForm {
     var geolocation: List<Double> = ArrayList()
 
     @JsonProperty("_media_count")
-    var mediaCount: Int? = null
+    var mediaCount: String? = null
 
     @JsonProperty("_total_media")
-    var totalMedia: Int? = null
+    var totalMedia: String? = null
 
     @JsonProperty("formhub/uuid")
     var formHubUuid: String? = null
@@ -432,7 +432,7 @@ class LzeForm {
     var harvestWeek0: String? = null
 
     @JsonProperty("priceDetails/priceR0")
-    var priceR0: Int? = null
+    var priceR0: String? = null
 
     @JsonProperty("priceDetails/pricem1")
     var priceM1: String? = null
@@ -486,16 +486,16 @@ class LzeForm {
     var harvestWeekP4: String? = null
 
     @JsonProperty("priceDetails/priceRm2")
-    var priceRm2: Int? = null
+    var priceRm2: String? = null
 
     @JsonProperty("priceDetails/priceRm4")
-    var priceRm4: Int? = null
+    var priceRm4: String? = null
 
     @JsonProperty("priceDetails/priceRp2")
-    var priceRp2: Int? = null
+    var priceRp2: String? = null
 
     @JsonProperty("priceDetails/priceRp4")
-    var priceRp4: Int? = null
+    var priceRp4: String? = null
 
     @JsonProperty("results/GRp0h0_ABcurr")
     var grp0h0AbCurr: String? = null
