@@ -1,11 +1,12 @@
 package com.tsobu.ona.forms.starchcontent
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
+@JsonIgnoreProperties("_id","_date_modified")
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder("assessStarch/plotID", "assessStarch/FW/airFW", "assessStarch/FW/waterFW", "assessStarch/SCNote/specGrav", "assessStarch/SCNote/starCont", "assessStarch/SCNote/starContClass")
 class AssessStarchForm {
     @JsonProperty("assessStarch/plotID")
     var plotId: String? = null

@@ -16,6 +16,9 @@ class EaForm {
     @JsonProperty("end")
     var endDate: String? = null
 
+    @JsonProperty("_date_modified")
+    var dateModified: String? = null
+
     @JsonProperty("EAID")
     var eaid: String? = null
 

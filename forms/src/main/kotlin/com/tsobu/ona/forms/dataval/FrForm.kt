@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import java.util.*
 
 
-@JsonIgnoreProperties("_id")
+@JsonIgnoreProperties("_id","_date_modified")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class FrForm {
     @JsonProperty("_id")

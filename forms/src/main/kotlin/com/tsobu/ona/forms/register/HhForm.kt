@@ -15,6 +15,9 @@ class HhForm {
     @JsonProperty("EAEN")
     var eaen: String? = null
 
+    @JsonProperty("_date_modified")
+    var dateModified: String? = null
+
     @JsonProperty("EAID")
     var eaid: String? = null
 

@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.tsobu.ona.forms.Attachment
 import java.util.*
 
-@JsonIgnoreProperties(ignoreUnknown = false)
+@JsonIgnoreProperties("_id","_date_modified")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class PpTzForm {
     @JsonProperty("_id")

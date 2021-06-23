@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 
 
-@JsonIgnoreProperties(ignoreUnknown = false)
+@JsonIgnoreProperties("_id","_date_modified")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class PpForm {
     @JsonProperty("_id")
