@@ -7,7 +7,7 @@ import java.util.ArrayList
 
 @JsonIgnoreProperties(ignoreUnknown = false)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-class SgDataValFip {
+class SgDataValFipForm {
     @JsonProperty("_id")
     var id: Int? = null
 
@@ -78,7 +78,7 @@ class SgDataValFip {
     var totalMedia: Int? = null
 
     @JsonProperty("formhub/uuid")
-    var formhubUuid: String? = null
+    var formHubUuId: String? = null
 
     @JsonProperty("purpose/crop")
     var purposeCrop: String? = null
@@ -93,7 +93,7 @@ class SgDataValFip {
     var dateModified: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null
@@ -135,31 +135,31 @@ class SgDataValFip {
     var plantingDetailsTrialType: String? = null
 
     @JsonProperty("plotLayout_FCE/plotL1_FCE")
-    var plotLayoutFCEPlotL1FCE: Double? = null
+    var plotLayoutFcePlotL1Fce: Double? = null
 
     @JsonProperty("plotLayout_FCE/plotL2_FCE")
-    var plotLayoutFCEPlotL2FCE: Double? = null
+    var plotLayoutFcePlotL2Fce: Double? = null
 
     @JsonProperty("plotLayout_FCE/plotW1_FCE")
-    var plotLayoutFCEPlotW1FCE: Double? = null
+    var plotLayoutFcePlotW1Fce: Double? = null
 
     @JsonProperty("plotLayout_FCE/plotW2_FCE")
-    var plotLayoutFCEPlotW2FCE: Double? = null
+    var plotLayoutFcePlotW2Fce: Double? = null
 
     @JsonProperty("landPreparation/vegetation")
     var landPreparationVegetation: String? = null
 
     @JsonProperty("plotLayout_FIP/plotL1_FIP_C")
-    var plotLayoutFIPPlotL1FIPC: Double? = null
+    var plotLayoutFipPlotL1FipC: Double? = null
 
     @JsonProperty("plotLayout_FIP/plotL2_FIP_C")
-    var plotLayoutFIPPlotL2FIPC: Double? = null
+    var plotLayoutFipPlotL2FipC: Double? = null
 
     @JsonProperty("plotLayout_FIP/plotW1_FIP_C")
-    var plotLayoutFIPPlotW1FIPC: Double? = null
+    var plotLayoutFipPlotW1FipC: Double? = null
 
     @JsonProperty("plotLayout_FIP/plotW2_FIP_C")
-    var plotLayoutFIPPlotW2FIPC: Double? = null
+    var plotLayoutFipPlotW2FipC: Double? = null
 
     @JsonProperty("plantingDetails/organicInput")
     var plantingDetailsOrganicInput: String? = null
@@ -180,22 +180,22 @@ class SgDataValFip {
     var nrWeeding: Int? = null
 
     @JsonProperty("fertilizers2blue")
-    var fertilizers2blue: String? = null
+    var fertilizers2Blue: String? = null
 
     @JsonProperty("fertilizers2yellow")
-    var fertilizers2yellow: String? = null
+    var fertilizers2Yellow: String? = null
 
     @JsonProperty("fertilizer2blue/NPK2")
-    var fertilizer2blueNPK2: Int? = null
+    var fertilizer2BlueNpk2: Int? = null
 
     @JsonProperty("fertilizer2blue/urea2")
-    var fertilizer2blueUrea2: Int? = null
+    var fertilizer2BlueUrea2: Int? = null
 
     @JsonProperty("fertilizer2yellow/NPK2")
-    var fertilizer2yellowNPK2: Int? = null
+    var fertilizer2YellowNpk2:Int? = null
 
     @JsonProperty("fertilizer2yellow/urea2")
-    var fertilizer2yellowUrea2: Int? = null
+    var fertilizer2YellowUrea2: Int? = null
 
     @JsonProperty("weedingDetails/dateWeeding1")
     var weedingDetailsDateWeeding1: String? = null
@@ -204,37 +204,37 @@ class SgDataValFip {
     var weedingDetailsWeedingMethod1: String? = null
 
     @JsonProperty("fertilizer2blue/dateFertilizer2")
-    var fertilizer2blueDateFertilizer2: String? = null
+    var fertilizer2BlueDateFertilizer2: String? = null
 
     @JsonProperty("fertilizer2yellow/dateFertilizer2")
-    var fertilizer2yellowDateFertilizer2: String? = null
+    var fertilizer2YellowDateFertilizer2: String? = null
 
     @JsonProperty("fertilizers1blue")
-    var fertilizers1blue: String? = null
+    var fertilizers1Blue: String? = null
 
     @JsonProperty("fertilizers1yellow")
-    var fertilizers1yellow: String? = null
+    var fertilizers1Yellow: String? = null
 
     @JsonProperty("plantStand/nrPlants_FCE")
-    var plantStandNrPlantsFCE: Int? = null
+    var plantStandNrPlantsFce: Int? = null
 
     @JsonProperty("plantStand/nrPlants_FIP")
-    var plantStandNrPlantsFIP: Int? = null
+    var plantStandNrPlantsFip: Int? = null
 
     @JsonProperty("fertilizer1blue/dateFertilizer1")
-    var fertilizer1blueDateFertilizer1: String? = null
+    var fertilizer1BlueDateFertilizer1: String? = null
 
     @JsonProperty("fertilizer1yellow/dateFertilizer1")
-    var fertilizer1yellowDateFertilizer1: String? = null
+    var fertilizer1YellowDateFertilizer1: String? = null
 
     @JsonProperty("fertilizer1blue/NPK1")
-    var fertilizer1blueNPK1: Int? = null
+    var fertilizer1BlueNpk1: Int? = null
 
     @JsonProperty("fertilizer1blue/urea1")
     var fertilizer1blueUrea1: Int? = null
 
     @JsonProperty("fertilizer1yellow/NPK1")
-    var fertilizer1yellowNPK1: Int? = null
+    var fertilizer1YellowNpk1: Int? = null
 
     @JsonProperty("fertilizer1yellow/urea1")
     var fertilizer1yellowUrea1: Int? = null
@@ -270,7 +270,7 @@ class SgDataValFip {
     var harvestCassavaHarvestDate: String? = null
 
     @JsonProperty("trialRatingCassava/rateCMD")
-    var trialRatingCassavaRateCMD: String? = null
+    var trialRatingCassavaRateCmd: String? = null
 
     @JsonProperty("farmerEvaluation/yieldScore")
     var farmerEvaluationYieldScore: String? = null
@@ -315,16 +315,16 @@ class SgDataValFip {
     var trialRatingCassavaRateWaterLogging: String? = null
 
     @JsonProperty("harvestCassava/tuberizedMarketableRootsFW_FCE")
-    var harvestCassavaTuberizedMarketableRootsFWFCE: Double? = null
+    var harvestCassavaTuberizedMarketableRootsFwFce: Double? = null
 
     @JsonProperty("harvestCassava/tuberizedMarketableRootsFW_FIP")
-    var harvestCassavaTuberizedMarketableRootsFWFIP: Double? = null
+    var harvestCassavaTuberizedMarketableRootsFwFip: Double? = null
 
     @JsonProperty("harvestCassava/tuberizedMarketableRootsNr_FCE")
-    var harvestCassavaTuberizedMarketableRootsNrFCE: Int? = null
+    var harvestCassavaTuberizedMarketableRootsNrFce: Int? = null
 
     @JsonProperty("harvestCassava/tuberizedMarketableRootsNr_FIP")
-    var harvestCassavaTuberizedMarketableRootsNrFIP: Int? = null
+    var harvestCassavaTuberizedMarketableRootsNrFip: Int? = null
 
     @JsonProperty("waterLevel/rateWater1")
     var waterLevelRateWater1: String? = null
@@ -357,16 +357,16 @@ class SgDataValFip {
     var weedingDetailsDateWeeding3: String? = null
 
     @JsonProperty("plantStandRice/nrPlants_FCE1")
-    var plantStandRiceNrPlantsFCE1: Int? = null
+    var plantStandRiceNrPlantsFce1: Int? = null
 
     @JsonProperty("plantStandRice/nrPlants_FCE2")
-    var plantStandRiceNrPlantsFCE2: Int? = null
+    var plantStandRiceNrPlantsFce2: Int? = null
 
     @JsonProperty("plantStandRice/nrPlants_FIP1")
-    var plantStandRiceNrPlantsFIP1: Int? = null
+    var plantStandRiceNrPlantsFip1: Int? = null
 
     @JsonProperty("plantStandRice/nrPlants_FIP2")
-    var plantStandRiceNrPlantsFIP2: Int? = null
+    var plantStandRiceNrPlantsFip2: Int? = null
 
     @JsonProperty("trialRatingRice/rateSalinity")
     var trialRatingRiceRateSalinity: String? = null
@@ -426,10 +426,10 @@ class SgDataValFip {
     var landPrepationDetailsHarrowMethod2: String? = null
 
     @JsonProperty("fertilizers3blue")
-    var fertilizers3blue: String? = null
+    var fertilizers3Blue: String? = null
 
     @JsonProperty("fertilizers3yellow")
-    var fertilizers3yellow: String? = null
+    var fertilizers3Yellow: String? = null
 
     @JsonProperty("fertilizer3blue/urea3")
     var fertilizer3blueUrea3: Int? = null
@@ -438,10 +438,10 @@ class SgDataValFip {
     var fertilizer3yellowUrea3: Int? = null
 
     @JsonProperty("fertilizer3blue/dateFertilizer3")
-    var fertilizer3blueDateFertilizer3: String? = null
+    var fertilizer3BlueDateFertilizer3: String? = null
 
     @JsonProperty("fertilizer3yellow/dateFertilizer3")
-    var fertilizer3yellowDateFertilizer3: String? = null
+    var fertilizer3YellowDateFertilizer3: String? = null
 
     @JsonProperty("trialRatingMaize/rateFire")
     var trialRatingMaizeRateFire: String? = null
@@ -468,7 +468,7 @@ class SgDataValFip {
     var trialRatingMaizeRateOtherPests: String? = null
 
     @JsonProperty("trialRatingMaize/rateFallarmyworm")
-    var trialRatingMaizeRateFallarmyworm: String? = null
+    var trialRatingMaizeRateFallArmyworm: String? = null
 
     @JsonProperty("trialRatingMaize/rateOtherDisease")
     var trialRatingMaizeRateOtherDisease: String? = null
@@ -498,7 +498,7 @@ class SgDataValFip {
     var weedingDetailsWeedingMethod4: String? = null
 
     @JsonProperty("phonenumber")
-    var phonenumber: String? = null
+    var phoneNumber: String? = null
 
     @JsonProperty("landPrepationDetails/harrowMethod3")
     var landPrepationDetailsHarrowMethod3: String? = null

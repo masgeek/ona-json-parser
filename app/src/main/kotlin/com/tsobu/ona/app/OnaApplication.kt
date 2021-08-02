@@ -1,9 +1,6 @@
 package com.tsobu.ona.app
 
-import com.tsobu.ona.core.service.AssessRootYieldCassavaService
-import com.tsobu.ona.core.service.CheckIdRegService
-import com.tsobu.ona.core.service.ScoreWeedControlService
-import com.tsobu.ona.core.service.ValidationService
+import com.tsobu.ona.core.service.*
 import com.tsobu.ona.core.service.addsample.AddSampleService
 import com.tsobu.ona.core.service.assign.FdAcAssignService
 import com.tsobu.ona.core.service.assign.PaAcAssignService
@@ -30,6 +27,7 @@ import com.tsobu.ona.core.service.replace.ReplaceFdService
 import com.tsobu.ona.core.service.replace.ReplacePoService
 import com.tsobu.ona.core.service.replace.ReplaceTlService
 import com.tsobu.ona.core.service.sphs.PraSphsService
+import com.tsobu.ona.core.service.sg.SgService
 import com.tsobu.ona.core.service.starchcontent.StarchContentService
 import com.tsobu.ona.core.service.valform.*
 import com.tsobu.ona.core.service.valsphs.ValSphsKwService
@@ -56,124 +54,125 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 @EntityScan("com.tsobu.ona.database.entities")
 @EnableJpaRepositories("com.tsobu.ona.database.repositories")
 class OnaApplication(
-        private val weedControlService: ScoreWeedControlService,
-        private val assessRootYieldCassavaService: AssessRootYieldCassavaService,
-        private val szService: SzService,
-        private val ezService: EzService,
-        private val lzwService: LzwService,
-        private val lzeService: LzeService,
-        private val sphsService: SphsService,
-        private val frService: FrService,
-        private val hhService: HhService,
-        private val eaService: EaService,
-        private val ppTzService: PpTzService,
-        private val ppService: PpService,
-        private val monitorValService: MonitorValService,
-        private val addSampleService: AddSampleService,
-        private val greenBiomassService: GreenBiomassService,
-        private val lignifiedStemService: LignifiedStemService,
-        private val starchContentService: StarchContentService,
-        private val fdAcAssignService: FdAcAssignService,
-        private val paAcAssignService: PaAcAssignService,
-        private val poAcAssignService: PoAcAssignService,
-        private val tlAcAssignService: TlAcAssignService,
-        private val checkIdRegService: CheckIdRegService,
-        private val collectPsService: CollectPsService,
-        private val collectSsService: CollectSsService,
-        private val collectLeafTagsService: CollectLeafTagsService,
-        private val valCisService: ValCisService,
-        private val valFrService: ValFrService,
-        private val valIcService: ValIcService,
-        private val valPpService: ValPpService,
-        private val valPpTreatService: ValPpTreatService,
-        private val valPpTzService: ValPpTzService,
-        private val valSphsKwService: ValSphsKwService,
-        private val batchCompositionService: BatchCompositionService,
-        private val valSphsOgService: ValSphsOgService,
-        private val valSphsOnService: ValSphsOnService,
-        private val valSphsOyService: ValSphsOyService,
-        private val icService: IcService,
-        private val cisService: CisService,
-        private val poConfirmService: PoConfirmService,
-        private val nonDestructiveCassService: NonDestructiveCassService,
-        private val partitionPsService: PartitionPsService,
-        private val poolSampleService: PoolSampleService,
-        private val canopyDimensionsService: CanopyDimensionsService,
-        private val recordDmService: RecordDmService,
-        private val replacePoService: ReplacePoService,
-        private val replaceFbService: ReplaceFbService,
-        private val replaceFdService: ReplaceFdService,
-        private val replaceTlService: ReplaceTlService,
-        private val praSphsService: PraSphsService,
-        private val validationService: ValidationService
+    private val weedControlService: ScoreWeedControlService,
+    private val assessRootYieldCassavaService: AssessRootYieldCassavaService,
+    private val szService: SzService,
+    private val ezService: EzService,
+    private val lzwService: LzwService,
+    private val lzeService: LzeService,
+    private val sphsService: SphsService,
+    private val frService: FrService,
+    private val hhService: HhService,
+    private val eaService: EaService,
+    private val ppTzService: PpTzService,
+    private val ppService: PpService,
+    private val monitorValService: MonitorValService,
+    private val addSampleService: AddSampleService,
+    private val greenBiomassService: GreenBiomassService,
+    private val lignifiedStemService: LignifiedStemService,
+    private val starchContentService: StarchContentService,
+    private val fdAcAssignService: FdAcAssignService,
+    private val paAcAssignService: PaAcAssignService,
+    private val poAcAssignService: PoAcAssignService,
+    private val tlAcAssignService: TlAcAssignService,
+    private val checkIdRegService: CheckIdRegService,
+    private val collectPsService: CollectPsService,
+    private val collectSsService: CollectSsService,
+    private val collectLeafTagsService: CollectLeafTagsService,
+    private val valCisService: ValCisService,
+    private val valFrService: ValFrService,
+    private val valIcService: ValIcService,
+    private val valPpService: ValPpService,
+    private val valPpTreatService: ValPpTreatService,
+    private val valPpTzService: ValPpTzService,
+    private val valSphsKwService: ValSphsKwService,
+    private val batchCompositionService: BatchCompositionService,
+    private val valSphsOgService: ValSphsOgService,
+    private val valSphsOnService: ValSphsOnService,
+    private val valSphsOyService: ValSphsOyService,
+    private val icService: IcService,
+    private val cisService: CisService,
+    private val poConfirmService: PoConfirmService,
+    private val nonDestructiveCassService: NonDestructiveCassService,
+    private val partitionPsService: PartitionPsService,
+    private val poolSampleService: PoolSampleService,
+    private val canopyDimensionsService: CanopyDimensionsService,
+    private val recordDmService: RecordDmService,
+    private val replacePoService: ReplacePoService,
+    private val replaceFbService: ReplaceFbService,
+    private val replaceFdService: ReplaceFdService,
+    private val replaceTlService: ReplaceTlService,
+    private val praSphsService: PraSphsService,
+    private val validationService: ValidationService,
+    private val sgService: SgService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
     override fun run(vararg args: String?) {
         log.info("Running Spring Boot Application press CTR-C to close the application")
+        sgService.readJsonAsset()
 
-//        valPpService.readJsonAsset()
 
 //----------------------------End of debug line
 
-
-        weedControlService.readJsonAsset()
-        assessRootYieldCassavaService.readJsonAsset()
-        szService.readJsonAsset()
-        ezService.readJsonAsset()
-        lzwService.readJsonAsset()
-        lzeService.readJsonAsset()
-        sphsService.readJsonAsset()
-        frService.readJsonAsset()
-        hhService.readJsonAsset()
-        eaService.readJsonAsset()
-        ppTzService.readJsonAsset()
-        ppService.readJsonAsset()
-
-        monitorValService.readJsonAsset()
-        addSampleService.readJsonAsset()
-        greenBiomassService.readJsonAsset()
-        lignifiedStemService.readJsonAsset()
-        starchContentService.readJsonAsset()
-
-        fdAcAssignService.readJsonAsset()
-        paAcAssignService.readJsonAsset()
-        poAcAssignService.readJsonAsset()
-        tlAcAssignService.readJsonAsset()
-        checkIdRegService.readJsonAsset()
-
-        collectPsService.readJsonAsset()
-        collectSsService.readJsonAsset()
-        collectLeafTagsService.readJsonAsset()
-
-        valCisService.readJsonAsset()
-        valFrService.readJsonAsset()
-        valIcService.readJsonAsset()
-        valPpService.readJsonAsset()
-        valPpTreatService.readJsonAsset()
-        valPpTzService.readJsonAsset()
-        valSphsKwService.readJsonAsset()
-        batchCompositionService.readJsonAsset()
-
-        valSphsOgService.readJsonAsset()
-        valSphsOnService.readJsonAsset()
-        valSphsOyService.readJsonAsset()
-        icService.readJsonAsset()
-        cisService.readJsonAsset()
-        poConfirmService.readJsonAsset()
-
-        nonDestructiveCassService.readJsonAsset()
-        partitionPsService.readJsonAsset()
-        poolSampleService.readJsonAsset()
-        canopyDimensionsService.readJsonAsset()
-        recordDmService.readJsonAsset()
-        replacePoService.readJsonAsset()
-        replaceFbService.readJsonAsset()
-        replaceFdService.readJsonAsset()
-        replaceTlService.readJsonAsset()
-        praSphsService.readJsonAsset()
-
-        validationService.processCsvFiles()
+//
+//        weedControlService.readJsonAsset()
+//        assessRootYieldCassavaService.readJsonAsset()
+//        szService.readJsonAsset()
+//        ezService.readJsonAsset()
+//        lzwService.readJsonAsset()
+//        lzeService.readJsonAsset()
+//        sphsService.readJsonAsset()
+//        frService.readJsonAsset()
+//        hhService.readJsonAsset()
+//        eaService.readJsonAsset()
+//        ppTzService.readJsonAsset()
+//        ppService.readJsonAsset()
+//
+//        monitorValService.readJsonAsset()
+//        addSampleService.readJsonAsset()
+//        greenBiomassService.readJsonAsset()
+//        lignifiedStemService.readJsonAsset()
+//        starchContentService.readJsonAsset()
+//
+//        fdAcAssignService.readJsonAsset()
+//        paAcAssignService.readJsonAsset()
+//        poAcAssignService.readJsonAsset()
+//        tlAcAssignService.readJsonAsset()
+//        checkIdRegService.readJsonAsset()
+//
+//        collectPsService.readJsonAsset()
+//        collectSsService.readJsonAsset()
+//        collectLeafTagsService.readJsonAsset()
+//
+//        valCisService.readJsonAsset()
+//        valFrService.readJsonAsset()
+//        valIcService.readJsonAsset()
+//        valPpService.readJsonAsset()
+//        valPpTreatService.readJsonAsset()
+//        valPpTzService.readJsonAsset()
+//        valSphsKwService.readJsonAsset()
+//        batchCompositionService.readJsonAsset()
+//
+//        valSphsOgService.readJsonAsset()
+//        valSphsOnService.readJsonAsset()
+//        valSphsOyService.readJsonAsset()
+//        icService.readJsonAsset()
+//        cisService.readJsonAsset()
+//        poConfirmService.readJsonAsset()
+//
+//        nonDestructiveCassService.readJsonAsset()
+//        partitionPsService.readJsonAsset()
+//        poolSampleService.readJsonAsset()
+//        canopyDimensionsService.readJsonAsset()
+//        recordDmService.readJsonAsset()
+//        replacePoService.readJsonAsset()
+//        replaceFbService.readJsonAsset()
+//        replaceFdService.readJsonAsset()
+//        replaceTlService.readJsonAsset()
+//        praSphsService.readJsonAsset()
+//
+//        validationService.processCsvFiles()
         log.info("Hello, I am finished");
     }
 

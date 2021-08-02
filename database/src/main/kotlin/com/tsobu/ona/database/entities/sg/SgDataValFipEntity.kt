@@ -1,6 +1,7 @@
 package com.tsobu.ona.database.entities.sg
 
 import com.tsobu.ona.database.entities.BaseEntity
+import java.time.LocalDateTime
 import java.util.*
 import javax.persistence.Column
 import javax.persistence.Entity
@@ -10,16 +11,16 @@ import javax.persistence.Table
 @Table(name = "sg_data_val_fip")
 class SgDataValFipEntity : BaseEntity() {
     @Column(name = "submission_date")
-    var submissionDate: Date? = null
+    var submissionDate: LocalDateTime? = null
 
-    @Column(name = "uuid")
-    var uuid: String? = null
+    @Column(name = "form_hub_uu_id")
+    var formHubUuId: String? = null
 
     @Column(name = "start_date")
-    var startDate: Date? = null
+    var startDate: LocalDateTime? = null
 
     @Column(name = "today_date")
-    var todayDate: Date? = null
+    var todayDate: LocalDateTime? = null
 
     @Column(name = "device_id")
     var deviceId: String? = null
@@ -106,7 +107,7 @@ class SgDataValFipEntity : BaseEntity() {
     var landPrepationDetailsHarrowMethod3: String? = null
 
     @Column(name = "planting_details_planting_date")
-    var plantingDetailsPlantingDate: Date? = null
+    var plantingDetailsPlantingDate: LocalDateTime? = null
 
     @Column(name = "planting_details_trial_type")
     var plantingDetailsTrialType: String? = null
@@ -142,7 +143,7 @@ class SgDataValFipEntity : BaseEntity() {
     var plantingDetailsNurseryDate: String? = null
 
     @Column(name = "planting_details_tp_date")
-    var plantingDetailsTpDate: String? = null
+    var plantingDetailsTpDate: LocalDateTime? = null
 
     @Column(name = "planting_details_ds_method")
     var plantingDetailsDsMethod: String? = null
@@ -226,7 +227,7 @@ class SgDataValFipEntity : BaseEntity() {
     var gapping: String? = null
 
     @Column(name = "gapping_details_gapping_date")
-    var gappingDetailsGappingDate: Date? = null
+    var gappingDetailsGappingDate: LocalDateTime? = null
 
     @Column(name = "gapping_details_gapping_type")
     var gappingDetailsGappingType: String? = null
@@ -235,7 +236,7 @@ class SgDataValFipEntity : BaseEntity() {
     var fertilizers1Blue: String? = null
 
     @Column(name = "fertilizer1_blue_date_fertilizer1")
-    var fertilizer1BlueDateFertilizer1: Date? = null
+    var fertilizer1BlueDateFertilizer1: LocalDateTime? = null
 
     @Column(name = "fertilizer1_blue_urea1")
     var fertilizer1BlueUrea1: String? = null
@@ -247,7 +248,7 @@ class SgDataValFipEntity : BaseEntity() {
     var fertilizers2Blue: String? = null
 
     @Column(name = "fertilizer2_blue_date_fertilizer2")
-    var fertilizer2BlueDateFertilizer2: Date? = null
+    var fertilizer2BlueDateFertilizer2: LocalDateTime? = null
 
     @Column(name = "fertilizer2_blue_urea2")
     var fertilizer2BlueUrea2: String? = null
@@ -259,7 +260,7 @@ class SgDataValFipEntity : BaseEntity() {
     var fertilizers3Blue: String? = null
 
     @Column(name = "fertilizer3_blue_date_fertilizer3")
-    var fertilizer3BlueDateFertilizer3: Date? = null
+    var fertilizer3BlueDateFertilizer3: LocalDateTime? = null
 
     @Column(name = "fertilizer3_blue_urea3")
     var fertilizer3BlueUrea3: String? = null
@@ -271,7 +272,7 @@ class SgDataValFipEntity : BaseEntity() {
     var fertilizers1Yellow: String? = null
 
     @Column(name = "fertilizer1_yellow_date_fertilizer1")
-    var fertilizer1YellowDateFertilizer1: Date? = null
+    var fertilizer1YellowDateFertilizer1: LocalDateTime? = null
 
     @Column(name = "fertilizer1_yellow_urea1")
     var fertilizer1YellowUrea1: String? = null
@@ -283,7 +284,7 @@ class SgDataValFipEntity : BaseEntity() {
     var fertilizers2Yellow: String? = null
 
     @Column(name = "fertilizer2_yellow_date_fertilizer2")
-    var fertilizer2YellowDateFertilizer2: Date? = null
+    var fertilizer2YellowDateFertilizer2: LocalDateTime? = null
 
     @Column(name = "fertilizer2_yellow_urea2")
     var fertilizer2YellowUrea2: String? = null
@@ -295,7 +296,7 @@ class SgDataValFipEntity : BaseEntity() {
     var fertilizers3Yellow: String? = null
 
     @Column(name = "fertilizer3_yellow_date_fertilizer3")
-    var fertilizer3YellowDateFertilizer3: Date? = null
+    var fertilizer3YellowDateFertilizer3: LocalDateTime? = null
 
     @Column(name = "fertilizer3_yellow_urea3")
     var fertilizer3YellowUrea3: String? = null
@@ -307,61 +308,61 @@ class SgDataValFipEntity : BaseEntity() {
     var nrWeeding: String? = null
 
     @Column(name = "weeding_details_date_weeding1")
-    var weedingDetailsDateWeeding1: Date? = null
+    var weedingDetailsDateWeeding1: LocalDateTime? = null
 
     @Column(name = "weeding_details_weeding_method1")
     var weedingDetailsWeedingMethod1: String? = null
 
     @Column(name = "weeding_details_date_weeding2")
-    var weedingDetailsDateWeeding2: Date? = null
+    var weedingDetailsDateWeeding2: LocalDateTime? = null
 
     @Column(name = "weeding_details_weeding_method2")
     var weedingDetailsWeedingMethod2: String? = null
 
     @Column(name = "weeding_details_date_weeding3")
-    var weedingDetailsDateWeeding3: Date? = null
+    var weedingDetailsDateWeeding3: LocalDateTime? = null
 
     @Column(name = "weeding_details_weeding_method3")
     var weedingDetailsWeedingMethod3: String? = null
 
     @Column(name = "weeding_details_date_weeding4")
-    var weedingDetailsDateWeeding4: Date? = null
+    var weedingDetailsDateWeeding4: LocalDateTime? = null
 
     @Column(name = "weeding_details_weeding_method4")
     var weedingDetailsWeedingMethod4: String? = null
 
     @Column(name = "weeding_details_date_weeding5")
-    var weedingDetailsDateWeeding5: Date? = null
+    var weedingDetailsDateWeeding5: LocalDateTime? = null
 
     @Column(name = "weeding_details_weeding_method5")
     var weedingDetailsWeedingMethod5: String? = null
 
     @Column(name = "weeding_details_date_weeding6")
-    var weedingDetailsDateWeeding6: Date? = null
+    var weedingDetailsDateWeeding6: LocalDateTime? = null
 
     @Column(name = "weeding_details_weeding_method6")
     var weedingDetailsWeedingMethod6: String? = null
 
     @Column(name = "weeding_details_date_weeding7")
-    var weedingDetailsDateWeeding7: Date? = null
+    var weedingDetailsDateWeeding7: LocalDateTime? = null
 
     @Column(name = "weeding_details_weeding_method7")
     var weedingDetailsWeedingMethod7: String? = null
 
     @Column(name = "weeding_details_date_weeding8")
-    var weedingDetailsDateWeeding8: Date? = null
+    var weedingDetailsDateWeeding8: LocalDateTime? = null
 
     @Column(name = "weeding_details_weeding_method8")
     var weedingDetailsWeedingMethod8: String? = null
 
     @Column(name = "weeding_details_date_weeding9")
-    var weedingDetailsDateWeeding9: Date? = null
+    var weedingDetailsDateWeeding9: LocalDateTime? = null
 
     @Column(name = "weeding_details_weeding_method9")
     var weedingDetailsWeedingMethod9: String? = null
 
     @Column(name = "weeding_details_date_weeding10")
-    var weedingDetailsDateWeeding10: Date? = null
+    var weedingDetailsDateWeeding10: LocalDateTime? = null
 
     @Column(name = "weeding_details_weeding_method10")
     var weedingDetailsWeedingMethod10: String? = null
@@ -526,7 +527,7 @@ class SgDataValFipEntity : BaseEntity() {
     var waterLevelRateWater2: String? = null
 
     @Column(name = "harvest_cassava_harvest_date")
-    var harvestCassavaHarvestDate: Date? = null
+    var harvestCassavaHarvestDate: LocalDateTime? = null
 
     @Column(name = "harvest_cassava_tuberized_marketable_roots_nr_fce")
     var harvestCassavaTuberizedMarketableRootsNrFce: String? = null
@@ -541,7 +542,7 @@ class SgDataValFipEntity : BaseEntity() {
     var harvestCassavaTuberizedMarketableRootsFwFip: String? = null
 
     @Column(name = "harvest_maize_harvest_date")
-    var harvestMaizeHarvestDate: Date? = null
+    var harvestMaizeHarvestDate: LocalDateTime? = null
 
     @Column(name = "harvest_maize_maize_cobs_nr_ss_fce")
     var harvestMaizeMaizeCobsNrSsFce: String? = null
@@ -574,7 +575,7 @@ class SgDataValFipEntity : BaseEntity() {
     var harvestMaizeMaizeCobsFwPlotFip: String? = null
 
     @Column(name = "harvest_rice_harvest_date")
-    var harvestRiceHarvestDate: Date? = null
+    var harvestRiceHarvestDate: LocalDateTime? = null
 
     @Column(name = "harvest_rice_rice_panicles_fw_plot_fce")
     var harvestRiceRicePaniclesFwPlotFce: String? = null
@@ -631,11 +632,12 @@ class SgDataValFipEntity : BaseEntity() {
     var thankYou: String? = null
 
     @Column(name = "end_date")
-    var endDate: Date? = null
+    var endDate: LocalDateTime? = null
 
     @Column(name = "instance_id")
     var instanceId: String? = null
 
     @Column(name = "control_key")
     var controlKey: String? = null
+
 }
