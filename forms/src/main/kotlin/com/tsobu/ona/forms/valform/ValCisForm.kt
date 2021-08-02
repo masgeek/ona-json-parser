@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import java.util.*
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder("_id", "end", "lat", "lon", "rec", "EAID", "HHID", "_tags", "_uuid", "start", "today", "_notes", "_edited", "_status", "country", "_version", "currency", "deviceid", "geopoint", "rootGRIC", "rootGRMC", "username", "_duration", "_xform_id", "areaBasis", "extraGRIC", "rootGRICF", "rootGRMCF", "rootsUnit", "simserial", "totalGRIC", "tuberGRIC", "tuberUnit", "conversion", "extraGRICF", "extraGRMCF", "rootsPrice", "totalGRICF", "tuberGRICF", "tuberPrice", "yieldLevel", "extraProfit", "purpose/VAL", "rootYieldMC", "_attachments", "_geolocation", "_media_count", "_total_media", "formhub/uuid", "importanceIC", "plantingDate", "riskAttitude", "subscriberid", "tuberYieldMC", "_submitted_by", "rootsUnitName", "thankyou/call", "tuberUnitName", "costFertilizer", "rootYieldRedIC", "extraProfitPerc", "meta/instanceID", "tuberYieldRedIC", "_submission_time", "_xform_id_string", "costFertilizerAB", "unitPriceNPK50kg", "extraRootYieldMCF", "_bamboo_dataset_id", "extraTuberYieldMCF", "_media_all_received", "thankyou/confirmVAL", "cassavaVarietySelect", "costFertilizerAB_Text", "rateFertilizerAB_Text", "costDetailsNPK/costNPK", "sweetPotatoVarietySelect", "costDetailsNPK/bagSizeNPK", "rootsUnitDetails/rootsUnitPrice", "tuberUnitDetails/tuberUnitPrice", "rootsUnitDetails/rootsUnitWeight", "tuberUnitDetails/tuberUnitWeight", "tuberPriceSI", "rootsPriceSI")
 class ValCisForm {
     @JsonProperty("_id")
     var id: String? = null

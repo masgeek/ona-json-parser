@@ -1,9 +1,11 @@
 package com.tsobu.ona.core.dto.json.sg
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import com.fasterxml.jackson.annotation.JsonProperty
 
+//@JsonIgnoreProperties("formhub-uuid")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "SubmissionDate",
@@ -249,13 +251,13 @@ class DataValFipDto {
     var purposeBanner: String? = null
 
     @JsonProperty("purpose-intro")
-    var purposeIntro: String? = null
+    var intro: String? = null
 
     @JsonProperty("purpose-crop")
-    var purposeCrop: String? = null
+    var crop: String? = null
 
     @JsonProperty("purpose-event")
-    var purposeEvent: String? = null
+    var event: String? = null
 
     @JsonProperty("EAID")
     var eaid: String? = null
@@ -747,7 +749,7 @@ class DataValFipDto {
     var harvestCassavaTuberizedMarketableRootsNrFip: String? = null
 
     @JsonProperty("harvestCassava-tuberizedMarketableRootsFW_FIP")
-    var harvestCassavaTuberizedMarketableRootsFWFip: String? = null
+    var harvestCassavaTuberizedMarketableRootsFwFip: String? = null
 
     @JsonProperty("harvestMaize-harvestDate")
     var harvestMaizeHarvestDate: String? = null
@@ -759,7 +761,7 @@ class DataValFipDto {
     var harvestMaizeMaizeCobsFwSsFce: String? = null
 
     @JsonProperty("harvestMaize-plantSampleID_maizeCobs_FCE")
-    var harvestMaizePlantSampleIDMaizeCobsFce: String? = null
+    var harvestMaizePlantSampleIdMaizeCobsFce: String? = null
 
     @JsonProperty("harvestMaize-maizeCobsNr_plot_FCE")
     var harvestMaizeMaizeCobsNrPlotFce: String? = null

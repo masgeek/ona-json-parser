@@ -1,11 +1,11 @@
 package com.tsobu.ona.forms.batchcomposition
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder("nextStep/next/lab", "nextStep/next/res", "nextStep/next/analysis", "nextStep/next/batchName", "nextStep/next/nextAction", "nextStep/next/confirmName", "nextStep/next/description", "nextStep/next/sampleBatchID", "nextStep/next/nextStation", "nextStep/next/noteDescription", "nextStep/next/batchStatus", "nextStep/next/batchQuality", "nextStep/next/descriptionSB", "nextStep/next/descriptionFW", "nextStep/next/descriptionDC", "nextStep/next/descriptionRS", "nextStep/next/confirmDC")
+@JsonIgnoreProperties(ignoreUnknown = true)
 class NextStepNextForm {
     @JsonProperty("nextStep/next/lab")
     var lab: String? = null

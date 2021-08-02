@@ -1,12 +1,12 @@
 package com.tsobu.ona.forms.batchcomposition
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import java.util.*
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder("_id", "end", "_tags", "_uuid", "email", "start", "today", "_notes", "_edited", "_status", "_version", "deviceid", "username", "_duration", "_xform_id", "intro/aim", "simserial", "phonenumber", "_attachments", "_geolocation", "_media_count", "_total_media", "formhub/uuid", "intro/entity", "subscriberid", "_submitted_by", "intro/station", "nextStep/next", "intro/batchType", "meta/instanceID", "_submission_time", "_xform_id_string", "sampleList/sample", "_bamboo_dataset_id", "sampleList/countFW", "sampleList/countNA", "sampleList/countNF", "sampleList/countSB", "_media_all_received", "intro/batchTypeNote", "nextStep/next_count", "sampleList/confirmSB", "sampleList/confirmAll", "meta/deprecatedID", "sampleList/confirmNA", "batchDetails/batchName_pull", "batchDetails/receiveConfirm", "batchDetails/description_pull", "batchDetails/sampleBatchID_exist", "intro/country", "intro/project", "sampleList/countDC", "sampleList/countRS", "sampleList/confirmDC", "sampleList/confirmFW", "sampleList/confirmRS")
+@JsonIgnoreProperties(ignoreUnknown = true)
 class SampleBatchCompositionForm {
     @JsonProperty("_id")
     var id: String? = null

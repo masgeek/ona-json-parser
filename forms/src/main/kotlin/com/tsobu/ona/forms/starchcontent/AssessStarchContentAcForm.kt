@@ -1,12 +1,13 @@
 package com.tsobu.ona.forms.starchcontent
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import java.util.*
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder("_id", "end", "_tags", "_uuid", "login", "start", "today", "_notes", "entity", "_edited", "_status", "_version", "deviceid", "geopoint", "username", "_duration", "_xform_id", "simserial", "basketType", "_attachments", "_geolocation", "_media_count", "_total_media", "assessStarch", "formhub/uuid", "subscriberid", "_submitted_by", "meta/instanceID", "_submission_time", "_xform_id_string", "_bamboo_dataset_id", "_media_all_received", "correction/correctionBasket", "purpose/country", "purpose/project", "correction/basketAir", "correction/basketWater", "basketFloat", "enumerator/surName", "enumerator/firstName")
 class AssessStarchContentAcForm {
     @JsonProperty("_id")
     var id: String? = null

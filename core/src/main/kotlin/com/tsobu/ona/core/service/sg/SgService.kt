@@ -5,7 +5,6 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.sg.DataValFipDto
-import com.tsobu.ona.core.dto.json.sphs.PraSphsDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.sg.SgDataValFipEntity
@@ -55,16 +54,20 @@ constructor(
 //        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
-
         val fipData = sgList.map { dataValFipEntity ->
             val valFipDto = modelMapper.map(dataValFipEntity, DataValFipDto::class.java)
+            valFipDto.formHubUuId = dataValFipEntity.formHubUuId
             valFipDto.submissionDate = myDateUtil.toDateTimeString(dataValFipEntity.submissionDate)
             valFipDto.startDate = myDateUtil.toDateTimeString(dataValFipEntity.startDate)
             valFipDto.endDate = myDateUtil.toDateTimeString(dataValFipEntity.endDate)
             valFipDto.todayDate = myDateUtil.toDateToString(dataValFipEntity.todayDate)
-            valFipDto.plantingDetailsPlantingDate = myDateUtil.toDateToString(dataValFipEntity.plantingDetailsPlantingDate)
-            valFipDto.plantingDetailsTpDate = myDateUtil.toDateToString(dataValFipEntity.plantingDetailsTpDate)
-            valFipDto.gappingDetailsGappingDate = myDateUtil.toDateToString(dataValFipEntity.gappingDetailsGappingDate)
+            valFipDto.plantingDetailsPlantingDate = myDateUtil.toDateToString(dataValFipEntity.plantingDate)
+            valFipDto.plantingDetailsTpDate = myDateUtil.toDateToString(dataValFipEntity.tpDate)
+            valFipDto.gappingDetailsGappingDate = myDateUtil.toDateToString(dataValFipEntity.gappingDate)
+            valFipDto.plantingDetailsNurseryDate = myDateUtil.toDateToString(dataValFipEntity.nurseryDate)
+            valFipDto.plantingDetailsSeedingDate = myDateUtil.toDateToString(dataValFipEntity.seedingDate)
+            valFipDto.harvestCassavaHarvestDate = myDateUtil.toDateToString(dataValFipEntity.cassavaHarvestDate)
+            valFipDto.harvestRiceHarvestDate = myDateUtil.toDateToString(dataValFipEntity.riceHarvestDate)
             valFipDto.fertilizer1BlueDateFertilizer1 = myDateUtil.toDateToString(dataValFipEntity.fertilizer1BlueDateFertilizer1)
             valFipDto.fertilizer2BlueDateFertilizer2 = myDateUtil.toDateToString(dataValFipEntity.fertilizer2BlueDateFertilizer2)
             valFipDto.fertilizer3BlueDateFertilizer3 = myDateUtil.toDateToString(dataValFipEntity.fertilizer3BlueDateFertilizer3)
@@ -72,11 +75,25 @@ constructor(
             valFipDto.fertilizer2yellowDateFertilizer2 = myDateUtil.toDateToString(dataValFipEntity.fertilizer2YellowDateFertilizer2)
             valFipDto.fertilizer3yellowDateFertilizer3 = myDateUtil.toDateToString(dataValFipEntity.fertilizer3YellowDateFertilizer3)
 
+            valFipDto.weedingDetailsDateWeeding1 = myDateUtil.toDateToString(dataValFipEntity.weedingDetailsDateWeeding1)
+            valFipDto.weedingDetailsDateWeeding2 = myDateUtil.toDateToString(dataValFipEntity.weedingDetailsDateWeeding2)
+            valFipDto.weedingDetailsDateWeeding3 = myDateUtil.toDateToString(dataValFipEntity.weedingDetailsDateWeeding3)
+            valFipDto.weedingDetailsDateWeeding4 = myDateUtil.toDateToString(dataValFipEntity.weedingDetailsDateWeeding4)
+            valFipDto.weedingDetailsDateWeeding5 = myDateUtil.toDateToString(dataValFipEntity.weedingDetailsDateWeeding5)
+            valFipDto.weedingDetailsDateWeeding6 = myDateUtil.toDateToString(dataValFipEntity.weedingDetailsDateWeeding6)
+            valFipDto.weedingDetailsDateWeeding7 = myDateUtil.toDateToString(dataValFipEntity.weedingDetailsDateWeeding7)
+            valFipDto.weedingDetailsDateWeeding8 = myDateUtil.toDateToString(dataValFipEntity.weedingDetailsDateWeeding8)
+            valFipDto.weedingDetailsDateWeeding9 = myDateUtil.toDateToString(dataValFipEntity.weedingDetailsDateWeeding9)
+            valFipDto.weedingDetailsDateWeeding10 = myDateUtil.toDateToString(dataValFipEntity.weedingDetailsDateWeeding10)
+
+
+//            valFipDto.intro = dataValFipEntity.intro
+
             valFipDto
         }
         val filePath = "${appConfig.globalProperties().outputPath}"
         writeCsvFile.writeCsv(
-            classMap = PraSphsDto::class.java, data = fipData,
+            classMap = DataValFipDto::class.java, data = fipData,
             fileName = "SG_dataVAL_FIP", outPutPath = filePath
         )
 
@@ -130,15 +147,22 @@ constructor(
             sgDataValFipEntity.todayDate = myDateUtil.convertToDate(sgDataValFipForm.todayDate)
             sgDataValFipEntity.startDate = myDateUtil.convertToDateTime(sgDataValFipForm.startDate)
             sgDataValFipEntity.endDate = myDateUtil.convertToDateTime(sgDataValFipForm.endDate)
-            sgDataValFipEntity.plantingDetailsPlantingDate = myDateUtil.convertToDate(sgDataValFipForm.plantingDetailsPlantingDate)
-            sgDataValFipEntity.plantingDetailsTpDate = myDateUtil.convertToDate(sgDataValFipForm.plantingDetailsTpDate)
-            sgDataValFipEntity.gappingDetailsGappingDate = myDateUtil.convertToDate(sgDataValFipForm.gappingDetailsGappingDate)
+            sgDataValFipEntity.plantingDate = myDateUtil.convertToDate(sgDataValFipForm.plantingDetailsPlantingDate)
+            sgDataValFipEntity.tpDate = myDateUtil.convertToDate(sgDataValFipForm.plantingDetailsTpDate)
+            sgDataValFipEntity.gappingDate = myDateUtil.convertToDate(sgDataValFipForm.gappingDetailsGappingDate)
+            sgDataValFipEntity.seedingDate = myDateUtil.convertToDate(sgDataValFipForm.plantingDetailsSeedingDate)
+            sgDataValFipEntity.cassavaHarvestDate = myDateUtil.convertToDate(sgDataValFipForm.harvestCassavaHarvestDate)
             sgDataValFipEntity.fertilizer1BlueDateFertilizer1 = myDateUtil.convertToDate(sgDataValFipForm.fertilizer1BlueDateFertilizer1)
             sgDataValFipEntity.fertilizer2BlueDateFertilizer2 = myDateUtil.convertToDate(sgDataValFipForm.fertilizer2BlueDateFertilizer2)
             sgDataValFipEntity.fertilizer3BlueDateFertilizer3 = myDateUtil.convertToDate(sgDataValFipForm.fertilizer3BlueDateFertilizer3)
             sgDataValFipEntity.fertilizer1YellowDateFertilizer1 = myDateUtil.convertToDate(sgDataValFipForm.fertilizer1YellowDateFertilizer1)
             sgDataValFipEntity.fertilizer2YellowDateFertilizer2 = myDateUtil.convertToDate(sgDataValFipForm.fertilizer2YellowDateFertilizer2)
             sgDataValFipEntity.fertilizer3YellowDateFertilizer3 = myDateUtil.convertToDate(sgDataValFipForm.fertilizer3YellowDateFertilizer3)
+
+            sgDataValFipEntity.weedingDetailsDateWeeding1 = myDateUtil.convertToDate(sgDataValFipForm.weedingDetailsDateWeeding1)
+            sgDataValFipEntity.weedingDetailsDateWeeding2 = myDateUtil.convertToDate(sgDataValFipForm.weedingDetailsDateWeeding2)
+            sgDataValFipEntity.weedingDetailsDateWeeding3 = myDateUtil.convertToDate(sgDataValFipForm.weedingDetailsDateWeeding3)
+            sgDataValFipEntity.weedingDetailsDateWeeding4 = myDateUtil.convertToDate(sgDataValFipForm.weedingDetailsDateWeeding4)
 
 
 
@@ -148,6 +172,6 @@ constructor(
 
         sgDataValFipRepo.saveAll(sgData)
         log.info("Finished saving the data for $fileName------->")
-//        mapJsonFile()
+        mapJsonFile()
     }
 }

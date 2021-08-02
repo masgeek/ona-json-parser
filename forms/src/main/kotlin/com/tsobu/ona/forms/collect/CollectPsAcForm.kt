@@ -1,12 +1,12 @@
 package com.tsobu.ona.forms.collect
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import java.util.*
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder("_id", "end", "crop", "_tags", "_uuid", "login", "start", "today", "_notes", "entity", "_edited", "_status", "_version", "assessFW", "deviceid", "geopoint", "username", "_duration", "_xform_id", "simserial", "plantSample", "_attachments", "_geolocation", "_media_count", "_total_media", "formhub/uuid", "subscriberid", "_submitted_by", "meta/instanceID", "_submission_time", "_xform_id_string", "_bamboo_dataset_id", "_media_all_received", "purpose/country", "purpose/project", "enumerator/surName", "enumerator/firstName", "email", "phonenumber")
+@JsonIgnoreProperties(ignoreUnknown = true)
 class CollectPsAcForm {
     @JsonProperty("_id")
     var id: String? = null

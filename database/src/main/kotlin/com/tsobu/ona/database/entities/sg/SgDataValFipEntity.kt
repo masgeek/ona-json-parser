@@ -2,7 +2,6 @@ package com.tsobu.ona.database.entities.sg
 
 import com.tsobu.ona.database.entities.BaseEntity
 import java.time.LocalDateTime
-import java.util.*
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Table
@@ -106,8 +105,8 @@ class SgDataValFipEntity : BaseEntity() {
     @Column(name = "land_prepation_details_harrow_method3")
     var landPrepationDetailsHarrowMethod3: String? = null
 
-    @Column(name = "planting_details_planting_date")
-    var plantingDetailsPlantingDate: LocalDateTime? = null
+    @Column(name = "planting_date")
+    var plantingDate: LocalDateTime? = null
 
     @Column(name = "planting_details_trial_type")
     var plantingDetailsTrialType: String? = null
@@ -139,17 +138,17 @@ class SgDataValFipEntity : BaseEntity() {
     @Column(name = "planting_details_tp_method")
     var plantingDetailsTpMethod: String? = null
 
-    @Column(name = "planting_details_nursery_date")
-    var plantingDetailsNurseryDate: String? = null
+    @Column(name = "nursery_date")
+    var nurseryDate: LocalDateTime? = null
 
-    @Column(name = "planting_details_tp_date")
-    var plantingDetailsTpDate: LocalDateTime? = null
+    @Column(name = "tp_date")
+    var tpDate: LocalDateTime? = null
 
     @Column(name = "planting_details_ds_method")
     var plantingDetailsDsMethod: String? = null
 
-    @Column(name = "planting_details_seeding_date")
-    var plantingDetailsSeedingDate: String? = null
+    @Column(name = "seeding_date")
+    var seedingDate: LocalDateTime? = null
 
     @Column(name = "planting_details_organic_input")
     var plantingDetailsOrganicInput: String? = null
@@ -226,8 +225,8 @@ class SgDataValFipEntity : BaseEntity() {
     @Column(name = "gapping")
     var gapping: String? = null
 
-    @Column(name = "gapping_details_gapping_date")
-    var gappingDetailsGappingDate: LocalDateTime? = null
+    @Column(name = "gapping_date")
+    var gappingDate: LocalDateTime? = null
 
     @Column(name = "gapping_details_gapping_type")
     var gappingDetailsGappingType: String? = null
@@ -526,8 +525,8 @@ class SgDataValFipEntity : BaseEntity() {
     @Column(name = "water_level_rate_water2")
     var waterLevelRateWater2: String? = null
 
-    @Column(name = "harvest_cassava_harvest_date")
-    var harvestCassavaHarvestDate: LocalDateTime? = null
+    @Column(name = "cassava_harvest_date")
+    var cassavaHarvestDate: LocalDateTime? = null
 
     @Column(name = "harvest_cassava_tuberized_marketable_roots_nr_fce")
     var harvestCassavaTuberizedMarketableRootsNrFce: String? = null
@@ -541,8 +540,8 @@ class SgDataValFipEntity : BaseEntity() {
     @Column(name = "harvest_cassava_tuberized_marketable_roots_fw_fip")
     var harvestCassavaTuberizedMarketableRootsFwFip: String? = null
 
-    @Column(name = "harvest_maize_harvest_date")
-    var harvestMaizeHarvestDate: LocalDateTime? = null
+    @Column(name = "maize_harvest_date")
+    var maizeHarvestDate: LocalDateTime? = null
 
     @Column(name = "harvest_maize_maize_cobs_nr_ss_fce")
     var harvestMaizeMaizeCobsNrSsFce: String? = null
@@ -574,8 +573,8 @@ class SgDataValFipEntity : BaseEntity() {
     @Column(name = "harvest_maize_maize_cobs_fw_plot_fip")
     var harvestMaizeMaizeCobsFwPlotFip: String? = null
 
-    @Column(name = "harvest_rice_harvest_date")
-    var harvestRiceHarvestDate: LocalDateTime? = null
+    @Column(name = "rice_harvest_date")
+    var riceHarvestDate: LocalDateTime? = null
 
     @Column(name = "harvest_rice_rice_panicles_fw_plot_fce")
     var harvestRiceRicePaniclesFwPlotFce: String? = null
@@ -639,5 +638,4 @@ class SgDataValFipEntity : BaseEntity() {
 
     @Column(name = "control_key")
     var controlKey: String? = null
-
 }
