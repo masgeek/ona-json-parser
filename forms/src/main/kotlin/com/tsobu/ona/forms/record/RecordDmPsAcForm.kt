@@ -29,6 +29,9 @@ import java.util.*
     @JsonProperty("today")
     var todayDate: String? = null
 
+    @JsonProperty("_date_modified")
+    var dateModified: String? = null
+
     @JsonProperty("_notes")
     var notes: List<Any> = ArrayList()
 
