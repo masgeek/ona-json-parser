@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder("assessStarch/plotID", "assessStarch/FW/airFW", "assessStarch/FW/waterFW", "assessStarch/SCNote/specGrav", "assessStarch/SCNote/starCont", "assessStarch/SCNote/starContClass")
 class AssessStarchForm {
     @JsonProperty("assessStarch/plotID")
     var plotId: String? = null

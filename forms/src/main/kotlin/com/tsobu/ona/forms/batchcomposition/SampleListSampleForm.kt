@@ -1,11 +1,11 @@
 package com.tsobu.ona.forms.batchcomposition
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder("sampleList/sample/FW", "sampleList/sample/NA", "sampleList/sample/NF", "sampleList/sample/SB", "sampleList/sample/nr", "sampleList/sample/soilSampleID", "sampleList/sample/plantSampleID", "sampleList/sample/PS_key", "sampleList/sample/noteSB", "sampleList/sample/DC", "sampleList/sample/RS", "sampleList/sample/SS_key", "sampleList/sample/noteRS", "sampleList/sample/reportAction_SS", "sampleList/sample/noteFW", "sampleList/sample/noteDC", "sampleList/sample/noteNA", "sampleList/sample/reportAction_PS")
+@JsonIgnoreProperties(ignoreUnknown = true)
 class SampleListSampleForm {
     @JsonProperty("sampleList/sample/FW")
     var fw: String? = null
