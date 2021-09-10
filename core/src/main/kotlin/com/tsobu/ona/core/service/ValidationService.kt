@@ -15,8 +15,9 @@ import java.nio.file.Paths
 
 @Service
 class ValidationService(
-        val columnValidationRepo: FormColumnValidationRepo,
-        val appConfig: AppConfig) {
+    val columnValidationRepo: FormColumnValidationRepo,
+    val appConfig: AppConfig
+) {
 
     private val log = LoggerFactory.getLogger(ValidationService::class.java)
 
@@ -72,11 +73,16 @@ class ValidationService(
     protected fun validateData(formList: MutableList<FormColumnValidationEntity>?) {
         formList?.forEach { validationEntity ->
             try {
-                val columnCountValid = validationEntity.expectedColumnCount == validationEntity.actualColumnCount
-                val dataCountValid = validationEntity.actualDataCount!! >= validationEntity.expectedDataCount!!
+                if (validationEntity.actualColumnCount != null) {
+                    val columnCountValid = validationEntity.expectedColumnCount == validationEntity.actualColumnCount
+                    val dataCountValid = validationEntity.actualDataCount!! >= validationEntity.expectedDataCount!!
 
-                validationEntity.columnValid = columnCountValid
-                validationEntity.dataCountValid = dataCountValid
+                    validationEntity.columnValid = columnCountValid
+                    validationEntity.dataCountValid = dataCountValid
+                } else {
+                    validationEntity.columnValid = false
+                    validationEntity.dataCountValid = false
+                }
                 columnValidationRepo.save(validationEntity)
             } catch (ex: Exception) {
                 log.error("Data could not be saved because ${ex.message} for ${validationEntity.formName}")
