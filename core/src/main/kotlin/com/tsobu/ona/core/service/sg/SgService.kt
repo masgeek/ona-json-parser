@@ -91,7 +91,7 @@ constructor(
 
             valFipDto
         }
-        val filePath = "${appConfig.globalProperties().outputPath}"
+        val filePath = "${appConfig.globalProperties().outputPath}/EiA_SAA/"
         writeCsvFile.writeCsv(
             classMap = DataValFipDto::class.java, data = fipData,
             fileName = "SG_dataVAL_FIP", outPutPath = filePath
