@@ -171,8 +171,8 @@ class OnaApplication(
 //        praSphsService.readJsonAsset()
 //        sgService.readJsonAsset()
 
-        fdtlPoAssignService.readJsonAsset()
-//        fdtlPoAssignService.mapJsonFile()
+//        fdtlPoAssignService.readJsonAsset()
+        fdtlPoAssignService.mapJsonFile()
 
 //        validationService.processCsvFiles()
         log.info("Hello, I am finished");

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.assign.AssignFdtLpoDto
+import com.tsobu.ona.core.dto.json.assign.AssignFdtLpoPlotDto
 import com.tsobu.ona.core.dto.json.assign.AssignFdtLpoTrialDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.CsvUtility
@@ -68,7 +69,8 @@ constructor(
         val filePath = "${appConfig.globalProperties().outputPath}${fileSeparator}sandman${fileSeparator}"
 
         val poEntityList = poRepo.findAllByOrderBySubmissionDateAsc()
-        val poTrialentityList = poTrialRepo.findAll()
+        val poTrialEntityList = poTrialRepo.findAll()
+        val poPlotEntityList = poPlotRepo.findAll()
 
         val poData = poEntityList.map { poEntity ->
             val poDto = modelMapper.map(poEntity, AssignFdtLpoDto::class.java)
@@ -79,11 +81,15 @@ constructor(
             poDto
         }
 
-        val poTrialData = poTrialentityList.map { poTrialEntity ->
+        val poTrialData = poTrialEntityList.map { poTrialEntity ->
             val poTrialDto = modelMapper.map(poTrialEntity, AssignFdtLpoTrialDto::class.java)
             poTrialDto
         }
 
+        val poPlotData = poPlotEntityList.map { poPlotEntity ->
+            val poPlotDto = modelMapper.map(poPlotEntity, AssignFdtLpoPlotDto::class.java)
+            poPlotDto
+        }
 
         writeCsvFile.writeCsv(classMap = AssignFdtLpoDto::class.java, data = poData, fileName = "Assign_FDTLPO", outPutPath = filePath)
 
@@ -91,6 +97,12 @@ constructor(
             classMap = AssignFdtLpoTrialDto::class.java,
             data = poTrialData,
             fileName = "Assign_FDTLPO-trial",
+            outPutPath = filePath
+        )
+        writeCsvFile.writeCsv(
+            classMap = AssignFdtLpoPlotDto::class.java,
+            data = poPlotData,
+            fileName = "Assign_FDTLPO-plot",
             outPutPath = filePath
         )
     }
