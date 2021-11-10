@@ -18,6 +18,7 @@ import com.tsobu.ona.core.service.pool.PoolSampleService
 import com.tsobu.ona.core.service.record.CanopyDimensionsService
 import com.tsobu.ona.core.service.record.RecordDmService
 import com.tsobu.ona.core.service.register.EaService
+import com.tsobu.ona.core.service.register.ExService
 import com.tsobu.ona.core.service.register.HhService
 import com.tsobu.ona.core.service.register.PcService
 import com.tsobu.ona.core.service.replace.ReplaceFbService
@@ -104,7 +105,8 @@ class OnaApplication(
     private val validationService: ValidationService,
     private val sgService: SgService,
     private val fdtlPoAssignService: FdTLPoAssignService,
-    private val pcService: PcService
+    private val pcService: PcService,
+    private val exService: ExService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -174,8 +176,9 @@ class OnaApplication(
 //        sgService.readJsonAsset()
 //        fdtlPoAssignService.readJsonAsset()
 
-        pcService.readJsonAsset()
-
+//        pcService.readJsonAsset()
+        exService.readJsonAsset()
+        
 //        validationService.processCsvFiles()
         log.info("Hello, I am finished");
     }
