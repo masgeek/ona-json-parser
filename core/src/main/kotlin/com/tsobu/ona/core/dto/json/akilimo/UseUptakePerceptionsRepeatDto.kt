@@ -7,7 +7,6 @@ import javax.annotation.Generated
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder("repeat_nr", "run_choice", "statement_nr", "statement", "response", "PARENT_KEY", "KEY", "SET-OF-perceptions_repeat")
-@Generated("jsonschema2pojo")
 class UseUptakePerceptionsRepeatDto {
     @JsonProperty("repeat_nr")
     var repeatNr: String? = null
@@ -28,8 +27,8 @@ class UseUptakePerceptionsRepeatDto {
     var parentKey: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 
     @JsonProperty("SET-OF-perceptions_repeat")
-    var sETOFPerceptionsRepeat: String? = null
+    var setOfPerceptionsRepeat: String? = null
 }

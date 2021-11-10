@@ -182,7 +182,8 @@ class OnaApplication(
 
         //EA_IAA
         //        sgService.readJsonAsset()
-        uptakeService.readJsonAsset()
+//        uptakeService.readJsonAsset()
+        uptakeService.mapJsonFile()
 
 //        validationService.processCsvFiles()
         log.info("Hello, I am finished");

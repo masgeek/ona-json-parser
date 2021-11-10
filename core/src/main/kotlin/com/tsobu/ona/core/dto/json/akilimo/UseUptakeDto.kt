@@ -143,13 +143,13 @@ class UseUptakeDto {
     var intro: String? = null
 
     @JsonProperty("firstNameEN")
-    var firstNameEN: String? = null
+    var firstNameEn: String? = null
 
     @JsonProperty("surNameEN")
-    var surNameEN: String? = null
+    var surNameEn: String? = null
 
     @JsonProperty("genderEN")
-    var genderEN: String? = null
+    var genderEn: String? = null
 
     @JsonProperty("time1")
     var time1: String? = null
@@ -206,7 +206,7 @@ class UseUptakeDto {
     var time3: String? = null
 
     @JsonProperty("use")
-    var use: String? = null
+    var useValue: String? = null
 
     @JsonProperty("useCase")
     var useCase: String? = null
@@ -344,7 +344,7 @@ class UseUptakeDto {
     var perceptionsRepeatCount: String? = null
 
     @JsonProperty("SET-OF-perceptions-perceptions_repeat")
-    var sETOFPerceptionsPerceptionsRepeat: String? = null
+    var setOfPerceptionsPerceptionsRepeat: String? = null
 
     @JsonProperty("time6")
     var time6: String? = null
@@ -401,8 +401,8 @@ class UseUptakeDto {
     var end: String? = null
 
     @JsonProperty("instanceID")
-    var instanceID: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("KEY")
-    var key: String? = null
+    var controlKey: String? = null
 }

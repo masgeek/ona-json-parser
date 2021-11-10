@@ -4,7 +4,8 @@ package com.tsobu.ona.core.service.akilimo
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.dataval.SgFipDto
+import com.tsobu.ona.core.dto.json.akilimo.UseUptakeDto
+import com.tsobu.ona.core.dto.json.akilimo.UseUptakePerceptionsRepeatDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.database.entities.akilimo.UseUptakeEntity
@@ -42,6 +43,7 @@ constructor(
     fun mapJsonFile() {
         log.info("Reading table data....")
         val uptakeList = useUptakeRepo.findAllByOrderBySubmissionDateAsc()
+        val repeatList = repeatRepo.findAll()
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
@@ -60,15 +62,25 @@ constructor(
 
         val fileSeparator = File.separator
         val filePath = "${appConfig.globalProperties().outputPath}${fileSeparator}EiA_SAA${fileSeparator}"
-        val fipData = uptakeList.map { uptakeEntity ->
-            val valFipDto = modelMapper.map(uptakeEntity, SgFipDto::class.java)
-
-            valFipDto
+        val uptakeData = uptakeList.map { uptakeEntity ->
+            val useUptakeDto = modelMapper.map(uptakeEntity, UseUptakeDto::class.java)
+            useUptakeDto.submissionDate = myDateUtil.toDateTimeString(uptakeEntity.submissionDate)
+            useUptakeDto.end = myDateUtil.toDateTimeString(uptakeEntity.endDate)
+            useUptakeDto.today = myDateUtil.toDateToString(uptakeEntity.todayDate)
+            useUptakeDto
         }
 
+        val repeatData = repeatList.map { repeatEntity ->
+            val useUptakeDto = modelMapper.map(repeatEntity, UseUptakePerceptionsRepeatDto::class.java)
+            useUptakeDto
+        }
         writeCsvFile.writeCsv(
-            classMap = SgFipDto::class.java, data = fipData,
+            classMap = UseUptakeDto::class.java, data = uptakeData,
             fileName = "AKILIMO_use_uptake", outPutPath = filePath
+        )
+        writeCsvFile.writeCsv(
+            classMap = UseUptakePerceptionsRepeatDto::class.java, data = repeatData,
+            fileName = "AKILIMO_use_uptake-perceptions_repeat", outPutPath = filePath
         )
 
     }
@@ -147,6 +159,6 @@ constructor(
         repeatRepo.saveAll(repeatListData)
         useUptakeRepo.saveAll(useUptakeData)
         log.info("Finished saving the data for $fileName------->")
-//        mapJsonFile()
+        mapJsonFile()
     }
 }
