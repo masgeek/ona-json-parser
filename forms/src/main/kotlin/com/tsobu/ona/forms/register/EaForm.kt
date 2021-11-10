@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import com.tsobu.ona.forms.Attachment
 import java.util.*
 
-@JsonIgnoreProperties(ignoreUnknown = false)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class EaForm {
     @JsonProperty("_id")
