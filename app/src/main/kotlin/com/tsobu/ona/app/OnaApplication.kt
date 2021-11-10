@@ -2,6 +2,7 @@ package com.tsobu.ona.app
 
 import com.tsobu.ona.core.service.*
 import com.tsobu.ona.core.service.addsample.AddSampleService
+import com.tsobu.ona.core.service.akilimo.UptakeService
 import com.tsobu.ona.core.service.assign.*
 import com.tsobu.ona.core.service.batchcomposition.BatchCompositionService
 import com.tsobu.ona.core.service.collect.CollectLeafTagsService
@@ -106,7 +107,8 @@ class OnaApplication(
     private val sgService: SgService,
     private val fdtlPoAssignService: FdTLPoAssignService,
     private val pcService: PcService,
-    private val exService: ExService
+    private val exService: ExService,
+    private val uptakeService: UptakeService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -173,12 +175,15 @@ class OnaApplication(
 //        replaceFdService.readJsonAsset()
 //        replaceTlService.readJsonAsset()
 //        praSphsService.readJsonAsset()
-        sgService.readJsonAsset()
 //        fdtlPoAssignService.readJsonAsset()
 
 //        pcService.readJsonAsset()
 //        exService.readJsonAsset()
-        
+
+        //EA_IAA
+        //        sgService.readJsonAsset()
+        uptakeService.readJsonAsset()
+
 //        validationService.processCsvFiles()
         log.info("Hello, I am finished");
     }
