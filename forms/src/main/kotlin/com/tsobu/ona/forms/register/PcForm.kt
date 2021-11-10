@@ -66,6 +66,9 @@ class PcForm {
     @JsonProperty("_attachments")
     var attachments: List<Any> = ArrayList()
 
+    @JsonProperty("geopoint")
+    var geopoint: String? = null
+
     @JsonProperty("_geolocation")
     var geolocation: List<Any> = ArrayList()
 
@@ -85,7 +88,7 @@ class PcForm {
     var submittedBy: String? = null
 
     @JsonProperty("meta/instanceID")
-    var metaInstanceId: String? = null
+    var instanceId: String? = null
 
     @JsonProperty("_submission_time")
     var submissionTime: String? = null

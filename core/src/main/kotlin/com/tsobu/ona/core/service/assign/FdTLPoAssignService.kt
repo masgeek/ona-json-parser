@@ -65,7 +65,7 @@ constructor(
         modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
-        val fileSeparator = File.separator;
+        val fileSeparator = File.separator
         val filePath = "${appConfig.globalProperties().outputPath}${fileSeparator}sandman${fileSeparator}"
 
         val poEntityList = poRepo.findAllByOrderBySubmissionDateAsc()

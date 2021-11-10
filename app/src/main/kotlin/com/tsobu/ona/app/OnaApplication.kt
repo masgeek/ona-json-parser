@@ -19,6 +19,7 @@ import com.tsobu.ona.core.service.record.CanopyDimensionsService
 import com.tsobu.ona.core.service.record.RecordDmService
 import com.tsobu.ona.core.service.register.EaService
 import com.tsobu.ona.core.service.register.HhService
+import com.tsobu.ona.core.service.register.PcService
 import com.tsobu.ona.core.service.replace.ReplaceFbService
 import com.tsobu.ona.core.service.replace.ReplaceFdService
 import com.tsobu.ona.core.service.replace.ReplacePoService
@@ -102,7 +103,8 @@ class OnaApplication(
     private val praSphsService: PraSphsService,
     private val validationService: ValidationService,
     private val sgService: SgService,
-    private val fdtlPoAssignService: FdTLPoAssignService
+    private val fdtlPoAssignService: FdTLPoAssignService,
+    private val pcService: PcService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -158,7 +160,7 @@ class OnaApplication(
 //        cisService.readJsonAsset()
 //        poConfirmService.readJsonAsset()
 //
-////        nonDestructiveCassService.readJsonAsset() ## form removed
+//        nonDestructiveCassService.readJsonAsset()
 //
 //        partitionPsService.readJsonAsset()
 //        poolSampleService.readJsonAsset()
@@ -170,9 +172,9 @@ class OnaApplication(
 //        replaceTlService.readJsonAsset()
 //        praSphsService.readJsonAsset()
 //        sgService.readJsonAsset()
-
 //        fdtlPoAssignService.readJsonAsset()
-        fdtlPoAssignService.mapJsonFile()
+
+        pcService.readJsonAsset()
 
 //        validationService.processCsvFiles()
         log.info("Hello, I am finished");
