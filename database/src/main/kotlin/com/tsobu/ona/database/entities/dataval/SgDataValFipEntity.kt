@@ -1,4 +1,4 @@
-package com.tsobu.ona.database.entities.sg
+package com.tsobu.ona.database.entities.dataval
 
 import com.tsobu.ona.database.entities.BaseEntity
 import java.time.LocalDateTime

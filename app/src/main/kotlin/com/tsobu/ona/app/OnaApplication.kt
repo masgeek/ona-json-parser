@@ -26,7 +26,7 @@ import com.tsobu.ona.core.service.replace.ReplaceFdService
 import com.tsobu.ona.core.service.replace.ReplacePoService
 import com.tsobu.ona.core.service.replace.ReplaceTlService
 import com.tsobu.ona.core.service.sphs.PraSphsService
-import com.tsobu.ona.core.service.sg.SgService
+import com.tsobu.ona.core.service.dataval.SgService
 import com.tsobu.ona.core.service.starchcontent.StarchContentService
 import com.tsobu.ona.core.service.valform.*
 import com.tsobu.ona.core.service.valsphs.ValSphsKwService
@@ -173,11 +173,11 @@ class OnaApplication(
 //        replaceFdService.readJsonAsset()
 //        replaceTlService.readJsonAsset()
 //        praSphsService.readJsonAsset()
-//        sgService.readJsonAsset()
+        sgService.readJsonAsset()
 //        fdtlPoAssignService.readJsonAsset()
 
 //        pcService.readJsonAsset()
-        exService.readJsonAsset()
+//        exService.readJsonAsset()
         
 //        validationService.processCsvFiles()
         log.info("Hello, I am finished");

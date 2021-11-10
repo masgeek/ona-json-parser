@@ -1,15 +1,15 @@
-package com.tsobu.ona.core.service.sg
+package com.tsobu.ona.core.service.dataval
 
 
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.sg.DataValFipDto
+import com.tsobu.ona.core.dto.json.dataval.SgFipDto
 import com.tsobu.ona.core.utils.MyUtils
 import com.tsobu.ona.core.utils.CsvUtility
-import com.tsobu.ona.database.entities.sg.SgDataValFipEntity
-import com.tsobu.ona.database.repositories.sg.SgDataValFipRepo
-import com.tsobu.ona.forms.sg.SgDataValFipForm
+import com.tsobu.ona.database.entities.dataval.SgDataValFipEntity
+import com.tsobu.ona.database.repositories.dataval.SgDataValFipRepo
+import com.tsobu.ona.forms.dataval.SgDataValFipForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
@@ -17,6 +17,7 @@ import org.modelmapper.convention.MatchingStrategies
 import org.modelmapper.spi.MappingContext
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
+import java.io.File
 import java.io.IOException
 import java.nio.file.Paths
 
@@ -54,8 +55,10 @@ constructor(
 //        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
+        val fileSeparator = File.separator
+        val filePath = "${appConfig.globalProperties().outputPath}${fileSeparator}EiA_SAA${fileSeparator}"
         val fipData = sgList.map { dataValFipEntity ->
-            val valFipDto = modelMapper.map(dataValFipEntity, DataValFipDto::class.java)
+            val valFipDto = modelMapper.map(dataValFipEntity, SgFipDto::class.java)
             valFipDto.formHubUuId = dataValFipEntity.formHubUuId
             valFipDto.submissionDate = myDateUtil.toDateTimeString(dataValFipEntity.submissionDate)
             valFipDto.startDate = myDateUtil.toDateTimeString(dataValFipEntity.startDate)
@@ -91,9 +94,9 @@ constructor(
 
             valFipDto
         }
-        val filePath = "${appConfig.globalProperties().outputPath}/EiA_SAA/"
+
         writeCsvFile.writeCsv(
-            classMap = DataValFipDto::class.java, data = fipData,
+            classMap = SgFipDto::class.java, data = fipData,
             fileName = "SG_dataVAL_FIP", outPutPath = filePath
         )
 

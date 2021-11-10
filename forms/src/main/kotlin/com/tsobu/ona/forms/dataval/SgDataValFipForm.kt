@@ -1,4 +1,4 @@
-package com.tsobu.ona.forms.sg
+package com.tsobu.ona.forms.dataval
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude

@@ -1,4 +1,4 @@
-package com.tsobu.ona.core.dto.json.sg
+package com.tsobu.ona.core.dto.json.dataval
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
@@ -219,7 +219,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
     "meta-instanceID",
     "KEY"
 )
-class DataValFipDto {
+class SgFipDto {
     @JsonProperty("SubmissionDate")
     var submissionDate: String? = null
 

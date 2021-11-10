@@ -1,6 +1,6 @@
-package com.tsobu.ona.database.repositories.sg
+package com.tsobu.ona.database.repositories.dataval
 
-import com.tsobu.ona.database.entities.sg.SgDataValFipEntity
+import com.tsobu.ona.database.entities.dataval.SgDataValFipEntity
 import org.springframework.data.jpa.repository.JpaRepository
 
 interface SgDataValFipRepo : JpaRepository<SgDataValFipEntity, Long> {
