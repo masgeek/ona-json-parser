@@ -112,7 +112,8 @@ class OnaApplication(
     private val choiceValidationService: ChoiceValidationService,
     private val kanoKadunaService: ChoiceValidationKanoKadunaService,
     private val fipSurvey2020Service: FipSurvey2020Service,
-    private val sgRegisterEaService: SgRegisterEaService
+    private val sgRegisterEaService: SgRegisterEaService,
+    private val sgRegisterHhService: SgRegisterHhService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -190,7 +191,8 @@ class OnaApplication(
 //        choiceValidationService.readJsonAsset()
 //        kanoKadunaService.readJsonAsset()
 //        fipSurvey2020Service.readJsonAsset()
-        sgRegisterEaService.mapJsonFile()
+//        sgRegisterEaService.readJsonAsset()
+        sgRegisterHhService.readJsonAsset()
 
         //DG
 

@@ -1,13 +1,11 @@
+package com.tsobu.ona.core.dto.json.register
 
-package com.tsobu.ona.core.dto.json.register;
-
-import javax.annotation.processing.Generated;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonInclude
+import com.fasterxml.jackson.annotation.JsonPropertyOrder
+import com.fasterxml.jackson.annotation.JsonProperty
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
+@JsonPropertyOrder(
     "SubmissionDate",
     "formhub-uuid",
     "start",
@@ -47,87 +45,122 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "end",
     "meta-instanceID",
     "KEY"
-})
-@Generated("jsonschema2pojo")
-public class Record {
-
+)
+class SgRegisterHhDto {
     @JsonProperty("SubmissionDate")
-    public String submissionDate;
-    @JsonProperty("formhub-uuid")
-    public String formhubUuid;
-    @JsonProperty("start")
-    public String start;
-    @JsonProperty("today")
-    public String today;
-    @JsonProperty("deviceid")
-    public String deviceid;
-    @JsonProperty("subscriberid")
-    public String subscriberid;
-    @JsonProperty("email")
-    public String email;
-    @JsonProperty("username")
-    public String username;
-    @JsonProperty("simserial")
-    public String simserial;
-    @JsonProperty("phonenumber")
-    public String phonenumber;
-    @JsonProperty("purpose-banner")
-    public String purposeBanner;
-    @JsonProperty("purpose-intro")
-    public String purposeIntro;
-    @JsonProperty("Hhlocation-generated_note_name_15")
-    public String hhlocationGeneratedNoteName15;
-    @JsonProperty("Hhlocation-EAEN")
-    public String hhlocationEAEN;
-    @JsonProperty("Hhlocation-EAID")
-    public String hhlocationEAID;
-    @JsonProperty("Hhlocation-locHH")
-    public String hhlocationLocHH;
-    @JsonProperty("Hhlocation-state")
-    public String hhlocationState;
-    @JsonProperty("Hhlocation-lga")
-    public String hhlocationLga;
-    @JsonProperty("Hhlocation-geopoint-Latitude")
-    public String hhlocationGeopointLatitude;
-    @JsonProperty("Hhlocation-geopoint-Longitude")
-    public String hhlocationGeopointLongitude;
-    @JsonProperty("Hhlocation-geopoint-Altitude")
-    public String hhlocationGeopointAltitude;
-    @JsonProperty("Hhlocation-geopoint-Accuracy")
-    public String hhlocationGeopointAccuracy;
-    @JsonProperty("detailsHH-generated_note_name_24")
-    public String detailsHHGeneratedNoteName24;
-    @JsonProperty("detailsHH-firstNameHH")
-    public String detailsHHFirstNameHH;
-    @JsonProperty("detailsHH-surNameHH")
-    public String detailsHHSurNameHH;
-    @JsonProperty("detailsHH-phoneNrHH")
-    public String detailsHHPhoneNrHH;
-    @JsonProperty("detailsHH-phoneNr2HH")
-    public String detailsHHPhoneNr2HH;
-    @JsonProperty("detailsHH-genderHH")
-    public String detailsHHGenderHH;
-    @JsonProperty("detailsHH-ageHH")
-    public String detailsHHAgeHH;
-    @JsonProperty("detailsHH-relationHH")
-    public String detailsHHRelationHH;
-    @JsonProperty("detailsHH-maritalStatusHH")
-    public String detailsHHMaritalStatusHH;
-    @JsonProperty("detailsHH-HHtype")
-    public String detailsHHHHtype;
-    @JsonProperty("detailsHH-educationHH")
-    public String detailsHHEducationHH;
-    @JsonProperty("detailsHH-occupationHH")
-    public String detailsHHOccupationHH;
-    @JsonProperty("HHID")
-    public String hhid;
-    @JsonProperty("accept")
-    public String accept;
-    @JsonProperty("end")
-    public String end;
-    @JsonProperty("meta-instanceID")
-    public String metaInstanceID;
-    @JsonProperty("KEY")
-    public String key;
+    var submissionDate: String? = null
 
+    @JsonProperty("formhub-uuid")
+    var formhubUuid: String? = null
+
+    @JsonProperty("start")
+    var start: String? = null
+
+    @JsonProperty("today")
+    var today: String? = null
+
+    @JsonProperty("deviceid")
+    var deviceid: String? = null
+
+    @JsonProperty("subscriberid")
+    var subscriberid: String? = null
+
+    @JsonProperty("email")
+    var email: String? = null
+
+    @JsonProperty("username")
+    var username: String? = null
+
+    @JsonProperty("simserial")
+    var simserial: String? = null
+
+    @JsonProperty("phonenumber")
+    var phonenumber: String? = null
+
+    @JsonProperty("purpose-banner")
+    var purposeBanner: String? = null
+
+    @JsonProperty("purpose-intro")
+    var purposeIntro: String? = null
+
+    @JsonProperty("Hhlocation-generated_note_name_15")
+    var hhlocationGeneratedNoteName15: String? = null
+
+    @JsonProperty("Hhlocation-EAEN")
+    var hhlocationEAEN: String? = null
+
+    @JsonProperty("Hhlocation-EAID")
+    var hhlocationEAID: String? = null
+
+    @JsonProperty("Hhlocation-locHH")
+    var hhlocationLocHH: String? = null
+
+    @JsonProperty("Hhlocation-state")
+    var hhlocationState: String? = null
+
+    @JsonProperty("Hhlocation-lga")
+    var hhlocationLga: String? = null
+
+    @JsonProperty("Hhlocation-geopoint-Latitude")
+    var hhlocationGeopointLatitude: String? = null
+
+    @JsonProperty("Hhlocation-geopoint-Longitude")
+    var hhlocationGeopointLongitude: String? = null
+
+    @JsonProperty("Hhlocation-geopoint-Altitude")
+    var hhlocationGeopointAltitude: String? = null
+
+    @JsonProperty("Hhlocation-geopoint-Accuracy")
+    var hhlocationGeopointAccuracy: String? = null
+
+    @JsonProperty("detailsHH-generated_note_name_24")
+    var detailsHHGeneratedNoteName24: String? = null
+
+    @JsonProperty("detailsHH-firstNameHH")
+    var detailsHHFirstNameHH: String? = null
+
+    @JsonProperty("detailsHH-surNameHH")
+    var detailsHHSurNameHH: String? = null
+
+    @JsonProperty("detailsHH-phoneNrHH")
+    var detailsHHPhoneNrHH: String? = null
+
+    @JsonProperty("detailsHH-phoneNr2HH")
+    var detailsHHPhoneNr2HH: String? = null
+
+    @JsonProperty("detailsHH-genderHH")
+    var detailsHHGenderHH: String? = null
+
+    @JsonProperty("detailsHH-ageHH")
+    var detailsHHAgeHH: String? = null
+
+    @JsonProperty("detailsHH-relationHH")
+    var detailsHHRelationHH: String? = null
+
+    @JsonProperty("detailsHH-maritalStatusHH")
+    var detailsHHMaritalStatusHH: String? = null
+
+    @JsonProperty("detailsHH-HHtype")
+    var detailsHHHHtype: String? = null
+
+    @JsonProperty("detailsHH-educationHH")
+    var detailsHHEducationHH: String? = null
+
+    @JsonProperty("detailsHH-occupationHH")
+    var detailsHHOccupationHH: String? = null
+
+    @JsonProperty("HHID")
+    var hhid: String? = null
+
+    @JsonProperty("accept")
+    var accept: String? = null
+
+    @JsonProperty("end")
+    var end: String? = null
+
+    @JsonProperty("meta-instanceID")
+    var instanceId: String? = null
+
+    @JsonProperty("KEY")
+    var controlKey: String? = null
 }
