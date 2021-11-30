@@ -113,7 +113,8 @@ class OnaApplication(
     private val kanoKadunaService: ChoiceValidationKanoKadunaService,
     private val fipSurvey2020Service: FipSurvey2020Service,
     private val sgRegisterEaService: SgRegisterEaService,
-    private val sgRegisterHhService: SgRegisterHhService
+    private val sgRegisterHhService: SgRegisterHhService,
+    private val registerHhDgService: RegisterHhDgService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -192,10 +193,10 @@ class OnaApplication(
 //        kanoKadunaService.readJsonAsset()
 //        fipSurvey2020Service.readJsonAsset()
 //        sgRegisterEaService.readJsonAsset()
-        sgRegisterHhService.readJsonAsset()
+//        sgRegisterHhService.readJsonAsset()
 
         //DG
-
+        registerHhDgService.mapJsonFile()
 
         log.info("Verifying files....")
 //        validationService.processCsvFiles()
