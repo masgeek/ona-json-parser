@@ -3,7 +3,7 @@ package com.tsobu.ona.core.dto.json.validation
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import com.fasterxml.jackson.annotation.JsonProperty
-import javax.annotation.Generated
+import javax.annotation.processing.Generated
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
@@ -138,8 +138,10 @@ import javax.annotation.Generated
     "secondcropoptions-secondCropPackage2",
     "secondcropoptions-secondCropPackage3",
     "secondcropoptions-secondCropPackage",
-    "Recommendations-firstCropPackageFIP",
-    "Recommendations-secondCropPackageFIP",
+    "Recommendations-firstCropPackageFIP3",
+    "Recommendations-firstCropPackageFIPKaduna",
+    "Recommendations-secondCropPackageFIP3",
+    "Recommendations-secondCropPackageFIPKano",
     "Recommendations-firstCropPackageNPK",
     "Recommendations-firstCropPackageFIPNPK",
     "Recommendations-firstCropPackageUrea",
@@ -157,27 +159,27 @@ import javax.annotation.Generated
     "KEY"
 )
 @Generated("jsonschema2pojo")
-class ChoiceValidationDto {
+class ChoiceValidationKanoKadunaDto {
     @JsonProperty("SubmissionDate")
     var submissionDate: String? = null
 
     @JsonProperty("formhub-uuid")
-    var formHubUuid: String? = null
+    var formhubUuid: String? = null
 
     @JsonProperty("today")
-    var todayDate: String? = null
+    var today: String? = null
 
     @JsonProperty("deviceid")
-    var deviceId: String? = null
+    var deviceid: String? = null
 
     @JsonProperty("phonenumber")
-    var phoneNumber: String? = null
+    var phonenumber: String? = null
 
     @JsonProperty("username")
-    var userName: String? = null
+    var username: String? = null
 
     @JsonProperty("toolDescription-generated_note_name_7")
-    var generatedNoteName7: String? = null
+    var toolDescriptionGeneratedNoteName7: String? = null
 
     @JsonProperty("toolDescription-banner")
     var toolDescriptionBanner: String? = null
@@ -186,340 +188,340 @@ class ChoiceValidationDto {
     var toolDescriptionIntro: String? = null
 
     @JsonProperty("farmeradress-generated_note_name_12")
-    var farmerAdressGeneratedNoteName12: String? = null
+    var farmeradressGeneratedNoteName12: String? = null
 
     @JsonProperty("farmeradress-state")
-    var farmerAdressState: String? = null
+    var farmeradressState: String? = null
 
     @JsonProperty("farmeradress-crops")
-    var farmerAdressCrops: String? = null
+    var farmeradressCrops: String? = null
 
     @JsonProperty("farmeradress-generated_note_name_15")
-    var farmerAdressGeneratedNoteName15: String? = null
+    var farmeradressGeneratedNoteName15: String? = null
 
     @JsonProperty("farmeradress-EAID")
-    var farmerAdressEaid: String? = null
+    var farmeradressEAID: String? = null
 
     @JsonProperty("farmeradress-HHID")
-    var farmerAdressHhid: String? = null
+    var farmeradressHHID: String? = null
 
     @JsonProperty("farmeradress-firstCrop")
-    var farmerAdressFirstCrop: String? = null
+    var farmeradressFirstCrop: String? = null
 
     @JsonProperty("farmeradress-secondCrop")
-    var farmerAdressSecondCrop: String? = null
+    var farmeradressSecondCrop: String? = null
 
     @JsonProperty("farmeradress-cropesta")
-    var farmerAdressCropesta: String? = null
+    var farmeradressCropesta: String? = null
 
     @JsonProperty("farmeradress-plm")
-    var farmerAdressPlm: String? = null
+    var farmeradressPlm: String? = null
 
     @JsonProperty("farmeradress-crop1Area")
-    var farmerAdressCrop1Area: String? = null
+    var farmeradressCrop1Area: String? = null
 
     @JsonProperty("farmeradress-crop2Area")
-    var farmerAdressCrop2Area: String? = null
+    var farmeradressCrop2Area: String? = null
 
     @JsonProperty("farmeradress-NPKPrice")
-    var farmerAdressNPKPrice: String? = null
+    var farmeradressNPKPrice: String? = null
 
     @JsonProperty("farmeradress-ureaPrice")
-    var farmerAdressUreaPrice: String? = null
+    var farmeradressUreaPrice: String? = null
 
     @JsonProperty("farmeradress-lookup_1A")
-    var farmerAdressLookup1A: String? = null
+    var farmeradressLookup1A: String? = null
 
     @JsonProperty("farmeradress-lookup_1B")
-    var farmerAdressLookup1B: String? = null
+    var farmeradressLookup1B: String? = null
 
     @JsonProperty("farmeradress-lookup_1C")
-    var farmerAdressLookup1C: String? = null
+    var farmeradressLookup1C: String? = null
 
     @JsonProperty("farmeradress-lookup_2A")
-    var farmerAdressLookup2A: String? = null
+    var farmeradressLookup2A: String? = null
 
     @JsonProperty("farmeradress-lookup_2B")
-    var farmerAdressLookup2B: String? = null
+    var farmeradressLookup2B: String? = null
 
     @JsonProperty("farmeradress-lookup_2C")
-    var farmerAdressLookup2C: String? = null
+    var farmeradressLookup2C: String? = null
 
     @JsonProperty("farmeradress-crop1Low_NPK")
-    var farmerAdressCrop1LowNPK: String? = null
+    var farmeradressCrop1LowNPK: String? = null
 
     @JsonProperty("farmeradress-crop1Low_Urea")
-    var farmerAdressCrop1LowUrea: String? = null
+    var farmeradressCrop1LowUrea: String? = null
 
     @JsonProperty("farmeradress-crop1Low_TC")
-    var farmerAdressCrop1LowTC: String? = null
+    var farmeradressCrop1LowTC: String? = null
 
     @JsonProperty("farmeradress-crop1Low_TY")
-    var farmerAdressCrop1LowTY: String? = null
+    var farmeradressCrop1LowTY: String? = null
 
     @JsonProperty("farmeradress-crop1Medium_NPK")
-    var farmerAdressCrop1MediumNPK: String? = null
+    var farmeradressCrop1MediumNPK: String? = null
 
     @JsonProperty("farmeradress-crop1Medium_Urea")
-    var farmerAdressCrop1MediumUrea: String? = null
+    var farmeradressCrop1MediumUrea: String? = null
 
     @JsonProperty("farmeradress-crop1Medium_TC")
-    var farmerAdressCrop1MediumTC: String? = null
+    var farmeradressCrop1MediumTC: String? = null
 
     @JsonProperty("farmeradress-crop1Medium_TY")
-    var farmerAdressCrop1MediumTY: String? = null
+    var farmeradressCrop1MediumTY: String? = null
 
     @JsonProperty("farmeradress-crop1High_NPK")
-    var farmerAdressCrop1HighNPK: String? = null
+    var farmeradressCrop1HighNPK: String? = null
 
     @JsonProperty("farmeradress-crop1High_Urea")
-    var farmerAdressCrop1HighUrea: String? = null
+    var farmeradressCrop1HighUrea: String? = null
 
     @JsonProperty("farmeradress-crop1High_TC")
-    var farmerAdressCrop1HighTC: String? = null
+    var farmeradressCrop1HighTC: String? = null
 
     @JsonProperty("farmeradress-crop1High_TY")
-    var farmerAdressCrop1HighTY: String? = null
+    var farmeradressCrop1HighTY: String? = null
 
     @JsonProperty("farmeradress-crop2Low_NPK")
-    var farmerAdressCrop2LowNPK: String? = null
+    var farmeradressCrop2LowNPK: String? = null
 
     @JsonProperty("farmeradress-crop2Low_Urea")
-    var farmerAdressCrop2LowUrea: String? = null
+    var farmeradressCrop2LowUrea: String? = null
 
     @JsonProperty("farmeradress-crop2Low_TC")
-    var farmerAdressCrop2LowTC: String? = null
+    var farmeradressCrop2LowTC: String? = null
 
     @JsonProperty("farmeradress-crop2Low_TY")
-    var farmerAdressCrop2LowTY: String? = null
+    var farmeradressCrop2LowTY: String? = null
 
     @JsonProperty("farmeradress-crop2Medium_NPK")
-    var farmerAdressCrop2MediumNPK: String? = null
+    var farmeradressCrop2MediumNPK: String? = null
 
     @JsonProperty("farmeradress-crop2Medium_Urea")
-    var farmerAdressCrop2MediumUrea: String? = null
+    var farmeradressCrop2MediumUrea: String? = null
 
     @JsonProperty("farmeradress-crop2Medium_TC")
-    var farmerAdressCrop2MediumTC: String? = null
+    var farmeradressCrop2MediumTC: String? = null
 
     @JsonProperty("farmeradress-crop2Medium_TY")
-    var farmerAdressCrop2MediumTY: String? = null
+    var farmeradressCrop2MediumTY: String? = null
 
     @JsonProperty("farmeradress-crop2High_NPK")
-    var farmerAdressCrop2HighNPK: String? = null
+    var farmeradressCrop2HighNPK: String? = null
 
     @JsonProperty("farmeradress-crop2High_Urea")
-    var farmerAdressCrop2HighUrea: String? = null
+    var farmeradressCrop2HighUrea: String? = null
 
     @JsonProperty("farmeradress-crop2High_TC")
-    var farmerAdressCrop2HighTC: String? = null
+    var farmeradressCrop2HighTC: String? = null
 
     @JsonProperty("farmeradress-crop2High_TY")
-    var farmerAdressCrop2HighTY: String? = null
+    var farmeradressCrop2HighTY: String? = null
 
     @JsonProperty("farmeradress-crop1low_YI")
-    var farmerAdressCrop1lowYI: String? = null
+    var farmeradressCrop1lowYI: String? = null
 
     @JsonProperty("farmeradress-crop1low_Ybag")
-    var farmerAdressCrop1lowYbag: String? = null
+    var farmeradressCrop1lowYbag: String? = null
 
     @JsonProperty("farmeradress-crop1low_quantityNPK")
-    var farmerAdressCrop1lowQuantityNPK: String? = null
+    var farmeradressCrop1lowQuantityNPK: String? = null
 
     @JsonProperty("farmeradress-crop1low_quantityUrea")
-    var farmerAdressCrop1lowQuantityUrea: String? = null
+    var farmeradressCrop1lowQuantityUrea: String? = null
 
     @JsonProperty("farmeradress-crop1lowTC1")
-    var farmerAdressCrop1lowTC1: String? = null
+    var farmeradressCrop1lowTC1: String? = null
 
     @JsonProperty("farmeradress-crop1lowTC2")
-    var farmerAdressCrop1lowTC2: String? = null
+    var farmeradressCrop1lowTC2: String? = null
 
     @JsonProperty("farmeradress-crop1lowTC")
-    var farmerAdressCrop1lowTC: String? = null
+    var farmeradressCrop1lowTC: String? = null
 
     @JsonProperty("farmeradress-crop2low_YI")
-    var farmerAdressCrop2lowYI: String? = null
+    var farmeradressCrop2lowYI: String? = null
 
     @JsonProperty("farmeradress-crop2low_Ybag")
-    var farmerAdressCrop2lowYbag: String? = null
+    var farmeradressCrop2lowYbag: String? = null
 
     @JsonProperty("farmeradress-crop2low_quantityNPK")
-    var farmerAdressCrop2lowQuantityNPK: String? = null
+    var farmeradressCrop2lowQuantityNPK: String? = null
 
     @JsonProperty("farmeradress-crop2low_quantityUrea")
-    var farmerAdressCrop2lowQuantityUrea: String? = null
+    var farmeradressCrop2lowQuantityUrea: String? = null
 
     @JsonProperty("farmeradress-crop2lowTC1")
-    var farmerAdressCrop2lowTC1: String? = null
+    var farmeradressCrop2lowTC1: String? = null
 
     @JsonProperty("farmeradress-crop2lowTC2")
-    var farmerAdressCrop2lowTC2: String? = null
+    var farmeradressCrop2lowTC2: String? = null
 
     @JsonProperty("farmeradress-crop2lowTC")
-    var farmerAdressCrop2lowTC: String? = null
+    var farmeradressCrop2lowTC: String? = null
 
     @JsonProperty("farmeradress-crop1medium_YI")
-    var farmerAdressCrop1mediumYI: String? = null
+    var farmeradressCrop1mediumYI: String? = null
 
     @JsonProperty("farmeradress-crop1medium_Ybag")
-    var farmerAdressCrop1mediumYbag: String? = null
+    var farmeradressCrop1mediumYbag: String? = null
 
     @JsonProperty("farmeradress-crop1medium_quantityNPK")
-    var farmerAdressCrop1mediumQuantityNPK: String? = null
+    var farmeradressCrop1mediumQuantityNPK: String? = null
 
     @JsonProperty("farmeradress-crop1medium_quantityUrea")
-    var farmerAdressCrop1mediumQuantityUrea: String? = null
+    var farmeradressCrop1mediumQuantityUrea: String? = null
 
     @JsonProperty("farmeradress-crop1mediumTC1")
-    var farmerAdressCrop1mediumTC1: String? = null
+    var farmeradressCrop1mediumTC1: String? = null
 
     @JsonProperty("farmeradress-crop1mediumTC2")
-    var farmerAdressCrop1mediumTC2: String? = null
+    var farmeradressCrop1mediumTC2: String? = null
 
     @JsonProperty("farmeradress-crop1mediumTC")
-    var farmerAdressCrop1mediumTC: String? = null
+    var farmeradressCrop1mediumTC: String? = null
 
     @JsonProperty("farmeradress-crop2medium_YI")
-    var farmerAdressCrop2mediumYI: String? = null
+    var farmeradressCrop2mediumYI: String? = null
 
     @JsonProperty("farmeradress-crop2medium_Ybag")
-    var farmerAdressCrop2mediumYbag: String? = null
+    var farmeradressCrop2mediumYbag: String? = null
 
     @JsonProperty("farmeradress-crop2medium_quantityNPK")
-    var farmerAdressCrop2mediumQuantityNPK: String? = null
+    var farmeradressCrop2mediumQuantityNPK: String? = null
 
     @JsonProperty("farmeradress-crop2medium_quantityUrea")
-    var farmerAdressCrop2mediumQuantityUrea: String? = null
+    var farmeradressCrop2mediumQuantityUrea: String? = null
 
     @JsonProperty("farmeradress-crop2mediumTC1")
-    var farmerAdressCrop2mediumTC1: String? = null
+    var farmeradressCrop2mediumTC1: String? = null
 
     @JsonProperty("farmeradress-crop2mediumTC2")
-    var farmerAdressCrop2mediumTC2: String? = null
+    var farmeradressCrop2mediumTC2: String? = null
 
     @JsonProperty("farmeradress-crop2mediumTC")
-    var farmerAdressCrop2mediumTC: String? = null
+    var farmeradressCrop2mediumTC: String? = null
 
     @JsonProperty("farmeradress-crop1high_YI")
-    var farmerAdressCrop1highYI: String? = null
+    var farmeradressCrop1highYI: String? = null
 
     @JsonProperty("farmeradress-crop1high_Ybag")
-    var farmerAdressCrop1highYbag: String? = null
+    var farmeradressCrop1highYbag: String? = null
 
     @JsonProperty("farmeradress-crop1high_quantityNPK")
-    var farmerAdressCrop1highQuantityNPK: String? = null
+    var farmeradressCrop1highQuantityNPK: String? = null
 
     @JsonProperty("farmeradress-crop1high_quantityUrea")
-    var farmerAdressCrop1highQuantityUrea: String? = null
+    var farmeradressCrop1highQuantityUrea: String? = null
 
     @JsonProperty("farmeradress-crop1highTC1")
-    var farmerAdressCrop1highTC1: String? = null
+    var farmeradressCrop1highTC1: String? = null
 
     @JsonProperty("farmeradress-crop1highTC2")
-    var farmerAdressCrop1highTC2: String? = null
+    var farmeradressCrop1highTC2: String? = null
 
     @JsonProperty("farmeradress-crop1highTC")
-    var farmerAdressCrop1highTC: String? = null
+    var farmeradressCrop1highTC: String? = null
 
     @JsonProperty("farmeradress-crop2high_YI")
-    var farmerAdressCrop2highYI: String? = null
+    var farmeradressCrop2highYI: String? = null
 
     @JsonProperty("farmeradress-crop2high_Ybag")
-    var farmerAdressCrop2highYbag: String? = null
+    var farmeradressCrop2highYbag: String? = null
 
     @JsonProperty("farmeradress-crop2high_quantityNPK")
-    var farmerAdressCrop2highQuantityNPK: String? = null
+    var farmeradressCrop2highQuantityNPK: String? = null
 
     @JsonProperty("farmeradress-crop2high_quantityUrea")
-    var farmerAdressCrop2highQuantityUrea: String? = null
+    var farmeradressCrop2highQuantityUrea: String? = null
 
     @JsonProperty("farmeradress-crop2highTC1")
-    var farmerAdressCrop2highTC1: String? = null
+    var farmeradressCrop2highTC1: String? = null
 
     @JsonProperty("farmeradress-crop2highTC2")
-    var farmerAdressCrop2highTC2: String? = null
+    var farmeradressCrop2highTC2: String? = null
 
     @JsonProperty("farmeradress-crop2highTC")
-    var farmerAdressCrop2highTC: String? = null
+    var farmeradressCrop2highTC: String? = null
 
     @JsonProperty("farmeradress-ricelowbags")
-    var farmerAdressRicelowbags: String? = null
+    var farmeradressRicelowbags: String? = null
 
     @JsonProperty("farmeradress-ricemediumbags")
-    var farmerAdressRicemediumbags: String? = null
+    var farmeradressRicemediumbags: String? = null
 
     @JsonProperty("farmeradress-ricehighbags")
-    var farmerAdressRicehighbags: String? = null
+    var farmeradressRicehighbags: String? = null
 
     @JsonProperty("farmeradress-maizelowbags")
-    var farmerAdressMaizelowbags: String? = null
+    var farmeradressMaizelowbags: String? = null
 
     @JsonProperty("farmeradress-maizemediumbags")
-    var farmerAdressMaizemediumbags: String? = null
+    var farmeradressMaizemediumbags: String? = null
 
     @JsonProperty("farmeradress-maizehighbags")
-    var farmerAdressMaizehighbags: String? = null
+    var farmeradressMaizehighbags: String? = null
 
     @JsonProperty("farmeradress-cassavalowbags")
-    var farmerAdressCassavalowbags: String? = null
+    var farmeradressCassavalowbags: String? = null
 
     @JsonProperty("farmeradress-cassavamediumbags")
-    var farmerAdressCassavamediumbags: String? = null
+    var farmeradressCassavamediumbags: String? = null
 
     @JsonProperty("farmeradress-cassavahighbags")
-    var farmerAdressCassavahighbags: String? = null
+    var farmeradressCassavahighbags: String? = null
 
     @JsonProperty("farmeradress-ricelowbags2")
-    var farmerAdressRicelowbags2: String? = null
+    var farmeradressRicelowbags2: String? = null
 
     @JsonProperty("farmeradress-ricemediumbags2")
-    var farmerAdressRicemediumbags2: String? = null
+    var farmeradressRicemediumbags2: String? = null
 
     @JsonProperty("farmeradress-ricehighbags2")
-    var farmerAdressRicehighbags2: String? = null
+    var farmeradressRicehighbags2: String? = null
 
     @JsonProperty("farmeradress-maizelowbags2")
-    var farmerAdressMaizelowbags2: String? = null
+    var farmeradressMaizelowbags2: String? = null
 
     @JsonProperty("farmeradress-maizemediumbags2")
-    var farmerAdressMaizemediumbags2: String? = null
+    var farmeradressMaizemediumbags2: String? = null
 
     @JsonProperty("farmeradress-maizehighbags2")
-    var farmerAdressMaizehighbags2: String? = null
+    var farmeradressMaizehighbags2: String? = null
 
     @JsonProperty("farmeradress-cassavalowbags2")
-    var farmerAdressCassavalowbags2: String? = null
+    var farmeradressCassavalowbags2: String? = null
 
     @JsonProperty("farmeradress-cassavamediumbags2")
-    var farmerAdressCassavamediumbags2: String? = null
+    var farmeradressCassavamediumbags2: String? = null
 
     @JsonProperty("farmeradress-cassavahighbags2")
-    var farmerAdressCassavahighbags2: String? = null
+    var farmeradressCassavahighbags2: String? = null
 
     @JsonProperty("farmeradress-crop1low_YbagC")
-    var farmerAdressCrop1lowYbagC: String? = null
+    var farmeradressCrop1lowYbagC: String? = null
 
     @JsonProperty("farmeradress-crop1medium_YbagC")
-    var farmerAdressCrop1mediumYbagC: String? = null
+    var farmeradressCrop1mediumYbagC: String? = null
 
     @JsonProperty("farmeradress-crop1high_YbagC")
-    var farmerAdressCrop1highYbagC: String? = null
+    var farmeradressCrop1highYbagC: String? = null
 
     @JsonProperty("farmeradress-crop2low_YbagC")
-    var farmerAdressCrop2lowYbagC: String? = null
+    var farmeradressCrop2lowYbagC: String? = null
 
     @JsonProperty("farmeradress-crop2medium_YbagC")
-    var farmerAdressCrop2mediumYbagC: String? = null
+    var farmeradressCrop2mediumYbagC: String? = null
 
     @JsonProperty("farmeradress-crop2high_YbagC")
-    var farmerAdressCrop2highYbagC: String? = null
+    var farmeradressCrop2highYbagC: String? = null
 
     @JsonProperty("farmeradress-C1showoption3")
-    var farmerAdressC1showoption3: String? = null
+    var farmeradressC1showoption3: String? = null
 
     @JsonProperty("farmeradress-C2showoption3")
-    var farmerAdressC2showoption3: String? = null
+    var farmeradressC2showoption3: String? = null
 
     @JsonProperty("firstcropoptions-firstCropPackagenote")
     var firstcropoptionsFirstCropPackagenote: String? = null
@@ -551,11 +553,17 @@ class ChoiceValidationDto {
     @JsonProperty("secondcropoptions-secondCropPackage")
     var secondcropoptionsSecondCropPackage: String? = null
 
-    @JsonProperty("Recommendations-firstCropPackageFIP")
-    var recommendationsFirstCropPackageFIP: String? = null
+    @JsonProperty("Recommendations-firstCropPackageFIP3")
+    var recommendationsFirstCropPackageFIP3: String? = null
 
-    @JsonProperty("Recommendations-secondCropPackageFIP")
-    var recommendationsSecondCropPackageFIP: String? = null
+    @JsonProperty("Recommendations-firstCropPackageFIPKaduna")
+    var recommendationsFirstCropPackageFIPKaduna: String? = null
+
+    @JsonProperty("Recommendations-secondCropPackageFIP3")
+    var recommendationsSecondCropPackageFIP3: String? = null
+
+    @JsonProperty("Recommendations-secondCropPackageFIPKano")
+    var recommendationsSecondCropPackageFIPKano: String? = null
 
     @JsonProperty("Recommendations-firstCropPackageNPK")
     var recommendationsFirstCropPackageNPK: String? = null
@@ -594,7 +602,7 @@ class ChoiceValidationDto {
     var recommendationsValidationplotcrop2: String? = null
 
     @JsonProperty("end")
-    var endDate: String? = null
+    var end: String? = null
 
     @JsonProperty("meta-instanceID")
     var instanceId: String? = null

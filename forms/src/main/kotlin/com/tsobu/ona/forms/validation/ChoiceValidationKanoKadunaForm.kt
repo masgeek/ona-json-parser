@@ -1,18 +1,16 @@
 package com.tsobu.ona.forms.validation
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import java.util.ArrayList
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties(ignoreUnknown = false)
-class ChoiceValidationForm {
+class ChoiceValidationKanoKadunaForm {
     @JsonProperty("_id")
-    var id: Int? = null
+    var id: String? = null
 
     @JsonProperty("end")
-    var endDate: String? = null
+    var end: String? = null
 
     @JsonProperty("_tags")
     var tags: List<Any> = ArrayList()
@@ -21,7 +19,7 @@ class ChoiceValidationForm {
     var uuid: String? = null
 
     @JsonProperty("today")
-    var todayDate: String? = null
+    var today: String? = null
 
     @JsonProperty("_notes")
     var notes: List<Any> = ArrayList()
@@ -77,14 +75,11 @@ class ChoiceValidationForm {
     @JsonProperty("_xform_id_string")
     var xformIdString: String? = null
 
-    @JsonProperty("farmeradress/plm")
-    var farmeradressPlm: String? = null
-
     @JsonProperty("farmeradress/EAID")
-    var farmeradressEaid: String? = null
+    var farmeradressEAID: String? = null
 
     @JsonProperty("farmeradress/HHID")
-    var farmeradressHhid: String? = null
+    var farmeradressHHID: String? = null
 
     @JsonProperty("_bamboo_dataset_id")
     var bambooDatasetId: String? = null
@@ -149,9 +144,6 @@ class ChoiceValidationForm {
     @JsonProperty("farmeradress/crop1Low_TY")
     var farmeradressCrop1LowTY: String? = null
 
-    @JsonProperty("farmeradress/crop1highTC")
-    var farmeradressCrop1highTC: String? = null
-
     @JsonProperty("farmeradress/crop1lowTC1")
     var farmeradressCrop1lowTC1: String? = null
 
@@ -182,23 +174,8 @@ class ChoiceValidationForm {
     @JsonProperty("farmeradress/ricelowbags")
     var farmeradressRicelowbags: String? = null
 
-    @JsonProperty("farmeradress/crop1High_TC")
-    var farmeradressCrop1HighTC: String? = null
-
-    @JsonProperty("farmeradress/crop1High_TY")
-    var farmeradressCrop1HighTY: String? = null
-
     @JsonProperty("farmeradress/crop1Low_NPK")
     var farmeradressCrop1LowNPK: String? = null
-
-    @JsonProperty("farmeradress/crop1highTC1")
-    var farmeradressCrop1highTC1: String? = null
-
-    @JsonProperty("farmeradress/crop1highTC2")
-    var farmeradressCrop1highTC2: String? = null
-
-    @JsonProperty("farmeradress/crop1high_YI")
-    var farmeradressCrop1highYI: String? = null
 
     @JsonProperty("farmeradress/crop2High_TC")
     var farmeradressCrop2HighTC: String? = null
@@ -233,9 +210,6 @@ class ChoiceValidationForm {
     @JsonProperty("farmeradress/C2showoption3")
     var farmeradressC2showoption3: String? = null
 
-    @JsonProperty("farmeradress/crop1High_NPK")
-    var farmeradressCrop1HighNPK: String? = null
-
     @JsonProperty("farmeradress/crop1Low_Urea")
     var farmeradressCrop1LowUrea: String? = null
 
@@ -269,17 +243,11 @@ class ChoiceValidationForm {
     @JsonProperty("farmeradress/cassavalowbags")
     var farmeradressCassavalowbags: String? = null
 
-    @JsonProperty("farmeradress/crop1High_Urea")
-    var farmeradressCrop1HighUrea: String? = null
-
     @JsonProperty("farmeradress/crop1Medium_TC")
     var farmeradressCrop1MediumTC: String? = null
 
     @JsonProperty("farmeradress/crop1Medium_TY")
     var farmeradressCrop1MediumTY: String? = null
-
-    @JsonProperty("farmeradress/crop1high_Ybag")
-    var farmeradressCrop1highYbag: String? = null
 
     @JsonProperty("farmeradress/crop1low_YbagC")
     var farmeradressCrop1lowYbagC: String? = null
@@ -383,9 +351,6 @@ class ChoiceValidationForm {
     @JsonProperty("farmeradress/crop2low_quantityNPK")
     var farmeradressCrop2lowQuantityNPK: String? = null
 
-    @JsonProperty("farmeradress/crop1high_quantityNPK")
-    var farmeradressCrop1highQuantityNPK: String? = null
-
     @JsonProperty("farmeradress/crop1low_quantityUrea")
     var farmeradressCrop1lowQuantityUrea: String? = null
 
@@ -398,14 +363,8 @@ class ChoiceValidationForm {
     @JsonProperty("secondcropoptions/firstCropPackage")
     var secondcropoptionsFirstCropPackage: String? = null
 
-    @JsonProperty("Recommendations/firstCropPackageFIP")
-    var recommendationsFirstCropPackageFIP: String? = null
-
     @JsonProperty("Recommendations/firstCropPackageNPK")
     var recommendationsFirstCropPackageNPK: String? = null
-
-    @JsonProperty("farmeradress/crop1high_quantityUrea")
-    var farmeradressCrop1highQuantityUrea: String? = null
 
     @JsonProperty("farmeradress/crop2high_quantityUrea")
     var farmeradressCrop2highQuantityUrea: String? = null
@@ -416,9 +375,6 @@ class ChoiceValidationForm {
     @JsonProperty("Recommendations/firstCropPackageUrea")
     var recommendationsFirstCropPackageUrea: String? = null
 
-    @JsonProperty("Recommendations/secondCropPackageFIP")
-    var recommendationsSecondCropPackageFIP: String? = null
-
     @JsonProperty("Recommendations/secondCropPackageNPK")
     var recommendationsSecondCropPackageNPK: String? = null
 
@@ -427,6 +383,9 @@ class ChoiceValidationForm {
 
     @JsonProperty("farmeradress/crop2medium_quantityNPK")
     var farmeradressCrop2mediumQuantityNPK: String? = null
+
+    @JsonProperty("Recommendations/secondCropPackageFIP3")
+    var recommendationsSecondCropPackageFIP3: String? = null
 
     @JsonProperty("Recommendations/secondCropPackageUrea")
     var recommendationsSecondCropPackageUrea: String? = null
@@ -449,6 +408,45 @@ class ChoiceValidationForm {
     @JsonProperty("Recommendations/secondCropPackageFIPUrea")
     var recommendationsSecondCropPackageFIPUrea: String? = null
 
-    @JsonProperty("phonenumber")
-    var phonenumber: String? = null
+    @JsonProperty("Recommendations/firstCropPackageFIPKaduna")
+    var recommendationsFirstCropPackageFIPKaduna: String? = null
+
+    @JsonProperty("farmeradress/crop1highTC")
+    var farmeradressCrop1highTC: String? = null
+
+    @JsonProperty("farmeradress/crop1High_TC")
+    var farmeradressCrop1HighTC: String? = null
+
+    @JsonProperty("farmeradress/crop1High_TY")
+    var farmeradressCrop1HighTY: String? = null
+
+    @JsonProperty("farmeradress/crop1highTC1")
+    var farmeradressCrop1highTC1: String? = null
+
+    @JsonProperty("farmeradress/crop1highTC2")
+    var farmeradressCrop1highTC2: String? = null
+
+    @JsonProperty("farmeradress/crop1high_YI")
+    var farmeradressCrop1highYI: String? = null
+
+    @JsonProperty("farmeradress/crop1High_NPK")
+    var farmeradressCrop1HighNPK: String? = null
+
+    @JsonProperty("farmeradress/crop1High_Urea")
+    var farmeradressCrop1HighUrea: String? = null
+
+    @JsonProperty("farmeradress/crop1high_Ybag")
+    var farmeradressCrop1highYbag: String? = null
+
+    @JsonProperty("farmeradress/crop1high_quantityNPK")
+    var farmeradressCrop1highQuantityNPK: String? = null
+
+    @JsonProperty("farmeradress/crop1high_quantityUrea")
+    var farmeradressCrop1highQuantityUrea: String? = null
+
+    @JsonProperty("Recommendations/firstCropPackageFIP3")
+    var recommendationsFirstCropPackageFIP3: String? = null
+
+    @JsonProperty("Recommendations/secondCropPackageFIPKano")
+    var recommendationsSecondCropPackageFIPKano: String? = null
 }

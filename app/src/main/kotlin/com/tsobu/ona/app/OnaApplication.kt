@@ -30,6 +30,7 @@ import com.tsobu.ona.core.service.sphs.PraSphsService
 import com.tsobu.ona.core.service.dataval.SgService
 import com.tsobu.ona.core.service.starchcontent.StarchContentService
 import com.tsobu.ona.core.service.valform.*
+import com.tsobu.ona.core.service.validation.ChoiceValidationKanoKadunaService
 import com.tsobu.ona.core.service.validation.ChoiceValidationService
 import com.tsobu.ona.core.service.valsphs.ValSphsKwService
 import com.tsobu.ona.core.service.valsphs.ValSphsOgService
@@ -110,7 +111,8 @@ class OnaApplication(
     private val pcService: PcService,
     private val exService: ExService,
     private val uptakeService: UptakeService,
-    private val choiceValidationService: ChoiceValidationService
+    private val choiceValidationService: ChoiceValidationService,
+    private val choiceValidationKanoKadunaService: ChoiceValidationKanoKadunaService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -183,11 +185,14 @@ class OnaApplication(
 //        exService.readJsonAsset()
 
         //EA_IAA
-//                sgService.readJsonAsset()
+//        sgService.readJsonAsset()
 //        uptakeService.readJsonAsset()
+//        choiceValidationService.readJsonAsset()
+        choiceValidationKanoKadunaService.mapJsonFile()
 
-        choiceValidationService.readJsonAsset()
 
+
+        log.info("Verifying files....")
 //        validationService.processCsvFiles()
         log.info("Hello, I am finished");
     }

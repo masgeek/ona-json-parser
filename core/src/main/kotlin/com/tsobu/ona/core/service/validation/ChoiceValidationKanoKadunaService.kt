@@ -3,14 +3,14 @@ package com.tsobu.ona.core.service.validation
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
-import com.tsobu.ona.core.dto.json.validation.ChoiceValidationDto
+import com.tsobu.ona.core.dto.json.validation.ChoiceValidationKanoKadunaDto
 import com.tsobu.ona.core.interfaces.IJsonProcessor
 import com.tsobu.ona.core.service.akilimo.UptakeService
 import com.tsobu.ona.core.utils.CsvUtility
 import com.tsobu.ona.core.utils.MyUtils
-import com.tsobu.ona.database.entities.validation.ChoiceValidationEntity
-import com.tsobu.ona.database.repositories.validation.ChoiceValidationRepo
-import com.tsobu.ona.forms.validation.ChoiceValidationForm
+import com.tsobu.ona.database.entities.validation.ChoiceValidationKanoKadunaEntity
+import com.tsobu.ona.database.repositories.validation.ChoiceValidationKanoKadunaRepo
+import com.tsobu.ona.forms.validation.ChoiceValidationKanoKadunaForm
 import org.modelmapper.AbstractCondition
 import org.modelmapper.Condition
 import org.modelmapper.ModelMapper
@@ -23,8 +23,8 @@ import java.io.IOException
 import java.nio.file.Paths
 
 @Service
-class ChoiceValidationService(
-    val choiceRepo: ChoiceValidationRepo,
+class ChoiceValidationKanoKadunaService(
+    val choiceRepo: ChoiceValidationKanoKadunaRepo,
     val appConfig: AppConfig
 ) : IJsonProcessor {
 
@@ -34,7 +34,7 @@ class ChoiceValidationService(
     private val myDateUtil = MyUtils()
     private val writeCsvFile = CsvUtility()
 
-    val fileName = "Choice_Validation.json"
+    val fileName = "Choice_Validation_Kano_Kaduna.json"
 
     override fun mapJsonFile() {
         log.info("Reading table data....")
@@ -58,16 +58,16 @@ class ChoiceValidationService(
         val fileSeparator = File.separator
         val filePath = "${appConfig.globalProperties().outputPath}${fileSeparator}EiA_SAA${fileSeparator}"
         val uptakeData = choiceList.map { choiceValidationEntity ->
-            val choiceValidationDto = modelMapper.map(choiceValidationEntity, ChoiceValidationDto::class.java)
+            val choiceValidationDto = modelMapper.map(choiceValidationEntity, ChoiceValidationKanoKadunaDto::class.java)
             choiceValidationDto.submissionDate = myDateUtil.toDateTimeString(choiceValidationEntity.submissionDate)
-            choiceValidationDto.endDate = myDateUtil.toDateTimeString(choiceValidationEntity.endDate)
-            choiceValidationDto.todayDate = myDateUtil.toDateToString(choiceValidationEntity.todayDate)
+            choiceValidationDto.end = myDateUtil.toDateTimeString(choiceValidationEntity.endDate)
+            choiceValidationDto.today = myDateUtil.toDateToString(choiceValidationEntity.todayDate)
             choiceValidationDto
         }
 
         writeCsvFile.writeCsv(
-            classMap = ChoiceValidationDto::class.java, data = uptakeData,
-            fileName = "Choice_Validation", outPutPath = filePath
+            classMap = ChoiceValidationKanoKadunaDto::class.java, data = uptakeData,
+            fileName = "Choice_Validation_Kano_Kaduna", outPutPath = filePath
         )
     }
 
@@ -76,7 +76,7 @@ class ChoiceValidationService(
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 
-        val list = objectMapper.readValue(file, object : TypeReference<List<ChoiceValidationForm>>() {})
+        val list = objectMapper.readValue(file, object : TypeReference<List<ChoiceValidationKanoKadunaForm>>() {})
 
         val isStringBlank: Condition<*, *> = object : AbstractCondition<Any?, Any?>() {
             override fun applies(context: MappingContext<Any?, Any?>): Boolean {
@@ -93,16 +93,16 @@ class ChoiceValidationService(
 //        modelMapper.configuration.isAmbiguityIgnored = false
         modelMapper.configuration.matchingStrategy = MatchingStrategies.STANDARD
 
-        val choiceValidationData = ArrayList<ChoiceValidationEntity>()
+        val choiceValidationData = ArrayList<ChoiceValidationKanoKadunaEntity>()
         list.forEach { choiceValidationForm ->
-            val choiceValidationEntity = modelMapper.map(choiceValidationForm, ChoiceValidationEntity::class.java)
+            val choiceValidationEntity = modelMapper.map(choiceValidationForm, ChoiceValidationKanoKadunaEntity::class.java)
             choiceValidationEntity.instanceId = choiceValidationForm.instanceId
             choiceValidationEntity.controlKey = choiceValidationForm.instanceId
-            choiceValidationEntity.formHubUuid = choiceValidationForm.formhubUuid
+            choiceValidationEntity.formhubUuid = choiceValidationForm.formhubUuid
 
             choiceValidationEntity.submissionDate = myDateUtil.convertToDateTime(choiceValidationForm.submissionTime)
-            choiceValidationEntity.todayDate = myDateUtil.convertToDate(choiceValidationForm.todayDate)
-            choiceValidationEntity.endDate = myDateUtil.convertToDateTime(choiceValidationForm.endDate)
+            choiceValidationEntity.todayDate = myDateUtil.convertToDate(choiceValidationForm.today)
+            choiceValidationEntity.endDate = myDateUtil.convertToDateTime(choiceValidationForm.end)
 
             choiceValidationData.add(choiceValidationEntity)
         }
