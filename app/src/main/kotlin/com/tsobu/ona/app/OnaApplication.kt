@@ -29,6 +29,7 @@ import com.tsobu.ona.core.service.replace.ReplaceTlService
 import com.tsobu.ona.core.service.sphs.PraSphsService
 import com.tsobu.ona.core.service.dataval.SgService
 import com.tsobu.ona.core.service.starchcontent.StarchContentService
+import com.tsobu.ona.core.service.survey.FipSurvey2020Service
 import com.tsobu.ona.core.service.valform.*
 import com.tsobu.ona.core.service.validation.ChoiceValidationKanoKadunaService
 import com.tsobu.ona.core.service.validation.ChoiceValidationService
@@ -112,7 +113,8 @@ class OnaApplication(
     private val exService: ExService,
     private val uptakeService: UptakeService,
     private val choiceValidationService: ChoiceValidationService,
-    private val choiceValidationKanoKadunaService: ChoiceValidationKanoKadunaService
+    private val kanoKadunaService: ChoiceValidationKanoKadunaService,
+    private val fipSurvey2020Service: FipSurvey2020Service
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -188,8 +190,8 @@ class OnaApplication(
 //        sgService.readJsonAsset()
 //        uptakeService.readJsonAsset()
 //        choiceValidationService.readJsonAsset()
-        choiceValidationKanoKadunaService.mapJsonFile()
-
+//        kanoKadunaService.readJsonAsset()
+        fipSurvey2020Service.mapJsonFile()
 
 
         log.info("Verifying files....")
