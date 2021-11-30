@@ -114,7 +114,8 @@ class OnaApplication(
     private val fipSurvey2020Service: FipSurvey2020Service,
     private val sgRegisterEaService: SgRegisterEaService,
     private val sgRegisterHhService: SgRegisterHhService,
-    private val registerHhDgService: RegisterHhDgService
+    private val registerHhDgService: RegisterHhDgService,
+    private val registerEaDgService: RegisterEaDgService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -196,7 +197,8 @@ class OnaApplication(
 //        sgRegisterHhService.readJsonAsset()
 
         //DG
-        registerHhDgService.mapJsonFile()
+//        registerHhDgService.readJsonAsset()
+        registerEaDgService.readJsonAsset()
 
         log.info("Verifying files....")
 //        validationService.processCsvFiles()
