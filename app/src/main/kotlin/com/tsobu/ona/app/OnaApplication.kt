@@ -18,16 +18,13 @@ import com.tsobu.ona.core.service.partition.PartitionPsService
 import com.tsobu.ona.core.service.pool.PoolSampleService
 import com.tsobu.ona.core.service.record.CanopyDimensionsService
 import com.tsobu.ona.core.service.record.RecordDmService
-import com.tsobu.ona.core.service.register.EaService
-import com.tsobu.ona.core.service.register.ExService
-import com.tsobu.ona.core.service.register.HhService
-import com.tsobu.ona.core.service.register.PcService
 import com.tsobu.ona.core.service.replace.ReplaceFbService
 import com.tsobu.ona.core.service.replace.ReplaceFdService
 import com.tsobu.ona.core.service.replace.ReplacePoService
 import com.tsobu.ona.core.service.replace.ReplaceTlService
 import com.tsobu.ona.core.service.sphs.PraSphsService
 import com.tsobu.ona.core.service.dataval.SgService
+import com.tsobu.ona.core.service.register.*
 import com.tsobu.ona.core.service.starchcontent.StarchContentService
 import com.tsobu.ona.core.service.survey.FipSurvey2020Service
 import com.tsobu.ona.core.service.valform.*
@@ -114,7 +111,8 @@ class OnaApplication(
     private val uptakeService: UptakeService,
     private val choiceValidationService: ChoiceValidationService,
     private val kanoKadunaService: ChoiceValidationKanoKadunaService,
-    private val fipSurvey2020Service: FipSurvey2020Service
+    private val fipSurvey2020Service: FipSurvey2020Service,
+    private val sgRegisterEaService: SgRegisterEaService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -191,7 +189,10 @@ class OnaApplication(
 //        uptakeService.readJsonAsset()
 //        choiceValidationService.readJsonAsset()
 //        kanoKadunaService.readJsonAsset()
-        fipSurvey2020Service.mapJsonFile()
+//        fipSurvey2020Service.readJsonAsset()
+        sgRegisterEaService.mapJsonFile()
+
+        //DG
 
 
         log.info("Verifying files....")
