@@ -30,6 +30,7 @@ import com.tsobu.ona.core.service.sphs.PraSphsService
 import com.tsobu.ona.core.service.dataval.SgService
 import com.tsobu.ona.core.service.starchcontent.StarchContentService
 import com.tsobu.ona.core.service.valform.*
+import com.tsobu.ona.core.service.validation.ChoiceValidationService
 import com.tsobu.ona.core.service.valsphs.ValSphsKwService
 import com.tsobu.ona.core.service.valsphs.ValSphsOgService
 import com.tsobu.ona.core.service.valsphs.ValSphsOnService
@@ -108,7 +109,8 @@ class OnaApplication(
     private val fdtlPoAssignService: FdTLPoAssignService,
     private val pcService: PcService,
     private val exService: ExService,
-    private val uptakeService: UptakeService
+    private val uptakeService: UptakeService,
+    private val choiceValidationService: ChoiceValidationService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -181,9 +183,10 @@ class OnaApplication(
 //        exService.readJsonAsset()
 
         //EA_IAA
-        //        sgService.readJsonAsset()
+//                sgService.readJsonAsset()
 //        uptakeService.readJsonAsset()
-        uptakeService.mapJsonFile()
+
+        choiceValidationService.readJsonAsset()
 
 //        validationService.processCsvFiles()
         log.info("Hello, I am finished");
