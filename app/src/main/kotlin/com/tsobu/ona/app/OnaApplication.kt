@@ -24,6 +24,7 @@ import com.tsobu.ona.core.service.replace.ReplacePoService
 import com.tsobu.ona.core.service.replace.ReplaceTlService
 import com.tsobu.ona.core.service.sphs.PraSphsService
 import com.tsobu.ona.core.service.dataval.SgService
+import com.tsobu.ona.core.service.fielddata.WheatDgService
 import com.tsobu.ona.core.service.register.*
 import com.tsobu.ona.core.service.starchcontent.StarchContentService
 import com.tsobu.ona.core.service.survey.FipSurvey2020Service
@@ -115,7 +116,8 @@ class OnaApplication(
     private val sgRegisterEaService: SgRegisterEaService,
     private val sgRegisterHhService: SgRegisterHhService,
     private val registerHhDgService: RegisterHhDgService,
-    private val registerEaDgService: RegisterEaDgService
+    private val registerEaDgService: RegisterEaDgService,
+    private val wheatDgService: WheatDgService
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -198,7 +200,8 @@ class OnaApplication(
 
         //DG
 //        registerHhDgService.readJsonAsset()
-        registerEaDgService.readJsonAsset()
+//        registerEaDgService.readJsonAsset()
+        wheatDgService.mapJsonFile()
 
         log.info("Verifying files....")
 //        validationService.processCsvFiles()
