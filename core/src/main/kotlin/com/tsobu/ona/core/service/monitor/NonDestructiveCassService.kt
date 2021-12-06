@@ -101,6 +101,7 @@ constructor(
     @Suppress("UNCHECKED_CAST")
     @Throws(IOException::class)
     fun readJsonAsset() {
+        return
         val filePath = "${appConfig.globalProperties().jsonPath}${fileName}"
         val file = Paths.get(filePath).toFile()
 

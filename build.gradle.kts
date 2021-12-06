@@ -9,8 +9,8 @@ buildscript {
 }
 
 plugins {
-    val kotlinVersion = "1.4.10"
-    val springVersion = "2.3.3.RELEASE"
+    val kotlinVersion = "1.6.0"
+    val springVersion = "2.6.1"
 
     id("org.springframework.boot") version springVersion apply false
     id("io.spring.dependency-management") version "1.0.10.RELEASE" apply false
@@ -24,7 +24,7 @@ plugins {
 
 allprojects {
     group = "com.tsobu"
-    version = "1.0.1"
+    version = "2.0.1"
 
     tasks.withType<JavaCompile> {
         sourceCompatibility = "1.8"
