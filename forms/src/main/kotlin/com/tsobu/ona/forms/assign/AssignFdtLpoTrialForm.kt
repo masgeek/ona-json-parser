@@ -1,13 +1,8 @@
 package com.tsobu.ona.forms.assign
 
-import com.fasterxml.jackson.annotation.JsonInclude
-import com.fasterxml.jackson.annotation.JsonPropertyOrder
-import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-import com.tsobu.ona.forms.assign.AssignFdtLpoTrialForm
-import com.tsobu.ona.forms.assign.AssignFdtLpoTrialPlotForm
-import java.util.ArrayList
-import javax.annotation.processing.Generated
+import com.fasterxml.jackson.annotation.JsonInclude
+import com.fasterxml.jackson.annotation.JsonProperty
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)

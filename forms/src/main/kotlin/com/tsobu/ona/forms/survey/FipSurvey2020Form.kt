@@ -2,7 +2,6 @@ package com.tsobu.ona.forms.survey
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
-import java.util.ArrayList
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class FipSurvey2020Form {

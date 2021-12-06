@@ -34,15 +34,15 @@ dependencies {
 //    implementation("org.simpleflatmapper:sfm-csv:8.2.3")
 
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-csv
-    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.11.2")
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.13.0")
 
 
-    implementation("com.googlecode.libphonenumber:libphonenumber:8.12.9")
+    implementation("com.googlecode.libphonenumber:libphonenumber:8.12.38")
 
     api("commons-codec:commons-codec:1.15")
     api("com.github.rozidan:modelmapper-spring-boot-starter:2.3.1")
 
-    implementation("com.opencsv:opencsv:4.6")
+    implementation("com.opencsv:opencsv:5.5.2")
 
     implementation("org.apache.commons:commons-collections4:4.4")
 

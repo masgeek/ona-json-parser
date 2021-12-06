@@ -1,9 +1,8 @@
 package com.tsobu.ona.forms
 
 import com.fasterxml.jackson.annotation.JsonInclude
-import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import com.fasterxml.jackson.annotation.JsonProperty
-import java.util.ArrayList
+import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder("_id", "end", "gov", "EAID", "freq", "nrHH", "role", "_tags", "_uuid", "ageEA", "level", "locEA", "start", "title", "today", "_notes", "typeID", "_edited", "_status", "partner", "_version", "deviceid", "genderEA", "username", "_duration", "_xform_id", "levelName", "phoneNrEA", "simserial", "surNameEA", "educationEA", "firstNameEA", "phonenumber", "_attachments", "_geolocation", "_media_count", "_total_media", "formhub/uuid", "subscriberid", "_submitted_by", "meta/instanceID", "_submission_time", "_xform_id_string", "_bamboo_dataset_id", "_media_all_received", "detailsEA/correctEA", "phoneNr2EA", "HHID", "ageHH", "locHH", "genderHH", "geopoint", "phoneNrHH", "surNameHH", "phoneNr2HH", "relationHH", "educationHH", "firstNameHH", "occupationHH", "maritalStatusHH", "detailsHH/correctHH", "email", "startYearHH")

@@ -103,6 +103,7 @@ class SgRegisterEaService(
             choiceValidationEntity.controlKey = choiceValidationForm.instanceId
             choiceValidationEntity.formhubUuid = choiceValidationForm.formhubUuid
 
+
             choiceValidationEntity.submissionDate = myDateUtil.convertToDateTime(choiceValidationForm.submissionTime)
             choiceValidationEntity.todayDate = myDateUtil.convertToDate(choiceValidationForm.today)
             choiceValidationEntity.endDate = myDateUtil.convertToDateTime(choiceValidationForm.end)

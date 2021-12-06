@@ -1,64 +1,10 @@
 package com.tsobu.ona.forms.register
 
 import com.fasterxml.jackson.annotation.JsonInclude
-import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import com.fasterxml.jackson.annotation.JsonProperty
-import java.util.ArrayList
+import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import javax.annotation.processing.Generated
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder(
-    "_id",
-    "end",
-    "_tags",
-    "_uuid",
-    "start",
-    "today",
-    "_notes",
-    "accept",
-    "_edited",
-    "_status",
-    "_version",
-    "deviceid",
-    "username",
-    "_duration",
-    "_xform_id",
-    "areaEA/lga",
-    "_attachments",
-    "_geolocation",
-    "_media_count",
-    "_total_media",
-    "areaEA/state",
-    "formhub/uuid",
-    "_submitted_by",
-    "_date_modified",
-    "detailsEA/EAID",
-    "areaEA/geopoint",
-    "meta/instanceID",
-    "_submission_time",
-    "_xform_id_string",
-    "detailsEA2/ageEA",
-    "operationEA/freq",
-    "operationEA/nrHH",
-    "_bamboo_dataset_id",
-    "detailsEA/genderEA",
-    "organizationEA/gov",
-    "_media_all_received",
-    "detailsEA/phoneNrEA",
-    "detailsEA/surNameEA",
-    "enumerator/genderEN",
-    "organizationEA/role",
-    "areaEA/areaOperation",
-    "enumerator/phoneNrEN",
-    "enumerator/surNameEN",
-    "organizationEA/level",
-    "organizationEA/title",
-    "detailsEA/firstNameEA",
-    "operationEA/levelName",
-    "detailsEA2/educationEA",
-    "enumerator/firstNameEN"
-)
-@Generated("jsonschema2pojo")
 class SgRegisterEaForm {
     @JsonProperty("_id")
     var id: Int? = null
@@ -88,7 +34,7 @@ class SgRegisterEaForm {
     var edited: Boolean? = null
 
     @JsonProperty("_status")
-    var status: String? = null
+    var statusText: String? = null
 
     @JsonProperty("_version")
     var version: String? = null

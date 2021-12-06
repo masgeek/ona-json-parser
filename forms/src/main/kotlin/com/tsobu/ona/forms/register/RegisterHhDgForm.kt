@@ -3,7 +3,6 @@ package com.tsobu.ona.forms.register
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.tsobu.ona.forms.Attachment
-import java.util.ArrayList
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class RegisterHhDgForm {
