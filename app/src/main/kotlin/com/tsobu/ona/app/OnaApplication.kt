@@ -2,10 +2,9 @@ package com.tsobu.ona.app
 
 import com.tsobu.ona.core.service.*
 import com.tsobu.ona.core.service.addsample.AddSampleService
-import com.tsobu.ona.core.service.assign.FdAcAssignService
-import com.tsobu.ona.core.service.assign.PaAcAssignService
-import com.tsobu.ona.core.service.assign.PoAcAssignService
-import com.tsobu.ona.core.service.assign.TlAcAssignService
+import com.tsobu.ona.core.service.agro.AdvisoryWv2Service
+import com.tsobu.ona.core.service.akilimo.UptakeService
+import com.tsobu.ona.core.service.assign.*
 import com.tsobu.ona.core.service.batchcomposition.BatchCompositionService
 import com.tsobu.ona.core.service.collect.CollectLeafTagsService
 import com.tsobu.ona.core.service.collect.CollectPsService
@@ -20,16 +19,19 @@ import com.tsobu.ona.core.service.partition.PartitionPsService
 import com.tsobu.ona.core.service.pool.PoolSampleService
 import com.tsobu.ona.core.service.record.CanopyDimensionsService
 import com.tsobu.ona.core.service.record.RecordDmService
-import com.tsobu.ona.core.service.register.EaService
-import com.tsobu.ona.core.service.register.HhService
 import com.tsobu.ona.core.service.replace.ReplaceFbService
 import com.tsobu.ona.core.service.replace.ReplaceFdService
 import com.tsobu.ona.core.service.replace.ReplacePoService
 import com.tsobu.ona.core.service.replace.ReplaceTlService
 import com.tsobu.ona.core.service.sphs.PraSphsService
-import com.tsobu.ona.core.service.sg.SgService
+import com.tsobu.ona.core.service.dataval.SgService
+import com.tsobu.ona.core.service.fielddata.WheatDgService
+import com.tsobu.ona.core.service.register.*
 import com.tsobu.ona.core.service.starchcontent.StarchContentService
+import com.tsobu.ona.core.service.survey.FipSurvey2020Service
 import com.tsobu.ona.core.service.valform.*
+import com.tsobu.ona.core.service.validation.ChoiceValidationKanoKadunaService
+import com.tsobu.ona.core.service.validation.ChoiceValidationService
 import com.tsobu.ona.core.service.valsphs.ValSphsKwService
 import com.tsobu.ona.core.service.valsphs.ValSphsOgService
 import com.tsobu.ona.core.service.valsphs.ValSphsOnService
@@ -104,16 +106,29 @@ class OnaApplication(
     private val replaceTlService: ReplaceTlService,
     private val praSphsService: PraSphsService,
     private val validationService: ValidationService,
-    private val sgService: SgService
+    private val sgService: SgService,
+    private val fdtlPoAssignService: FdTLPoAssignService,
+    private val pcService: PcService,
+    private val exService: ExService,
+    private val uptakeService: UptakeService,
+    private val choiceValidationService: ChoiceValidationService,
+    private val kanoKadunaService: ChoiceValidationKanoKadunaService,
+    private val fipSurvey2020Service: FipSurvey2020Service,
+    private val sgRegisterEaService: SgRegisterEaService,
+    private val sgRegisterHhService: SgRegisterHhService,
+    private val registerHhDgService: RegisterHhDgService,
+    private val registerEaDgService: RegisterEaDgService,
+    private val wheatDgService: WheatDgService,
+    private val advisoryWv2Service: AdvisoryWv2Service
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
     override fun run(vararg args: String?) {
         log.info("Running Spring Boot Application press CTR-C to close the application")
 
-
-//----------------------------End of debug line
-
+//
+////----------------------------End of debug line
+//
         weedControlService.readJsonAsset()
         assessRootYieldCassavaService.readJsonAsset()
         szService.readJsonAsset()
@@ -159,8 +174,8 @@ class OnaApplication(
         icService.readJsonAsset()
         cisService.readJsonAsset()
         poConfirmService.readJsonAsset()
-
-//        nonDestructiveCassService.readJsonAsset() ## form removed
+//
+        nonDestructiveCassService.readJsonAsset()
 
         partitionPsService.readJsonAsset()
         poolSampleService.readJsonAsset()
@@ -171,9 +186,28 @@ class OnaApplication(
         replaceFdService.readJsonAsset()
         replaceTlService.readJsonAsset()
         praSphsService.readJsonAsset()
-        sgService.readJsonAsset()
+        fdtlPoAssignService.readJsonAsset()
 
-        validationService.processCsvFiles()
+        pcService.readJsonAsset()
+        exService.readJsonAsset()
+
+        //EA_IAA
+        sgService.readJsonAsset()
+        uptakeService.readJsonAsset()
+        choiceValidationService.readJsonAsset()
+        kanoKadunaService.readJsonAsset()
+        fipSurvey2020Service.readJsonAsset()
+        sgRegisterEaService.readJsonAsset()
+        sgRegisterHhService.readJsonAsset()
+
+        //DG
+        registerHhDgService.readJsonAsset()
+        registerEaDgService.readJsonAsset()
+        wheatDgService.readJsonAsset()
+        advisoryWv2Service.readJsonAsset()
+
+        log.info("Verifying files....")
+//        validationService.processCsvFiles()
         log.info("Hello, I am finished");
     }
 
