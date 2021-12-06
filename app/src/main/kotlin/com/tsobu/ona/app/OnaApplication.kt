@@ -2,6 +2,7 @@ package com.tsobu.ona.app
 
 import com.tsobu.ona.core.service.*
 import com.tsobu.ona.core.service.addsample.AddSampleService
+import com.tsobu.ona.core.service.agro.AdvisoryWv2Service
 import com.tsobu.ona.core.service.akilimo.UptakeService
 import com.tsobu.ona.core.service.assign.*
 import com.tsobu.ona.core.service.batchcomposition.BatchCompositionService
@@ -117,7 +118,8 @@ class OnaApplication(
     private val sgRegisterHhService: SgRegisterHhService,
     private val registerHhDgService: RegisterHhDgService,
     private val registerEaDgService: RegisterEaDgService,
-    private val wheatDgService: WheatDgService
+    private val wheatDgService: WheatDgService,
+    private val advisoryWv2Service: AdvisoryWv2Service
 ) : CommandLineRunner {
     private val log = LoggerFactory.getLogger(OnaApplication::class.java)
 
@@ -201,7 +203,8 @@ class OnaApplication(
         //DG
 //        registerHhDgService.readJsonAsset()
 //        registerEaDgService.readJsonAsset()
-        wheatDgService.mapJsonFile()
+//        wheatDgService.readJsonAsset()
+        advisoryWv2Service.readJsonAsset()
 
         log.info("Verifying files....")
 //        validationService.processCsvFiles()
