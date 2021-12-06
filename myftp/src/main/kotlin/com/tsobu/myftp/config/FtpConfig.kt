@@ -71,6 +71,7 @@ class FtpConfig {
         val handler = SftpMessageHandler(sftpSessionFactory())
         handler.setRemoteDirectoryExpression(LiteralExpression(remoteDirectory!!))
 
+
         handler.setAutoCreateDirectory(true)
         handler.setFileNameGenerator { message ->
             if (message.payload is File) {
