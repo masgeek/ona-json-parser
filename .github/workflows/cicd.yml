@@ -1,6 +1,5 @@
-name: Android CICD
+name: CICD
 on:
-  #  pull_request:
   push:
 
 jobs:
@@ -9,7 +8,7 @@ jobs:
     name: Unit tests
     runs-on: ubuntu-latest
     concurrency:
-      group: ci-${{ github.ref }}
+      group: ona-ci-${{ github.ref }}
       cancel-in-progress: true
 
     env:
@@ -30,12 +29,8 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
-      #- name: Run Mock build
-      #  run: ./gradlew bundleRelease -x test
-
       - name: Run Unit tests
         run: ./gradlew check
-        continue-on-error: true
 
   build_artifacts:
 #    if: contains(github.ref, 'beta') || contains(github.ref, 'main')
@@ -98,8 +93,8 @@ jobs:
       - name: Copy release tag file
         run: cp  $LATEST_TAG_FILE release
 
-      - name: Copy release notes
-        run: cp -r distribution release
+      - name: Show release files
+        run:  ls release
 
       - uses: actions/upload-artifact@v2
         name: Upload artifact
@@ -111,6 +106,7 @@ jobs:
 
   upload_production_artifacts:
 #    if: contains(github.ref, 'main')
+    needs: build_artifacts
     name: Upload to github release
     runs-on: ubuntu-latest
     env:
@@ -127,8 +123,7 @@ jobs:
           name: app-release
           path: release
       - run: |
-          cp release/distribution/whatsnew/* release
-          rm -rf release/distribution
+          cp release/* release
           ls release
 
       - name: Read latest tag from tag file
