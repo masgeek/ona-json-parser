@@ -33,7 +33,7 @@ jobs:
         run: ./gradlew check
 
   build_artifacts:
-    #    if: contains(github.ref, 'beta') || contains(github.ref, 'main')
+    if: contains(github.ref, 'beta') || contains(github.ref, 'main')
     needs: run_tests
     name: Build artifacts
     runs-on: ubuntu-latest
@@ -104,7 +104,7 @@ jobs:
 
 
   upload_production_artifacts:
-    #    if: contains(github.ref, 'main')
+    if: contains(github.ref, 'main')
     needs: build_artifacts
     name: Upload to github release
     runs-on: ubuntu-latest
