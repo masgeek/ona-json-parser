@@ -1,0 +1,138 @@
+name: Android CICD
+on:
+  #  pull_request:
+  push:
+
+jobs:
+
+  run_tests:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ci-${{ github.ref }}
+      cancel-in-progress: true
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPO_NAME: ${{ secrets.REPO_NAME }}
+      LATEST_TAG_FILE: ${{ secrets.LATEST_TAG_FILE }}
+      RELEASE_VERSION: ${{ secrets.GITHUB_RUN_ID }}
+      MAPBOX_DOWNLOADS_TOKEN: ${{ secrets.MAPBOX_DOWNLOADS_TOKEN }}
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      #- name: Run Mock build
+      #  run: ./gradlew bundleRelease -x test
+
+      - name: Run Unit tests
+        run: ./gradlew check
+        continue-on-error: true
+
+  build_artifacts:
+#    if: contains(github.ref, 'beta') || contains(github.ref, 'main')
+    needs: run_tests
+    name: Build artifacts
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPO_NAME: ${{ secrets.REPO_NAME }}
+      BRANCH_NAME: ${{ github.head_ref }}
+      LATEST_TAG_FILE: ${{ secrets.LATEST_TAG_FILE }}
+      RELEASE_VERSION: ${{ secrets.GITHUB_RUN_ID }}
+      MAPBOX_DOWNLOADS_TOKEN: ${{ secrets.MAPBOX_DOWNLOADS_TOKEN }}
+      PACKAGE_NAME: ${{ secrets.APP_PACKAGE }}
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Get and set name of current branch
+        run: echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
+
+      - name: Display current branch name
+        run: echo ${BRANCH_NAME}
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+
+      - name: Download requirement file
+        run: curl -L https://raw.githubusercontent.com/masgeek/py-github/develop/requirements.txt -o requirements.txt
+
+      - name: Download Tag fetching script
+        run: curl -L https://raw.githubusercontent.com/masgeek/py-github/develop/get-tag-raw.py -o latest-tag.py
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt;
+
+      - name: Fetch latest tag
+        run: python latest-tag.py
+
+      - name: Update release version
+        run: echo "RELEASE_VERSION=$(cat $LATEST_TAG_FILE)" >> $GITHUB_ENV
+
+      - name: Set branch name
+        run: echo "BRANCH_NAME=$(echo ${GITHUB_HEAD_REF} | tr / -)" >> $GITHUB_ENV
+
+      - name: Show branch name
+        run: echo $BRANCH_NAME
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Generate android AAB
+        run: ./gradlew release -x test
+
+      - name: Copy release tag file
+        run: cp  $LATEST_TAG_FILE release
+
+      - name: Copy release notes
+        run: cp -r distribution release
+
+      - uses: actions/upload-artifact@v2
+        name: Upload artifact
+        with:
+          name: app-release
+          if-no-files-found: error
+          path: release
+
+
+  upload_production_artifacts:
+#    if: contains(github.ref, 'main')
+    name: Upload to github release
+    runs-on: ubuntu-latest
+    env:
+      LATEST_TAG_FILE: ${{ secrets.LATEST_TAG_FILE }}
+      GHR_TAG: "1.0.0"
+      GHR_REPLACE: "1"
+      GHR_PATH: release
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - uses: actions/download-artifact@v2
+        name: Retrieve artifacts
+        with:
+          name: app-release
+          path: release
+      - run: |
+          cp release/distribution/whatsnew/* release
+          rm -rf release/distribution
+          ls release
+
+      - name: Read latest tag from tag file
+        run: echo "GHR_TAG=$(cat release/$LATEST_TAG_FILE)" >> $GITHUB_ENV
+
+      - name: Upload release artifacts
+        uses: masgeek/github-action-ghr@v1.3.2

@@ -3,7 +3,7 @@ package com.tsobu.ona.core.dto.json.assign
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
-import javax.annotation.processing.Generated
+
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
@@ -22,7 +22,7 @@ import javax.annotation.processing.Generated
     "KEY",
     "SET-OF-plot"
 )
-@Generated("jsonschema2pojo")
+
 class AssignFdtLpoPlotDto {
     @JsonProperty("treatNr")
     var treatNr: String? = null

@@ -4,7 +4,7 @@ buildscript {
     repositories {
         mavenCentral()
         mavenLocal()
-        jcenter()
+//        jcenter()
     }
 }
 
@@ -23,8 +23,11 @@ plugins {
 
 
 allprojects {
+    val versionTag: String = System.getenv("RELEASE_VERSION") ?: "2.0.1"
+
     group = "com.tsobu"
-    version = "2.0.1"
+    version = versionTag
+
 
     tasks.withType<JavaCompile> {
         sourceCompatibility = "1.8"
