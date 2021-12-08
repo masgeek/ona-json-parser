@@ -141,7 +141,7 @@ constructor(
             modelMapper.configuration.matchingStrategy = MatchingStrategies.STRICT
             val yieldAssessmentList = yieldCassavaForm.yieldAssessment
             var assessmentCount = 1
-            yieldAssessmentList?.forEach { ya ->
+            yieldAssessmentList.forEach { ya ->
                 val yieldAssessment = modelMapper.map(ya, RootYieldCassAcYaEntity::class.java)
 
                 yieldAssessment.parentKey = yieldCassavaEntity.controlKey

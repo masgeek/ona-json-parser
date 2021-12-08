@@ -1,9 +1,8 @@
 package com.tsobu.ona.core.dto.json.validation
 
 import com.fasterxml.jackson.annotation.JsonInclude
-import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import com.fasterxml.jackson.annotation.JsonProperty
-import javax.annotation.processing.Generated
+import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
@@ -158,7 +157,6 @@ import javax.annotation.processing.Generated
     "meta-instanceID",
     "KEY"
 )
-@Generated("jsonschema2pojo")
 class ChoiceValidationKanoKadunaDto {
     @JsonProperty("SubmissionDate")
     var submissionDate: String? = null
