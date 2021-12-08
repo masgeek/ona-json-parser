@@ -1,10 +1,10 @@
 package com.tsobu.ona.database.entities.register
 
 import com.tsobu.ona.database.entities.BaseEntity
-import java.time.LocalDate
 import java.time.LocalDateTime
-import java.util.*
-import javax.persistence.*
+import javax.persistence.Column
+import javax.persistence.Entity
+import javax.persistence.Table
 
 @Entity
 @Table(name = "register_pc")

@@ -1,7 +1,6 @@
 package com.tsobu.ona.database.entities.utility
 
 import org.springframework.data.jpa.domain.Specification
-import java.util.*
 import javax.persistence.ManyToOne
 import javax.persistence.OneToMany
 import javax.persistence.OneToOne

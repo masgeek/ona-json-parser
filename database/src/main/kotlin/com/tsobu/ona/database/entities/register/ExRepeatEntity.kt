@@ -1,8 +1,6 @@
 package com.tsobu.ona.database.entities.register
 
 import com.tsobu.ona.database.entities.BaseEntity
-import java.time.LocalDateTime
-import java.time.LocalDate
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Table
