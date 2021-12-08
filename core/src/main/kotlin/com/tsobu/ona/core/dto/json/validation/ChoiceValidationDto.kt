@@ -156,7 +156,7 @@ import javax.annotation.Generated
     "meta-instanceID",
     "KEY"
 )
-@Generated("jsonschema2pojo")
+
 class ChoiceValidationDto {
     @JsonProperty("SubmissionDate")
     var submissionDate: String? = null

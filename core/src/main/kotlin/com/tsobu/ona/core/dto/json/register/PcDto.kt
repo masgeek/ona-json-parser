@@ -33,7 +33,7 @@ import javax.annotation.Generated
     "instanceID",
     "KEY"
 )
-@Generated("jsonschema2pojo")
+
 class PcDto {
     @JsonProperty("SubmissionDate")
     var submissionDate: String? = null

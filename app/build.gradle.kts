@@ -7,15 +7,24 @@ plugins {
 tasks.register<Copy>("release") {
     dependsOn("build")
     from("$rootDir/java-downloader.sh", "$rootDir/example.env", "$rootDir/app/build/libs")
-    into(file("$rootDir/release"))
+    into(file("$rootDir/dist"))
 
     rename("example.env", ".env")
     rename("([^a-zA-Z]+).jar", ".jar")
 
 }
 
+tasks.register<Zip>("package") {
+    dependsOn("release")
+    archiveFileName.set("ona-downloader.zip")
+    destinationDirectory.set(layout.buildDirectory.dir("$rootDir/release"))
+
+    from(layout.buildDirectory.dir("$rootDir/dist"))
+}
+
 tasks.withType<Delete> {
     delete("$rootDir/release")
+    delete("$rootDir/dist")
 }
 
 dependencies {
