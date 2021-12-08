@@ -107,7 +107,7 @@ import javax.annotation.Generated
     "instanceID",
     "KEY"
 )
-@Generated("jsonschema2pojo")
+
 class UseUptakeDto {
     @JsonProperty("SubmissionDate")
     var submissionDate: String? = null
