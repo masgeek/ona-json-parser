@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.ona.core.config.AppConfig
 import com.tsobu.ona.core.dto.json.survey.FipSurvey2020Dto
-import com.tsobu.ona.core.dto.json.validation.ChoiceValidationKanoKadunaDto
 import com.tsobu.ona.core.interfaces.IJsonProcessor
 import com.tsobu.ona.core.service.akilimo.UptakeService
 import com.tsobu.ona.core.utils.CsvUtility

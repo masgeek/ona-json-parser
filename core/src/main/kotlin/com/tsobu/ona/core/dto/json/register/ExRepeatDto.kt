@@ -1,9 +1,8 @@
 package com.tsobu.ona.core.dto.json.register
 
 import com.fasterxml.jackson.annotation.JsonInclude
-import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import com.fasterxml.jackson.annotation.JsonProperty
-import javax.annotation.Generated
+import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder("treatNr", "treatNr_note", "treatCode_label", "treatName", "treatCode", "PARENT_KEY", "KEY", "SET-OF-treatmentRepeat")
