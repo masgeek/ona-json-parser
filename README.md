@@ -19,7 +19,7 @@ After defining the above you can now run the JAR file, you can get the latest ve
 1. Clone the repository
    1. Build the source using *gradle* command ```./gradlew release```
    2. check the dist folder for the files
-   3. Update parameters for the .env file
+   3. Update parameters for the ```.env``` file
    4. Execute the following command: ```./java-downloader.sh```
 
 Check your output path for the generated CSV files.
