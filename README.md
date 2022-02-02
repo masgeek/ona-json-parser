@@ -4,7 +4,7 @@ This utility allows the processing of JSON files downloaded via ONA REST api in 
 
 ## Installation
 
-1. Make sure you have JDK8 or higher installed
+1. Make sure you have ***JDK8*** or higher installed
 2. You will need to define the following locations
    1. Source path of the json files using the environmental variable **JSON_PATH** e.g ```D:\\ona\\json\\```
    2. Output of the CSV files using the environmental variable **OUTPUT_PATH** e.g ```D:\\ona\csv\\```
