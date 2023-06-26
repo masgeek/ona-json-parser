@@ -18,5 +18,5 @@ dependencies {
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib-jdk8"))
 
-    implementation("javax.validation:validation-api:2.0.0.Final")
+    implementation("javax.validation:validation-api:2.0.1.Final")
 }
