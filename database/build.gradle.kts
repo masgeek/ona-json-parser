@@ -27,5 +27,5 @@ dependencies {
     api("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("com.h2database:h2")
     implementation("org.liquibase:liquibase-core:4.0.0")
-    implementation("mysql:mysql-connector-java:8.0.21")
+    implementation("mysql:mysql-connector-java:8.0.33")
 }
