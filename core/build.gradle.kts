@@ -34,7 +34,7 @@ dependencies {
 //    implementation("org.simpleflatmapper:sfm-csv:8.2.3")
 
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-csv
-    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.13.0")
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.16.1")
 
 
     implementation("com.googlecode.libphonenumber:libphonenumber:8.12.38")
