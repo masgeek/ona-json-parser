@@ -13,7 +13,7 @@ plugins {
     val springVersion = "2.6.1"
 
     id("org.springframework.boot") version springVersion apply false
-    id("io.spring.dependency-management") version "1.0.10.RELEASE" apply false
+    id("io.spring.dependency-management") version "1.1.6" apply false
     id("name.remal.check-updates") version "1.0.211" apply false
 
     kotlin("jvm") version kotlinVersion apply false
