@@ -37,7 +37,7 @@ dependencies {
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.13.0")
 
 
-    implementation("com.googlecode.libphonenumber:libphonenumber:8.12.38")
+    implementation("com.googlecode.libphonenumber:libphonenumber:8.13.48")
 
     api("commons-codec:commons-codec:1.15")
     api("com.github.rozidan:modelmapper-spring-boot-starter:2.3.1")
